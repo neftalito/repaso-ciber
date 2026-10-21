@@ -2246,6 +2246,51 @@ select {
   max-width: 100%;
   overflow-wrap: anywhere;
 }
+.ascii-section {
+  scroll-margin-top: 25px;
+}
+#ascii-content > p {
+  margin: 16px 0;
+  font-size: 13px;
+}
+.ascii-tables {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  gap: 20px;
+  margin: 20px 0;
+}
+.ascii-table {
+  margin: 0;
+  table-layout: fixed;
+  background: var(--paper);
+}
+.ascii-table caption {
+  padding: 10px;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--green);
+}
+.ascii-table th, .ascii-table td {
+  padding: 9px 5px;
+  text-align: center;
+  font-size: 12px;
+}
+.ascii-table thead th {
+  background: #eef3e7;
+  color: var(--ink);
+}
+.ascii-table tbody th, .ascii-table td {
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-variant-numeric: tabular-nums;
+}
+.ascii-table tbody th {
+  font-weight: 600;
+}
+.ascii-entry-link {
+  display: inline-block;
+  margin-bottom: 16px;
+}
 @media (max-width: 480px) {
   .answer-choice {
     padding: 12px 11px;

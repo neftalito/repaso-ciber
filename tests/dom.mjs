@@ -157,6 +157,14 @@ check('both next buttons stop at the end of the route while retry remains availa
 app=await mount('index.html',{failFetch:true});
 check('data loading failure offers the original materials', () => { assert.match(app.$('load-status').textContent,/servidor estático/); app.w.document.querySelector('[data-materials]').click(); assert.equal(app.$('materials-dialog').open,true); }); app.close();
 let glossary=await mount('glosario.html');
+check('ASCII reference starts closed, contains all 52 letters and is linked from its concept', () => {
+  assert.equal(glossary.$('tabla-ascii').open, false);
+  const rows = [...glossary.w.document.querySelectorAll('.ascii-table tbody tr')];
+  assert.equal(rows.length, 52);
+  assert.deepEqual(rows[0].textContent, 'A650x41'); assert.deepEqual(rows[25].textContent, 'Z900x5A');
+  assert.deepEqual(rows[26].textContent, 'a970x61'); assert.deepEqual(rows[51].textContent, 'z1220x7A');
+  assert.equal(glossary.$('ascii').querySelector('.ascii-entry-link').getAttribute('href'), '#tabla-ascii');
+});
 check('glossary renders 89 entries with unique direct links', () => { assert.equal(glossary.w.document.querySelectorAll('.glossary-entry').length,89); assert.equal(new Set([...glossary.w.document.querySelectorAll('.glossary-entry')].map(n=>n.id)).size,89); });
 check('the glossary includes thirteen comparison tables, initially collapsed', () => {
   assert.equal(glossary.w.document.querySelectorAll('.comparison-card').length, 13);
@@ -183,6 +191,18 @@ check('comparison titles and contents participate in glossary search', () => {
   assert.ok(glossary.$('comparar-sobre-cabeceras-cuerpo')); assert.equal(glossary.$('comparaciones').open, true);
   assert.equal(glossary.$('comparar-whois-rdap'), null);
 });
+glossary.$('glossary-search').value = '0x41'; glossary.$('glossary-search').dispatchEvent(new glossary.w.Event('input'));
+check('ASCII decimal and hexadecimal values participate in glossary search', () => {
+  assert.equal(glossary.$('tabla-ascii').hidden, false); assert.equal(glossary.$('tabla-ascii').open, true);
+});
+glossary.change('glossary-topic', 'csirt');
+check('ASCII reference follows theme filters', () => assert.equal(glossary.$('tabla-ascii').hidden, true));
+glossary.w.location.hash = '#tabla-ascii'; await tick();
+check('ASCII permalink clears conflicting filters and opens the table', () => {
+  assert.equal(glossary.$('glossary-search').value, ''); assert.equal(glossary.$('glossary-topic').value, 'all');
+  assert.equal(glossary.$('tabla-ascii').hidden, false); assert.equal(glossary.$('tabla-ascii').open, true);
+  assert.equal(glossary.w.document.activeElement, glossary.$('tabla-ascii').querySelector('summary'));
+});
 glossary.close();
 glossary=await mount('glosario.html',{suffix:'?q=base64&tema=cripto#run-key'});
 check('deep link after asynchronous loading takes priority over conflicting filters', () => { assert.ok(glossary.$('run-key')); assert.equal(glossary.$('glossary-search').value,''); });
@@ -190,6 +210,11 @@ check('all rendered local links resolve inside the deployment subpath', () => { 
 glossary = await mount('glosario.html', { suffix: '?q=base64&tema=malware#comparar-estatico-dinamico' });
 check('a comparison permalink opens after asynchronous loading with conflicting URL filters', () => {
   assert.equal(glossary.$('comparar-estatico-dinamico').open, true); assert.equal(glossary.$('comparaciones').open, true);
+  assert.equal(glossary.$('glossary-search').value, ''); assert.equal(glossary.$('glossary-topic').value, 'all');
+}); glossary.close();
+glossary = await mount('glosario.html', { suffix: '?q=base64&tema=csirt#tabla-ascii' });
+check('ASCII URL opens after loading even when URL search and topic conflict', () => {
+  assert.equal(glossary.$('tabla-ascii').open, true); assert.equal(glossary.$('tabla-ascii').hidden, false);
   assert.equal(glossary.$('glossary-search').value, ''); assert.equal(glossary.$('glossary-topic').value, 'all');
 }); glossary.close();
 console.log(`PASS: ${checks} comprobaciones de interacción DOM. La revisión visual requiere un navegador real.`);

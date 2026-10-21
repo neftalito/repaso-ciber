@@ -1,0 +1,289 @@
+{
+  "version": 1,
+  "conceptId": "ascii",
+  "title": "Tabla ASCII del alfabeto",
+  "description": "Las 52 letras del alfabeto latino básico: A–Z y a–z. Cada carácter tiene un valor distinto; las mayúsculas y las minúsculas no comparten código.",
+  "notation": "El prefijo 0x indica base hexadecimal. Por ejemplo, A = 65 en decimal = 0x41 en hexadecimal; a = 97 = 0x61.",
+  "note": "La ñ, la Ñ, las vocales con tilde y la ü no pertenecen al ASCII estándar. Para representarlas se utilizan otras codificaciones, como UTF-8; no tienen un valor ASCII estándar.",
+  "topics": [
+    "cripto",
+    "malware"
+  ],
+  "manualPages": [
+    6,
+    7
+  ],
+  "referenceNote": "Tabla de consulta elaborada como ampliación del concepto de ASCII y las bases numéricas del manual.",
+  "groups": [
+    {
+      "label": "Mayúsculas · A–Z",
+      "characters": [
+        {
+          "character": "A",
+          "decimal": 65,
+          "hexadecimal": "0x41"
+        },
+        {
+          "character": "B",
+          "decimal": 66,
+          "hexadecimal": "0x42"
+        },
+        {
+          "character": "C",
+          "decimal": 67,
+          "hexadecimal": "0x43"
+        },
+        {
+          "character": "D",
+          "decimal": 68,
+          "hexadecimal": "0x44"
+        },
+        {
+          "character": "E",
+          "decimal": 69,
+          "hexadecimal": "0x45"
+        },
+        {
+          "character": "F",
+          "decimal": 70,
+          "hexadecimal": "0x46"
+        },
+        {
+          "character": "G",
+          "decimal": 71,
+          "hexadecimal": "0x47"
+        },
+        {
+          "character": "H",
+          "decimal": 72,
+          "hexadecimal": "0x48"
+        },
+        {
+          "character": "I",
+          "decimal": 73,
+          "hexadecimal": "0x49"
+        },
+        {
+          "character": "J",
+          "decimal": 74,
+          "hexadecimal": "0x4A"
+        },
+        {
+          "character": "K",
+          "decimal": 75,
+          "hexadecimal": "0x4B"
+        },
+        {
+          "character": "L",
+          "decimal": 76,
+          "hexadecimal": "0x4C"
+        },
+        {
+          "character": "M",
+          "decimal": 77,
+          "hexadecimal": "0x4D"
+        },
+        {
+          "character": "N",
+          "decimal": 78,
+          "hexadecimal": "0x4E"
+        },
+        {
+          "character": "O",
+          "decimal": 79,
+          "hexadecimal": "0x4F"
+        },
+        {
+          "character": "P",
+          "decimal": 80,
+          "hexadecimal": "0x50"
+        },
+        {
+          "character": "Q",
+          "decimal": 81,
+          "hexadecimal": "0x51"
+        },
+        {
+          "character": "R",
+          "decimal": 82,
+          "hexadecimal": "0x52"
+        },
+        {
+          "character": "S",
+          "decimal": 83,
+          "hexadecimal": "0x53"
+        },
+        {
+          "character": "T",
+          "decimal": 84,
+          "hexadecimal": "0x54"
+        },
+        {
+          "character": "U",
+          "decimal": 85,
+          "hexadecimal": "0x55"
+        },
+        {
+          "character": "V",
+          "decimal": 86,
+          "hexadecimal": "0x56"
+        },
+        {
+          "character": "W",
+          "decimal": 87,
+          "hexadecimal": "0x57"
+        },
+        {
+          "character": "X",
+          "decimal": 88,
+          "hexadecimal": "0x58"
+        },
+        {
+          "character": "Y",
+          "decimal": 89,
+          "hexadecimal": "0x59"
+        },
+        {
+          "character": "Z",
+          "decimal": 90,
+          "hexadecimal": "0x5A"
+        }
+      ]
+    },
+    {
+      "label": "Minúsculas · a–z",
+      "characters": [
+        {
+          "character": "a",
+          "decimal": 97,
+          "hexadecimal": "0x61"
+        },
+        {
+          "character": "b",
+          "decimal": 98,
+          "hexadecimal": "0x62"
+        },
+        {
+          "character": "c",
+          "decimal": 99,
+          "hexadecimal": "0x63"
+        },
+        {
+          "character": "d",
+          "decimal": 100,
+          "hexadecimal": "0x64"
+        },
+        {
+          "character": "e",
+          "decimal": 101,
+          "hexadecimal": "0x65"
+        },
+        {
+          "character": "f",
+          "decimal": 102,
+          "hexadecimal": "0x66"
+        },
+        {
+          "character": "g",
+          "decimal": 103,
+          "hexadecimal": "0x67"
+        },
+        {
+          "character": "h",
+          "decimal": 104,
+          "hexadecimal": "0x68"
+        },
+        {
+          "character": "i",
+          "decimal": 105,
+          "hexadecimal": "0x69"
+        },
+        {
+          "character": "j",
+          "decimal": 106,
+          "hexadecimal": "0x6A"
+        },
+        {
+          "character": "k",
+          "decimal": 107,
+          "hexadecimal": "0x6B"
+        },
+        {
+          "character": "l",
+          "decimal": 108,
+          "hexadecimal": "0x6C"
+        },
+        {
+          "character": "m",
+          "decimal": 109,
+          "hexadecimal": "0x6D"
+        },
+        {
+          "character": "n",
+          "decimal": 110,
+          "hexadecimal": "0x6E"
+        },
+        {
+          "character": "o",
+          "decimal": 111,
+          "hexadecimal": "0x6F"
+        },
+        {
+          "character": "p",
+          "decimal": 112,
+          "hexadecimal": "0x70"
+        },
+        {
+          "character": "q",
+          "decimal": 113,
+          "hexadecimal": "0x71"
+        },
+        {
+          "character": "r",
+          "decimal": 114,
+          "hexadecimal": "0x72"
+        },
+        {
+          "character": "s",
+          "decimal": 115,
+          "hexadecimal": "0x73"
+        },
+        {
+          "character": "t",
+          "decimal": 116,
+          "hexadecimal": "0x74"
+        },
+        {
+          "character": "u",
+          "decimal": 117,
+          "hexadecimal": "0x75"
+        },
+        {
+          "character": "v",
+          "decimal": 118,
+          "hexadecimal": "0x76"
+        },
+        {
+          "character": "w",
+          "decimal": 119,
+          "hexadecimal": "0x77"
+        },
+        {
+          "character": "x",
+          "decimal": 120,
+          "hexadecimal": "0x78"
+        },
+        {
+          "character": "y",
+          "decimal": 121,
+          "hexadecimal": "0x79"
+        },
+        {
+          "character": "z",
+          "decimal": 122,
+          "hexadecimal": "0x7A"
+        }
+      ]
+    }
+  ]
+}

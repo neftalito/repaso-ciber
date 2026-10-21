@@ -26,6 +26,17 @@ def validate():
         assert all(isinstance(e[k], str) and e[k].strip() and '\ufffd' not in e[k] for k in ['term','definition','explanation','hint'])
         assert e['topics'] and set(e['topics']) <= {'cripto','csirt','malware'}
         assert e['manualPages'] and all(type(p) is int and 1 <= p <= 55 for p in e['manualPages'])
+    ascii_table = read('data/ascii.json')
+    assert ascii_table['version'] == 1 and ascii_table['conceptId'] in ids
+    assert all(ascii_table[k].strip() for k in ['title','description','notation','note','referenceNote'])
+    assert ascii_table['topics'] and set(ascii_table['topics']) <= {'cripto','csirt','malware'}
+    assert ascii_table['manualPages'] and all(type(p) is int and 1 <= p <= 55 for p in ascii_table['manualPages'])
+    assert len(ascii_table['groups']) == 2
+    for group, start in zip(ascii_table['groups'], [65, 97]):
+        assert group['label'] and len(group['characters']) == 26
+        for item, value in zip(group['characters'], range(start, start + 26)):
+            assert item['character'] == chr(value) and type(item['decimal']) is int and item['decimal'] == value
+            assert item['hexadecimal'] == f'0x{value:02X}'
     mapping = read('data/concept-map.json')
     for q in qs:
         assert list(q['options']) == list('ABCDE') and all(q['options'].values())
@@ -79,5 +90,5 @@ def validate():
         code=(ROOT/file).read_text()
         for ref in re.findall(r"fetch\(['\"]([^'\"]+)",code): assert (ROOT/ref).is_file(), ref
         assert not re.search(r"(?:fetch\(|href\s*=\s*)['\"]/", code)
-    print(f'OK: 350 IDs, 1.750 opciones, 1.400 explicaciones de distractores, {len(entries)} conceptos, {len(comparison_ids)} comparaciones y todas las referencias locales.')
+    print(f'OK: 350 IDs, 1.750 opciones, 1.400 explicaciones de distractores, {len(entries)} conceptos, {len(comparison_ids)} comparaciones, 52 letras ASCII y todas las referencias locales.')
 if __name__ == '__main__': validate()

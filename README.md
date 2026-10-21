@@ -64,11 +64,14 @@ La importación valida versión, IDs, opciones, resultados contra el solucionari
 - `data/concept-map.json`: correspondencia revisada de las 350 preguntas con los conceptos. El primer concepto orienta la pista; los demás permiten profundizar. La extracción no adivina relaciones por palabras clave.
 - `data/option-explanations.json`: 1.400 explicaciones específicas para los cuatro distractores de cada pregunta, con referencias conceptuales al manual, notas de contexto y una huella del enunciado/opciones/respuesta que permite detectar cambios que requieren revisión editorial. No modifica las explicaciones originales ni se regenera desde los PDF.
 - `data/comparisons.json`: 13 cuadros de elaboración didáctica sobre conceptos que suelen confundirse, con columnas, diferencias, ejemplos, enlaces a entradas y páginas del manual.
+- `data/ascii.json`: tabla de las 52 letras A–Z y a–z, con sus valores decimales y hexadecimales, una aclaración sobre los caracteres del español que quedan fuera del ASCII estándar y referencias al manual.
 - `data/extraction-report.json`: resultados de las comprobaciones, versión del extractor, páginas y SHA-256 de cada PDF.
 
 Las referencias **Fuente original (diapositivas)** se copian del solucionario y tienen su propia numeración. Esas presentaciones no están incluidas. Los enlaces **Manual, p. …** abren el PDF disponible de 55 páginas. Las entradas que agregan detalles no desarrollados en el manual lo indican y citan sus páginas como contexto. Los enlaces PDF usan `#page=N`; algunos lectores externos pueden ignorar el salto y abrir el inicio del documento.
 
 El glosario admite búsqueda sin distinguir mayúsculas o tildes, filtros de tema y enlaces como `glosario.html#run-key`. La sección **Compará conceptos** incorpora 13 cuadros desplegables que también se buscan y filtran. Las entradas ofrecen enlaces a sus comparaciones, y cada cuadro tiene un enlace directo, por ejemplo `glosario.html#comparar-estatico-dinamico`. Un enlace directo abre el cuadro y despeja filtros incompatibles. En pantallas angostas las tablas se desplazan dentro de su propio contenedor, sin ensanchar la página. Cada entrada ofrece acceso a sus preguntas relacionadas mediante `index.html?pregunta=321`.
+
+La **Tabla ASCII del alfabeto** se consulta en `glosario.html#tabla-ascii` o desde la entrada sobre ASCII. Incluye mayúsculas y minúsculas en grupos que se apilan en pantallas angostas, puede abrirse con Enter/Espacio y admite búsqueda por valores como `65` o `0x41`. La ñ y las letras acentuadas no tienen códigos en ASCII estándar; la tabla lo aclara sin asignarles valores de otras codificaciones.
 
 ## Extracción reproducible
 

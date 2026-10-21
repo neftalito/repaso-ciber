@@ -132,6 +132,17 @@ try {
     if(width===390 || width===1440) await page.screenshot({path:new URL(`../test-results/comparaciones-${width}.png`,import.meta.url).pathname});
     await page.locator('#comparaciones > summary').click();
     if(width===1440) await page.screenshot({path:new URL('../test-results/glosario-escritorio-completo.png',import.meta.url).pathname});
+    await page.locator('#tabla-ascii > summary').focus(); await page.keyboard.press('Enter');
+    assert.equal(await page.locator('#tabla-ascii').getAttribute('open'), '');
+    assert.equal(await page.locator('.ascii-table tbody tr').count(), 52);
+    assert.equal(await page.locator('.ascii-table tbody tr').first().textContent(), 'A650x41');
+    assert.equal(await page.locator('.ascii-table tbody tr').last().textContent(), 'z1220x7A');
+    await assertGlossaryLayout(page, width);
+    assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,`ASCII table overflow at ${width}px`);
+    assert.equal(await page.locator('.ascii-table').evaluateAll(tables => tables.every(table => table.scrollWidth <= table.clientWidth)),true,`ASCII cells overflow at ${width}px`);
+    if(width===390 || width===1440) await page.screenshot({path:new URL(`../test-results/ascii-${width}.png`,import.meta.url).pathname});
+    await page.locator('#tabla-ascii > summary').focus(); await page.keyboard.press('Space');
+    assert.equal(await page.locator('#tabla-ascii').getAttribute('open'), null);
     await page.locator('#glossary-search').fill('base64');
     await assertGlossaryLayout(page, width);
     assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,`Glossary overflow at ${width}px`);
@@ -141,6 +152,10 @@ try {
   await page.waitForSelector('#comparar-whois-rdap[open]');
   assert.equal(await page.locator('#glossary-topic').inputValue(),'all');
   assert.equal(await page.locator('#comparaciones').getAttribute('open'),'');
+  await page.goto(`${url}glosario.html?q=base64&tema=csirt#tabla-ascii`);
+  await page.waitForSelector('#tabla-ascii[open]');
+  assert.equal(await page.locator('#glossary-topic').inputValue(), 'all');
+  assert.equal(await page.locator('#glossary-search').inputValue(), '');
   await page.goto(`${url}index.html?pregunta=350`); await page.waitForSelector('#study-layout:visible');
   await page.locator('.answer-option').nth(2).click(); await page.locator('#confirm-answer').click();
   assert.equal(await page.locator('#next-question-inline').isDisabled(),true);

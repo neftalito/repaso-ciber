@@ -12,8 +12,8 @@ Validación realizada el 21 de octubre de 2026.
 | Cantidades por tema | Criptografía 66, CSIRT 160, Malware 124 |
 | Referencias locales, páginas PDF y enlaces de conceptos | Correcto |
 | Glosario ampliado | 89 entradas; conserva los 33 términos originales |
-| Pruebas de contenido y modelo de progreso | 13 pruebas aprobadas |
-| Interacciones en DOM con los módulos reales | 42 comprobaciones aprobadas |
+| Pruebas de contenido y modelo de progreso | 14 pruebas aprobadas |
+| Interacciones en DOM con los módulos reales | 47 comprobaciones aprobadas |
 | Renderizado en Chromium, capturas y dimensiones de pantalla | Correcto en GitHub Actions a 320/390/768/800/801/1024/1440/1920 px |
 | Publicación efectiva en GitHub Pages | Corrección desplegada correctamente desde `main` |
 
@@ -38,3 +38,9 @@ La [ejecución 39678167827 en GitHub Actions](https://github.com/neftalito/repas
 Se agregaron 1.400 explicaciones didácticas de distractores para las 350 preguntas y se conservaron las 350 explicaciones originales de las opciones correctas. La validación comprueba cobertura exacta, letras, referencias y huellas de los enunciados, opciones y respuesta. El glosario suma 13 comparaciones con filas completas, enlaces a conceptos y páginas del manual válidos.
 
 Pasaron 13 pruebas de contenido/progreso y 42 comprobaciones DOM, incluidas ausencia de explicaciones antes de confirmar, apertura de la opción elegida, acceso a la explicación correcta, cierre al reintentar o regresar, navegación próxima y final del recorrido, búsqueda y enlaces directos a comparaciones. La suite de Chromium incorpora apertura/cierre por teclado, alineación del ícono de reintento y contención de tablas en los ocho anchos. La [ejecución 39686772312](https://github.com/neftalito/repaso-ciber/actions/runs/39686772312) completó correctamente las 13 pruebas de contenido/progreso, las 42 comprobaciones DOM y la suite completa de Chromium. Se probaron los acordeones con Enter/Espacio, el orden y alineación de los botones, los enlaces directos, el final del recorrido y las tablas abiertas en los ocho tamaños, sin desbordamientos de página. Las capturas quedaron guardadas como artefactos de la ejecución. También se reforzó el contraste de la letra de la opción fallada con texto blanco sobre fondo rojo.
+
+## Tabla ASCII del alfabeto
+
+Se verificaron las 52 letras A–Z y a–z, sin duplicados, y la correspondencia exacta entre carácter, decimal y hexadecimal. Se aclara que la ñ y las letras acentuadas quedan fuera del ASCII estándar. Los datos se conservan en `data/ascii.json` y sus referencias apuntan a las páginas 6–7 del manual.
+
+Pasaron 14 pruebas de contenido/progreso y 47 comprobaciones DOM, incluidas tabla cerrada al inicio, enlace desde la entrada ASCII, búsqueda hexadecimal, filtro temático y apertura del enlace directo con filtros incompatibles. La suite de Chromium comprueba apertura/cierre con Enter/Espacio y ausencia de desbordamiento de tabla y página en los ocho anchos; guarda capturas a 390 y 1440 px.

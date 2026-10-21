@@ -9,6 +9,19 @@ const { entries } = await readJSON('data/glossary.json');
 const mapping = await readJSON('data/concept-map.json');
 const notes = await readJSON('data/option-explanations.json');
 const comparisons = await readJSON('data/comparisons.json');
+const ascii = await readJSON('data/ascii.json');
+test('ASCII reference covers all 52 Latin letters with exact decimal and hexadecimal codes', () => {
+  assert.equal(ascii.version, 1); assert.ok(entries.some(e => e.id === ascii.conceptId));
+  const characters = ascii.groups.flatMap(g => g.characters);
+  assert.equal(characters.length, 52); assert.equal(new Set(characters.map(c => c.character)).size, 52);
+  assert.equal(characters.map(c => c.character).join(''), 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz');
+  for (const item of characters) {
+    assert.equal(Buffer.from(item.character, 'ascii')[0], item.decimal);
+    assert.equal(Number(item.hexadecimal), item.decimal);
+    assert.match(item.hexadecimal, /^0x[0-7][0-9A-F]$/);
+  }
+  assert.match(ascii.note, /ñ/); assert.match(ascii.note, /no pertenecen al ASCII estándar/);
+});
 test('every distractor has its own reviewed explanation linked to unchanged question wording', () => {
   assert.equal(notes.version, 1); assert.match(notes.authorship, /No son transcripciones/);
   assert.deepEqual(notes.questions.map(n => n.questionId), questions.map(q => q.id));

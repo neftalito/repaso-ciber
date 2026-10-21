@@ -2,7 +2,7 @@ import { TOPICS } from './progress.mjs';
 const $ = id => document.getElementById(id);
 const el = (tag, cls, text) => { const n = document.createElement(tag); if (cls) n.className = cls; if (text !== undefined) n.textContent = text; return n; };
 const normalize = value => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
-let entries, questions, comparisons;
+let entries, questions, comparisons, ascii;
 function matchesSearch(text, search) { return search.split(/\s+/).every(word => normalize(text).includes(word)); }
 function manualReferences(pages) {
   const refs = el('div', 'entry-references'); refs.append('PROFUNDIZÁ EN EL MANUAL · ');
@@ -11,6 +11,33 @@ function manualReferences(pages) {
     a.setAttribute('aria-label', `Manual, página ${page} (PDF, nueva pestaña)`); refs.append(a);
   }
   return refs;
+}
+function buildAsciiTable() {
+  const content = $('ascii-content');
+  content.append(el('p', '', ascii.description), el('p', 'small muted', ascii.notation));
+  const tables = el('div', 'ascii-tables');
+  for (const group of ascii.groups) {
+    const table = el('table', 'ascii-table'); table.append(el('caption', '', group.label));
+    const thead = el('thead'); const header = el('tr');
+    for (const text of ['Carácter', 'Decimal', 'Hexadecimal']) { const th = el('th', '', text); th.scope = 'col'; header.append(th); }
+    thead.append(header); table.append(thead);
+    const tbody = el('tbody');
+    for (const item of group.characters) {
+      const tr = el('tr'); const character = el('th', '', item.character); character.scope = 'row';
+      tr.append(character, el('td', '', item.decimal), el('td', '', item.hexadecimal)); tbody.append(tr);
+    }
+    table.append(tbody); tables.append(table);
+  }
+  const note = el('div', 'entry-example'); note.append(el('strong', '', '¿Y las letras del español?'), document.createTextNode(ascii.note));
+  const refs = manualReferences(ascii.manualPages); refs.append(el('span', 'reference-note', ascii.referenceNote));
+  const concept = el('a', 'text-link', 'Repasar ASCII, Unicode y bases numéricas →'); concept.href = `#${ascii.conceptId}`;
+  content.append(tables, note, refs, concept);
+}
+function filterAsciiTable(search, topic) {
+  const text = [entries.find(e => e.id === ascii.conceptId).term, ascii.title, ascii.description, ascii.notation, ascii.note, ...ascii.groups.flatMap(g => g.characters.flatMap(c => [c.character, c.decimal, c.hexadecimal]))].join(' ');
+  const visible = (topic === 'all' || ascii.topics.includes(topic)) && matchesSearch(text, search);
+  $('tabla-ascii').hidden = !visible;
+  if (visible && search) $('tabla-ascii').open = true;
 }
 function renderComparisons(search, topic) {
   const found = comparisons.filter(c => (topic === 'all' || c.topics.includes(topic))
@@ -49,6 +76,7 @@ function render() {
   const topic = $('glossary-topic').value;
   const found = entries.filter(e => (topic === 'all' || e.topics.includes(topic)) && matchesSearch([e.term, e.definition, e.explanation, e.example].join(' '), search));
   const comparisonCount = renderComparisons(search, topic);
+  filterAsciiTable(search, topic);
   $('glossary-count').textContent = `${found.length} de ${entries.length} conceptos · ${comparisonCount} comparaciones${search || topic !== 'all' ? ' con estos filtros' : ' para seguir aprendiendo'}`;
   const fragment = document.createDocumentFragment(); const alphabet = document.createDocumentFragment();
   let previousLetter;
@@ -64,6 +92,7 @@ function render() {
     const permalink = el('a', 'entry-link', '#'); permalink.href = `#${entry.id}`; permalink.setAttribute('aria-label', `Enlace directo a ${entry.term}`); permalink.title = 'Enlace directo a este concepto';
     heading.append(title, permalink); article.append(heading, el('p', 'definition', entry.definition), el('p', '', entry.explanation));
     if (entry.example) { const example = el('div', 'entry-example'); example.append(el('strong', '', 'Por ejemplo'), document.createTextNode(entry.example)); article.append(example); }
+    if (entry.id === ascii.conceptId) { const link = el('a', 'text-link ascii-entry-link', 'Consultar la tabla ASCII: letras, decimal y hexadecimal ↑'); link.href = '#tabla-ascii'; article.append(link); }
     const relatedComparisons = comparisons.filter(c => c.conceptIds.includes(entry.id));
     if (relatedComparisons.length) {
       const links = el('div', 'concept-links comparison-links');
@@ -94,13 +123,14 @@ function showHash() {
   try { id = decodeURIComponent(location.hash.slice(1)); } catch { return; }
   if (!id) return;
   const comparison = comparisons.some(c => c.id === id);
-  if (((entries.some(e => e.id === id) || comparison) && !$(id)) || (id === 'comparaciones' && $('comparaciones').hidden)) {
+  if (((entries.some(e => e.id === id) || comparison) && !$(id)) || (['comparaciones', 'tabla-ascii'].includes(id) && $(id).hidden)) {
     $('glossary-search').value = ''; $('glossary-topic').value = 'all'; render();
   }
   const target = $(id);
   if (!target) return;
   if (comparison || id === 'comparaciones') $('comparaciones').open = true;
   if (comparison) target.open = true;
+  if (id === 'tabla-ascii') target.open = true;
   target.scrollIntoView({ block: 'start' });
   if (target.matches('article')) target.focus({ preventScroll: true });
   else if (target.matches('details')) target.querySelector('summary').focus({ preventScroll: true });
@@ -108,11 +138,13 @@ function showHash() {
 document.querySelectorAll('[data-materials]').forEach(b => b.addEventListener('click', () => $('materials-dialog').showModal()));
 document.querySelector('[data-close]').addEventListener('click', () => $('materials-dialog').close());
 try {
-  const responses = await Promise.all([fetch('data/glossary.json'), fetch('data/questions.json'), fetch('data/comparisons.json')]);
+  const responses = await Promise.all([fetch('data/glossary.json'), fetch('data/questions.json'), fetch('data/comparisons.json'), fetch('data/ascii.json')]);
   if (responses.some(r => !r.ok)) throw new Error('No se pudieron cargar los conceptos.');
-  const [glossary, bank, comparisonsBank] = await Promise.all(responses.map(r => r.json()));
+  const [glossary, bank, comparisonsBank, asciiBank] = await Promise.all(responses.map(r => r.json()));
   if (comparisonsBank.version !== 1 || !comparisonsBank.comparisons?.length) throw new Error('No se pudieron cargar las comparaciones.');
+  if (asciiBank.version !== 1 || !asciiBank.groups?.length) throw new Error('No se pudo cargar la tabla ASCII.');
   entries = glossary.entries.sort((a, b) => a.term.localeCompare(b.term, 'es')); questions = bank.questions; comparisons = comparisonsBank.comparisons;
+  ascii = asciiBank; buildAsciiTable();
   const params = new URL(location.href).searchParams;
   $('glossary-search').value = params.get('q') ?? '';
   $('glossary-topic').value = Object.hasOwn(TOPICS, params.get('tema')) ? params.get('tema') : 'all';
