@@ -119,7 +119,7 @@ def extract():
                   documents=[dict(file='docs/'+name, pages=len(PdfReader(DOCS / name).pages),
                              sha256=hashlib.sha256((DOCS / name).read_bytes()).hexdigest())
                              for name in [QUESTION_FILE, SOLUTION_FILE, MANUAL_FILE]])
-    return {'questions.json': dict(version=1, questions=questions), 'extraction-report.json': report}
+    return {'questions.json': dict(version=1, origin='theory', questions=questions), 'extraction-report.json': report}
 
 
 def main():

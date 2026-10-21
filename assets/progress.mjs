@@ -1,7 +1,8 @@
 export const STORAGE_KEY = 'ic2026.progress.v1';
 export const TOPICS = { cripto: 'Criptografía', csirt: 'CSIRT', malware: 'Malware' };
+export const ORIGINS = { theory: 'Teoría', practice: 'Práctica' };
 export const STATUSES = { all: 'Todos los estados', pending: 'Pendientes', correct: 'Correctas', incorrect: 'Falladas' };
-export const emptyProgress = () => ({ format: 'ic2026-progress', version: 1, attempts: [], drafts: {}, view: { questionId: 1, topic: 'all', status: 'all' } });
+export const emptyProgress = () => ({ format: 'ic2026-progress', version: 1, attempts: [], drafts: {}, view: { questionId: 1, topic: 'all', status: 'all', origin: 'all' } });
 export function latestAttempt(progress, questionId) {
   return progress.attempts.findLast(attempt => attempt.questionId === questionId) ?? null;
 }
@@ -11,6 +12,7 @@ export function questionStatus(progress, questionId) {
 }
 export function filterQuestions(questions, progress) {
   return questions.filter(q => (progress.view.topic === 'all' || q.topic === progress.view.topic)
+    && ((progress.view.origin ?? 'all') === 'all' || q.origin === progress.view.origin)
     && (progress.view.status === 'all' || questionStatus(progress, q.id) === progress.view.status));
 }
 export function statistics(progress) {
@@ -51,7 +53,9 @@ export function validateProgress(value, questions) {
     return { id: a.id, questionId: a.questionId, option: a.option, correct: a.correct, date: a.date, hintUsed: a.hintUsed };
   });
   const v = value.view;
+  const origin = v?.origin === undefined ? 'all' : v.origin;
   if (!v || !byId.has(v.questionId) || !['all', ...Object.keys(TOPICS)].includes(v.topic) || !Object.hasOwn(STATUSES, v.status)) fail('punto de lectura o filtros inválidos.');
+  if (!['all', ...Object.keys(ORIGINS)].includes(origin)) fail('filtro de Teoría/Práctica inválido.');
   const drafts = {};
   if (!value.drafts || typeof value.drafts !== 'object' || Array.isArray(value.drafts)) fail('borradores inválidos.');
   for (const [id, d] of Object.entries(value.drafts)) {
@@ -60,7 +64,8 @@ export function validateProgress(value, questions) {
         || (d.option !== null && !Object.hasOwn(q.options, d.option))) fail('borrador con pregunta u opción desconocida.');
     drafts[id] = { option: d.option, hintUsed: d.hintUsed };
   }
-  return { format: 'ic2026-progress', version: 1, attempts, drafts, view: { questionId: v.questionId, topic: v.topic, status: v.status } };
+  // Older v1 backups have no origin filter; their IDs and attempts remain valid.
+  return { format: 'ic2026-progress', version: 1, attempts, drafts, view: { questionId: v.questionId, topic: v.topic, status: v.status, origin } };
 }
 export function loadProgress(storage, questions) {
   let raw;

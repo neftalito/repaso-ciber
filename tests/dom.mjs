@@ -7,6 +7,9 @@ const { JSDOM } = await import(process.env.JSDOM_MODULE || 'jsdom');
 const root = new URL('../', import.meta.url);
 const key = 'ic2026.progress.v1';
 const originalQuestions = JSON.parse(await readFile(new URL('data/questions.json', root), 'utf8')).questions;
+const practiceQuestions = JSON.parse(await readFile(new URL('data/practice-questions.json', root), 'utf8')).questions;
+const practiceNotes = JSON.parse(await readFile(new URL('data/practice-option-explanations.json', root), 'utf8')).questions;
+const glossaryEntries = JSON.parse(await readFile(new URL('data/glossary.json', root), 'utf8')).entries;
 const editorialNotes = JSON.parse(await readFile(new URL('data/option-explanations.json', root), 'utf8')).questions;
 const tick = () => new Promise(resolve => setTimeout(resolve, 0));
 let checks = 0;
@@ -51,7 +54,13 @@ async function mount(file = 'index.html', options = {}) {
   return { w, $, memory, requests, confirmations, downloads, change, click, state, select, submit, importData, close: () => { w.close(); assert.deepEqual(errors, [], 'Unexpected interaction errors'); } };
 }
 let app = await mount();
-check('initial app loads all 350 questions and leaves correction hidden', () => { assert.equal(app.$('study-layout').hidden, false); assert.equal(app.w.document.querySelectorAll('[data-question]').length, 350); assert.equal(app.$('confirm-answer').disabled, true); assert.equal(app.$('feedback').hidden, true); assert.equal(app.$('hint-panel').hidden, true); });
+check('theory origin badge and total progress reflect the complete bank', () => {
+  assert.equal(app.$('question-origin').textContent,'Teoría'); assert.equal(app.$('origin-filter').value,'all');
+  assert.equal(app.$('overall-progress').max,442); assert.equal(app.$('total-questions').textContent,'442');
+  assert.equal(app.$('practice-context').hidden,true); assert.equal(app.$('question-code').hidden,true);
+  assert.equal(app.$('materials-dialog').querySelectorAll('.document-links a').length,6);
+});
+check('initial app loads all 442 questions and leaves correction hidden', () => { assert.equal(app.$('study-layout').hidden, false); assert.equal(app.w.document.querySelectorAll('[data-question]').length, 442); assert.equal(app.$('confirm-answer').disabled, true); assert.equal(app.$('feedback').hidden, true); assert.equal(app.$('hint-panel').hidden, true); });
 check('explanations and accordion controls are unavailable before confirmation', () => {
   assert.equal(app.w.document.querySelectorAll('#answer-options details, .option-explanation').length, 0);
   assert.equal(app.$('next-question-inline').hidden, true); assert.equal(app.$('retry-answer').hidden, true);
@@ -99,9 +108,9 @@ check('returning to a confirmed question leaves its accordions closed by default
   assert.match(app.$('question-position').textContent, /001/); assert.equal(app.w.document.querySelectorAll('#answer-options details[open]').length, 0);
 });
 app.change('status-filter','pending');
-check('pending filter excludes question answered correctly', () => { assert.equal(app.w.document.querySelectorAll('[data-question]').length, 349); assert.match(app.$('question-position').textContent, /002/); });
+check('pending filter excludes question answered correctly', () => { assert.equal(app.w.document.querySelectorAll('[data-question]').length, 441); assert.match(app.$('question-position').textContent, /002/); });
 app.change('topic-filter','malware');
-check('combined topic filter shows 124 pending Malware questions', () => { assert.equal(app.w.document.querySelectorAll('[data-question]').length, 124); assert.match(app.$('question-position').textContent, /227/); });
+check('combined topic filter shows 147 pending Malware questions', () => { assert.equal(app.w.document.querySelectorAll('[data-question]').length, 147); assert.match(app.$('question-position').textContent, /227/); });
 app.click('next-question');
 const saved = app.memory; app.close(); app = await mount('index.html', { memory: saved });
 check('reading position and both filters survive reload', () => { assert.match(app.$('question-position').textContent, /228/); assert.equal(app.$('topic-filter').value,'malware'); assert.equal(app.$('status-filter').value,'pending'); });
@@ -147,16 +156,86 @@ check('a validated backup remains usable in memory when the storage quota preven
   assert.equal(app.$('storage-warning').hidden, false);
   assert.equal(app.$('correct-count').textContent, '1');
 }); app.close();
-app=await mount('index.html',{suffix:'?pregunta=350'});
-check('question links work under a GitHub Pages subpath', () => { assert.match(app.$('question-position').textContent,/350/); assert.deepEqual(app.requests,['/ic2026/data/questions.json','/ic2026/data/glossary.json','/ic2026/data/option-explanations.json']); });
-app.select(originalQuestions[349].answer); app.submit();
+app=await mount('index.html',{suffix:'?pregunta=442'});
+check('question links work under a GitHub Pages subpath', () => { assert.match(app.$('question-position').textContent,/442/); assert.deepEqual(app.requests,['/ic2026/data/questions.json','/ic2026/data/glossary.json','/ic2026/data/option-explanations.json','/ic2026/data/practice-questions.json','/ic2026/data/practice-option-explanations.json']); });
+app.select(practiceQuestions.at(-1).answer); app.submit();
 check('both next buttons stop at the end of the route while retry remains available', () => {
   assert.equal(app.$('next-question-inline').disabled, true); assert.equal(app.$('next-question').disabled, true);
   assert.equal(app.$('retry-answer').hidden, false);
 }); app.close();
 app=await mount('index.html',{failFetch:true});
 check('data loading failure offers the original materials', () => { assert.match(app.$('load-status').textContent,/servidor estático/); app.w.document.querySelector('[data-materials]').click(); assert.equal(app.$('materials-dialog').open,true); }); app.close();
+app = await mount(); app.change('origin-filter','practice');
+check('practice filter selects 92 exercises and shows badge, source number and adaptation', () => {
+  assert.equal(app.w.document.querySelectorAll('[data-question]').length,92);
+  assert.equal(app.$('question-origin').textContent,'Práctica'); assert.match(app.$('question-position').textContent,/351 de 442/);
+  assert.match(app.$('practice-context').textContent,/Ejercicio original 01/);
+  assert.match(app.$('question-source').querySelector('a').href,/IC2026_Preguntas_Basadas_en_Practicas_1_y_2.pdf#page=2$/);
+});
+app.change('topic-filter','csirt');
+check('origin and topic combine and topic counters reflect that origin', () => {
+  assert.equal(app.w.document.querySelectorAll('[data-question]').length,29);
+  assert.match(app.$('question-position').textContent,/391/);
+  assert.match(app.$('topic-filter').querySelector('[value="cripto"]').textContent,/40/);
+});
+const practiceMemory = app.memory; app.close(); app = await mount('index.html',{memory:practiceMemory});
+check('origin filter and reading position survive reload', () => {
+  assert.equal(app.$('origin-filter').value,'practice'); assert.equal(app.$('topic-filter').value,'csirt');
+  assert.match(app.$('question-position').textContent,/391/);
+});
+app.click('reset-filters'); app.change('origin-filter','theory');
+check('theory filter has the original 350 questions and reset clears origin too', () => {
+  assert.equal(app.w.document.querySelectorAll('[data-question]').length,350);
+  assert.equal(app.$('question-origin').textContent,'Teoría');
+});
+app.click('reset-filters');
+check('reset returns to all 442 questions', () => {
+  assert.equal(app.$('origin-filter').value,'all'); assert.equal(app.w.document.querySelectorAll('[data-question]').length,442);
+}); app.close();
+app = await mount('index.html',{suffix:'?pregunta=382'});
+check('practice data blocks preserve command newlines and have correct document references', () => {
+  assert.equal(app.$('question-code').hidden,false); assert.equal(app.$('question-code').textContent,practiceQuestions[31].code);
+  assert.match(app.$('question-code').textContent,/steghide info imagen.jpg\nsteghide extract/);
+});
+const wrong = Object.keys(practiceQuestions[31].options).find(letter=>letter!==practiceQuestions[31].answer);
+app.select(wrong); app.submit();
+check('wrong practice choice opens its own explanation and conceptual help with guide references', () => {
+  assert.equal(app.state().attempts[0].questionId,382); assert.equal(app.state().attempts[0].correct,false);
+  assert.equal(app.$('hint-panel').hidden,false);
+  const selected = app.w.document.querySelector(`details[data-option="${wrong}"]`);
+  assert.equal(selected.open,true); assert.ok(selected.textContent.includes(practiceNotes[31].distractors[wrong]));
+  assert.match(selected.querySelector('.option-reference a').href,/Guia_de_estudio_IC_Practicas_1_y_2.pdf#page=7$/);
+  const correct = app.w.document.querySelector(`details[data-option="${practiceQuestions[31].answer}"]`);
+  assert.ok(correct.textContent.includes(practiceQuestions[31].explanation));
+  assert.match(correct.querySelector('.option-reference a').href,/IC2026_Solucionario_Practicas_1_y_2.pdf#page=8$/);
+  assert.ok(app.$('hint-content').querySelector('a[href*="Guia_de_estudio"]'));
+  assert.equal(app.w.document.querySelectorAll('a[href*="#page=undefined"]').length,0);
+});
+app.click('retry-answer');
+check('practice retry hides explanations and retains the original attempt', () => {
+  assert.equal(app.w.document.querySelectorAll('.option-explanation').length,0); assert.equal(app.state().attempts.length,1);
+}); app.close();
+const legacyAttempt = {id:'legacy-test',questionId:350,option:originalQuestions[349].answer,correct:true,date:'2026-10-21T12:00:00.000Z',hintUsed:false};
+const legacy = {format:'ic2026-progress',version:1,attempts:[legacyAttempt],drafts:{},view:{questionId:350,topic:'all',status:'all'}};
+app = await mount('index.html',{memory:new Map([[key,JSON.stringify(legacy)]])});
+check('old saved progress loads without warnings and can cross the theory/practice boundary', () => {
+  assert.equal(app.$('storage-warning').hidden,true); assert.equal(app.$('answered-count').textContent,'1');
+  assert.equal(app.$('origin-filter').value,'all'); assert.match(app.$('question-position').textContent,/350/);
+});
+app.click('next-question');
+check('navigation after old final question reaches the first practice without losing history', () => {
+  assert.match(app.$('question-position').textContent,/351/); assert.equal(app.$('question-origin').textContent,'Práctica');
+  assert.equal(app.state().attempts[0].id,'legacy-test');
+}); app.close();
 let glossary=await mount('glosario.html');
+check('new glossary concepts cite the practice guide and link to relevant practical exercises', () => {
+  const rsa = glossary.$('rsa'); assert.ok(rsa);
+  assert.equal(rsa.querySelector('.entry-references a').getAttribute('href'),'docs/Guia_de_estudio_IC_Practicas_1_y_2.pdf#page=5');
+  assert.ok(rsa.querySelector('a[href="index.html?pregunta=376"]'));
+  assert.match(rsa.querySelector('a[href="index.html?pregunta=376"]').textContent,/Práctica/);
+  const ids = new Set([...glossary.w.document.querySelectorAll('[id]')].map(n=>n.id));
+  for (const entry of glossaryEntries.filter(e=>e.practicePages?.length && !e.manualPages.length)) assert.ok(ids.has(entry.id));
+});
 check('ASCII reference starts closed, contains all 52 letters and is linked from its concept', () => {
   assert.equal(glossary.$('tabla-ascii').open, false);
   const rows = [...glossary.w.document.querySelectorAll('.ascii-table tbody tr')];
@@ -165,7 +244,7 @@ check('ASCII reference starts closed, contains all 52 letters and is linked from
   assert.deepEqual(rows[26].textContent, 'a970x61'); assert.deepEqual(rows[51].textContent, 'z1220x7A');
   assert.equal(glossary.$('ascii').querySelector('.ascii-entry-link').getAttribute('href'), '#tabla-ascii');
 });
-check('glossary renders 89 entries with unique direct links', () => { assert.equal(glossary.w.document.querySelectorAll('.glossary-entry').length,89); assert.equal(new Set([...glossary.w.document.querySelectorAll('.glossary-entry')].map(n=>n.id)).size,89); });
+check('glossary renders 108 entries with unique direct links', () => { assert.equal(glossary.w.document.querySelectorAll('.glossary-entry').length,108); assert.equal(new Set([...glossary.w.document.querySelectorAll('.glossary-entry')].map(n=>n.id)).size,108); });
 check('the glossary includes thirteen comparison tables, initially collapsed', () => {
   assert.equal(glossary.w.document.querySelectorAll('.comparison-card').length, 13);
   assert.equal(glossary.w.document.querySelectorAll('.comparison-card[open]').length, 0);

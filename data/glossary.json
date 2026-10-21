@@ -17,14 +17,19 @@
       "hint": "Compará la finalidad de representar datos con la de restringir quién puede leerlos. Una representación pública y un mecanismo con clave cumplen funciones diferentes.",
       "example": "La palabra Hola se representa como SG9sYQ==.",
       "fromManualGlossary": true,
-      "referenceNote": ""
+      "referenceNote": "",
+      "practicePages": [
+        2,
+        3
+      ]
     },
     {
       "id": "ascii",
       "term": "ASCII, Unicode y bases numéricas",
       "topics": [
         "cripto",
-        "malware"
+        "malware",
+        "csirt"
       ],
       "manualPages": [
         6,
@@ -36,7 +41,13 @@
       "hint": "Identificá primero la base numérica. Para pasar de hexadecimal a decimal, multiplicá cada dígito por su potencia de 16; después consultá la correspondencia del carácter.",
       "example": "H es 72 en decimal, 0x48 en hexadecimal y 01001000 en binario.",
       "fromManualGlossary": false,
-      "referenceNote": ""
+      "referenceNote": "",
+      "practicePages": [
+        2,
+        3,
+        12,
+        13
+      ]
     },
     {
       "id": "cifrado",
@@ -104,7 +115,11 @@
       "hint": "Escribí las posiciones del alfabeto y desplazá cada letra por separado. Tené presente el retorno al principio y el sentido del desplazamiento.",
       "example": "Con desplazamiento 2, HOLA se convierte en JQNC.",
       "fromManualGlossary": false,
-      "referenceNote": ""
+      "referenceNote": "",
+      "practicePages": [
+        3,
+        4
+      ]
     },
     {
       "id": "clasicos",
@@ -121,7 +136,11 @@
       "hint": "Observá si el método cambia la identidad de las letras o conserva las letras y modifica cómo se ordenan.",
       "example": "Una sustitución cambia A por D; una transposición conserva las letras pero cambia el orden.",
       "fromManualGlossary": false,
-      "referenceNote": ""
+      "referenceNote": "",
+      "practicePages": [
+        3,
+        4
+      ]
     },
     {
       "id": "kerckhoffs",
@@ -169,7 +188,13 @@
       "hint": "Identificá el papel de cada clave y distinguí las operaciones de cifrar y firmar.",
       "example": "Para enviar información confidencial a Ana, se cifra para su clave pública; Ana conserva en secreto la privada.",
       "fromManualGlossary": false,
-      "referenceNote": ""
+      "referenceNote": "",
+      "practicePages": [
+        5,
+        6,
+        7,
+        8
+      ]
     },
     {
       "id": "ecb",
@@ -187,7 +212,10 @@
       "hint": "Compará cómo se tratan dos bloques de entrada repetidos. Pensá si el resultado depende de otros bloques o de un estado inicial.",
       "example": "Una imagen con regiones repetidas puede conservar patrones reconocibles al cifrarse con ECB.",
       "fromManualGlossary": false,
-      "referenceNote": ""
+      "referenceNote": "",
+      "practicePages": [
+        5
+      ]
     },
     {
       "id": "cbc",
@@ -205,7 +233,10 @@
       "hint": "Seguí la dependencia entre bloques: ¿qué dato reemplaza al bloque anterior cuando se procesa el primero?",
       "example": "El primer bloque se combina con el IV; el segundo, con el primer bloque cifrado.",
       "fromManualGlossary": true,
-      "referenceNote": ""
+      "referenceNote": "",
+      "practicePages": [
+        5
+      ]
     },
     {
       "id": "iv",
@@ -257,7 +288,10 @@
       "hint": "Recordá las propiedades de XOR y analizá qué pasa cuando una misma secuencia participa en dos mensajes.",
       "example": "Si C = P XOR K, entonces C XOR K recupera P; por eso la secuencia K necesita protección.",
       "fromManualGlossary": true,
-      "referenceNote": ""
+      "referenceNote": "",
+      "practicePages": [
+        5
+      ]
     },
     {
       "id": "xor",
@@ -273,7 +307,10 @@
       "hint": "Convertí ambos valores a binario, alineá los bits y compará cada columna. Volvé a agrupar el resultado en grupos de cuatro bits.",
       "example": "1010 XOR 0110 = 1100.",
       "fromManualGlossary": false,
-      "referenceNote": ""
+      "referenceNote": "",
+      "practicePages": [
+        5
+      ]
     },
     {
       "id": "bloques",
@@ -290,7 +327,10 @@
       "hint": "Separá tamaño de clave, tamaño de bloque y longitud del mensaje. Para convertir bits a bytes, revisá cuántos bits forman un byte.",
       "example": "Un bloque de 128 bits contiene 16 bytes. El tamaño del bloque no debe confundirse con la longitud de la clave.",
       "fromManualGlossary": false,
-      "referenceNote": ""
+      "referenceNote": "",
+      "practicePages": [
+        5
+      ]
     },
     {
       "id": "hash",
@@ -309,7 +349,10 @@
       "hint": "Distinguí calcular un resumen de recuperar un mensaje. Verificá si cambian los bytes de entrada, incluso por una mayúscula o un salto de línea.",
       "example": "Agregar un salto de línea al final de un archivo cambia sus bytes y puede cambiar completamente su digest.",
       "fromManualGlossary": false,
-      "referenceNote": ""
+      "referenceNote": "",
+      "practicePages": [
+        4
+      ]
     },
     {
       "id": "digest",
@@ -343,7 +386,10 @@
       "hint": "Diferenciá igualdad de resúmenes e igualdad de archivos. Preguntate si el ataque fija previamente un mensaje o permite elegir ambos.",
       "example": "Dos imágenes diferentes con el mismo MD5 muestran que igual digest no implica identidad matemática de contenido.",
       "fromManualGlossary": false,
-      "referenceNote": ""
+      "referenceNote": "",
+      "practicePages": [
+        4
+      ]
     },
     {
       "id": "sha",
@@ -362,7 +408,10 @@
       "hint": "Para obtener la longitud hexadecimal, relacioná los bits de salida con la cantidad de bits representada por cada dígito.",
       "example": "SHA-224, SHA-256, SHA-384 y SHA-512 generan resúmenes de distintas longitudes dentro de SHA-2.",
       "fromManualGlossary": false,
-      "referenceNote": ""
+      "referenceNote": "",
+      "practicePages": [
+        4
+      ]
     },
     {
       "id": "sha-256",
@@ -381,7 +430,10 @@
       "hint": "Separá la identificación del contenido de la confianza en su origen.",
       "example": "Un archivo con SHA-256 distinto del esperado tiene bytes diferentes; eso no basta para afirmar que es malware.",
       "fromManualGlossary": true,
-      "referenceNote": ""
+      "referenceNote": "",
+      "practicePages": [
+        4
+      ]
     },
     {
       "id": "contrasenas",
@@ -398,7 +450,10 @@
       "hint": "Analizá el costo de probar millones de candidatos y si dos usuarios con la misma contraseña tendrían el mismo dato almacenado.",
       "example": "Dos usuarios con la misma contraseña deberían tener valores almacenados distintos si se usan salts diferentes.",
       "fromManualGlossary": false,
-      "referenceNote": ""
+      "referenceNote": "",
+      "practicePages": [
+        4
+      ]
     },
     {
       "id": "integridad-archivo",
@@ -417,7 +472,10 @@
       "hint": "Separá tres preguntas: si los bytes coinciden, si el origen es confiable y si el archivo tiene comportamiento malicioso.",
       "example": "Comparar el hash de una descarga con un valor obtenido de una fuente confiable ayuda a detectar sustituciones.",
       "fromManualGlossary": false,
-      "referenceNote": ""
+      "referenceNote": "",
+      "practicePages": [
+        4
+      ]
     },
     {
       "id": "firma",
@@ -436,7 +494,10 @@
       "hint": "Pensá qué ocurriría si documentos distintos pudieran compartir el resumen usado al firmar.",
       "example": "Un informe firmado puede ser legible para cualquiera. Si debe ser confidencial, también necesita cifrado.",
       "fromManualGlossary": false,
-      "referenceNote": ""
+      "referenceNote": "",
+      "practicePages": [
+        8
+      ]
     },
     {
       "id": "aead",
@@ -529,7 +590,8 @@
       "id": "mitm",
       "term": "MitM: intermediación de comunicaciones",
       "topics": [
-        "csirt"
+        "csirt",
+        "cripto"
       ],
       "manualPages": [
         14,
@@ -540,7 +602,12 @@
       "hint": "Dibujá quién cree comunicarse con quién y en qué punto interviene un tercero.",
       "example": "Un intermediario que intercepta la comunicación entre dos extremos puede intentar leerla o alterarla si los controles lo permiten.",
       "fromManualGlossary": true,
-      "referenceNote": ""
+      "referenceNote": "",
+      "practicePages": [
+        6,
+        7,
+        8
+      ]
     },
     {
       "id": "phishing",
@@ -560,7 +627,10 @@
       "hint": "Evaluá qué intenta conseguir el mensaje y cómo se construye la confianza. Un indicador aislado necesita contexto.",
       "example": "Un correo que aparenta venir del jefe y pide responder a un dominio desconocido merece revisar cabeceras y contexto.",
       "fromManualGlossary": true,
-      "referenceNote": ""
+      "referenceNote": "",
+      "practicePages": [
+        15
+      ]
     },
     {
       "id": "fallos-web",
@@ -649,7 +719,10 @@
       "hint": "Distinguí la coordinación global de la administración regional. Los registros de asignación ayudan a localizar operadores y contactos.",
       "example": "Los ejemplos de clase consultan LACNIC para recursos de la región latinoamericana; el registro informa asignación, no autor humano.",
       "fromManualGlossary": true,
-      "referenceNote": ""
+      "referenceNote": "",
+      "practicePages": [
+        9
+      ]
     },
     {
       "id": "whois",
@@ -668,7 +741,10 @@
       "hint": "Identificá si buscás un rango, un titular o el destinatario de una denuncia. Conservá la fuente y la fecha de la consulta.",
       "example": "whois -h whois.lacnic.net 163.10.5.66",
       "fromManualGlossary": true,
-      "referenceNote": ""
+      "referenceNote": "",
+      "practicePages": [
+        9
+      ]
     },
     {
       "id": "erx",
@@ -685,7 +761,10 @@
       "hint": "Ante una respuesta genérica, revisá si existe un registro más específico y qué servidor tiene la información operativa.",
       "example": "La consulta de 163.10.5.66 en un registro histórico genérico puede requerir seguir la remisión a LACNIC.",
       "fromManualGlossary": false,
-      "referenceNote": ""
+      "referenceNote": "",
+      "practicePages": [
+        9
+      ]
     },
     {
       "id": "rdap",
@@ -704,7 +783,10 @@
       "hint": "Separá los datos de registro de un recurso de la actividad actual que ocurre en él. Para automatizar, observá cómo se estructuran los campos.",
       "example": "Un programa puede recorrer entities para localizar contactos y events para recuperar fechas del registro.",
       "fromManualGlossary": true,
-      "referenceNote": ""
+      "referenceNote": "",
+      "practicePages": [
+        9
+      ]
     },
     {
       "id": "ip",
@@ -722,7 +804,10 @@
       "hint": "Diferenciá pertenencia de un recurso y autoría de una acción. Para correlacionar hacen falta tiempos, puertos y registros.",
       "example": "Una IP pública compartida mediante NAT puede corresponder a muchas personas; atribuir una conexión requiere más contexto.",
       "fromManualGlossary": false,
-      "referenceNote": ""
+      "referenceNote": "",
+      "practicePages": [
+        9
+      ]
     },
     {
       "id": "dns",
@@ -740,7 +825,11 @@
       "hint": "Descomponé el nombre desde la derecha hacia la izquierda y distinguí un nombre de un registro asociado.",
       "example": "En mail.unlp.edu.ar., el punto final representa la raíz y ar es el ccTLD.",
       "fromManualGlossary": true,
-      "referenceNote": ""
+      "referenceNote": "",
+      "practicePages": [
+        12,
+        13
+      ]
     },
     {
       "id": "tld",
@@ -757,7 +846,10 @@
       "hint": "Separá quién opera la zona, quién tramita el registro y quién obtiene el nombre. No todos son la misma entidad.",
       "example": ".ar es un ccTLD; .com es un gTLD; .arpa se utiliza para infraestructura técnica como resolución inversa.",
       "fromManualGlossary": false,
-      "referenceNote": ""
+      "referenceNote": "",
+      "practicePages": [
+        10
+      ]
     },
     {
       "id": "privacidad-registro",
@@ -775,7 +867,10 @@
       "hint": "Distinguí dato no publicado de dato inexistente. Buscá qué contacto operativo sigue disponible para coordinar el incidente.",
       "example": "«Redacted by Privacy» indica datos no expuestos públicamente; el contacto de abuso del registrar puede seguir disponible.",
       "fromManualGlossary": false,
-      "referenceNote": ""
+      "referenceNote": "",
+      "practicePages": [
+        10
+      ]
     },
     {
       "id": "mx",
@@ -794,7 +889,11 @@
       "hint": "Interpretá la preferencia como orden de intento y separala del análisis de una traza concreta.",
       "example": "host -t mx info.unlp.edu.ar",
       "fromManualGlossary": true,
-      "referenceNote": ""
+      "referenceNote": "",
+      "practicePages": [
+        10,
+        11
+      ]
     },
     {
       "id": "smtp",
@@ -831,7 +930,11 @@
       "hint": "Dibujá dos capas: instrucciones para entregar el mensaje y datos que ve quien lo lee. Determiná a cuál pertenece cada campo.",
       "example": "Un correo puede tener un destinatario RCPT TO que no figure en To, como sucede con destinatarios ocultos.",
       "fromManualGlossary": true,
-      "referenceNote": ""
+      "referenceNote": "",
+      "practicePages": [
+        10,
+        11
+      ]
     },
     {
       "id": "cabeceras",
@@ -850,7 +953,11 @@
       "hint": "Preguntate si el campo indica autor visible, destino de una respuesta, retorno de rebotes o identificación del mensaje.",
       "example": "Reply-To puede dirigir las respuestas a otra dirección aunque From muestre el nombre de una organización conocida.",
       "fromManualGlossary": false,
-      "referenceNote": ""
+      "referenceNote": "",
+      "practicePages": [
+        10,
+        11
+      ]
     },
     {
       "id": "received",
@@ -869,7 +976,11 @@
       "hint": "Dibujá cada salto con su origen, receptor y hora. Diferenciá lo registrado por infraestructura confiable de lo declarado por el remitente.",
       "example": "En «Received: from cliente by mx», mx es el receptor declarado de ese salto.",
       "fromManualGlossary": false,
-      "referenceNote": ""
+      "referenceNote": "",
+      "practicePages": [
+        10,
+        11
+      ]
     },
     {
       "id": "ip-privadas",
@@ -886,7 +997,10 @@
       "hint": "Revisá el prefijo completo: no todas las direcciones que empiezan con 172 pertenecen al rango privado.",
       "example": "172.20.1.5 pertenece al rango privado 172.16.0.0/12; no toda dirección que empiece con 172 es privada.",
       "fromManualGlossary": false,
-      "referenceNote": ""
+      "referenceNote": "",
+      "practicePages": [
+        11
+      ]
     },
     {
       "id": "tiempos",
@@ -906,7 +1020,11 @@
       "hint": "Convertí los eventos a una misma zona horaria. Evitá asumir que horas escritas igual representan el mismo instante.",
       "example": "Entre 16:32 y 16:48 de la misma fecha y zona transcurren 16 minutos. Sin zona horaria, la comparación puede ser ambigua.",
       "fromManualGlossary": false,
-      "referenceNote": ""
+      "referenceNote": "",
+      "practicePages": [
+        11,
+        12
+      ]
     },
     {
       "id": "comandos-smtp",
@@ -939,7 +1057,10 @@
       "hint": "Separá protección del transporte, autenticación de dominio y legitimidad del contenido del mensaje.",
       "example": "ESMTPS en un Received describe protección de transporte en ese salto, no una garantía de identidad de todos los remitentes.",
       "fromManualGlossary": false,
-      "referenceNote": ""
+      "referenceNote": "",
+      "practicePages": [
+        11
+      ]
     },
     {
       "id": "csirt",
@@ -956,7 +1077,11 @@
       "hint": "Ubicá quiénes son los usuarios y activos atendidos y de qué recursos se originó el hecho.",
       "example": "Una computadora universitaria que ataca a terceros continúa dentro del ámbito de su equipo de respuesta.",
       "fromManualGlossary": true,
-      "referenceNote": ""
+      "referenceNote": "",
+      "practicePages": [
+        11,
+        12
+      ]
     },
     {
       "id": "pertinencia",
@@ -974,13 +1099,18 @@
       "hint": "Revisá ambos extremos: quién sufrió el impacto y quién administra el recurso de origen. Conservá la evidencia aun si corresponde derivar el aviso.",
       "example": "Un phishing recibido por un miembro de la comunidad o un ataque originado desde su red puede resultar pertinente.",
       "fromManualGlossary": false,
-      "referenceNote": ""
+      "referenceNote": "",
+      "practicePages": [
+        11,
+        12
+      ]
     },
     {
       "id": "prioridad",
       "term": "Clasificación y priorización",
       "topics": [
-        "csirt"
+        "csirt",
+        "malware"
       ],
       "manualPages": [
         26,
@@ -991,7 +1121,10 @@
       "hint": "Compará impacto y activos antes de ordenar los casos. Una misma categoría puede tener prioridades diferentes.",
       "example": "Una base de datos sensible expuesta puede requerir más urgencia que un incidente aislado de spam en una PC secundaria.",
       "fromManualGlossary": false,
-      "referenceNote": ""
+      "referenceNote": "",
+      "practicePages": [
+        16
+      ]
     },
     {
       "id": "notificacion",
@@ -1008,7 +1141,10 @@
       "hint": "Evaluá si el destinatario puede reproducir la búsqueda en sus registros con los datos recibidos.",
       "example": "Un reporte de abuso puede incluir IP origen y destino, fecha UTC, puertos y logs, dirigido al contacto de abuso del bloque.",
       "fromManualGlossary": false,
-      "referenceNote": ""
+      "referenceNote": "",
+      "practicePages": [
+        12
+      ]
     },
     {
       "id": "servicios-csirt",
@@ -1079,7 +1215,11 @@
       "hint": "Elegí controles según la necesidad: restringir lectura, verificar cambios o establecer reglas sobre quién puede recibir la información.",
       "example": "Un reporte puede cifrarse para el destinatario y firmarse por el equipo que lo elaboró: cada operación aporta una propiedad diferente.",
       "fromManualGlossary": true,
-      "referenceNote": ""
+      "referenceNote": "",
+      "practicePages": [
+        7,
+        8
+      ]
     },
     {
       "id": "defacement",
@@ -1132,7 +1272,11 @@
       "hint": "Identificá el verbo principal de la conducta y distinguí esa capacidad de la forma de propagarse.",
       "example": "Un troyano puede instalar un downloader que luego obtiene una RAT. Una infección puede reunir varias categorías.",
       "fromManualGlossary": false,
-      "referenceNote": ""
+      "referenceNote": "",
+      "practicePages": [
+        13,
+        14
+      ]
     },
     {
       "id": "backdoor",
@@ -1185,7 +1329,12 @@
       "hint": "Diferenciá identificación de una muestra, búsqueda de equipos relacionados y atribución a una persona.",
       "example": "La ruta y el hash de un archivo creado, junto con un dominio observado, pueden ayudar a buscar otros equipos afectados.",
       "fromManualGlossary": true,
-      "referenceNote": ""
+      "referenceNote": "",
+      "practicePages": [
+        13,
+        14,
+        16
+      ]
     },
     {
       "id": "estatico",
@@ -1205,7 +1354,11 @@
       "hint": "Separá lo que aparece en el archivo de lo que efectivamente se observó hacer. Una capacidad disponible no implica que haya sido utilizada.",
       "example": "Una URL en strings sugiere un destino posible, pero no demuestra que el programa se haya conectado allí.",
       "fromManualGlossary": false,
-      "referenceNote": ""
+      "referenceNote": "",
+      "practicePages": [
+        13,
+        14
+      ]
     },
     {
       "id": "antivirus",
@@ -1239,7 +1392,11 @@
       "hint": "Revisá la codificación buscada y si la cadena está disponible en disco o se construye durante la ejecución.",
       "example": "En GNU strings, strings -a -el muestra.bin busca texto con unidades de 16 bits little-endian.",
       "fromManualGlossary": false,
-      "referenceNote": ""
+      "referenceNote": "",
+      "practicePages": [
+        13,
+        14
+      ]
     },
     {
       "id": "pe",
@@ -1257,7 +1414,11 @@
       "hint": "Ubicá si el dato corresponde a código, variables modificables, constantes o recursos. Verificá estructura y permisos además del nombre de sección.",
       "example": ".text suele contener código y .rsrc recursos, pero esos nombres son convenciones y requieren validar la estructura real.",
       "fromManualGlossary": true,
-      "referenceNote": ""
+      "referenceNote": "",
+      "practicePages": [
+        13,
+        14
+      ]
     },
     {
       "id": "imports",
@@ -1275,7 +1436,11 @@
       "hint": "Tratando cada import como una hipótesis, preguntate qué evidencia adicional demostraría que la función se ejecutó.",
       "example": "Importar una función de descarga indica una capacidad potencial; observar su uso requiere evidencia adicional.",
       "fromManualGlossary": false,
-      "referenceNote": ""
+      "referenceNote": "",
+      "practicePages": [
+        13,
+        14
+      ]
     },
     {
       "id": "apis-red",
@@ -1291,7 +1456,11 @@
       "hint": "Separá inicializar una sesión, abrir un recurso y guardar una descarga. Relacioná la API con lo que se capturó en la red.",
       "example": "Una importación de InternetOpen puede incluir un User-Agent; URLDownloadToFile sugiere una capacidad de descarga a archivo.",
       "fromManualGlossary": false,
-      "referenceNote": ""
+      "referenceNote": "",
+      "practicePages": [
+        13,
+        14
+      ]
     },
     {
       "id": "virtualprotect",
@@ -1325,7 +1494,11 @@
       "hint": "Distinguí cargar un módulo de localizar una función dentro de él. Después revisá qué oculta esa resolución al análisis del archivo.",
       "example": "Un binario con pocos imports puede cargar una DLL con LoadLibrary y resolver sus funciones con GetProcAddress al ejecutar.",
       "fromManualGlossary": false,
-      "referenceNote": ""
+      "referenceNote": "",
+      "practicePages": [
+        13,
+        14
+      ]
     },
     {
       "id": "create-service",
@@ -1376,7 +1549,11 @@
       "hint": "Combiná varios indicios de transformación. Pensá qué contenido podría aparecer en memoria aunque no sea visible directamente en disco.",
       "example": "Una sección pequeña en disco y grande en memoria puede justificar investigar empaquetamiento, sin demostrar malicia por sí sola.",
       "fromManualGlossary": true,
-      "referenceNote": ""
+      "referenceNote": "",
+      "practicePages": [
+        13,
+        14
+      ]
     },
     {
       "id": "dinamico",
@@ -1395,7 +1572,11 @@
       "hint": "Delimitá la conclusión al entorno y la ventana observados. La ausencia de una acción en una corrida no demuestra que el programa no pueda realizarla.",
       "example": "No ver conexiones durante una ejecución no descarta que otra ruta se active con distintos parámetros o condiciones.",
       "fromManualGlossary": false,
-      "referenceNote": ""
+      "referenceNote": "",
+      "practicePages": [
+        14,
+        15
+      ]
     },
     {
       "id": "laboratorio",
@@ -1411,7 +1592,10 @@
       "hint": "Revisá qué recursos puede alcanzar la muestra y cómo repetirías la prueba desde el mismo estado inicial.",
       "example": "Después de conservar los logs y archivos de una prueba, restaurar un snapshot limpio permite repetir las condiciones iniciales.",
       "fromManualGlossary": false,
-      "referenceNote": ""
+      "referenceNote": "",
+      "practicePages": [
+        14
+      ]
     },
     {
       "id": "registry",
@@ -1429,7 +1613,10 @@
       "hint": "Identificá si la configuración pertenece al perfil de usuario o al equipo y qué permisos necesita modificarla.",
       "example": "HKCU corresponde al usuario actual; HKLM contiene configuración del equipo. Los permisos de escritura dependen de la rama.",
       "fromManualGlossary": true,
-      "referenceNote": ""
+      "referenceNote": "",
+      "practicePages": [
+        14
+      ]
     },
     {
       "id": "run-key",
@@ -1447,7 +1634,10 @@
       "hint": "Relacioná el momento de reaparición del proceso con la ubicación de arranque y verificá a qué archivo apunta.",
       "example": "Una entrada Run que referencia un archivo debe correlacionarse con el proceso que aparece al iniciar sesión.",
       "fromManualGlossary": true,
-      "referenceNote": ""
+      "referenceNote": "",
+      "practicePages": [
+        14
+      ]
     },
     {
       "id": "servicios-windows",
@@ -1464,7 +1654,10 @@
       "hint": "Compará configuración de servicio, inicio de sesión de usuario y privilegios. Correlacioná la nueva entrada con el binario y el proceso observado.",
       "example": "Una modificación en HKLM\\System\\CurrentControlSet\\Services requiere examinar la configuración del servicio correspondiente.",
       "fromManualGlossary": false,
-      "referenceNote": ""
+      "referenceNote": "",
+      "practicePages": [
+        14
+      ]
     },
     {
       "id": "regshot",
@@ -1481,7 +1674,10 @@
       "hint": "Elegí entre comparar dos estados o inspeccionar configuraciones de arranque. Explicá cómo reconocerías un cambio nuevo frente a uno preexistente.",
       "example": "Comparar una captura anterior y otra posterior puede revelar un valor Run nuevo; hay que separar ese cambio del ruido normal del sistema.",
       "fromManualGlossary": false,
-      "referenceNote": ""
+      "referenceNote": "",
+      "practicePages": [
+        14
+      ]
     },
     {
       "id": "procmon",
@@ -1498,13 +1694,17 @@
       "hint": "Relacioná qué recurso cambia con el proceso responsable. Un registro de red o una lista de procesos puede no mostrar cambios de archivos y claves.",
       "example": "Filtrar por PID y por operaciones sobre CurrentVersion\\Run ayuda a relacionar una escritura con el proceso que la realizó.",
       "fromManualGlossary": false,
-      "referenceNote": ""
+      "referenceNote": "",
+      "practicePages": [
+        14
+      ]
     },
     {
       "id": "captura-red",
       "term": "Wireshark, tcpdump y evidencia de red",
       "topics": [
-        "malware"
+        "malware",
+        "csirt"
       ],
       "manualPages": [
         40,
@@ -1515,7 +1715,12 @@
       "hint": "Diferenciá nombre consultado, conexión establecida y datos transferidos. Afirmá solo la etapa que sostiene la captura.",
       "example": "Una consulta DNS capturada demuestra resolución de nombre; todavía no confirma una descarga posterior.",
       "fromManualGlossary": false,
-      "referenceNote": ""
+      "referenceNote": "",
+      "practicePages": [
+        12,
+        13,
+        14
+      ]
     },
     {
       "id": "red-simulada",
@@ -1531,7 +1736,10 @@
       "hint": "Determiná si necesitás respuestas de nombres o de varios protocolos. Diseñá la observación dentro de una red aislada.",
       "example": "FakeDNS puede responder consultas de nombres y FakeNet emular otros servicios para observar intentos de comunicación en el laboratorio.",
       "fromManualGlossary": false,
-      "referenceNote": ""
+      "referenceNote": "",
+      "practicePages": [
+        14
+      ]
     },
     {
       "id": "procesos",
@@ -1548,7 +1756,10 @@
       "hint": "Separá observar procesos de registrar operaciones y tráfico. Considerá qué parte del comportamiento cubre cada herramienta.",
       "example": "Un árbol de procesos puede mostrar un ejecutable hijo que conviene correlacionar con archivos creados y conexiones.",
       "fromManualGlossary": false,
-      "referenceNote": ""
+      "referenceNote": "",
+      "practicePages": [
+        14
+      ]
     },
     {
       "id": "prompt-injection",
@@ -1566,6 +1777,348 @@
       "example": "Un documento que ordena ignorar las instrucciones del usuario contiene una instrucción incrustada, no una nueva autorización.",
       "fromManualGlossary": true,
       "referenceNote": ""
+    },
+    {
+      "id": "a1z26-braille",
+      "term": "A1Z26 y Braille: representaciones alfabéticas",
+      "topics": [
+        "cripto"
+      ],
+      "manualPages": [],
+      "practicePages": [
+        2,
+        3
+      ],
+      "definition": "A1Z26 asigna posiciones a letras; Braille representa símbolos mediante patrones de puntos.",
+      "explanation": "Antes de interpretar números o celdas se verifica el alfabeto, el índice inicial, los separadores y las convenciones de escritura. Que un lector desconozca un sistema de representación no implica que exista cifrado o una clave secreta.",
+      "hint": "Identificá las reglas del alfabeto y el punto de inicio de la numeración antes de convertir símbolos.",
+      "example": "Con A=1, 2-1 representa BA. Si se empieza en A=0, la misma secuencia representa otras letras.",
+      "fromManualGlossary": false,
+      "referenceNote": "Ampliación didáctica basada en la guía de prácticas disponible; las páginas citadas pertenecen a esa guía, no al manual de teorías."
+    },
+    {
+      "id": "vigenere",
+      "term": "Vigenère y clave repetida",
+      "topics": [
+        "cripto"
+      ],
+      "manualPages": [],
+      "practicePages": [
+        3,
+        4
+      ],
+      "definition": "Cifrado de sustitución que usa desplazamientos variables derivados de una clave.",
+      "explanation": "Se convierten letras en posiciones de un alfabeto declarado. Para cifrar se suman los valores de la clave repetida; para descifrar se restan, reduciendo módulo el tamaño del alfabeto. No es una transposición ni un mecanismo adecuado para proteger información actual.",
+      "hint": "Compará un desplazamiento constante con una secuencia de desplazamientos. Extendé la clave hasta cubrir las posiciones del mensaje.",
+      "example": "Con A=0 y clave BC, las posiciones alternan desplazamientos 1 y 2; una clave de una sola letra se comporta como un César.",
+      "fromManualGlossary": false,
+      "referenceNote": "Ampliación didáctica basada en la guía de prácticas disponible; las páginas citadas pertenecen a esa guía, no al manual de teorías."
+    },
+    {
+      "id": "transposicion-riel-columna",
+      "term": "Rail Fence y transposición columnar",
+      "topics": [
+        "cripto"
+      ],
+      "manualPages": [],
+      "practicePages": [
+        3,
+        4
+      ],
+      "definition": "Cifrados clásicos que reordenan posiciones sin sustituir la identidad de las letras.",
+      "explanation": "Rail Fence reparte letras en un recorrido de rieles y las concatena por riel. La transposición columnar organiza una grilla y lee columnas según una clave. Para deshacerlos hay que reconstruir el recorrido, las longitudes y el orden; conservar el mismo conjunto de letras no identifica por sí solo un algoritmo.",
+      "hint": "Reconstruí qué posiciones pertenecen a cada riel o columna antes de intercalar o leer las filas.",
+      "example": "En dos rieles, un mensaje de siete posiciones reparte cuatro en el primero y tres en el segundo.",
+      "fromManualGlossary": false,
+      "referenceNote": "Ampliación didáctica basada en la guía de prácticas disponible; las páginas citadas pertenecen a esa guía, no al manual de teorías."
+    },
+    {
+      "id": "aritmetica-modular",
+      "term": "Aritmética modular, potencias e inverso",
+      "topics": [
+        "cripto"
+      ],
+      "manualPages": [],
+      "practicePages": [
+        6
+      ],
+      "definition": "La aritmética modular trabaja con restos; un inverso multiplicativo deshace una multiplicación dentro del módulo.",
+      "explanation": "a y b son congruentes módulo n si tienen el mismo resto al dividir por n. El inverso d de e satisface e·d ≡ 1 (mod n) y existe cuando e y n son coprimos. La exponenciación modular calcula potencias reducidas y se usa en RSA y Diffie–Hellman.",
+      "hint": "Separá producto, potencia e inverso modular. Comprobá cada relación con el módulo indicado.",
+      "example": "El inverso de 3 módulo 10 es 7 porque 3·7=21 deja resto 1. No equivale a la fracción real 1/3.",
+      "fromManualGlossary": false,
+      "referenceNote": "Ampliación didáctica basada en la guía de prácticas disponible; las páginas citadas pertenecen a esa guía, no al manual de teorías."
+    },
+    {
+      "id": "rsa",
+      "term": "RSA: parámetros, factorización y descifrado",
+      "topics": [
+        "cripto"
+      ],
+      "manualPages": [],
+      "practicePages": [
+        5,
+        6
+      ],
+      "definition": "Esquema asimétrico que distingue una clave pública (n,e) y material privado que permite obtener d.",
+      "explanation": "En el modelo didáctico con primos distintos p y q, n=p·q y φ(n)=(p−1)(q−1). Se obtiene d como inverso de e módulo φ(n). Un entero m se cifra como m^e mod n y se recupera como c^d mod n. Factorizar un módulo pequeño permite derivar d; el ejemplo no representa seguridad real y RSA requiere parámetros y padding adecuados.",
+      "hint": "Identificá qué cantidades son públicas, cuáles permiten calcular el inverso y cómo se representan los bytes del mensaje.",
+      "example": "Con primos pequeños se puede comprobar una ida y vuelta de un entero; convertirlo a texto exige conocer codificación, longitud y orden de bytes.",
+      "fromManualGlossary": false,
+      "referenceNote": "Ampliación didáctica basada en la guía de prácticas disponible; las páginas citadas pertenecen a esa guía, no al manual de teorías."
+    },
+    {
+      "id": "diffie-hellman",
+      "term": "Diffie–Hellman: acuerdo de secreto",
+      "topics": [
+        "cripto"
+      ],
+      "manualPages": [],
+      "practicePages": [
+        6,
+        7
+      ],
+      "definition": "Permite calcular un secreto compartido sin enviarlo directamente, a partir de valores públicos y exponentes privados.",
+      "explanation": "Con p y g públicos, cada parte publica una potencia modular de g. Al elevar el valor recibido a su propio exponente obtiene el mismo secreto que la contraparte. El intercambio básico no autentica identidades: un intermediario puede sustituir valores si no se añade autenticación.",
+      "hint": "Distinguí parámetros públicos, exponentes privados y secreto compartido. Acordar una clave no verifica por sí solo quién está del otro lado.",
+      "example": "Alice calcula B^a mod p y Bob A^b mod p. Las firmas o certificados se evalúan aparte para autenticar el intercambio.",
+      "fromManualGlossary": false,
+      "referenceNote": "Ampliación didáctica basada en la guía de prácticas disponible; las páginas citadas pertenecen a esa guía, no al manual de teorías."
+    },
+    {
+      "id": "esteganografia",
+      "term": "Esteganografía, steghide e inspección multimedia",
+      "topics": [
+        "cripto"
+      ],
+      "manualPages": [],
+      "practicePages": [
+        7
+      ],
+      "definition": "Oculta la existencia de información dentro de un portador, como una imagen o un audio.",
+      "explanation": "Se inspeccionan formato, metadatos, cadenas, bytes anexados, canales y posibles datos embebidos. En audio también importan el espectrograma y las muestras. steghide permite consultar e intentar extraer contenido de portadores compatibles, a veces con contraseña. El método y resultado concreto requieren el archivo.",
+      "hint": "Examiná tanto la estructura del archivo como su contenido perceptible, preservando una copia antes de modificarlo.",
+      "example": "Una imagen puede verse normal y contener un archivo embebido. Encontrarlo no implica que ese archivo esté además cifrado.",
+      "fromManualGlossary": false,
+      "referenceNote": "Ampliación didáctica basada en la guía de prácticas disponible; las páginas citadas pertenecen a esa guía, no al manual de teorías."
+    },
+    {
+      "id": "lsb",
+      "term": "LSB: bit menos significativo",
+      "topics": [
+        "cripto"
+      ],
+      "manualPages": [],
+      "practicePages": [
+        7
+      ],
+      "definition": "Es el bit de menor peso de un valor binario; puede utilizarse para transportar datos ocultos.",
+      "explanation": "En imagen o audio, modificar bits de menor peso puede producir cambios perceptibles pequeños. Para reconstruir un mensaje hacen falta canal, orden de lectura, cantidad de bits y codificación. Los bits extraídos deben ensamblarse con el orden acordado y verificarse.",
+      "hint": "Ubicá el bit de menor peso en cada muestra y respetá el orden declarado para ensamblar un byte.",
+      "example": "Cambiar 10010100 a 10010101 altera sólo la unidad. Ocho bits obtenidos de ocho muestras pueden formar un byte.",
+      "fromManualGlossary": false,
+      "referenceNote": "Ampliación didáctica basada en la guía de prácticas disponible; las páginas citadas pertenecen a esa guía, no al manual de teorías."
+    },
+    {
+      "id": "pgp-confianza",
+      "term": "GPG: huella de clave, passphrase y ASCII armor",
+      "topics": [
+        "cripto"
+      ],
+      "manualPages": [],
+      "practicePages": [
+        7,
+        8
+      ],
+      "definition": "La huella identifica una clave; una passphrase puede proteger o derivar material secreto; armor representa datos binarios en texto.",
+      "explanation": "La validez matemática de una firma no demuestra identidad si no se comprueba a quién pertenece la clave pública. Se contrasta su huella por un canal autenticado. PGP simétrico usa una contraseña para derivar claves; el asimétrico utiliza la clave privada del destinatario para descifrar. ASCII armor facilita transporte y no añade confidencialidad por sí mismo.",
+      "hint": "Separá representación imprimible, operación criptográfica y confianza en la clave. Cada una responde una pregunta diferente.",
+      "example": "Dos claves pueden declarar el mismo nombre. Comparar sus huellas ayuda a evitar cifrar para una clave sustituida.",
+      "fromManualGlossary": false,
+      "referenceNote": "Ampliación didáctica basada en la guía de prácticas disponible; las páginas citadas pertenecen a esa guía, no al manual de teorías."
+    },
+    {
+      "id": "diccionario",
+      "term": "Ataque de diccionario y comprobación offline",
+      "topics": [
+        "cripto"
+      ],
+      "manualPages": [],
+      "practicePages": [
+        4,
+        8
+      ],
+      "definition": "Prueba un conjunto de candidatas y compara el resultado con el material disponible.",
+      "explanation": "Frente a un hash se calcula el mismo algoritmo sobre cada candidata, con salt y parámetros correctos. Frente a un archivo cifrado se comprueba un descifrado compatible. Buscar en una tabla no equivale a invertir una función hash, y encontrar una entrada compatible no demuestra que sea su única preimagen.",
+      "hint": "Identificá qué se compara y qué transformaciones exactas exige el formato antes de probar candidatas.",
+      "example": "Un diccionario de veinte palabras limita la búsqueda a esas candidatas; no enumera todas las cadenas posibles.",
+      "fromManualGlossary": false,
+      "referenceNote": "Ampliación didáctica basada en la guía de prácticas disponible; las páginas citadas pertenecen a esa guía, no al manual de teorías."
+    },
+    {
+      "id": "nir",
+      "term": "NIR: registro nacional de recursos de Internet",
+      "topics": [
+        "csirt"
+      ],
+      "manualPages": [],
+      "practicePages": [
+        9
+      ],
+      "definition": "Organismo nacional que puede intervenir en la administración de recursos numéricos dentro de una región de un RIR.",
+      "explanation": "El RIR y el NIR son niveles de la estructura registral. Para un recurso concreto se consulta el objeto de red pertinente, las referencias a registros y sus contactos. La geolocalización aproximada no demuestra quién administra la asignación ni cuál es su contacto abuse.",
+      "hint": "Seguí la cadena registral y distinguí organismo asignador, responsable del bloque y contacto de abuso.",
+      "example": "La práctica menciona NIR de Brasil y México en la región LACNIC; la respuesta para una IP específica requiere consultar su registro.",
+      "fromManualGlossary": false,
+      "referenceNote": "Ampliación didáctica basada en la guía de prácticas disponible; las páginas citadas pertenecen a esa guía, no al manual de teorías."
+    },
+    {
+      "id": "ssh-logs",
+      "term": "Logs SSH: Failed, Accepted y contexto",
+      "topics": [
+        "csirt"
+      ],
+      "manualPages": [],
+      "practicePages": [
+        11,
+        12
+      ],
+      "definition": "Los registros de autenticación distinguen intentos rechazados de autenticaciones aceptadas.",
+      "explanation": "Failed password e invalid user indican intentos fallidos; Accepted publickey o password indica aceptación de autenticación, sin garantizar legitimidad del usuario. Repeticiones por IP, tiempo y nombres pueden sugerir fuerza bruta. Actividad sudo o CRON requiere contexto y no prueba por sí sola compromiso.",
+      "hint": "Separá resultado de autenticación, patrón temporal y valoración de legitimidad antes de clasificar el incidente.",
+      "example": "Veinte fallos y una aceptación son hechos distintos: se correlacionan sus IP, usuarios y horarios para evaluar relación y alcance.",
+      "fromManualGlossary": false,
+      "referenceNote": "Ampliación didáctica basada en la guía de prácticas disponible; las páginas citadas pertenecen a esa guía, no al manual de teorías."
+    },
+    {
+      "id": "canal-encubierto",
+      "term": "Canales encubiertos: ICMP, DNS y PCAP",
+      "topics": [
+        "csirt",
+        "malware"
+      ],
+      "manualPages": [],
+      "practicePages": [
+        12,
+        13
+      ],
+      "definition": "Usan campos, contenido o patrones de protocolos para transportar información fuera de su propósito esperado.",
+      "explanation": "En ICMP se estudian payload, identificadores y secuencias; en DNS, etiquetas, frecuencia, variabilidad y respuestas. El PCAP permite inventariar protocolos, filtrar y ordenar fragmentos antes de probar ASCII, hexadecimal o Base64. Un patrón inusual o un dato legible no basta para afirmar exfiltración.",
+      "hint": "Reconstruí una secuencia verificable de campos y compará hipótesis benignas y anómalas antes de concluir.",
+      "example": "Un subdominio largo puede codificar datos, pero también corresponder a un servicio legítimo. Su contexto y repetición ayudan a investigarlo.",
+      "fromManualGlossary": false,
+      "referenceNote": "Ampliación didáctica basada en la guía de prácticas disponible; las páginas citadas pertenecen a esa guía, no al manual de teorías."
+    },
+    {
+      "id": "hid",
+      "term": "HID, Rubber Ducky e inyección de teclado",
+      "topics": [
+        "csirt"
+      ],
+      "manualPages": [],
+      "practicePages": [
+        12,
+        13
+      ],
+      "definition": "Un dispositivo USB puede presentarse como teclado e introducir secuencias de pulsaciones.",
+      "explanation": "No todo USB funciona sólo como almacenamiento. Un payload de inyección puede esperar, activar atajos, escribir comandos y pulsar teclas sin que el usuario abra un archivo ejecutable. La interpretación del script depende del firmware, sistema, foco y políticas de dispositivos.",
+      "hint": "Distinguí el rol de un teclado del de un disco USB y traducí cada instrucción a una acción de entrada.",
+      "example": "Una instrucción STRING escribe texto; que ese texto se ejecute depende de la ventana activa y de las pulsaciones posteriores.",
+      "fromManualGlossary": false,
+      "referenceNote": "Ampliación didáctica basada en la guía de prácticas disponible; las páginas citadas pertenecen a esa guía, no al manual de teorías."
+    },
+    {
+      "id": "unicode-invisible",
+      "term": "Unicode invisible y comparación de cadenas",
+      "topics": [
+        "csirt",
+        "malware"
+      ],
+      "manualPages": [],
+      "practicePages": [
+        12,
+        13
+      ],
+      "definition": "Dos textos visualmente iguales pueden tener secuencias de puntos de código distintas.",
+      "explanation": "Caracteres como U+200B pueden formar parte del texto sin ocupar ancho visible. Se inspeccionan puntos de código, longitud, bytes y representación escapada antes de normalizar o modificar la evidencia. Igualdad visual, igualdad de caracteres e igualdad de bytes son comprobaciones distintas.",
+      "hint": "Usá una representación explícita de los caracteres y conservá el dato original antes de eliminar o normalizar símbolos.",
+      "example": "Una vista escapada puede mostrar un carácter que no se aprecia al copiar el texto desde un editor.",
+      "fromManualGlossary": false,
+      "referenceNote": "Ampliación didáctica basada en la guía de prácticas disponible; las páginas citadas pertenecen a esa guía, no al manual de teorías."
+    },
+    {
+      "id": "ofuscacion-vbs",
+      "term": "VBScript: Chr, concatenación y desofuscación",
+      "topics": [
+        "malware"
+      ],
+      "manualPages": [],
+      "practicePages": [
+        15
+      ],
+      "definition": "La reconstrucción de cadenas mediante códigos y concatenaciones dificulta su lectura directa.",
+      "explanation": "Chr transforma códigos numéricos en caracteres y & concatena cadenas en VBScript. Una URL o comando puede no aparecer como literal contiguo. Se reconstruyen expresiones y se rastrea su uso sin ejecutar funciones peligrosas. Ofuscar no equivale necesariamente a cifrar ni demuestra malicia por sí solo.",
+      "hint": "Reconstruí literales por etapas y verificá en qué llamadas se usarían antes de inferir una acción.",
+      "example": "Chr(65) & Chr(66) construye AB. Una búsqueda del literal completo puede no hallarlo en el código original.",
+      "fromManualGlossary": false,
+      "referenceNote": "Ampliación didáctica basada en la guía de prácticas disponible; las páginas citadas pertenecen a esa guía, no al manual de teorías."
+    },
+    {
+      "id": "macros-documentos",
+      "term": "Documentos DOCM/XLS, macros VBA y XLM",
+      "topics": [
+        "malware"
+      ],
+      "manualPages": [],
+      "practicePages": [
+        15
+      ],
+      "definition": "Los documentos y planillas pueden incluir código, eventos de apertura y vínculos activos.",
+      "explanation": "DOCM admite macros VBA de Word; en Excel se revisan VBA, XLM, fórmulas, conexiones, nombres definidos y hojas ocultas. Se confirma formato real, hash, contenido y relaciones externas antes de ejecutar. La extensión o un señuelo comercial no prueban malicia; se buscan acciones y artefactos concretos.",
+      "hint": "Diferenciá capacidad de ejecutar contenido de ejecución observada. Buscá activadores y acciones sin habilitar macros para descubrirlos.",
+      "example": "Un evento de apertura puede invocar un proceso. La inspección del código y los registros permiten comprobar si ocurrió y qué ejecutó.",
+      "fromManualGlossary": false,
+      "referenceNote": "Ampliación didáctica basada en la guía de prácticas disponible; las páginas citadas pertenecen a esa guía, no al manual de teorías."
+    },
+    {
+      "id": "exfiltracion",
+      "term": "Exfiltración, metadatos y límites de HTTP",
+      "topics": [
+        "csirt",
+        "malware"
+      ],
+      "manualPages": [],
+      "practicePages": [
+        14,
+        15,
+        16
+      ],
+      "definition": "Es la salida no autorizada de información; debe precisarse qué datos se observó transmitir.",
+      "explanation": "Una lista de nombres de archivos transmite información, pero no prueba que se enviaran sus contenidos. Un HTTP 200 registra una respuesta del protocolo, sin acreditar almacenamiento remoto o todos los efectos del lado servidor. Se conserva solicitud, cuerpo, respuesta, destino, tiempos y contexto.",
+      "hint": "Limitá la conclusión a los bytes y resultados observados. Diferenciá intención, intento de conexión y transmisión comprobada.",
+      "example": "Ver una ruta en un POST permite informar el envío de esa ruta; para afirmar transferencia del archivo hacen falta sus datos en la evidencia.",
+      "fromManualGlossary": false,
+      "referenceNote": "Ampliación didáctica basada en la guía de prácticas disponible; las páginas citadas pertenecen a esa guía, no al manual de teorías."
+    },
+    {
+      "id": "writeup",
+      "term": "Writeup: evidencia, hipótesis y reproducibilidad",
+      "topics": [
+        "cripto",
+        "csirt",
+        "malware"
+      ],
+      "manualPages": [],
+      "practicePages": [
+        15,
+        16
+      ],
+      "definition": "Documenta un procedimiento y sus resultados distinguiendo observaciones, inferencias y límites.",
+      "explanation": "La estructura del material es Enunciado, Solución, Reflexión y Flag. Se registran datos recibidos, comandos, herramientas, filtros, resultados y comprobaciones. La reflexión explica dificultades y alcance. Sólo se informa una flag o identificador específico cuando se recuperó y verificó, sin inventar datos de archivos ausentes.",
+      "hint": "Preguntate qué pasos podría repetir otra persona y qué evidencia sostiene cada conclusión.",
+      "example": "Importar una API de descarga es una observación estática; afirmar una descarga exige evidencia adicional de ejecución o tráfico.",
+      "fromManualGlossary": false,
+      "referenceNote": "Ampliación didáctica basada en la guía de prácticas disponible; las páginas citadas pertenecen a esa guía, no al manual de teorías."
     }
   ]
 }

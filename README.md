@@ -2,9 +2,9 @@
 
 Repositorio: [neftalito/repaso-ciber](https://github.com/neftalito/repaso-ciber). Al habilitar GitHub Pages desde `main` y `/(root)`, la dirección será [neftalito.github.io/repaso-ciber](https://neftalito.github.io/repaso-ciber/).
 
-Aplicación estática en español para practicar las **350 preguntas originales** de Introducción a la Ciberseguridad: Criptografía (66), CSIRT (160) y Malware (124). Incluye corrección explicada, pistas conceptuales, un glosario ampliado de **89 entradas**, historial de intentos y progreso local.
+Aplicación estática en español para practicar **442 preguntas** de Introducción a la Ciberseguridad: **350 de Teoría** y **92 de Práctica**. Criptografía (106), CSIRT (189) y Malware (147). Incluye corrección explicada de cada opción, pistas conceptuales, un glosario de **108 entradas**, historial de intentos y progreso local.
 
-HTML, CSS y JavaScript nativos. No requiere compilación, framework, cuenta, backend ni dependencias para funcionar en GitHub Pages. Los tres PDF originales están en `docs/`. No se utilizan fuentes remotas, analítica ni servicios externos.
+HTML, CSS y JavaScript nativos. No requiere compilación, framework, cuenta, backend ni dependencias para funcionar en GitHub Pages. Los seis PDF de consulta están en `docs/`. No se utilizan fuentes remotas, analítica ni servicios externos.
 
 ## Ejecutar localmente
 
@@ -32,8 +32,10 @@ No se necesita generar una carpeta `dist/` ni ejecutar npm. `.nojekyll` permite 
 - Después de confirmar se habilitan cinco acordeones dentro de las opciones. Se abre automáticamente solo la elegida; las demás quedan cerradas y pueden abrirse con clic, Enter o Espacio. La opción correcta conserva la explicación literal del solucionario y su fuente; cada distractor tiene una explicación identificada como ampliación didáctica.
 - **Ver pista** presenta una orientación conceptual sin indicar la letra ni resolver los cálculos de la pregunta. Al fallar, se muestran automáticamente la definición, la explicación y el ejemplo del concepto relacionado, junto con la corrección.
 - El ícono **Intentar de nuevo**, alineado a la derecha y con nombre accesible, abre un borrador sin solución ni pista visibles. El botón **Siguiente pregunta** aparece también junto a las opciones después de confirmar y recorre el mismo filtro que el botón inferior. Ambos se deshabilitan al llegar al final. Al volver a una pregunta respondida, sus acordeones empiezan cerrados. Conserva los intentos anteriores, que se consultan en el historial desplegable. Los borradores también sobreviven a una recarga.
+- El badge **Teoría/Práctica** indica el origen. El filtro **Origen** se combina con tema y estado, actualiza las cantidades por tema y se conserva al recargar. Los ejercicios de prácticas mantienen su número original y se identifican como preguntas **351–442** en el sitio; los IDs teóricos **1–350** permanecen iguales.
+- Los 92 ejercicios nuevos son consignas abiertas: las cinco opciones y las 368 explicaciones de distractores son **adaptaciones didácticas**, señaladas como tales. La explicación correcta conserva el texto del solucionario de prácticas. Los comandos y logs se muestran en bloques con saltos de línea.
 - El índice y los filtros usan el **último intento confirmado**. Durante un reintento, el estado anterior sigue vigente hasta confirmar. Si una respuesta deja de coincidir con el filtro, su corrección sigue visible hasta navegar o cambiar los filtros.
-- El recorrido se cuenta sobre 350 preguntas con al menos un intento, independientemente del resultado. Las estadísticas de correctas/falladas corresponden al último intento; las estadísticas con/sin pista consideran todos los intentos.
+- El recorrido se cuenta sobre 442 preguntas con al menos un intento, independientemente del resultado. Las estadísticas de correctas/falladas corresponden al último intento; las estadísticas con/sin pista consideran todos los intentos.
 - Los botones y controles funcionan con Tab, Mayús+Tab, Enter y Espacio; las flechas cambian opciones dentro del grupo de radio. **Alt+← / Alt+→** navega preguntas del recorrido filtrado. Escape cierra las ventanas de material y progreso.
 
 ## Progreso y transferencia
@@ -50,28 +52,40 @@ La clave local es `ic2026.progress.v1`. El formato exportado contiene:
   "version": 1,
   "attempts": [],
   "drafts": {},
-  "view": { "questionId": 1, "topic": "all", "status": "all" },
+  "view": { "questionId": 1, "topic": "all", "status": "all", "origin": "all" },
   "exportedAt": "2026-10-21T12:00:00.000Z"
 }
 ```
+
+El formato conserva la versión 1: al leer respaldos anteriores sin `view.origin`, se utiliza `all`, manteniendo intentos, borradores y punto de lectura. Los nuevos respaldos incluyen `origin` (`all`, `theory` o `practice`).
 
 La importación valida versión, IDs, opciones, resultados contra el solucionario, fechas, ayuda, duplicados, borradores y filtros **antes de pedir confirmación**. Reemplaza el historial; no lo mezcla. Rechaza archivos mayores a 10 MB y más de 50.000 intentos. Cancelar la importación o el reinicio conserva los datos. Si falla el almacenamiento, se informa y la sesión continúa en memoria: exportar antes de salir. Si los datos guardados no se pueden interpretar, se preservan sin sobrescribirlos y se ofrece descargarlos desde **Mi progreso**; importar un respaldo válido o reiniciar permite volver a guardar.
 
 ## Datos y trazabilidad
 
-- `data/questions.json`: 350 preguntas con IDs estables `1`–`350`, opciones originales A–E en orden, solución, explicación, fuente de las diapositivas, páginas de los PDF y conceptos relacionados.
-- `data/glossary.json`: 89 entradas con ID, temas, definición, explicación, ejemplo cuando aporta claridad, pista y páginas del manual. Conserva los 33 términos del glosario original de pp. 51–52; las demás entradas amplían su cobertura.
+- `data/questions.json`: banco de origen `theory` con 350 preguntas con IDs estables `1`–`350`, opciones originales A–E en orden, solución, explicación, fuente de las diapositivas, páginas de los PDF y conceptos relacionados.
+- `data/glossary.json`: 108 entradas con ID, temas, definición, explicación, ejemplo cuando aporta claridad, pista y páginas del manual de teorías y/o de la guía de prácticas. Conserva los 33 términos del glosario original de pp. 51–52; las demás entradas amplían su cobertura.
 - `data/concept-map.json`: correspondencia revisada de las 350 preguntas con los conceptos. El primer concepto orienta la pista; los demás permiten profundizar. La extracción no adivina relaciones por palabras clave.
 - `data/option-explanations.json`: 1.400 explicaciones específicas para los cuatro distractores de cada pregunta, con referencias conceptuales al manual, notas de contexto y una huella del enunciado/opciones/respuesta que permite detectar cambios que requieren revisión editorial. No modifica las explicaciones originales ni se regenera desde los PDF.
 - `data/comparisons.json`: 13 cuadros de elaboración didáctica sobre conceptos que suelen confundirse, con columnas, diferencias, ejemplos, enlaces a entradas y páginas del manual.
 - `data/ascii.json`: tabla de las 52 letras A–Z y a–z, con sus valores decimales y hexadecimales, una aclaración sobre los caracteres del español que quedan fuera del ASCII estándar y referencias al manual.
+- `data/practice-questions.json`: 92 ejercicios con IDs 351–442, origen `practice`, número y parte de práctica, consigna y código originales, opciones adaptadas, solución literal, páginas y conceptos.
+- `data/practice-editorial.json`: adaptación revisada de cada ejercicio abierto, cuatro distractores y sus explicaciones, conceptos y páginas de la guía. La huella de título/consigna/referencia/solución detecta cambios que exigen revisión.
+- `data/practice-option-explanations.json`: 368 explicaciones de distractores, con huellas que incluyen también los bloques de código.
+- `data/practice-extraction-report.json`: 92 coincidencias entre consignas y solucionario, cobertura de las adaptaciones y hashes/páginas de los tres PDF nuevos.
 - `data/extraction-report.json`: resultados de las comprobaciones, versión del extractor, páginas y SHA-256 de cada PDF.
 
-Las referencias **Fuente original (diapositivas)** se copian del solucionario y tienen su propia numeración. Esas presentaciones no están incluidas. Los enlaces **Manual, p. …** abren el PDF disponible de 55 páginas. Las entradas que agregan detalles no desarrollados en el manual lo indican y citan sus páginas como contexto. Los enlaces PDF usan `#page=N`; algunos lectores externos pueden ignorar el salto y abrir el inicio del documento.
+Las referencias **Fuente original (diapositivas)** se copian del solucionario y tienen su propia numeración. Esas presentaciones no están incluidas. Los enlaces **Manual, p. …** abren el PDF disponible de 55 páginas. Los enlaces **Guía de prácticas, p. …** abren el PDF de 18 páginas, con numeración independiente. Los cuadernillos y solucionarios también se distinguen por origen. Las entradas que agregan detalles no desarrollados en el manual lo indican y citan sus páginas como contexto. Los enlaces PDF usan `#page=N`; algunos lectores externos pueden ignorar el salto y abrir el inicio del documento.
 
 El glosario admite búsqueda sin distinguir mayúsculas o tildes, filtros de tema y enlaces como `glosario.html#run-key`. La sección **Compará conceptos** incorpora 13 cuadros desplegables que también se buscan y filtran. Las entradas ofrecen enlaces a sus comparaciones, y cada cuadro tiene un enlace directo, por ejemplo `glosario.html#comparar-estatico-dinamico`. Un enlace directo abre el cuadro y despeja filtros incompatibles. En pantallas angostas las tablas se desplazan dentro de su propio contenedor, sin ensanchar la página. Cada entrada ofrece acceso a sus preguntas relacionadas mediante `index.html?pregunta=321`.
 
 La **Tabla ASCII del alfabeto** se consulta en `glosario.html#tabla-ascii` o desde la entrada sobre ASCII. Incluye mayúsculas y minúsculas en grupos que se apilan en pantallas angostas, puede abrirse con Enter/Espacio y admite búsqueda por valores como `65` o `0x41`. La ñ y las letras acentuadas no tienen códigos en ASCII estándar; la tabla lo aclara sin asignarles valores de otras codificaciones.
+
+## Glosario ampliado para prácticas
+
+Se añadieron **19 entradas**: A1Z26/Braille, Vigenère, Rail Fence/transposición columnar, aritmética modular, RSA, Diffie–Hellman, esteganografía/steghide, LSB, confianza en claves GPG/passphrase/ASCII armor, ataques de diccionario, NIR, logs SSH, canales encubiertos ICMP/DNS/PCAP, HID/Rubber Ducky, Unicode invisible, ofuscación VBScript, macros DOCM/XLS/VBA/XLM, exfiltración y writeups. Cada una tiene definición, explicación, ejemplo, pista y páginas de la guía disponible.
+
+Otras **58 entradas existentes** suman referencias a esa guía, cubriendo codificación, cifrados, hashes, PGP, recursos de Internet, correo, análisis de malware y gestión de incidentes. Las 442 preguntas están vinculadas a conceptos revisados; no se deducen respuestas ni flags de archivos o servicios ausentes.
 
 ## Extracción reproducible
 
@@ -81,6 +95,7 @@ Python solo es necesario para regenerar o verificar los datos, no para publicar 
 python3 -m venv .venv
 .venv/bin/python -m pip install -r requirements.txt
 .venv/bin/python scripts/extract_questions.py --check
+.venv/bin/python scripts/extract_practice_questions.py --check
 ```
 
 Para regenerar, quitar `--check` y revisar las diferencias antes de incorporar los JSON. La extracción:
@@ -91,6 +106,8 @@ Para regenerar, quitar `--check` y revisar las diferencias antes de incorporar l
 4. Exige las cantidades 66/160/124 y enlaces al glosario válidos.
 5. Une los saltos de línea del texto corrido, normaliza Unicode NFC y comprueba texto vacío o dañado. Mantiene comandos, flags, rutas de Windows, signos y valores hexadecimales; incluye verificaciones específicas de los fragmentos más frágiles.
 6. Genera los archivos solo después de validar todo el contenido. `--check` no escribe y detecta diferencias con los datos versionados.
+
+El extractor de prácticas compara las 92 consignas con su solucionario, conserva los fragmentos monoespaciados del PDF y exige la cobertura 40/29/23 por tema. Incorpora las opciones desde el archivo editorial sólo si su huella coincide, preserva las soluciones y genera un banco separado para mantener los IDs anteriores. Comprueba cálculos autocontenidos y fragmentos frágiles en las pruebas de contenido.
 
 Las definiciones y la correspondencia conceptual se mantienen editorialmente en los JSON; no se sobrescriben al extraer los PDF.
 
@@ -112,7 +129,7 @@ npx playwright install chromium
 npm run test:browser
 ```
 
-La prueba de navegador levanta un servidor temporal, comprueba práctica, teclado, glosario, recarga, progreso, importaciones, almacenamiento bloqueado, PDF y subruta `/ic2026/`. Comprueba desbordamientos a 320, 390, 768 y 1440 px y guarda capturas en `test-results/`. El servidor se cierra al terminar.
+La prueba de navegador levanta un servidor temporal, comprueba práctica, teclado, glosario, recarga, progreso, importaciones, almacenamiento bloqueado, PDF y subruta `/ic2026/`. Comprueba desbordamientos a 320, 390, 768, 800, 801, 1024, 1440 y 1920 px y guarda capturas en `test-results/`. El servidor se cierra al terminar.
 
 Ver [tests/VALIDATION.md](tests/VALIDATION.md) para los resultados obtenidos y los límites de la verificación en este entorno.
 

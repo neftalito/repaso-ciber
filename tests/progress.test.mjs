@@ -2,7 +2,9 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { emptyProgress, beginRetry, confirmAttempt, latestAttempt, questionStatus, statistics, filterQuestions, validateProgress, loadProgress, saveProgress, STORAGE_KEY } from '../assets/progress.mjs';
-const questions = JSON.parse(readFileSync(new URL('../data/questions.json', import.meta.url))).questions;
+const theoretical = JSON.parse(readFileSync(new URL('../data/questions.json', import.meta.url))).questions.map(q => ({ ...q, origin:'theory' }));
+const practical = JSON.parse(readFileSync(new URL('../data/practice-questions.json', import.meta.url))).questions;
+const questions = [...theoretical, ...practical];
 const confirm = (s, id, option, hintUsed = false) => { s.drafts[id] = { option, hintUsed }; return confirmAttempt(s, questions[id - 1]); };
 
 test('correction uses the bank, records date/help, and latest attempt determines status', () => {
@@ -21,6 +23,7 @@ test('statistics distinguish latest question states from total attempts and help
 });
 test('topic and last-result filters combine and preserve source order', () => {
   const s = emptyProgress(); confirm(s, 1, 'E'); confirm(s, 67, 'A');
+  s.view.origin = 'theory';
   s.view.topic = 'cripto'; s.view.status = 'pending'; const result = filterQuestions(questions, s);
   assert.equal(result.length, 65); assert.equal(result[0].id, 2); assert.equal(result.at(-1).id, 66);
   s.view.status = 'correct'; assert.deepEqual(filterQuestions(questions, s).map(q => q.id), [1]);
@@ -28,18 +31,38 @@ test('topic and last-result filters combine and preserve source order', () => {
 });
 test('export/import round-trip keeps history, reading position, filters and retry drafts', () => {
   const s = emptyProgress(); confirm(s, 350, questions[349].answer); beginRetry(s, 350); s.drafts[350].hintUsed = true;
-  s.view = { questionId: 350, topic: 'malware', status: 'correct' };
+  s.view = { questionId: 350, topic: 'malware', status: 'correct', origin: 'theory' };
   assert.deepEqual(validateProgress(JSON.parse(JSON.stringify({ ...s, exportedAt: new Date().toISOString() })), questions), s);
 });
 test('imports reject incompatible versions, unknown ids/options, incoherent results and malformed dates', () => {
   const good = emptyProgress(); confirm(good, 1, 'E');
-  const mutations = [s => s.version = 2, s => s.format = 'other', s => s.attempts = {}, s => s.attempts[0].questionId = 351,
+  const mutations = [s => s.version = 2, s => s.format = 'other', s => s.attempts = {}, s => s.attempts[0].questionId = 443,
     s => s.attempts[0].option = 'F', s => s.attempts[0].option = '__proto__', s => s.attempts[0].correct = false,
     s => s.attempts[0].date = 'ayer', s => s.attempts[0].date = 0, s => s.attempts[0].hintUsed = 'false',
     s => s.attempts.push({ ...s.attempts[0] }), s => s.view.questionId = 0, s => s.view.topic = 'typo', s => s.view.status = 'unknown',
-    s => s.drafts = null, s => s.drafts[351] = { option: 'A', hintUsed: false }, s => s.drafts[1] = { option: 'F', hintUsed: false }];
+    s => s.drafts = null, s => s.drafts[443] = { option: 'A', hintUsed: false }, s => s.drafts[1] = { option: 'F', hintUsed: false },
+    s => s.view.origin = 'unknown', s => s.view.origin = null];
   for (const mutate of mutations) { const s = structuredClone(good); mutate(s); assert.throws(() => validateProgress(s, questions), /Progreso inválido/); }
   assert.throws(() => validateProgress(null, questions));
+});
+test('practice origin combines with topic and last result without mixing the original theoretical IDs', () => {
+  const s = emptyProgress(); s.view.origin = 'practice';
+  assert.deepEqual(filterQuestions(questions,s).map(q => q.id), Array.from({length:92},(_,i)=>351+i));
+  s.view.topic = 'csirt'; assert.equal(filterQuestions(questions,s).length,29);
+  confirm(s,391,questions[390].answer,true); s.view.status = 'pending';
+  assert.equal(filterQuestions(questions,s).length,28); s.view.status = 'correct';
+  assert.deepEqual(filterQuestions(questions,s).map(q=>q.id),[391]);
+  assert.deepEqual(validateProgress(s,questions),s);
+});
+test('existing v1 backups without an origin filter preserve attempts, drafts and reading position', () => {
+  const s = emptyProgress(); confirm(s,350,questions[349].answer); beginRetry(s,350);
+  s.view = {questionId:350,topic:'malware',status:'correct'};
+  const restored = validateProgress(s,questions);
+  assert.deepEqual(restored.attempts,s.attempts); assert.deepEqual(restored.drafts,s.drafts);
+  assert.deepEqual(restored.view,{...s.view,origin:'all'});
+  const practice = emptyProgress(); confirm(practice,442,questions[441].answer);
+  practice.view = {questionId:442,topic:'malware',status:'all',origin:'practice'};
+  assert.deepEqual(validateProgress(JSON.parse(JSON.stringify(practice)),questions),practice);
 });
 test('blocked storage and corrupt data leave a usable in-memory session', () => {
   const blocked = { getItem() { throw new Error('blocked'); }, setItem() { throw new Error('quota'); } };

@@ -1,4 +1,4 @@
-import { STORAGE_KEY, TOPICS, emptyProgress, latestAttempt, questionStatus, filterQuestions, statistics, confirmAttempt, beginRetry, validateProgress, loadProgress, saveProgress } from './progress.mjs';
+import { STORAGE_KEY, TOPICS, ORIGINS, emptyProgress, latestAttempt, questionStatus, filterQuestions, statistics, confirmAttempt, beginRetry, validateProgress, loadProgress, saveProgress } from './progress.mjs?v=20261021-6';
 const $ = id => document.getElementById(id);
 const el = (tag, className, text) => { const node = document.createElement(tag); if (className) node.className = className; if (text !== undefined) node.textContent = text; return node; };
 const number = id => String(id).padStart(3, '0');
@@ -6,6 +6,7 @@ const stateLabels = { pending: 'Pendiente', correct: 'Correcta', incorrect: 'Fal
 const dateLabel = date => new Intl.DateTimeFormat('es-AR', { dateStyle: 'short', timeStyle: 'short' }).format(new Date(date));
 const pdfLink = (file, page, text) => { const a = el('a', 'text-link', text); a.href = `docs/${file}#page=${page}`; a.target = '_blank'; a.rel = 'noopener'; a.setAttribute('aria-label', `${text} (PDF, nueva pestaña)`); return a; };
 const MANUAL = 'Manual_IC2026_Cripto_CSIRT_Malware_Descarga.pdf';
+const PRACTICE_GUIDE = 'Guia_de_estudio_IC_Practicas_1_y_2.pdf';
 let questions, concepts, optionNotes, progress, storage, pinned = false, recoveryRaw = null, autoOpenQuestion = null;
 function warn(message) { $('storage-warning').textContent = message; $('storage-warning').hidden = !message; $('save-state').textContent = message ? 'Sesión sin guardado garantizado' : 'Progreso en este navegador'; }
 function persist() {
@@ -41,11 +42,19 @@ function renderStats() {
   $('attempt-count').textContent = s.attempts;
   $('assisted-count').textContent = `${s.assisted} con pista · ${s.independent} sin pista`;
   $('overall-progress').value = s.answered;
-  $('progress-percent').textContent = `${Math.round(s.answered / 350 * 100)}%`;
+  $('overall-progress').max = questions.length;
+  $('total-questions').textContent = questions.length;
+  $('bank-count').textContent = questions.length;
+  $('progress-percent').textContent = `${Math.round(s.answered / questions.length * 100)}%`;
 }
 function renderIndex(filtered) {
   $('topic-filter').value = progress.view.topic;
   $('status-filter').value = progress.view.status;
+  $('origin-filter').value = progress.view.origin;
+  for (const option of $('topic-filter').options) {
+    const count = questions.filter(q => (progress.view.origin === 'all' || q.origin === progress.view.origin) && (option.value === 'all' || q.topic === option.value)).length;
+    option.textContent = `${TOPICS[option.value] ?? 'Todos los temas'} · ${count}`;
+  }
   $('index-count').textContent = `${filtered.length} ${filtered.length === 1 ? 'pregunta' : 'preguntas'}`;
   const fragment = document.createDocumentFragment();
   for (const [topic, label] of Object.entries(TOPICS)) {
@@ -59,8 +68,8 @@ function renderIndex(filtered) {
       const status = questionStatus(progress, q.id);
       const b = el('button', `question-number ${status}`, number(q.id));
       b.type = 'button'; b.dataset.question = q.id;
-      b.setAttribute('aria-label', `Pregunta ${q.id}, ${TOPICS[q.topic]}, ${stateLabels[status].toLowerCase()}`);
-      b.title = `Pregunta ${number(q.id)} · ${stateLabels[status]}`;
+      b.setAttribute('aria-label', `Pregunta ${q.id}, ${ORIGINS[q.origin]}, ${TOPICS[q.topic]}, ${stateLabels[status].toLowerCase()}`);
+      b.title = `Pregunta ${number(q.id)} · ${ORIGINS[q.origin]} · ${stateLabels[status]}`;
       if (q.id === progress.view.questionId) b.setAttribute('aria-current', 'step');
       grid.append(b);
     }
@@ -86,7 +95,9 @@ function renderHint(q, show, automatic = false) {
   q.conceptIds.forEach(id => links.append(glossaryLink(id)));
   fragment.append(links);
   const references = el('p', 'small muted');
-  references.append('Para profundizar: ', pdfLink(MANUAL, c.manualPages[0], `Manual, ${c.manualPages.length === 1 ? 'p.' : 'pp.'} ${c.manualPages.join(', ')}`));
+  references.append('Para profundizar: ');
+  if (c.manualPages.length) references.append(pdfLink(MANUAL, c.manualPages[0], `Manual de teorías, pp. ${c.manualPages.join(', ')}`));
+  if (c.practicePages?.length) references.append(' ', pdfLink(PRACTICE_GUIDE, c.practicePages[0], `Guía de prácticas, pp. ${c.practicePages.join(', ')}`));
   if (c.referenceNote) references.append(el('span', 'reference-note', c.referenceNote));
   fragment.append(references);
   $('hint-content').replaceChildren(fragment);
@@ -130,11 +141,12 @@ function answerOption(q, letter, text, confirmed, last, draft) {
     const reference = el('p', 'option-reference');
     if (correct) {
       reference.append(el('strong', '', 'Solucionario original · '),
-        pdfLink('IC_2026_Cripto_CSIRT_Malware_Solucionario.pdf', q.solutionPage, `p. ${q.solutionPage}`),
-        el('span', 'original-reference', `Fuente original (diapositivas): ${q.source}`));
+        pdfLink(q.origin === 'practice' ? 'IC2026_Solucionario_Practicas_1_y_2.pdf' : 'IC_2026_Cripto_CSIRT_Malware_Solucionario.pdf', q.solutionPage, `${ORIGINS[q.origin]}, p. ${q.solutionPage}`),
+        el('span', 'original-reference', `${q.origin === 'practice' ? 'Referencia del ejercicio' : 'Fuente original (diapositivas)'}: ${q.source}`));
     } else {
-      reference.append(el('strong', '', 'Ampliación didáctica · '),
-        pdfLink(MANUAL, note.manualPages[0], `Conceptos en el manual, pp. ${note.manualPages.join(', ')}`));
+      reference.append(el('strong', '', 'Ampliación didáctica · '));
+      if (note.manualPages.length) reference.append(pdfLink(MANUAL, note.manualPages[0], `Conceptos en el manual, pp. ${note.manualPages.join(', ')}`));
+      if (note.practicePages?.length) reference.append(pdfLink(PRACTICE_GUIDE, note.practicePages[0], `Guía de prácticas, pp. ${note.practicePages.join(', ')}`));
       if (note.referenceNote) reference.append(el('span', 'reference-note', note.referenceNote));
     }
     body.append(reference); card.append(body);
@@ -149,12 +161,18 @@ function renderQuestion(filtered) {
   const empty = filtered.length === 0 && !pinned;
   $('question-card').hidden = empty;
   $('empty-state').hidden = !empty;
-  $('question-position').textContent = `Pregunta ${number(q.id)} de 350`;
+  $('question-position').textContent = `Pregunta ${number(q.id)} de ${questions.length}`;
   $('question-topic').textContent = TOPICS[q.topic];
   $('question-topic').className = `topic-badge ${q.topic}`;
+  $('question-origin').textContent = ORIGINS[q.origin];
+  $('question-origin').className = `origin-badge ${q.origin}`;
   $('question-state').textContent = draft && last ? 'Nuevo intento' : last ? last.correct ? 'Correcta' : 'Fallada' : 'Pendiente';
   $('question-state').className = `state-label ${confirmed ? last.correct ? 'correct-text' : 'incorrect-text' : ''}`;
   $('question-title').textContent = q.prompt;
+  $('question-code').textContent = q.code ?? '';
+  $('question-code').hidden = !q.code;
+  $('practice-context').hidden = q.origin !== 'practice';
+  $('practice-context').textContent = q.origin === 'practice' ? `${q.practice} · Ejercicio original ${String(q.sourceNumber).padStart(2, '0')}: ${q.title}. Opciones adaptadas para esta práctica guiada.` : '';
   $('selection-note').textContent = confirmed ? `Elegiste la opción ${last.option}. ${last.hintUsed ? 'Usaste una pista en este intento.' : 'Respondiste sin usar pista.'}` : 'Elegí una opción. Podés cambiarla antes de confirmar.';
   const fieldset = $('answer-options');
   fieldset.replaceChildren(el('legend', 'sr-only', 'Opciones de respuesta'));
@@ -182,7 +200,8 @@ function renderQuestion(filtered) {
   // Prevent a previously opened history from showing solutions during a retry.
   if (!confirmed) $('question-history').open = false;
   $('question-source').replaceChildren();
-  $('question-source').append('ENUNCIADO ORIGINAL · ', pdfLink('IC_2026_Cripto_CSIRT_Malware_350_Preguntas.pdf', q.questionPage, `Cuestionario, p. ${q.questionPage}`));
+  $('question-source').append('ENUNCIADO ORIGINAL · ', pdfLink(q.origin === 'practice' ? 'IC2026_Preguntas_Basadas_en_Practicas_1_y_2.pdf' : 'IC_2026_Cripto_CSIRT_Malware_350_Preguntas.pdf', q.questionPage, `${q.origin === 'practice' ? 'Cuadernillo de prácticas' : 'Cuestionario de teorías'}, p. ${q.questionPage}`));
+  if (q.adaptationNote) $('question-source').append(el('span', 'reference-note', q.adaptationNote));
   const index = filtered.findIndex(item => item.id === q.id);
   $('outside-filter').hidden = empty || index >= 0;
   const previous = filtered.filter(item => item.id < q.id).at(-1);
@@ -204,8 +223,8 @@ function move(direction) {
   const candidate = direction > 0 ? filtered.find(q => q.id > current().id) : filtered.filter(q => q.id < current().id).at(-1);
   if (candidate) navigate(candidate.id);
 }
-function setFilters(topic = $('topic-filter').value, status = $('status-filter').value) {
-  progress.view.topic = topic; progress.view.status = status; pinned = false;
+function setFilters(topic = $('topic-filter').value, status = $('status-filter').value, origin = $('origin-filter').value) {
+  progress.view.topic = topic; progress.view.status = status; progress.view.origin = origin; pinned = false;
   const filtered = filterQuestions(questions, progress);
   if (filtered.length && !filtered.some(q => q.id === current().id)) progress.view.questionId = filtered[0].id;
   persist(); render();
@@ -260,7 +279,8 @@ function bindEvents() {
   $('question-index').addEventListener('click', event => { const b = event.target.closest('[data-question]'); if (b) navigate(Number(b.dataset.question)); });
   $('topic-filter').addEventListener('change', () => setFilters());
   $('status-filter').addEventListener('change', () => setFilters());
-  for (const id of ['reset-filters', 'clear-filters']) $(id).addEventListener('click', () => setFilters('all', 'all'));
+  $('origin-filter').addEventListener('change', () => setFilters());
+  for (const id of ['reset-filters', 'clear-filters']) $(id).addEventListener('click', () => setFilters('all', 'all', 'all'));
   document.addEventListener('keydown', event => {
     if (document.querySelector('dialog[open]') || !event.altKey || !['ArrowLeft', 'ArrowRight'].includes(event.key)) return;
     event.preventDefault(); move(event.key === 'ArrowRight' ? 1 : -1);
@@ -271,7 +291,7 @@ function bindEvents() {
     const list = el('ol', 'full-history-list');
     for (const a of progress.attempts.toReversed()) {
       const li = attemptItem(a); const link = el('button', 'text-button', `Pregunta ${number(a.questionId)}`);
-      link.addEventListener('click', () => { $('progress-dialog').close(); progress.view.topic = 'all'; progress.view.status = 'all'; navigate(a.questionId); });
+      link.addEventListener('click', () => { $('progress-dialog').close(); progress.view.topic = 'all'; progress.view.status = 'all'; progress.view.origin = 'all'; navigate(a.questionId); });
       li.prepend(link); list.append(li);
     }
     $('all-attempts').replaceChildren(progress.attempts.length ? list : el('p', 'muted small', 'Todavía no confirmaste intentos.'));
@@ -307,18 +327,18 @@ function bindDialogs() {
 }
 bindDialogs();
 try {
-  const responses = await Promise.all([fetch('data/questions.json'), fetch('data/glossary.json'), fetch('data/option-explanations.json')]);
+  const responses = await Promise.all([fetch('data/questions.json', { cache: 'no-cache' }), fetch('data/glossary.json', { cache: 'no-cache' }), fetch('data/option-explanations.json', { cache: 'no-cache' }), fetch('data/practice-questions.json', { cache: 'no-cache' }), fetch('data/practice-option-explanations.json', { cache: 'no-cache' })]);
   if (responses.some(r => !r.ok)) throw new Error('No se pudieron cargar los archivos de contenido.');
-  const [bank, glossary, notes] = await Promise.all(responses.map(r => r.json()));
-  questions = bank.questions; concepts = new Map(glossary.entries.map(c => [c.id, c]));
-  optionNotes = new Map(notes.questions.map(n => [n.questionId, n]));
-  if (bank.version !== 1 || questions.length !== 350 || questions.some((q, i) => q.id !== i + 1 || !q.conceptIds.every(id => concepts.has(id)))) throw new Error('El banco de preguntas está incompleto.');
-  if (notes.version !== 1 || optionNotes.size !== 350 || questions.some(q => !optionNotes.has(q.id) || Object.keys(q.options).filter(k => k !== q.answer).some(k => !optionNotes.get(q.id).distractors[k]))) throw new Error('Las explicaciones por opción están incompletas.');
+  const [bank, glossary, notes, practical, practicalNotes] = await Promise.all(responses.map(r => r.json()));
+  questions = [...bank.questions.map(q => ({ ...q, origin: bank.origin ?? 'theory' })), ...practical.questions]; concepts = new Map(glossary.entries.map(c => [c.id, c]));
+  optionNotes = new Map([...notes.questions, ...practicalNotes.questions].map(n => [n.questionId, n]));
+  if (bank.version !== 1 || practical.version !== 1 || bank.questions.length !== 350 || practical.questions.length !== 92 || questions.some((q, i) => q.id !== i + 1 || !Object.hasOwn(ORIGINS, q.origin) || !q.conceptIds.every(id => concepts.has(id)))) throw new Error('El banco de preguntas está incompleto.');
+  if (notes.version !== 1 || practicalNotes.version !== 1 || optionNotes.size !== questions.length || questions.some(q => !optionNotes.has(q.id) || Object.keys(q.options).filter(k => k !== q.answer).some(k => !optionNotes.get(q.id).distractors[k]))) throw new Error('Las explicaciones por opción están incompletas.');
   try { storage = window.localStorage; } catch { storage = null; }
   const loaded = loadProgress(storage, questions); progress = loaded.progress; recoveryRaw = loaded.recoveryRaw; warn(loaded.warning);
   const linkedId = new URL(location.href).searchParams.get('pregunta');
-  if (linkedId && /^\d{1,3}$/.test(linkedId) && Number(linkedId) >= 1 && Number(linkedId) <= 350) {
-    progress.view = { questionId: Number(linkedId), topic: 'all', status: 'all' }; persist();
+  if (linkedId && /^\d+$/.test(linkedId) && questions.some(q => q.id === Number(linkedId))) {
+    progress.view = { questionId: Number(linkedId), topic: 'all', status: 'all', origin: 'all' }; persist();
     history.replaceState(null, '', location.pathname);
   }
   bindEvents(); render(); $('study-layout').hidden = false; $('load-status').hidden = true;

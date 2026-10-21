@@ -32,10 +32,14 @@ jobs:
           node-version: 22
           package-manager-cache: false
       - name: Instalar dependencias de prueba
-        run: npm install --ignore-scripts
+        run: |
+          npm install --ignore-scripts
+          python3 -m pip install -r requirements.txt
       - name: Validar datos y progreso
         run: |
           python3 scripts/validate_data.py
+          python3 scripts/extract_questions.py --check
+          python3 scripts/extract_practice_questions.py --check
           npm test
           npm run test:dom
       - name: Instalar Chromium

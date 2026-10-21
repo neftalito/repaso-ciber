@@ -1,0 +1,1438 @@
+{
+  "version": 1,
+  "authorship": "Ampliaciones didácticas de opciones adaptadas; no son transcripciones del solucionario.",
+  "questions": [
+    {
+      "questionId": 351,
+      "questionFingerprint": "af7754d059f70fefd6585048369c7058e42a70ae6dbb781d75b2e4e00daa4b0d",
+      "distractors": {
+        "B": "Base64 no define una clave secreta: cualquiera que conozca su alfabeto puede recuperar los bytes.",
+        "C": "La apariencia del texto no demuestra confidencialidad; una representación pública puede ocultar su lectura inmediata.",
+        "D": "Base64 permite recuperar los bytes originales; un hash no ofrece esa operación general de recuperación.",
+        "E": "La decodificación aplica reglas públicas y no requiere claves privadas ni identificar un destinatario."
+      },
+      "manualPages": [],
+      "practicePages": [
+        2,
+        3
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 352,
+      "questionFingerprint": "566617ff27d2f455553b054cfacfb53a3180b0cdaa702845f29b1b2d134f404f",
+      "distractors": {
+        "A": "Los corchetes tienen otros códigos. Los valores 123 y 125 corresponden a llaves de apertura y cierre.",
+        "C": "A corresponde a 65 decimal. El valor 123 corresponde a una llave, no a una segunda letra A.",
+        "D": "Aunque el texto obtenido coincide, 123 sí está dentro del rango ASCII de 0 a 127 y representa {. ",
+        "E": "ASCII asigna códigos también a puntuación y controles; no se limita a letras y dígitos."
+      },
+      "manualPages": [],
+      "practicePages": [
+        2,
+        3
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 353,
+      "questionFingerprint": "1179f6a571fb42f860f41d48a0eb51c31ee787bbbd044a239ea5af6e5ab99ebb",
+      "distractors": {
+        "A": "La cadena se decodifica a bytes y luego a texto; no se está invirtiendo una función hash.",
+        "B": "Los signos de relleno completan grupos de la representación, pero no forman parte de los bytes originales.",
+        "D": "El signo = indica padding de la representación Base64; no es una contraseña ni material secreto.",
+        "E": "El relleno depende de la longitud de los bytes de entrada: no todas las cadenas Base64 necesitan =."
+      },
+      "manualPages": [],
+      "practicePages": [
+        3
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 354,
+      "questionFingerprint": "baa1fa47c8751990fdfdfde48a7a0b11d3d8671a47ef0fe7749408445afae35b",
+      "distractors": {
+        "A": "El texto está bien, pero la justificación mezcla bases: I es 73 decimal y 0x49 hexadecimal.",
+        "B": "En hexadecimal se usan a–f para los valores 10–15. 7b es un byte válido que representa {.",
+        "C": "Los datos ya son valores de caracteres ASCII en hexadecimal; no se indicó un cifrado que requiera una clave.",
+        "E": "Los dígitos se interpretan según su base. 49 hexadecimal vale 73 decimal, por lo que el primer carácter es I."
+      },
+      "manualPages": [],
+      "practicePages": [
+        2,
+        3
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 355,
+      "questionFingerprint": "c7eb79d364a02ef270b5abca524a6baa2b5a19ee90afecda8dfb6d8174f1b3eb",
+      "distractors": {
+        "A": "La consigna fija A=1. Aplicar un origen distinto desplaza cada letra y contradice la regla dada.",
+        "B": "El resultado coincide, pero los valores son posiciones A1Z26. En ASCII la I mayúscula es 73, no 9.",
+        "C": "Antes de aplicarla a datos ajenos hay que comprobar el alfabeto, sus índices y cómo se representan los separadores.",
+        "D": "A1Z26 es una asociación pública entre posiciones y letras; no se ha definido una contraseña."
+      },
+      "manualPages": [],
+      "practicePages": [
+        3
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 356,
+      "questionFingerprint": "07aa021111d83ce0ee2b178ed881d46782b391ac2fbd4357b09732a07cf8b0ce",
+      "distractors": {
+        "B": "Las celdas Braille representan símbolos mediante patrones de puntos; no hay evidencia de cifrado AES.",
+        "C": "El desconocimiento de un alfabeto no lo transforma en criptografía ni demuestra la presencia de una clave.",
+        "D": "Los puntos de código Braille de Unicode no coinciden con los valores ASCII de las letras representadas.",
+        "E": "Los separadores pueden conservar estructura necesaria para interpretar el mensaje; la reconstrucción debe ser verificable."
+      },
+      "manualPages": [],
+      "practicePages": [
+        2,
+        3
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 357,
+      "questionFingerprint": "cfc0258bb7f2e77f7bfa33b54431cb053639fc28d46863b4b550f5734f80086b",
+      "distractors": {
+        "A": "Modificar el archivo puede destruir datos ocultos y evidencia. Primero se conserva y examina una copia.",
+        "C": "La apariencia visible no descarta información en metadatos, datos anexados o bits de los píxeles.",
+        "D": "Sin inspeccionar la imagen no se puede conocer el mensaje oculto ni confirmar un algoritmo de cifrado.",
+        "E": "El nombre no cubre los metadatos, los bytes internos, los datos agregados ni los canales de píxeles."
+      },
+      "manualPages": [],
+      "practicePages": [
+        7
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 358,
+      "questionFingerprint": "01b8eee4d0b5d03273279503d06752944cb96cbf2b0d8199ccf85d57be9f7b62",
+      "distractors": {
+        "A": "Los registros permiten reproducir el resultado y los separadores pueden formar parte del protocolo del reto.",
+        "B": "Hay que identificar la representación recibida; un único decodificador no sirve para cualquier formato.",
+        "D": "La consigna advierte que la cadena cambia: una respuesta fija no resuelve las entradas posteriores.",
+        "E": "El resultado debe verificarse con la entrada y la salida observadas; una flag supuesta no es evidencia."
+      },
+      "manualPages": [],
+      "practicePages": [
+        2,
+        3,
+        15,
+        16
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 359,
+      "questionFingerprint": "7ab58b2ef1f07dc566f80daa70441230357f9d39759e76e17d03827b058c0802",
+      "distractors": {
+        "A": "La inversión es reversible y conserva los caracteres. No corresponde a una función hash criptográfica.",
+        "B": "La consigna presenta una cadena invertida, no un desplazamiento César; mover letras no recupera su orden.",
+        "C": "Basta invertir la secuencia dada; no se describe un esquema asimétrico ni una clave privada.",
+        "E": "Cambiar posiciones manteniendo los caracteres es transposición; sustituir implica reemplazar símbolos."
+      },
+      "manualPages": [],
+      "practicePages": [
+        3,
+        4
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 360,
+      "questionFingerprint": "bd6d77af43660fd90690cab4512c0413099d5d93764071bec1cc78f756bbdc5c",
+      "distractors": {
+        "A": "Si se cifró desplazando +3, el descifrado aplica el desplazamiento inverso −3, no un segundo +3.",
+        "B": "César conserva las posiciones y reemplaza cada letra por otra; por eso es sustitución.",
+        "C": "El enunciado especifica que los signos se conservaron: sólo deben desplazarse las letras.",
+        "D": "KEY corresponde al ejemplo de Vigenère. En este caso el desplazamiento César ya está indicado."
+      },
+      "manualPages": [],
+      "practicePages": [
+        3,
+        4
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 361,
+      "questionFingerprint": "928015168043253fd1d3db5d5dc132e8af9c27d14381061f79cea70dd5e6d245",
+      "distractors": {
+        "B": "CBRIE es la concatenación de rieles cifrada; para recuperar el texto se deben intercalar sus posiciones.",
+        "C": "Rail fence de dos rieles distribuye posiciones alternadas. La inversión completa no deshace ese reparto.",
+        "D": "El mensaje se recupera reordenando letras que ya estaban presentes, sin sustituirlas.",
+        "E": "Hay cinco posiciones: el primer riel contiene tres letras y el segundo dos, por lo que no se reparten por igual."
+      },
+      "manualPages": [],
+      "practicePages": [
+        3,
+        4
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 362,
+      "questionFingerprint": "24dd2e4a351c26c420f75c5c4473ad70a7be9e3524d33c8b854a8d0093d1e12e",
+      "distractors": {
+        "A": "Son doce caracteres y tres columnas: cada bloque de columna tiene cuatro caracteres, sin sobrantes.",
+        "C": "Los bloques se leyeron por columnas ordenadas alfabéticamente; hay que reconstruir la grilla antes de leer filas.",
+        "D": "HKSU corresponde a A, la primera columna en el orden alfabético de CAT, y no a la primera posición de la clave.",
+        "E": "La consigna describe transposición por columnas: cambia el orden, no los símbolos según desplazamientos."
+      },
+      "manualPages": [],
+      "practicePages": [
+        3,
+        4
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 363,
+      "questionFingerprint": "d98df5eb79e55c5636ece35e38b566b00e57f7bfbc05da25a21897f423e52a58",
+      "distractors": {
+        "A": "Vigenère sustituye letras mediante sumas modulares; no permuta únicamente sus posiciones.",
+        "B": "La clave debe extenderse a la longitud del mensaje: KEYKE, para dar un desplazamiento a cada posición.",
+        "D": "El resultado coincide, pero la clave KEY repite tres desplazamientos distintos y no uno fijo.",
+        "E": "La clave determina qué desplazamiento se resta en cada posición para recuperar el texto."
+      },
+      "manualPages": [],
+      "practicePages": [
+        3,
+        4
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 364,
+      "questionFingerprint": "dcd90e6d56a71cb7303e1729c3d749c2e8c469538d064f7f7671b21ef3d6299d",
+      "distractors": {
+        "A": "Una salida distinta no basta para identificar un hash. Los ejemplos muestran sustitución y reordenamiento reversibles.",
+        "B": "Distintas transformaciones pueden producir el mismo par observado; se requieren más muestras o especificaciones.",
+        "C": "FDVD introduce F, D y V en lugar de C, A y S; por eso no conserva la identidad de los símbolos.",
+        "E": "FDVD cambia los símbolos de CASA; ASAC usa exactamente sus letras en otra disposición. Las clasificaciones están invertidas."
+      },
+      "manualPages": [],
+      "practicePages": [
+        3,
+        4
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 365,
+      "questionFingerprint": "fda06efa8a9f1740311ba6fec4b01a206342178c1adb3baf5bb0ec83d684a5da",
+      "distractors": {
+        "A": "En el alfabeto latino de 26 letras hay 26 desplazamientos César, no las 256 claves de XOR de un byte.",
+        "B": "Todas las variantes César contienen letras; hay que evaluar el mensaje completo y verificarlo en el servicio.",
+        "C": "No se conoce la clave y el servicio permite validar: un supuesto fijo no demuestra haber descifrado la frase.",
+        "D": "La regla de desplazamiento depende del alfabeto y del tratamiento de caracteres especiales; debe especificarse."
+      },
+      "manualPages": [],
+      "practicePages": [
+        3,
+        4
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 366,
+      "questionFingerprint": "270157ecbfa8ff7da14dad679a4e8daf0034322c4a27a87ba8ad52355d190b97",
+      "distractors": {
+        "B": "Cada dígito hexadecimal representa cuatro bits; confundir cantidad de dígitos con bits reduce los tamaños por un factor de cuatro.",
+        "C": "Un carácter hexadecimal no representa ocho bits: dos caracteres hexadecimales representan un byte.",
+        "D": "Esas longitudes son compatibles, pero otros algoritmos o salidas truncadas pueden tener el mismo tamaño.",
+        "E": "Los hashes de tamaño fijo producen la misma longitud de salida para entradas de tamaños diferentes."
+      },
+      "manualPages": [],
+      "practicePages": [
+        4
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 367,
+      "questionFingerprint": "6d6d6f557886f8e2fc7460c30f411842e591fc56068745b9a935094a7b68a020",
+      "distractors": {
+        "A": "MD5 es una función hash sin clave privada; las colisiones no se corrigen introduciendo una clave de descifrado.",
+        "C": "Un resumen de longitud fija tiene un conjunto finito de salidas y admite colisiones entre entradas distintas.",
+        "D": "La tabla compara candidatos ya calculados; no proporciona una operación de descifrado del hash.",
+        "E": "Puede haber otras preimágenes o colisiones. Una entrada compatible no demuestra unicidad del origen."
+      },
+      "manualPages": [],
+      "practicePages": [
+        4
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 368,
+      "questionFingerprint": "612bd441b1b1624a61633a9682f95bbd65cfd57e59e133357db06e9c8b23007b",
+      "distractors": {
+        "A": "Debe aplicarse el mismo algoritmo a los mismos bytes; MD5 y SHA-256 producen resúmenes de formatos diferentes.",
+        "B": "SHA-256 no ofrece una operación general de descifrado; la comprobación recalcula y compara el resumen.",
+        "D": "Dos archivos pueden compartir nombre y extensión con contenidos distintos; eso no verifica su resumen criptográfico.",
+        "E": "Un atacante podría reemplazar tanto el archivo como el digest en una fuente no autenticada."
+      },
+      "manualPages": [],
+      "practicePages": [
+        4
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 369,
+      "questionFingerprint": "5f64717b33e09a404b0540096b36bba656d699c117e99cdcb87ddaf09b4c257e",
+      "distractors": {
+        "A": "SHA-256 no se descifra con una clave; se calculan hashes de candidatas y se comparan.",
+        "B": "El material recibido permite comparar hashes offline; no requiere ni justifica autenticaciones contra terceros.",
+        "C": "El algoritmo del objetivo es SHA-256. Comparar resúmenes MD5 no identifica la candidata correspondiente.",
+        "E": "El reto acota las candidatas a cien entradas: un diccionario limitado evita buscar todo el espacio de cadenas."
+      },
+      "manualPages": [],
+      "practicePages": [
+        4
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 370,
+      "questionFingerprint": "fe57ee3f1c1ba1a7e0e26c9df4473e507bec97c0b8593a1d62ab4991dc8ce194",
+      "distractors": {
+        "A": "La definición es MD5(salt || password). Cambiar orden y candidata no reproduce el digest entregado.",
+        "B": "Que el salt sea público no hace iguales los hashes de contraseñas diferentes; cada candidata debe comprobarse.",
+        "C": "La candidata es mate, pero omitir el prefijo cambia los bytes de entrada y produce otro digest.",
+        "D": "El salt no añade un costo de cálculo alto a MD5; una KDF de contraseñas requiere un diseño apropiado."
+      },
+      "manualPages": [],
+      "practicePages": [
+        4
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 371,
+      "questionFingerprint": "c7215104060e11422ba62608302b1f302b6b67fe5939db3da73ec5d2a7555eac",
+      "distractors": {
+        "B": "Base64 representa los bytes cifrados: primero hay que recuperarlos para que AES reciba el ciphertext correcto.",
+        "C": "Esa operación sólo recupera los bytes cifrados; todavía hace falta el descifrado AES con la clave correcta.",
+        "D": "Base64 no incorpora automáticamente los parámetros del cifrado ni permite deducir la clave.",
+        "E": "El tamaño de clave indicado está en bits: 128 bits equivalen a 16 bytes, no 128 bytes."
+      },
+      "manualPages": [],
+      "practicePages": [
+        5
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 372,
+      "questionFingerprint": "0357a3538473c4c6ad7217cd3e8884032857b422f9c747d819f259393a183414",
+      "distractors": {
+        "A": "AES transforma bloques de 16 bytes en bloques de 16 bytes; el modo no convierte cada bloque en todo el mensaje.",
+        "C": "ECB no encadena bloques ni utiliza ese IV por bloque; bajo la misma clave repite la salida para entradas iguales.",
+        "D": "CBC combina el bloque con el cifrado anterior, o con el IV en el primero, antes de cifrar.",
+        "E": "El encadenamiento no aporta por sí solo autenticación del mensaje; se necesita protección de integridad adecuada."
+      },
+      "manualPages": [],
+      "practicePages": [
+        5
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 373,
+      "questionFingerprint": "315442195c267473f13fd201ae95e43003d3a4f5ea39ed0f0618c85009dff5f6",
+      "distractors": {
+        "A": "Conocer la clave hace reversible XOR: la identidad algebraica permite recuperar exactamente cada byte.",
+        "B": "La consigna cifra cada byte con la clave. Para recuperar todo el mensaje se debe transformar cada byte de salida.",
+        "D": "El resultado esperado se obtiene repitiendo XOR, no sumando; suma y XOR son operaciones distintas.",
+        "E": "XOR con la misma clave cancela el efecto de la primera aplicación, por lo que no se necesita otra clave."
+      },
+      "manualPages": [],
+      "practicePages": [
+        5
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 374,
+      "questionFingerprint": "90bf54d1d0bc2098e0e2de7ec85b95171d52c5fe13b1b07374d07c11ce2ce505",
+      "distractors": {
+        "A": "Una clave de un byte ocupa dos dígitos hexadecimales: su espacio es de 256, no 16 valores.",
+        "B": "Una letra aislada puede aparecer por azar; hay que comprobar la coherencia del mensaje completo.",
+        "C": "La cantidad de claves depende de la longitud de la clave, que aquí es de ocho bits, no 256 bits.",
+        "E": "La clave 0 también es un valor de un byte, aunque no altere el mensaje. El espacio completo tiene 256 valores."
+      },
+      "manualPages": [],
+      "practicePages": [
+        5
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 375,
+      "questionFingerprint": "1aef7f069f9a9a008ca4bbead772225b2ee8187c183ce605b8d12c8ac2b0f25a",
+      "distractors": {
+        "A": "El nombre no demuestra entropía ni ausencia de reutilización; se debe observar cómo se genera y usa.",
+        "B": "Puede haber otras fuentes de entropía o transformaciones; el instante por sí solo no determina el generador.",
+        "C": "Sin entradas, salidas o implementación no existe un resultado verificable ni una flag deducible.",
+        "D": "El algoritmo puede mantenerse y utilizar claves distintas. La reutilización exige comparar material o resultados."
+      },
+      "manualPages": [],
+      "practicePages": [
+        5
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 376,
+      "questionFingerprint": "2c2020d8b0d464fe1b084f9428609cd5b434ead2a5f6eced188f25251b1fb48e",
+      "distractors": {
+        "B": "El módulo es p·q=3233; 3120 es (p−1)(q−1). Intercambiar esas cantidades invalida los cálculos.",
+        "C": "e=17 es el exponente público; d debe ser su inverso modular. 2790 es el ciphertext, no el mensaje recuperado.",
+        "D": "RSA usa el producto p·q como módulo, no la suma de los primos. 61+53 no es el valor de n.",
+        "E": "El descifrado usa exponenciación modular C^d mod n, no multiplicación directa de C por d."
+      },
+      "manualPages": [],
+      "practicePages": [
+        5,
+        6
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 377,
+      "questionFingerprint": "dfd230a8fb1552521085acb2c01550466e4175a8b15a52ee33a270f6e4734eb1",
+      "distractors": {
+        "A": "La consigna declara un resultado decimal. RSA no obliga a escribir ni interpretar sus resultados en hexadecimal.",
+        "C": "El entero necesita una convención de interpretación; podría representar bytes, datos estructurados u otro significado.",
+        "D": "La representación acordada y el esquema de padding no se deducen de un entero aislado.",
+        "E": "Descartar bytes pierde parte del mensaje. Se necesita reconstruir la secuencia completa con su orden y longitud."
+      },
+      "manualPages": [],
+      "practicePages": [
+        6
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 378,
+      "questionFingerprint": "23cb3f870de619c5299e7b435a7286c1d4016a8c2e715525e3b7c783e7a9e615",
+      "distractors": {
+        "A": "Los factores permiten calcular φ(n) y el inverso de e, que es justamente el paso para obtener d en el ejemplo.",
+        "B": "3233 es compuesto: 61·53. Para estos primos distintos φ(n)=(61−1)(53−1).",
+        "D": "e es público; el exponente privado se obtiene como un inverso modular con información adicional.",
+        "E": "La dificultad computacional cambia enormemente con el tamaño y la generación de los factores."
+      },
+      "manualPages": [],
+      "practicePages": [
+        6
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 379,
+      "questionFingerprint": "92b8b5933223dbd604cb0515694d0921a0249ababd2e7a38e2d0bdfb4d39d31f",
+      "distractors": {
+        "A": "Esa información no permite obtener en general el exponente privado de un módulo correctamente generado.",
+        "B": "El ciphertext es el mensaje cifrado; la clave privada contiene material para aplicar la operación de descifrado.",
+        "C": "d debe satisfacer una relación de inverso modular respecto de φ(n) o λ(n), no una resta ordinaria.",
+        "E": "El tamaño de un número no determina su rol: e se publica como parte de la clave pública."
+      },
+      "manualPages": [],
+      "practicePages": [
+        6
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 380,
+      "questionFingerprint": "f1f3636ff05263793048f3f14d0109fafa28ea4ede198667f95ff76cd212d974",
+      "distractors": {
+        "A": "DH no suma A y B para obtener el secreto: aplica exponenciación modular con un exponente privado.",
+        "B": "Los valores públicos se calculan como potencias módulo p, no como productos g·a y g·b.",
+        "C": "Con los parámetros indicados, B^a mod p y A^b mod p dan ambos 2.",
+        "D": "Cada participante lo calcula localmente. El propósito del acuerdo es no transmitir directamente ese secreto."
+      },
+      "manualPages": [],
+      "practicePages": [
+        6,
+        7
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 381,
+      "questionFingerprint": "b1883d6553eb3511f99eaf26bf061102a4168ade70dab8ea8c67049a0e0428d6",
+      "distractors": {
+        "B": "Obtener un secreto compartido no verifica por sí solo la identidad de la contraparte.",
+        "C": "Un intermediario puede sustituir valores durante un intercambio no autenticado sin resolver la factorización de RSA.",
+        "D": "Esos parámetros se consideran públicos en DH y ocultarlos no constituye un mecanismo de autenticación.",
+        "E": "El atacante puede mantener dos acuerdos separados y retransmitir mensajes entre los extremos."
+      },
+      "manualPages": [],
+      "practicePages": [
+        6,
+        7
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 382,
+      "questionFingerprint": "c941b408a001d654211391b35598c56013a451f810e19ba1b1f16dcbdaff1eb5",
+      "distractors": {
+        "A": "El intento de extracción sólo es pertinente si el formato y método son compatibles; no prueba una técnica universal.",
+        "C": "Inspeccionar información del portador no permite adivinar un contenido que debe extraerse y verificarse.",
+        "D": "La contraseña no reemplaza los bytes del portador; hace falta el archivo para intentar una extracción.",
+        "E": "Renombrar no ejecuta una técnica esteganográfica ni interpreta datos ocultos en el portador."
+      },
+      "manualPages": [],
+      "practicePages": [
+        7
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 383,
+      "questionFingerprint": "614d5c04c14aaef649c9d2edf840d0372a8218666bb99cb1e0ead5aed0cd3140",
+      "distractors": {
+        "A": "Ocho bits forman exactamente un byte. El orden de ensamblado está indicado en la consigna.",
+        "B": "Se pide el bit menos significativo, que es el último de cada representación binaria mostrada.",
+        "D": "Los últimos bits de los bytes dados son 0,1,0,0,1,0,0,1. La secuencia propuesta altera el quinto bit.",
+        "E": "La consigna proporciona ocho bits útiles; omitir el último cambia el valor recuperado."
+      },
+      "manualPages": [],
+      "practicePages": [
+        7
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 384,
+      "questionFingerprint": "acb48192947a4b32cfff656a27b385284683083fb263a3c40e404454bf51d53f",
+      "distractors": {
+        "A": "El mensaje puede aparecer en un espectrograma, canal o bits que no alteran perceptiblemente la escucha.",
+        "B": "La identificación del contenido requiere analizar el archivo; el nombre no demuestra una carga oculta.",
+        "C": "Una inspección limitada al volumen no cubre metadatos, anexos, canales ni patrones espectrales o de bits.",
+        "E": "La modificación puede destruir metadatos o bits ocultos; primero se conserva la evidencia original."
+      },
+      "manualPages": [],
+      "practicePages": [
+        7
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 385,
+      "questionFingerprint": "6d80cc045d31ce161f999da0b4ca8c4900f233f2de0841b816a2641801b5c405",
+      "distractors": {
+        "A": "Una firma permite verificar integridad y origen bajo una clave confiable, pero no oculta el contenido.",
+        "B": "Se cifra para el destinatario con su clave pública. Su clave privada debe permanecer bajo su control.",
+        "C": "La verificación se realiza con la clave pública; compartir la privada comprometería la capacidad de firmar.",
+        "D": "Confidencialidad y firma son propiedades diferentes; cifrar no demuestra por sí solo quién creó el mensaje."
+      },
+      "manualPages": [],
+      "practicePages": [
+        7,
+        8
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 386,
+      "questionFingerprint": "990c1e211adc4fd5327a23c0383037cf013bd71504d7c42c36d14654f3135e90",
+      "distractors": {
+        "B": "Una firma comprueba una relación criptográfica con el contenido; no garantiza la verdad de sus afirmaciones.",
+        "C": "Los nombres y correos declarados en una clave pueden falsificarse; deben verificarse huella y vínculo con la identidad.",
+        "D": "Verificar la firma no aporta confidencialidad ni cambia qué personas pueden leer el contenido.",
+        "E": "La clave pública está destinada a la verificación y distribución; lo que debe protegerse es la privada."
+      },
+      "manualPages": [],
+      "practicePages": [
+        8
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 387,
+      "questionFingerprint": "6984c68eae34ca6718c1af4aa5eb05d3feabe2b33e74d156f01240646e1f5861",
+      "distractors": {
+        "A": "Los mecanismos simétricos y asimétricos requieren materiales distintos y respetar los parámetros del formato.",
+        "C": "La modalidad simétrica se basa en una contraseña y derivación de clave, no en esa clave pública.",
+        "D": "Hace falta material con el cual comprobar las candidatas; sin él no existe una contraseña verificable.",
+        "E": "Se deriva material y se comprueba un descifrado candidato; eso no invierte matemáticamente una función hash."
+      },
+      "manualPages": [],
+      "practicePages": [
+        8
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 388,
+      "questionFingerprint": "a13963fd6a3fa7cbe34b1e175149c1456c172b562a01af3ec48ed202968774c8",
+      "distractors": {
+        "A": "ASCII armor es una representación imprimible; el cifrado proviene de --encrypt, no de armor por sí solo.",
+        "B": "El identificador de correo no garantiza pertenencia. Hay que verificar que la clave pública sea la correcta.",
+        "D": "Firmar no cifra el contenido: para confidencialidad destinada a otra clave debe utilizarse la operación de cifrado.",
+        "E": "El cifrado al destinatario utiliza su clave pública verificada; no se solicita ni se comparte su privada."
+      },
+      "manualPages": [],
+      "practicePages": [
+        8
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 389,
+      "questionFingerprint": "c0bb019d4ea9a4544a35eb4ad69d9975c516570e763b345bed4192e2f8c87b47",
+      "distractors": {
+        "A": "Si la víctima cifra para la pública sustituida, el atacante usa su propia privada; no necesita la de Bob.",
+        "B": "Un identificador de correo puede copiarse. La confianza requiere verificar la clave mediante un canal adecuado.",
+        "C": "Repetir la operación conserva el destinatario criptográfico equivocado si la clave fue sustituida.",
+        "E": "La fortaleza matemática no valida los datos de identidad declarados al distribuir una clave."
+      },
+      "manualPages": [],
+      "practicePages": [
+        8
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 390,
+      "questionFingerprint": "5eb9b2c77a1279a20972f27222c7ff770162873d8976f96d54390edf44a5e0a5",
+      "distractors": {
+        "A": "No existe un resultado comprobable sin los datos y la estructura necesarios para ensayar la recuperación.",
+        "B": "Puede tratarse de comprobar candidatas, descifrar contenido o usar material de recuperación; no son tareas equivalentes.",
+        "C": "Una extensión no demuestra el formato real ni especifica KDF, salt o esquema de protección.",
+        "D": "La herramienta y sus parámetros deben ser compatibles con el material disponible y el mecanismo de protección."
+      },
+      "manualPages": [],
+      "practicePages": [
+        4,
+        8,
+        16
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 391,
+      "questionFingerprint": "35ce78580fe95c1a4e46f93f02d2145cdf896d27d76c2d58234bdecf16d3eb6c",
+      "distractors": {
+        "B": "El material ubica Argentina en la región LACNIC. ARIN no cubre de modo general a toda América.",
+        "C": "Esas regiones están intercambiadas: APNIC corresponde a Asia-Pacífico y AFRINIC a África.",
+        "D": "El registro regional indicado para América Latina y Caribe es LACNIC, no RIPE NCC.",
+        "E": "Un registro de asignación de recursos no geolocaliza con precisión ni identifica al operador de un ataque."
+      },
+      "manualPages": [],
+      "practicePages": [
+        9
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 392,
+      "questionFingerprint": "cb3d0772e37276a851e20b500e3706ef784f9600b2ee92e5ad097c2cee0a266b",
+      "distractors": {
+        "A": "La intervención de un NIR no elimina los contactos de abuso; obliga a localizar la información pertinente.",
+        "C": "El NIR interviene en un ámbito nacional dentro de la organización regional; no sustituye globalmente a IANA.",
+        "D": "La geolocalización no demuestra la cadena registral; hay que consultar el registro del recurso concreto.",
+        "E": "Son organismos vinculados a recursos numéricos, no tipos de servidores DNS ni registros de nombres."
+      },
+      "manualPages": [],
+      "practicePages": [
+        9
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 393,
+      "questionFingerprint": "340c091d2c8c0414868fd5d3e0f448983b30d1f9c5462966dc263de4e7d175e9",
+      "distractors": {
+        "A": "El incidente se reporta al rol abuse; pedir contraseñas no aporta la notificación técnica solicitada.",
+        "B": "Hay que usar un contacto registral pertinente y datos comprobados, evitando una difusión indiscriminada de evidencia.",
+        "D": "El contacto administrativo cumple una función registral; no identifica al atacante y no es el canal preferente de abuso.",
+        "E": "Los roles de contacto son distintos y una notificación útil debe incluir evidencia y alcance temporal."
+      },
+      "manualPages": [],
+      "practicePages": [
+        9,
+        12
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 394,
+      "questionFingerprint": "c88040716346c2c94a5e67c734d3c86d0d399bbe2005a9f530487c4956cc71e1",
+      "distractors": {
+        "A": "El prefijo /24 forma parte del recurso registrado y determina el conjunto de direcciones cubierto.",
+        "B": "La ficha distingue explícitamente tech de abuse; para notificar abuso corresponde abuse@lab.example.",
+        "C": "Es una ficha ficticia de documentación, sin registros de tráfico ni evidencia temporal de un incidente real.",
+        "E": "La asignación registral indica un responsable del recurso, no qué persona utilizó una dirección en un instante."
+      },
+      "manualPages": [],
+      "practicePages": [
+        9
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 395,
+      "questionFingerprint": "af8bcff6fd54cde8246a4b6c9c179a07f4d059af5fc2dcf715ee431bec806688",
+      "distractors": {
+        "A": "WHOIS suele devolver texto heterogéneo; la estructura de RDAP facilita el procesamiento automatizado.",
+        "B": "Pueden diferir por representación, actualización o detalle. Se contrastan los datos y sus fuentes.",
+        "C": "Las diferencias de actualización y presentación son explicaciones posibles que deben evaluarse antes de atribuir un ataque.",
+        "D": "La información registral describe recursos y contactos, no demuestra quién operaba una dirección concreta."
+      },
+      "manualPages": [],
+      "practicePages": [
+        9
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 396,
+      "questionFingerprint": "e2760da05f209e9c056647d02dfef43cca086a109e5f65e2d9309d5e33e7e07f",
+      "distractors": {
+        "B": "Los registros históricos pueden ser genéricos o remitir a otro registro; hay que seguir la información vigente.",
+        "C": "Cambia la fuente de la información registral consultada, no el valor de la dirección IP.",
+        "D": "En este contexto ERX se relaciona con recursos históricos de Internet y su registro, no con una clasificación de malware.",
+        "E": "La notificación requiere un contacto del registro apropiado y verificable, no una deducción por nombres."
+      },
+      "manualPages": [],
+      "practicePages": [
+        9
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 397,
+      "questionFingerprint": "f6e67cead69d0ed803c0d4a5703d8afd5d4cd085c822d393f1818970c3e42895",
+      "distractors": {
+        "A": "El tamaño y la escritura de IPv6 no prueban la cadena registral ni atribuyen actividad a una persona.",
+        "C": "Una IPv6 válida puede consultarse como recurso propio; inventar otra dirección cambia el objeto investigado.",
+        "D": "El prefijo no codifica una dirección de correo verificable; ésta se obtiene del registro correspondiente.",
+        "E": "Los registros de recursos incluyen IPv6; el objetivo sigue siendo identificar bloque, responsable y contactos."
+      },
+      "manualPages": [],
+      "practicePages": [
+        9
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 398,
+      "questionFingerprint": "85f288c8f3369843337981ba67286c93dbd030ec88dbede39aa3bafad50fff1d",
+      "distractors": {
+        "A": "El registrant es una persona o entidad titular, no un servidor determinado por DNS.",
+        "B": "Hospedaje y registro son funciones diferentes que pueden pertenecer a organizaciones distintas.",
+        "D": "El registry mantiene el registro del TLD; quien registra el nombre es el registrant.",
+        "E": "Son roles distintos: uno gestiona registros y el otro es el titular registral del nombre."
+      },
+      "manualPages": [],
+      "practicePages": [
+        10
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 399,
+      "questionFingerprint": "1e71a95a6b5253f863317fafb0853722436ef81b196232810f8194fc225fe676",
+      "distractors": {
+        "A": "El registrador gestiona múltiples titulares; su contacto de abuso no equivale al contacto de cada registrant.",
+        "B": "Puede servir para contactar al titular protegido. Debe verificarse a qué rol se dirige cada canal.",
+        "C": "MX identifica servidores de correo; no reemplaza una consulta registral sobre el dominio y su registrador.",
+        "E": "La red que aloja un sitio y el titular del dominio pueden ser actores diferentes con contactos distintos."
+      },
+      "manualPages": [],
+      "practicePages": [
+        10
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 400,
+      "questionFingerprint": "d590e002675bea57090851a88e4f4154faa3089b522967311a0ad96a9b5601be",
+      "distractors": {
+        "A": "La privacidad registral puede ocultar datos directos sin invalidar el registro del dominio.",
+        "B": "Un canal de contacto registral no demuestra autoría humana ni responsabilidad sobre una acción particular.",
+        "C": "La ficha ofrece un formulario precisamente para permitir contacto sin publicar datos personales directos.",
+        "D": "Cada canal corresponde a un rol diferente; debe usarse el que responde al objetivo de la consulta."
+      },
+      "manualPages": [],
+      "practicePages": [
+        10
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 401,
+      "questionFingerprint": "d51491916dea48afaa1780a15688b6ffad66312e36d88fd6db7bbf6933b59abf",
+      "distractors": {
+        "B": "La práctica destaca una particularidad de .ar; otros TLD pueden separar registry y múltiples registrars.",
+        "C": "Cumplir roles de registry y registrar no convierte a la entidad en registrant de cada dominio.",
+        "D": "Una entidad puede desempeñar ambas funciones, pero mantener el registro y gestionar altas siguen siendo tareas distintas.",
+        "E": "La observación del material está acotada al registro .ar y no describe una autoridad sobre todos los TLD."
+      },
+      "manualPages": [],
+      "practicePages": [
+        10
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 402,
+      "questionFingerprint": "9c8c1a70a22e126fa48986d33c527c38600015fbda07ff543647a3ff5eced19e",
+      "distractors": {
+        "A": "MX pertenece al servicio DNS de correo y no identifica la titularidad registral del dominio.",
+        "C": "La preferencia MX usa primero el menor valor numérico; no se interpreta como una puntuación creciente.",
+        "D": "Son preferencias de entrega. Los nombres de los MX se resuelven por separado para obtener direcciones.",
+        "E": "Describe una preferencia, no una traza histórica. El recorrido real se verifica en encabezados y logs."
+      },
+      "manualPages": [],
+      "practicePages": [
+        10,
+        11
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 403,
+      "questionFingerprint": "52b9e4d335df72443f7bd566bfa01d84bf615e13c74fa69ecc061be1e990e8e7",
+      "distractors": {
+        "A": "Es un dato de la transacción SMTP y no una prueba infalible de autoría personal.",
+        "B": "El envelope incluye datos de transporte, como remitente y destinatarios SMTP; no equivale al asunto.",
+        "D": "Envelope y From son campos independientes; una diferencia puede tener causas legítimas y requiere contexto.",
+        "E": "Las devoluciones se vinculan al remitente del envelope, aquí MAIL FROM, no al From visible por sí solo."
+      },
+      "manualPages": [],
+      "practicePages": [
+        10,
+        11
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 404,
+      "questionFingerprint": "9163e38910e6587b5623ec7e0e88c2ba44e268b05a857f10c78c3217a7bdf4a4",
+      "distractors": {
+        "A": "Received documenta saltos declarados por servidores; debe evaluarse su confianza y no atribuye autoría humana.",
+        "B": "Las cabeceras antiguas pueden ser falsificadas; se parte de los servidores de recepción confiables.",
+        "C": "La traza indica un salto público al MX destino y después otro desde ese MX hacia el servidor interno de buzones.",
+        "E": "Es una dirección privada mostrada en un salto interno, no una IP pública ni prueba de una persona autora."
+      },
+      "manualPages": [],
+      "practicePages": [
+        10,
+        11
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 405,
+      "questionFingerprint": "5f883f3448a737bff317e4788c4026f546759c625904a40d183977f1eacca031",
+      "distractors": {
+        "A": "Los dos últimos prefijos son demasiado amplios: RFC 1918 reserva 172.16/12 y 192.168/16.",
+        "B": "Esos bloques tienen otros usos especiales; no son los tres rangos privados pedidos de RFC 1918.",
+        "C": "El rango privado 172.16/12 abarca 172.16 a 172.31, no todas las direcciones con primer octeto 172.",
+        "D": "Las direcciones privadas se reutilizan en redes internas y no identifican por sí solas un origen público."
+      },
+      "manualPages": [],
+      "practicePages": [
+        11
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 406,
+      "questionFingerprint": "494cd6306c0bc3121ed0ec7a5ee31ff719a73037606ef6d50dd6b6819a041a8a",
+      "distractors": {
+        "B": "Received describe servidores de un salto; el destinatario mostrado en el caso está en To.",
+        "C": "La traza muestra al servidor que se conectó al receptor, no necesariamente al usuario que redactó el mensaje.",
+        "D": "En la línea dada, by mx.universidad.example identifica al receptor del salto.",
+        "E": "El contacto debe obtenerse de la información registral pertinente; no se deduce fabricando una dirección."
+      },
+      "manualPages": [],
+      "practicePages": [
+        10,
+        11
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 407,
+      "questionFingerprint": "eee4302cea45121653232c35b925ef1fb1bef1cdb59b4fcd7b5efafe227ed5af",
+      "distractors": {
+        "A": "El asunto no selecciona el destino de respuesta; esa función corresponde a los campos de dirección pertinentes.",
+        "C": "Reply-To indica normalmente dónde deben dirigirse las respuestas, desplazando ese uso del From.",
+        "D": "La discrepancia puede ser legítima, por ejemplo en soporte. Debe investigarse con contexto y autenticación.",
+        "E": "Reply-To es una dirección de respuesta, no una traza de transporte ni una dirección IP observada."
+      },
+      "manualPages": [],
+      "practicePages": [
+        10,
+        11
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 408,
+      "questionFingerprint": "5ce20f54c307ee5fe6eca78402d2923691779306e164b85447d362c396530812",
+      "distractors": {
+        "A": "El campo visible puede ser declarado por el emisor; hacen falta rutas y resultados de autenticación.",
+        "B": "Eliminar la evidencia no determina el origen. Hay que conservar e interpretar encabezados y registros relevantes.",
+        "D": "Otro servidor puede declarar un From ajeno sin usar esas cuentas ni autenticarse en el SMTP del dominio.",
+        "E": "El mensaje puede haberse originado en un servidor externo y no dejar un envío en el SMTP del dominio suplantado."
+      },
+      "manualPages": [],
+      "practicePages": [
+        11
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 409,
+      "questionFingerprint": "128318d6db57a880182a5547dabe22fe7bbebc710e09abb413e6f258e302303f",
+      "distractors": {
+        "A": "Una firma DKIM vincula contenido y dominio firmante; no prueba por sí sola la autoría de una persona.",
+        "B": "From puede ser suplantado. Deben analizarse los resultados y su procedencia, además de la ruta observada.",
+        "C": "La alineación de DMARC se refiere a identificadores autenticados y al From visible, no a todos los saltos SMTP.",
+        "E": "Esas no son sus funciones: tratan autorización de origen, firmas y alineación/política de dominio."
+      },
+      "manualPages": [],
+      "practicePages": [
+        11
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 410,
+      "questionFingerprint": "47ed948c753b4bfced89045b1fed81737ef149cc29089db5f1cd0d8c33b1215a",
+      "distractors": {
+        "A": "Failed password registra rechazo, no aceptación. No aparece una línea de autenticación exitosa para esa IP.",
+        "B": "Invalid user indica un nombre no válido en ese intento; no acredita una cuenta comprometida.",
+        "C": "El extracto no evidencia éxito, pero no cubre todos los logs ni todas las vías posibles de acceso.",
+        "D": "El patrón desde la misma IP es compatible con intentos automatizados y requiere investigación contextual."
+      },
+      "manualPages": [],
+      "practicePages": [
+        11,
+        12
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 411,
+      "questionFingerprint": "126830a44a5c4e8d09bacf7a034dd270bec1c31f9d134455fdb181686861b18e",
+      "distractors": {
+        "B": "Prueba que se aceptó una autenticación, pero una clave comprometida también podría permitirla.",
+        "C": "El evento indica precisamente un intento rechazado; no demuestra apertura de sesión.",
+        "D": "sudo puede usarse en administración autorizada; deben correlacionarse identidad, origen, comandos y tiempos.",
+        "E": "Separar resultados es esencial para no confundir intentos fallidos con accesos aceptados."
+      },
+      "manualPages": [],
+      "practicePages": [
+        11,
+        12
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 412,
+      "questionFingerprint": "d05d9def21d87a71e974e480ef4cda45b75ac26d6d5e6f634561a3ff80a04383",
+      "distractors": {
+        "A": "Primero se comprueban los datos y el alcance temporal; la denuncia no sustituye la investigación.",
+        "C": "El alcance del material incluye actividad originada desde recursos administrados por su comunidad.",
+        "D": "La pertinencia organizacional no establece autoría humana; se deben verificar recursos y evidencias.",
+        "E": "Los intentos reiterados originados en recursos propios pueden requerir investigación y coordinación aunque no tengan éxito."
+      },
+      "manualPages": [],
+      "practicePages": [
+        11,
+        12
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 413,
+      "questionFingerprint": "4c60d66cfcbd339fbefac770de4c944f0243de22bd492baac5cf045e2921b1d5",
+      "distractors": {
+        "A": "Debe compartirse evidencia suficiente por un canal adecuado y protegerse la información sensible innecesaria.",
+        "B": "La distinción de resultado permite valorar qué se observó y evita denunciar un acceso exitoso no demostrado.",
+        "D": "La denuncia debe aportar hechos verificables; no atribuir identidades sin evidencia.",
+        "E": "Sin coordenadas temporales y de red el receptor difícilmente puede localizar o correlacionar el evento."
+      },
+      "manualPages": [],
+      "practicePages": [
+        12
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 414,
+      "questionFingerprint": "c66488c67b44044ae7f5837759b2ca5568e41afd3586eea9aea081b1d076976a",
+      "distractors": {
+        "A": "Los mensajes ICMP Echo tienen datos de carga; esos bytes pueden interpretarse como caracteres.",
+        "B": "La consigna indica hexadecimal: 0x49 equivale a 73 decimal y representa I.",
+        "C": "Un protocolo legítimo puede ser abusado como transporte de un canal encubierto; importa su uso observado.",
+        "E": "La reconstrucción es correcta, pero ICMP puede contener datos legítimos. El texto legible solo no prueba exfiltración."
+      },
+      "manualPages": [],
+      "practicePages": [
+        12,
+        13
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 415,
+      "questionFingerprint": "0cc65490c2172e7f4bbb2b69ce7c6377a637db991cb6ac61229cc4fe6ce12e7d",
+      "distractors": {
+        "A": "La decodificación no prueba finalidad; hay usos legítimos de etiquetas largas y hace falta correlación.",
+        "B": "Las etiquetas son datos enviados por el cliente y pueden utilizarse indebidamente para codificar información.",
+        "C": "Se pide tomar la primera etiqueta, 49437b646e737d. El resto es el sufijo del nombre consultado.",
+        "D": "El orden temporal o de secuencia puede ser necesario para ensamblar fragmentos y demostrar el hallazgo."
+      },
+      "manualPages": [],
+      "practicePages": [
+        12,
+        13
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 416,
+      "questionFingerprint": "ccfe753014ebe8ed915354cd67dc30380690f7df23e5e925ade5355e89b28a6b",
+      "distractors": {
+        "B": "La hipótesis de protocolo debe comprobarse; el PCAP puede contener ICMP, HTTP u otro transporte.",
+        "C": "El volumen por sí solo no demuestra datos ocultos ni su finalidad. Se necesitan patrones y contenido verificables.",
+        "D": "La secuencia y la dirección de los flujos forman parte de la evidencia necesaria para reconstruir mensajes.",
+        "E": "Sin método ni evidencia no se puede reproducir el supuesto hallazgo ni verificar la flag."
+      },
+      "manualPages": [],
+      "practicePages": [
+        12,
+        13,
+        16
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 417,
+      "questionFingerprint": "15bfa61737816cdb7b64c17ace11053b5e86b95625d452a197fda309cf21af28",
+      "distractors": {
+        "A": "El sistema procesa entradas de un teclado reconocido; la secuencia puede activar comandos o aplicaciones.",
+        "C": "La inyección de teclado utiliza la clase HID y puede producir entradas sin abrir un ejecutable del almacenamiento.",
+        "D": "Un dispositivo USB puede presentarse con interfaces distintas de almacenamiento, incluida una interfaz HID.",
+        "E": "HID también se usa legítimamente; hay que examinar instrucciones, contexto y acciones observadas."
+      },
+      "manualPages": [],
+      "practicePages": [
+        12,
+        13
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 418,
+      "questionFingerprint": "e2959046e277b6e84da2c0d805dd6123414a552358cafa226f6d025155146ac2",
+      "distractors": {
+        "A": "La instrucción introduce el texto notepad como pulsaciones; no recorre ni muestra archivos por sí misma.",
+        "B": "La secuencia expresa una intención; el resultado depende del firmware, sistema, foco y condiciones de ejecución.",
+        "D": "Ninguna de las instrucciones dadas ordena borrar o cifrar. DELAY 1000 representa una espera de un segundo.",
+        "E": "En el ejemplo del entorno Windows representa Windows+R para abrir Ejecutar, no un protocolo de red."
+      },
+      "manualPages": [],
+      "practicePages": [
+        12,
+        13
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 419,
+      "questionFingerprint": "622851f0260f08de064bfd1cd7ad03acfb11320a22b1a323930cc4ec60e25ddc",
+      "distractors": {
+        "A": "U+200B nombra un punto de código: el carácter de ancho cero puede no aparecer visualmente.",
+        "B": "Un carácter invisible puede conservar el mismo aspecto y color; hay que inspeccionar su representación o longitud.",
+        "C": "La modificación puede ocultar la causa de la diferencia y no todos los invisibles se eliminan como un espacio común.",
+        "E": "La igualdad exacta depende de la secuencia de caracteres, no sólo de su aspecto visual."
+      },
+      "manualPages": [],
+      "practicePages": [
+        12,
+        13
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 420,
+      "questionFingerprint": "1f26d8ee750d90a9bd8d62a2b530cd6e22757430f3b78d5ce5a5132ec18015aa",
+      "distractors": {
+        "A": "La consigna pide triage sin ejecución. La revisión estática obtiene indicios antes de considerar un laboratorio dinámico.",
+        "B": "Renombrar no modifica el contenido ni demuestra su formato; se inspeccionan firmas y estructura interna.",
+        "C": "Un string indica presencia de datos en el binario, no que una ejecución haya utilizado esa dirección.",
+        "D": "El nombre no identifica de forma fiable los bytes de la muestra; el análisis debe registrar sus propios artefactos."
+      },
+      "manualPages": [],
+      "practicePages": [
+        13,
+        14
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 421,
+      "questionFingerprint": "acabd278e04b6aeb7c17444d46369c2756ac3c26fed871a089ea70a10b77a9d6",
+      "distractors": {
+        "B": "MZ orienta al formato ejecutable, no a una familia ni a una intención maliciosa.",
+        "C": "El nombre puede alterarse; debe contrastarse con las cabeceras y la estructura real del archivo.",
+        "D": "La firma inicial es un indicio; hacen falta más cabeceras y estructura para confirmar el formato.",
+        "E": "Son sólo dos bytes de cabecera, no un resumen SHA-256 de 32 bytes."
+      },
+      "manualPages": [],
+      "practicePages": [
+        13,
+        14
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 422,
+      "questionFingerprint": "7af27a95d3522e5b51dde8529cac91e4eeda6139336be18472f0a0985b224311",
+      "distractors": {
+        "A": "Esos datos permiten interpretar el indicador y evitar confundir una sospecha con un hallazgo confirmado.",
+        "C": "Es una cadena genérica que puede tener usos legítimos; no demuestra una acción de captura ni exfiltración.",
+        "D": "La presencia estática puede corresponder a datos no usados o señuelos; la conexión requiere evidencia adicional.",
+        "E": "El hash identifica el contenido exacto de una muestra; las variantes modificadas pueden tener otro digest."
+      },
+      "manualPages": [],
+      "practicePages": [
+        13,
+        14
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 423,
+      "questionFingerprint": "1356304c0fba197e02ee903170f1c13e244450a2a5e862c29cbce4273b909ca5",
+      "distractors": {
+        "A": "La API citada sugiere precisamente una capacidad de descarga a archivo que debe investigarse.",
+        "B": "Esas APIs también tienen usos legítimos; la clasificación depende del contexto y comportamiento.",
+        "D": "Una importación revela una capacidad disponible, pero la rama que la llama puede no ejecutarse.",
+        "E": "La función permite escribir valores del registro en general; hay que identificar ruta, valor y uso observado."
+      },
+      "manualPages": [],
+      "practicePages": [
+        13,
+        14
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 424,
+      "questionFingerprint": "dacd16783ff0f03ae9cdd0418b4300f6cd28d5c5b6bf559bbabbb4a5298f6210",
+      "distractors": {
+        "A": "Ambas funciones se usan legítimamente para carga y resolución dinámica; necesitan contexto adicional.",
+        "B": "Pueden apoyar una hipótesis, pero no permiten identificar por sí solos un empaquetador específico.",
+        "C": "La escasez de strings no impide revisar la estructura PE, secciones, imports y otros artefactos estáticos.",
+        "E": "El empaquetamiento u ofuscación puede ocultar datos que aparecen o se reconstruyen en ejecución."
+      },
+      "manualPages": [],
+      "practicePages": [
+        13,
+        14
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 425,
+      "questionFingerprint": "81bf36fd27b3175d51d547f0ffbff1174989654582e760ff596d4616421ea077",
+      "distractors": {
+        "A": "La descarga no demuestra cifrado extorsivo. El comportamiento observado encaja funcionalmente con downloader.",
+        "B": "Crear un proceso no identifica por sí solo finalidad legítima; hay que clasificar la función observada en contexto.",
+        "C": "La clasificación funcional no revela identificadores concretos de una muestra que no se proporcionó.",
+        "D": "Un gusano implica propagación característica; descargar una segunda carga no demuestra autorreplicación."
+      },
+      "manualPages": [],
+      "practicePages": [
+        13,
+        14
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 426,
+      "questionFingerprint": "959ac2c5ecaf7aa0d5d880a80101fdf7610bd470ffaabd59df8948038d64ba96",
+      "distractors": {
+        "B": "Esos enlaces pueden exponer otros equipos y datos; el laboratorio debe controlar su conectividad e integración.",
+        "C": "Puede depender de requisitos, argumentos, fecha o red. Una corrida no cubre todas las ramas de ejecución.",
+        "D": "La restauración puede borrar evidencia del ensayo; primero deben preservarse los artefactos necesarios.",
+        "E": "Renombrar no elimina capacidades de red ni sustituye aislamiento y controles del entorno de análisis."
+      },
+      "manualPages": [],
+      "practicePages": [
+        14,
+        15
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 427,
+      "questionFingerprint": "20911ba6afeadce929c005ad75be9b340ec6e305c9fc272c0f6f9ae077e7ef7e",
+      "distractors": {
+        "A": "Para confirmar persistencia hacen falta mecanismos y evidencia de autoejecución, no sólo procesos de una sesión.",
+        "C": "El árbol muestra creación o relación de procesos, no el resultado de una descarga concreta.",
+        "D": "Es una herramienta de administración legítima que también puede ser abusada; importa la actividad observada.",
+        "E": "Los nombres pueden repetirse o cambiarse; se necesitan ruta, hash y otros datos para identificar el archivo."
+      },
+      "manualPages": [],
+      "practicePages": [
+        14,
+        15
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 428,
+      "questionFingerprint": "042edc7085f1ed5f71d22abd734ee26f00a7fa0f4365d35719a2357e35f78405",
+      "distractors": {
+        "A": "Debe comprobarse que el archivo exista y que la entrada esté habilitada y sea utilizada.",
+        "B": "La finalidad de Run es autoejecutar al iniciar sesión, no responder a la apertura del editor.",
+        "D": "HKCU Run corresponde al inicio de sesión del usuario y puede configurarse con sus permisos.",
+        "E": "La ruta concreta es una entrada Run del usuario, no la rama Services de configuración de servicios."
+      },
+      "manualPages": [],
+      "practicePages": [
+        14
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 429,
+      "questionFingerprint": "d540fa45a15f5c3badba614df10daae9e74003f0d0bf4130332c0b4c36c19a42",
+      "distractors": {
+        "A": "La ejecución depende de su configuración y estado; hay que inspeccionar parámetros como Start e ImagePath.",
+        "B": "Los cambios en servicios del sistema suelen requerir privilegios elevados; se verifican permisos y contexto.",
+        "C": "Un nombre de servicio no identifica una familia ni demuestra por sí solo una intención maliciosa.",
+        "E": "La rama mostrada pertenece a HKLM Services; tiene alcance y condiciones de arranque distintos de HKCU Run."
+      },
+      "manualPages": [],
+      "practicePages": [
+        14
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 430,
+      "questionFingerprint": "dd6de2fc108edb9aa21ccc88da6b3e437baf1e22e6e011a10b46b4520bd2e4a4",
+      "distractors": {
+        "A": "Un identificador inventado no es evidencia del caso y puede atribuir un mecanismo distinto del observado.",
+        "B": "La referencia orienta el estudio, pero no reemplaza los artefactos concretos del archivo investigado.",
+        "C": "Los GUID tienen numerosos usos legítimos. Se debe establecer su ruta, uso y relación con autoejecución.",
+        "D": "El identificador debe conservarse exactamente y vincularse al objeto observado para que la comparación sea válida."
+      },
+      "manualPages": [],
+      "practicePages": [
+        14
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 431,
+      "questionFingerprint": "19f9a7a943ebfe5563325183a302050a00e52c74f29ae574b38750f0cc716d5c",
+      "distractors": {
+        "B": "El fallo puede deberse a red, filtrado, indisponibilidad u otras condiciones; no demuestra inexistencia.",
+        "C": "La secuencia dada muestra una ruta alternativa exitosa; un fallo no implica necesariamente detener la ejecución.",
+        "D": "Ambos eventos aportan contexto y posibles indicadores; deben conservarse diferenciando resultado y momento.",
+        "E": "El caso emplea identificadores de documentación y ejemplo; no permite atribuirlos a una muestra real."
+      },
+      "manualPages": [],
+      "practicePages": [
+        14,
+        15
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 432,
+      "questionFingerprint": "0b32f515da45ebb88988a4ebb1d33262e4922daac8faefd7600cf07f239dc982",
+      "distractors": {
+        "A": "POST es un método HTTP; no aporta por sí mismo cifrado ni autentica a los participantes.",
+        "C": "El cuerpo observado contiene nombres, no los contenidos de los archivos. El código HTTP no prueba esa transferencia.",
+        "D": "Los nombres y rutas también son datos. Debe describirse su envío sin ampliarlo a contenidos no observados.",
+        "E": "El código indica atención de la solicitud según HTTP; no demuestra políticas ni persistencia de almacenamiento."
+      },
+      "manualPages": [],
+      "practicePages": [
+        14,
+        15
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 433,
+      "questionFingerprint": "071ac1e57e0e033ae1195248ddf41db3a9683c22499ec8ec58b6c7d22d93c5f3",
+      "distractors": {
+        "A": "Los literales y códigos de caracteres pueden analizarse estáticamente sin activar las acciones del script.",
+        "B": "La técnica general no permite inventar valores específicos de un archivo no proporcionado.",
+        "D": "Chr y concatenaciones reconstruyen texto; no definen un esquema de cifrado criptográfico seguro.",
+        "E": "Pueden construirse en tiempo de ejecución; hay que reconstruir expresiones y seguir sus usos."
+      },
+      "manualPages": [],
+      "practicePages": [
+        15
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 434,
+      "questionFingerprint": "1cf481b8a0de0d21fc786823f1e5bfd1c8ea09ec73e2fac9598945e693691e13",
+      "distractors": {
+        "A": "Chr convierte cada código en carácter y & concatena las cadenas resultantes, no sus números de entrada.",
+        "B": "Esos códigos son las llaves { y }; los corchetes ASCII corresponden a otros valores.",
+        "C": "La expresión lo reconstruye a partir de fragmentos, por lo que una búsqueda literal puede no encontrarlo.",
+        "E": "El resultado corresponde a códigos decimales indicados por la consigna; cambiar la base altera su interpretación."
+      },
+      "manualPages": [],
+      "practicePages": [
+        15
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 435,
+      "questionFingerprint": "80209ca04667cb28a0dd7f8a579999e731288e9c730b6dd4040cf1e2d9a6f11f",
+      "distractors": {
+        "A": "Indica un formato habilitado para macros, pero no prueba malicia ni ejecución en el equipo.",
+        "B": "Primero se inspeccionan estructura y código sin activar contenido; la ejecución requiere un entorno controlado.",
+        "C": "Los documentos con macros pueden incluir VBA y llamadas que deben examinarse.",
+        "D": "El nombre y la extensión no revelan el código ni su resultado; hay que analizar los bytes del documento."
+      },
+      "manualPages": [],
+      "practicePages": [
+        15
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 436,
+      "questionFingerprint": "777bfe3c119b5fb2af2ded4cf5fa088867080fba7228acd5d6ee60ac1e4849d2",
+      "distractors": {
+        "B": "Ninguna conclusión se deduce de la extensión: ambos formatos pueden contener código o mecanismos activos.",
+        "C": "También se inspeccionan macros, fórmulas, conexiones, nombres, hojas ocultas y otros mecanismos relevantes.",
+        "D": "El nombre puede ser engañoso; el formato real debe verificarse mediante estructura y firmas del archivo.",
+        "E": "La inspección inicial puede realizarse estáticamente; no se necesita exponer el equipo habilitando contenido."
+      },
+      "manualPages": [],
+      "practicePages": [
+        15
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 437,
+      "questionFingerprint": "ed1112ce9501773b6d12eb803a3bd303c6ac2ce9d127524dfa4bb401c26cf4f4",
+      "distractors": {
+        "A": "La apariencia no sustituye el análisis del formato, código, relaciones externas y acciones observadas.",
+        "C": "Un nombre y una promesa comercial son indicios contextuales, no prueba de comportamiento técnico malicioso.",
+        "D": "El incentivo económico puede precisamente inducir a abrir el archivo o habilitar contenido.",
+        "E": "Una planilla puede contener macros u otros mecanismos activos; la extensión no garantiza seguridad."
+      },
+      "manualPages": [],
+      "practicePages": [
+        15
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 438,
+      "questionFingerprint": "552bf1ee4046d4431d7e4990065178db90dd416169f737455efdef4be608b3b6",
+      "distractors": {
+        "A": "Su objetivo es observar procesos y módulos; no ofrece ese descifrado universal.",
+        "B": "Cada herramienta aporta una vista parcial que debe correlacionarse con las demás evidencias.",
+        "D": "Se intercambian funciones: Wireshark observa tráfico y Autoruns mecanismos de autoarranque.",
+        "E": "Regshot compara estados, especialmente del registro; no sustituye captura de red ni inspección de procesos."
+      },
+      "manualPages": [],
+      "practicePages": [
+        14
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 439,
+      "questionFingerprint": "94ce2c23488964d8c7d3dccacb965cbdf0a38fa33c254410bb16a1ccf62ec88f",
+      "distractors": {
+        "A": "Una corrida puede no activar una rama o requisito del entorno. La ausencia observada tiene alcance limitado.",
+        "B": "Eso confunde un dato estático candidato con un evento de comunicación confirmado.",
+        "C": "Las dos observaciones deben conservarse con su contexto; la discrepancia orienta investigaciones adicionales.",
+        "E": "Su presencia como string no demuestra que haya sido utilizada durante el ensayo."
+      },
+      "manualPages": [],
+      "practicePages": [
+        13,
+        14,
+        16
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 440,
+      "questionFingerprint": "866d581661ffc92838678ba4e284ddf03b05b7c1eb65104282a7bee381aa18d4",
+      "distractors": {
+        "A": "La correlación temporal orienta hipótesis, pero necesita vínculos técnicos para establecer causalidad.",
+        "B": "La eliminación puede destruir información necesaria para reconstruir alcance y secuencia del incidente.",
+        "C": "El caso integra varias fuentes; omitirlas impide contrastar una cadena de ejecución y persistencia.",
+        "D": "From puede ser suplantado y no basta para atribuir una persona; se necesitan más evidencias."
+      },
+      "manualPages": [],
+      "practicePages": [
+        14,
+        15,
+        16
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 441,
+      "questionFingerprint": "830a6a9c18d1a717b9fb295e03f25d75eefbc403b43263ccf60ac4379759984d",
+      "distractors": {
+        "B": "La criticidad y el impacto observado del servidor son factores centrales; no hay esa regla absoluta.",
+        "C": "La gestión de incidentes depende de exposición, impacto y evidencia, no de obtener una flag de CTF.",
+        "D": "La contención debe coordinarse y conservar la evidencia necesaria para investigación y alcance.",
+        "E": "El orden de recepción no reemplaza la evaluación de criticidad, alcance, exposición e impacto."
+      },
+      "manualPages": [],
+      "practicePages": [
+        14,
+        16
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    },
+    {
+      "questionId": 442,
+      "questionFingerprint": "d6551fc22014e266b08746ad08a43cdef49a22eb0770ff82b6259937fe2a9ae9",
+      "distractors": {
+        "A": "El writeup debe separar lo observado de lo inferido y explicar qué pruebas faltan para confirmar la hipótesis.",
+        "C": "El material exige documentar cómo se llegó al resultado y qué se aprendió; una flag aislada no basta.",
+        "D": "La estructura es adecuada, pero la flag sólo debe consignarse cuando se recuperó y verificó realmente.",
+        "E": "La reproducción requiere entradas, procedimiento, evidencia e interpretación, no una lista de programas."
+      },
+      "manualPages": [],
+      "practicePages": [
+        15,
+        16
+      ],
+      "referenceNote": "Explicación de la opción adaptada; referencias a la guía de prácticas disponible."
+    }
+  ]
+}

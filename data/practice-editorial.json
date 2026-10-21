@@ -1,0 +1,2795 @@
+{
+  "version": 1,
+  "authorship": "Adaptación didáctica de los 92 ejercicios abiertos. Las opciones y las explicaciones de distractores no son transcripciones de los PDF.",
+  "questions": [
+    {
+      "number": 1,
+      "sourceFingerprint": "ce78f2ba3e80588d59634b825363eb3dc0ccf2049ade65b032ff11f6b1e838fe",
+      "correctOption": "Base64 representa datos con reglas públicas; la confidencialidad requiere cifrado y material criptográfico adecuado.",
+      "distractors": [
+        {
+          "text": "Base64 cifra con una clave secreta incluida en el texto.",
+          "explanation": "Base64 no define una clave secreta: cualquiera que conozca su alfabeto puede recuperar los bytes."
+        },
+        {
+          "text": "La ausencia de palabras legibles demuestra que el mensaje es secreto.",
+          "explanation": "La apariencia del texto no demuestra confidencialidad; una representación pública puede ocultar su lectura inmediata."
+        },
+        {
+          "text": "Base64 es un hash irreversible del mensaje.",
+          "explanation": "Base64 permite recuperar los bytes originales; un hash no ofrece esa operación general de recuperación."
+        },
+        {
+          "text": "Para decodificar Base64 hace falta la clave privada del destinatario.",
+          "explanation": "La decodificación aplica reglas públicas y no requiere claves privadas ni identificar un destinatario."
+        }
+      ],
+      "conceptIds": [
+        "base64",
+        "cifrado"
+      ],
+      "guidePages": [
+        2,
+        3
+      ]
+    },
+    {
+      "number": 2,
+      "sourceFingerprint": "6d8333366b3e6085e2d5938e2c8b9d74e81a97c50ea74dc3ba892d28da110885",
+      "correctOption": "IC{A}; 123 representa la llave de apertura, un signo de puntuación.",
+      "distractors": [
+        {
+          "text": "ICAA; 123 es otra representación de A.",
+          "explanation": "A corresponde a 65 decimal. El valor 123 corresponde a una llave, no a una segunda letra A."
+        },
+        {
+          "text": "IC{A}; 123 no pertenece al ASCII estándar.",
+          "explanation": "Aunque el texto obtenido coincide, 123 sí está dentro del rango ASCII de 0 a 127 y representa {. "
+        },
+        {
+          "text": "73 67 123 65 125; los números no pueden representar signos.",
+          "explanation": "ASCII asigna códigos también a puntuación y controles; no se limita a letras y dígitos."
+        },
+        {
+          "text": "IC[A]; 123 y 125 son corchetes.",
+          "explanation": "Los corchetes tienen otros códigos. Los valores 123 y 125 corresponden a llaves de apertura y cierre."
+        }
+      ],
+      "conceptIds": [
+        "ascii"
+      ],
+      "guidePages": [
+        2,
+        3
+      ]
+    },
+    {
+      "number": 3,
+      "sourceFingerprint": "51bfda0d08f12cb1ef3b8fc66f0b9d44f2cd0e890a3bb037b14a6da4498dbe24",
+      "correctOption": "IC{base64_no_es_cifrado}; el signo =, cuando aparece, es relleno de Base64.",
+      "distractors": [
+        {
+          "text": "IC{base64_no_es_cifrado}; = es la contraseña.",
+          "explanation": "El signo = indica padding de la representación Base64; no es una contraseña ni material secreto."
+        },
+        {
+          "text": "La cadena no es válida porque no termina en =.",
+          "explanation": "El relleno depende de la longitud de los bytes de entrada: no todas las cadenas Base64 necesitan =."
+        },
+        {
+          "text": "La salida es un digest irreversible.",
+          "explanation": "La cadena se decodifica a bytes y luego a texto; no se está invirtiendo una función hash."
+        },
+        {
+          "text": "IC{base64_no_es_cifrado}=; el relleno se agrega al mensaje.",
+          "explanation": "Los signos de relleno completan grupos de la representación, pero no forman parte de los bytes originales."
+        }
+      ],
+      "conceptIds": [
+        "base64"
+      ],
+      "guidePages": [
+        3
+      ]
+    },
+    {
+      "number": 4,
+      "sourceFingerprint": "6a5741fb7bf6bb6ce65a4c435fa45531bc7843dee49092a0421b7dddf854a461",
+      "correctOption": "IC{hex}; 0x49 equivale a 73 decimal, mientras 49 decimal representa 1.",
+      "distractors": [
+        {
+          "text": "1C{hex}; 49 tiene el mismo valor en cualquier base.",
+          "explanation": "Los dígitos se interpretan según su base. 49 hexadecimal vale 73 decimal, por lo que el primer carácter es I."
+        },
+        {
+          "text": "IC{hex}; 49 decimal representa I.",
+          "explanation": "El texto está bien, pero la justificación mezcla bases: I es 73 decimal y 0x49 hexadecimal."
+        },
+        {
+          "text": "IC{hex}; 7b debe descartarse porque contiene una letra.",
+          "explanation": "En hexadecimal se usan a–f para los valores 10–15. 7b es un byte válido que representa {."
+        },
+        {
+          "text": "No se puede leer sin una clave AES.",
+          "explanation": "Los datos ya son valores de caracteres ASCII en hexadecimal; no se indicó un cifrado que requiera una clave."
+        }
+      ],
+      "conceptIds": [
+        "ascii"
+      ],
+      "guidePages": [
+        2,
+        3
+      ]
+    },
+    {
+      "number": 5,
+      "sourceFingerprint": "c1b6bef7a85817cd64edca4a8f8acb222e125186fa9764dc27ce2c7c784cf342",
+      "correctOption": "ICSEGURO; hay que verificar alfabeto, índice inicial, separadores y espacios.",
+      "distractors": [
+        {
+          "text": "JDTFHVSP; se debe empezar con A=0.",
+          "explanation": "La consigna fija A=1. Aplicar un origen distinto desplaza cada letra y contradice la regla dada."
+        },
+        {
+          "text": "ICSEGURO; esta regla siempre es ASCII decimal.",
+          "explanation": "El resultado coincide, pero los valores son posiciones A1Z26. En ASCII la I mayúscula es 73, no 9."
+        },
+        {
+          "text": "ICSEGURO; la misma regla vale para toda secuencia numérica.",
+          "explanation": "Antes de aplicarla a datos ajenos hay que comprobar el alfabeto, sus índices y cómo se representan los separadores."
+        },
+        {
+          "text": "No se puede interpretar sin una contraseña secreta.",
+          "explanation": "A1Z26 es una asociación pública entre posiciones y letras; no se ha definido una contraseña."
+        }
+      ],
+      "conceptIds": [
+        "a1z26-braille"
+      ],
+      "guidePages": [
+        3
+      ]
+    },
+    {
+      "number": 6,
+      "sourceFingerprint": "6202d60cd7fec31ec58b2893fb5c1cd995847462694414403bd021caa06bbfc5",
+      "correctOption": "Reconocer las celdas Braille, mapear puntos a símbolos y conservar separadores; es representación.",
+      "distractors": [
+        {
+          "text": "Probar claves AES hasta obtener palabras.",
+          "explanation": "Las celdas Braille representan símbolos mediante patrones de puntos; no hay evidencia de cifrado AES."
+        },
+        {
+          "text": "Clasificarlo como cifrado porque no se puede leer a simple vista.",
+          "explanation": "El desconocimiento de un alfabeto no lo transforma en criptografía ni demuestra la presencia de una clave."
+        },
+        {
+          "text": "Convertir cada celda directamente en una letra ASCII de igual valor.",
+          "explanation": "Los puntos de código Braille de Unicode no coinciden con los valores ASCII de las letras representadas."
+        },
+        {
+          "text": "Eliminar separadores y deducir una flag sin registrar el proceso.",
+          "explanation": "Los separadores pueden conservar estructura necesaria para interpretar el mensaje; la reconstrucción debe ser verificable."
+        }
+      ],
+      "conceptIds": [
+        "a1z26-braille"
+      ],
+      "guidePages": [
+        2,
+        3
+      ]
+    },
+    {
+      "number": 7,
+      "sourceFingerprint": "cb03b9588c916a29711d39a88298953d98f2e35040b869ac734d642644ccf0ce",
+      "correctOption": "Revisar metadatos, cadenas incrustadas, bytes anexados y LSB o datos esteganográficos; hace falta el archivo.",
+      "distractors": [
+        {
+          "text": "Dar por vacía la imagen porque el texto visible lo afirma.",
+          "explanation": "La apariencia visible no descarta información en metadatos, datos anexados o bits de los píxeles."
+        },
+        {
+          "text": "Afirmar que contiene una flag concreta cifrada con AES.",
+          "explanation": "Sin inspeccionar la imagen no se puede conocer el mensaje oculto ni confirmar un algoritmo de cifrado."
+        },
+        {
+          "text": "Revisar sólo el nombre del archivo y su extensión.",
+          "explanation": "El nombre no cubre los metadatos, los bytes internos, los datos agregados ni los canales de píxeles."
+        },
+        {
+          "text": "Borrar metadatos y recomprimir antes de investigar.",
+          "explanation": "Modificar el archivo puede destruir datos ocultos y evidencia. Primero se conserva y examina una copia."
+        }
+      ],
+      "conceptIds": [
+        "esteganografia",
+        "lsb"
+      ],
+      "guidePages": [
+        7
+      ]
+    },
+    {
+      "number": 8,
+      "sourceFingerprint": "fd5ea3436a5b658da5f724a1ca8a94984d3a4b2e45776d4632445528ef4df814",
+      "correctOption": "Registrar intercambios, reconocer el formato, validar el decodificador y automatizar lectura y envío.",
+      "distractors": [
+        {
+          "text": "Fijar la primera cadena como respuesta para todas las conexiones.",
+          "explanation": "La consigna advierte que la cadena cambia: una respuesta fija no resuelve las entradas posteriores."
+        },
+        {
+          "text": "Suponer la flag sin leer la respuesta del servicio.",
+          "explanation": "El resultado debe verificarse con la entrada y la salida observadas; una flag supuesta no es evidencia."
+        },
+        {
+          "text": "Enviar respuestas sin conservar entradas ni saltos de línea.",
+          "explanation": "Los registros permiten reproducir el resultado y los separadores pueden formar parte del protocolo del reto."
+        },
+        {
+          "text": "Aplicar siempre Base64 aunque el formato cambie.",
+          "explanation": "Hay que identificar la representación recibida; un único decodificador no sirve para cualquier formato."
+        }
+      ],
+      "conceptIds": [
+        "writeup",
+        "base64"
+      ],
+      "guidePages": [
+        2,
+        3,
+        15,
+        16
+      ]
+    },
+    {
+      "number": 9,
+      "sourceFingerprint": "1fc1ab7d0de8f5ee96423e66782f28483d854ce0a4e758932789025191f04bd3",
+      "correctOption": "IC{hola_mundo}; es una transposición por inversión del orden.",
+      "distractors": [
+        {
+          "text": "IC{hola_mundo}; es sustitución porque cambia la posición.",
+          "explanation": "Cambiar posiciones manteniendo los caracteres es transposición; sustituir implica reemplazar símbolos."
+        },
+        {
+          "text": "IC{hola_mundo}; es un hash del mensaje.",
+          "explanation": "La inversión es reversible y conserva los caracteres. No corresponde a una función hash criptográfica."
+        },
+        {
+          "text": "LF{kr od}; hay que desplazar todas las letras tres posiciones.",
+          "explanation": "La consigna presenta una cadena invertida, no un desplazamiento César; mover letras no recupera su orden."
+        },
+        {
+          "text": "El texto no puede recuperarse sin clave privada.",
+          "explanation": "Basta invertir la secuencia dada; no se describe un esquema asimétrico ni una clave privada."
+        }
+      ],
+      "conceptIds": [
+        "clasicos"
+      ],
+      "guidePages": [
+        3,
+        4
+      ]
+    },
+    {
+      "number": 10,
+      "sourceFingerprint": "619909d0320b3b46d36e34b7aaf10b4719ba5ab6498ac02c614f8a486844e562",
+      "correctOption": "IC{cripto}; se resta 3 a cada letra y es sustitución monoalfabética.",
+      "distractors": [
+        {
+          "text": "OI{ixovzu}; para descifrar se suma 3 otra vez.",
+          "explanation": "Si se cifró desplazando +3, el descifrado aplica el desplazamiento inverso −3, no un segundo +3."
+        },
+        {
+          "text": "IC{cripto}; es transposición de letras.",
+          "explanation": "César conserva las posiciones y reemplaza cada letra por otra; por eso es sustitución."
+        },
+        {
+          "text": "IC{cripto}; se debe alterar también el significado de las llaves.",
+          "explanation": "El enunciado especifica que los signos se conservaron: sólo deben desplazarse las letras."
+        },
+        {
+          "text": "No tiene solución porque César exige la clave KEY.",
+          "explanation": "KEY corresponde al ejemplo de Vigenère. En este caso el desplazamiento César ya está indicado."
+        }
+      ],
+      "conceptIds": [
+        "cesar",
+        "clasicos"
+      ],
+      "guidePages": [
+        3,
+        4
+      ]
+    },
+    {
+      "number": 11,
+      "sourceFingerprint": "a093f4ca09572988b7a4010d7619636066831d20485566300439d951dd1859eb",
+      "correctOption": "CIBER; se intercalan CBR (posiciones 1, 3, 5) e IE (2, 4); es transposición.",
+      "distractors": [
+        {
+          "text": "CBRIE; los rieles se leen como si fueran el mensaje original.",
+          "explanation": "CBRIE es la concatenación de rieles cifrada; para recuperar el texto se deben intercalar sus posiciones."
+        },
+        {
+          "text": "ERIBC; basta invertir toda cadena rail fence.",
+          "explanation": "Rail fence de dos rieles distribuye posiciones alternadas. La inversión completa no deshace ese reparto."
+        },
+        {
+          "text": "CIBER; el método sustituye cada letra por la siguiente.",
+          "explanation": "El mensaje se recupera reordenando letras que ya estaban presentes, sin sustituirlas."
+        },
+        {
+          "text": "CBIER; ambos rieles tienen la misma longitud.",
+          "explanation": "Hay cinco posiciones: el primer riel contiene tres letras y el segundo dos, por lo que no se reparten por igual."
+        }
+      ],
+      "conceptIds": [
+        "transposicion-riel-columna"
+      ],
+      "guidePages": [
+        3,
+        4
+      ]
+    },
+    {
+      "number": 12,
+      "sourceFingerprint": "14dab091aa819565fcd9f5bddcc668e9a5d5a9d3a4a9f5375a4bd68b39303f41",
+      "correctOption": "Ubicar HKSU en A, TSIL en C y EYBE en T; leer filas en orden C-A-T: THESKYISBLUE.",
+      "distractors": [
+        {
+          "text": "Leer HKSUTSILEYBE directamente como texto plano.",
+          "explanation": "Los bloques se leyeron por columnas ordenadas alfabéticamente; hay que reconstruir la grilla antes de leer filas."
+        },
+        {
+          "text": "Colocar HKSU en C, TSIL en A y EYBE en T.",
+          "explanation": "HKSU corresponde a A, la primera columna en el orden alfabético de CAT, y no a la primera posición de la clave."
+        },
+        {
+          "text": "Desplazar cada letra según C, A y T como en Vigenère.",
+          "explanation": "La consigna describe transposición por columnas: cambia el orden, no los símbolos según desplazamientos."
+        },
+        {
+          "text": "Usar tres bloques de tres caracteres y descartar los sobrantes.",
+          "explanation": "Son doce caracteres y tres columnas: cada bloque de columna tiene cuatro caracteres, sin sobrantes."
+        }
+      ],
+      "conceptIds": [
+        "transposicion-riel-columna"
+      ],
+      "guidePages": [
+        3,
+        4
+      ]
+    },
+    {
+      "number": 13,
+      "sourceFingerprint": "33daa22a49e07e0c22e30f962f989493f975e9d63bec09b45a6d0be440caf89b",
+      "correctOption": "HELLO; restar KEYKE módulo 26, usando desplazamientos que varían con la clave.",
+      "distractors": [
+        {
+          "text": "HELLO; se aplica siempre un único desplazamiento César.",
+          "explanation": "El resultado coincide, pero la clave KEY repite tres desplazamientos distintos y no uno fijo."
+        },
+        {
+          "text": "RIJVS; conocer la clave no modifica el descifrado.",
+          "explanation": "La clave determina qué desplazamiento se resta en cada posición para recuperar el texto."
+        },
+        {
+          "text": "HELLO; la clave sólo cambia el orden de las letras.",
+          "explanation": "Vigenère sustituye letras mediante sumas modulares; no permuta únicamente sus posiciones."
+        },
+        {
+          "text": "HELLO; se usa KEY sin repetirla para las dos últimas letras.",
+          "explanation": "La clave debe extenderse a la longitud del mensaje: KEYKE, para dar un desplazamiento a cada posición."
+        }
+      ],
+      "conceptIds": [
+        "vigenere",
+        "aritmetica-modular"
+      ],
+      "guidePages": [
+        3,
+        4
+      ]
+    },
+    {
+      "number": 14,
+      "sourceFingerprint": "d77dd8759b267b9845525b9718a5e9770bcdb072a500471dd90363e0583371c5",
+      "correctOption": "FDVD sugiere César +3; ASAC conserva las letras y las reordena. Un ejemplo no identifica un algoritmo único.",
+      "distractors": [
+        {
+          "text": "FDVD es transposición y ASAC sustitución.",
+          "explanation": "FDVD cambia los símbolos de CASA; ASAC usa exactamente sus letras en otra disposición. Las clasificaciones están invertidas."
+        },
+        {
+          "text": "Ambos son hashes porque la salida es distinta.",
+          "explanation": "Una salida distinta no basta para identificar un hash. Los ejemplos muestran sustitución y reordenamiento reversibles."
+        },
+        {
+          "text": "Un solo par de textos demuestra de manera única el algoritmo.",
+          "explanation": "Distintas transformaciones pueden producir el mismo par observado; se requieren más muestras o especificaciones."
+        },
+        {
+          "text": "Ambos conservan intacta la identidad de las letras.",
+          "explanation": "FDVD introduce F, D y V en lugar de C, A y S; por eso no conserva la identidad de los símbolos."
+        }
+      ],
+      "conceptIds": [
+        "clasicos"
+      ],
+      "guidePages": [
+        3,
+        4
+      ]
+    },
+    {
+      "number": 15,
+      "sourceFingerprint": "cb96dd075a477a0c00782396aff01e5237ddbc2b84fd8a1bd750de1c6a100c1a",
+      "correctOption": "Generar los 26 desplazamientos del alfabeto declarado, evaluar texto con sentido y verificar en el reto.",
+      "distractors": [
+        {
+          "text": "Probar 256 claves porque cada desplazamiento ocupa un byte.",
+          "explanation": "En el alfabeto latino de 26 letras hay 26 desplazamientos César, no las 256 claves de XOR de un byte."
+        },
+        {
+          "text": "Elegir la primera variante que contenga una letra.",
+          "explanation": "Todas las variantes César contienen letras; hay que evaluar el mensaje completo y verificarlo en el servicio."
+        },
+        {
+          "text": "Aplicar el mismo desplazamiento sin comprobarlo en el reto.",
+          "explanation": "No se conoce la clave y el servicio permite validar: un supuesto fijo no demuestra haber descifrado la frase."
+        },
+        {
+          "text": "Desplazar acentos y signos sin declarar un alfabeto.",
+          "explanation": "La regla de desplazamiento depende del alfabeto y del tratamiento de caracteres especiales; debe especificarse."
+        }
+      ],
+      "conceptIds": [
+        "cesar",
+        "writeup"
+      ],
+      "guidePages": [
+        3,
+        4
+      ]
+    },
+    {
+      "number": 16,
+      "sourceFingerprint": "d81682156faf24fee41fb5434ae824809a7fff9202ab4d3c2b2ec97e1dcd4ccd",
+      "correctOption": "128, 160, 256 y 512 bits; son compatibles con ciertos hashes, pero la longitud no identifica el algoritmo.",
+      "distractors": [
+        {
+          "text": "32, 40, 64 y 128 bits, respectivamente.",
+          "explanation": "Cada dígito hexadecimal representa cuatro bits; confundir cantidad de dígitos con bits reduce los tamaños por un factor de cuatro."
+        },
+        {
+          "text": "256, 320, 512 y 1024 bits, respectivamente.",
+          "explanation": "Un carácter hexadecimal no representa ocho bits: dos caracteres hexadecimales representan un byte."
+        },
+        {
+          "text": "La longitud demuestra de forma única MD5, SHA-1, SHA-256 y SHA-512.",
+          "explanation": "Esas longitudes son compatibles, pero otros algoritmos o salidas truncadas pueden tener el mismo tamaño."
+        },
+        {
+          "text": "La longitud del digest revela la longitud del archivo original.",
+          "explanation": "Los hashes de tamaño fijo producen la misma longitud de salida para entradas de tamaños diferentes."
+        }
+      ],
+      "conceptIds": [
+        "sha",
+        "ascii"
+      ],
+      "guidePages": [
+        4
+      ]
+    },
+    {
+      "number": 17,
+      "sourceFingerprint": "3cc76a108ffca8625b1f3c5cc168cc6a93c5e204b0b96c3e6100881d84cbf1bf",
+      "correctOption": "Las salidas finitas permiten colisiones; una tabla encuentra candidatos precalculados y no invierte MD5 en general.",
+      "distractors": [
+        {
+          "text": "Dos archivos distintos nunca pueden compartir un hash.",
+          "explanation": "Un resumen de longitud fija tiene un conjunto finito de salidas y admite colisiones entre entradas distintas."
+        },
+        {
+          "text": "Consultar un digest en una tabla equivale a descifrar MD5.",
+          "explanation": "La tabla compara candidatos ya calculados; no proporciona una operación de descifrado del hash."
+        },
+        {
+          "text": "Una coincidencia en una tabla prueba que ésa fue la única entrada original.",
+          "explanation": "Puede haber otras preimágenes o colisiones. Una entrada compatible no demuestra unicidad del origen."
+        },
+        {
+          "text": "MD5 necesita una clave privada para resolver las colisiones.",
+          "explanation": "MD5 es una función hash sin clave privada; las colisiones no se corrigen introduciendo una clave de descifrado."
+        }
+      ],
+      "conceptIds": [
+        "colisiones",
+        "diccionario"
+      ],
+      "guidePages": [
+        4
+      ]
+    },
+    {
+      "number": 18,
+      "sourceFingerprint": "ba1d07d9222a289e077db85260d6e5f467c20e07786659f9f5500df139a82e4f",
+      "correctOption": "Calcular SHA-256 local y comparar; también hay que autenticar la fuente del digest esperado.",
+      "distractors": [
+        {
+          "text": "Comparar sólo el nombre y la extensión del archivo.",
+          "explanation": "Dos archivos pueden compartir nombre y extensión con contenidos distintos; eso no verifica su resumen criptográfico."
+        },
+        {
+          "text": "La coincidencia de hashes demuestra por sí sola la identidad del publicador.",
+          "explanation": "Un atacante podría reemplazar tanto el archivo como el digest en una fuente no autenticada."
+        },
+        {
+          "text": "Calcular MD5 y compararlo directamente con el SHA-256 publicado.",
+          "explanation": "Debe aplicarse el mismo algoritmo a los mismos bytes; MD5 y SHA-256 producen resúmenes de formatos diferentes."
+        },
+        {
+          "text": "Descifrar el digest SHA-256 para obtener el archivo.",
+          "explanation": "SHA-256 no ofrece una operación general de descifrado; la comprobación recalcula y compara el resumen."
+        }
+      ],
+      "conceptIds": [
+        "integridad-archivo"
+      ],
+      "guidePages": [
+        4
+      ]
+    },
+    {
+      "number": 19,
+      "sourceFingerprint": "41a0751921f767060281cf28c73c35aebbb1f1dd324ef1138184b5be62942c73",
+      "correctOption": "Calcular SHA-256 de las primeras 100 entradas y comparar el digest: búsqueda offline en diccionario.",
+      "distractors": [
+        {
+          "text": "Probar todas las cadenas posibles antes de consultar rockyou.",
+          "explanation": "El reto acota las candidatas a cien entradas: un diccionario limitado evita buscar todo el espacio de cadenas."
+        },
+        {
+          "text": "Descifrar SHA-256 con la contraseña del servicio.",
+          "explanation": "SHA-256 no se descifra con una clave; se calculan hashes de candidatas y se comparan."
+        },
+        {
+          "text": "Enviar cien inicios de sesión a un servidor de otra organización.",
+          "explanation": "El material recibido permite comparar hashes offline; no requiere ni justifica autenticaciones contra terceros."
+        },
+        {
+          "text": "Usar MD5 de las entradas porque todos los hashes son equivalentes.",
+          "explanation": "El algoritmo del objetivo es SHA-256. Comparar resúmenes MD5 no identifica la candidata correspondiente."
+        }
+      ],
+      "conceptIds": [
+        "diccionario",
+        "contrasenas"
+      ],
+      "guidePages": [
+        4
+      ]
+    },
+    {
+      "number": 20,
+      "sourceFingerprint": "0200aa967508ba7341e9581a55a9ea7c3dfb280ff05d08f8c7609d3425f65f3e",
+      "correctOption": "mate; calcular MD5 de IntroCiberseguridad seguido de la contraseña, sin invertir el orden.",
+      "distractors": [
+        {
+          "text": "sol; el salt se agrega después de la contraseña.",
+          "explanation": "La definición es MD5(salt || password). Cambiar orden y candidata no reproduce el digest entregado."
+        },
+        {
+          "text": "luna; cualquier candidata produce el mismo hash si el salt es público.",
+          "explanation": "Que el salt sea público no hace iguales los hashes de contraseñas diferentes; cada candidata debe comprobarse."
+        },
+        {
+          "text": "mate; calcular MD5(mate) ignorando el salt.",
+          "explanation": "La candidata es mate, pero omitir el prefijo cambia los bytes de entrada y produce otro digest."
+        },
+        {
+          "text": "mate; el salt convierte MD5 en una función lenta resistente a ataques offline.",
+          "explanation": "El salt no añade un costo de cálculo alto a MD5; una KDF de contraseñas requiere un diseño apropiado."
+        }
+      ],
+      "conceptIds": [
+        "contrasenas",
+        "diccionario"
+      ],
+      "guidePages": [
+        4
+      ]
+    },
+    {
+      "number": 21,
+      "sourceFingerprint": "533d3ea3e96a45338a5253958abddd0d8c1411151bab38d8c0ad04169745afd3",
+      "correctOption": "Decodificar Base64, descifrar AES-128-ECB con la clave de 16 bytes y tratar padding y codificación.",
+      "distractors": [
+        {
+          "text": "Aplicar AES al texto Base64 y decodificarlo al final.",
+          "explanation": "Base64 representa los bytes cifrados: primero hay que recuperarlos para que AES reciba el ciphertext correcto."
+        },
+        {
+          "text": "Decodificar Base64 y dar por recuperado el mensaje original.",
+          "explanation": "Esa operación sólo recupera los bytes cifrados; todavía hace falta el descifrado AES con la clave correcta."
+        },
+        {
+          "text": "Descifrar sin conocer clave, modo ni padding porque Base64 los contiene.",
+          "explanation": "Base64 no incorpora automáticamente los parámetros del cifrado ni permite deducir la clave."
+        },
+        {
+          "text": "Usar 128 bytes de clave porque se llama AES-128.",
+          "explanation": "El tamaño de clave indicado está en bits: 128 bits equivalen a 16 bytes, no 128 bytes."
+        }
+      ],
+      "conceptIds": [
+        "ecb",
+        "bloques",
+        "base64"
+      ],
+      "guidePages": [
+        5
+      ]
+    },
+    {
+      "number": 22,
+      "sourceFingerprint": "b303f2086a09679d16f7b20225d109db3ff02db0bc73e994f67ce89830c45645",
+      "correctOption": "ECB produce bloques cifrados iguales; CBC incorpora encadenamiento e IV, pero no autentica por sí solo.",
+      "distractors": [
+        {
+          "text": "ECB genera salidas distintas por usar automáticamente un IV aleatorio en cada bloque.",
+          "explanation": "ECB no encadena bloques ni utiliza ese IV por bloque; bajo la misma clave repite la salida para entradas iguales."
+        },
+        {
+          "text": "CBC cifra cada bloque de forma independiente igual que ECB.",
+          "explanation": "CBC combina el bloque con el cifrado anterior, o con el IV en el primero, antes de cifrar."
+        },
+        {
+          "text": "CBC evita patrones y por eso garantiza también autenticidad.",
+          "explanation": "El encadenamiento no aporta por sí solo autenticación del mensaje; se necesita protección de integridad adecuada."
+        },
+        {
+          "text": "Los bloques cifrados siempre tienen la longitud del mensaje completo.",
+          "explanation": "AES transforma bloques de 16 bytes en bloques de 16 bytes; el modo no convierte cada bloque en todo el mensaje."
+        }
+      ],
+      "conceptIds": [
+        "ecb",
+        "cbc"
+      ],
+      "guidePages": [
+        5
+      ]
+    },
+    {
+      "number": 23,
+      "sourceFingerprint": "8b4c38515cf406ceb7a1aa97fa6835b648bf18952ba58a5119787ee258b4d95f",
+      "correctOption": "IC{XOR}; (x XOR k) XOR k = x, aplicando otra vez la clave 0x2a a cada byte.",
+      "distractors": [
+        {
+          "text": "IC{XOR}; se suma 0x2a a cada byte para descifrar.",
+          "explanation": "El resultado esperado se obtiene repitiendo XOR, no sumando; suma y XOR son operaciones distintas."
+        },
+        {
+          "text": "La clave de descifrado debe ser diferente de 0x2a.",
+          "explanation": "XOR con la misma clave cancela el efecto de la primera aplicación, por lo que no se necesita otra clave."
+        },
+        {
+          "text": "No es reversible porque XOR es una función hash.",
+          "explanation": "Conocer la clave hace reversible XOR: la identidad algebraica permite recuperar exactamente cada byte."
+        },
+        {
+          "text": "Aplicar XOR sólo al primer byte y copiar los demás.",
+          "explanation": "La consigna cifra cada byte con la clave. Para recuperar todo el mensaje se debe transformar cada byte de salida."
+        }
+      ],
+      "conceptIds": [
+        "xor"
+      ],
+      "guidePages": [
+        5
+      ]
+    },
+    {
+      "number": 24,
+      "sourceFingerprint": "2d72e862e02cd23547672df404bc712dfbed9dc0f283a99bcc993808b8b86484",
+      "correctOption": "256 claves (0–255); evaluar todo el texto, sus caracteres imprimibles, estructura y formato esperado.",
+      "distractors": [
+        {
+          "text": "255 claves, de 1 a 255.",
+          "explanation": "La clave 0 también es un valor de un byte, aunque no altere el mensaje. El espacio completo tiene 256 valores."
+        },
+        {
+          "text": "16 claves porque un dígito hexadecimal tiene 16 valores.",
+          "explanation": "Una clave de un byte ocupa dos dígitos hexadecimales: su espacio es de 256, no 16 valores."
+        },
+        {
+          "text": "256 claves; basta encontrar una letra legible para confirmar una.",
+          "explanation": "Una letra aislada puede aparecer por azar; hay que comprobar la coherencia del mensaje completo."
+        },
+        {
+          "text": "2^256 claves porque se usa XOR.",
+          "explanation": "La cantidad de claves depende de la longitud de la clave, que aquí es de ocho bits, no 256 bits."
+        }
+      ],
+      "conceptIds": [
+        "xor"
+      ],
+      "guidePages": [
+        5
+      ]
+    },
+    {
+      "number": 25,
+      "sourceFingerprint": "3dacc10604829fa2d089b602cab6c001c29d6426cbb878cf40bcb370d3b84b57",
+      "correctOption": "Comparar conexiones, tiempos y cifrados de mensajes conocidos; sin registros no se deducen semilla ni flag.",
+      "distractors": [
+        {
+          "text": "Una clave llamada temporal es necesariamente aleatoria e irrepetible.",
+          "explanation": "El nombre no demuestra entropía ni ausencia de reutilización; se debe observar cómo se genera y usa."
+        },
+        {
+          "text": "La hora de conexión revela siempre la semilla exacta.",
+          "explanation": "Puede haber otras fuentes de entropía o transformaciones; el instante por sí solo no determina el generador."
+        },
+        {
+          "text": "Una reconexión permite afirmar la flag sin observar el servicio.",
+          "explanation": "Sin entradas, salidas o implementación no existe un resultado verificable ni una flag deducible."
+        },
+        {
+          "text": "Si se repite el algoritmo XOR, necesariamente se repite su clave.",
+          "explanation": "El algoritmo puede mantenerse y utilizar claves distintas. La reutilización exige comparar material o resultados."
+        }
+      ],
+      "conceptIds": [
+        "keystream"
+      ],
+      "guidePages": [
+        5
+      ]
+    },
+    {
+      "number": 26,
+      "sourceFingerprint": "6d1192205e4cb44bed4a8ce09eaf72f071e47cf515fc64863f9843bc7b59ef51",
+      "correctOption": "n=3233, φ(n)=3120, d=2753 y M=65; descifrar como C^d mod n.",
+      "distractors": [
+        {
+          "text": "n=3120, φ(n)=3233, d=2753 y M=65.",
+          "explanation": "El módulo es p·q=3233; 3120 es (p−1)(q−1). Intercambiar esas cantidades invalida los cálculos."
+        },
+        {
+          "text": "n=3233, φ(n)=3120, d=17 y M=2790.",
+          "explanation": "e=17 es el exponente público; d debe ser su inverso modular. 2790 es el ciphertext, no el mensaje recuperado."
+        },
+        {
+          "text": "n=114, φ(n)=3120, d=2753 y M=65.",
+          "explanation": "RSA usa el producto p·q como módulo, no la suma de los primos. 61+53 no es el valor de n."
+        },
+        {
+          "text": "n=3233, φ(n)=3120, d=2753 y M=C·d.",
+          "explanation": "El descifrado usa exponenciación modular C^d mod n, no multiplicación directa de C por d."
+        }
+      ],
+      "conceptIds": [
+        "rsa",
+        "aritmetica-modular"
+      ],
+      "guidePages": [
+        5,
+        6
+      ]
+    },
+    {
+      "number": 27,
+      "sourceFingerprint": "5b1665d9620635407f4c29b3d6bcc5aca6897eda9c98d0ff210a3c2a315092ae",
+      "correctOption": "Conocer codificación, representación, orden y longitud de bytes y padding; sólo con ASCII acordado 65 es A.",
+      "distractors": [
+        {
+          "text": "65 siempre significa A, cualquiera sea la representación.",
+          "explanation": "El entero necesita una convención de interpretación; podría representar bytes, datos estructurados u otro significado."
+        },
+        {
+          "text": "El entero descifrado contiene automáticamente su codificación y longitud.",
+          "explanation": "La representación acordada y el esquema de padding no se deducen de un entero aislado."
+        },
+        {
+          "text": "Para varios bytes alcanza con conservar sólo el último.",
+          "explanation": "Descartar bytes pierde parte del mensaje. Se necesita reconstruir la secuencia completa con su orden y longitud."
+        },
+        {
+          "text": "Hay que interpretar 65 como hexadecimal porque proviene de RSA.",
+          "explanation": "La consigna declara un resultado decimal. RSA no obliga a escribir ni interpretar sus resultados en hexadecimal."
+        }
+      ],
+      "conceptIds": [
+        "rsa",
+        "ascii"
+      ],
+      "guidePages": [
+        6
+      ]
+    },
+    {
+      "number": 28,
+      "sourceFingerprint": "9f341943dadc0a236e5034d79ca4bfcf0eba2d5f34f19c4886e6b86bd8f8cb13",
+      "correctOption": "Factorizar 3233=61·53, obtener φ(n) y d; el tamaño pequeño lo permite, a diferencia de módulos adecuados.",
+      "distractors": [
+        {
+          "text": "La clave privada es siempre igual a e, aunque no se factorice.",
+          "explanation": "e es público; el exponente privado se obtiene como un inverso modular con información adicional."
+        },
+        {
+          "text": "Factorizar cualquier módulo RSA toma lo mismo que este ejemplo.",
+          "explanation": "La dificultad computacional cambia enormemente con el tamaño y la generación de los factores."
+        },
+        {
+          "text": "Factorizar n sólo permite conocer la codificación ASCII, no d.",
+          "explanation": "Los factores permiten calcular φ(n) y el inverso de e, que es justamente el paso para obtener d en el ejemplo."
+        },
+        {
+          "text": "Usar n−1 como φ(n) porque 3233 es primo.",
+          "explanation": "3233 es compuesto: 61·53. Para estos primos distintos φ(n)=(61−1)(53−1)."
+        }
+      ],
+      "conceptIds": [
+        "rsa",
+        "aritmetica-modular"
+      ],
+      "guidePages": [
+        6
+      ]
+    },
+    {
+      "number": 29,
+      "sourceFingerprint": "c9f8f7315b9d50a8cce633be0796815b52327d3b8700b7351e8c3100f9de22a5",
+      "correctOption": "e es público; el descifrado habitual requiere d y n, y obtener d depende de información sobre φ(n) o λ(n).",
+      "distractors": [
+        {
+          "text": "e=65537 es secreto por tener un valor grande.",
+          "explanation": "El tamaño de un número no determina su rol: e se publica como parte de la clave pública."
+        },
+        {
+          "text": "Conocer e y un ciphertext siempre basta para descifrar cualquier RSA.",
+          "explanation": "Esa información no permite obtener en general el exponente privado de un módulo correctamente generado."
+        },
+        {
+          "text": "La clave privada es el ciphertext recibido.",
+          "explanation": "El ciphertext es el mensaje cifrado; la clave privada contiene material para aplicar la operación de descifrado."
+        },
+        {
+          "text": "Para obtener d basta restar uno a e.",
+          "explanation": "d debe satisfacer una relación de inverso modular respecto de φ(n) o λ(n), no una resta ordinaria."
+        }
+      ],
+      "conceptIds": [
+        "rsa"
+      ],
+      "guidePages": [
+        6
+      ]
+    },
+    {
+      "number": 30,
+      "sourceFingerprint": "312ff3f2cb16128a837b7fc62c8a097756458b3779100e55cd0e03b64ffa4ac9",
+      "correctOption": "A=8, B=19 y secreto compartido 2; cada parte eleva el valor público recibido a su exponente secreto.",
+      "distractors": [
+        {
+          "text": "A=8, B=19 y secreto 27, sumando ambos valores.",
+          "explanation": "DH no suma A y B para obtener el secreto: aplica exponenciación modular con un exponente privado."
+        },
+        {
+          "text": "A=30, B=75 y secreto 450, multiplicando parámetros.",
+          "explanation": "Los valores públicos se calculan como potencias módulo p, no como productos g·a y g·b."
+        },
+        {
+          "text": "A=8, B=19 y cada participante obtiene un secreto diferente.",
+          "explanation": "Con los parámetros indicados, B^a mod p y A^b mod p dan ambos 2."
+        },
+        {
+          "text": "El secreto 2 se envía en texto claro para que ambos lo conozcan.",
+          "explanation": "Cada participante lo calcula localmente. El propósito del acuerdo es no transmitir directamente ese secreto."
+        }
+      ],
+      "conceptIds": [
+        "diffie-hellman",
+        "aritmetica-modular"
+      ],
+      "guidePages": [
+        6,
+        7
+      ]
+    },
+    {
+      "number": 31,
+      "sourceFingerprint": "61c414d2f8e5299d749d92bdd0e6e2511c36ee56cc06ac3b20d77520a273d94f",
+      "correctOption": "Sin autenticación, un intermediario puede sustituir valores públicos y acordar un secreto con cada extremo.",
+      "distractors": [
+        {
+          "text": "DH autentica automáticamente a quien envía cualquier valor público.",
+          "explanation": "Obtener un secreto compartido no verifica por sí solo la identidad de la contraparte."
+        },
+        {
+          "text": "El ataque exige factorizar el módulo como en RSA.",
+          "explanation": "Un intermediario puede sustituir valores durante un intercambio no autenticado sin resolver la factorización de RSA."
+        },
+        {
+          "text": "Basta mantener p y g secretos para verificar identidades.",
+          "explanation": "Esos parámetros se consideran públicos en DH y ocultarlos no constituye un mecanismo de autenticación."
+        },
+        {
+          "text": "Una clave compartida demuestra que sólo hubo dos participantes.",
+          "explanation": "El atacante puede mantener dos acuerdos separados y retransmitir mensajes entre los extremos."
+        }
+      ],
+      "conceptIds": [
+        "diffie-hellman",
+        "mitm"
+      ],
+      "guidePages": [
+        6,
+        7
+      ]
+    },
+    {
+      "number": 32,
+      "sourceFingerprint": "00a0bdb6ee070e394fa8850fd863d42be62d3037b8adbe24fd5dd3564c016935",
+      "correctOption": "Usar steghide info y extract -sf con la contraseña; comprobar el archivo obtenido sin inventar su contenido.",
+      "distractors": [
+        {
+          "text": "steghide info ya demuestra qué flag contiene la imagen.",
+          "explanation": "Inspeccionar información del portador no permite adivinar un contenido que debe extraerse y verificarse."
+        },
+        {
+          "text": "La contraseña permite conocer el mensaje incluso sin tener la imagen.",
+          "explanation": "La contraseña no reemplaza los bytes del portador; hace falta el archivo para intentar una extracción."
+        },
+        {
+          "text": "Cambiar la extensión a .txt siempre extrae el secreto.",
+          "explanation": "Renombrar no ejecuta una técnica esteganográfica ni interpreta datos ocultos en el portador."
+        },
+        {
+          "text": "El comando extract confirma que toda imagen usa steghide.",
+          "explanation": "El intento de extracción sólo es pertinente si el formato y método son compatibles; no prueba una técnica universal."
+        }
+      ],
+      "conceptIds": [
+        "esteganografia"
+      ],
+      "guidePages": [
+        7
+      ]
+    },
+    {
+      "number": 33,
+      "sourceFingerprint": "d968ae260ba4a4972c0bda76848f7d3c3ca49e9e760e9ed565913bb84343a125",
+      "correctOption": "I: los LSB forman 01001001, equivalente a 0x49 y 73 decimal.",
+      "distractors": [
+        {
+          "text": "A: los LSB forman 01000001.",
+          "explanation": "Los últimos bits de los bytes dados son 0,1,0,0,1,0,0,1. La secuencia propuesta altera el quinto bit."
+        },
+        {
+          "text": "H: se ignora el último bit porque no es un píxel completo.",
+          "explanation": "La consigna proporciona ocho bits útiles; omitir el último cambia el valor recuperado."
+        },
+        {
+          "text": "No puede reconstruirse ningún byte a partir de ocho bits.",
+          "explanation": "Ocho bits forman exactamente un byte. El orden de ensamblado está indicado en la consigna."
+        },
+        {
+          "text": "Hay que tomar el primer bit de cada byte.",
+          "explanation": "Se pide el bit menos significativo, que es el último de cada representación binaria mostrada."
+        }
+      ],
+      "conceptIds": [
+        "lsb",
+        "ascii"
+      ],
+      "guidePages": [
+        7
+      ]
+    },
+    {
+      "number": 34,
+      "sourceFingerprint": "f7948a0c7d12b05b4a111f7c09e2a0f8dee13788da564ed7c47ce3b0e012efee",
+      "correctOption": "Preservar una copia y revisar formato, metadatos, anexos, cadenas, espectrograma, canales y posibles LSB.",
+      "distractors": [
+        {
+          "text": "Recomprimir el WAV y reemplazar el original antes de observarlo.",
+          "explanation": "La modificación puede destruir metadatos o bits ocultos; primero se conserva la evidencia original."
+        },
+        {
+          "text": "Concluir que no hay mensaje porque el audio suena normal.",
+          "explanation": "El mensaje puede aparecer en un espectrograma, canal o bits que no alteran perceptiblemente la escucha."
+        },
+        {
+          "text": "Inventar el mensaje basándose sólo en el nombre del archivo.",
+          "explanation": "La identificación del contenido requiere analizar el archivo; el nombre no demuestra una carga oculta."
+        },
+        {
+          "text": "Examinar sólo el volumen general y descartar cualquier otra técnica.",
+          "explanation": "Una inspección limitada al volumen no cubre metadatos, anexos, canales ni patrones espectrales o de bits."
+        }
+      ],
+      "conceptIds": [
+        "esteganografia",
+        "lsb"
+      ],
+      "guidePages": [
+        7
+      ]
+    },
+    {
+      "number": 35,
+      "sourceFingerprint": "c31430e96d29ea9eee4bc767277d049db0265556247c973219529edd47228e0e",
+      "correctOption": "Cifrar usa la pública del destinatario; firmar usa la privada del emisor y verificar su pública confiable.",
+      "distractors": [
+        {
+          "text": "Firmar vuelve secreto todo el texto aunque no se cifre.",
+          "explanation": "Una firma permite verificar integridad y origen bajo una clave confiable, pero no oculta el contenido."
+        },
+        {
+          "text": "Cifrar para Bob requiere disponer de la clave privada de Bob.",
+          "explanation": "Se cifra para el destinatario con su clave pública. Su clave privada debe permanecer bajo su control."
+        },
+        {
+          "text": "Verificar una firma exige la clave privada del remitente.",
+          "explanation": "La verificación se realiza con la clave pública; compartir la privada comprometería la capacidad de firmar."
+        },
+        {
+          "text": "Cifrar un archivo garantiza que fue firmado por su creador.",
+          "explanation": "Confidencialidad y firma son propiedades diferentes; cifrar no demuestra por sí solo quién creó el mensaje."
+        }
+      ],
+      "conceptIds": [
+        "pgp",
+        "firma"
+      ],
+      "guidePages": [
+        7,
+        8
+      ]
+    },
+    {
+      "number": 36,
+      "sourceFingerprint": "eecb4483571ac9f18a40cf469162bb1d4eab0aa05eeb8fea2c95bf7b920432e9",
+      "correctOption": "Verifica la firma bajo esa clave; hay que comprobar su pertenencia al remitente mediante una huella confiable.",
+      "distractors": [
+        {
+          "text": "Firma válida significa que el contenido del mensaje es necesariamente verdadero.",
+          "explanation": "Una firma comprueba una relación criptográfica con el contenido; no garantiza la verdad de sus afirmaciones."
+        },
+        {
+          "text": "Cualquier clave con el nombre del remitente prueba su identidad.",
+          "explanation": "Los nombres y correos declarados en una clave pueden falsificarse; deben verificarse huella y vínculo con la identidad."
+        },
+        {
+          "text": "Una firma válida cifra el texto para todos los lectores.",
+          "explanation": "Verificar la firma no aporta confidencialidad ni cambia qué personas pueden leer el contenido."
+        },
+        {
+          "text": "La clave pública debe mantenerse secreta para poder verificar.",
+          "explanation": "La clave pública está destinada a la verificación y distribución; lo que debe protegerse es la privada."
+        }
+      ],
+      "conceptIds": [
+        "pgp-confianza",
+        "firma"
+      ],
+      "guidePages": [
+        8
+      ]
+    },
+    {
+      "number": 37,
+      "sourceFingerprint": "4c2d8496d7cac2e82333bf34040906641ff605fc9996b10bb52826a45c27126c",
+      "correctOption": "PGP simétrico deriva la clave de una passphrase; se comprueban candidatas. El asimétrico requiere la privada.",
+      "distractors": [
+        {
+          "text": "PGP simétrico se descifra siempre con la clave pública RSA del remitente.",
+          "explanation": "La modalidad simétrica se basa en una contraseña y derivación de clave, no en esa clave pública."
+        },
+        {
+          "text": "La passphrase del archivo puede deducirse sin archivo ni diccionario.",
+          "explanation": "Hace falta material con el cual comprobar las candidatas; sin él no existe una contraseña verificable."
+        },
+        {
+          "text": "Probar una contraseña equivale a invertir una función hash general.",
+          "explanation": "Se deriva material y se comprueba un descifrado candidato; eso no invierte matemáticamente una función hash."
+        },
+        {
+          "text": "Las claves privadas y las contraseñas son intercambiables en cualquier formato.",
+          "explanation": "Los mecanismos simétricos y asimétricos requieren materiales distintos y respetar los parámetros del formato."
+        }
+      ],
+      "conceptIds": [
+        "pgp-confianza",
+        "pgp"
+      ],
+      "guidePages": [
+        8
+      ]
+    },
+    {
+      "number": 38,
+      "sourceFingerprint": "ff8680fe806374c989eaca470ffb3546fe45936a06248fb17dd142c57132af4d",
+      "correctOption": "Importar y verificar la clave pública; usar gpg --armor --encrypt --recipient ... --output archivo.txt.asc archivo.txt.",
+      "distractors": [
+        {
+          "text": "Usar --sign como única operación para cifrar el archivo.",
+          "explanation": "Firmar no cifra el contenido: para confidencialidad destinada a otra clave debe utilizarse la operación de cifrado."
+        },
+        {
+          "text": "Pedir la clave privada de destino@ejemplo.invalid para cifrar.",
+          "explanation": "El cifrado al destinatario utiliza su clave pública verificada; no se solicita ni se comparte su privada."
+        },
+        {
+          "text": "Agregar --armor a un archivo sin cifrar y asumir confidencialidad.",
+          "explanation": "ASCII armor es una representación imprimible; el cifrado proviene de --encrypt, no de armor por sí solo."
+        },
+        {
+          "text": "Importar cualquier clave que tenga ese correo sin comprobar la huella.",
+          "explanation": "El identificador de correo no garantiza pertenencia. Hay que verificar que la clave pública sea la correcta."
+        }
+      ],
+      "conceptIds": [
+        "pgp-confianza",
+        "pgp"
+      ],
+      "guidePages": [
+        8
+      ]
+    },
+    {
+      "number": 39,
+      "sourceFingerprint": "9ef48764c2345a126798bc6e397ec0056b3417dfeea33309ad43b885a8ba0477",
+      "correctOption": "Sustitución de la clave pública por una del atacante; verificar su huella mediante un canal autenticado.",
+      "distractors": [
+        {
+          "text": "Un algoritmo sólido garantiza que cualquier clave con nombre Bob es de Bob.",
+          "explanation": "La fortaleza matemática no valida los datos de identidad declarados al distribuir una clave."
+        },
+        {
+          "text": "El ataque requiere conocer previamente la clave privada real de Bob.",
+          "explanation": "Si la víctima cifra para la pública sustituida, el atacante usa su propia privada; no necesita la de Bob."
+        },
+        {
+          "text": "El correo escrito en la clave es prueba suficiente de identidad.",
+          "explanation": "Un identificador de correo puede copiarse. La confianza requiere verificar la clave mediante un canal adecuado."
+        },
+        {
+          "text": "Repetir el cifrado con la misma clave del foro elimina el riesgo.",
+          "explanation": "Repetir la operación conserva el destinatario criptográfico equivocado si la clave fue sustituida."
+        }
+      ],
+      "conceptIds": [
+        "pgp-confianza",
+        "mitm"
+      ],
+      "guidePages": [
+        8
+      ]
+    },
+    {
+      "number": 40,
+      "sourceFingerprint": "32b094d0861c8fe97689e762328c0239e86e425f2811bd8ecbacfd993d0b389d",
+      "correctOption": "Pedir archivo, formato, algoritmo, KDF, salt y parámetros; elegir un método verificable y no inventar una flag.",
+      "distractors": [
+        {
+          "text": "Entregar una flag probable sin disponer del archivo.",
+          "explanation": "No existe un resultado comprobable sin los datos y la estructura necesarios para ensayar la recuperación."
+        },
+        {
+          "text": "Toda recuperación de contraseña es descifrar un hash.",
+          "explanation": "Puede tratarse de comprobar candidatas, descifrar contenido o usar material de recuperación; no son tareas equivalentes."
+        },
+        {
+          "text": "Conocer sólo la extensión identifica siempre algoritmo y parámetros.",
+          "explanation": "Una extensión no demuestra el formato real ni especifica KDF, salt o esquema de protección."
+        },
+        {
+          "text": "Aplicar el mismo comando de diccionario a cualquier archivo sin identificarlo.",
+          "explanation": "La herramienta y sus parámetros deben ser compatibles con el material disponible y el mecanismo de protección."
+        }
+      ],
+      "conceptIds": [
+        "diccionario",
+        "pgp-confianza"
+      ],
+      "guidePages": [
+        4,
+        8,
+        16
+      ]
+    },
+    {
+      "number": 41,
+      "sourceFingerprint": "86628add5efd5a5f014783e435400a07089e2f415e622857aa5e19286ddbca08",
+      "correctOption": "ARIN: Norteamérica; APNIC: Asia-Pacífico; LACNIC: Latinoamérica/Caribe; RIPE NCC: Europa/Oriente Medio/Asia Central; AFRINIC: África. Argentina: LACNIC.",
+      "distractors": [
+        {
+          "text": "Argentina corresponde generalmente a ARIN por estar en América.",
+          "explanation": "El material ubica Argentina en la región LACNIC. ARIN no cubre de modo general a toda América."
+        },
+        {
+          "text": "APNIC administra África y AFRINIC administra Asia-Pacífico.",
+          "explanation": "Esas regiones están intercambiadas: APNIC corresponde a Asia-Pacífico y AFRINIC a África."
+        },
+        {
+          "text": "RIPE NCC administra todos los recursos de América Latina.",
+          "explanation": "El registro regional indicado para América Latina y Caribe es LACNIC, no RIPE NCC."
+        },
+        {
+          "text": "La región del RIR demuestra la ubicación física exacta del atacante.",
+          "explanation": "Un registro de asignación de recursos no geolocaliza con precisión ni identifica al operador de un ataque."
+        }
+      ],
+      "conceptIds": [
+        "rir"
+      ],
+      "guidePages": [
+        9
+      ]
+    },
+    {
+      "number": 42,
+      "sourceFingerprint": "b379a39237196c4715c7498fa90315b5ec5c21191513f21d9dab062bd5d1a6a5",
+      "correctOption": "Un RIR puede delegar funciones a un NIR nacional; hay que consultar ambos niveles pertinentes, no geolocalizar.",
+      "distractors": [
+        {
+          "text": "Un NIR reemplaza a IANA en todas las regiones del mundo.",
+          "explanation": "El NIR interviene en un ámbito nacional dentro de la organización regional; no sustituye globalmente a IANA."
+        },
+        {
+          "text": "La geolocalización aproximada de una IP identifica de forma segura su NIR.",
+          "explanation": "La geolocalización no demuestra la cadena registral; hay que consultar el registro del recurso concreto."
+        },
+        {
+          "text": "RIR y NIR son nombres de servidores DNS de un dominio.",
+          "explanation": "Son organismos vinculados a recursos numéricos, no tipos de servidores DNS ni registros de nombres."
+        },
+        {
+          "text": "Si existe NIR, el recurso no puede tener información de contacto abuse.",
+          "explanation": "La intervención de un NIR no elimina los contactos de abuso; obliga a localizar la información pertinente."
+        }
+      ],
+      "conceptIds": [
+        "nir",
+        "rir"
+      ],
+      "guidePages": [
+        9
+      ]
+    },
+    {
+      "number": 43,
+      "sourceFingerprint": "7f703c9b521c846fb625c5997e74c0a0fee938cea74b230229d84e521ce026d0",
+      "correctOption": "Al contacto abuse, con IP, tiempos y zona horaria y evidencia observada.",
+      "distractors": [
+        {
+          "text": "Al administrativo, porque siempre es quien ejecutó el ataque.",
+          "explanation": "El contacto administrativo cumple una función registral; no identifica al atacante y no es el canal preferente de abuso."
+        },
+        {
+          "text": "A cualquier correo de la ficha, sin describir el incidente.",
+          "explanation": "Los roles de contacto son distintos y una notificación útil debe incluir evidencia y alcance temporal."
+        },
+        {
+          "text": "Al contacto técnico únicamente para solicitarle la contraseña de la IP.",
+          "explanation": "El incidente se reporta al rol abuse; pedir contraseñas no aporta la notificación técnica solicitada."
+        },
+        {
+          "text": "A todos los usuarios que aparezcan en una búsqueda web, sin verificar la ficha.",
+          "explanation": "Hay que usar un contacto registral pertinente y datos comprobados, evitando una difusión indiscriminada de evidencia."
+        }
+      ],
+      "conceptIds": [
+        "whois",
+        "notificacion"
+      ],
+      "guidePages": [
+        9,
+        12
+      ]
+    },
+    {
+      "number": 44,
+      "sourceFingerprint": "6f384c579534bb70a368e38038ac729c490f28b9599df1e04662f1268ae80c9a",
+      "correctOption": "203.0.113.0/24, Laboratorio Ejemplo y abuse@lab.example; el registro no atribuye autoría personal.",
+      "distractors": [
+        {
+          "text": "El responsable de la red queda probado como autor humano del ataque.",
+          "explanation": "La asignación registral indica un responsable del recurso, no qué persona utilizó una dirección en un instante."
+        },
+        {
+          "text": "El bloque es sólo 203.0.113.0, sin considerar /24.",
+          "explanation": "El prefijo /24 forma parte del recurso registrado y determina el conjunto de direcciones cubierto."
+        },
+        {
+          "text": "El contacto de abuso es noc@lab.example porque todo contacto técnico es abuse.",
+          "explanation": "La ficha distingue explícitamente tech de abuse; para notificar abuso corresponde abuse@lab.example."
+        },
+        {
+          "text": "La ficha demuestra que esa red envió tráfico malicioso en la fecha actual.",
+          "explanation": "Es una ficha ficticia de documentación, sin registros de tráfico ni evidencia temporal de un incidente real."
+        }
+      ],
+      "conceptIds": [
+        "rdap",
+        "ip"
+      ],
+      "guidePages": [
+        9
+      ]
+    },
+    {
+      "number": 45,
+      "sourceFingerprint": "39cae0a98e43101a0bdf31e6ddf526c81bb6756ce95aede5adca04bdb76fe909",
+      "correctOption": "RDAP entrega datos estructurados, normalmente JSON; verificar fuente y fechas cuando difiere de WHOIS.",
+      "distractors": [
+        {
+          "text": "WHOIS garantiza un formato JSON idéntico para todos los servidores.",
+          "explanation": "WHOIS suele devolver texto heterogéneo; la estructura de RDAP facilita el procesamiento automatizado."
+        },
+        {
+          "text": "RDAP y WHOIS deben devolver siempre texto literalmente idéntico.",
+          "explanation": "Pueden diferir por representación, actualización o detalle. Se contrastan los datos y sus fuentes."
+        },
+        {
+          "text": "Una diferencia prueba necesariamente que uno de los servicios fue atacado.",
+          "explanation": "Las diferencias de actualización y presentación son explicaciones posibles que deben evaluarse antes de atribuir un ataque."
+        },
+        {
+          "text": "RDAP permite identificar con certeza al usuario humano de una IP.",
+          "explanation": "La información registral describe recursos y contactos, no demuestra quién operaba una dirección concreta."
+        }
+      ],
+      "conceptIds": [
+        "rdap",
+        "whois"
+      ],
+      "guidePages": [
+        9
+      ]
+    },
+    {
+      "number": 46,
+      "sourceFingerprint": "1a35ba2ae8706252a6db16e13d7965eda660fcc227f457e774d7cfb8f8cd3e1f",
+      "correctOption": "Puede ser una asignación legacy/ERX; seguir referencias y contrastar el registro vigente con RDAP o WHOIS específico.",
+      "distractors": [
+        {
+          "text": "La primera respuesta histórica demuestra que la administración actual pertenece siempre a APNIC.",
+          "explanation": "Los registros históricos pueden ser genéricos o remitir a otro registro; hay que seguir la información vigente."
+        },
+        {
+          "text": "La IP cambia de dirección al consultar otro servidor WHOIS.",
+          "explanation": "Cambia la fuente de la información registral consultada, no el valor de la dirección IP."
+        },
+        {
+          "text": "ERX-NETBLOCK identifica una familia de malware.",
+          "explanation": "En este contexto ERX se relaciona con recursos históricos de Internet y su registro, no con una clasificación de malware."
+        },
+        {
+          "text": "Ignorar RDAP y elegir un correo por similitud del nombre de la organización.",
+          "explanation": "La notificación requiere un contacto del registro apropiado y verificable, no una deducción por nombres."
+        }
+      ],
+      "conceptIds": [
+        "erx",
+        "whois"
+      ],
+      "guidePages": [
+        9
+      ]
+    },
+    {
+      "number": 47,
+      "sourceFingerprint": "41cc17fce96a62090d588a99a8665eb70e7c3ba3c986d0a6fe2641c1ae8a8a11",
+      "correctOption": "Consultar RDAP/WHOIS con la IPv6 válida para obtener bloque y abuse; el prefijo aislado no identifica al titular.",
+      "distractors": [
+        {
+          "text": "Convertir la IPv6 a una IPv4 inventada antes de consultar.",
+          "explanation": "Una IPv6 válida puede consultarse como recurso propio; inventar otra dirección cambia el objeto investigado."
+        },
+        {
+          "text": "Deducir el correo abuse directamente de los primeros dígitos.",
+          "explanation": "El prefijo no codifica una dirección de correo verificable; ésta se obtiene del registro correspondiente."
+        },
+        {
+          "text": "Las direcciones IPv6 no tienen asignaciones registradas.",
+          "explanation": "Los registros de recursos incluyen IPv6; el objetivo sigue siendo identificar bloque, responsable y contactos."
+        },
+        {
+          "text": "La longitud de la dirección revela el NIR y la persona responsable.",
+          "explanation": "El tamaño y la escritura de IPv6 no prueban la cadena registral ni atribuyen actividad a una persona."
+        }
+      ],
+      "conceptIds": [
+        "ip",
+        "rdap"
+      ],
+      "guidePages": [
+        9
+      ]
+    },
+    {
+      "number": 48,
+      "sourceFingerprint": "6b13e1ad2377e027029457e0c6bd00591f215669511dbb398056ab03fa5bb10a",
+      "correctOption": "Registry mantiene el TLD; registrar gestiona registros ante él; registrant es el titular que registra el nombre.",
+      "distractors": [
+        {
+          "text": "Registry es el usuario que compra un dominio a un registrant.",
+          "explanation": "El registry mantiene el registro del TLD; quien registra el nombre es el registrant."
+        },
+        {
+          "text": "Registrar y registrant son siempre la misma organización.",
+          "explanation": "Son roles distintos: uno gestiona registros y el otro es el titular registral del nombre."
+        },
+        {
+          "text": "Registrant es el servidor de correo indicado en un MX.",
+          "explanation": "El registrant es una persona o entidad titular, no un servidor determinado por DNS."
+        },
+        {
+          "text": "El proveedor de hosting es necesariamente el registry del TLD.",
+          "explanation": "Hospedaje y registro son funciones diferentes que pueden pertenecer a organizaciones distintas."
+        }
+      ],
+      "conceptIds": [
+        "tld"
+      ],
+      "guidePages": [
+        10
+      ]
+    },
+    {
+      "number": 49,
+      "sourceFingerprint": "2d505948e4d8616663c8a15d602c8be84e7b61be694e7955bf2bca175e922962",
+      "correctOption": "Titular y registrador cumplen roles distintos; buscar contacto del registrant y contacto abuse del registrar por separado.",
+      "distractors": [
+        {
+          "text": "El correo abuse de la IP del hosting siempre es el correo del titular.",
+          "explanation": "La red que aloja un sitio y el titular del dominio pueden ser actores diferentes con contactos distintos."
+        },
+        {
+          "text": "El registrador y todos sus clientes comparten necesariamente un único correo.",
+          "explanation": "El registrador gestiona múltiples titulares; su contacto de abuso no equivale al contacto de cada registrant."
+        },
+        {
+          "text": "El formulario de privacidad es siempre una denuncia al registrar.",
+          "explanation": "Puede servir para contactar al titular protegido. Debe verificarse a qué rol se dirige cada canal."
+        },
+        {
+          "text": "Un registro MX permite deducir el correo abuse del registrar.",
+          "explanation": "MX identifica servidores de correo; no reemplaza una consulta registral sobre el dominio y su registrador."
+        }
+      ],
+      "conceptIds": [
+        "tld",
+        "privacidad-registro"
+      ],
+      "guidePages": [
+        10
+      ]
+    },
+    {
+      "number": 50,
+      "sourceFingerprint": "e1458f4015b70ba92a79d84f0ecb092e49e1edddf1d308e8113ef711ba5faf10",
+      "correctOption": "Puede existir protección de datos; usar el formulario del titular y distinguirlo del contacto abuse del registrar.",
+      "distractors": [
+        {
+          "text": "El dominio es necesariamente falso porque el titular no es público.",
+          "explanation": "La privacidad registral puede ocultar datos directos sin invalidar el registro del dominio."
+        },
+        {
+          "text": "El formulario de privacidad identifica al autor de cualquier ataque desde el dominio.",
+          "explanation": "Un canal de contacto registral no demuestra autoría humana ni responsabilidad sobre una acción particular."
+        },
+        {
+          "text": "Ya no existe ningún medio para contactar al registrant.",
+          "explanation": "La ficha ofrece un formulario precisamente para permitir contacto sin publicar datos personales directos."
+        },
+        {
+          "text": "El correo del registrar sustituye siempre al formulario del titular.",
+          "explanation": "Cada canal corresponde a un rol diferente; debe usarse el que responde al objetivo de la consulta."
+        }
+      ],
+      "conceptIds": [
+        "privacidad-registro"
+      ],
+      "guidePages": [
+        10
+      ]
+    },
+    {
+      "number": 51,
+      "sourceFingerprint": "439c7f806071943dd436b451a4440cfcb81a5c0dfa0915f6f546e7e69bb345fe",
+      "correctOption": "Según la práctica, NIC.ar cumple ambos roles para .ar; esa organización no se extrapola a todos los gTLD.",
+      "distractors": [
+        {
+          "text": "Todo gTLD debe tener una única entidad como registry y registrar.",
+          "explanation": "La práctica destaca una particularidad de .ar; otros TLD pueden separar registry y múltiples registrars."
+        },
+        {
+          "text": "NIC.ar es necesariamente el titular de cada nombre registrado por un usuario.",
+          "explanation": "Cumplir roles de registry y registrar no convierte a la entidad en registrant de cada dominio."
+        },
+        {
+          "text": "Las funciones de registry y registrar pasan a ser iguales en significado.",
+          "explanation": "Una entidad puede desempeñar ambas funciones, pero mantener el registro y gestionar altas siguen siendo tareas distintas."
+        },
+        {
+          "text": "NIC.ar administra automáticamente todos los dominios de cualquier TLD.",
+          "explanation": "La observación del material está acotada al registro .ar y no describe una autoridad sobre todos los TLD."
+        }
+      ],
+      "conceptIds": [
+        "tld"
+      ],
+      "guidePages": [
+        10
+      ]
+    },
+    {
+      "number": 52,
+      "sourceFingerprint": "bdb1d4938e017ee1cc00e8033f257dea48f99a1c6677efee8ed6c531e571df6c",
+      "correctOption": "Son servidores de intercambio de correo; se prefiere mx1.example (10) antes que mx2.example (20).",
+      "distractors": [
+        {
+          "text": "mx2.example se prefiere porque 20 es mayor que 10.",
+          "explanation": "La preferencia MX usa primero el menor valor numérico; no se interpreta como una puntuación creciente."
+        },
+        {
+          "text": "Los valores 10 y 20 representan las direcciones IP de los servidores.",
+          "explanation": "Son preferencias de entrega. Los nombres de los MX se resuelven por separado para obtener direcciones."
+        },
+        {
+          "text": "La prioridad demuestra que todos los correos pasaron por mx1.example.",
+          "explanation": "Describe una preferencia, no una traza histórica. El recorrido real se verifica en encabezados y logs."
+        },
+        {
+          "text": "Los registros MX identifican al registrant del dominio.",
+          "explanation": "MX pertenece al servicio DNS de correo y no identifica la titularidad registral del dominio."
+        }
+      ],
+      "conceptIds": [
+        "mx"
+      ],
+      "guidePages": [
+        10,
+        11
+      ]
+    },
+    {
+      "number": 53,
+      "sourceFingerprint": "61b9020aab23df3160a5b0f1d09ce7213bd2a193147b87231a8f2f8e4ce5b3c3",
+      "correctOption": "Pueden diferir; MAIL FROM es el remitente del envelope usado para devoluciones de errores.",
+      "distractors": [
+        {
+          "text": "Deben coincidir siempre o el mensaje es necesariamente phishing.",
+          "explanation": "Envelope y From son campos independientes; una diferencia puede tener causas legítimas y requiere contexto."
+        },
+        {
+          "text": "From determina necesariamente el destino de los rebotes SMTP.",
+          "explanation": "Las devoluciones se vinculan al remitente del envelope, aquí MAIL FROM, no al From visible por sí solo."
+        },
+        {
+          "text": "MAIL FROM prueba la identidad humana de quien redactó el mensaje.",
+          "explanation": "Es un dato de la transacción SMTP y no una prueba infalible de autoría personal."
+        },
+        {
+          "text": "El envelope sólo contiene el asunto del correo.",
+          "explanation": "El envelope incluye datos de transporte, como remitente y destinatarios SMTP; no equivale al asunto."
+        }
+      ],
+      "conceptIds": [
+        "envelope",
+        "cabeceras"
+      ],
+      "guidePages": [
+        10,
+        11
+      ]
+    },
+    {
+      "number": 54,
+      "sourceFingerprint": "2f2766eab3625689162e6bb8bfb89ae7ae7b260c697b4a2686b10e6135775c94",
+      "correctOption": "203.0.113.7 entregó al MX destino; 10.0.0.9 corresponde al salto interno. No prueba autoría humana.",
+      "distractors": [
+        {
+          "text": "10.0.0.9 es la IP pública del autor del mensaje.",
+          "explanation": "Es una dirección privada mostrada en un salto interno, no una IP pública ni prueba de una persona autora."
+        },
+        {
+          "text": "Las dos líneas prueban la identidad real del remitente.",
+          "explanation": "Received documenta saltos declarados por servidores; debe evaluarse su confianza y no atribuye autoría humana."
+        },
+        {
+          "text": "La línea más antigua siempre es auténtica aunque la haya añadido un tercero desconocido.",
+          "explanation": "Las cabeceras antiguas pueden ser falsificadas; se parte de los servidores de recepción confiables."
+        },
+        {
+          "text": "El salto interno fue mx.origen.example hacia la casilla del usuario.",
+          "explanation": "La traza indica un salto público al MX destino y después otro desde ese MX hacia el servidor interno de buzones."
+        }
+      ],
+      "conceptIds": [
+        "received",
+        "ip-privadas"
+      ],
+      "guidePages": [
+        10,
+        11
+      ]
+    },
+    {
+      "number": 55,
+      "sourceFingerprint": "4d8344703121d4435296b9e16b21e824f6ad8b8c40328b196f8a3d19f0b56d15",
+      "correctOption": "10.0.0.0/8, 172.16.0.0/12 y 192.168.0.0/16; son rangos privados y no identifican un origen público notificable.",
+      "distractors": [
+        {
+          "text": "10.0.0.0/8, 172.0.0.0/8 y 192.0.0.0/8.",
+          "explanation": "Los dos últimos prefijos son demasiado amplios: RFC 1918 reserva 172.16/12 y 192.168/16."
+        },
+        {
+          "text": "127.0.0.0/8, 169.254.0.0/16 y 224.0.0.0/4.",
+          "explanation": "Esos bloques tienen otros usos especiales; no son los tres rangos privados pedidos de RFC 1918."
+        },
+        {
+          "text": "Cualquier dirección que empieza con 172 es privada.",
+          "explanation": "El rango privado 172.16/12 abarca 172.16 a 172.31, no todas las direcciones con primer octeto 172."
+        },
+        {
+          "text": "Una IP privada en Received identifica directamente a una organización remota en Internet.",
+          "explanation": "Las direcciones privadas se reutilizan en redes internas y no identifican por sí solas un origen público."
+        }
+      ],
+      "conceptIds": [
+        "ip-privadas"
+      ],
+      "guidePages": [
+        11
+      ]
+    },
+    {
+      "number": 56,
+      "sourceFingerprint": "ba609ccf4d3ad51453aeac98a8b78e7e458341265c3e060815c1b5d725fc0dec",
+      "correctOption": "ana@universidad.example; mx.universidad.example; 198.51.100.44; consultar el contacto abuse por RDAP/WHOIS.",
+      "distractors": [
+        {
+          "text": "El destinatario es relay.remoto.example porque aparece primero en Received.",
+          "explanation": "Received describe servidores de un salto; el destinatario mostrado en el caso está en To."
+        },
+        {
+          "text": "La IP 198.51.100.44 identifica de forma concluyente al autor humano.",
+          "explanation": "La traza muestra al servidor que se conectó al receptor, no necesariamente al usuario que redactó el mensaje."
+        },
+        {
+          "text": "El MX receptor es relay.remoto.example porque entregó el mensaje.",
+          "explanation": "En la línea dada, by mx.universidad.example identifica al receptor del salto."
+        },
+        {
+          "text": "El correo de denuncia puede inventarse agregando abuse@ a la IP.",
+          "explanation": "El contacto debe obtenerse de la información registral pertinente; no se deduce fabricando una dirección."
+        }
+      ],
+      "conceptIds": [
+        "received",
+        "whois"
+      ],
+      "guidePages": [
+        10,
+        11
+      ]
+    },
+    {
+      "number": 57,
+      "sourceFingerprint": "1000ea1c04c689a7f0f966f0197595fd4baaeeb73bbedd3b950baa35b584b4bf",
+      "correctOption": "La respuesta suele ir a pagos@otro.example; investigar si el desvío es legítimo o una suplantación.",
+      "distractors": [
+        {
+          "text": "La respuesta irá necesariamente a From aunque exista Reply-To.",
+          "explanation": "Reply-To indica normalmente dónde deben dirigirse las respuestas, desplazando ese uso del From."
+        },
+        {
+          "text": "Distintos dominios en From y Reply-To prueban siempre malware.",
+          "explanation": "La discrepancia puede ser legítima, por ejemplo en soporte. Debe investigarse con contexto y autenticación."
+        },
+        {
+          "text": "Reply-To demuestra desde qué IP se conectó el servidor emisor.",
+          "explanation": "Reply-To es una dirección de respuesta, no una traza de transporte ni una dirección IP observada."
+        },
+        {
+          "text": "El campo Subject determina a cuál de las dos direcciones se responde.",
+          "explanation": "El asunto no selecciona el destino de respuesta; esa función corresponde a los campos de dirección pertinentes."
+        }
+      ],
+      "conceptIds": [
+        "cabeceras",
+        "phishing"
+      ],
+      "guidePages": [
+        10,
+        11
+      ]
+    },
+    {
+      "number": 58,
+      "sourceFingerprint": "069be2f701fa48f2bde697b0264a020922c05189626400efec40e9e05a7b5a57",
+      "correctOption": "Es compatible con email spoofing desde otro SMTP; revisar Received y autenticación sin asumir robo de cuentas.",
+      "distractors": [
+        {
+          "text": "Necesariamente robaron las contraseñas de todas las cuentas inexistentes.",
+          "explanation": "Otro servidor puede declarar un From ajeno sin usar esas cuentas ni autenticarse en el SMTP del dominio."
+        },
+        {
+          "text": "La ausencia de logs locales demuestra que el mensaje nunca existió.",
+          "explanation": "El mensaje puede haberse originado en un servidor externo y no dejar un envío en el SMTP del dominio suplantado."
+        },
+        {
+          "text": "Cualquier From con el dominio institucional demuestra envío desde su servidor.",
+          "explanation": "El campo visible puede ser declarado por el emisor; hacen falta rutas y resultados de autenticación."
+        },
+        {
+          "text": "Borrar el correo basta para establecer su origen.",
+          "explanation": "Eliminar la evidencia no determina el origen. Hay que conservar e interpretar encabezados y registros relevantes."
+        }
+      ],
+      "conceptIds": [
+        "cabeceras",
+        "tls-correo"
+      ],
+      "guidePages": [
+        11
+      ]
+    },
+    {
+      "number": 59,
+      "sourceFingerprint": "5394ac8c68a15f170f1aaced2400f09dd5b3b5ab636aa4e6af15e92d9220e7be",
+      "correctOption": "SPF evalúa orígenes autorizados del envelope; DKIM firmas de dominio; DMARC política y alineación con From.",
+      "distractors": [
+        {
+          "text": "SPF cifra el contenido, DKIM decide la prioridad MX y DMARC almacena adjuntos.",
+          "explanation": "Esas no son sus funciones: tratan autorización de origen, firmas y alineación/política de dominio."
+        },
+        {
+          "text": "DKIM verifica siempre la identidad humana de quien escribió el texto.",
+          "explanation": "Una firma DKIM vincula contenido y dominio firmante; no prueba por sí sola la autoría de una persona."
+        },
+        {
+          "text": "Una captura del From reemplaza todos los resultados de autenticación.",
+          "explanation": "From puede ser suplantado. Deben analizarse los resultados y su procedencia, además de la ruta observada."
+        },
+        {
+          "text": "DMARC exige que todo dominio del recorrido SMTP sea idéntico.",
+          "explanation": "La alineación de DMARC se refiere a identificadores autenticados y al From visible, no a todos los saltos SMTP."
+        }
+      ],
+      "conceptIds": [
+        "tls-correo"
+      ],
+      "guidePages": [
+        11
+      ]
+    },
+    {
+      "number": 60,
+      "sourceFingerprint": "bcb82a1217d33ab40ba754110e8f76e92299bc27d234bd053bb7062e7b1116ca",
+      "correctOption": "Los fallos repetidos sugieren pruebas automatizadas; el extracto no muestra autenticación exitosa desde esa IP.",
+      "distractors": [
+        {
+          "text": "Tres Failed password demuestran que root inició sesión.",
+          "explanation": "Failed password registra rechazo, no aceptación. No aparece una línea de autenticación exitosa para esa IP."
+        },
+        {
+          "text": "La presencia de invalid user demuestra que esa cuenta existía y fue comprometida.",
+          "explanation": "Invalid user indica un nombre no válido en ese intento; no acredita una cuenta comprometida."
+        },
+        {
+          "text": "Un solo extracto sin Accepted prueba que jamás hubo acceso por ninguna vía.",
+          "explanation": "El extracto no evidencia éxito, pero no cubre todos los logs ni todas las vías posibles de acceso."
+        },
+        {
+          "text": "Los fallos en segundos de distintos usuarios son automáticamente tareas CRON legítimas.",
+          "explanation": "El patrón desde la misma IP es compatible con intentos automatizados y requiere investigación contextual."
+        }
+      ],
+      "conceptIds": [
+        "ssh-logs"
+      ],
+      "guidePages": [
+        11,
+        12
+      ]
+    },
+    {
+      "number": 61,
+      "sourceFingerprint": "b31d9b8e7f24d20a47c95bc335a2988d1de7282c6e84b8224cbfdd4b5929f1c8",
+      "correctOption": "Accepted publickey indica autenticación aceptada; Failed password indica rechazo; sudo requiere contexto.",
+      "distractors": [
+        {
+          "text": "Accepted publickey demuestra que el usuario es siempre legítimo.",
+          "explanation": "Prueba que se aceptó una autenticación, pero una clave comprometida también podría permitirla."
+        },
+        {
+          "text": "Failed password indica que se aceptó una contraseña incorrecta.",
+          "explanation": "El evento indica precisamente un intento rechazado; no demuestra apertura de sesión."
+        },
+        {
+          "text": "El uso de sudo prueba por sí solo un ataque exitoso.",
+          "explanation": "sudo puede usarse en administración autorizada; deben correlacionarse identidad, origen, comandos y tiempos."
+        },
+        {
+          "text": "Accepted y Failed describen el mismo resultado y pueden agruparse sin distinguirlos.",
+          "explanation": "Separar resultados es esencial para no confundir intentos fallidos con accesos aceptados."
+        }
+      ],
+      "conceptIds": [
+        "ssh-logs"
+      ],
+      "guidePages": [
+        11,
+        12
+      ]
+    },
+    {
+      "number": 62,
+      "sourceFingerprint": "1546b3f5b4d7b66adeca0d3ef7842b9475f85f83e01aede726a36651cf7f117f",
+      "correctOption": "Sí: los incidentes originados desde recursos de su comunidad también son pertinentes; verificar y coordinar.",
+      "distractors": [
+        {
+          "text": "No, un CSIRT sólo actúa si la víctima pertenece a su institución.",
+          "explanation": "El alcance del material incluye actividad originada desde recursos administrados por su comunidad."
+        },
+        {
+          "text": "Sí, por eso ya puede atribuirse personalmente el ataque al rector.",
+          "explanation": "La pertinencia organizacional no establece autoría humana; se deben verificar recursos y evidencias."
+        },
+        {
+          "text": "No, porque todo intento fallido carece de interés para la gestión de incidentes.",
+          "explanation": "Los intentos reiterados originados en recursos propios pueden requerir investigación y coordinación aunque no tengan éxito."
+        },
+        {
+          "text": "Sí, y debe notificarse una conclusión definitiva sin revisar IP ni tiempos.",
+          "explanation": "Primero se comprueban los datos y el alcance temporal; la denuncia no sustituye la investigación."
+        }
+      ],
+      "conceptIds": [
+        "pertinencia",
+        "csirt"
+      ],
+      "guidePages": [
+        11,
+        12
+      ]
+    },
+    {
+      "number": 63,
+      "sourceFingerprint": "db75a8521cd0ad6b2b12723b548a6f057f12ef3fd889849edb6a05509a2506f4",
+      "correctOption": "IP origen/destino, servicio, timestamps y zona horaria, frecuencia, logs, éxito/fallo y canal seguro de contacto.",
+      "distractors": [
+        {
+          "text": "Únicamente una acusación con el nombre supuesto del atacante.",
+          "explanation": "La denuncia debe aportar hechos verificables; no atribuir identidades sin evidencia."
+        },
+        {
+          "text": "Sólo una captura sin fecha, IP ni descripción del servicio.",
+          "explanation": "Sin coordenadas temporales y de red el receptor difícilmente puede localizar o correlacionar el evento."
+        },
+        {
+          "text": "Todas las contraseñas y datos personales del servidor, sin filtrar.",
+          "explanation": "Debe compartirse evidencia suficiente por un canal adecuado y protegerse la información sensible innecesaria."
+        },
+        {
+          "text": "Una dirección IP sin indicar si hubo Accepted o Failed.",
+          "explanation": "La distinción de resultado permite valorar qué se observó y evita denunciar un acceso exitoso no demostrado."
+        }
+      ],
+      "conceptIds": [
+        "notificacion",
+        "tiempos"
+      ],
+      "guidePages": [
+        12
+      ]
+    },
+    {
+      "number": 64,
+      "sourceFingerprint": "7ab94e5eda690f923b6593ba1dbd9b85daaa38dd00bbe3a0a9d02cfc17fdc622",
+      "correctOption": "IC{}; ICMP puede transportar datos arbitrarios y exige analizar secuencia y contexto antes de afirmar exfiltración.",
+      "distractors": [
+        {
+          "text": "IC{}; cualquier texto legible en ping demuestra robo de datos.",
+          "explanation": "La reconstrucción es correcta, pero ICMP puede contener datos legítimos. El texto legible solo no prueba exfiltración."
+        },
+        {
+          "text": "49 43 7b 7d no puede representar caracteres porque ICMP sólo transporta números de secuencia.",
+          "explanation": "Los mensajes ICMP Echo tienen datos de carga; esos bytes pueden interpretarse como caracteres."
+        },
+        {
+          "text": "1C{}; 49 debe leerse como decimal.",
+          "explanation": "La consigna indica hexadecimal: 0x49 equivale a 73 decimal y representa I."
+        },
+        {
+          "text": "IC{}; usar un protocolo legítimo vuelve benigno cualquier contenido.",
+          "explanation": "Un protocolo legítimo puede ser abusado como transporte de un canal encubierto; importa su uso observado."
+        }
+      ],
+      "conceptIds": [
+        "canal-encubierto",
+        "ascii"
+      ],
+      "guidePages": [
+        12,
+        13
+      ]
+    },
+    {
+      "number": 65,
+      "sourceFingerprint": "096d64b7b32c286eb03f6940bac0bb135f01afa3d63c80a14d7948ec3b395a96",
+      "correctOption": "IC{dns}; analizar frecuencia, etiquetas variables, secuencia y contexto, sin atribuir exfiltración sólo por la forma.",
+      "distractors": [
+        {
+          "text": "IC{dns}; toda etiqueta hexadecimal larga demuestra exfiltración.",
+          "explanation": "La decodificación no prueba finalidad; hay usos legítimos de etiquetas largas y hace falta correlación."
+        },
+        {
+          "text": "No se puede reconstruir texto porque DNS jamás contiene datos de usuario.",
+          "explanation": "Las etiquetas son datos enviados por el cliente y pueden utilizarse indebidamente para codificar información."
+        },
+        {
+          "text": "Interpretar data.example como parte de los bytes hexadecimales.",
+          "explanation": "Se pide tomar la primera etiqueta, 49437b646e737d. El resto es el sufijo del nombre consultado."
+        },
+        {
+          "text": "Borrar el orden de las consultas mejora la reconstrucción del mensaje.",
+          "explanation": "El orden temporal o de secuencia puede ser necesario para ensamblar fragmentos y demostrar el hallazgo."
+        }
+      ],
+      "conceptIds": [
+        "canal-encubierto",
+        "dns"
+      ],
+      "guidePages": [
+        12,
+        13
+      ]
+    },
+    {
+      "number": 66,
+      "sourceFingerprint": "38607088993a22b40f45ddbd483b8c40f50a4113051b218b7cff0c46eb16f62a",
+      "correctOption": "Inventariar protocolos y conversaciones; filtrar, ordenar y extraer campos; probar representaciones y documentar.",
+      "distractors": [
+        {
+          "text": "Aplicar un filtro DNS y declarar que resolvió cualquier protocolo posible.",
+          "explanation": "La hipótesis de protocolo debe comprobarse; el PCAP puede contener ICMP, HTTP u otro transporte."
+        },
+        {
+          "text": "Concluir exfiltración sólo porque un host envió muchos paquetes.",
+          "explanation": "El volumen por sí solo no demuestra datos ocultos ni su finalidad. Se necesitan patrones y contenido verificables."
+        },
+        {
+          "text": "Extraer payloads y mezclarlos aleatoriamente antes de decodificar.",
+          "explanation": "La secuencia y la dirección de los flujos forman parte de la evidencia necesaria para reconstruir mensajes."
+        },
+        {
+          "text": "Entregar una flag sin conservar filtros, comandos ni paquetes.",
+          "explanation": "Sin método ni evidencia no se puede reproducir el supuesto hallazgo ni verificar la flag."
+        }
+      ],
+      "conceptIds": [
+        "canal-encubierto",
+        "captura-red",
+        "writeup"
+      ],
+      "guidePages": [
+        12,
+        13,
+        16
+      ]
+    },
+    {
+      "number": 67,
+      "sourceFingerprint": "a94b2f97377c8bebb2efe0ea2ab64ccd4f8e66ab3f40b5b5270bd3bc6858b490",
+      "correctOption": "Puede presentarse como teclado HID e inyectar pulsaciones al ser reconocido por el sistema.",
+      "distractors": [
+        {
+          "text": "Sólo actúa si el usuario ejecuta un .exe guardado en el pendrive.",
+          "explanation": "La inyección de teclado utiliza la clase HID y puede producir entradas sin abrir un ejecutable del almacenamiento."
+        },
+        {
+          "text": "El dispositivo sólo funciona como disco y nunca como teclado.",
+          "explanation": "Un dispositivo USB puede presentarse con interfaces distintas de almacenamiento, incluida una interfaz HID."
+        },
+        {
+          "text": "Cualquier dispositivo HID demuestra por sí mismo una infección.",
+          "explanation": "HID también se usa legítimamente; hay que examinar instrucciones, contexto y acciones observadas."
+        },
+        {
+          "text": "No puede realizar acciones porque las pulsaciones no cuentan como entrada del sistema.",
+          "explanation": "El sistema procesa entradas de un teclado reconocido; la secuencia puede activar comandos o aplicaciones."
+        }
+      ],
+      "conceptIds": [
+        "hid"
+      ],
+      "guidePages": [
+        12,
+        13
+      ]
+    },
+    {
+      "number": 68,
+      "sourceFingerprint": "4ca21aa61c4f11775339b0519806fbb7f3772f9a64952f51dadd1fd84eb2c4a2",
+      "correctOption": "Espera un segundo, abre Ejecutar con Windows+R, escribe notepad y pulsa Enter, según el entorno.",
+      "distractors": [
+        {
+          "text": "Borra notepad y cifra el disco después de un minuto.",
+          "explanation": "Ninguna de las instrucciones dadas ordena borrar o cifrar. DELAY 1000 representa una espera de un segundo."
+        },
+        {
+          "text": "GUI r abre necesariamente una conexión SSH remota.",
+          "explanation": "En el ejemplo del entorno Windows representa Windows+R para abrir Ejecutar, no un protocolo de red."
+        },
+        {
+          "text": "STRING notepad imprime el contenido de todos los archivos.",
+          "explanation": "La instrucción introduce el texto notepad como pulsaciones; no recorre ni muestra archivos por sí misma."
+        },
+        {
+          "text": "El script prueba que la aplicación se abrió con éxito en cualquier sistema.",
+          "explanation": "La secuencia expresa una intención; el resultado depende del firmware, sistema, foco y condiciones de ejecución."
+        }
+      ],
+      "conceptIds": [
+        "hid"
+      ],
+      "guidePages": [
+        12,
+        13
+      ]
+    },
+    {
+      "number": 69,
+      "sourceFingerprint": "ceeb0d6a1c79d9c090b545167f58f0b402c74988eca4d1c6273663b3a6450ec9",
+      "correctOption": "Examinar puntos de código, longitud o representación escapada; U+200B añade un carácter aunque no se vea.",
+      "distractors": [
+        {
+          "text": "Las dos cadenas son idénticas porque se ven iguales.",
+          "explanation": "La igualdad exacta depende de la secuencia de caracteres, no sólo de su aspecto visual."
+        },
+        {
+          "text": "U+200B es una secuencia de cuatro letras que siempre se ve en el texto.",
+          "explanation": "U+200B nombra un punto de código: el carácter de ancho cero puede no aparecer visualmente."
+        },
+        {
+          "text": "Comparar sólo el color de las letras detecta todos los caracteres ocultos.",
+          "explanation": "Un carácter invisible puede conservar el mismo aspecto y color; hay que inspeccionar su representación o longitud."
+        },
+        {
+          "text": "Borrar todos los espacios antes de registrar la evidencia es suficiente.",
+          "explanation": "La modificación puede ocultar la causa de la diferencia y no todos los invisibles se eliminan como un espacio común."
+        }
+      ],
+      "conceptIds": [
+        "unicode-invisible",
+        "ascii"
+      ],
+      "guidePages": [
+        12,
+        13
+      ]
+    },
+    {
+      "number": 70,
+      "sourceFingerprint": "06faa1d3c984a2bda2d3dbe0fa76abc30b5bc58f0728ffa844bd448ccf309e8f",
+      "correctOption": "Hash, formato y cabeceras PE, secciones, strings ASCII/Unicode, imports, recursos e IOC candidatos, sin ejecutarlo.",
+      "distractors": [
+        {
+          "text": "Ejecutarlo primero en la computadora personal para observar si es peligroso.",
+          "explanation": "La consigna pide triage sin ejecución. La revisión estática obtiene indicios antes de considerar un laboratorio dinámico."
+        },
+        {
+          "text": "Cambiar la extensión y usarla como prueba del formato real.",
+          "explanation": "Renombrar no modifica el contenido ni demuestra su formato; se inspeccionan firmas y estructura interna."
+        },
+        {
+          "text": "Afirmar que toda URL extraída demuestra una conexión observada.",
+          "explanation": "Un string indica presencia de datos en el binario, no que una ejecución haya utilizado esa dirección."
+        },
+        {
+          "text": "Consultar sólo el nombre en Internet y omitir hash y estructura.",
+          "explanation": "El nombre no identifica de forma fiable los bytes de la muestra; el análisis debe registrar sus propios artefactos."
+        }
+      ],
+      "conceptIds": [
+        "estatico",
+        "pe",
+        "strings"
+      ],
+      "guidePages": [
+        13,
+        14
+      ]
+    },
+    {
+      "number": 71,
+      "sourceFingerprint": "6ef8a3cc3035903fbe04e3a6f0766558e21e1a74cb36e29b209831ad076c5427",
+      "correctOption": "Sugiere firma MZ de un ejecutable DOS/PE; comprobar cabeceras y comportamiento, porque no prueba malicia.",
+      "distractors": [
+        {
+          "text": "4d 5a demuestra que el archivo es ransomware.",
+          "explanation": "MZ orienta al formato ejecutable, no a una familia ni a una intención maliciosa."
+        },
+        {
+          "text": "La extensión del nombre tiene más fuerza que cualquier firma interna.",
+          "explanation": "El nombre puede alterarse; debe contrastarse con las cabeceras y la estructura real del archivo."
+        },
+        {
+          "text": "MZ garantiza un PE válido sin necesidad de examinar nada más.",
+          "explanation": "La firma inicial es un indicio; hacen falta más cabeceras y estructura para confirmar el formato."
+        },
+        {
+          "text": "4d 5a es el digest SHA-256 completo del archivo.",
+          "explanation": "Son sólo dos bytes de cabecera, no un resumen SHA-256 de 32 bytes."
+        }
+      ],
+      "conceptIds": [
+        "pe"
+      ],
+      "guidePages": [
+        13,
+        14
+      ]
+    },
+    {
+      "number": 72,
+      "sourceFingerprint": "7bf844873f5d1a320b2b42a2fc834f045e911a439d09b916a56f4db8ec9b7628",
+      "correctOption": "Hash, dominio y rutas específicas pueden ser IOC con contexto; password es genérico y un string puede no usarse.",
+      "distractors": [
+        {
+          "text": "La palabra password prueba por sí sola robo de contraseñas.",
+          "explanation": "Es una cadena genérica que puede tener usos legítimos; no demuestra una acción de captura ni exfiltración."
+        },
+        {
+          "text": "Cualquier dominio presente confirma una conexión efectiva.",
+          "explanation": "La presencia estática puede corresponder a datos no usados o señuelos; la conexión requiere evidencia adicional."
+        },
+        {
+          "text": "Un hash identifica todos los archivos de una familia aunque sus bytes cambien.",
+          "explanation": "El hash identifica el contenido exacto de una muestra; las variantes modificadas pueden tener otro digest."
+        },
+        {
+          "text": "Los IOC no necesitan indicar fuente, contexto ni grado de confianza.",
+          "explanation": "Esos datos permiten interpretar el indicador y evitar confundir una sospecha con un hallazgo confirmado."
+        }
+      ],
+      "conceptIds": [
+        "ioc",
+        "strings"
+      ],
+      "guidePages": [
+        13,
+        14
+      ]
+    },
+    {
+      "number": 73,
+      "sourceFingerprint": "1e9e6c7f11633348b0b6c2b2e8d506893842bc1183fe886063804843cf941ab9",
+      "correctOption": "Capacidad de descarga y escritura del registro; investigar descarga/persistencia sin afirmar ejecución por imports.",
+      "distractors": [
+        {
+          "text": "Los imports demuestran que se descargó un archivo en todas las ejecuciones.",
+          "explanation": "Una importación revela una capacidad disponible, pero la rama que la llama puede no ejecutarse."
+        },
+        {
+          "text": "RegSetValueEx confirma necesariamente una Run key concreta.",
+          "explanation": "La función permite escribir valores del registro en general; hay que identificar ruta, valor y uso observado."
+        },
+        {
+          "text": "URLDownloadToFile sólo muestra cuadros de diálogo y no puede descargar.",
+          "explanation": "La API citada sugiere precisamente una capacidad de descarga a archivo que debe investigarse."
+        },
+        {
+          "text": "Importar funciones de Windows vuelve malicioso cualquier programa.",
+          "explanation": "Esas APIs también tienen usos legítimos; la clasificación depende del contexto y comportamiento."
+        }
+      ],
+      "conceptIds": [
+        "imports",
+        "apis-red",
+        "registry"
+      ],
+      "guidePages": [
+        13,
+        14
+      ]
+    },
+    {
+      "number": 74,
+      "sourceFingerprint": "1dbd89bdae8e28d5f6f7c7b81485323cddd3bdebf8b4471f0f5373bc9e559ca2",
+      "correctOption": "Investigar packing u ofuscación con secciones, entropía y pruebas controladas; los indicios no bastan para declarar malware.",
+      "distractors": [
+        {
+          "text": "Pocas cadenas prueban que el programa no hace nada.",
+          "explanation": "El empaquetamiento u ofuscación puede ocultar datos que aparecen o se reconstruyen en ejecución."
+        },
+        {
+          "text": "LoadLibrary y GetProcAddress prueban por sí solos una infección.",
+          "explanation": "Ambas funciones se usan legítimamente para carga y resolución dinámica; necesitan contexto adicional."
+        },
+        {
+          "text": "Los tamaños inusuales identifican de manera única un packer.",
+          "explanation": "Pueden apoyar una hipótesis, pero no permiten identificar por sí solos un empaquetador específico."
+        },
+        {
+          "text": "Es imposible inspeccionar cabeceras si hay pocas cadenas.",
+          "explanation": "La escasez de strings no impide revisar la estructura PE, secciones, imports y otros artefactos estáticos."
+        }
+      ],
+      "conceptIds": [
+        "packing",
+        "carga-dinamica"
+      ],
+      "guidePages": [
+        13,
+        14
+      ]
+    },
+    {
+      "number": 75,
+      "sourceFingerprint": "c2bdae9a6dc61e11b4df613a6e4a0e72f750a9be3842a4b9f2eb49532f52a7f6",
+      "correctOption": "Downloader; registrar destino, archivo y hash, proceso hijo, ejecución y persistencia si se observa.",
+      "distractors": [
+        {
+          "text": "Ransomware necesariamente, porque descarga otro archivo.",
+          "explanation": "La descarga no demuestra cifrado extorsivo. El comportamiento observado encaja funcionalmente con downloader."
+        },
+        {
+          "text": "Antivirus necesariamente, porque inicia otro programa.",
+          "explanation": "Crear un proceso no identifica por sí solo finalidad legítima; hay que clasificar la función observada en contexto."
+        },
+        {
+          "text": "Downloader; puede deducirse su URL real sin la muestra.",
+          "explanation": "La clasificación funcional no revela identificadores concretos de una muestra que no se proporcionó."
+        },
+        {
+          "text": "Gusano necesariamente, porque usa una URL.",
+          "explanation": "Un gusano implica propagación característica; descargar una segunda carga no demuestra autorreplicación."
+        }
+      ],
+      "conceptIds": [
+        "familias",
+        "ioc"
+      ],
+      "guidePages": [
+        13,
+        14
+      ]
+    },
+    {
+      "number": 76,
+      "sourceFingerprint": "f243f9de7b7c94fb38332b00a26fefed714f3971fbb57d936e2ad8ed882f3374",
+      "correctOption": "VM aislada y snapshot, sin compartidos innecesarios ni red institucional; capturar cambios y restaurar tras cada ensayo.",
+      "distractors": [
+        {
+          "text": "Usar una VM conectada libremente a la red institucional y a todas las carpetas del host.",
+          "explanation": "Esos enlaces pueden exponer otros equipos y datos; el laboratorio debe controlar su conectividad e integración."
+        },
+        {
+          "text": "Una ejecución sin cambios visibles demuestra que la muestra es inocua.",
+          "explanation": "Puede depender de requisitos, argumentos, fecha o red. Una corrida no cubre todas las ramas de ejecución."
+        },
+        {
+          "text": "Restaurar el snapshot antes de conservar los registros.",
+          "explanation": "La restauración puede borrar evidencia del ensayo; primero deben preservarse los artefactos necesarios."
+        },
+        {
+          "text": "Basta con renombrar la muestra para impedir cualquier comunicación.",
+          "explanation": "Renombrar no elimina capacidades de red ni sustituye aislamiento y controles del entorno de análisis."
+        }
+      ],
+      "conceptIds": [
+        "laboratorio",
+        "red-simulada"
+      ],
+      "guidePages": [
+        14,
+        15
+      ]
+    },
+    {
+      "number": 77,
+      "sourceFingerprint": "dbccec6092fd70b6e49c518eaa479e2fbb4eadde64b2d7954f2b4d76c1bcc53a",
+      "correctOption": "Puede lanzar otra carga mediante PowerShell; contrastar comandos, rutas, hashes, archivos, red y resultados.",
+      "distractors": [
+        {
+          "text": "La relación padre-hijo demuestra automáticamente una descarga exitosa.",
+          "explanation": "El árbol muestra creación o relación de procesos, no el resultado de una descarga concreta."
+        },
+        {
+          "text": "PowerShell sólo puede aparecer en programas maliciosos.",
+          "explanation": "Es una herramienta de administración legítima que también puede ser abusada; importa la actividad observada."
+        },
+        {
+          "text": "El nombre segundo.exe identifica de forma única la muestra ejecutada.",
+          "explanation": "Los nombres pueden repetirse o cambiarse; se necesitan ruta, hash y otros datos para identificar el archivo."
+        },
+        {
+          "text": "El árbol por sí solo demuestra persistencia tras reiniciar.",
+          "explanation": "Para confirmar persistencia hacen falta mecanismos y evidencia de autoejecución, no sólo procesos de una sesión."
+        }
+      ],
+      "conceptIds": [
+        "procesos",
+        "dinamico"
+      ],
+      "guidePages": [
+        14,
+        15
+      ]
+    },
+    {
+      "number": 78,
+      "sourceFingerprint": "56967cbcfde6678fffe0ed3a117dea774672a9ebfd37d71d7bf373fe8fe14369",
+      "correctOption": "Intento de autoejecución al iniciar sesión ese usuario; escribir HKCU no exige necesariamente administrador.",
+      "distractors": [
+        {
+          "text": "Se ejecuta necesariamente antes de cualquier inicio de sesión y requiere privilegios de sistema.",
+          "explanation": "HKCU Run corresponde al inicio de sesión del usuario y puede configurarse con sus permisos."
+        },
+        {
+          "text": "Es un servicio porque cualquier ruta de registro empieza con HK.",
+          "explanation": "La ruta concreta es una entrada Run del usuario, no la rama Services de configuración de servicios."
+        },
+        {
+          "text": "La entrada prueba ejecución exitosa aunque el archivo no exista.",
+          "explanation": "Debe comprobarse que el archivo exista y que la entrada esté habilitada y sea utilizada."
+        },
+        {
+          "text": "El archivo se ejecuta sólo cuando alguien abre el editor de registro.",
+          "explanation": "La finalidad de Run es autoejecutar al iniciar sesión, no responder a la apertura del editor."
+        }
+      ],
+      "conceptIds": [
+        "run-key",
+        "registry"
+      ],
+      "guidePages": [
+        14
+      ]
+    },
+    {
+      "number": 79,
+      "sourceFingerprint": "b75d6689a587f8af467346e08b216959f489c67d92778246023497979639f76d",
+      "correctOption": "Posible persistencia como servicio del sistema; inspeccionar ImagePath y Start, habitualmente con permisos elevados.",
+      "distractors": [
+        {
+          "text": "Es la misma entrada HKCU Run del usuario actual.",
+          "explanation": "La rama mostrada pertenece a HKLM Services; tiene alcance y condiciones de arranque distintos de HKCU Run."
+        },
+        {
+          "text": "El servicio se ejecuta siempre inmediatamente y sin revisar Start.",
+          "explanation": "La ejecución depende de su configuración y estado; hay que inspeccionar parámetros como Start e ImagePath."
+        },
+        {
+          "text": "Cualquier usuario sin privilegios puede modificar todas las configuraciones de servicios.",
+          "explanation": "Los cambios en servicios del sistema suelen requerir privilegios elevados; se verifican permisos y contexto."
+        },
+        {
+          "text": "El nombre ServicioX prueba una familia concreta de malware.",
+          "explanation": "Un nombre de servicio no identifica una familia ni demuestra por sí solo una intención maliciosa."
+        }
+      ],
+      "conceptIds": [
+        "servicios-windows",
+        "registry"
+      ],
+      "guidePages": [
+        14
+      ]
+    },
+    {
+      "number": 80,
+      "sourceFingerprint": "48cf230c47c9673d82011a94c9893a8a7579da2708c6edb176d0190eab6531ba",
+      "correctOption": "Obtener GUID exacto, claves y valores, procesos y activación; comparar con mecanismos conocidos sin adivinar técnica.",
+      "distractors": [
+        {
+          "text": "Asignar cualquier GUID conocido aunque no aparezca en la muestra.",
+          "explanation": "Un identificador inventado no es evidencia del caso y puede atribuir un mecanismo distinto del observado."
+        },
+        {
+          "text": "El título de una charla permite deducir una técnica y GUID únicos.",
+          "explanation": "La referencia orienta el estudio, pero no reemplaza los artefactos concretos del archivo investigado."
+        },
+        {
+          "text": "Todo GUID que aparezca en Windows demuestra persistencia COM maliciosa.",
+          "explanation": "Los GUID tienen numerosos usos legítimos. Se debe establecer su ruta, uso y relación con autoejecución."
+        },
+        {
+          "text": "Basta copiar sólo parte del GUID porque todos sus caracteres son decorativos.",
+          "explanation": "El identificador debe conservarse exactamente y vincularse al objeto observado para que la comparación sea válida."
+        }
+      ],
+      "conceptIds": [
+        "registry",
+        "writeup"
+      ],
+      "guidePages": [
+        14
+      ]
+    },
+    {
+      "number": 81,
+      "sourceFingerprint": "d81427d9eded2e6df8a7c8fa502f70aec619432a80c12d43d8a6a035d4a8e03a",
+      "correctOption": "Registrar IP:puerto fallidos y URL exitosa por separado con tiempos y resultados; el fallo no prueba inexistencia ni detención.",
+      "distractors": [
+        {
+          "text": "La conexión fallida demuestra que el servidor nunca existió.",
+          "explanation": "El fallo puede deberse a red, filtrado, indisponibilidad u otras condiciones; no demuestra inexistencia."
+        },
+        {
+          "text": "Si falla el primer destino, es imposible que la muestra continúe.",
+          "explanation": "La secuencia dada muestra una ruta alternativa exitosa; un fallo no implica necesariamente detener la ejecución."
+        },
+        {
+          "text": "Reportar sólo el dominio exitoso y ocultar los intentos fallidos.",
+          "explanation": "Ambos eventos aportan contexto y posibles indicadores; deben conservarse diferenciando resultado y momento."
+        },
+        {
+          "text": "203.0.113.88 y control.example son IOC reales confirmados de una campaña.",
+          "explanation": "El caso emplea identificadores de documentación y ejemplo; no permite atribuirlos a una muestra real."
+        }
+      ],
+      "conceptIds": [
+        "ioc",
+        "dinamico"
+      ],
+      "guidePages": [
+        14,
+        15
+      ]
+    },
+    {
+      "number": 82,
+      "sourceFingerprint": "491775f5e6a96a41d53bb52004eac733afb144d273b91544db4db2f03b63d4f1",
+      "correctOption": "Se transmitieron nombres de archivos y se recibió HTTP 200; no demuestra envío del contenido ni almacenamiento remoto.",
+      "distractors": [
+        {
+          "text": "HTTP 200 demuestra que se copiaron íntegros a.txt y b.txt.",
+          "explanation": "El cuerpo observado contiene nombres, no los contenidos de los archivos. El código HTTP no prueba esa transferencia."
+        },
+        {
+          "text": "Un listado de nombres no transmite ninguna información.",
+          "explanation": "Los nombres y rutas también son datos. Debe describirse su envío sin ampliarlo a contenidos no observados."
+        },
+        {
+          "text": "HTTP 200 prueba que el servidor conservó permanentemente los datos.",
+          "explanation": "El código indica atención de la solicitud según HTTP; no demuestra políticas ni persistencia de almacenamiento."
+        },
+        {
+          "text": "El método POST garantiza por sí solo cifrado y autenticidad.",
+          "explanation": "POST es un método HTTP; no aporta por sí mismo cifrado ni autentica a los participantes."
+        }
+      ],
+      "conceptIds": [
+        "exfiltracion",
+        "captura-red"
+      ],
+      "guidePages": [
+        14,
+        15
+      ]
+    },
+    {
+      "number": 83,
+      "sourceFingerprint": "7748206dcecc95dfc4afa2880956a9a5d59d6b297d4f9c341db16c8c6e2f9d8a",
+      "correctOption": "Ofuscación por reconstrucción de cadenas; resolver Chr y concatenaciones y rastrear usos sin ejecutar el script.",
+      "distractors": [
+        {
+          "text": "Usar Chr convierte automáticamente el script en cifrado AES seguro.",
+          "explanation": "Chr y concatenaciones reconstruyen texto; no definen un esquema de cifrado criptográfico seguro."
+        },
+        {
+          "text": "Si las URLs no aparecen como literales, el script no puede comunicarse.",
+          "explanation": "Pueden construirse en tiempo de ejecución; hay que reconstruir expresiones y seguir sus usos."
+        },
+        {
+          "text": "Ejecutar el archivo completo es el único modo de conocer esas cadenas.",
+          "explanation": "Los literales y códigos de caracteres pueden analizarse estáticamente sin activar las acciones del script."
+        },
+        {
+          "text": "La función Chr revela por sí sola qué servidor real usó la muestra ausente.",
+          "explanation": "La técnica general no permite inventar valores específicos de un archivo no proporcionado."
+        }
+      ],
+      "conceptIds": [
+        "ofuscacion-vbs"
+      ],
+      "guidePages": [
+        15
+      ]
+    },
+    {
+      "number": 84,
+      "sourceFingerprint": "570aea3ad48a50c130384fee8461078ada24afc8e8edbec202a433bc704a4aa7",
+      "correctOption": "IC{}; las concatenaciones de Chr ocultan un literal contiguo a búsquedas simples de strings.",
+      "distractors": [
+        {
+          "text": "IC{}; Chr interpreta los números como hexadecimales.",
+          "explanation": "El resultado corresponde a códigos decimales indicados por la consigna; cambiar la base altera su interpretación."
+        },
+        {
+          "text": "7347123125, porque & suma los números sin convertirlos.",
+          "explanation": "Chr convierte cada código en carácter y & concatena las cadenas resultantes, no sus números de entrada."
+        },
+        {
+          "text": "IC[]; 123 y 125 representan corchetes.",
+          "explanation": "Esos códigos son las llaves { y }; los corchetes ASCII corresponden a otros valores."
+        },
+        {
+          "text": "La ausencia del literal IC{} en strings demuestra que nunca se construye.",
+          "explanation": "La expresión lo reconstruye a partir de fragmentos, por lo que una búsqueda literal puede no encontrarlo."
+        }
+      ],
+      "conceptIds": [
+        "ofuscacion-vbs",
+        "ascii"
+      ],
+      "guidePages": [
+        15
+      ]
+    },
+    {
+      "number": 85,
+      "sourceFingerprint": "ddcfd1888c61de95a9abfea6874209c6a5d3da6c14ca5f2e16faabd190881600",
+      "correctOption": "DOCM admite macros; revisar VBA, eventos de apertura, URLs, procesos y artefactos antes de ejecución controlada.",
+      "distractors": [
+        {
+          "text": "La extensión .docm demuestra que ya se ejecutó malware.",
+          "explanation": "Indica un formato habilitado para macros, pero no prueba malicia ni ejecución en el equipo."
+        },
+        {
+          "text": "Abrirlo con todas las macros habilitadas en la PC personal es el análisis inicial recomendado.",
+          "explanation": "Primero se inspeccionan estructura y código sin activar contenido; la ejecución requiere un entorno controlado."
+        },
+        {
+          "text": "Los documentos Word no pueden iniciar procesos ni contener código.",
+          "explanation": "Los documentos con macros pueden incluir VBA y llamadas que deben examinarse."
+        },
+        {
+          "text": "El nombre reto.docm permite conocer el payload sin tener el archivo.",
+          "explanation": "El nombre y la extensión no revelan el código ni su resultado; hay que analizar los bytes del documento."
+        }
+      ],
+      "conceptIds": [
+        "macros-documentos"
+      ],
+      "guidePages": [
+        15
+      ]
+    },
+    {
+      "number": 86,
+      "sourceFingerprint": "e011a90a19e9f1c74469dc71d6c10b137d0b98bb41cded9ebe3b78fd3a985089",
+      "correctOption": "En ambos revisar formato real, hash, contenido, vínculos y código; diferenciar eventos de Word y mecanismos de Excel.",
+      "distractors": [
+        {
+          "text": "DOCM siempre es malicioso y XLS nunca puede tener macros.",
+          "explanation": "Ninguna conclusión se deduce de la extensión: ambos formatos pueden contener código o mecanismos activos."
+        },
+        {
+          "text": "En Excel sólo interesa el texto visible de las celdas.",
+          "explanation": "También se inspeccionan macros, fórmulas, conexiones, nombres, hojas ocultas y otros mecanismos relevantes."
+        },
+        {
+          "text": "La misma extensión garantiza idéntico tipo real y contenido.",
+          "explanation": "El nombre puede ser engañoso; el formato real debe verificarse mediante estructura y firmas del archivo."
+        },
+        {
+          "text": "Para comparar ambos es obligatorio activar el contenido en un equipo común.",
+          "explanation": "La inspección inicial puede realizarse estáticamente; no se necesita exponer el equipo habilitando contenido."
+        }
+      ],
+      "conceptIds": [
+        "macros-documentos",
+        "estatico"
+      ],
+      "guidePages": [
+        15
+      ]
+    },
+    {
+      "number": 87,
+      "sourceFingerprint": "cfa30af6aba31095e6df58de5752dd23e650f64f540195b844bc3f444583caa0",
+      "correctOption": "Promesa de ganancias como señuelo; exigir macros, conexiones, descargas, procesos u otra evidencia para afirmar malicia.",
+      "distractors": [
+        {
+          "text": "El nombre bitcoin_price_predictor.xls demuestra infección confirmada.",
+          "explanation": "Un nombre y una promesa comercial son indicios contextuales, no prueba de comportamiento técnico malicioso."
+        },
+        {
+          "text": "Una promesa financiera vuelve imposible la ingeniería social.",
+          "explanation": "El incentivo económico puede precisamente inducir a abrir el archivo o habilitar contenido."
+        },
+        {
+          "text": "Un archivo XLS es siempre seguro por no tener extensión .exe.",
+          "explanation": "Una planilla puede contener macros u otros mecanismos activos; la extensión no garantiza seguridad."
+        },
+        {
+          "text": "Basta con que el documento parezca profesional para descartar riesgo.",
+          "explanation": "La apariencia no sustituye el análisis del formato, código, relaciones externas y acciones observadas."
+        }
+      ],
+      "conceptIds": [
+        "phishing",
+        "macros-documentos"
+      ],
+      "guidePages": [
+        15
+      ]
+    },
+    {
+      "number": 88,
+      "sourceFingerprint": "467ab41924f655f03c2ca80c60a6b891aa5b8e334a015454698869afed0aa0ac",
+      "correctOption": "Regshot: cambios; Autoruns: autoarranque; Procmon: operaciones; Wireshark: tráfico; Process Explorer: procesos y módulos.",
+      "distractors": [
+        {
+          "text": "Wireshark enumera todas las Run keys y Autoruns captura paquetes.",
+          "explanation": "Se intercambian funciones: Wireshark observa tráfico y Autoruns mecanismos de autoarranque."
+        },
+        {
+          "text": "Regshot identifica por sí solo todos los paquetes y procesos hijos.",
+          "explanation": "Regshot compara estados, especialmente del registro; no sustituye captura de red ni inspección de procesos."
+        },
+        {
+          "text": "Process Explorer descifra automáticamente todas las comunicaciones.",
+          "explanation": "Su objetivo es observar procesos y módulos; no ofrece ese descifrado universal."
+        },
+        {
+          "text": "Cualquiera de esas herramientas aislada demuestra todos los comportamientos.",
+          "explanation": "Cada herramienta aporta una vista parcial que debe correlacionarse con las demás evidencias."
+        }
+      ],
+      "conceptIds": [
+        "regshot",
+        "procmon",
+        "captura-red",
+        "procesos"
+      ],
+      "guidePages": [
+        14
+      ]
+    },
+    {
+      "number": 89,
+      "sourceFingerprint": "4a56a3af1194cebe928b0516f343eb0a6ce4de8a08fc1c19e7ef263a36df189b",
+      "correctOption": "URL estática candidata, sin conexión confirmada en ese ensayo; documentar entorno, cobertura y límites.",
+      "distractors": [
+        {
+          "text": "La URL fue contactada aunque no haya ninguna observación de red.",
+          "explanation": "Su presencia como string no demuestra que haya sido utilizada durante el ensayo."
+        },
+        {
+          "text": "No hubo conexión, por lo que ninguna ejecución posible podría usar esa URL.",
+          "explanation": "Una corrida puede no activar una rama o requisito del entorno. La ausencia observada tiene alcance limitado."
+        },
+        {
+          "text": "Publicar el string como IOC de conexión validado sin aclaración.",
+          "explanation": "Eso confunde un dato estático candidato con un evento de comunicación confirmado."
+        },
+        {
+          "text": "Eliminar el hallazgo estático porque no coincide con la corrida dinámica.",
+          "explanation": "Las dos observaciones deben conservarse con su contexto; la discrepancia orienta investigaciones adicionales."
+        }
+      ],
+      "conceptIds": [
+        "ioc",
+        "dinamico"
+      ],
+      "guidePages": [
+        13,
+        14,
+        16
+      ]
+    },
+    {
+      "number": 90,
+      "sourceFingerprint": "875ce2a43c0efb78fbde7d642d8279d7075a829b50282df6da14b3607f1fab2b",
+      "correctOption": "Preservar tiempos y evidencia; analizar correo y macros, Run, archivos, procesos y DNS; correlacionar sin asumir causalidad.",
+      "distractors": [
+        {
+          "text": "La cercanía temporal prueba por sí sola que el documento causó todos los eventos.",
+          "explanation": "La correlación temporal orienta hipótesis, pero necesita vínculos técnicos para establecer causalidad."
+        },
+        {
+          "text": "Borrar la entrada Run y todos los logs antes de recoger evidencia.",
+          "explanation": "La eliminación puede destruir información necesaria para reconstruir alcance y secuencia del incidente."
+        },
+        {
+          "text": "Investigar sólo el DNS y descartar correo, procesos y archivos.",
+          "explanation": "El caso integra varias fuentes; omitirlas impide contrastar una cadena de ejecución y persistencia."
+        },
+        {
+          "text": "Nombrar al autor humano por el From del correo sin revisar la ruta.",
+          "explanation": "From puede ser suplantado y no basta para atribuir una persona; se necesitan más evidencias."
+        }
+      ],
+      "conceptIds": [
+        "writeup",
+        "ioc",
+        "macros-documentos"
+      ],
+      "guidePages": [
+        14,
+        15,
+        16
+      ]
+    },
+    {
+      "number": 91,
+      "sourceFingerprint": "cb069d333288c2b69c6e80ec3c42ebd78f10ff35be7aff457043641cc5a6263b",
+      "correctOption": "Priorizar el servidor crítico con exfiltración observada por impacto y exposición; coordinar contención y preservar evidencia.",
+      "distractors": [
+        {
+          "text": "Priorizar siempre el laboratorio porque cualquier descarga supera toda exfiltración.",
+          "explanation": "La criticidad y el impacto observado del servidor son factores centrales; no hay esa regla absoluta."
+        },
+        {
+          "text": "Ignorar ambos incidentes hasta conocer una flag.",
+          "explanation": "La gestión de incidentes depende de exposición, impacto y evidencia, no de obtener una flag de CTF."
+        },
+        {
+          "text": "Destruir registros y archivos antes de aislar el activo afectado.",
+          "explanation": "La contención debe coordinarse y conservar la evidencia necesaria para investigación y alcance."
+        },
+        {
+          "text": "La prioridad puede fijarse sólo por el orden de llegada de los correos.",
+          "explanation": "El orden de recepción no reemplaza la evaluación de criticidad, alcance, exposición e impacto."
+        }
+      ],
+      "conceptIds": [
+        "prioridad",
+        "exfiltracion"
+      ],
+      "guidePages": [
+        14,
+        16
+      ]
+    },
+    {
+      "number": 92,
+      "sourceFingerprint": "a57080c8a1f14e2ad54aa7a63a81d744c690804dfa21a703809d33d96c891937",
+      "correctOption": "Enunciado, Solución, Reflexión y Flag; documentar hipótesis, evidencia, IOC y límites sin inventar resultados.",
+      "distractors": [
+        {
+          "text": "Sólo Flag, sin metodología ni resultados intermedios.",
+          "explanation": "El material exige documentar cómo se llegó al resultado y qué se aprendió; una flag aislada no basta."
+        },
+        {
+          "text": "Enunciado, Solución, Reflexión y una flag inventada si falta la muestra.",
+          "explanation": "La estructura es adecuada, pero la flag sólo debe consignarse cuando se recuperó y verificó realmente."
+        },
+        {
+          "text": "Únicamente nombres de herramientas, sin comandos ni observaciones.",
+          "explanation": "La reproducción requiere entradas, procedimiento, evidencia e interpretación, no una lista de programas."
+        },
+        {
+          "text": "Una hipótesis de persistencia puede presentarse como observación confirmada.",
+          "explanation": "El writeup debe separar lo observado de lo inferido y explicar qué pruebas faltan para confirmar la hipótesis."
+        }
+      ],
+      "conceptIds": [
+        "writeup"
+      ],
+      "guidePages": [
+        15,
+        16
+      ]
+    }
+  ]
+}

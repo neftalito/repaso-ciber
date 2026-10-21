@@ -14,6 +14,7 @@ def read(name):
 def validate():
     bank, glossary, report = read('data/questions.json'), read('data/glossary.json'), read('data/extraction-report.json')
     qs, entries = bank['questions'], glossary['entries']
+    assert bank['origin'] == 'theory'
     assert bank['version'] == glossary['version'] == report['version'] == 1
     assert [q['id'] for q in qs] == list(range(1, 351))
     assert Counter(q['topic'] for q in qs) == {'cripto': 66, 'csirt': 160, 'malware': 124}
@@ -25,7 +26,9 @@ def validate():
         assert re.fullmatch(r'[a-z0-9-]+', e['id'])
         assert all(isinstance(e[k], str) and e[k].strip() and '\ufffd' not in e[k] for k in ['term','definition','explanation','hint'])
         assert e['topics'] and set(e['topics']) <= {'cripto','csirt','malware'}
-        assert e['manualPages'] and all(type(p) is int and 1 <= p <= 55 for p in e['manualPages'])
+        assert e['manualPages'] or e.get('practicePages'), f'Missing references: {e["id"]}'
+        assert all(type(p) is int and 1 <= p <= 55 for p in e['manualPages'])
+        assert all(type(p) is int and 1 <= p <= 18 for p in e.get('practicePages', []))
     ascii_table = read('data/ascii.json')
     assert ascii_table['version'] == 1 and ascii_table['conceptId'] in ids
     assert all(ascii_table[k].strip() for k in ['title','description','notation','note','referenceNote'])
@@ -53,6 +56,37 @@ def validate():
         assert list(n['distractors']) == [letter for letter in 'ABCDE' if letter != q['answer']]
         assert all(isinstance(t, str) and len(t.strip()) > 35 and '\ufffd' not in t for t in n['distractors'].values())
         assert n['manualPages'] and all(type(p) is int and 1 <= p <= 55 for p in n['manualPages'])
+    practical = read('data/practice-questions.json')
+    practical_notes = read('data/practice-option-explanations.json')
+    editorial = read('data/practice-editorial.json')
+    practical_report = read('data/practice-extraction-report.json')
+    assert practical['version'] == practical_notes['version'] == editorial['version'] == practical_report['version'] == 1
+    pqs = practical['questions']
+    assert [q['id'] for q in pqs] == list(range(351, 443))
+    assert [q['sourceNumber'] for q in pqs] == list(range(1, 93))
+    assert [n['questionId'] for n in practical_notes['questions']] == list(range(351, 443))
+    assert [r['number'] for r in editorial['questions']] == list(range(1, 93))
+    assert Counter(q['topic'] for q in pqs) == {'cripto': 40, 'csirt': 29, 'malware': 23}
+    for q, n, adapted in zip(pqs, practical_notes['questions'], editorial['questions']):
+        assert q['origin'] == 'practice' and q['practice'] and q['title'] and q['adaptationNote'] == practical['adaptationNote']
+        assert list(q['options']) == list('ABCDE') and len(set(q['options'].values())) == 5
+        assert q['answer'] in q['options'] and q['options'][q['answer']] == adapted['correctOption']
+        assert q['explanation'] and q['prompt'] and q['source'] and isinstance(q['code'], str)
+        assert not any('\ufffd' in s for s in [q['prompt'],q['code'],q['explanation'],*q['options'].values()])
+        assert q['conceptIds'] == adapted['conceptIds'] and set(q['conceptIds']) <= ids and q['conceptIds']
+        assert all(q['topic'] in next(e for e in entries if e['id'] == c)['topics'] for c in q['conceptIds'])
+        assert 2 <= q['questionPage'] <= 16 and 2 <= q['solutionPage'] <= 22
+        assert re.fullmatch(r'[a-f0-9]{64}', adapted['sourceFingerprint'])
+        fingerprint = hashlib.sha256(json.dumps({k:q[k] for k in ['prompt','code','options','answer']}, ensure_ascii=False, sort_keys=True, separators=(',',':')).encode()).hexdigest()
+        assert n['questionFingerprint'] == fingerprint, f'Practice explanations need review: {q["id"]}'
+        assert list(n['distractors']) == [letter for letter in 'ABCDE' if letter != q['answer']]
+        assert set(n['distractors'].values()) == {d['explanation'] for d in adapted['distractors']}
+        assert set(q['options'].values()) == {adapted['correctOption'], *(d['text'] for d in adapted['distractors'])}
+        assert all(len(s.strip()) > 35 for s in n['distractors'].values())
+        assert n['practicePages'] == adapted['guidePages'] and n['practicePages']
+        assert all(type(p) is int and 1 <= p <= 18 for p in n['practicePages'])
+    assert practical_report['checks'] == dict(questionCount=92, solutionPromptsMatched=92, originalSolutionsPreserved=92,
+                                            adaptedOptions=460, distractorExplanations=368, topicCounts={'cripto':40,'csirt':29,'malware':23})
     comparisons = read('data/comparisons.json')
     assert comparisons['version'] == 1 and comparisons['authorship']
     comparison_ids = {c['id'] for c in comparisons['comparisons']}
@@ -64,7 +98,7 @@ def validate():
         assert len(c['columns']) >= 2 and all(col['conceptId'] in ids and col['label'] for col in c['columns'])
         assert c['rows'] and all(row['aspect'] and len(row['values']) == len(c['columns']) and all(row['values']) for row in c['rows'])
         assert c['manualPages'] and all(type(p) is int and 1 <= p <= 55 for p in c['manualPages'])
-    for doc in report['documents']:
+    for doc in [*report['documents'], *practical_report['documents']]:
         assert hashlib.sha256((ROOT/doc['file']).read_bytes()).hexdigest() == doc['sha256'], 'Source PDF changed'
     checks = report['checks']
     assert checks['annexPromptsMatched'] == checks['annexAnswersMatched'] == checks['solutionPromptsMatched'] == checks['solutionAnswersMatched'] == 350
@@ -90,5 +124,5 @@ def validate():
         code=(ROOT/file).read_text()
         for ref in re.findall(r"fetch\(['\"]([^'\"]+)",code): assert (ROOT/ref).is_file(), ref
         assert not re.search(r"(?:fetch\(|href\s*=\s*)['\"]/", code)
-    print(f'OK: 350 IDs, 1.750 opciones, 1.400 explicaciones de distractores, {len(entries)} conceptos, {len(comparison_ids)} comparaciones, 52 letras ASCII y todas las referencias locales.')
+    print(f'OK: 442 IDs (350 Teoría + 92 Práctica), 2.210 opciones, 1.768 explicaciones de distractores, {len(entries)} conceptos, {len(comparison_ids)} comparaciones, 52 letras ASCII y todas las referencias locales.')
 if __name__ == '__main__': validate()

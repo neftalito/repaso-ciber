@@ -4,16 +4,16 @@ Validación realizada el 21 de octubre de 2026.
 
 | Comprobación | Resultado |
 | --- | --- |
-| IDs únicos y consecutivos 1–350 | Correcto |
-| Cinco opciones originales por pregunta, en orden | 1.750 opciones verificadas |
+| IDs únicos y consecutivos 1–442 | 350 de Teoría + 92 de Práctica |
+| Cinco opciones por pregunta | 1.750 originales de teoría + 460 adaptadas de práctica |
 | Coincidencia de enunciados con solucionario | 350 de 350 |
 | Coincidencia de letras y textos de respuesta con solucionario | 350 de 350 |
 | Coincidencia de enunciados y respuestas con anexo | 350 de 350 |
 | Cantidades por tema | Criptografía 66, CSIRT 160, Malware 124 |
 | Referencias locales, páginas PDF y enlaces de conceptos | Correcto |
-| Glosario ampliado | 89 entradas; conserva los 33 términos originales |
-| Pruebas de contenido y modelo de progreso | 14 pruebas aprobadas |
-| Interacciones en DOM con los módulos reales | 47 comprobaciones aprobadas |
+| Glosario ampliado | 108 entradas; conserva los 33 términos originales |
+| Pruebas de contenido y modelo de progreso | 18 pruebas aprobadas |
+| Interacciones en DOM con los módulos reales | 59 comprobaciones aprobadas |
 | Renderizado en Chromium, capturas y dimensiones de pantalla | Correcto en GitHub Actions a 320/390/768/800/801/1024/1440/1920 px |
 | Publicación efectiva en GitHub Pages | Corrección desplegada correctamente desde `main` |
 
@@ -44,3 +44,11 @@ Pasaron 13 pruebas de contenido/progreso y 42 comprobaciones DOM, incluidas ause
 Se verificaron las 52 letras A–Z y a–z, sin duplicados, y la correspondencia exacta entre carácter, decimal y hexadecimal. Se aclara que la ñ y las letras acentuadas quedan fuera del ASCII estándar. Los datos se conservan en `data/ascii.json` y sus referencias apuntan a las páginas 6–7 del manual.
 
 Pasaron 14 pruebas de contenido/progreso y 47 comprobaciones DOM, incluidas tabla cerrada al inicio, enlace desde la entrada ASCII, búsqueda hexadecimal, filtro temático y apertura del enlace directo con filtros incompatibles. La suite de Chromium comprueba apertura/cierre con Enter/Espacio y ausencia de desbordamiento de tabla y página en los ocho anchos; guarda capturas a 390 y 1440 px.
+
+## Integración de prácticas 1 y 2
+
+Los 92 enunciados y sus referencias coinciden entre cuadernillo y solucionario. Las soluciones se conservan; las 460 opciones y 368 explicaciones de distractores son adaptaciones didácticas identificadas. El nuevo extractor conserva comandos/logs monoespaciados, verifica huellas de la adaptación y produce un informe con los hashes y páginas de los tres PDF. Los bancos separados mantienen intactos los IDs y el contenido de las 350 preguntas de teoría.
+
+Se incorporaron 19 conceptos (108 en total) y referencias de prácticas en 58 entradas previas. Se verificó la cobertura conceptual de las 442 preguntas y que los enlaces apunten al manual de teorías o a la guía de prácticas según corresponda.
+
+Pasaron 18 pruebas de contenido/progreso y 59 comprobaciones DOM. Incluyen los filtros combinados de origen/tema/estado, persistencia, distinción de fuentes, referencias de pistas y distractores, reintento de prácticas y compatibilidad con progreso v1 sin filtro de origen. Los cálculos de los ejemplos autocontenidos y las rutas, comandos y saltos de línea sensibles tienen verificaciones específicas. La suite de Chromium incorpora práctica con bloques de código y acordeones abiertos en los ocho anchos, exportación/importación del origen, rechazo de origen inválido y disponibilidad de los seis PDF.

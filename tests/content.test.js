@@ -10,6 +10,37 @@ const mapping = await readJSON('data/concept-map.json');
 const notes = await readJSON('data/option-explanations.json');
 const comparisons = await readJSON('data/comparisons.json');
 const ascii = await readJSON('data/ascii.json');
+const practical = await readJSON('data/practice-questions.json');
+const practicalNotes = await readJSON('data/practice-option-explanations.json');
+test('92 adapted practice exercises have stable IDs, five choices, option explanations and valid guide/concept references', () => {
+  assert.equal(practical.version,1); assert.equal(practicalNotes.version,1);
+  assert.deepEqual(practical.questions.map(q=>q.id),Array.from({length:92},(_,i)=>351+i));
+  assert.deepEqual(practical.questions.map(q=>q.sourceNumber),Array.from({length:92},(_,i)=>i+1));
+  const concepts = new Map(entries.map(e=>[e.id,e]));
+  for (const [index,q] of practical.questions.entries()) {
+    assert.equal(q.origin,'practice'); assert.ok(q.practice && q.title && q.source && q.explanation && q.adaptationNote);
+    assert.deepEqual(Object.keys(q.options),['A','B','C','D','E']); assert.equal(new Set(Object.values(q.options)).size,5);
+    assert.ok(q.conceptIds.length && q.conceptIds.every(id=>concepts.get(id)?.topics.includes(q.topic)));
+    const note=practicalNotes.questions[index]; assert.equal(note.questionId,q.id);
+    assert.deepEqual(Object.keys(note.distractors),Object.keys(q.options).filter(k=>k!==q.answer));
+    assert.ok(Object.values(note.distractors).every(t=>t.trim().length>35));
+    assert.ok(note.practicePages.length && note.practicePages.every(p=>p>=1&&p<=18));
+  }
+});
+test('practice code and self-contained numeric examples survive extraction exactly', () => {
+  const q=n=>practical.questions[n-1];
+  assert.equal(Buffer.from('SUN7YmFzZTY0X25vX2VzX2NpZnJhZG99','base64').toString(),'IC{base64_no_es_cifrado}');
+  assert.equal(Buffer.from(q(4).code.split(' ').map(n=>parseInt(n,16))).toString(),'IC{hex}');
+  assert.equal(createHash('md5').update('IntroCiberseguridadmate').digest('hex'),'6bff121a17aae857825427eab59ebe13');
+  assert.equal(Buffer.from(q(23).code.split(' ').map(n=>parseInt(n,16)^0x2a)).toString(),'IC{XOR}');
+  assert.equal(61*53,3233); assert.equal((61-1)*(53-1),3120); assert.equal((17*2753)%3120,1);
+  assert.equal(Number((2790n**2753n)%3233n),65);
+  assert.equal(Number((5n**6n)%23n),8); assert.equal(Number((5n**15n)%23n),19); assert.equal(Number((19n**6n)%23n),2);
+  assert.match(q(38).code,/gpg --armor --encrypt --recipient destino@ejemplo.invalid \\\n--output archivo.txt.asc archivo.txt/);
+  assert.match(q(60).code,/22:01:01 Failed password[\s\S]*\n22:01:03/);
+  assert.match(q(78).code,/HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\Updater\nC:\\Users\\Ana/);
+  assert.match(q(69).code,/IC\{se\\u200bcreto\}/);
+});
 test('ASCII reference covers all 52 Latin letters with exact decimal and hexadecimal codes', () => {
   assert.equal(ascii.version, 1); assert.ok(entries.some(e => e.id === ascii.conceptId));
   const characters = ascii.groups.flatMap(g => g.characters);
@@ -71,13 +102,15 @@ test('all 350 question links agree with the reviewed concept map and appropriate
     for (const id of q.conceptIds) { assert.ok(byId.has(id)); assert.ok(byId.get(id).topics.includes(q.topic), `${q.id}: ${id}`); }
   }
 });
-test('expanded glossary preserves all 33 original terms and has explanations, hints and manual references', () => {
-  assert.equal(entries.length, 89); assert.equal(entries.filter(e => e.fromManualGlossary).length, 33);
+test('expanded glossary preserves all 33 original terms and has explanations, hints and references to the right document', () => {
+  assert.equal(entries.length, 108); assert.equal(entries.filter(e => e.fromManualGlossary).length, 33);
   for (const e of entries) {
     assert.match(e.id, /^[a-z0-9-]+$/);
     assert.ok(e.term.trim());
     for (const field of ['definition','explanation','hint','example']) assert.ok(e[field].length > 5);
-    assert.ok(e.manualPages.length && e.manualPages.every(p => Number.isInteger(p) && p >= 1 && p <= 55));
+    assert.ok(e.manualPages.length || e.practicePages?.length);
+    assert.ok(e.manualPages.every(p => Number.isInteger(p) && p >= 1 && p <= 55));
+    assert.ok((e.practicePages??[]).every(p=>Number.isInteger(p)&&p>=1&&p<=18));
     assert.ok(e.topics.every(t => ['cripto','csirt','malware'].includes(t)));
     assert.ok(!/respuesta correcta|opción [A-E]\)/i.test(e.hint));
   }

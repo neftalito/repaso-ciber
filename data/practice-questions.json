@@ -1,0 +1,2467 @@
+{
+  "version": 1,
+  "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas.",
+  "questions": [
+    {
+      "id": 351,
+      "origin": "practice",
+      "sourceNumber": 1,
+      "title": "Codificar no es cifrar",
+      "practice": "P1 · Parte 1",
+      "topic": "cripto",
+      "prompt": "Un participante encuentra un texto en Base64 y afirma que está protegido criptográficamente. ¿Qué error conceptual comete? ¿Cuándo hace falta una clave?",
+      "code": "",
+      "options": {
+        "A": "Base64 representa datos con reglas públicas; la confidencialidad requiere cifrado y material criptográfico adecuado.",
+        "B": "Base64 cifra con una clave secreta incluida en el texto.",
+        "C": "La ausencia de palabras legibles demuestra que el mensaje es secreto.",
+        "D": "Base64 es un hash irreversible del mensaje.",
+        "E": "Para decodificar Base64 hace falta la clave privada del destinatario."
+      },
+      "answer": "A",
+      "explanation": "Base64 es una codificación reversible con reglas públicas: no busca confidencialidad ni necesita una clave secreta. Cifrar busca que el texto claro no pueda recuperarse sin el material criptográfico adecuado. En la práctica se mencionan también ASCII, Unicode y representación hexadecimal como codificaciones.",
+      "source": "Ej. 1; teoría 04, codificación",
+      "questionPage": 2,
+      "solutionPage": 2,
+      "conceptIds": [
+        "base64",
+        "cifrado"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 352,
+      "origin": "practice",
+      "sourceNumber": 2,
+      "title": "ASCII decimal",
+      "practice": "P1 · Parte 1",
+      "topic": "cripto",
+      "prompt": "Convertí la secuencia decimal ASCII 73 67 123 65 125 a texto. Indicá por qué el valor 123 no es una letra.",
+      "code": "73 67 123 65 125\n",
+      "options": {
+        "A": "IC[A]; 123 y 125 son corchetes.",
+        "B": "IC{A}; 123 representa la llave de apertura, un signo de puntuación.",
+        "C": "ICAA; 123 es otra representación de A.",
+        "D": "IC{A}; 123 no pertenece al ASCII estándar.",
+        "E": "73 67 123 65 125; los números no pueden representar signos."
+      },
+      "answer": "B",
+      "explanation": "73 → I, 67 → C, 123 → {, 65 → A y 125 → }. Por lo tanto, el texto es IC{A}. ASCII asigna códigos a signos de puntuación además de letras y dígitos.",
+      "source": "Ej. 1(a); teoría 04, ASCII",
+      "questionPage": 2,
+      "solutionPage": 2,
+      "conceptIds": [
+        "ascii"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 353,
+      "origin": "practice",
+      "sourceNumber": 3,
+      "title": "Decodificación Base64",
+      "practice": "P1 · Parte 1",
+      "topic": "cripto",
+      "prompt": "Decodificá la cadena y explicá qué indica el signo = cuando aparece al final de una cadena Base64.",
+      "code": "SUN7YmFzZTY0X25vX2VzX2NpZnJhZG99\n",
+      "options": {
+        "A": "La salida es un digest irreversible.",
+        "B": "IC{base64_no_es_cifrado}=; el relleno se agrega al mensaje.",
+        "C": "IC{base64_no_es_cifrado}; el signo =, cuando aparece, es relleno de Base64.",
+        "D": "IC{base64_no_es_cifrado}; = es la contraseña.",
+        "E": "La cadena no es válida porque no termina en =."
+      },
+      "answer": "C",
+      "explanation": "La secuencia decodifica como IC{base64_no_es_cifrado}. En Base64, = se utiliza como relleno (padding) para completar grupos de salida: no se trata de una contraseña ni forma parte del mensaje original.",
+      "source": "Ej. 1(b); teoría 04, Base64",
+      "questionPage": 2,
+      "solutionPage": 2,
+      "conceptIds": [
+        "base64"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 354,
+      "origin": "practice",
+      "sourceNumber": 4,
+      "title": "Hexadecimal a texto",
+      "practice": "P1 · Parte 1",
+      "topic": "cripto",
+      "prompt": "Transformá los bytes hexadecimales en texto ASCII y explicá cómo distinguir 49 hexadecimal de 49 decimal.",
+      "code": "49 43 7b 68 65 78 7d\n",
+      "options": {
+        "A": "IC{hex}; 49 decimal representa I.",
+        "B": "IC{hex}; 7b debe descartarse porque contiene una letra.",
+        "C": "No se puede leer sin una clave AES.",
+        "D": "IC{hex}; 0x49 equivale a 73 decimal, mientras 49 decimal representa 1.",
+        "E": "1C{hex}; 49 tiene el mismo valor en cualquier base."
+      },
+      "answer": "D",
+      "explanation": "49 hex = 73 decimal = I; 43 hex = 67 decimal = C; 7b = {; 68 = h; 65 = e; 78 = x; 7d = }. El resultado es IC{hex}. El valor 49 decimal correspondería al carácter «1», no a «I».",
+      "source": "Ej. 1(e); teoría 04, ASCII hexadecimal",
+      "questionPage": 2,
+      "solutionPage": 2,
+      "conceptIds": [
+        "ascii"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 355,
+      "origin": "practice",
+      "sourceNumber": 5,
+      "title": "Alfabeto numérico",
+      "practice": "P1 · Parte 1",
+      "topic": "cripto",
+      "prompt": "Con A=1, B=2, ..., Z=26, interpretá 9-3-19-5-7-21-18-15. ¿Qué supuesto debés verificar antes de aplicar esta regla a una secuencia ajena?",
+      "code": "9-3-19-5-7-21-18-15\n",
+      "options": {
+        "A": "JDTFHVSP; se debe empezar con A=0.",
+        "B": "ICSEGURO; esta regla siempre es ASCII decimal.",
+        "C": "ICSEGURO; la misma regla vale para toda secuencia numérica.",
+        "D": "No se puede interpretar sin una contraseña secreta.",
+        "E": "ICSEGURO; hay que verificar alfabeto, índice inicial, separadores y espacios."
+      },
+      "answer": "E",
+      "explanation": "El resultado es ICSEGURO (9=I, 3=C, 19=S, 5=E, 7=G, 21=U, 18=R, 15=O). Antes de resolver otra cadena hay que verificar el alfabeto, el origen del índice (A=0 o A=1), separadores y tratamiento de espacios.",
+      "source": "Ej. 1(c-d); codificación alfabética",
+      "questionPage": 2,
+      "solutionPage": 2,
+      "conceptIds": [
+        "a1z26-braille"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 356,
+      "origin": "practice",
+      "sourceNumber": 6,
+      "title": "Braille como sistema de representación",
+      "practice": "P1 · Parte 1",
+      "topic": "cripto",
+      "prompt": "Al hallar un texto con celdas Braille Unicode, ¿qué pasos seguirías para interpretarlo y por qué no corresponde asumir que es un cifrado?",
+      "code": "",
+      "options": {
+        "A": "Reconocer las celdas Braille, mapear puntos a símbolos y conservar separadores; es representación.",
+        "B": "Probar claves AES hasta obtener palabras.",
+        "C": "Clasificarlo como cifrado porque no se puede leer a simple vista.",
+        "D": "Convertir cada celda directamente en una letra ASCII de igual valor.",
+        "E": "Eliminar separadores y deducir una flag sin registrar el proceso."
+      },
+      "answer": "A",
+      "explanation": "Hay que reconocer el alfabeto Braille, mapear cada patrón de puntos a su letra o signo, conservar separadores y reconstruir la frase. Es un sistema de representación; que el lector desconozca el alfabeto no convierte la codificación en criptografía.",
+      "source": "Ej. 1(f); codificaciones no habituales",
+      "questionPage": 2,
+      "solutionPage": 3,
+      "conceptIds": [
+        "a1z26-braille"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 357,
+      "origin": "practice",
+      "sourceNumber": 7,
+      "title": "Texto visible y datos ocultos",
+      "practice": "P1 · Parte 1",
+      "topic": "cripto",
+      "prompt": "Una imagen exhibe la frase «no hay nada acá», pero el reto advierte que hay otro mensaje. Nombrá cuatro lugares o técnicas que revisarías antes de concluir que la imagen está vacía.",
+      "code": "",
+      "options": {
+        "A": "Borrar metadatos y recomprimir antes de investigar.",
+        "B": "Revisar metadatos, cadenas incrustadas, bytes anexados y LSB o datos esteganográficos; hace falta el archivo.",
+        "C": "Dar por vacía la imagen porque el texto visible lo afirma.",
+        "D": "Afirmar que contiene una flag concreta cifrada con AES.",
+        "E": "Revisar sólo el nombre del archivo y su extensión."
+      },
+      "answer": "B",
+      "explanation": "Revisaría metadatos y comentarios, cadenas incrustadas en el archivo, bytes añadidos al final, LSB de píxeles y posibles datos embebidos con esteganografía. También inspeccionaría si hay un archivo oculto extraíble con steghide. No se puede asegurar cuál técnica fue usada sin disponer de la imagen.",
+      "source": "Ej. 1(g); Práctica 1, Parte 2, ej. 17",
+      "questionPage": 3,
+      "solutionPage": 3,
+      "conceptIds": [
+        "esteganografia",
+        "lsb"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 358,
+      "origin": "practice",
+      "sourceNumber": 8,
+      "title": "Servicio interactivo de codificación",
+      "practice": "P1 · Parte 1",
+      "topic": "cripto",
+      "prompt": "En un servicio CTF cada conexión muestra una cadena distinta codificada y espera una respuesta en segundos. Describí una estrategia de resolución reproducible, sin suponer cuál es la flag.",
+      "code": "",
+      "options": {
+        "A": "Enviar respuestas sin conservar entradas ni saltos de línea.",
+        "B": "Aplicar siempre Base64 aunque el formato cambie.",
+        "C": "Registrar intercambios, reconocer el formato, validar el decodificador y automatizar lectura y envío.",
+        "D": "Fijar la primera cadena como respuesta para todas las conexiones.",
+        "E": "Suponer la flag sin leer la respuesta del servicio."
+      },
+      "answer": "C",
+      "explanation": "Registrar entradas y salidas, reconocer el formato, probar el decodificador sobre ejemplos, automatizar la lectura y el envío sólo dentro del entorno del reto, gestionar saltos de línea y validar el resultado recibido. Si el formato cambia entre conexiones, el script debe identificarlo antes de decodificar.",
+      "source": "Ej. 2; estrategia de desafíos de codificación",
+      "questionPage": 3,
+      "solutionPage": 3,
+      "conceptIds": [
+        "writeup",
+        "base64"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 359,
+      "origin": "practice",
+      "sourceNumber": 9,
+      "title": "Transposición por inversión",
+      "practice": "P1 · Parte 1",
+      "topic": "cripto",
+      "prompt": "Reconstruí el texto de esta cadena invertida e indicá si cambió la identidad de las letras o su posición.",
+      "code": "}odnum_aloh{CI\n",
+      "options": {
+        "A": "IC{hola_mundo}; es un hash del mensaje.",
+        "B": "LF{kr od}; hay que desplazar todas las letras tres posiciones.",
+        "C": "El texto no puede recuperarse sin clave privada.",
+        "D": "IC{hola_mundo}; es una transposición por inversión del orden.",
+        "E": "IC{hola_mundo}; es sustitución porque cambia la posición."
+      },
+      "answer": "D",
+      "explanation": "Al invertir el orden se obtiene IC{hola_mundo}. Es una transposición: los caracteres no se sustituyen por otros, sólo se reordenan.",
+      "source": "Ej. 3(a); teoría 04, criptografía clásica",
+      "questionPage": 3,
+      "solutionPage": 3,
+      "conceptIds": [
+        "clasicos"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 360,
+      "origin": "practice",
+      "sourceNumber": 10,
+      "title": "Sustitución César",
+      "practice": "P1 · Parte 1",
+      "topic": "cripto",
+      "prompt": "Descifrá el mensaje suponiendo que fue cifrado con un desplazamiento César de +3 sobre letras y que los signos se conservaron. Clasificá el método.",
+      "code": "LF{fulswr}\n",
+      "options": {
+        "A": "OI{ixovzu}; para descifrar se suma 3 otra vez.",
+        "B": "IC{cripto}; es transposición de letras.",
+        "C": "IC{cripto}; se debe alterar también el significado de las llaves.",
+        "D": "No tiene solución porque César exige la clave KEY.",
+        "E": "IC{cripto}; se resta 3 a cada letra y es sustitución monoalfabética."
+      },
+      "answer": "E",
+      "explanation": "Se resta 3 a cada letra (L→I, F→C, f→c, etc.). Se obtiene IC{cripto}. Es sustitución monoalfabética, no transposición.",
+      "source": "Ej. 3(b); teoría 04, César",
+      "questionPage": 3,
+      "solutionPage": 3,
+      "conceptIds": [
+        "cesar",
+        "clasicos"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 361,
+      "origin": "practice",
+      "sourceNumber": 11,
+      "title": "Transposición rail fence",
+      "practice": "P1 · Parte 1",
+      "topic": "cripto",
+      "prompt": "El texto CBRIE fue cifrado con rail fence de 2 rieles y sin espacios. Recuperá el original y describí el reparto de letras.",
+      "code": "CBRIE\n",
+      "options": {
+        "A": "CIBER; se intercalan CBR (posiciones 1, 3, 5) e IE (2, 4); es transposición.",
+        "B": "CBRIE; los rieles se leen como si fueran el mensaje original.",
+        "C": "ERIBC; basta invertir toda cadena rail fence.",
+        "D": "CIBER; el método sustituye cada letra por la siguiente.",
+        "E": "CBIER; ambos rieles tienen la misma longitud."
+      },
+      "answer": "A",
+      "explanation": "Con 5 posiciones, el primer riel contiene las posiciones 1, 3 y 5: C, B, R. El segundo contiene posiciones 2 y 4: I, E. Al intercalar se obtiene CIBER. Es transposición porque el alfabeto permanece igual.",
+      "source": "Ej. 3(d); rail fence",
+      "questionPage": 3,
+      "solutionPage": 4,
+      "conceptIds": [
+        "transposicion-riel-columna"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 362,
+      "origin": "practice",
+      "sourceNumber": 12,
+      "title": "Cifrado columnar",
+      "practice": "P1 · Parte 1",
+      "topic": "cripto",
+      "prompt": "Se cifró THE SKY IS BLUE (sin espacios) con la clave CAT, ordenando columnas alfabéticamente A, C, T. Explicá cómo se reconstruye el mensaje a partir de HKSUTSILEYBE.",
+      "code": "Texto cifrado: HKSUTSILEYBE\nClave: CAT\n",
+      "options": {
+        "A": "Usar tres bloques de tres caracteres y descartar los sobrantes.",
+        "B": "Ubicar HKSU en A, TSIL en C y EYBE en T; leer filas en orden C-A-T: THESKYISBLUE.",
+        "C": "Leer HKSUTSILEYBE directamente como texto plano.",
+        "D": "Colocar HKSU en C, TSIL en A y EYBE en T.",
+        "E": "Desplazar cada letra según C, A y T como en Vigenère."
+      },
+      "answer": "B",
+      "explanation": "En una tabla de tres columnas C-A-T y cuatro filas, se leen los bloques de cuatro caracteres HKSU (columna A), TSIL (columna C) y EYBE (columna T). Reubicando en el orden C-A-T y leyendo por filas se recupera THESKYISBLUE. Es transposición.",
+      "source": "Ej. 3(e); transposición columnar",
+      "questionPage": 3,
+      "solutionPage": 4,
+      "conceptIds": [
+        "transposicion-riel-columna"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 363,
+      "origin": "practice",
+      "sourceNumber": 13,
+      "title": "Vigenère y contraseña",
+      "practice": "P1 · Parte 1",
+      "topic": "cripto",
+      "prompt": "Un mensaje cifrado con Vigenère y clave KEY produce RIJVS. Descifralo y explicá por qué el conocimiento de la clave importa.",
+      "code": "Cifrado: RIJVS\nClave: KEY\n",
+      "options": {
+        "A": "HELLO; la clave sólo cambia el orden de las letras.",
+        "B": "HELLO; se usa KEY sin repetirla para las dos últimas letras.",
+        "C": "HELLO; restar KEYKE módulo 26, usando desplazamientos que varían con la clave.",
+        "D": "HELLO; se aplica siempre un único desplazamiento César.",
+        "E": "RIJVS; conocer la clave no modifica el descifrado."
+      },
+      "answer": "C",
+      "explanation": "Al restar las posiciones de KEYKE a RIJVS módulo 26 se obtiene HELLO. La clave define el desplazamiento de cada posición. A diferencia de César, Vigenère emplea desplazamientos que varían según la clave repetida.",
+      "source": "Ej. 3(c); cifrado de sustitución",
+      "questionPage": 4,
+      "solutionPage": 4,
+      "conceptIds": [
+        "vigenere",
+        "aritmetica-modular"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 364,
+      "origin": "practice",
+      "sourceNumber": 14,
+      "title": "Sustitución frente a transposición",
+      "practice": "P1 · Parte 1",
+      "topic": "cripto",
+      "prompt": "Dos cifrados transforman CASA en FDVD y en ASAC. ¿Cuál parece sustitución y cuál transposición? Indicá una limitación de sacar conclusiones sólo con un ejemplo.",
+      "code": "",
+      "options": {
+        "A": "Ambos son hashes porque la salida es distinta.",
+        "B": "Un solo par de textos demuestra de manera única el algoritmo.",
+        "C": "Ambos conservan intacta la identidad de las letras.",
+        "D": "FDVD sugiere César +3; ASAC conserva las letras y las reordena. Un ejemplo no identifica un algoritmo único.",
+        "E": "FDVD es transposición y ASAC sustitución."
+      },
+      "answer": "D",
+      "explanation": "FDVD corresponde a César +3 (sustitución: C→F, A→D, S→V). ASAC conserva las mismas letras y cambia el orden (transposición). Un único par de muestras no permite identificar inequívocamente un algoritmo: muchas transformaciones podrían generar una misma salida.",
+      "source": "Ej. 3; clasificación de métodos",
+      "questionPage": 4,
+      "solutionPage": 4,
+      "conceptIds": [
+        "clasicos"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 365,
+      "origin": "practice",
+      "sourceNumber": 15,
+      "title": "Automatizar variantes de un cifrado",
+      "practice": "P1 · Parte 1",
+      "topic": "cripto",
+      "prompt": "Un desafío remoto responde si una frase se descifró correctamente, pero no revela qué desplazamiento César usa. ¿Cómo encontrarías la respuesta de manera sistemática?",
+      "code": "",
+      "options": {
+        "A": "Probar 256 claves porque cada desplazamiento ocupa un byte.",
+        "B": "Elegir la primera variante que contenga una letra.",
+        "C": "Aplicar el mismo desplazamiento sin comprobarlo en el reto.",
+        "D": "Desplazar acentos y signos sin declarar un alfabeto.",
+        "E": "Generar los 26 desplazamientos del alfabeto declarado, evaluar texto con sentido y verificar en el reto."
+      },
+      "answer": "E",
+      "explanation": "Probar los 26 desplazamientos posibles del alfabeto latino, conservar el texto con sentido y verificarlo en el servicio del CTF. Un script puede generar las 26 variantes localmente. Si hay mayúsculas, acentos u otros símbolos, deben declararse las reglas del alfabeto.",
+      "source": "Ej. 4; retos remotos de criptografía clásica",
+      "questionPage": 4,
+      "solutionPage": 4,
+      "conceptIds": [
+        "cesar",
+        "writeup"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 366,
+      "origin": "practice",
+      "sourceNumber": 16,
+      "title": "Longitud de hashes",
+      "practice": "P1 · Parte 1",
+      "topic": "cripto",
+      "prompt": "Un digest en hexadecimal tiene 32 caracteres, otro 40, otro 64 y otro 128. ¿Qué tamaños binarios representan? ¿Qué se puede inferir y qué NO se puede confirmar?",
+      "code": "",
+      "options": {
+        "A": "128, 160, 256 y 512 bits; son compatibles con ciertos hashes, pero la longitud no identifica el algoritmo.",
+        "B": "32, 40, 64 y 128 bits, respectivamente.",
+        "C": "256, 320, 512 y 1024 bits, respectivamente.",
+        "D": "La longitud demuestra de forma única MD5, SHA-1, SHA-256 y SHA-512.",
+        "E": "La longitud del digest revela la longitud del archivo original."
+      },
+      "answer": "A",
+      "explanation": "Representan 128, 160, 256 y 512 bits respectivamente (4 bits por dígito hexadecimal). Son longitudes compatibles, por ejemplo, con MD5, SHA-1, SHA-256 y SHA-512; la longitud por sí sola no identifica el algoritmo de manera concluyente.",
+      "source": "Ej. 5; teoría 04, funciones hash",
+      "questionPage": 4,
+      "solutionPage": 5,
+      "conceptIds": [
+        "sha",
+        "ascii"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 367,
+      "origin": "practice",
+      "sourceNumber": 17,
+      "title": "Colisiones y preimagen",
+      "practice": "P1 · Parte 1",
+      "topic": "cripto",
+      "prompt": "Explicá por qué dos archivos pueden tener el mismo hash y por qué un sitio que «recupera una contraseña desde MD5» no necesariamente invierte matemáticamente MD5.",
+      "code": "",
+      "options": {
+        "A": "MD5 necesita una clave privada para resolver las colisiones.",
+        "B": "Las salidas finitas permiten colisiones; una tabla encuentra candidatos precalculados y no invierte MD5 en general.",
+        "C": "Dos archivos distintos nunca pueden compartir un hash.",
+        "D": "Consultar un digest en una tabla equivale a descifrar MD5.",
+        "E": "Una coincidencia en una tabla prueba que ésa fue la única entrada original."
+      },
+      "answer": "B",
+      "explanation": "Un hash de tamaño fijo agrupa un espacio de entradas más grande y puede tener colisiones. Los sitios de consulta suelen buscar valores ya calculados en diccionarios o tablas; hallan una entrada candidata que produce el digest, no invierten una función criptográfica general. También podría existir otra preimagen.",
+      "source": "Ej. 5; teoría 04, funciones hash",
+      "questionPage": 4,
+      "solutionPage": 5,
+      "conceptIds": [
+        "colisiones",
+        "diccionario"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 368,
+      "origin": "practice",
+      "sourceNumber": 18,
+      "title": "Comprobar un candidato",
+      "practice": "P1 · Parte 1",
+      "topic": "cripto",
+      "prompt": "Te dicen que el SHA-256 de un archivo coincide con uno publicado. ¿Qué comprobación harías? ¿Por qué la coincidencia no autentica por sí sola al publicador?",
+      "code": "",
+      "options": {
+        "A": "Calcular MD5 y compararlo directamente con el SHA-256 publicado.",
+        "B": "Descifrar el digest SHA-256 para obtener el archivo.",
+        "C": "Calcular SHA-256 local y comparar; también hay que autenticar la fuente del digest esperado.",
+        "D": "Comparar sólo el nombre y la extensión del archivo.",
+        "E": "La coincidencia de hashes demuestra por sí sola la identidad del publicador."
+      },
+      "answer": "C",
+      "explanation": "Calcularía SHA-256 del archivo local y lo compararía bit a bit con el esperado. Eso prueba coincidencia respecto del resumen recibido, sujeto a las propiedades del hash; si el digest se obtuvo de una fuente alterable o no confiable, un adversario podría modificar tanto el archivo como el resumen.",
+      "source": "Ej. 5-7; teoría 04, seguridad de hashes",
+      "questionPage": 4,
+      "solutionPage": 5,
+      "conceptIds": [
+        "integridad-archivo"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 369,
+      "origin": "practice",
+      "sourceNumber": 19,
+      "title": "Ataque de diccionario controlado",
+      "practice": "P1 · Parte 1",
+      "topic": "cripto",
+      "prompt": "Un CTF te da el SHA-256 de una contraseña y avisa que está entre las primeras 100 entradas de rockyou.txt. ¿Cómo la buscarías sin probar todas las combinaciones posibles?",
+      "code": "",
+      "options": {
+        "A": "Descifrar SHA-256 con la contraseña del servicio.",
+        "B": "Enviar cien inicios de sesión a un servidor de otra organización.",
+        "C": "Usar MD5 de las entradas porque todos los hashes son equivalentes.",
+        "D": "Calcular SHA-256 de las primeras 100 entradas y comparar el digest: búsqueda offline en diccionario.",
+        "E": "Probar todas las cadenas posibles antes de consultar rockyou."
+      },
+      "answer": "D",
+      "explanation": "Se calculan los hashes SHA-256 de esas 100 palabras y se comparan con el digest entregado. Se puede usar hashcat, John the Ripper o un pequeño script. Esto es una búsqueda offline en un diccionario acotado, no una inversión del hash; sólo debe realizarse sobre material autorizado.",
+      "source": "Ej. 7; diccionario rockyou",
+      "questionPage": 4,
+      "solutionPage": 5,
+      "conceptIds": [
+        "diccionario",
+        "contrasenas"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 370,
+      "origin": "practice",
+      "sourceNumber": 20,
+      "title": "Hash con salt conocido",
+      "practice": "P1 · Parte 1",
+      "topic": "cripto",
+      "prompt": "El reto define MD5(salt || password), salt=IntroCiberseguridad y el digest siguiente. Entre las candidatas «mate», «sol» y «luna», ¿cuál corresponde? ¿Por qué importa el orden?",
+      "code": "Digest: 6bff121a17aae857825427eab59ebe13\n",
+      "options": {
+        "A": "sol; el salt se agrega después de la contraseña.",
+        "B": "luna; cualquier candidata produce el mismo hash si el salt es público.",
+        "C": "mate; calcular MD5(mate) ignorando el salt.",
+        "D": "mate; el salt convierte MD5 en una función lenta resistente a ataques offline.",
+        "E": "mate; calcular MD5 de IntroCiberseguridad seguido de la contraseña, sin invertir el orden."
+      },
+      "answer": "E",
+      "explanation": "La candidata es mate. MD5(\"IntroCiberseguridadmate\") = 6bff121a17aae857825427eab59ebe13. En el caso planteado el salt se concatena primero: cambiarlo por MD5(password || salt) da otro resultado. El salt no reemplaza a un algoritmo de derivación de contraseñas resistente a ataques offline.",
+      "source": "Ej. 8; teoría 04, contraseñas y salt",
+      "questionPage": 5,
+      "solutionPage": 5,
+      "conceptIds": [
+        "contrasenas",
+        "diccionario"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 371,
+      "origin": "practice",
+      "sourceNumber": 21,
+      "title": "Orden de operaciones",
+      "practice": "P1 · Parte 1",
+      "topic": "cripto",
+      "prompt": "La práctica presenta un resultado de AES-128-ECB que luego fue codificado en Base64. Ordená las transformaciones correctas para recuperar el texto original y señalá los datos que deben conocerse.",
+      "code": "",
+      "options": {
+        "A": "Decodificar Base64, descifrar AES-128-ECB con la clave de 16 bytes y tratar padding y codificación.",
+        "B": "Aplicar AES al texto Base64 y decodificarlo al final.",
+        "C": "Decodificar Base64 y dar por recuperado el mensaje original.",
+        "D": "Descifrar sin conocer clave, modo ni padding porque Base64 los contiene.",
+        "E": "Usar 128 bytes de clave porque se llama AES-128."
+      },
+      "answer": "A",
+      "explanation": "Primero se decodifica Base64 para recuperar los bytes cifrados; luego se descifra con AES-128 en modo ECB usando exactamente la clave de 16 bytes, y finalmente se retira el padding si corresponde y se interpreta el plaintext con su codificación. Base64 no agrega seguridad al cifrado.",
+      "source": "Ej. 9; teoría 04, AES-ECB",
+      "questionPage": 5,
+      "solutionPage": 6,
+      "conceptIds": [
+        "ecb",
+        "bloques",
+        "base64"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 372,
+      "origin": "practice",
+      "sourceNumber": 22,
+      "title": "Riesgo de ECB",
+      "practice": "P1 · Parte 1",
+      "topic": "cripto",
+      "prompt": "Se cifran dos bloques de 16 bytes idénticos con la misma clave AES-ECB. ¿Qué relación habrá entre los bloques cifrados? Comparalo con el encadenamiento CBC.",
+      "code": "",
+      "options": {
+        "A": "Los bloques cifrados siempre tienen la longitud del mensaje completo.",
+        "B": "ECB produce bloques cifrados iguales; CBC incorpora encadenamiento e IV, pero no autentica por sí solo.",
+        "C": "ECB genera salidas distintas por usar automáticamente un IV aleatorio en cada bloque.",
+        "D": "CBC cifra cada bloque de forma independiente igual que ECB.",
+        "E": "CBC evita patrones y por eso garantiza también autenticidad."
+      },
+      "answer": "B",
+      "explanation": "En ECB, dos bloques de texto plano iguales, bajo la misma clave, producen bloques cifrados iguales; se filtran patrones. En CBC, cada bloque plano se combina con el bloque cifrado anterior (y el primero con un IV), de modo que la repetición de bloques no tiene ese mismo efecto directo. Esto no convierte automáticamente a CBC en un modo autenticado.",
+      "source": "Ej. 9; teoría 04, modos de bloque",
+      "questionPage": 5,
+      "solutionPage": 6,
+      "conceptIds": [
+        "ecb",
+        "cbc"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 373,
+      "origin": "practice",
+      "sourceNumber": 23,
+      "title": "XOR reversible",
+      "practice": "P1 · Parte 1",
+      "topic": "cripto",
+      "prompt": "El texto IC{XOR} se cifró haciendo XOR de cada byte con la clave 0x2a. Dado el hexadecimal de salida, recuperá el texto y expresá la propiedad algebraica utilizada.",
+      "code": "63 69 51 72 65 78 57\n",
+      "options": {
+        "A": "No es reversible porque XOR es una función hash.",
+        "B": "Aplicar XOR sólo al primer byte y copiar los demás.",
+        "C": "IC{XOR}; (x XOR k) XOR k = x, aplicando otra vez la clave 0x2a a cada byte.",
+        "D": "IC{XOR}; se suma 0x2a a cada byte para descifrar.",
+        "E": "La clave de descifrado debe ser diferente de 0x2a."
+      },
+      "answer": "C",
+      "explanation": "El texto es IC{XOR}. Basta aplicar XOR con 0x2a a cada byte del ciphertext, porque (x XOR k) XOR k = x. Por ejemplo, 0x63 XOR 0x2a = 0x49, que representa I.",
+      "source": "Ej. 10; XOR de un byte",
+      "questionPage": 5,
+      "solutionPage": 6,
+      "conceptIds": [
+        "xor"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 374,
+      "origin": "practice",
+      "sourceNumber": 24,
+      "title": "Espacio de claves de XOR",
+      "practice": "P1 · Parte 1",
+      "topic": "cripto",
+      "prompt": "Un reto utiliza XOR con clave de un byte desconocida. ¿Cuántas claves existen? Describí cómo decidir si una candidata produce texto inteligible.",
+      "code": "",
+      "options": {
+        "A": "16 claves porque un dígito hexadecimal tiene 16 valores.",
+        "B": "256 claves; basta encontrar una letra legible para confirmar una.",
+        "C": "2^256 claves porque se usa XOR.",
+        "D": "256 claves (0–255); evaluar todo el texto, sus caracteres imprimibles, estructura y formato esperado.",
+        "E": "255 claves, de 1 a 255."
+      },
+      "answer": "D",
+      "explanation": "Existen 2^8 = 256 valores posibles, de 0 a 255. Se prueba cada clave en todos los bytes y se evalúa el resultado por su proporción de caracteres imprimibles, estructura del mensaje y formato esperado; no se debe elegir una candidata sólo porque genera letras aisladas.",
+      "source": "Ej. 10; fuerza bruta",
+      "questionPage": 5,
+      "solutionPage": 6,
+      "conceptIds": [
+        "xor"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 375,
+      "origin": "practice",
+      "sourceNumber": 25,
+      "title": "Clave efímera y semilla",
+      "practice": "P1 · Parte 1",
+      "topic": "cripto",
+      "prompt": "Un servicio CTF genera una clave XOR «temporal» al conectarse. ¿Qué observaciones permitirían saber si la clave se reutiliza o deriva de una marca temporal? ¿Qué no se puede concluir sin registros del reto?",
+      "code": "",
+      "options": {
+        "A": "Una clave llamada temporal es necesariamente aleatoria e irrepetible.",
+        "B": "La hora de conexión revela siempre la semilla exacta.",
+        "C": "Una reconexión permite afirmar la flag sin observar el servicio.",
+        "D": "Si se repite el algoritmo XOR, necesariamente se repite su clave.",
+        "E": "Comparar conexiones, tiempos y cifrados de mensajes conocidos; sin registros no se deducen semilla ni flag."
+      },
+      "answer": "E",
+      "explanation": "Compararía conexiones sucesivas, instante de generación, cifrados del mismo texto, mensajes conocidos y comportamiento frente a reconexiones. Una fuente de tiempo predecible puede disminuir la entropía efectiva; sin capturas o implementación no es posible afirmar el algoritmo, la semilla exacta ni una flag.",
+      "source": "Ej. 11; XOR con clave temporal",
+      "questionPage": 5,
+      "solutionPage": 6,
+      "conceptIds": [
+        "keystream"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 376,
+      "origin": "practice",
+      "sourceNumber": 26,
+      "title": "RSA, cálculo completo",
+      "practice": "P1 · Parte 2",
+      "topic": "cripto",
+      "prompt": "Con RSA de juguete p=61, q=53, e=17 y C=2790: calculá n, φ(n), d y el mensaje entero M. Mostrá la relación usada para descifrar.",
+      "code": "p=61 q=53 e=17 C=2790\n",
+      "options": {
+        "A": "n=3233, φ(n)=3120, d=2753 y M=65; descifrar como C^d mod n.",
+        "B": "n=3120, φ(n)=3233, d=2753 y M=65.",
+        "C": "n=3233, φ(n)=3120, d=17 y M=2790.",
+        "D": "n=114, φ(n)=3120, d=2753 y M=65.",
+        "E": "n=3233, φ(n)=3120, d=2753 y M=C·d."
+      },
+      "answer": "A",
+      "explanation": "n=61·53=3233; φ(n)=(61−1)(53−1)=3120; d es el inverso de 17 módulo 3120, igual a 2753; M=C^d mod n=65. Como prueba, 65^17 mod 3233 = 2790. Estos valores son sólo didácticos y no tienen seguridad real.",
+      "source": "Ej. 12; RSA con p y q",
+      "questionPage": 6,
+      "solutionPage": 7,
+      "conceptIds": [
+        "rsa",
+        "aritmetica-modular"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 377,
+      "origin": "practice",
+      "sourceNumber": 27,
+      "title": "RSA: número frente a bytes",
+      "practice": "P1 · Parte 2",
+      "topic": "cripto",
+      "prompt": "Al descifrar RSA obtenés el entero decimal 65. ¿Qué dato extra necesitás para afirmar que el mensaje era la letra A? ¿Qué cambia con mensajes de varios bytes?",
+      "code": "",
+      "options": {
+        "A": "Hay que interpretar 65 como hexadecimal porque proviene de RSA.",
+        "B": "Conocer codificación, representación, orden y longitud de bytes y padding; sólo con ASCII acordado 65 es A.",
+        "C": "65 siempre significa A, cualquiera sea la representación.",
+        "D": "El entero descifrado contiene automáticamente su codificación y longitud.",
+        "E": "Para varios bytes alcanza con conservar sólo el último."
+      },
+      "answer": "B",
+      "explanation": "Necesitás conocer la representación acordada del mensaje. Si se usó ASCII sin padding adicional, 65 representa A; con otros esquemas o codificaciones podría interpretarse distinto. Para mensajes mayores hay que reconstruir bytes con el orden y longitud correctos, y tener en cuenta el padding real del criptosistema.",
+      "source": "Ej. 12; representación de plaintext",
+      "questionPage": 6,
+      "solutionPage": 7,
+      "conceptIds": [
+        "rsa",
+        "ascii"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 378,
+      "origin": "practice",
+      "sourceNumber": 28,
+      "title": "Factorización de n",
+      "practice": "P1 · Parte 2",
+      "topic": "cripto",
+      "prompt": "Se publica (n=3233, e=17) pero no los factores de n. ¿Cómo recuperarías la clave privada en este ejemplo pequeño? ¿Por qué el mismo procedimiento no escala a claves RSA correctamente generadas?",
+      "code": "",
+      "options": {
+        "A": "Factorizar n sólo permite conocer la codificación ASCII, no d.",
+        "B": "Usar n−1 como φ(n) porque 3233 es primo.",
+        "C": "Factorizar 3233=61·53, obtener φ(n) y d; el tamaño pequeño lo permite, a diferencia de módulos adecuados.",
+        "D": "La clave privada es siempre igual a e, aunque no se factorice.",
+        "E": "Factorizar cualquier módulo RSA toma lo mismo que este ejemplo."
+      },
+      "answer": "C",
+      "explanation": "Factorizando 3233 se obtiene 61·53; desde ahí se calcula φ(n)=3120 y el inverso modular d=2753. La seguridad práctica de RSA de tamaño adecuado se apoya en que factorizar números grandes elegidos correctamente es computacionalmente difícil con técnicas clásicas conocidas.",
+      "source": "Ej. 14-15; RSA sin factores",
+      "questionPage": 6,
+      "solutionPage": 7,
+      "conceptIds": [
+        "rsa",
+        "aritmetica-modular"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 379,
+      "origin": "practice",
+      "sourceNumber": 29,
+      "title": "No confundir parámetros RSA",
+      "practice": "P1 · Parte 2",
+      "topic": "cripto",
+      "prompt": "Una persona ve e=65537 en un enunciado RSA y asegura que ésa es la clave privada. Explicá el error y qué información necesita el procedimiento habitual de descifrado.",
+      "code": "",
+      "options": {
+        "A": "Conocer e y un ciphertext siempre basta para descifrar cualquier RSA.",
+        "B": "La clave privada es el ciphertext recibido.",
+        "C": "Para obtener d basta restar uno a e.",
+        "D": "e es público; el descifrado habitual requiere d y n, y obtener d depende de información sobre φ(n) o λ(n).",
+        "E": "e=65537 es secreto por tener un valor grande."
+      },
+      "answer": "D",
+      "explanation": "e es el exponente público comúnmente elegido, no el secreto. Para descifrar hace falta d y n; d se obtiene a partir de φ(n) o λ(n) cuando se conocen los factores secretos de n. Conocer únicamente e y un ciphertext no basta para recuperar de forma general el mensaje.",
+      "source": "Ej. 13-15; validez del descifrado",
+      "questionPage": 6,
+      "solutionPage": 7,
+      "conceptIds": [
+        "rsa"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 380,
+      "origin": "practice",
+      "sourceNumber": 30,
+      "title": "Diffie-Hellman numérico",
+      "practice": "P1 · Parte 2",
+      "topic": "cripto",
+      "prompt": "En un ejemplo didáctico de Diffie-Hellman p=23, g=5, Alice tiene a=6 y Bob b=15. Calculá A, B y la clave compartida que cada uno obtiene.",
+      "code": "p=23 g=5 a=6 b=15\n",
+      "options": {
+        "A": "A=8, B=19 y secreto 27, sumando ambos valores.",
+        "B": "A=30, B=75 y secreto 450, multiplicando parámetros.",
+        "C": "A=8, B=19 y cada participante obtiene un secreto diferente.",
+        "D": "El secreto 2 se envía en texto claro para que ambos lo conozcan.",
+        "E": "A=8, B=19 y secreto compartido 2; cada parte eleva el valor público recibido a su exponente secreto."
+      },
+      "answer": "E",
+      "explanation": "Alice publica A=5^6 mod 23=8; Bob publica B=5^15 mod 23=19. Alice calcula 19^6 mod 23=2 y Bob 8^15 mod 23=2. El secreto compartido coincide, sin haberse enviado directamente por la red.",
+      "source": "Ej. 16; intercambio Diffie-Hellman",
+      "questionPage": 6,
+      "solutionPage": 8,
+      "conceptIds": [
+        "diffie-hellman",
+        "aritmetica-modular"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 381,
+      "origin": "practice",
+      "sourceNumber": 31,
+      "title": "¿Qué no autentica Diffie-Hellman?",
+      "practice": "P1 · Parte 2",
+      "topic": "cripto",
+      "prompt": "¿Por qué un intercambio Diffie-Hellman sin autenticación no evita por sí solo un ataque de intermediario (MitM)?",
+      "code": "",
+      "options": {
+        "A": "Sin autenticación, un intermediario puede sustituir valores públicos y acordar un secreto con cada extremo.",
+        "B": "DH autentica automáticamente a quien envía cualquier valor público.",
+        "C": "El ataque exige factorizar el módulo como en RSA.",
+        "D": "Basta mantener p y g secretos para verificar identidades.",
+        "E": "Una clave compartida demuestra que sólo hubo dos participantes."
+      },
+      "answer": "A",
+      "explanation": "Un atacante que intercepte y reemplace valores públicos puede negociar un secreto independiente con cada extremo, haciéndoles creer que hablan entre sí. Para autenticar participantes deben usarse certificados, firmas u otros mecanismos adecuados al protocolo.",
+      "source": "Ej. 16; protocolo DH",
+      "questionPage": 6,
+      "solutionPage": 8,
+      "conceptIds": [
+        "diffie-hellman",
+        "mitm"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 382,
+      "origin": "practice",
+      "sourceNumber": 32,
+      "title": "Esteganografía en imagen",
+      "practice": "P1 · Parte 2",
+      "topic": "cripto",
+      "prompt": "Tenés una imagen de un reto y una contraseña de extracción. ¿Qué comandos de steghide usarías para inspeccionar y extraer datos, y qué resultado no podés adivinar sin el archivo?",
+      "code": "steghide info imagen.jpg\nsteghide extract -sf imagen.jpg -p CLAVE\n",
+      "options": {
+        "A": "El comando extract confirma que toda imagen usa steghide.",
+        "B": "Usar steghide info y extract -sf con la contraseña; comprobar el archivo obtenido sin inventar su contenido.",
+        "C": "steghide info ya demuestra qué flag contiene la imagen.",
+        "D": "La contraseña permite conocer el mensaje incluso sin tener la imagen.",
+        "E": "Cambiar la extensión a .txt siempre extrae el secreto."
+      },
+      "answer": "B",
+      "explanation": "Puede usarse «steghide info imagen.jpg» para inspeccionar y «steghide extract -sf imagen.jpg -p CLAVE» para intentar extraer un archivo. Luego hay que verificar el nombre, formato y contenido extraídos. Sin la imagen real no se puede inventar el secreto ni confirmar que steghide fue el método.",
+      "source": "Ej. 17; extracción con steghide",
+      "questionPage": 7,
+      "solutionPage": 8,
+      "conceptIds": [
+        "esteganografia"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 383,
+      "origin": "practice",
+      "sourceNumber": 33,
+      "title": "Recuperar LSB",
+      "practice": "P1 · Parte 2",
+      "topic": "cripto",
+      "prompt": "El bit menos significativo de ocho bytes de píxeles contiene una letra ASCII en orden de bit más significativo a menos significativo. ¿Qué letra es?",
+      "code": "10010010 10100011 11010100 01000100\n00110011 01000100 10100000 10010001\n",
+      "options": {
+        "A": "No puede reconstruirse ningún byte a partir de ocho bits.",
+        "B": "Hay que tomar el primer bit de cada byte.",
+        "C": "I: los LSB forman 01001001, equivalente a 0x49 y 73 decimal.",
+        "D": "A: los LSB forman 01000001.",
+        "E": "H: se ignora el último bit porque no es un píxel completo."
+      },
+      "answer": "C",
+      "explanation": "Los últimos bits son 0 1 0 0 1 0 0 1 = 01001001 binario = 0x49 = 73 decimal = I. El ejercicio ilustra LSB; en una imagen real deben conocerse canal, orden de píxeles, formato y longitud del mensaje.",
+      "source": "Ej. 17; esteganografía LSB",
+      "questionPage": 7,
+      "solutionPage": 8,
+      "conceptIds": [
+        "lsb",
+        "ascii"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 384,
+      "origin": "practice",
+      "sourceNumber": 34,
+      "title": "Esteganografía de audio",
+      "practice": "P1 · Parte 2",
+      "topic": "cripto",
+      "prompt": "Al examinar un WAV aparentemente normal, ¿qué verificaciones harías para hallar un mensaje oculto antes de modificarlo?",
+      "code": "",
+      "options": {
+        "A": "Concluir que no hay mensaje porque el audio suena normal.",
+        "B": "Inventar el mensaje basándose sólo en el nombre del archivo.",
+        "C": "Examinar sólo el volumen general y descartar cualquier otra técnica.",
+        "D": "Preservar una copia y revisar formato, metadatos, anexos, cadenas, espectrograma, canales y posibles LSB.",
+        "E": "Recomprimir el WAV y reemplazar el original antes de observarlo."
+      },
+      "answer": "D",
+      "explanation": "Identificaría formato y metadatos, buscaría datos anexados y cadenas, escucharía el audio, observaría espectrograma y canales por separado e investigaría modificaciones de bits menos significativos. Trabajaría sobre una copia para preservar la evidencia. El método y mensaje precisos requieren el archivo original.",
+      "source": "Ej. 18; mensaje en audio",
+      "questionPage": 7,
+      "solutionPage": 9,
+      "conceptIds": [
+        "esteganografia",
+        "lsb"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 385,
+      "origin": "practice",
+      "sourceNumber": 35,
+      "title": "Firmar no es cifrar",
+      "practice": "P1 · Parte 2",
+      "topic": "cripto",
+      "prompt": "Diferenciá tres operaciones de OpenPGP: firmar, cifrar para otra persona y verificar una firma. ¿Cuáles dan confidencialidad y cuáles autenticidad?",
+      "code": "",
+      "options": {
+        "A": "Firmar vuelve secreto todo el texto aunque no se cifre.",
+        "B": "Cifrar para Bob requiere disponer de la clave privada de Bob.",
+        "C": "Verificar una firma exige la clave privada del remitente.",
+        "D": "Cifrar un archivo garantiza que fue firmado por su creador.",
+        "E": "Cifrar usa la pública del destinatario; firmar usa la privada del emisor y verificar su pública confiable."
+      },
+      "answer": "E",
+      "explanation": "Cifrar con la clave pública del destinatario busca confidencialidad; firmar con la clave privada del remitente permite verificar origen e integridad si la clave pública es confiable; verificar usa la clave pública y contrasta la firma. Una firma sola no vuelve secreto el contenido.",
+      "source": "Ej. 19; PGP y GnuPG",
+      "questionPage": 7,
+      "solutionPage": 9,
+      "conceptIds": [
+        "pgp",
+        "firma"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 386,
+      "origin": "practice",
+      "sourceNumber": 36,
+      "title": "Validación de firmas PGP",
+      "practice": "P1 · Parte 2",
+      "topic": "cripto",
+      "prompt": "Recibís dos textos con la misma afirmación. Uno tiene firma válida y otro no. ¿Qué se puede afirmar del primero y qué comprobación de confianza es indispensable?",
+      "code": "",
+      "options": {
+        "A": "Verifica la firma bajo esa clave; hay que comprobar su pertenencia al remitente mediante una huella confiable.",
+        "B": "Firma válida significa que el contenido del mensaje es necesariamente verdadero.",
+        "C": "Cualquier clave con el nombre del remitente prueba su identidad.",
+        "D": "Una firma válida cifra el texto para todos los lectores.",
+        "E": "La clave pública debe mantenerse secreta para poder verificar."
+      },
+      "answer": "A",
+      "explanation": "Una firma válida significa que el contenido concuerda con la firma generada por la clave privada correspondiente a la clave pública usada. Debe validarse que esa clave pública pertenezca realmente al remitente, por ejemplo contrastando la huella digital mediante un canal confiable. Una firma válida de una clave desconocida no prueba identidad.",
+      "source": "Ej. 19, episodio 2; mensajes auténticos",
+      "questionPage": 7,
+      "solutionPage": 9,
+      "conceptIds": [
+        "pgp-confianza",
+        "firma"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 387,
+      "origin": "practice",
+      "sourceNumber": 37,
+      "title": "Descifrado PGP con contraseña",
+      "practice": "P1 · Parte 2",
+      "topic": "cripto",
+      "prompt": "Un archivo cifrado con OpenPGP simétrico utiliza una passphrase tomada de un diccionario dado. ¿En qué se diferencia el procedimiento de descifrado respecto del uso de una clave privada RSA?",
+      "code": "",
+      "options": {
+        "A": "Las claves privadas y las contraseñas son intercambiables en cualquier formato.",
+        "B": "PGP simétrico deriva la clave de una passphrase; se comprueban candidatas. El asimétrico requiere la privada.",
+        "C": "PGP simétrico se descifra siempre con la clave pública RSA del remitente.",
+        "D": "La passphrase del archivo puede deducirse sin archivo ni diccionario.",
+        "E": "Probar una contraseña equivale a invertir una función hash general."
+      },
+      "answer": "B",
+      "explanation": "En PGP simétrico se usa una contraseña para derivar material criptográfico y descifrar; se prueban candidatos autorizados del diccionario y se observa si el descifrado es válido. En cifrado asimétrico se necesita la clave privada del destinatario. No se puede deducir la passphrase concreta sin el archivo y los candidatos.",
+      "source": "Ej. 20; PGP simétrico con diccionario",
+      "questionPage": 7,
+      "solutionPage": 9,
+      "conceptIds": [
+        "pgp-confianza",
+        "pgp"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 388,
+      "origin": "practice",
+      "sourceNumber": 38,
+      "title": "Cifrar con la clave pública en GPG",
+      "practice": "P1 · Parte 2",
+      "topic": "cripto",
+      "prompt": "Escribí un comando GPG para cifrar archivo.txt con la clave pública de destino@ejemplo.invalid y guardar una salida ASCII armor. ¿Qué debe estar preparado antes?",
+      "code": "gpg --armor --encrypt --recipient destino@ejemplo.invalid \\\n--output archivo.txt.asc archivo.txt\n",
+      "options": {
+        "A": "Agregar --armor a un archivo sin cifrar y asumir confidencialidad.",
+        "B": "Importar cualquier clave que tenga ese correo sin comprobar la huella.",
+        "C": "Importar y verificar la clave pública; usar gpg --armor --encrypt --recipient ... --output archivo.txt.asc archivo.txt.",
+        "D": "Usar --sign como única operación para cifrar el archivo.",
+        "E": "Pedir la clave privada de destino@ejemplo.invalid para cifrar."
+      },
+      "answer": "C",
+      "explanation": "Debe importarse y comprobarse la clave pública correcta (incluida su huella). Por ejemplo: «gpg --armor --encrypt --recipient destino@ejemplo.invalid --output archivo.txt.asc archivo.txt». El resultado es un mensaje ASCII armor; no hace falta ni corresponde utilizar la clave privada del destinatario para cifrar.",
+      "source": "Ej. 21; mensaje ASCII armor",
+      "questionPage": 8,
+      "solutionPage": 10,
+      "conceptIds": [
+        "pgp-confianza",
+        "pgp"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 389,
+      "origin": "practice",
+      "sourceNumber": 39,
+      "title": "Identidad y distribución de claves",
+      "practice": "P1 · Parte 2",
+      "topic": "cripto",
+      "prompt": "Una persona descarga de un foro una clave que dice pertenecer a Bob y cifra un secreto para Bob. ¿Qué ataque sigue siendo posible incluso si el cifrado es sólido?",
+      "code": "",
+      "options": {
+        "A": "El ataque requiere conocer previamente la clave privada real de Bob.",
+        "B": "El correo escrito en la clave es prueba suficiente de identidad.",
+        "C": "Repetir el cifrado con la misma clave del foro elimina el riesgo.",
+        "D": "Sustitución de la clave pública por una del atacante; verificar su huella mediante un canal autenticado.",
+        "E": "Un algoritmo sólido garantiza que cualquier clave con nombre Bob es de Bob."
+      },
+      "answer": "D",
+      "explanation": "Si la clave fue sustituida por la de un atacante, el mensaje será cifrado para el atacante. Antes de confiar debe verificarse la huella de la clave por un medio autenticado, y no sólo por nombre o dirección de correo. La criptografía no arregla por sí sola una distribución de claves comprometida.",
+      "source": "Ej. 19-21; error de confianza",
+      "questionPage": 8,
+      "solutionPage": 10,
+      "conceptIds": [
+        "pgp-confianza",
+        "mitm"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 390,
+      "origin": "practice",
+      "sourceNumber": 40,
+      "title": "Evidencia para recuperación de secretos",
+      "practice": "P1 · Parte 2",
+      "topic": "cripto",
+      "prompt": "Un ejercicio plantea recuperar una contraseña olvidada a partir de datos cifrados, pero no entrega el archivo. ¿Qué evidencia pedirías y cómo distinguirías recuperación, descifrado y ataque de diccionario?",
+      "code": "",
+      "options": {
+        "A": "Entregar una flag probable sin disponer del archivo.",
+        "B": "Toda recuperación de contraseña es descifrar un hash.",
+        "C": "Conocer sólo la extensión identifica siempre algoritmo y parámetros.",
+        "D": "Aplicar el mismo comando de diccionario a cualquier archivo sin identificarlo.",
+        "E": "Pedir archivo, formato, algoritmo, KDF, salt y parámetros; elegir un método verificable y no inventar una flag."
+      },
+      "answer": "E",
+      "explanation": "Primero identificaría formato, algoritmo, KDF, salt, parámetros, mecanismo de protección y datos disponibles; luego elegiría una técnica compatible con el material y autorización. Recuperar una contraseña por candidatos no equivale a «revertir» una función hash. Sin el archivo y su estructura no existe una solución o flag verificable.",
+      "source": "Ej. 22; recuperar una contraseña propia",
+      "questionPage": 8,
+      "solutionPage": 10,
+      "conceptIds": [
+        "diccionario",
+        "pgp-confianza"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 391,
+      "origin": "practice",
+      "sourceNumber": 41,
+      "title": "Mapa de los RIR",
+      "practice": "P2 · Parte 1",
+      "topic": "csirt",
+      "prompt": "Relacioná ARIN, APNIC, LACNIC, RIPE NCC y AFRINIC con sus regiones generales e identificá cuál corresponde de modo general a Argentina.",
+      "code": "",
+      "options": {
+        "A": "ARIN: Norteamérica; APNIC: Asia-Pacífico; LACNIC: Latinoamérica/Caribe; RIPE NCC: Europa/Oriente Medio/Asia Central; AFRINIC: África. Argentina: LACNIC.",
+        "B": "Argentina corresponde generalmente a ARIN por estar en América.",
+        "C": "APNIC administra África y AFRINIC administra Asia-Pacífico.",
+        "D": "RIPE NCC administra todos los recursos de América Latina.",
+        "E": "La región del RIR demuestra la ubicación física exacta del atacante."
+      },
+      "answer": "A",
+      "explanation": "ARIN: América del Norte y algunas islas del Caribe/Atlántico; APNIC: Asia-Pacífico; LACNIC: América Latina y Caribe; RIPE NCC: Europa, Oriente Medio y parte de Asia Central; AFRINIC: África. Argentina pertenece a la región de LACNIC. Las bases pueden contener asignaciones históricas o delegaciones que requieren seguimiento.",
+      "source": "Ej. 1-2; teoría 05, RIR",
+      "questionPage": 8,
+      "solutionPage": 10,
+      "conceptIds": [
+        "rir"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 392,
+      "origin": "practice",
+      "sourceNumber": 42,
+      "title": "RIR y NIR",
+      "practice": "P2 · Parte 1",
+      "topic": "csirt",
+      "prompt": "La práctica menciona NIR en Brasil y México. Explicá cómo se vinculan RIR y NIR y por qué una consulta puede requerir identificar ambos niveles.",
+      "code": "",
+      "options": {
+        "A": "Si existe NIR, el recurso no puede tener información de contacto abuse.",
+        "B": "Un RIR puede delegar funciones a un NIR nacional; hay que consultar ambos niveles pertinentes, no geolocalizar.",
+        "C": "Un NIR reemplaza a IANA en todas las regiones del mundo.",
+        "D": "La geolocalización aproximada de una IP identifica de forma segura su NIR.",
+        "E": "RIR y NIR son nombres de servidores DNS de un dominio."
+      },
+      "answer": "B",
+      "explanation": "El RIR administra recursos en su región y puede delegar funciones de asignación a un NIR nacional. La práctica identifica a Brasil y México como NIR de la región LACNIC. Para determinar responsable registral de un recurso concreto se consulta la base pertinente, no se infiere sólo por la geolocalización de la IP.",
+      "source": "Ej. 1-2; NIR",
+      "questionPage": 8,
+      "solutionPage": 11,
+      "conceptIds": [
+        "nir",
+        "rir"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 393,
+      "origin": "practice",
+      "sourceNumber": 43,
+      "title": "Elegir contacto abuse",
+      "practice": "P2 · Parte 1",
+      "topic": "csirt",
+      "prompt": "Una respuesta RDAP incluye tres correos: administrativo, técnico y abuse. ¿A cuál enviarías una denuncia de actividad maliciosa originada en esa red y por qué?",
+      "code": "",
+      "options": {
+        "A": "Al contacto técnico únicamente para solicitarle la contraseña de la IP.",
+        "B": "A todos los usuarios que aparezcan en una búsqueda web, sin verificar la ficha.",
+        "C": "Al contacto abuse, con IP, tiempos y zona horaria y evidencia observada.",
+        "D": "Al administrativo, porque siempre es quien ejecutó el ataque.",
+        "E": "A cualquier correo de la ficha, sin describir el incidente."
+      },
+      "answer": "C",
+      "explanation": "Se elige preferentemente el contacto abuse, porque es el canal previsto para incidentes o abuso de la red. El contacto administrativo gestiona cuestiones registrales y el técnico cuestiones técnicas generales. Conviene adjuntar IP, timestamps con zona horaria y evidencia observada.",
+      "source": "Ej. 1; teoría 05, contactos",
+      "questionPage": 8,
+      "solutionPage": 11,
+      "conceptIds": [
+        "whois",
+        "notificacion"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 394,
+      "origin": "practice",
+      "sourceNumber": 44,
+      "title": "Analizar respuesta RDAP",
+      "practice": "P2 · Parte 1",
+      "topic": "csirt",
+      "prompt": "Interpretá esta ficha RDAP ficticia: identificá el bloque, la entidad y el contacto al que remitirías un incidente. ¿Es el registro prueba de que la entidad ejecutó personalmente el ataque?",
+      "code": "network: 203.0.113.0/24\nentity: Laboratorio Ejemplo\ntech: noc@lab.example\nabuse: abuse@lab.example\n",
+      "options": {
+        "A": "El bloque es sólo 203.0.113.0, sin considerar /24.",
+        "B": "El contacto de abuso es noc@lab.example porque todo contacto técnico es abuse.",
+        "C": "La ficha demuestra que esa red envió tráfico malicioso en la fecha actual.",
+        "D": "203.0.113.0/24, Laboratorio Ejemplo y abuse@lab.example; el registro no atribuye autoría personal.",
+        "E": "El responsable de la red queda probado como autor humano del ataque."
+      },
+      "answer": "D",
+      "explanation": "El bloque es 203.0.113.0/24, figura a nombre de Laboratorio Ejemplo y el contacto de abuso es abuse@lab.example. Sólo registra a quién corresponde el recurso: no prueba quién operaba una IP específica ni atribuye identidad del atacante.",
+      "source": "Ej. 1; protocolo RDAP",
+      "questionPage": 9,
+      "solutionPage": 11,
+      "conceptIds": [
+        "rdap",
+        "ip"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 395,
+      "origin": "practice",
+      "sourceNumber": 45,
+      "title": "WHOIS frente a RDAP",
+      "practice": "P2 · Parte 1",
+      "topic": "csirt",
+      "prompt": "¿Por qué RDAP es conveniente para automatizar consultas de IP y por qué un resultado de WHOIS podría no coincidir literalmente con RDAP?",
+      "code": "",
+      "options": {
+        "A": "WHOIS garantiza un formato JSON idéntico para todos los servidores.",
+        "B": "RDAP y WHOIS deben devolver siempre texto literalmente idéntico.",
+        "C": "Una diferencia prueba necesariamente que uno de los servicios fue atacado.",
+        "D": "RDAP permite identificar con certeza al usuario humano de una IP.",
+        "E": "RDAP entrega datos estructurados, normalmente JSON; verificar fuente y fechas cuando difiere de WHOIS."
+      },
+      "answer": "E",
+      "explanation": "WHOIS ofrece respuestas de texto libre y heterogéneas; RDAP usa una representación estructurada, normalmente JSON, que simplifica el procesamiento. La práctica advierte que las bases pueden diferir en actualización o detalle y prefiere RDAP en IP. Hay que verificar las fechas y la fuente de ambos resultados.",
+      "source": "Ej. 1-2; teoría 05, WHOIS/RDAP",
+      "questionPage": 9,
+      "solutionPage": 11,
+      "conceptIds": [
+        "rdap",
+        "whois"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 396,
+      "origin": "practice",
+      "sourceNumber": 46,
+      "title": "Bloque histórico incorrectamente atribuido",
+      "practice": "P2 · Parte 1",
+      "topic": "csirt",
+      "prompt": "Consultás una IP y WHOIS muestra ERX-NETBLOCK de APNIC, aunque la red se administra en otra región. ¿Por qué puede ocurrir y qué harías?",
+      "code": "",
+      "options": {
+        "A": "Puede ser una asignación legacy/ERX; seguir referencias y contrastar el registro vigente con RDAP o WHOIS específico.",
+        "B": "La primera respuesta histórica demuestra que la administración actual pertenece siempre a APNIC.",
+        "C": "La IP cambia de dirección al consultar otro servidor WHOIS.",
+        "D": "ERX-NETBLOCK identifica una familia de malware.",
+        "E": "Ignorar RDAP y elegir un correo por similitud del nombre de la organización."
+      },
+      "answer": "A",
+      "explanation": "Existen asignaciones legacy anteriores a la creación de los RIR actuales. Algunos servidores muestran datos genéricos históricos. Seguiría referencias al registro vigente, contrastaría RDAP y, si corresponde, consultaría el servidor WHOIS correcto de forma explícita, como ejemplifica la teoría con LACNIC.",
+      "source": "Ej. 2; teoría 05, ERX/legacy",
+      "questionPage": 9,
+      "solutionPage": 12,
+      "conceptIds": [
+        "erx",
+        "whois"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 397,
+      "origin": "practice",
+      "sourceNumber": 47,
+      "title": "Consultar dirección IPv6",
+      "practice": "P2 · Parte 1",
+      "topic": "csirt",
+      "prompt": "La práctica incluye 2800:340:199:202::1. ¿Qué cambia al buscar su titular frente a una IPv4? ¿Qué NO se deduce del prefijo sin consultar un registro?",
+      "code": "",
+      "options": {
+        "A": "La longitud de la dirección revela el NIR y la persona responsable.",
+        "B": "Consultar RDAP/WHOIS con la IPv6 válida para obtener bloque y abuse; el prefijo aislado no identifica al titular.",
+        "C": "Convertir la IPv6 a una IPv4 inventada antes de consultar.",
+        "D": "Deducir el correo abuse directamente de los primeros dígitos.",
+        "E": "Las direcciones IPv6 no tienen asignaciones registradas."
+      },
+      "answer": "B",
+      "explanation": "El objetivo es idéntico: consultar RDAP/WHOIS para conocer el bloque asignado y contacto abuse, usando una dirección IPv6 válida como clave de consulta. No se puede deducir con certeza el titular, NIR o correo de abuso a partir del prefijo aislado; debe consultarse la información registral.",
+      "source": "Ej. 1-2; IPv6",
+      "questionPage": 9,
+      "solutionPage": 12,
+      "conceptIds": [
+        "ip",
+        "rdap"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 398,
+      "origin": "practice",
+      "sourceNumber": 48,
+      "title": "Registry, registrar y registrant",
+      "practice": "P2 · Parte 1",
+      "topic": "csirt",
+      "prompt": "Describí la función de registry, registrar y registrant en el registro de un dominio. ¿Cuál de los tres administra el nombre por haberlo adquirido?",
+      "code": "",
+      "options": {
+        "A": "Registrant es el servidor de correo indicado en un MX.",
+        "B": "El proveedor de hosting es necesariamente el registry del TLD.",
+        "C": "Registry mantiene el TLD; registrar gestiona registros ante él; registrant es el titular que registra el nombre.",
+        "D": "Registry es el usuario que compra un dominio a un registrant.",
+        "E": "Registrar y registrant son siempre la misma organización."
+      },
+      "answer": "C",
+      "explanation": "Registry mantiene el registro autoritativo del TLD; registrar comercializa y gestiona el registro del dominio ante el registry; registrant es la persona o entidad que registra el nombre. El registrant es el titular registral, aunque sus datos públicos pueden estar protegidos.",
+      "source": "Ej. 3-4; DNS de dominios",
+      "questionPage": 9,
+      "solutionPage": 12,
+      "conceptIds": [
+        "tld"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 399,
+      "origin": "practice",
+      "sourceNumber": 49,
+      "title": "Denunciar a titular vs a registrador",
+      "practice": "P2 · Parte 1",
+      "topic": "csirt",
+      "prompt": "El CTF pide primero contactar al registrant por un nombre de dominio y después reportar abuso al registrar. ¿Por qué no siempre es la misma dirección?",
+      "code": "",
+      "options": {
+        "A": "El registrador y todos sus clientes comparten necesariamente un único correo.",
+        "B": "El formulario de privacidad es siempre una denuncia al registrar.",
+        "C": "Un registro MX permite deducir el correo abuse del registrar.",
+        "D": "Titular y registrador cumplen roles distintos; buscar contacto del registrant y contacto abuse del registrar por separado.",
+        "E": "El correo abuse de la IP del hosting siempre es el correo del titular."
+      },
+      "answer": "D",
+      "explanation": "El titular registral y el intermediario que vende/gestiona el dominio cumplen roles distintos. Para contactar al registrant se busca su correo o un formulario de privacidad; para abuso del registrar se busca el contacto específico del registrador, normalmente publicado en sus datos de registro.",
+      "source": "Ej. 3-4; consulta de dominios",
+      "questionPage": 9,
+      "solutionPage": 12,
+      "conceptIds": [
+        "tld",
+        "privacidad-registro"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 400,
+      "origin": "practice",
+      "sourceNumber": 50,
+      "title": "Privacidad registral",
+      "practice": "P2 · Parte 1",
+      "topic": "csirt",
+      "prompt": "Una ficha WHOIS de dominio no muestra nombre, domicilio ni correo del registrant, pero sí un formulario de contacto de privacidad. ¿Cuál sería una conclusión correcta?",
+      "code": "",
+      "options": {
+        "A": "El dominio es necesariamente falso porque el titular no es público.",
+        "B": "El formulario de privacidad identifica al autor de cualquier ataque desde el dominio.",
+        "C": "Ya no existe ningún medio para contactar al registrant.",
+        "D": "El correo del registrar sustituye siempre al formulario del titular.",
+        "E": "Puede existir protección de datos; usar el formulario del titular y distinguirlo del contacto abuse del registrar."
+      },
+      "answer": "E",
+      "explanation": "La ausencia de datos directos puede deberse a servicios de privacidad o protección de datos, no demuestra que el dominio sea falso. Debe usarse el punto de contacto que ofrece el registro y diferenciarlo del correo de abuso del registrar. El contenido preciso de los dominios originales requiere consultas actuales.",
+      "source": "Ej. 3-4; WHOIS de dominios",
+      "questionPage": 9,
+      "solutionPage": 12,
+      "conceptIds": [
+        "privacidad-registro"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 401,
+      "origin": "practice",
+      "sourceNumber": 51,
+      "title": "Registro de dominios .ar",
+      "practice": "P2 · Parte 1",
+      "topic": "csirt",
+      "prompt": "Según la práctica, ¿qué particularidad tiene NIC.ar respecto de los roles de registry y registrar? ¿Puede extrapolarse automáticamente a todo gTLD?",
+      "code": "",
+      "options": {
+        "A": "Según la práctica, NIC.ar cumple ambos roles para .ar; esa organización no se extrapola a todos los gTLD.",
+        "B": "Todo gTLD debe tener una única entidad como registry y registrar.",
+        "C": "NIC.ar es necesariamente el titular de cada nombre registrado por un usuario.",
+        "D": "Las funciones de registry y registrar pasan a ser iguales en significado.",
+        "E": "NIC.ar administra automáticamente todos los dominios de cualquier TLD."
+      },
+      "answer": "A",
+      "explanation": "Para .ar la práctica indica que NIC.ar ejerce ambas funciones. No es regla general: en otros TLD el registry y múltiples registrars son organizaciones diferentes. El detalle debe verificarse en los servicios registrales apropiados.",
+      "source": "Ej. 3-4; teoría 05, dominio .ar",
+      "questionPage": 10,
+      "solutionPage": 13,
+      "conceptIds": [
+        "tld"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 402,
+      "origin": "practice",
+      "sourceNumber": 52,
+      "title": "DNS MX y prioridad",
+      "practice": "P2 · Parte 2",
+      "topic": "csirt",
+      "prompt": "El DNS devuelve mx1.example (prioridad 10) y mx2.example (prioridad 20). ¿Qué significa cada registro y cuál tiene preferencia de entrega?",
+      "code": "10 mx1.example\n20 mx2.example\n",
+      "options": {
+        "A": "Los registros MX identifican al registrant del dominio.",
+        "B": "Son servidores de intercambio de correo; se prefiere mx1.example (10) antes que mx2.example (20).",
+        "C": "mx2.example se prefiere porque 20 es mayor que 10.",
+        "D": "Los valores 10 y 20 representan las direcciones IP de los servidores.",
+        "E": "La prioridad demuestra que todos los correos pasaron por mx1.example."
+      },
+      "answer": "B",
+      "explanation": "Los MX identifican intercambiadores de correo del dominio. En general se intenta primero la menor preferencia numérica: 10 antes que 20. No implica que ese servidor particular haya recibido todos los correos; se deben cotejar los encabezados y registros reales.",
+      "source": "Ej. 5-6; teoría 06, SMTP",
+      "questionPage": 10,
+      "solutionPage": 13,
+      "conceptIds": [
+        "mx"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 403,
+      "origin": "practice",
+      "sourceNumber": 53,
+      "title": "Envelope vs cabecera From",
+      "practice": "P2 · Parte 2",
+      "topic": "csirt",
+      "prompt": "En una transacción SMTP, MAIL FROM es bounce@proveedor.example, mientras el encabezado From dice direccion@empresa.example. ¿Tienen que coincidir? ¿Cuál participa directamente en el enrutamiento de rebotes?",
+      "code": "",
+      "options": {
+        "A": "MAIL FROM prueba la identidad humana de quien redactó el mensaje.",
+        "B": "El envelope sólo contiene el asunto del correo.",
+        "C": "Pueden diferir; MAIL FROM es el remitente del envelope usado para devoluciones de errores.",
+        "D": "Deben coincidir siempre o el mensaje es necesariamente phishing.",
+        "E": "From determina necesariamente el destino de los rebotes SMTP."
+      },
+      "answer": "C",
+      "explanation": "No necesariamente coinciden: el remitente del envelope SMTP es independiente del From visible del mensaje. MAIL FROM indica la dirección usada para devoluciones de errores de entrega; el encabezado From es informativo. La discrepancia requiere investigación, pero no prueba por sí misma phishing.",
+      "source": "Ej. 5-6; teoría 06, envelope",
+      "questionPage": 10,
+      "solutionPage": 13,
+      "conceptIds": [
+        "envelope",
+        "cabeceras"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 404,
+      "origin": "practice",
+      "sourceNumber": 54,
+      "title": "Leer saltos Received",
+      "practice": "P2 · Parte 2",
+      "topic": "csirt",
+      "prompt": "Identificá en la traza sintética qué IP entregó el correo a mx.destino.example y cuál es un salto interno. ¿Podés identificar de forma concluyente a la persona que lo creó?",
+      "code": "Received: from mx.destino.example (10.0.0.9)\nby buzones.destino.example\nReceived: from mx.origen.example (203.0.113.7)\nby mx.destino.example\n",
+      "options": {
+        "A": "Las dos líneas prueban la identidad real del remitente.",
+        "B": "La línea más antigua siempre es auténtica aunque la haya añadido un tercero desconocido.",
+        "C": "El salto interno fue mx.origen.example hacia la casilla del usuario.",
+        "D": "203.0.113.7 entregó al MX destino; 10.0.0.9 corresponde al salto interno. No prueba autoría humana.",
+        "E": "10.0.0.9 es la IP pública del autor del mensaje."
+      },
+      "answer": "D",
+      "explanation": "El salto mx.origen.example [203.0.113.7] → mx.destino.example es el servidor que se conectó al MX destino. El salto desde mx.destino.example [10.0.0.9] a buzones.destino.example es interno. Los Received añadidos por servidores confiables describen saltos; no atribuyen autoría humana, y las cabeceras más antiguas pueden falsificarse.",
+      "source": "Ej. 5-6; teoría 06, Received",
+      "questionPage": 10,
+      "solutionPage": 13,
+      "conceptIds": [
+        "received",
+        "ip-privadas"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 405,
+      "origin": "practice",
+      "sourceNumber": 55,
+      "title": "IP privada en cabeceras",
+      "practice": "P2 · Parte 2",
+      "topic": "csirt",
+      "prompt": "¿Cuáles son los tres rangos privados IPv4 de RFC 1918 y por qué no deben confundirse con la IP pública de origen de un incidente?",
+      "code": "",
+      "options": {
+        "A": "10.0.0.0/8, 172.0.0.0/8 y 192.0.0.0/8.",
+        "B": "127.0.0.0/8, 169.254.0.0/16 y 224.0.0.0/4.",
+        "C": "Cualquier dirección que empieza con 172 es privada.",
+        "D": "Una IP privada en Received identifica directamente a una organización remota en Internet.",
+        "E": "10.0.0.0/8, 172.16.0.0/12 y 192.168.0.0/16; son rangos privados y no identifican un origen público notificable."
+      },
+      "answer": "E",
+      "explanation": "Son 10.0.0.0/8, 172.16.0.0/12 y 192.168.0.0/16. Pueden aparecer en saltos internos, pero no se enrutan de manera pública en Internet; para contactar a un tercero se busca la IP pública del servidor que estableció la conexión observada.",
+      "source": "Ej. 5-6; teoría 06, RFC1918",
+      "questionPage": 10,
+      "solutionPage": 14,
+      "conceptIds": [
+        "ip-privadas"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 406,
+      "origin": "practice",
+      "sourceNumber": 56,
+      "title": "Caso completo de correo",
+      "practice": "P2 · Parte 2",
+      "topic": "csirt",
+      "prompt": "A partir del extracto sintético determiná destinatario, MX receptor, IP pública del emisor inmediato y forma de encontrar el correo de denuncia.",
+      "code": "To: ana@universidad.example\nReceived: from relay.remoto.example (198.51.100.44)\nby mx.universidad.example with ESMTP\nSubject: Aviso\n",
+      "options": {
+        "A": "ana@universidad.example; mx.universidad.example; 198.51.100.44; consultar el contacto abuse por RDAP/WHOIS.",
+        "B": "El destinatario es relay.remoto.example porque aparece primero en Received.",
+        "C": "La IP 198.51.100.44 identifica de forma concluyente al autor humano.",
+        "D": "El MX receptor es relay.remoto.example porque entregó el mensaje.",
+        "E": "El correo de denuncia puede inventarse agregando abuse@ a la IP."
+      },
+      "answer": "A",
+      "explanation": "Destinatario: ana@universidad.example; MX receptor: mx.universidad.example; IP del servidor que se conectó: 198.51.100.44; contacto: hacer RDAP/WHOIS sobre esa IP y obtener el contacto abuse del bloque. Los dominios y direcciones de documentación de este caso son ficticios.",
+      "source": "Ej. 5-6; análisis de headers",
+      "questionPage": 11,
+      "solutionPage": 14,
+      "conceptIds": [
+        "received",
+        "whois"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 407,
+      "origin": "practice",
+      "sourceNumber": 57,
+      "title": "From y Reply-To",
+      "practice": "P2 · Parte 2",
+      "topic": "csirt",
+      "prompt": "Un correo muestra From: soporte@empresa.example y Reply-To: pagos@otro.example. ¿Qué sucederá habitualmente si el destinatario pulsa «Responder» y qué sospecha amerita estudiar?",
+      "code": "",
+      "options": {
+        "A": "El campo Subject determina a cuál de las dos direcciones se responde.",
+        "B": "La respuesta suele ir a pagos@otro.example; investigar si el desvío es legítimo o una suplantación.",
+        "C": "La respuesta irá necesariamente a From aunque exista Reply-To.",
+        "D": "Distintos dominios en From y Reply-To prueban siempre malware.",
+        "E": "Reply-To demuestra desde qué IP se conectó el servidor emisor."
+      },
+      "answer": "B",
+      "explanation": "La respuesta suele dirigirse a Reply-To (pagos@otro.example), no al From visible. Puede ser legítimo en flujos de soporte, pero también servir para desviar respuestas a cuentas controladas por terceros. Se analizan contexto, rutas, dominio, autenticación y contenido.",
+      "source": "Ej. 5-7; encabezados Reply-To",
+      "questionPage": 11,
+      "solutionPage": 14,
+      "conceptIds": [
+        "cabeceras",
+        "phishing"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 408,
+      "origin": "practice",
+      "sourceNumber": 58,
+      "title": "Spoofing sin acceso al servidor original",
+      "practice": "P2 · Parte 2",
+      "topic": "csirt",
+      "prompt": "Aparecen mensajes con From de cuentas que no existen en el dominio, pero el administrador no observa envíos en su SMTP. ¿Qué hipótesis explica el caso sin asumir que robaron esas cuentas?",
+      "code": "",
+      "options": {
+        "A": "Cualquier From con el dominio institucional demuestra envío desde su servidor.",
+        "B": "Borrar el correo basta para establecer su origen.",
+        "C": "Es compatible con email spoofing desde otro SMTP; revisar Received y autenticación sin asumir robo de cuentas.",
+        "D": "Necesariamente robaron las contraseñas de todas las cuentas inexistentes.",
+        "E": "La ausencia de logs locales demuestra que el mensaje nunca existió."
+      },
+      "answer": "C",
+      "explanation": "La suplantación de identidad del remitente (email spoofing): otro servidor puede transmitir un mensaje cuyo encabezado From declara el dominio ajeno. Hay que examinar la ruta Received y los resultados de validación del origen, y revisar la configuración de protección del dominio. La falta de logs locales no prueba sola una causa concreta, pero es compatible con esa hipótesis.",
+      "source": "Ej. 7; suplantación de remitentes",
+      "questionPage": 11,
+      "solutionPage": 14,
+      "conceptIds": [
+        "cabeceras",
+        "tls-correo"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 409,
+      "origin": "practice",
+      "sourceNumber": 59,
+      "title": "Autenticación de correo",
+      "practice": "P2 · Parte 2",
+      "topic": "csirt",
+      "prompt": "En el contexto de una investigación de spoofing, ¿qué función general cumplen SPF, DKIM y DMARC? ¿Por qué no alcanzan las capturas del From para atribuir un emisor?",
+      "code": "",
+      "options": {
+        "A": "DKIM verifica siempre la identidad humana de quien escribió el texto.",
+        "B": "Una captura del From reemplaza todos los resultados de autenticación.",
+        "C": "DMARC exige que todo dominio del recorrido SMTP sea idéntico.",
+        "D": "SPF evalúa orígenes autorizados del envelope; DKIM firmas de dominio; DMARC política y alineación con From.",
+        "E": "SPF cifra el contenido, DKIM decide la prioridad MX y DMARC almacena adjuntos."
+      },
+      "answer": "D",
+      "explanation": "SPF permite evaluar servidores autorizados para el dominio de envelope; DKIM usa firmas criptográficas vinculadas a un dominio; DMARC expresa políticas y alineación con el From visible. Son verificaciones complementarias para estudiar spoofing, no pruebas infalibles de autoría personal. Esta pregunta amplía operativamente el escenario del ej. 7.",
+      "source": "Ej. 7; extensión aplicada",
+      "questionPage": 11,
+      "solutionPage": 14,
+      "conceptIds": [
+        "tls-correo"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 410,
+      "origin": "practice",
+      "sourceNumber": 60,
+      "title": "Detectar fuerza bruta SSH",
+      "practice": "P2 · Parte 2",
+      "topic": "csirt",
+      "prompt": "Clasificá la actividad del extracto: ¿indica un ataque por intentos reiterados de contraseña? ¿Hubo un inicio de sesión exitoso desde 203.0.113.66?",
+      "code": "22:01:01 Failed password for root from 203.0.113.66\n22:01:03 Failed password for admin from 203.0.113.66\n22:01:05 Failed password for invalid user prueba from 203.0.113.66\n",
+      "options": {
+        "A": "Tres Failed password demuestran que root inició sesión.",
+        "B": "La presencia de invalid user demuestra que esa cuenta existía y fue comprometida.",
+        "C": "Un solo extracto sin Accepted prueba que jamás hubo acceso por ninguna vía.",
+        "D": "Los fallos en segundos de distintos usuarios son automáticamente tareas CRON legítimas.",
+        "E": "Los fallos repetidos sugieren pruebas automatizadas; el extracto no muestra autenticación exitosa desde esa IP."
+      },
+      "answer": "E",
+      "explanation": "La secuencia de fallos para root, admin y usuario inválido desde la misma IP en segundos sugiere un ataque automatizado de prueba de credenciales o enumeración. No hay línea Accepted para esa IP: el extracto no evidencia un acceso exitoso, aunque el análisis completo requiere más logs.",
+      "source": "Ej. 8; teoría 07, incidente",
+      "questionPage": 11,
+      "solutionPage": 15,
+      "conceptIds": [
+        "ssh-logs"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 411,
+      "origin": "practice",
+      "sourceNumber": 61,
+      "title": "Accepted vs Failed",
+      "practice": "P2 · Parte 2",
+      "topic": "csirt",
+      "prompt": "Un log SSH contiene «Accepted publickey for deploy» y otro «Failed password for root». ¿Qué hecho prueba cada una? ¿Por qué no conviene llamar «ataque exitoso» a cualquier uso de sudo?",
+      "code": "",
+      "options": {
+        "A": "Accepted publickey indica autenticación aceptada; Failed password indica rechazo; sudo requiere contexto.",
+        "B": "Accepted publickey demuestra que el usuario es siempre legítimo.",
+        "C": "Failed password indica que se aceptó una contraseña incorrecta.",
+        "D": "El uso de sudo prueba por sí solo un ataque exitoso.",
+        "E": "Accepted y Failed describen el mismo resultado y pueden agruparse sin distinguirlos."
+      },
+      "answer": "A",
+      "explanation": "Accepted publickey significa que el servidor aceptó autenticación mediante clave pública para ese usuario; Failed password señala un intento fallido. Que una sesión use sudo no demuestra malicia: pueden ser acciones administrativas válidas. Hay que correlacionar IP, autorización, comandos, horarios y actividad posterior.",
+      "source": "Ej. 8; logs de autenticación",
+      "questionPage": 11,
+      "solutionPage": 15,
+      "conceptIds": [
+        "ssh-logs"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 412,
+      "origin": "practice",
+      "sourceNumber": 62,
+      "title": "¿Pertenece al ámbito del CSIRT?",
+      "practice": "P2 · Parte 2",
+      "topic": "csirt",
+      "prompt": "El CSIRT universitario recibe quejas de que una IP de la Universidad está intentando acceder por fuerza bruta a servidores externos. Aunque la víctima sea ajena, ¿es pertinente?",
+      "code": "",
+      "options": {
+        "A": "Sí, y debe notificarse una conclusión definitiva sin revisar IP ni tiempos.",
+        "B": "Sí: los incidentes originados desde recursos de su comunidad también son pertinentes; verificar y coordinar.",
+        "C": "No, un CSIRT sólo actúa si la víctima pertenece a su institución.",
+        "D": "Sí, por eso ya puede atribuirse personalmente el ataque al rector.",
+        "E": "No, porque todo intento fallido carece de interés para la gestión de incidentes."
+      },
+      "answer": "B",
+      "explanation": "Sí, porque la práctica y la teoría incluyen incidentes que afectan a la comunidad objetivo y también aquellos originados desde recursos bajo su administración. Deben verificar la IP, alcance temporal y actividad, priorizar y coordinar con su responsable.",
+      "source": "Ej. 8; teorías 03 y 07, pertinencia",
+      "questionPage": 12,
+      "solutionPage": 15,
+      "conceptIds": [
+        "pertinencia",
+        "csirt"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 413,
+      "origin": "practice",
+      "sourceNumber": 63,
+      "title": "Correo de denuncia técnicamente útil",
+      "practice": "P2 · Parte 2",
+      "topic": "csirt",
+      "prompt": "Enumerá qué evidencia incluirías al notificar intentos SSH maliciosos desde una IP pública asignada a otra organización.",
+      "code": "",
+      "options": {
+        "A": "Todas las contraseñas y datos personales del servidor, sin filtrar.",
+        "B": "Una dirección IP sin indicar si hubo Accepted o Failed.",
+        "C": "IP origen/destino, servicio, timestamps y zona horaria, frecuencia, logs, éxito/fallo y canal seguro de contacto.",
+        "D": "Únicamente una acusación con el nombre supuesto del atacante.",
+        "E": "Sólo una captura sin fecha, IP ni descripción del servicio."
+      },
+      "answer": "C",
+      "explanation": "Incluiría IP de origen, destino/servicio, tipo de actividad, timestamps exactos y zona horaria, fragmentos de logs suficientes, volumen o frecuencia, estado de éxito/fallo, punto de contacto abuse y forma segura de compartir evidencia. Evitaría acusar a una persona sin fundamento y protegería datos sensibles.",
+      "source": "Ej. 8; teoría 07, notificación",
+      "questionPage": 12,
+      "solutionPage": 15,
+      "conceptIds": [
+        "notificacion",
+        "tiempos"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 414,
+      "origin": "practice",
+      "sourceNumber": 64,
+      "title": "Canal encubierto en ICMP",
+      "practice": "P2 · Parte 2",
+      "topic": "csirt",
+      "prompt": "En una captura, cuatro paquetes ICMP Echo Request contienen como primeros bytes de datos 49, 43, 7b y 7d (hex) en ese orden. ¿Qué mensaje producen si se interpretan como ASCII? ¿Por qué el uso de ping no garantiza benignidad?",
+      "code": "ICMP payloads: 49 | 43 | 7b | 7d\n",
+      "options": {
+        "A": "49 43 7b 7d no puede representar caracteres porque ICMP sólo transporta números de secuencia.",
+        "B": "1C{}; 49 debe leerse como decimal.",
+        "C": "IC{}; usar un protocolo legítimo vuelve benigno cualquier contenido.",
+        "D": "IC{}; ICMP puede transportar datos arbitrarios y exige analizar secuencia y contexto antes de afirmar exfiltración.",
+        "E": "IC{}; cualquier texto legible en ping demuestra robo de datos."
+      },
+      "answer": "D",
+      "explanation": "Los bytes 0x49 0x43 0x7b 0x7d corresponden a IC{}. Los campos de datos ICMP pueden transportar bytes arbitrarios; un programa puede abusar de ellos como canal encubierto. Se debe verificar secuencia y contexto, ya que el mero hallazgo de datos legibles no prueba exfiltración.",
+      "source": "Ej. 9; ICMP covert channel",
+      "questionPage": 12,
+      "solutionPage": 16,
+      "conceptIds": [
+        "canal-encubierto",
+        "ascii"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 415,
+      "origin": "practice",
+      "sourceNumber": 65,
+      "title": "Canal encubierto en etiquetas DNS",
+      "practice": "P2 · Parte 2",
+      "topic": "csirt",
+      "prompt": "Se capturó una consulta al nombre 49437b646e737d.data.example. Tomá la primera etiqueta como bytes hexadecimales; ¿qué texto representa y qué indicios buscarías para evaluar exfiltración?",
+      "code": "49437b646e737d.data.example\n",
+      "options": {
+        "A": "IC{dns}; toda etiqueta hexadecimal larga demuestra exfiltración.",
+        "B": "No se puede reconstruir texto porque DNS jamás contiene datos de usuario.",
+        "C": "Interpretar data.example como parte de los bytes hexadecimales.",
+        "D": "Borrar el orden de las consultas mejora la reconstrucción del mensaje.",
+        "E": "IC{dns}; analizar frecuencia, etiquetas variables, secuencia y contexto, sin atribuir exfiltración sólo por la forma."
+      },
+      "answer": "E",
+      "explanation": "La primera etiqueta es 49 43 7b 64 6e 73 7d = IC{dns}. Buscaría consultas frecuentes a subdominios únicos, etiquetas largas con alta variabilidad, secuencias reconstruibles, tipos de consulta y respuestas. Se trata de un ejemplo sintético; DNS también puede transportar etiquetas largas legítimamente.",
+      "source": "Ej. 10; covert channel por DNS",
+      "questionPage": 12,
+      "solutionPage": 16,
+      "conceptIds": [
+        "canal-encubierto",
+        "dns"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 416,
+      "origin": "practice",
+      "sourceNumber": 66,
+      "title": "Procedimiento con Wireshark/tshark",
+      "practice": "P2 · Parte 2",
+      "topic": "csirt",
+      "prompt": "Tenés un PCAP con un supuesto canal encubierto, pero desconocés el protocolo. Describí una investigación que permita reproducir el hallazgo.",
+      "code": "",
+      "options": {
+        "A": "Inventariar protocolos y conversaciones; filtrar, ordenar y extraer campos; probar representaciones y documentar.",
+        "B": "Aplicar un filtro DNS y declarar que resolvió cualquier protocolo posible.",
+        "C": "Concluir exfiltración sólo porque un host envió muchos paquetes.",
+        "D": "Extraer payloads y mezclarlos aleatoriamente antes de decodificar.",
+        "E": "Entregar una flag sin conservar filtros, comandos ni paquetes."
+      },
+      "answer": "A",
+      "explanation": "Primero inventariaría protocolos, conversaciones, frecuencias, tamaños y hosts. Luego filtraría flujos sospechosos (p. ej., ICMP o DNS), reconstruiría el orden cronológico y extraería campos de payload o etiquetas, evaluando hex/Base64/ASCII sin asumir un resultado. Guardaría filtro, comandos y evidencia para el writeup.",
+      "source": "Ej. 9-10; estrategia de PCAP",
+      "questionPage": 12,
+      "solutionPage": 16,
+      "conceptIds": [
+        "canal-encubierto",
+        "captura-red",
+        "writeup"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 417,
+      "origin": "practice",
+      "sourceNumber": 67,
+      "title": "Ataque desde dispositivo HID",
+      "practice": "P2 · Parte 2",
+      "topic": "csirt",
+      "prompt": "Un pendrive «Rubber Ducky» ejecuta instrucciones que se ven como pulsaciones de teclado. ¿Por qué podría actuar sin que el usuario abra un archivo ejecutable?",
+      "code": "",
+      "options": {
+        "A": "No puede realizar acciones porque las pulsaciones no cuentan como entrada del sistema.",
+        "B": "Puede presentarse como teclado HID e inyectar pulsaciones al ser reconocido por el sistema.",
+        "C": "Sólo actúa si el usuario ejecuta un .exe guardado en el pendrive.",
+        "D": "El dispositivo sólo funciona como disco y nunca como teclado.",
+        "E": "Cualquier dispositivo HID demuestra por sí mismo una infección."
+      },
+      "answer": "B",
+      "explanation": "Estos dispositivos pueden presentarse como interfaz humana (HID), por ejemplo un teclado, e inyectar secuencias de teclas cuando el sistema los reconoce. Es distinto de un archivo de almacenamiento convencional. Deben inspeccionarse el script o payload disponible, las acciones observadas y las políticas de dispositivos USB.",
+      "source": "Ej. 11; USB Rubber Ducky",
+      "questionPage": 12,
+      "solutionPage": 16,
+      "conceptIds": [
+        "hid"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 418,
+      "origin": "practice",
+      "sourceNumber": 68,
+      "title": "Interpretar un script inocuo",
+      "practice": "P2 · Parte 2",
+      "topic": "csirt",
+      "prompt": "Un archivo de ejemplo del dispositivo contiene DELAY 1000, GUI r, STRING notepad, ENTER. Sin ejecutarlo, explicá qué intenta realizar.",
+      "code": "DELAY 1000\nGUI r\nSTRING notepad\nENTER\n",
+      "options": {
+        "A": "STRING notepad imprime el contenido de todos los archivos.",
+        "B": "El script prueba que la aplicación se abrió con éxito en cualquier sistema.",
+        "C": "Espera un segundo, abre Ejecutar con Windows+R, escribe notepad y pulsa Enter, según el entorno.",
+        "D": "Borra notepad y cifra el disco después de un minuto.",
+        "E": "GUI r abre necesariamente una conexión SSH remota."
+      },
+      "answer": "C",
+      "explanation": "Espera un segundo, abre la interfaz de ejecución (tecla Windows + R), escribe «notepad» y pulsa Enter. Sirve para demostrar que instrucciones de texto pueden traducirse a acciones de teclado. La sintaxis y su ejecución efectiva dependen del firmware/entorno concreto.",
+      "source": "Ej. 11; reconstrucción de acciones HID",
+      "questionPage": 13,
+      "solutionPage": 17,
+      "conceptIds": [
+        "hid"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 419,
+      "origin": "practice",
+      "sourceNumber": 69,
+      "title": "Datos invisibles en texto",
+      "practice": "P2 · Parte 2",
+      "topic": "csirt",
+      "prompt": "Dos flags parecen idénticas en el editor, pero una contiene un carácter U+200B entre «se» y «creto». ¿Cómo detectarías el carácter invisible y por qué puede afectar la comparación?",
+      "code": "Visible: IC{secreto}\nOculta: IC{se\\u200bcreto}\n",
+      "options": {
+        "A": "U+200B es una secuencia de cuatro letras que siempre se ve en el texto.",
+        "B": "Comparar sólo el color de las letras detecta todos los caracteres ocultos.",
+        "C": "Borrar todos los espacios antes de registrar la evidencia es suficiente.",
+        "D": "Examinar puntos de código, longitud o representación escapada; U+200B añade un carácter aunque no se vea.",
+        "E": "Las dos cadenas son idénticas porque se ven iguales."
+      },
+      "answer": "D",
+      "explanation": "Revisaría puntos de código Unicode, longitud de cadenas o una vista escapada como Python repr()/encode(\"unicode_escape\"). U+200B es un espacio de ancho cero: no suele verse, pero sí forma parte de la secuencia de caracteres y puede cambiar validaciones exactas.",
+      "source": "Ej. 12; caracteres no visibles",
+      "questionPage": 13,
+      "solutionPage": 17,
+      "conceptIds": [
+        "unicode-invisible",
+        "ascii"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 420,
+      "origin": "practice",
+      "sourceNumber": 70,
+      "title": "Primera triage de un ejecutable",
+      "practice": "P2 · Parte 3",
+      "topic": "malware",
+      "prompt": "Sin ejecutar estatico.exe, describí una secuencia inicial de análisis que identifique tipo de binario, imports, cadenas e IOC.",
+      "code": "",
+      "options": {
+        "A": "Ejecutarlo primero en la computadora personal para observar si es peligroso.",
+        "B": "Cambiar la extensión y usarla como prueba del formato real.",
+        "C": "Afirmar que toda URL extraída demuestra una conexión observada.",
+        "D": "Consultar sólo el nombre en Internet y omitir hash y estructura.",
+        "E": "Hash, formato y cabeceras PE, secciones, strings ASCII/Unicode, imports, recursos e IOC candidatos, sin ejecutarlo."
+      },
+      "answer": "E",
+      "explanation": "Calcular hash (p. ej. SHA-256), usar file o un inspector PE, revisar cabeceras/secciones, extraer strings ASCII y Unicode, observar imports/recursos y correlacionar artefactos plausibles (dominios, rutas, claves). Consultas a inteligencia pública se valoran con cuidado por posible exposición de muestras. Los indicios no son prueba concluyente de comportamiento.",
+      "source": "Ej. 13; teoría 08, análisis estático",
+      "questionPage": 13,
+      "solutionPage": 17,
+      "conceptIds": [
+        "estatico",
+        "pe",
+        "strings"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 421,
+      "origin": "practice",
+      "sourceNumber": 71,
+      "title": "Magic bytes y formato",
+      "practice": "P2 · Parte 3",
+      "topic": "malware",
+      "prompt": "El principio de un archivo contiene 4d 5a en hexadecimal. ¿Qué formato sugiere y por qué no alcanza para clasificarlo como malicioso?",
+      "code": "00000000: 4d 5a ...\n",
+      "options": {
+        "A": "Sugiere firma MZ de un ejecutable DOS/PE; comprobar cabeceras y comportamiento, porque no prueba malicia.",
+        "B": "4d 5a demuestra que el archivo es ransomware.",
+        "C": "La extensión del nombre tiene más fuerza que cualquier firma interna.",
+        "D": "MZ garantiza un PE válido sin necesidad de examinar nada más.",
+        "E": "4d 5a es el digest SHA-256 completo del archivo."
+      },
+      "answer": "A",
+      "explanation": "4d 5a corresponde a MZ, firma inicial característica de ejecutables DOS/PE de Windows. Indica una posible estructura de ejecutable, no la intención del archivo. Hay que verificar el resto de cabeceras y estudiar imports, secciones, recursos y comportamiento.",
+      "source": "Ej. 13; teoría 08, PE",
+      "questionPage": 13,
+      "solutionPage": 17,
+      "conceptIds": [
+        "pe"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 422,
+      "origin": "practice",
+      "sourceNumber": 72,
+      "title": "IOC frente a evidencia débil",
+      "practice": "P2 · Parte 3",
+      "topic": "malware",
+      "prompt": "Un binario contiene un dominio remoto, una ruta local, la cadena «password» y un SHA-256 conocido. ¿Cuáles podrían ser IOC útiles? ¿Qué aclaración corresponde hacer?",
+      "code": "",
+      "options": {
+        "A": "Los IOC no necesitan indicar fuente, contexto ni grado de confianza.",
+        "B": "Hash, dominio y rutas específicas pueden ser IOC con contexto; password es genérico y un string puede no usarse.",
+        "C": "La palabra password prueba por sí sola robo de contraseñas.",
+        "D": "Cualquier dominio presente confirma una conexión efectiva.",
+        "E": "Un hash identifica todos los archivos de una familia aunque sus bytes cambien."
+      },
+      "answer": "B",
+      "explanation": "Hash, dominio e indicadores específicos del sistema de archivos pueden funcionar como IOC si se confirma su vínculo con el incidente; «password» es demasiado genérico. La presencia de una cadena aislada puede ser dato no usado o señuelo. Deben documentarse contexto, confianza y alcance del indicador.",
+      "source": "Ej. 13; teoría 08, IOC",
+      "questionPage": 13,
+      "solutionPage": 18,
+      "conceptIds": [
+        "ioc",
+        "strings"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 423,
+      "origin": "practice",
+      "sourceNumber": 73,
+      "title": "Inferencias a partir de imports",
+      "practice": "P2 · Parte 3",
+      "topic": "malware",
+      "prompt": "Una muestra PE importa URLDownloadToFile y RegSetValueEx. ¿Qué comportamientos sospecharías y qué límite tiene esta inferencia?",
+      "code": "",
+      "options": {
+        "A": "URLDownloadToFile sólo muestra cuadros de diálogo y no puede descargar.",
+        "B": "Importar funciones de Windows vuelve malicioso cualquier programa.",
+        "C": "Capacidad de descarga y escritura del registro; investigar descarga/persistencia sin afirmar ejecución por imports.",
+        "D": "Los imports demuestran que se descargó un archivo en todas las ejecuciones.",
+        "E": "RegSetValueEx confirma necesariamente una Run key concreta."
+      },
+      "answer": "C",
+      "explanation": "URLDownloadToFile sugiere capacidad de descargar a disco; RegSetValueEx indica que puede escribir valores del registro. Combinadas, las funciones ameritan buscar descarga y posible persistencia. Las importaciones no prueban que se invoquen en todas las ejecuciones ni que sean necesariamente maliciosas.",
+      "source": "Ej. 13; teoría 08, imports",
+      "questionPage": 13,
+      "solutionPage": 18,
+      "conceptIds": [
+        "imports",
+        "apis-red",
+        "registry"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 424,
+      "origin": "practice",
+      "sourceNumber": 74,
+      "title": "Indicios de empaquetamiento",
+      "practice": "P2 · Parte 3",
+      "topic": "malware",
+      "prompt": "Un ejecutable tiene muy pocas cadenas, importa LoadLibrary y GetProcAddress, y presenta tamaños de secciones inusuales. ¿Qué hipótesis investigarías?",
+      "code": "",
+      "options": {
+        "A": "LoadLibrary y GetProcAddress prueban por sí solos una infección.",
+        "B": "Los tamaños inusuales identifican de manera única un packer.",
+        "C": "Es imposible inspeccionar cabeceras si hay pocas cadenas.",
+        "D": "Investigar packing u ofuscación con secciones, entropía y pruebas controladas; los indicios no bastan para declarar malware.",
+        "E": "Pocas cadenas prueban que el programa no hace nada."
+      },
+      "answer": "D",
+      "explanation": "Podría estar empaquetado u ofuscado, ocultando imports/cadenas hasta el momento de ejecución. Revisaría entropía, secciones, empaquetadores conocidos y comportamiento en un entorno aislado. Estas señales también pueden aparecer en programas legítimos; no bastan por sí solas para declararlo malware.",
+      "source": "Ej. 13; teoría 08, packers",
+      "questionPage": 14,
+      "solutionPage": 18,
+      "conceptIds": [
+        "packing",
+        "carga-dinamica"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 425,
+      "origin": "practice",
+      "sourceNumber": 75,
+      "title": "Clasificación por comportamiento",
+      "practice": "P2 · Parte 3",
+      "topic": "malware",
+      "prompt": "Un programa se inicia, descarga una segunda pieza desde una URL y la ejecuta. ¿Qué categoría funcional de malware describe mejor lo observado? ¿Qué IOC registrarías?",
+      "code": "",
+      "options": {
+        "A": "Ransomware necesariamente, porque descarga otro archivo.",
+        "B": "Antivirus necesariamente, porque inicia otro programa.",
+        "C": "Downloader; puede deducirse su URL real sin la muestra.",
+        "D": "Gusano necesariamente, porque usa una URL.",
+        "E": "Downloader; registrar destino, archivo y hash, proceso hijo, ejecución y persistencia si se observa."
+      },
+      "answer": "E",
+      "explanation": "Es compatible con un downloader, porque su papel principal observado es obtener y poner en marcha otra carga. Registraría URL/dominio/IP según disponibilidad, ruta y nombre de archivo descargado, hashes, proceso hijo, mecanismo de ejecución y persistencia si existiera. Sin muestra no puede conocerse su URL real.",
+      "source": "Ej. 14; downloader",
+      "questionPage": 14,
+      "solutionPage": 18,
+      "conceptIds": [
+        "familias",
+        "ioc"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 426,
+      "origin": "practice",
+      "sourceNumber": 76,
+      "title": "Plan de ejecución aislada",
+      "practice": "P2 · Parte 3",
+      "topic": "malware",
+      "prompt": "Antes de ejecutar una muestra sospechosa en Windows, ¿qué precauciones tomarías para estudiar su comportamiento sin exponer otros equipos?",
+      "code": "",
+      "options": {
+        "A": "VM aislada y snapshot, sin compartidos innecesarios ni red institucional; capturar cambios y restaurar tras cada ensayo.",
+        "B": "Usar una VM conectada libremente a la red institucional y a todas las carpetas del host.",
+        "C": "Una ejecución sin cambios visibles demuestra que la muestra es inocua.",
+        "D": "Restaurar el snapshot antes de conservar los registros.",
+        "E": "Basta con renombrar la muestra para impedir cualquier comunicación."
+      },
+      "answer": "A",
+      "explanation": "Usaría una VM o laboratorio aislado con snapshot inicial; evitaría carpetas compartidas, portapapeles innecesario y conectividad directa a la red de la organización; configuraría una red controlada o servicios simulados, capturaría actividad y restauraría el snapshot después. Es importante conservar evidencia y no confiar en que una sola ejecución cubre todas las ramas.",
+      "source": "Ej. 14-16; teoría 08, dinámica",
+      "questionPage": 14,
+      "solutionPage": 18,
+      "conceptIds": [
+        "laboratorio",
+        "red-simulada"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 427,
+      "origin": "practice",
+      "sourceNumber": 77,
+      "title": "Interpretar un árbol de procesos",
+      "practice": "P2 · Parte 3",
+      "topic": "malware",
+      "prompt": "Un proceso muestra crea.exe → powershell.exe → segundo.exe durante el análisis dinámico. ¿Qué hipótesis podrías plantear y cómo la contrastarías?",
+      "code": "",
+      "options": {
+        "A": "El árbol por sí solo demuestra persistencia tras reiniciar.",
+        "B": "Puede lanzar otra carga mediante PowerShell; contrastar comandos, rutas, hashes, archivos, red y resultados.",
+        "C": "La relación padre-hijo demuestra automáticamente una descarga exitosa.",
+        "D": "PowerShell sólo puede aparecer en programas maliciosos.",
+        "E": "El nombre segundo.exe identifica de forma única la muestra ejecutada."
+      },
+      "answer": "B",
+      "explanation": "La cadena es compatible con un programa que invoca un intérprete de comandos para lanzar otra carga. Hay que verificar línea de comandos, ruta del ejecutable hijo, hashes, actividad de red, archivos y eventos; sólo el árbol de procesos no permite confirmar la finalidad ni si el lanzamiento tuvo éxito.",
+      "source": "Ej. 14-16; teoría 08, procesos",
+      "questionPage": 14,
+      "solutionPage": 19,
+      "conceptIds": [
+        "procesos",
+        "dinamico"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 428,
+      "origin": "practice",
+      "sourceNumber": 78,
+      "title": "Persistencia por Run",
+      "practice": "P2 · Parte 3",
+      "topic": "malware",
+      "prompt": "Una muestra crea HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\Updater con valor C:\\Users\\Ana\\AppData\\Roaming\\updater.exe. ¿Cuándo intentaría ejecutarse y qué privilegios necesita para escribir esa rama?",
+      "code": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\Updater\nC:\\Users\\Ana\\AppData\\Roaming\\updater.exe\n",
+      "options": {
+        "A": "La entrada prueba ejecución exitosa aunque el archivo no exista.",
+        "B": "El archivo se ejecuta sólo cuando alguien abre el editor de registro.",
+        "C": "Intento de autoejecución al iniciar sesión ese usuario; escribir HKCU no exige necesariamente administrador.",
+        "D": "Se ejecuta necesariamente antes de cualquier inicio de sesión y requiere privilegios de sistema.",
+        "E": "Es un servicio porque cualquier ruta de registro empieza con HK."
+      },
+      "answer": "C",
+      "explanation": "La rama Run bajo HKCU permite lanzar el programa cuando ese usuario inicia sesión. El malware puede configurar esa entrada con los privilegios del usuario afectado, sin requerir necesariamente administrador. Debe confirmarse que el archivo exista y que la entrada esté habilitada y sea usada.",
+      "source": "Ej. 14-16; teoría 08, Run keys",
+      "questionPage": 14,
+      "solutionPage": 19,
+      "conceptIds": [
+        "run-key",
+        "registry"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 429,
+      "origin": "practice",
+      "sourceNumber": 79,
+      "title": "Persistencia como servicio",
+      "practice": "P2 · Parte 3",
+      "topic": "malware",
+      "prompt": "Una muestra modifica HKLM\\SYSTEM\\CurrentControlSet\\Services\\ServicioX. ¿Qué mecanismo posible estudia la práctica y por qué difiere de HKCU Run?",
+      "code": "",
+      "options": {
+        "A": "El servicio se ejecuta siempre inmediatamente y sin revisar Start.",
+        "B": "Cualquier usuario sin privilegios puede modificar todas las configuraciones de servicios.",
+        "C": "El nombre ServicioX prueba una familia concreta de malware.",
+        "D": "Posible persistencia como servicio del sistema; inspeccionar ImagePath y Start, habitualmente con permisos elevados.",
+        "E": "Es la misma entrada HKCU Run del usuario actual."
+      },
+      "answer": "D",
+      "explanation": "La rama corresponde a configuraciones de servicios de Windows: puede instalar o alterar un servicio que arranca bajo condiciones definidas por el sistema. Es distinto de Run, que se ejecuta en inicio de sesión de usuario. Cambios de este tipo suelen requerir privilegios elevados; hay que inspeccionar ImagePath, Start y registros asociados.",
+      "source": "Ej. 14-16; teoría 08, servicios",
+      "questionPage": 14,
+      "solutionPage": 19,
+      "conceptIds": [
+        "servicios-windows",
+        "registry"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 430,
+      "origin": "practice",
+      "sourceNumber": 80,
+      "title": "GUID como pista de persistencia",
+      "practice": "P2 · Parte 3",
+      "topic": "malware",
+      "prompt": "El enunciado de una muestra pregunta por un GUID y un nombre específico de técnica de persistencia. ¿Qué evidencia haría falta para atribuir correctamente la técnica en vez de adivinarla?",
+      "code": "",
+      "options": {
+        "A": "Asignar cualquier GUID conocido aunque no aparezca en la muestra.",
+        "B": "El título de una charla permite deducir una técnica y GUID únicos.",
+        "C": "Todo GUID que aparezca en Windows demuestra persistencia COM maliciosa.",
+        "D": "Basta copiar sólo parte del GUID porque todos sus caracteres son decorativos.",
+        "E": "Obtener GUID exacto, claves y valores, procesos y activación; comparar con mecanismos conocidos sin adivinar técnica."
+      },
+      "answer": "E",
+      "explanation": "Se necesita el GUID exacto observado, las claves/valores que lo contienen, procesos que los crean, artefactos relacionados y cuándo se ejecutan. Recién con esa evidencia se compara con mecanismos conocidos, por ejemplo los explicados en la charla «The Art of Persistence» que cita la teoría. Sin muestra ni registros no hay un GUID deducible.",
+      "source": "Ej. 15; GUID y registro",
+      "questionPage": 15,
+      "solutionPage": 19,
+      "conceptIds": [
+        "registry",
+        "writeup"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 431,
+      "origin": "practice",
+      "sourceNumber": 81,
+      "title": "Conexión fallida y ruta alternativa",
+      "practice": "P2 · Parte 3",
+      "topic": "malware",
+      "prompt": "El binario intenta contactar 203.0.113.88:4444 sin éxito y luego abre https://control.example/ingest. ¿Qué indicadores anotarías por separado y qué no se puede inferir del primer intento fallido?",
+      "code": "Fallo: 203.0.113.88:4444\nÉxito: https://control.example/ingest\n",
+      "options": {
+        "A": "Registrar IP:puerto fallidos y URL exitosa por separado con tiempos y resultados; el fallo no prueba inexistencia ni detención.",
+        "B": "La conexión fallida demuestra que el servidor nunca existió.",
+        "C": "Si falla el primer destino, es imposible que la muestra continúe.",
+        "D": "Reportar sólo el dominio exitoso y ocultar los intentos fallidos.",
+        "E": "203.0.113.88 y control.example son IOC reales confirmados de una campaña."
+      },
+      "answer": "A",
+      "explanation": "Registraría IP y puerto del primer intento, dominio y URL completa de la segunda conexión, timestamp, protocolo y resultado de ambas. La primera falla no prueba que el servidor de destino sea inexistente ni que el malware se detenga. En este ejemplo los identificadores son de documentación, no IOC de una muestra real.",
+      "source": "Ej. 16; red y fallbacks",
+      "questionPage": 15,
+      "solutionPage": 20,
+      "conceptIds": [
+        "ioc",
+        "dinamico"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 432,
+      "origin": "practice",
+      "sourceNumber": 82,
+      "title": "Listado de directorio y respuesta HTTP",
+      "practice": "P2 · Parte 3",
+      "topic": "malware",
+      "prompt": "Una captura muestra HTTP POST con un listado de nombres de archivos del directorio C:\\Datos y respuesta HTTP 200. ¿Qué se puede afirmar, y qué NO, sobre la exfiltración?",
+      "code": "POST /ingest HTTP/1.1\nBody: C:\\Datos\\a.txt, C:\\Datos\\b.txt\nHTTP/1.1 200 OK\n",
+      "options": {
+        "A": "El método POST garantiza por sí solo cifrado y autenticidad.",
+        "B": "Se transmitieron nombres de archivos y se recibió HTTP 200; no demuestra envío del contenido ni almacenamiento remoto.",
+        "C": "HTTP 200 demuestra que se copiaron íntegros a.txt y b.txt.",
+        "D": "Un listado de nombres no transmite ninguna información.",
+        "E": "HTTP 200 prueba que el servidor conservó permanentemente los datos."
+      },
+      "answer": "B",
+      "explanation": "Se observó el envío de una lista de nombres de archivos a un destino remoto y una respuesta HTTP 200 (la solicitud fue atendida según el protocolo). No implica por sí mismo que se hayan transferido los contenidos de esos archivos ni que el servidor haya conservado la información. Hay que corroborar el cuerpo enviado, la respuesta y el resto del tráfico.",
+      "source": "Ej. 16; exfiltración",
+      "questionPage": 15,
+      "solutionPage": 20,
+      "conceptIds": [
+        "exfiltracion",
+        "captura-red"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 433,
+      "origin": "practice",
+      "sourceNumber": 83,
+      "title": "Ofuscación de VBScript",
+      "practice": "P2 · Parte 3",
+      "topic": "malware",
+      "prompt": "Un VBS construye texto usando concatenaciones y la función Chr, en vez de escribir las palabras directamente. ¿Qué técnica general está empleando y cómo lo analizarías sin ejecutarlo?",
+      "code": "",
+      "options": {
+        "A": "Ejecutar el archivo completo es el único modo de conocer esas cadenas.",
+        "B": "La función Chr revela por sí sola qué servidor real usó la muestra ausente.",
+        "C": "Ofuscación por reconstrucción de cadenas; resolver Chr y concatenaciones y rastrear usos sin ejecutar el script.",
+        "D": "Usar Chr convierte automáticamente el script en cifrado AES seguro.",
+        "E": "Si las URLs no aparecen como literales, el script no puede comunicarse."
+      },
+      "answer": "C",
+      "explanation": "Es ofuscación de cadenas mediante reconstrucción dinámica, con concatenación y códigos numéricos de caracteres. Se pueden identificar las llamadas a Chr, reconstruir literales y rastrear qué funciones recibirían esas cadenas. La técnica concreta puede combinarse con otras (p. ej. inversión o Base64), que sólo la muestra permitiría confirmar.",
+      "source": "Ej. 17; ofuscado.vbs",
+      "questionPage": 15,
+      "solutionPage": 20,
+      "conceptIds": [
+        "ofuscacion-vbs"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 434,
+      "origin": "practice",
+      "sourceNumber": 84,
+      "title": "Resolver una cadena ofuscada",
+      "practice": "P2 · Parte 3",
+      "topic": "malware",
+      "prompt": "Sin ejecutar VBScript, resolvé Chr(73) & Chr(67) & Chr(123) & Chr(125), donde Chr interpreta códigos decimales. ¿Por qué este patrón podría usarse para ocultar IOC?",
+      "code": "Chr(73) & Chr(67) & Chr(123) & Chr(125)\n",
+      "options": {
+        "A": "7347123125, porque & suma los números sin convertirlos.",
+        "B": "IC[]; 123 y 125 representan corchetes.",
+        "C": "La ausencia del literal IC{} en strings demuestra que nunca se construye.",
+        "D": "IC{}; las concatenaciones de Chr ocultan un literal contiguo a búsquedas simples de strings.",
+        "E": "IC{}; Chr interpreta los números como hexadecimales."
+      },
+      "answer": "D",
+      "explanation": "Los valores corresponden a I, C, { y }, así que se construye IC{}. El contenido no aparece como literal contiguo en una búsqueda simple de strings, lo que puede dificultar un análisis superficial. Un analista debe reconstruir expresiones antes de concluir que no hay cadenas relevantes.",
+      "source": "Ej. 17; análisis de script",
+      "questionPage": 15,
+      "solutionPage": 20,
+      "conceptIds": [
+        "ofuscacion-vbs",
+        "ascii"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 435,
+      "origin": "practice",
+      "sourceNumber": 85,
+      "title": "Macros en documento de Word",
+      "practice": "P2 · Parte 3",
+      "topic": "malware",
+      "prompt": "Un empleado abrió reto.docm recibido en un correo sospechoso. ¿Qué características investigarías y por qué el sufijo .docm es relevante?",
+      "code": "",
+      "options": {
+        "A": "La extensión .docm demuestra que ya se ejecutó malware.",
+        "B": "Abrirlo con todas las macros habilitadas en la PC personal es el análisis inicial recomendado.",
+        "C": "Los documentos Word no pueden iniciar procesos ni contener código.",
+        "D": "El nombre reto.docm permite conocer el payload sin tener el archivo.",
+        "E": "DOCM admite macros; revisar VBA, eventos de apertura, URLs, procesos y artefactos antes de ejecución controlada."
+      },
+      "answer": "E",
+      "explanation": "docm es un documento habilitado para macros de Word. Analizaría metadatos, proyecto VBA, autoejecución (p. ej., AutoOpen/Document_Open), cadenas/URLs, llamadas a procesos y archivos creados, antes de considerar ejecución controlada. La extensión no prueba malicia y sin el archivo no se sabe su payload.",
+      "source": "Ej. 18; reto.docm",
+      "questionPage": 15,
+      "solutionPage": 21,
+      "conceptIds": [
+        "macros-documentos"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 436,
+      "origin": "practice",
+      "sourceNumber": 86,
+      "title": "Flujo seguro en documentos sospechosos",
+      "practice": "P2 · Parte 3",
+      "topic": "malware",
+      "prompt": "Compará un análisis inicial de un .docm con un .xls sospechoso: ¿qué elementos coinciden y cuáles pueden diferir?",
+      "code": "",
+      "options": {
+        "A": "En ambos revisar formato real, hash, contenido, vínculos y código; diferenciar eventos de Word y mecanismos de Excel.",
+        "B": "DOCM siempre es malicioso y XLS nunca puede tener macros.",
+        "C": "En Excel sólo interesa el texto visible de las celdas.",
+        "D": "La misma extensión garantiza idéntico tipo real y contenido.",
+        "E": "Para comparar ambos es obligatorio activar el contenido en un equipo común."
+      },
+      "answer": "A",
+      "explanation": "En ambos: identificar tipo real, calcular hash, inspeccionar metadatos, contenido incrustado, vínculos externos, fórmulas/código y artefactos extraídos. En .docm se prioriza VBA de Word y eventos de apertura; en Excel también pueden existir macros, fórmulas, conexiones externas y otros mecanismos propios de hojas. No se deben abrir con ejecución activa en un equipo común.",
+      "source": "Ej. 18-19; análisis sin ejecución",
+      "questionPage": 16,
+      "solutionPage": 21,
+      "conceptIds": [
+        "macros-documentos",
+        "estatico"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 437,
+      "origin": "practice",
+      "sourceNumber": 87,
+      "title": "Promesa financiera como vector social",
+      "practice": "P2 · Parte 3",
+      "topic": "malware",
+      "prompt": "Un archivo bitcoin_price_predictor.xls llega con promesa de ganancias extraordinarias. ¿Qué componente de ingeniería social detectás y qué evidencia técnica necesitarías antes de asegurar que es malware?",
+      "code": "",
+      "options": {
+        "A": "Basta con que el documento parezca profesional para descartar riesgo.",
+        "B": "Promesa de ganancias como señuelo; exigir macros, conexiones, descargas, procesos u otra evidencia para afirmar malicia.",
+        "C": "El nombre bitcoin_price_predictor.xls demuestra infección confirmada.",
+        "D": "Una promesa financiera vuelve imposible la ingeniería social.",
+        "E": "Un archivo XLS es siempre seguro por no tener extensión .exe."
+      },
+      "answer": "B",
+      "explanation": "La promesa de rentabilidad y autoridad aparente incentiva que la víctima abra y habilite contenido. Para atribuir malicia se requieren indicadores observables: macros, conexiones, descargas, creación de procesos, persistencia, etc. El nombre del archivo y el reclamo comercial no prueban ejecución maliciosa.",
+      "source": "Ej. 19; hoja de cálculo",
+      "questionPage": 16,
+      "solutionPage": 21,
+      "conceptIds": [
+        "phishing",
+        "macros-documentos"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 438,
+      "origin": "practice",
+      "sourceNumber": 88,
+      "title": "Herramientas por objetivo de observación",
+      "practice": "P2 · Parte 3",
+      "topic": "malware",
+      "prompt": "Asociá Regshot, Autoruns, Procmon, Wireshark y Process Explorer con una pregunta de análisis de malware que cada una puede ayudar a responder.",
+      "code": "",
+      "options": {
+        "A": "Process Explorer descifra automáticamente todas las comunicaciones.",
+        "B": "Cualquiera de esas herramientas aislada demuestra todos los comportamientos.",
+        "C": "Regshot: cambios; Autoruns: autoarranque; Procmon: operaciones; Wireshark: tráfico; Process Explorer: procesos y módulos.",
+        "D": "Wireshark enumera todas las Run keys y Autoruns captura paquetes.",
+        "E": "Regshot identifica por sí solo todos los paquetes y procesos hijos."
+      },
+      "answer": "C",
+      "explanation": "Regshot: ¿qué entradas del registro cambiaron entre dos instantes? Autoruns: ¿qué mecanismos de autoarranque quedaron configurados? Procmon: ¿qué operaciones de registro/archivos/procesos realiza la muestra? Wireshark: ¿qué tráfico genera? Process Explorer: ¿qué procesos, hijos y módulos participan? Ninguna herramienta aislada prueba todos los comportamientos.",
+      "source": "Ej. 13-19; teoría 08, herramientas",
+      "questionPage": 16,
+      "solutionPage": 21,
+      "conceptIds": [
+        "regshot",
+        "procmon",
+        "captura-red",
+        "procesos"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 439,
+      "origin": "practice",
+      "sourceNumber": 89,
+      "title": "Correlación de IOC",
+      "practice": "P2 · Parte 3",
+      "topic": "malware",
+      "prompt": "Una URL aparece como string en un PE, pero el análisis dinámico no registra conexiones. ¿Cómo lo informarías sin sobreafirmar?",
+      "code": "",
+      "options": {
+        "A": "No hubo conexión, por lo que ninguna ejecución posible podría usar esa URL.",
+        "B": "Publicar el string como IOC de conexión validado sin aclaración.",
+        "C": "Eliminar el hallazgo estático porque no coincide con la corrida dinámica.",
+        "D": "URL estática candidata, sin conexión confirmada en ese ensayo; documentar entorno, cobertura y límites.",
+        "E": "La URL fue contactada aunque no haya ninguna observación de red."
+      },
+      "answer": "D",
+      "explanation": "La URL es un indicador estático candidato, no una conexión confirmada. Puede haber una rama no ejecutada, requisitos del entorno, ofuscación adicional o simplemente un dato que no se usa. Documentaría búsqueda estática, observación dinámica, entorno y limitaciones antes de publicar IOC de red como validado.",
+      "source": "Ej. 13-19; análisis estático/dinámico",
+      "questionPage": 16,
+      "solutionPage": 22,
+      "conceptIds": [
+        "ioc",
+        "dinamico"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 440,
+      "origin": "practice",
+      "sourceNumber": 90,
+      "title": "Informe de un incidente mixto",
+      "practice": "P2 · Parte 3",
+      "topic": "malware",
+      "prompt": "Una PC envía consultas DNS anómalas, tiene una entrada Run nueva y un documento macro recibido por email. Proponé una secuencia de investigación que conecte artefactos sin asumir causalidad.",
+      "code": "",
+      "options": {
+        "A": "La cercanía temporal prueba por sí sola que el documento causó todos los eventos.",
+        "B": "Borrar la entrada Run y todos los logs antes de recoger evidencia.",
+        "C": "Investigar sólo el DNS y descartar correo, procesos y archivos.",
+        "D": "Nombrar al autor humano por el From del correo sin revisar la ruta.",
+        "E": "Preservar tiempos y evidencia; analizar correo y macros, Run, archivos, procesos y DNS; correlacionar sin asumir causalidad."
+      },
+      "answer": "E",
+      "explanation": "Preservar evidencia y tiempos; analizar el email (Received, From, Reply-To y adjunto); identificar documento y macros; calcular hashes; observar la clave Run y archivo referenciado; correlacionar procesos y DNS/PCAP; contrastar IOC y determinar alcance en otras máquinas; notificar al CSIRT. Correlación temporal es una pista, no prueba por sí sola que el documento causó todo.",
+      "source": "Ej. 20; reto integrador",
+      "questionPage": 16,
+      "solutionPage": 22,
+      "conceptIds": [
+        "writeup",
+        "ioc",
+        "macros-documentos"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 441,
+      "origin": "practice",
+      "sourceNumber": 91,
+      "title": "Priorización y contención",
+      "practice": "P2 · Parte 3",
+      "topic": "malware",
+      "prompt": "Si el malware sólo descargó un archivo en un laboratorio de test y, en otro caso, se exfiltran listados de directorios desde un servidor universitario crítico, ¿qué incidente priorizarías y por qué?",
+      "code": "",
+      "options": {
+        "A": "Priorizar el servidor crítico con exfiltración observada por impacto y exposición; coordinar contención y preservar evidencia.",
+        "B": "Priorizar siempre el laboratorio porque cualquier descarga supera toda exfiltración.",
+        "C": "Ignorar ambos incidentes hasta conocer una flag.",
+        "D": "Destruir registros y archivos antes de aislar el activo afectado.",
+        "E": "La prioridad puede fijarse sólo por el orden de llegada de los correos."
+      },
+      "answer": "A",
+      "explanation": "Priorizaría el servidor crítico con exfiltración observada por la exposición de información y el impacto potencial sobre servicios y terceros. De todos modos evaluaría criticidad real y evidencia en ambos casos. Acciones típicas incluyen aislar el activo afectado con coordinación, conservar registros, identificar IOC y revisar persistencia y alcance.",
+      "source": "Ej. 14-20; teorías 03, 07 y 08, CSIRT",
+      "questionPage": 16,
+      "solutionPage": 22,
+      "conceptIds": [
+        "prioridad",
+        "exfiltracion"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    },
+    {
+      "id": 442,
+      "origin": "practice",
+      "sourceNumber": 92,
+      "title": "Writeup verificable",
+      "practice": "P2 · Parte 3",
+      "topic": "malware",
+      "prompt": "Estructurá un writeup de una muestra sin acceso a Internet que incluya una hipótesis de persistencia, un IOC y una limitación. ¿Qué cuatro secciones recomienda la cátedra?",
+      "code": "",
+      "options": {
+        "A": "Una hipótesis de persistencia puede presentarse como observación confirmada.",
+        "B": "Enunciado, Solución, Reflexión y Flag; documentar hipótesis, evidencia, IOC y límites sin inventar resultados.",
+        "C": "Sólo Flag, sin metodología ni resultados intermedios.",
+        "D": "Enunciado, Solución, Reflexión y una flag inventada si falta la muestra.",
+        "E": "Únicamente nombres de herramientas, sin comandos ni observaciones."
+      },
+      "answer": "B",
+      "explanation": "El material «02 Writeup example» propone Enunciado, Solución, Reflexión y Flag. En la solución se detallan hipótesis, comandos/herramientas, evidencia de la clave de persistencia y IOC, más límites del ensayo. En reflexión se consignan dificultades y hallazgos; no se inventa una flag ni un resultado que requiere artefactos no aportados.",
+      "source": "Ej. 14-20; teoría 07 y documento 02",
+      "questionPage": 16,
+      "solutionPage": 22,
+      "conceptIds": [
+        "writeup"
+      ],
+      "adaptationNote": "Consigna abierta original adaptada a cinco opciones de elaboración didáctica. La explicación correcta conserva el solucionario de prácticas."
+    }
+  ]
+}

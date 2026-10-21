@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "extractor": "pypdf",
+  "extractorVersion": "6.20.1",
+  "checks": {
+    "questionCount": 92,
+    "solutionPromptsMatched": 92,
+    "originalSolutionsPreserved": 92,
+    "adaptedOptions": 460,
+    "distractorExplanations": 368,
+    "topicCounts": {
+      "cripto": 40,
+      "csirt": 29,
+      "malware": 23
+    }
+  },
+  "documents": [
+    {
+      "file": "docs/IC2026_Preguntas_Basadas_en_Practicas_1_y_2.pdf",
+      "pages": 16,
+      "sha256": "3758429ce6cbba3fc6d46e9a3d8624ab92d32f21e0b1224f6d1207086db2d86a"
+    },
+    {
+      "file": "docs/IC2026_Solucionario_Practicas_1_y_2.pdf",
+      "pages": 22,
+      "sha256": "b0e45770782615bf1e62dbbd0b07ef93bded57f442dc2ab9661906f45a004cc0"
+    },
+    {
+      "file": "docs/Guia_de_estudio_IC_Practicas_1_y_2.pdf",
+      "pages": 18,
+      "sha256": "64811ad70dc7586babcd44494b2d58f34ff1639ade604f109205d567b406b325"
+    }
+  ]
+}
