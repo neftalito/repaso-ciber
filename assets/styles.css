@@ -884,6 +884,7 @@ select {
   margin-top:6px
 }
 .hint-panel {
+  overflow-wrap:anywhere;
   padding:21px;
   background:#f5f5ed;
   border:1px solid #e2e4d3;

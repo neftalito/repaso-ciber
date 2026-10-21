@@ -128,7 +128,11 @@ try {
     await page.locator('input[value="A"]').check(); await page.locator('#confirm-answer').click();
     assert.equal(await page.locator('#answer-options details[open]').getAttribute('data-option'),'A');
     assert.match(await page.locator('[data-option="A"] .option-reference a').getAttribute('href'),/Guia_de_estudio_IC_Practicas_1_y_2.pdf/);
-    assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,`Practice feedback overflow at ${width}px`);
+    const feedbackLayout = await page.evaluate(() => ({
+      fits:document.documentElement.scrollWidth<=innerWidth,
+      outside:[...document.querySelectorAll('#question-card *')].filter(n=>n.getBoundingClientRect().right>innerWidth).slice(0,8).map(n=>({tag:n.tagName,id:n.id,className:n.className,right:n.getBoundingClientRect().right}))
+    }));
+    assert.equal(feedbackLayout.fits,true,`Practice feedback overflow at ${width}px: ${JSON.stringify(feedbackLayout.outside)}`);
     if(width===390 || width===1440) await page.screenshot({path:new URL(`../test-results/practica-origen-${width}.png`,import.meta.url).pathname,fullPage:true});
     await page.reload(); await page.waitForSelector('#study-layout:visible');
     assert.equal(await page.locator('#origin-filter').inputValue(),'practice');
