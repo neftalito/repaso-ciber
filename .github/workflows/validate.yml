@@ -1,0 +1,52 @@
+name: Validar aplicación y diseño responsive
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'assets/**'
+      - '*.html'
+      - 'package*.json'
+      - 'scripts/**'
+      - 'data/**'
+      - 'tests/**'
+      - '!tests/VALIDATION.md'
+      - '.github/workflows/validate.yml'
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          package-manager-cache: false
+      - name: Instalar dependencias de prueba
+        run: npm install --ignore-scripts
+      - name: Validar datos y progreso
+        run: |
+          python3 scripts/validate_data.py
+          npm test
+          npm run test:dom
+      - name: Instalar Chromium
+        run: npx playwright install --with-deps chromium
+      - name: Comprobar interfaz y distribución responsive
+        run: npm run test:browser
+      - name: Conservar capturas de la interfaz
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: capturas-responsive
+          path: test-results/*.png
+          if-no-files-found: ignore
+          retention-days: 7

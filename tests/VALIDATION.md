@@ -24,3 +24,9 @@ El entorno impidió lanzar las instalaciones existentes de Chromium: las restric
 `npm run test:browser` deja preparada la verificación de navegador con capturas de escritorio/celular, tamaños 320/390/768/1440, teclado real y servidor bajo subruta. Debe ejecutarse en un entorno que permita iniciar Chromium; después conviene revisar las capturas y los enlaces PDF en el lector elegido. La interfaz incluye radios nativos, etiquetas, foco visible, regiones de estado, enlace para saltar contenido, ventanas con Escape y estilos para movimiento reducido.
 
 El informe técnico de extracción y los hashes de los PDF se conservan en `data/extraction-report.json`. No se modificaron los PDF.
+
+## Corrección de la distribución del glosario
+
+Se corrigió la grilla de escritorio para que las entradas ocupen el espacio principal y la ayuda lateral tenga 240 px. Las áreas de la grilla se asignan explícitamente a cada sección. Hasta 800 px se utiliza una sola columna, con las entradas primero y la ayuda después. Las páginas solicitan una nueva versión del CSS para evitar reutilizar el archivo anterior en caché.
+
+Las 11 pruebas de contenido/progreso y la validación de referencias volvieron a pasar. La prueba de navegador ahora comprueba las proporciones y posiciones de las dos secciones, con las 89 entradas y con búsqueda, a 320, 390, 768, 800, 801, 1024, 1440 y 1920 px. El lanzamiento local de Chromium sigue bloqueado por el entorno. El flujo `.github/workflows/validate.yml` permite ejecutar esa revisión en GitHub Actions y conserva capturas como artefactos.

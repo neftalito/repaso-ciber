@@ -19,6 +19,25 @@ const server = createServer(async (req,res) => {
 });
 let browser;
 const errors=[];
+async function assertGlossaryLayout(page, width) {
+  const layout = await page.evaluate(() => {
+    const box = selector => {
+      const { x, y, width, height } = document.querySelector(selector).getBoundingClientRect();
+      return { x, y, width, height };
+    };
+    return { entries: box('.glossary-entries'), sidebar: box('.glossary-sidebar'), container: box('.glossary-layout') };
+  });
+  const { entries, sidebar, container } = layout;
+  if (width > 800) {
+    assert.ok(entries.width > sidebar.width, `Glossary entries must be wider than the sidebar at ${width}px`);
+    assert.ok(sidebar.x >= entries.x + entries.width, `Sidebar must be to the right of the entries at ${width}px`);
+    assert.ok(sidebar.width <= container.width / 3, `Sidebar must remain secondary at ${width}px`);
+  } else {
+    assert.ok(Math.abs(entries.width - container.width) <= 1, `Entries must fill the mobile column at ${width}px`);
+    assert.ok(Math.abs(sidebar.width - container.width) <= 1, `Sidebar must fill the mobile column at ${width}px`);
+    assert.ok(sidebar.y >= entries.y + entries.height, `Mobile sidebar must follow the entries at ${width}px`);
+  }
+}
 try {
   browser=await chromium.launch({headless:true, ...(process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE ? {executablePath:process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE} : {})});
   await new Promise((resolve,reject) => { server.once('error',reject); server.listen(0,'127.0.0.1',resolve); });
@@ -69,11 +88,16 @@ try {
   await page.locator('#clear-search').click();
   await page.locator('#glossary-search').fill('base64');
   await page.screenshot({path:new URL('../test-results/glosario-escritorio.png',import.meta.url).pathname,fullPage:true});
-  for (const width of [320,390,768,1440]) {
+  for (const width of [320,390,768,800,801,1024,1440,1920]) {
     await page.setViewportSize({width,height:900}); await page.goto(url); await page.waitForSelector('#study-layout:visible');
     assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,`Horizontal overflow at ${width}px`);
     if(width===390) await page.screenshot({path:new URL('../test-results/practica-celular.png',import.meta.url).pathname,fullPage:true});
-    await page.goto(`${url}glosario.html?q=base64`); await page.waitForSelector('#base64');
+    await page.goto(`${url}glosario.html`); await page.waitForSelector('#base64');
+    await assertGlossaryLayout(page, width);
+    assert.equal(await page.locator('.glossary-entry').count(),89);
+    if(width===1440) await page.screenshot({path:new URL('../test-results/glosario-escritorio-completo.png',import.meta.url).pathname});
+    await page.locator('#glossary-search').fill('base64');
+    await assertGlossaryLayout(page, width);
     assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,`Glossary overflow at ${width}px`);
     if(width===390) await page.screenshot({path:new URL('../test-results/glosario-celular.png',import.meta.url).pathname,fullPage:true});
   }
@@ -82,5 +106,5 @@ try {
   await p.locator('.answer-option').nth(4).click(); await p.locator('#confirm-answer').click(); assert.equal(await p.locator('#storage-warning').isVisible(),true);
   assert.equal(await p.locator('#correct-count').textContent(),'1'); await blocked.close();
   for(const file of ['Manual_IC2026_Cripto_CSIRT_Malware_Descarga.pdf','IC_2026_Cripto_CSIRT_Malware_350_Preguntas.pdf','IC_2026_Cripto_CSIRT_Malware_Solucionario.pdf']) { const response=await context.request.get(`${url}docs/${file}`); assert.equal(response.status(),200); }
-  assert.deepEqual(errors,[]); console.log('PASS: práctica, glosario, progreso, teclado, 320/390/768/1440 px y subruta /ic2026/. Capturas en test-results/.');
+  assert.deepEqual(errors,[]); console.log('PASS: práctica, glosario, progreso, teclado, columnas del glosario a 320/390/768/800/801/1024/1440/1920 px y subruta /ic2026/. Capturas en test-results/.');
 } finally { if(browser) await browser.close(); if(server.listening) await new Promise(resolve=>server.close(resolve)); }

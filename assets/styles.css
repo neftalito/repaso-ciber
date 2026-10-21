@@ -1234,10 +1234,14 @@ tbody th {
 }
 .glossary-layout {
   display:grid;
-  grid-template-columns:200px minmax(0,1fr);
+  grid-template-columns:minmax(0,1fr) 240px;
+  grid-template-areas:"entries sidebar";
   gap:30px
 }
 .glossary-sidebar {
+  grid-area:sidebar;
+  min-width:0;
+  overflow-wrap:anywhere;
   position:sticky;
   top:20px;
   align-self:start;
@@ -1263,6 +1267,7 @@ tbody th {
   margin:18px 0
 }
 .glossary-entries {
+  grid-area:entries;
   min-width:0
 }
 .letter-heading {
@@ -1612,11 +1617,11 @@ tbody th {
     min-width:100px
   }
   .glossary-layout {
-    grid-template-columns:minmax(0,1fr)
+    grid-template-columns:minmax(0,1fr);
+    grid-template-areas:"entries" "sidebar"
   }
   .glossary-sidebar {
-    position:static;
-    order:2
+    position:static
   }
   .glossary-tools {
     padding:18px;
