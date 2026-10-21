@@ -529,6 +529,7 @@ fieldset {
   box-shadow:none
 }
 .answer-option.is-incorrect .option-letter {
+  color:#fff;
   background:var(--red);
   border-color:var(--red)
 }
