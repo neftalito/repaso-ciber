@@ -33,6 +33,26 @@ def validate():
         assert q['conceptIds'] == mapping[str(q['id'])] and set(q['conceptIds']) <= ids and q['conceptIds']
         assert 2 <= q['questionPage'] <= 152 and 2 <= q['solutionPage'] <= 43 and 153 <= q['annexPage'] <= 172
         assert all(q['topic'] in next(e for e in entries if e['id'] == c)['topics'] for c in q['conceptIds']), q['id']
+    notes = read('data/option-explanations.json')
+    assert notes['version'] == 1 and notes['authorship']
+    assert [n['questionId'] for n in notes['questions']] == list(range(1, 351))
+    for q, n in zip(qs, notes['questions']):
+        fingerprint = hashlib.sha256(json.dumps({k:q[k] for k in ['prompt','options','answer']}, ensure_ascii=False, sort_keys=True, separators=(',',':')).encode()).hexdigest()
+        assert n['questionFingerprint'] == fingerprint, f'Explanations need review after question change: {q["id"]}'
+        assert list(n['distractors']) == [letter for letter in 'ABCDE' if letter != q['answer']]
+        assert all(isinstance(t, str) and len(t.strip()) > 35 and '\ufffd' not in t for t in n['distractors'].values())
+        assert n['manualPages'] and all(type(p) is int and 1 <= p <= 55 for p in n['manualPages'])
+    comparisons = read('data/comparisons.json')
+    assert comparisons['version'] == 1 and comparisons['authorship']
+    comparison_ids = {c['id'] for c in comparisons['comparisons']}
+    assert len(comparison_ids) == len(comparisons['comparisons']) and not comparison_ids & ids
+    for c in comparisons['comparisons']:
+        assert re.fullmatch(r'comparar-[a-z0-9-]+', c['id']) and c['title'] and c['takeaway'] and c['example']
+        assert c['topics'] and set(c['topics']) <= {'cripto','csirt','malware'}
+        assert set(c['conceptIds']) <= ids and c['conceptIds']
+        assert len(c['columns']) >= 2 and all(col['conceptId'] in ids and col['label'] for col in c['columns'])
+        assert c['rows'] and all(row['aspect'] and len(row['values']) == len(c['columns']) and all(row['values']) for row in c['rows'])
+        assert c['manualPages'] and all(type(p) is int and 1 <= p <= 55 for p in c['manualPages'])
     for doc in report['documents']:
         assert hashlib.sha256((ROOT/doc['file']).read_bytes()).hexdigest() == doc['sha256'], 'Source PDF changed'
     checks = report['checks']
@@ -59,5 +79,5 @@ def validate():
         code=(ROOT/file).read_text()
         for ref in re.findall(r"fetch\(['\"]([^'\"]+)",code): assert (ROOT/ref).is_file(), ref
         assert not re.search(r"(?:fetch\(|href\s*=\s*)['\"]/", code)
-    print(f'OK: 350 IDs, 1.750 opciones, {len(entries)} conceptos, 33 términos del glosario original y todas las referencias locales.')
+    print(f'OK: 350 IDs, 1.750 opciones, 1.400 explicaciones de distractores, {len(entries)} conceptos, {len(comparison_ids)} comparaciones y todas las referencias locales.')
 if __name__ == '__main__': validate()

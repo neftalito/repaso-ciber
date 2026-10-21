@@ -1,0 +1,876 @@
+{
+  "version": 1,
+  "authorship": "Cuadros de elaboración didáctica basados en los conceptos del manual disponible; no son transcripciones del solucionario ni de las diapositivas originales.",
+  "comparisons": [
+    {
+      "id": "comparar-codificacion-cifrado-hash-firma",
+      "title": "Codificación, cifrado, hash y firma",
+      "topics": [
+        "cripto",
+        "malware"
+      ],
+      "columns": [
+        {
+          "label": "Codificación",
+          "conceptId": "base64"
+        },
+        {
+          "label": "Cifrado",
+          "conceptId": "cifrado"
+        },
+        {
+          "label": "Hash",
+          "conceptId": "hash"
+        },
+        {
+          "label": "Firma digital",
+          "conceptId": "firma"
+        }
+      ],
+      "rows": [
+        {
+          "aspect": "Propósito",
+          "values": [
+            "Representar datos para almacenarlos o transmitirlos.",
+            "Restringir quién puede leer el contenido.",
+            "Resumir bytes para comparar o identificar contenido.",
+            "Verificar integridad y origen asociado a una clave."
+          ]
+        },
+        {
+          "aspect": "¿Se recupera el original?",
+          "values": [
+            "Sí, mediante decodificación.",
+            "Sí, con la clave y los parámetros adecuados.",
+            "No existe una operación general de descifrado del digest.",
+            "La firma se verifica; no es una codificación del documento para recuperarlo."
+          ]
+        },
+        {
+          "aspect": "Secreto necesario",
+          "values": [
+            "No requiere un secreto.",
+            "Requiere la clave adecuada para descifrar.",
+            "Las funciones comunes, como SHA-256, no necesitan clave.",
+            "Se firma con la privada; se verifica con la pública."
+          ]
+        },
+        {
+          "aspect": "Qué no demuestra por sí solo",
+          "values": [
+            "Que el mensaje sea secreto o auténtico.",
+            "Que el mensaje no haya sido modificado: depende del esquema.",
+            "Que quien publica el archivo sea confiable.",
+            "Que el contenido sea secreto o benigno."
+          ]
+        }
+      ],
+      "takeaway": "Primero identificá qué se necesita: representar, ocultar, comparar o verificar origen. Una operación no reemplaza automáticamente a las demás.",
+      "example": "Un adjunto en Base64 puede ser legible para cualquiera. Su SHA-256 sirve para compararlo con una referencia; una firma verificable agrega evidencia de origen, pero no certifica inocuidad.",
+      "manualPages": [
+        5,
+        6,
+        8,
+        9,
+        11,
+        13
+      ],
+      "conceptIds": [
+        "base64",
+        "cifrado",
+        "hash",
+        "firma"
+      ]
+    },
+    {
+      "id": "comparar-simetrica-asimetrica",
+      "title": "Criptografía simétrica y asimétrica",
+      "topics": [
+        "cripto"
+      ],
+      "columns": [
+        {
+          "label": "Simétrica",
+          "conceptId": "simetrica"
+        },
+        {
+          "label": "Asimétrica",
+          "conceptId": "asimetrica"
+        }
+      ],
+      "rows": [
+        {
+          "aspect": "Claves",
+          "values": [
+            "Un secreto compartido por los extremos.",
+            "Un par relacionado de clave pública y privada."
+          ]
+        },
+        {
+          "aspect": "Cifrado",
+          "values": [
+            "Los extremos utilizan la clave secreta apropiada para cifrar y descifrar.",
+            "Se puede cifrar para un destinatario con su pública y descifrar con su privada."
+          ]
+        },
+        {
+          "aspect": "Desafío práctico",
+          "values": [
+            "Distribuir, revocar y proteger secretos compartidos al incorporar participantes.",
+            "Comprobar que una clave pública pertenece a la identidad esperada y proteger la privada."
+          ]
+        },
+        {
+          "aspect": "Firma",
+          "values": [
+            "Compartir un secreto no equivale por sí solo a una firma digital de clave pública.",
+            "En una firma, la privada firma y la pública verifica: son roles distintos del cifrado."
+          ]
+        }
+      ],
+      "takeaway": "No confundas la dirección de uso de las claves al cifrar con su función al firmar.",
+      "example": "Para cifrar un archivo grande puede usarse una clave simétrica de sesión y un mecanismo asimétrico para proteger su distribución; cada componente cumple una función.",
+      "manualPages": [
+        10,
+        11
+      ],
+      "conceptIds": [
+        "simetrica",
+        "asimetrica",
+        "firma"
+      ]
+    },
+    {
+      "id": "comparar-ecb-cbc-flujo",
+      "title": "ECB, CBC y cifrado de flujo",
+      "topics": [
+        "cripto"
+      ],
+      "columns": [
+        {
+          "label": "ECB",
+          "conceptId": "ecb"
+        },
+        {
+          "label": "CBC",
+          "conceptId": "cbc"
+        },
+        {
+          "label": "Flujo",
+          "conceptId": "flujo"
+        }
+      ],
+      "rows": [
+        {
+          "aspect": "Procesamiento",
+          "values": [
+            "Cada bloque se cifra independientemente con la misma clave.",
+            "Cada bloque se combina por XOR con el cifrado anterior; el primero utiliza un IV.",
+            "Se genera un keystream y se combina con los datos, habitualmente por XOR."
+          ]
+        },
+        {
+          "aspect": "Repeticiones",
+          "values": [
+            "Bloques iguales producen bloques cifrados iguales y revelan patrones.",
+            "El encadenamiento y un IV adecuado evitan esa igualdad directa entre mensajes.",
+            "La protección depende de no reutilizar la secuencia cifrante entre mensajes."
+          ]
+        },
+        {
+          "aspect": "Longitudes",
+          "values": [
+            "Trabaja con bloques completos.",
+            "Puede requerir padding para completar el último bloque.",
+            "Permite procesar unidades pequeñas de datos continuos."
+          ]
+        },
+        {
+          "aspect": "Autenticidad",
+          "values": [
+            "ECB por sí solo no autentica.",
+            "CBC por sí solo tampoco autentica.",
+            "La combinación básica con keystream no aporta por sí sola autenticación."
+          ]
+        }
+      ],
+      "takeaway": "Usar AES no basta para evaluar seguridad: también importan el modo, los parámetros y la protección de integridad. El manual presenta AEAD como ampliación.",
+      "example": "Una imagen con regiones repetidas puede conservar patrones al usar ECB. El mismo problema no se resuelve cambiando solamente la representación a Base64.",
+      "manualPages": [
+        10,
+        11,
+        12,
+        13
+      ],
+      "conceptIds": [
+        "ecb",
+        "cbc",
+        "flujo",
+        "iv",
+        "xor",
+        "aead"
+      ]
+    },
+    {
+      "id": "comparar-hash-archivo-contrasena",
+      "title": "Hash de archivo y almacenamiento de contraseñas",
+      "topics": [
+        "cripto",
+        "malware"
+      ],
+      "columns": [
+        {
+          "label": "Identificar un archivo",
+          "conceptId": "integridad-archivo"
+        },
+        {
+          "label": "Almacenar una contraseña",
+          "conceptId": "contrasenas"
+        }
+      ],
+      "rows": [
+        {
+          "aspect": "Objetivo",
+          "values": [
+            "Comparar bytes con una versión o muestra conocida.",
+            "Verificar un secreto sin almacenarlo en texto plano y dificultar su adivinación."
+          ]
+        },
+        {
+          "aspect": "Velocidad",
+          "values": [
+            "Un hash rápido como SHA-256 resulta útil para resumir archivos.",
+            "La rapidez permite probar muchos candidatos; se necesita un costo de derivación adecuado."
+          ]
+        },
+        {
+          "aspect": "Sal",
+          "values": [
+            "Para comparar archivos iguales se aplica la misma función sobre los mismos bytes.",
+            "Una sal aleatoria por registro evita resúmenes iguales para contraseñas iguales."
+          ]
+        },
+        {
+          "aspect": "Límite",
+          "values": [
+            "Un digest necesita una referencia confiable y no acredita por sí solo autoría.",
+            "Sal y costo no convierten una contraseña débil en imposible de adivinar."
+          ]
+        }
+      ],
+      "takeaway": "Una función adecuada para identificar archivos no es automáticamente un almacenamiento adecuado de contraseñas.",
+      "example": "El manual menciona SHA-256 para archivos y funciones con sal y costo como Argon2id, scrypt, bcrypt o PBKDF2 para contraseñas, según el entorno.",
+      "manualPages": [
+        8,
+        9
+      ],
+      "conceptIds": [
+        "integridad-archivo",
+        "contrasenas",
+        "hash",
+        "sha-256"
+      ]
+    },
+    {
+      "id": "comparar-whois-rdap",
+      "title": "WHOIS y RDAP",
+      "topics": [
+        "csirt"
+      ],
+      "columns": [
+        {
+          "label": "WHOIS",
+          "conceptId": "whois"
+        },
+        {
+          "label": "RDAP",
+          "conceptId": "rdap"
+        }
+      ],
+      "rows": [
+        {
+          "aspect": "Formato habitual",
+          "values": [
+            "Texto de estructura variable según el servidor.",
+            "Datos JSON con campos estructurados."
+          ]
+        },
+        {
+          "aspect": "Automatización",
+          "values": [
+            "El análisis de texto debe contemplar formatos y remisiones diferentes.",
+            "Los campos estructurados facilitan extraer entidades, contactos y eventos."
+          ]
+        },
+        {
+          "aspect": "Información útil",
+          "values": [
+            "Rango, entidad asignataria y contactos disponibles.",
+            "Asignación, entidades, roles, eventos y contactos disponibles."
+          ]
+        },
+        {
+          "aspect": "Límite compartido",
+          "values": [
+            "Puede devolver datos históricos o redactados; no prueba autoría humana ni legitimidad del sitio.",
+            "También puede omitir datos por privacidad y no certifica qué contenido sirve un dominio."
+          ]
+        }
+      ],
+      "takeaway": "Usalos para localizar responsables operativos y contrastá la consulta con logs, tiempos y otros datos del incidente.",
+      "example": "Una respuesta ERX genérica puede requerir consultar el servidor competente. Obtener el titular del bloque no significa identificar a la persona que realizó una conexión.",
+      "manualPages": [
+        16,
+        17,
+        18,
+        20,
+        29
+      ],
+      "conceptIds": [
+        "whois",
+        "rdap",
+        "erx",
+        "ip"
+      ]
+    },
+    {
+      "id": "comparar-registry-registrar-registrant",
+      "title": "Registry, Registrar y Registrant",
+      "topics": [
+        "csirt"
+      ],
+      "columns": [
+        {
+          "label": "Registry",
+          "conceptId": "tld"
+        },
+        {
+          "label": "Registrar",
+          "conceptId": "tld"
+        },
+        {
+          "label": "Registrant",
+          "conceptId": "tld"
+        }
+      ],
+      "rows": [
+        {
+          "aspect": "Papel",
+          "values": [
+            "Mantiene el registro oficial de un TLD.",
+            "Intermedia o tramita la registración de nombres.",
+            "Solicita y es titular del nombre registrado."
+          ]
+        },
+        {
+          "aspect": "Qué administra",
+          "values": [
+            "Información oficial del registro y responsabilidades del TLD.",
+            "La relación de registración y trámites con el titular.",
+            "El uso y administración de su nombre según los servicios contratados."
+          ]
+        },
+        {
+          "aspect": "Relación con otros roles",
+          "values": [
+            "Puede también ofrecer funciones de Registrar, según el esquema.",
+            "Opera en relación con el Registry y presta servicio al Registrant.",
+            "Puede contratar por separado registración, DNS, hosting y correo."
+          ]
+        },
+        {
+          "aspect": "Qué no debe confundirse",
+          "values": [
+            "No es por ese rol el RIR de todas las IP.",
+            "No tiene por qué ser el usuario final del dominio.",
+            "No es necesariamente el operador del servidor que aloja el contenido."
+          ]
+        }
+      ],
+      "takeaway": "Ser titular de un dominio, tramitar su registro y operar el registro del TLD son funciones diferentes, aunque algunas entidades puedan reunir roles.",
+      "example": "NIC Argentina aparece en el material como Registry y Registrar de .ar. Si el nombre del titular está oculto, los contactos operativos de abuso siguen siendo útiles.",
+      "manualPages": [
+        18,
+        19,
+        20
+      ],
+      "conceptIds": [
+        "tld",
+        "privacidad-registro"
+      ]
+    },
+    {
+      "id": "comparar-sobre-cabeceras-cuerpo",
+      "title": "Sobre SMTP, cabeceras y cuerpo",
+      "topics": [
+        "csirt"
+      ],
+      "columns": [
+        {
+          "label": "Sobre SMTP",
+          "conceptId": "envelope"
+        },
+        {
+          "label": "Cabeceras",
+          "conceptId": "cabeceras"
+        },
+        {
+          "label": "Cuerpo",
+          "conceptId": "envelope"
+        }
+      ],
+      "rows": [
+        {
+          "aspect": "Dónde aparece",
+          "values": [
+            "En las órdenes de transporte de la sesión SMTP.",
+            "Al principio del contenido enviado tras DATA.",
+            "Después de las cabeceras, separado por una línea vacía."
+          ]
+        },
+        {
+          "aspect": "Ejemplos",
+          "values": [
+            "MAIL FROM y uno o más RCPT TO.",
+            "From:, To:, Reply-To:, Subject:, Received: y Message-ID:.",
+            "Texto, HTML y adjuntos representados mediante MIME."
+          ]
+        },
+        {
+          "aspect": "Qué determina",
+          "values": [
+            "Direcciones efectivas de entrega y remitente de transporte para retornos.",
+            "Identidades visibles, dirección de respuesta y datos de trazabilidad.",
+            "El contenido que leerá o interpretará el destinatario."
+          ]
+        },
+        {
+          "aspect": "Límite",
+          "values": [
+            "El remitente de transporte puede diferir de From:.",
+            "Una identidad declarada puede falsificarse; hay que evaluar confianza.",
+            "Un texto convincente no demuestra origen ni conserva toda la ruta SMTP."
+          ]
+        }
+      ],
+      "takeaway": "To: no sustituye a RCPT TO y From: no sustituye a MAIL FROM. Guardá el mensaje original con sus cabeceras para investigar.",
+      "example": "Un mensaje puede llegar a un destinatario no visible en To:. También puede mostrar un remitente y dirigir la respuesta a otro buzón mediante Reply-To:.",
+      "manualPages": [
+        20,
+        21,
+        22,
+        23,
+        24
+      ],
+      "conceptIds": [
+        "envelope",
+        "cabeceras",
+        "received",
+        "comandos-smtp"
+      ]
+    },
+    {
+      "id": "comparar-cia",
+      "title": "Confidencialidad, integridad y disponibilidad",
+      "topics": [
+        "csirt"
+      ],
+      "columns": [
+        {
+          "label": "Confidencialidad",
+          "conceptId": "cia"
+        },
+        {
+          "label": "Integridad",
+          "conceptId": "cia"
+        },
+        {
+          "label": "Disponibilidad",
+          "conceptId": "cia"
+        }
+      ],
+      "rows": [
+        {
+          "aspect": "Pregunta guía",
+          "values": [
+            "¿Quién puede acceder o leer los datos?",
+            "¿Quién puede crear o modificar los datos de forma autorizada?",
+            "¿Se puede acceder al servicio cuando se necesita?"
+          ]
+        },
+        {
+          "aspect": "Ejemplo de afectación",
+          "values": [
+            "Un tercero descarga una nómina privada sin permiso.",
+            "Se modifica el saldo de una cuenta sin autorización.",
+            "Un DDoS impide utilizar el servicio."
+          ]
+        },
+        {
+          "aspect": "Distinción importante",
+          "values": [
+            "Puede perderse sin alterar ni interrumpir el sistema.",
+            "Puede perderse aunque los datos sigan accesibles.",
+            "Puede perderse sin lectura indebida ni cambio de contenido."
+          ]
+        },
+        {
+          "aspect": "Relación con otras propiedades",
+          "values": [
+            "Cifrar puede restringir lectura, pero no basta para acreditar autoría.",
+            "Una firma puede aportar verificación de integridad y origen.",
+            "Respaldos y recuperación ayudan, pero deben probarse en el contexto del servicio."
+          ]
+        }
+      ],
+      "takeaway": "Un mismo incidente puede afectar más de una propiedad. Identificá qué acción está confirmada antes de clasificar.",
+      "example": "Un ransomware puede interrumpir el acceso y modificar archivos; si además extrae datos, también afecta su confidencialidad.",
+      "manualPages": [
+        13,
+        14,
+        24,
+        25,
+        26
+      ],
+      "conceptIds": [
+        "cia",
+        "firma",
+        "no-repudio"
+      ]
+    },
+    {
+      "id": "comparar-amenaza-vulnerabilidad-incidente-riesgo",
+      "title": "Amenaza, vulnerabilidad, incidente y riesgo",
+      "topics": [
+        "csirt"
+      ],
+      "columns": [
+        {
+          "label": "Amenaza",
+          "conceptId": "riesgo"
+        },
+        {
+          "label": "Vulnerabilidad",
+          "conceptId": "riesgo"
+        },
+        {
+          "label": "Incidente",
+          "conceptId": "riesgo"
+        },
+        {
+          "label": "Riesgo",
+          "conceptId": "riesgo"
+        }
+      ],
+      "rows": [
+        {
+          "aspect": "Qué describe",
+          "values": [
+            "Un actor o suceso con potencial de causar daño.",
+            "Una debilidad que puede aprovecharse.",
+            "Un evento adverso que compromete o pone en peligro la seguridad.",
+            "Probabilidad e impacto potencial del daño en un contexto."
+          ]
+        },
+        {
+          "aspect": "Ejemplo",
+          "values": [
+            "Intentos maliciosos de acceso o un fenómeno natural.",
+            "Un panel expuesto sin autenticación.",
+            "Acceso no autorizado confirmado y extracción de datos.",
+            "Exposición de datos sensibles en un sistema crítico con controles débiles."
+          ]
+        },
+        {
+          "aspect": "Qué falta comprobar",
+          "values": [
+            "Si se concretó un evento adverso.",
+            "Si alguien la explotó o produjo un impacto.",
+            "Alcance, causa, activos e impacto para responder.",
+            "Supuestos, exposición, probabilidad e impacto según el entorno."
+          ]
+        },
+        {
+          "aspect": "Error frecuente",
+          "values": [
+            "Tratar toda posibilidad como un compromiso consumado.",
+            "Confundir una debilidad con la persona que la explota.",
+            "Asumir que toda alerta ya confirma el incidente.",
+            "Priorizar únicamente por volumen de avisos o nombre de la categoría."
+          ]
+        }
+      ],
+      "takeaway": "La alerta es una señal que requiere evaluación. La prioridad del caso depende también de los activos y de los efectos sobre terceros.",
+      "example": "Un servidor sin parches tiene una debilidad; una alerta de intentos no prueba por sí sola intrusión. Confirmar el acceso no autorizado cambia la evidencia disponible.",
+      "manualPages": [
+        14,
+        25,
+        26,
+        30
+      ],
+      "conceptIds": [
+        "riesgo",
+        "prioridad"
+      ]
+    },
+    {
+      "id": "comparar-estatico-dinamico",
+      "title": "Análisis estático y análisis dinámico",
+      "topics": [
+        "malware"
+      ],
+      "columns": [
+        {
+          "label": "Estático",
+          "conceptId": "estatico"
+        },
+        {
+          "label": "Dinámico",
+          "conceptId": "dinamico"
+        }
+      ],
+      "rows": [
+        {
+          "aspect": "¿Ejecuta la muestra?",
+          "values": [
+            "No. Inspecciona el artefacto en reposo.",
+            "Sí, bajo control en un laboratorio aislado."
+          ]
+        },
+        {
+          "aspect": "Qué observa",
+          "values": [
+            "Tipo de archivo, hashes, strings, secciones, imports y recursos.",
+            "Procesos, escrituras en archivos y Registro, servicios y comunicaciones durante el ensayo."
+          ]
+        },
+        {
+          "aspect": "Conclusión defendible",
+          "values": [
+            "Una importación o URL sugiere una capacidad o indicador candidato.",
+            "Una acción capturada respalda que ocurrió en ese entorno y ventana de observación."
+          ]
+        },
+        {
+          "aspect": "Límite",
+          "values": [
+            "Packing, ofuscación o resolución dinámica pueden ocultar información.",
+            "Una ejecución puede no activar todos los caminos, argumentos o disparadores."
+          ]
+        }
+      ],
+      "takeaway": "Capacidad posible y acción observada son niveles de evidencia distintos. Combiná ambos métodos y explicá los límites de la prueba.",
+      "example": "URLDownloadToFile en imports sugiere descarga. Si solo se ve una consulta DNS durante la corrida, no está demostrada una transferencia de archivo.",
+      "manualPages": [
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        41,
+        42
+      ],
+      "conceptIds": [
+        "estatico",
+        "dinamico",
+        "imports",
+        "strings",
+        "laboratorio"
+      ]
+    },
+    {
+      "id": "comparar-regshot-procmon-autoruns",
+      "title": "Regshot, Procmon y Autoruns",
+      "topics": [
+        "malware"
+      ],
+      "columns": [
+        {
+          "label": "Regshot",
+          "conceptId": "regshot"
+        },
+        {
+          "label": "Procmon",
+          "conceptId": "procmon"
+        },
+        {
+          "label": "Autoruns",
+          "conceptId": "regshot"
+        }
+      ],
+      "rows": [
+        {
+          "aspect": "Uso principal",
+          "values": [
+            "Comparar capturas del Registro antes y después.",
+            "Observar operaciones de procesos sobre recursos del sistema.",
+            "Inspeccionar configuraciones de inicio automático."
+          ]
+        },
+        {
+          "aspect": "Dato útil",
+          "values": [
+            "Claves o valores creados, eliminados o modificados.",
+            "Proceso, operación, ruta y resultado; filtros por PID, nombre y recurso.",
+            "Ubicación de autoinicio y referencia al programa configurado."
+          ]
+        },
+        {
+          "aspect": "Pregunta que ayuda a responder",
+          "values": [
+            "¿Qué cambió entre estos dos estados?",
+            "¿Qué proceso realizó esta operación durante la captura?",
+            "¿Desde qué ubicaciones podría iniciarse este programa?"
+          ]
+        },
+        {
+          "aspect": "Límite",
+          "values": [
+            "El ruido del sistema y una base ya alterada pueden confundir la comparación.",
+            "La captura y los filtros deben cubrir el proceso, el tiempo y las operaciones relevantes.",
+            "Una entrada de arranque no es por sí sola prueba de intención maliciosa."
+          ]
+        }
+      ],
+      "takeaway": "Las herramientas se complementan. Una lista de procesos o una captura de red no reemplaza la comparación de claves y archivos.",
+      "example": "Regshot muestra una nueva Run key, Procmon ayuda a relacionar su escritura con el proceso y Autoruns permite revisar esa y otras ubicaciones de arranque.",
+      "manualPages": [
+        38,
+        39,
+        40
+      ],
+      "conceptIds": [
+        "regshot",
+        "procmon",
+        "run-key"
+      ]
+    },
+    {
+      "id": "comparar-run-servicio",
+      "title": "Run key de usuario y servicio de Windows",
+      "topics": [
+        "malware"
+      ],
+      "columns": [
+        {
+          "label": "Run key bajo HKCU",
+          "conceptId": "run-key"
+        },
+        {
+          "label": "Servicio de Windows",
+          "conceptId": "servicios-windows"
+        }
+      ],
+      "rows": [
+        {
+          "aspect": "Ubicación del ejemplo",
+          "values": [
+            "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run",
+            "HKLM\\SYSTEM\\CurrentControlSet\\Services"
+          ]
+        },
+        {
+          "aspect": "Activación",
+          "values": [
+            "Al iniciar sesión del usuario correspondiente.",
+            "Según la configuración del servicio; puede iniciarse al arrancar el sistema."
+          ]
+        },
+        {
+          "aspect": "Permisos habituales",
+          "values": [
+            "El usuario suele poder escribir en su propio perfil sin elevación.",
+            "Crear o modificar configuración del equipo suele requerir privilegios administrativos."
+          ]
+        },
+        {
+          "aspect": "Qué debe correlacionarse",
+          "values": [
+            "Nombre, datos del valor, ruta al archivo y proceso que aparece al iniciar sesión.",
+            "Nombre, binario, cuenta, modo de inicio, configuración y proceso del servicio."
+          ]
+        }
+      ],
+      "takeaway": "Ambas pueden aportar persistencia, pero confirmar una Run key no demuestra que se haya creado un servicio.",
+      "example": "Si CreateService aparece en imports pero solo se observa una Run key nueva, el informe debe separar esa capacidad potencial del autoinicio efectivamente registrado.",
+      "manualPages": [
+        36,
+        38,
+        39,
+        41,
+        42
+      ],
+      "conceptIds": [
+        "run-key",
+        "servicios-windows",
+        "registry",
+        "create-service",
+        "imports"
+      ]
+    },
+    {
+      "id": "comparar-ioc-atribucion",
+      "title": "Indicador de compromiso y atribución",
+      "topics": [
+        "malware",
+        "csirt"
+      ],
+      "columns": [
+        {
+          "label": "IOC",
+          "conceptId": "ioc"
+        },
+        {
+          "label": "Atribución de autoría",
+          "conceptId": "ioc"
+        }
+      ],
+      "rows": [
+        {
+          "aspect": "Objetivo",
+          "values": [
+            "Buscar artefactos o actividad relacionados con un compromiso.",
+            "Sostener una conclusión sobre quién desarrolló u operó una actividad."
+          ]
+        },
+        {
+          "aspect": "Ejemplos de evidencia",
+          "values": [
+            "Hashes, rutas, servicios, claves, dominios o IP contextualizados.",
+            "Conjunto corroborado de evidencias técnicas y de investigación; no una señal aislada."
+          ]
+        },
+        {
+          "aspect": "Qué permite un hash",
+          "values": [
+            "Reconocer contenido de una muestra bajo la función utilizada.",
+            "No contiene por sí solo nombre, nacionalidad ni identidad del autor."
+          ]
+        },
+        {
+          "aspect": "Qué permite una IP",
+          "values": [
+            "Localizar infraestructura y consultar responsables de recursos.",
+            "Puede pertenecer a NAT, un proveedor, un relay o un host comprometido."
+          ]
+        }
+      ],
+      "takeaway": "Identificar contenido, relacionar equipos afectados y atribuir acciones a una persona son preguntas distintas.",
+      "example": "Dos archivos con distinto nombre y el mismo SHA-256 pueden ser copias de la misma muestra; esa coincidencia no determina quién la creó.",
+      "manualPages": [
+        15,
+        20,
+        33,
+        41,
+        42
+      ],
+      "conceptIds": [
+        "ioc",
+        "integridad-archivo",
+        "ip"
+      ]
+    }
+  ]
+}

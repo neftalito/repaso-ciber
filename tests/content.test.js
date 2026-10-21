@@ -1,11 +1,43 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile, access } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
 const root = new URL('../', import.meta.url);
 const readJSON = async path => JSON.parse(await readFile(new URL(path, root), 'utf8'));
 const { questions } = await readJSON('data/questions.json');
 const { entries } = await readJSON('data/glossary.json');
 const mapping = await readJSON('data/concept-map.json');
+const notes = await readJSON('data/option-explanations.json');
+const comparisons = await readJSON('data/comparisons.json');
+test('every distractor has its own reviewed explanation linked to unchanged question wording', () => {
+  assert.equal(notes.version, 1); assert.match(notes.authorship, /No son transcripciones/);
+  assert.deepEqual(notes.questions.map(n => n.questionId), questions.map(q => q.id));
+  let total = 0;
+  for (const [i, q] of questions.entries()) {
+    const n = notes.questions[i];
+    assert.deepEqual(Object.keys(n.distractors), Object.keys(q.options).filter(k => k !== q.answer));
+    // Match the canonical fingerprint produced by the editorial content validator.
+    const canonical = JSON.stringify({ answer: q.answer, options: q.options, prompt: q.prompt });
+    assert.equal(n.questionFingerprint, createHash('sha256').update(canonical).digest('hex'), `Question ${q.id} needs editorial review`);
+    for (const text of Object.values(n.distractors)) { assert.ok(text.trim().length > 35); assert.notEqual(text, q.explanation); total++; }
+    assert.ok(n.manualPages.length && n.manualPages.every(p => p >= 1 && p <= 55));
+  }
+  assert.equal(total, 1400);
+});
+test('comparison tables have complete rows, valid concepts, themes and manual references', () => {
+  assert.equal(comparisons.version, 1); assert.equal(comparisons.comparisons.length, 13);
+  const ids = new Set(entries.map(e => e.id));
+  const comparisonIds = new Set();
+  for (const c of comparisons.comparisons) {
+    assert.ok(!ids.has(c.id) && !comparisonIds.has(c.id)); comparisonIds.add(c.id);
+    assert.ok(c.title && c.example && c.takeaway);
+    assert.ok(c.conceptIds.length && c.conceptIds.every(id => ids.has(id)));
+    assert.ok(c.columns.length >= 2 && c.columns.every(col => ids.has(col.conceptId) && col.label));
+    assert.ok(c.rows.every(row => row.aspect && row.values.length === c.columns.length && row.values.every(Boolean)));
+    assert.ok(c.manualPages.every(p => Number.isInteger(p) && p >= 1 && p <= 55));
+    assert.ok(c.topics.every(t => ['cripto','csirt','malware'].includes(t)));
+  }
+});
 test('bank has ordered unique IDs 1–350, original five options and a solution for every question', () => {
   assert.deepEqual(questions.map(q => q.id), Array.from({ length: 350 }, (_, i) => i + 1));
   for (const q of questions) {

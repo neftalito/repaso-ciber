@@ -25,7 +25,7 @@ async function assertGlossaryLayout(page, width) {
       const { x, y, width, height } = document.querySelector(selector).getBoundingClientRect();
       return { x, y, width, height };
     };
-    return { entries: box('.glossary-entries'), sidebar: box('.glossary-sidebar'), container: box('.glossary-layout') };
+    return { entries: box('.glossary-content'), sidebar: box('.glossary-sidebar'), container: box('.glossary-layout') };
   });
   const { entries, sidebar, container } = layout;
   if (width > 800) {
@@ -48,17 +48,32 @@ try {
   await page.goto(url); await page.waitForSelector('#study-layout:visible');
   assert.equal(await page.locator('[data-question]').count(),350);
   assert.equal(await page.locator('#confirm-answer').isDisabled(),true);
+  assert.equal(await page.locator('.option-explanation').count(),0);
   await mkdir(new URL('../test-results/',import.meta.url),{recursive:true});
   await page.screenshot({path:new URL('../test-results/practica-escritorio.png',import.meta.url).pathname,fullPage:true});
   await page.keyboard.press('Tab'); // Skip link and native tab order are available.
   await page.locator('.answer-option').nth(0).click(); await page.locator('#confirm-answer').click();
   await page.waitForSelector('#feedback:visible'); assert.equal(await page.locator('#hint-panel').isVisible(),true);
   assert.equal(await page.locator('.is-incorrect').count(),1); assert.equal(await page.locator('.is-correct').count(),1);
+  assert.equal(await page.locator('#answer-options > details').count(),5);
+  assert.equal(await page.locator('#answer-options > details[open]').count(),1);
+  assert.equal(await page.locator('#answer-options > details[open]').getAttribute('data-option'),'A');
+  assert.match(await page.locator('[data-option="A"] .option-explanation').textContent(),/Ampliación didáctica/);
+  await page.locator('[data-option="E"] summary').focus(); await page.keyboard.press('Enter');
+  assert.equal(await page.locator('[data-option="E"]').getAttribute('open'),'');
+  assert.match(await page.locator('[data-option="E"] .option-explanation').textContent(),/Solucionario original/);
+  await page.keyboard.press('Space'); assert.equal(await page.locator('[data-option="E"]').getAttribute('open'),null);
+  assert.equal((await page.locator('#retry-answer').textContent()).trim(),'');
+  assert.equal(await page.locator('#retry-answer').getAttribute('aria-label'),'Intentar de nuevo');
   await page.locator('#retry-answer').click(); assert.equal(await page.locator('#feedback').isVisible(),false);
+  assert.equal(await page.locator('.option-explanation').count(),0);
   await page.reload(); await page.waitForSelector('#study-layout:visible'); assert.equal(await page.locator('#feedback').isVisible(),false);
   await page.locator('#show-hint').click(); await page.locator('.answer-option').nth(4).click(); await page.locator('#confirm-answer').click();
   const state=await page.evaluate(()=>JSON.parse(localStorage.getItem('ic2026.progress.v1')));
   assert.equal(state.attempts.length,2); assert.equal(state.attempts[0].hintUsed,false); assert.equal(state.attempts[1].hintUsed,true);
+  assert.equal(await page.locator('#answer-options > details[open]').getAttribute('data-option'),'E');
+  await page.locator('#next-question-inline').click(); assert.match(await page.locator('#question-position').textContent(),/002/);
+  await page.locator('#previous-question').click(); assert.equal(await page.locator('#answer-options > details[open]').count(),0);
   await page.locator('#topic-filter').selectOption('malware'); await page.locator('#status-filter').selectOption('pending');
   assert.equal(await page.locator('[data-question]').count(),124);
   await page.locator('#next-question').click(); await page.reload(); await page.waitForSelector('#study-layout:visible');
@@ -89,18 +104,47 @@ try {
   await page.locator('#glossary-search').fill('base64');
   await page.screenshot({path:new URL('../test-results/glosario-escritorio.png',import.meta.url).pathname,fullPage:true});
   for (const width of [320,390,768,800,801,1024,1440,1920]) {
-    await page.setViewportSize({width,height:900}); await page.goto(url); await page.waitForSelector('#study-layout:visible');
+    await page.setViewportSize({width,height:900}); await page.evaluate(()=>localStorage.clear());
+    await page.goto(url); await page.waitForSelector('#study-layout:visible');
     assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,`Horizontal overflow at ${width}px`);
     if(width===390) await page.screenshot({path:new URL('../test-results/practica-celular.png',import.meta.url).pathname,fullPage:true});
+    await page.locator('.answer-option').nth(0).click(); await page.locator('#confirm-answer').click();
+    await page.locator('#next-question-inline').scrollIntoViewIfNeeded();
+    const actions = await page.evaluate(() => {
+      const bounds = id => { const r=document.getElementById(id).getBoundingClientRect(); return {x:r.x,y:r.y,right:r.right}; };
+      return { next:bounds('next-question-inline'), retry:bounds('retry-answer'), rowRight:document.querySelector('.answer-actions').getBoundingClientRect().right };
+    });
+    assert.ok(actions.retry.x > actions.next.x, `Retry must be on the right at ${width}px`);
+    assert.ok(Math.abs(actions.retry.y - actions.next.y) <= 2, `Answer actions must stay on one row at ${width}px`);
+    assert.ok(Math.abs(actions.rowRight - actions.retry.right) <= 2, `Retry must align right at ${width}px`);
+    assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,`Expanded option overflow at ${width}px`);
+    if(width===390 || width===1440) await page.screenshot({path:new URL(`../test-results/opcion-desplegada-${width}.png`,import.meta.url).pathname,fullPage:true});
     await page.goto(`${url}glosario.html`); await page.waitForSelector('#base64');
     await assertGlossaryLayout(page, width);
     assert.equal(await page.locator('.glossary-entry').count(),89);
+    await page.locator('#comparaciones > summary').click();
+    await page.locator('#comparar-codificacion-cifrado-hash-firma > summary').click();
+    await assertGlossaryLayout(page, width);
+    assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,`Comparison overflow at ${width}px`);
+    if (width <= 480) {
+      assert.equal(await page.locator('#comparar-codificacion-cifrado-hash-firma .comparison-table-scroll').evaluate(n => n.scrollWidth > n.clientWidth),true);
+    }
+    if(width===390 || width===1440) await page.screenshot({path:new URL(`../test-results/comparaciones-${width}.png`,import.meta.url).pathname});
+    await page.locator('#comparaciones > summary').click();
     if(width===1440) await page.screenshot({path:new URL('../test-results/glosario-escritorio-completo.png',import.meta.url).pathname});
     await page.locator('#glossary-search').fill('base64');
     await assertGlossaryLayout(page, width);
     assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,`Glossary overflow at ${width}px`);
     if(width===390) await page.screenshot({path:new URL('../test-results/glosario-celular.png',import.meta.url).pathname,fullPage:true});
   }
+  await page.goto(`${url}glosario.html?q=base64&tema=malware#comparar-whois-rdap`);
+  await page.waitForSelector('#comparar-whois-rdap[open]');
+  assert.equal(await page.locator('#glossary-topic').inputValue(),'all');
+  assert.equal(await page.locator('#comparaciones').getAttribute('open'),'');
+  await page.goto(`${url}index.html?pregunta=350`); await page.waitForSelector('#study-layout:visible');
+  await page.locator('.answer-option').nth(2).click(); await page.locator('#confirm-answer').click();
+  assert.equal(await page.locator('#next-question-inline').isDisabled(),true);
+  assert.equal(await page.locator('#next-question').isDisabled(),true);
   const blocked=await browser.newContext(); await blocked.addInitScript(()=>Object.defineProperty(window,'localStorage',{get(){throw new DOMException('blocked','SecurityError');}}));
   const p=await blocked.newPage(); await p.goto(url); await p.waitForSelector('#study-layout:visible');
   await p.locator('.answer-option').nth(4).click(); await p.locator('#confirm-answer').click(); assert.equal(await p.locator('#storage-warning').isVisible(),true);

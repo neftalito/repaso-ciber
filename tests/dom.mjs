@@ -6,6 +6,8 @@ import { SourceTextModule } from 'node:vm';
 const { JSDOM } = await import(process.env.JSDOM_MODULE || 'jsdom');
 const root = new URL('../', import.meta.url);
 const key = 'ic2026.progress.v1';
+const originalQuestions = JSON.parse(await readFile(new URL('data/questions.json', root), 'utf8')).questions;
+const editorialNotes = JSON.parse(await readFile(new URL('data/option-explanations.json', root), 'utf8')).questions;
 const tick = () => new Promise(resolve => setTimeout(resolve, 0));
 let checks = 0;
 function check(message, fn) { fn(); checks++; console.log(`OK ${checks}: ${message}`); }
@@ -50,16 +52,52 @@ async function mount(file = 'index.html', options = {}) {
 }
 let app = await mount();
 check('initial app loads all 350 questions and leaves correction hidden', () => { assert.equal(app.$('study-layout').hidden, false); assert.equal(app.w.document.querySelectorAll('[data-question]').length, 350); assert.equal(app.$('confirm-answer').disabled, true); assert.equal(app.$('feedback').hidden, true); assert.equal(app.$('hint-panel').hidden, true); });
+check('explanations and accordion controls are unavailable before confirmation', () => {
+  assert.equal(app.w.document.querySelectorAll('#answer-options details, .option-explanation').length, 0);
+  assert.equal(app.$('next-question-inline').hidden, true); assert.equal(app.$('retry-answer').hidden, true);
+});
 app.select('A'); app.submit();
 check('wrong answer highlights chosen/correct options and automatically shows concept', () => { assert.equal(app.$('feedback').hidden, false); assert.equal(app.$('hint-panel').hidden, false); assert.equal(app.w.document.querySelectorAll('.is-correct').length, 1); assert.equal(app.w.document.querySelectorAll('.is-incorrect').length, 1); assert.equal(app.state().attempts[0].hintUsed, false); });
+check('confirmation enables five accordions and opens only the selected wrong option', () => {
+  assert.equal(app.w.document.querySelectorAll('#answer-options details').length, 5);
+  assert.equal(app.w.document.querySelectorAll('#answer-options details[open]').length, 1);
+  const chosen = app.w.document.querySelector('[data-option="A"]'); const correct = app.w.document.querySelector('[data-option="E"]');
+  assert.equal(chosen.open, true); assert.equal(correct.open, false);
+  assert.ok(chosen.textContent.includes(editorialNotes[0].distractors.A));
+  assert.match(chosen.textContent, /Ampliación didáctica/);
+  assert.ok(correct.textContent.includes(originalQuestions[0].explanation)); assert.match(correct.textContent, /Solucionario original/);
+});
+app.w.document.querySelector('[data-option="E"] summary').click();
+check('other options including the correct one can be expanded without recording another attempt', () => {
+  assert.equal(app.w.document.querySelector('[data-option="E"]').open, true); assert.equal(app.state().attempts.length, 1);
+});
 app.submit();
 check('duplicate submit cannot register a second confirmed attempt', () => assert.equal(app.state().attempts.length, 1));
 app.click('retry-answer');
 check('retry hides answer and conceptual help, retains history', () => { assert.equal(app.$('feedback').hidden, true); assert.equal(app.$('hint-panel').hidden, true); assert.equal(app.$('question-history').open, false); assert.equal(app.state().attempts.length, 1); assert.equal(app.$('confirm-answer').disabled, true); assert.equal(app.w.document.activeElement.name, 'answer'); });
+check('retry removes all option explanations and restores five editable radio choices', () => {
+  assert.equal(app.w.document.querySelectorAll('.option-explanation, #answer-options details').length, 0);
+  assert.equal(app.w.document.querySelectorAll('#answer-options input:not(:disabled)').length, 5);
+  assert.equal(app.$('next-question-inline').hidden, true);
+});
 const firstMemory = app.memory; app.close(); app = await mount('index.html', { memory: firstMemory });
 check('reload retains the in-progress retry without redisplaying solution', () => { assert.equal(app.$('feedback').hidden, true); assert.equal(app.state().drafts[1].option, null); });
 app.click('show-hint'); app.select('E'); app.submit();
 check('explicit hint is recorded and successful retry updates last state and statistics', () => { assert.equal(app.state().attempts.length, 2); assert.equal(app.state().attempts[1].hintUsed, true); assert.equal(app.$('correct-count').textContent, '1'); assert.equal(app.$('incorrect-count').textContent, '0'); assert.equal(app.$('answered-count').textContent, '1'); });
+check('a chosen correct option opens its original explanation and leaves distractors closed', () => {
+  assert.equal(app.w.document.querySelector('#answer-options details[open]').dataset.option, 'E');
+  assert.equal(app.w.document.querySelectorAll('#answer-options details[open]').length, 1);
+  assert.equal(app.$('next-question-inline').hidden, false);
+  assert.equal(app.$('retry-answer').getAttribute('aria-label'), 'Intentar de nuevo');
+});
+app.click('next-question-inline');
+check('the nearby next button navigates and hides correction on the following unanswered question', () => {
+  assert.match(app.$('question-position').textContent, /002/); assert.equal(app.$('feedback').hidden, true);
+});
+app.click('previous-question');
+check('returning to a confirmed question leaves its accordions closed by default', () => {
+  assert.match(app.$('question-position').textContent, /001/); assert.equal(app.w.document.querySelectorAll('#answer-options details[open]').length, 0);
+});
 app.change('status-filter','pending');
 check('pending filter excludes question answered correctly', () => { assert.equal(app.w.document.querySelectorAll('[data-question]').length, 349); assert.match(app.$('question-position').textContent, /002/); });
 app.change('topic-filter','malware');
@@ -110,11 +148,23 @@ check('a validated backup remains usable in memory when the storage quota preven
   assert.equal(app.$('correct-count').textContent, '1');
 }); app.close();
 app=await mount('index.html',{suffix:'?pregunta=350'});
-check('question links work under a GitHub Pages subpath', () => { assert.match(app.$('question-position').textContent,/350/); assert.deepEqual(app.requests,['/ic2026/data/questions.json','/ic2026/data/glossary.json']); }); app.close();
+check('question links work under a GitHub Pages subpath', () => { assert.match(app.$('question-position').textContent,/350/); assert.deepEqual(app.requests,['/ic2026/data/questions.json','/ic2026/data/glossary.json','/ic2026/data/option-explanations.json']); });
+app.select(originalQuestions[349].answer); app.submit();
+check('both next buttons stop at the end of the route while retry remains available', () => {
+  assert.equal(app.$('next-question-inline').disabled, true); assert.equal(app.$('next-question').disabled, true);
+  assert.equal(app.$('retry-answer').hidden, false);
+}); app.close();
 app=await mount('index.html',{failFetch:true});
 check('data loading failure offers the original materials', () => { assert.match(app.$('load-status').textContent,/servidor estático/); app.w.document.querySelector('[data-materials]').click(); assert.equal(app.$('materials-dialog').open,true); }); app.close();
 let glossary=await mount('glosario.html');
 check('glossary renders 89 entries with unique direct links', () => { assert.equal(glossary.w.document.querySelectorAll('.glossary-entry').length,89); assert.equal(new Set([...glossary.w.document.querySelectorAll('.glossary-entry')].map(n=>n.id)).size,89); });
+check('the glossary includes thirteen comparison tables, initially collapsed', () => {
+  assert.equal(glossary.w.document.querySelectorAll('.comparison-card').length, 13);
+  assert.equal(glossary.w.document.querySelectorAll('.comparison-card[open]').length, 0);
+  assert.equal(glossary.$('comparaciones').open, false);
+  assert.equal(glossary.w.document.querySelectorAll('.comparison-table').length, 13);
+  assert.ok(glossary.$('hash').querySelector('.comparison-links a'));
+});
 glossary.$('glossary-search').value='criptografia simetrica'; glossary.$('glossary-search').dispatchEvent(new glossary.w.Event('input'));
 check('search ignores accents and finds concepts', () => { assert.ok(glossary.w.document.querySelectorAll('.glossary-entry').length>0); assert.ok(glossary.$('simetrica')); });
 glossary.change('glossary-topic','malware');
@@ -123,8 +173,23 @@ glossary.click('clear-search'); glossary.change('glossary-topic','malware');
 check('glossary topic filter retains relevant entries only', () => { assert.ok(glossary.$('run-key')); assert.equal(glossary.$('cesar'),null); });
 glossary.w.location.hash='#base64'; await tick();
 check('direct links reveal concepts hidden by a filter', () => { assert.ok(glossary.$('base64')); assert.equal(glossary.$('glossary-topic').value,'all'); });
+glossary.change('glossary-topic', 'malware'); glossary.w.location.hash = '#comparar-whois-rdap'; await tick();
+check('comparison deep links clear conflicting filters and open both accordion levels', () => {
+  assert.equal(glossary.$('glossary-topic').value, 'all'); assert.equal(glossary.$('comparaciones').open, true);
+  assert.equal(glossary.$('comparar-whois-rdap').open, true);
+});
+glossary.$('glossary-search').value = 'sobre smtp'; glossary.$('glossary-search').dispatchEvent(new glossary.w.Event('input'));
+check('comparison titles and contents participate in glossary search', () => {
+  assert.ok(glossary.$('comparar-sobre-cabeceras-cuerpo')); assert.equal(glossary.$('comparaciones').open, true);
+  assert.equal(glossary.$('comparar-whois-rdap'), null);
+});
 glossary.close();
 glossary=await mount('glosario.html',{suffix:'?q=base64&tema=cripto#run-key'});
 check('deep link after asynchronous loading takes priority over conflicting filters', () => { assert.ok(glossary.$('run-key')); assert.equal(glossary.$('glossary-search').value,''); });
 check('all rendered local links resolve inside the deployment subpath', () => { for(const a of glossary.w.document.querySelectorAll('a[href]')) { const url=new URL(a.href); assert.ok(url.pathname.startsWith('/ic2026/')); } }); glossary.close();
+glossary = await mount('glosario.html', { suffix: '?q=base64&tema=malware#comparar-estatico-dinamico' });
+check('a comparison permalink opens after asynchronous loading with conflicting URL filters', () => {
+  assert.equal(glossary.$('comparar-estatico-dinamico').open, true); assert.equal(glossary.$('comparaciones').open, true);
+  assert.equal(glossary.$('glossary-search').value, ''); assert.equal(glossary.$('glossary-topic').value, 'all');
+}); glossary.close();
 console.log(`PASS: ${checks} comprobaciones de interacción DOM. La revisión visual requiere un navegador real.`);

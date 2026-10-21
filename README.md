@@ -29,9 +29,9 @@ No se necesita generar una carpeta `dist/` ni ejecutar npm. `.nojekyll` permite 
 ## Cómo practicar
 
 - Elegir una opción y pulsar **Confirmar respuesta**. Hasta entonces se puede cambiar de opción.
-- Después de confirmar se muestran la selección, la respuesta correcta, la explicación literal del solucionario y su fuente.
+- Después de confirmar se habilitan cinco acordeones dentro de las opciones. Se abre automáticamente solo la elegida; las demás quedan cerradas y pueden abrirse con clic, Enter o Espacio. La opción correcta conserva la explicación literal del solucionario y su fuente; cada distractor tiene una explicación identificada como ampliación didáctica.
 - **Ver pista** presenta una orientación conceptual sin indicar la letra ni resolver los cálculos de la pregunta. Al fallar, se muestran automáticamente la definición, la explicación y el ejemplo del concepto relacionado, junto con la corrección.
-- **Intentar de nuevo** abre un borrador sin solución ni pista visibles. Conserva los intentos anteriores, que se consultan en el historial desplegable. Los borradores también sobreviven a una recarga.
+- El ícono **Intentar de nuevo**, alineado a la derecha y con nombre accesible, abre un borrador sin solución ni pista visibles. El botón **Siguiente pregunta** aparece también junto a las opciones después de confirmar y recorre el mismo filtro que el botón inferior. Ambos se deshabilitan al llegar al final. Al volver a una pregunta respondida, sus acordeones empiezan cerrados. Conserva los intentos anteriores, que se consultan en el historial desplegable. Los borradores también sobreviven a una recarga.
 - El índice y los filtros usan el **último intento confirmado**. Durante un reintento, el estado anterior sigue vigente hasta confirmar. Si una respuesta deja de coincidir con el filtro, su corrección sigue visible hasta navegar o cambiar los filtros.
 - El recorrido se cuenta sobre 350 preguntas con al menos un intento, independientemente del resultado. Las estadísticas de correctas/falladas corresponden al último intento; las estadísticas con/sin pista consideran todos los intentos.
 - Los botones y controles funcionan con Tab, Mayús+Tab, Enter y Espacio; las flechas cambian opciones dentro del grupo de radio. **Alt+← / Alt+→** navega preguntas del recorrido filtrado. Escape cierra las ventanas de material y progreso.
@@ -62,11 +62,13 @@ La importación valida versión, IDs, opciones, resultados contra el solucionari
 - `data/questions.json`: 350 preguntas con IDs estables `1`–`350`, opciones originales A–E en orden, solución, explicación, fuente de las diapositivas, páginas de los PDF y conceptos relacionados.
 - `data/glossary.json`: 89 entradas con ID, temas, definición, explicación, ejemplo cuando aporta claridad, pista y páginas del manual. Conserva los 33 términos del glosario original de pp. 51–52; las demás entradas amplían su cobertura.
 - `data/concept-map.json`: correspondencia revisada de las 350 preguntas con los conceptos. El primer concepto orienta la pista; los demás permiten profundizar. La extracción no adivina relaciones por palabras clave.
+- `data/option-explanations.json`: 1.400 explicaciones específicas para los cuatro distractores de cada pregunta, con referencias conceptuales al manual, notas de contexto y una huella del enunciado/opciones/respuesta que permite detectar cambios que requieren revisión editorial. No modifica las explicaciones originales ni se regenera desde los PDF.
+- `data/comparisons.json`: 13 cuadros de elaboración didáctica sobre conceptos que suelen confundirse, con columnas, diferencias, ejemplos, enlaces a entradas y páginas del manual.
 - `data/extraction-report.json`: resultados de las comprobaciones, versión del extractor, páginas y SHA-256 de cada PDF.
 
 Las referencias **Fuente original (diapositivas)** se copian del solucionario y tienen su propia numeración. Esas presentaciones no están incluidas. Los enlaces **Manual, p. …** abren el PDF disponible de 55 páginas. Las entradas que agregan detalles no desarrollados en el manual lo indican y citan sus páginas como contexto. Los enlaces PDF usan `#page=N`; algunos lectores externos pueden ignorar el salto y abrir el inicio del documento.
 
-El glosario admite búsqueda sin distinguir mayúsculas o tildes, filtros de tema y enlaces como `glosario.html#run-key`. Cada entrada ofrece acceso a sus preguntas relacionadas mediante `index.html?pregunta=321`.
+El glosario admite búsqueda sin distinguir mayúsculas o tildes, filtros de tema y enlaces como `glosario.html#run-key`. La sección **Compará conceptos** incorpora 13 cuadros desplegables que también se buscan y filtran. Las entradas ofrecen enlaces a sus comparaciones, y cada cuadro tiene un enlace directo, por ejemplo `glosario.html#comparar-estatico-dinamico`. Un enlace directo abre el cuadro y despeja filtros incompatibles. En pantallas angostas las tablas se desplazan dentro de su propio contenedor, sin ensanchar la página. Cada entrada ofrece acceso a sus preguntas relacionadas mediante `index.html?pregunta=321`.
 
 ## Extracción reproducible
 

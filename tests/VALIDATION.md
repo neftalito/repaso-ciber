@@ -12,8 +12,8 @@ Validación realizada el 21 de octubre de 2026.
 | Cantidades por tema | Criptografía 66, CSIRT 160, Malware 124 |
 | Referencias locales, páginas PDF y enlaces de conceptos | Correcto |
 | Glosario ampliado | 89 entradas; conserva los 33 términos originales |
-| Pruebas de contenido y modelo de progreso | 11 pruebas aprobadas |
-| Interacciones en DOM con los módulos reales | 30 comprobaciones aprobadas |
+| Pruebas de contenido y modelo de progreso | 13 pruebas aprobadas |
+| Interacciones en DOM con los módulos reales | 42 comprobaciones aprobadas |
 | Renderizado en Chromium, capturas y dimensiones de pantalla | Correcto en GitHub Actions a 320/390/768/800/801/1024/1440/1920 px |
 | Publicación efectiva en GitHub Pages | Corrección desplegada correctamente desde `main` |
 
@@ -32,3 +32,9 @@ Se corrigió la grilla de escritorio para que las entradas ocupen el espacio pri
 Las 11 pruebas de contenido/progreso y la validación de referencias volvieron a pasar. La prueba de navegador ahora comprueba las proporciones y posiciones de las dos secciones, con las 89 entradas y con búsqueda, a 320, 390, 768, 800, 801, 1024, 1440 y 1920 px. El lanzamiento local de Chromium sigue bloqueado por el entorno. El flujo `.github/workflows/validate.yml` permite ejecutar esa revisión en GitHub Actions y conserva capturas como artefactos.
 
 La [ejecución 39678167827 en GitHub Actions](https://github.com/neftalito/repaso-ciber/actions/runs/39678167827) completó correctamente las 11 pruebas de contenido/progreso, las 30 comprobaciones DOM y la suite de Chromium con las comprobaciones geométricas en los ocho anchos, teclado, importación/exportación y rutas bajo subdirectorio. Las capturas de escritorio y móvil están disponibles en el artefacto `capturas-responsive` de esa ejecución. La descarga de las capturas al entorno local estuvo bloqueada por la resolución de red; la geometría y los desbordamientos se comprobaron automáticamente en Chromium. El [despliegue de Pages 39678164716](https://github.com/neftalito/repaso-ciber/actions/runs/39678164716) también terminó correctamente.
+
+## Explicaciones por opción y comparaciones de conceptos
+
+Se agregaron 1.400 explicaciones didácticas de distractores para las 350 preguntas y se conservaron las 350 explicaciones originales de las opciones correctas. La validación comprueba cobertura exacta, letras, referencias y huellas de los enunciados, opciones y respuesta. El glosario suma 13 comparaciones con filas completas, enlaces a conceptos y páginas del manual válidos.
+
+Pasaron 13 pruebas de contenido/progreso y 42 comprobaciones DOM, incluidas ausencia de explicaciones antes de confirmar, apertura de la opción elegida, acceso a la explicación correcta, cierre al reintentar o regresar, navegación próxima y final del recorrido, búsqueda y enlaces directos a comparaciones. La suite de Chromium incorpora apertura/cierre por teclado, alineación del ícono de reintento y contención de tablas en los ocho anchos. La comprobación de esta revisión en GitHub Actions se registrará al concluir la ejecución.

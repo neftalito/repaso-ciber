@@ -6,7 +6,7 @@ const stateLabels = { pending: 'Pendiente', correct: 'Correcta', incorrect: 'Fal
 const dateLabel = date => new Intl.DateTimeFormat('es-AR', { dateStyle: 'short', timeStyle: 'short' }).format(new Date(date));
 const pdfLink = (file, page, text) => { const a = el('a', 'text-link', text); a.href = `docs/${file}#page=${page}`; a.target = '_blank'; a.rel = 'noopener'; a.setAttribute('aria-label', `${text} (PDF, nueva pestaña)`); return a; };
 const MANUAL = 'Manual_IC2026_Cripto_CSIRT_Malware_Descarga.pdf';
-let questions, concepts, progress, storage, pinned = false, recoveryRaw = null;
+let questions, concepts, optionNotes, progress, storage, pinned = false, recoveryRaw = null, autoOpenQuestion = null;
 function warn(message) { $('storage-warning').textContent = message; $('storage-warning').hidden = !message; $('save-state').textContent = message ? 'Sesión sin guardado garantizado' : 'Progreso en este navegador'; }
 function persist() {
   if (recoveryRaw !== null) {
@@ -97,6 +97,50 @@ function attemptItem(a) {
   item.querySelector('time').dateTime = a.date;
   return item;
 }
+function answerOption(q, letter, text, confirmed, last, draft) {
+  const card = el(confirmed ? 'details' : 'div', 'answer-option');
+  card.dataset.option = letter;
+  const choice = el(confirmed ? 'summary' : 'label', 'answer-choice');
+  if (confirmed) {
+    card.open = autoOpenQuestion === q.id && last.option === letter;
+    if (letter === q.answer) card.classList.add('is-correct');
+    else if (letter === last.option) card.classList.add('is-incorrect');
+  } else {
+    const radio = el('input');
+    radio.type = 'radio'; radio.name = 'answer'; radio.value = letter;
+    radio.id = `answer-${q.id}-${letter}`; radio.checked = draft?.option === letter;
+    choice.htmlFor = radio.id; choice.append(radio);
+  }
+  choice.append(el('span', 'option-letter', letter), el('span', 'option-text', text));
+  if (confirmed) {
+    const meta = el('span', 'option-meta');
+    if (letter === q.answer) meta.append(el('span', 'option-result', last.option === letter ? '✓ Tu elección · Correcta' : '✓ Correcta'));
+    else if (letter === last.option) meta.append(el('span', 'option-result', '× Tu elección'));
+    const toggle = el('span', 'option-toggle', 'Explicación ');
+    const chevron = el('span', 'option-chevron', '⌄'); chevron.setAttribute('aria-hidden', 'true');
+    toggle.append(chevron); meta.append(toggle); choice.append(meta);
+  }
+  card.append(choice);
+  if (confirmed) {
+    const correct = letter === q.answer;
+    const note = optionNotes.get(q.id);
+    const body = el('div', 'option-explanation');
+    body.append(el('h3', '', correct ? 'Por qué es correcta' : 'Por qué no responde a esta pregunta'),
+      el('p', '', correct ? q.explanation : note.distractors[letter]));
+    const reference = el('p', 'option-reference');
+    if (correct) {
+      reference.append(el('strong', '', 'Solucionario original · '),
+        pdfLink('IC_2026_Cripto_CSIRT_Malware_Solucionario.pdf', q.solutionPage, `p. ${q.solutionPage}`),
+        el('span', 'original-reference', `Fuente original (diapositivas): ${q.source}`));
+    } else {
+      reference.append(el('strong', '', 'Ampliación didáctica · '),
+        pdfLink(MANUAL, note.manualPages[0], `Conceptos en el manual, pp. ${note.manualPages.join(', ')}`));
+      if (note.referenceNote) reference.append(el('span', 'reference-note', note.referenceNote));
+    }
+    body.append(reference); card.append(body);
+  }
+  return card;
+}
 function renderQuestion(filtered) {
   const q = current();
   const last = latestAttempt(progress, q.id);
@@ -115,27 +159,20 @@ function renderQuestion(filtered) {
   const fieldset = $('answer-options');
   fieldset.replaceChildren(el('legend', 'sr-only', 'Opciones de respuesta'));
   for (const [letter, text] of Object.entries(q.options)) {
-    const label = el('label', 'answer-option');
-    const radio = el('input'); radio.type = 'radio'; radio.name = 'answer'; radio.value = letter; radio.disabled = confirmed;
-    radio.checked = confirmed ? last.option === letter : draft?.option === letter;
-    label.append(radio, el('span', 'option-letter', letter), el('span', 'option-text', text));
-    if (confirmed && letter === q.answer) { label.classList.add('is-correct'); label.append(el('span', 'option-result', last.option === letter ? '✓ Tu elección · Correcta' : '✓ Correcta')); }
-    else if (confirmed && letter === last.option) { label.classList.add('is-incorrect'); label.append(el('span', 'option-result', '× Tu elección')); }
-    fieldset.append(label);
+    fieldset.append(answerOption(q, letter, text, confirmed, last, draft));
   }
+  autoOpenQuestion = null;
   $('confirm-answer').hidden = confirmed;
   $('confirm-answer').disabled = !draft?.option;
   $('retry-answer').hidden = !confirmed;
+  $('next-question-inline').hidden = !confirmed;
   $('show-hint').hidden = confirmed || Boolean(draft?.hintUsed);
   $('feedback').hidden = !confirmed;
   $('feedback').replaceChildren();
   if (confirmed) {
     $('feedback').className = `feedback ${last.correct ? 'success' : 'failure'}`;
-    $('feedback').append(el('h3', '', last.correct ? '✓ Bien, esa es la respuesta.' : `La respuesta correcta es ${q.answer}.`), el('p', '', q.explanation));
-    const ref = el('p', 'small solution-reference');
-    ref.append(pdfLink('IC_2026_Cripto_CSIRT_Malware_Solucionario.pdf', q.solutionPage, `Solucionario, p. ${q.solutionPage}`));
-    ref.append(el('span', 'original-reference', `Fuente original (diapositivas): ${q.source}`));
-    $('feedback').append(ref);
+    $('feedback').append(el('h3', '', last.correct ? '✓ Bien, esa es la respuesta.' : `La respuesta correcta es ${q.answer}.`),
+      el('p', '', 'Desplegá las opciones para consultar sus explicaciones. La que elegiste se abre al confirmar.'));
   }
   renderHint(q, confirmed ? !last.correct || last.hintUsed : Boolean(draft?.hintUsed), confirmed && !last.correct);
   const history = progress.attempts.filter(a => a.questionId === q.id);
@@ -152,10 +189,12 @@ function renderQuestion(filtered) {
   const next = filtered.find(item => item.id > q.id);
   $('previous-question').disabled = empty || !previous;
   $('next-question').disabled = empty || !next;
+  $('next-question-inline').disabled = empty || !next;
   $('filtered-position').textContent = index >= 0 ? `${index + 1} de ${filtered.length} en este recorrido` : `${filtered.length} en el filtro`;
 }
 function render() { const filtered = filterQuestions(questions, progress); renderStats(); renderIndex(filtered); renderQuestion(filtered); }
 function navigate(id) {
+  autoOpenQuestion = null;
   progress.view.questionId = id; pinned = false; persist(); render();
   $('question-title').focus({ preventScroll: true });
   if (matchMedia('(max-width: 800px)').matches) $('question-panel').scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -198,7 +237,12 @@ function bindEvents() {
     event.preventDefault();
     // A confirmed card cannot append a second attempt without an explicit retry.
     if (latestAttempt(progress, current().id) && !progress.drafts[current().id]) return;
-    try { confirmAttempt(progress, current()); pinned = true; persist(); render(); $('feedback').scrollIntoView({ block: 'nearest', behavior: 'smooth' }); $('retry-answer').focus({ preventScroll: true }); }
+    try {
+      confirmAttempt(progress, current()); autoOpenQuestion = current().id; pinned = true; persist(); render();
+      const selected = $('answer-options').querySelector('details[open]');
+      selected.querySelector('summary').focus({ preventScroll: true });
+      selected.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+    }
     catch (error) { $('selection-note').textContent = error.message; }
   });
   $('show-hint').addEventListener('click', () => {
@@ -212,6 +256,7 @@ function bindEvents() {
   });
   $('previous-question').addEventListener('click', () => move(-1));
   $('next-question').addEventListener('click', () => move(1));
+  $('next-question-inline').addEventListener('click', () => move(1));
   $('question-index').addEventListener('click', event => { const b = event.target.closest('[data-question]'); if (b) navigate(Number(b.dataset.question)); });
   $('topic-filter').addEventListener('change', () => setFilters());
   $('status-filter').addEventListener('change', () => setFilters());
@@ -262,11 +307,13 @@ function bindDialogs() {
 }
 bindDialogs();
 try {
-  const responses = await Promise.all([fetch('data/questions.json'), fetch('data/glossary.json')]);
+  const responses = await Promise.all([fetch('data/questions.json'), fetch('data/glossary.json'), fetch('data/option-explanations.json')]);
   if (responses.some(r => !r.ok)) throw new Error('No se pudieron cargar los archivos de contenido.');
-  const [bank, glossary] = await Promise.all(responses.map(r => r.json()));
+  const [bank, glossary, notes] = await Promise.all(responses.map(r => r.json()));
   questions = bank.questions; concepts = new Map(glossary.entries.map(c => [c.id, c]));
+  optionNotes = new Map(notes.questions.map(n => [n.questionId, n]));
   if (bank.version !== 1 || questions.length !== 350 || questions.some((q, i) => q.id !== i + 1 || !q.conceptIds.every(id => concepts.has(id)))) throw new Error('El banco de preguntas está incompleto.');
+  if (notes.version !== 1 || optionNotes.size !== 350 || questions.some(q => !optionNotes.has(q.id) || Object.keys(q.options).filter(k => k !== q.answer).some(k => !optionNotes.get(q.id).distractors[k]))) throw new Error('Las explicaciones por opción están incompletas.');
   try { storage = window.localStorage; } catch { storage = null; }
   const loaded = loadProgress(storage, questions); progress = loaded.progress; recoveryRaw = loaded.recoveryRaw; warn(loaded.warning);
   const linkedId = new URL(location.href).searchParams.get('pregunta');
