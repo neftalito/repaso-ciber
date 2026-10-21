@@ -1,0 +1,86 @@
+/* Real Chromium QA. Starts a temporary static server and exercises /ic2026/.
+   npm install; npx playwright install chromium; npm run test:browser */
+import assert from 'node:assert/strict';
+import { createServer } from 'node:http';
+import { readFile, mkdir } from 'node:fs/promises';
+import { fileURLToPath } from 'node:url';
+import path from 'node:path';
+const { chromium } = await import(process.env.PLAYWRIGHT_MODULE || 'playwright');
+const root = fileURLToPath(new URL('../', import.meta.url));
+const types = { '.html':'text/html; charset=utf-8', '.js':'text/javascript; charset=utf-8', '.mjs':'text/javascript; charset=utf-8', '.css':'text/css; charset=utf-8', '.json':'application/json; charset=utf-8', '.svg':'image/svg+xml', '.pdf':'application/pdf' };
+const server = createServer(async (req,res) => {
+  const url = new URL(req.url,'http://localhost');
+  if (!url.pathname.startsWith('/ic2026/')) { res.writeHead(404); res.end(); return; }
+  const relative = decodeURIComponent(url.pathname.slice('/ic2026/'.length)) || 'index.html';
+  const full = path.resolve(root,relative);
+  if (!full.startsWith(root)) { res.writeHead(403); res.end(); return; }
+  try { const body=await readFile(full); res.writeHead(200,{'Content-Type':types[path.extname(full)] || 'application/octet-stream'}); res.end(body); }
+  catch { res.writeHead(404); res.end(); }
+});
+let browser;
+const errors=[];
+try {
+  browser=await chromium.launch({headless:true, ...(process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE ? {executablePath:process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE} : {})});
+  await new Promise((resolve,reject) => { server.once('error',reject); server.listen(0,'127.0.0.1',resolve); });
+  const url=`http://127.0.0.1:${server.address().port}/ic2026/`;
+  const context=await browser.newContext({viewport:{width:1440,height:1000}});
+  const page=await context.newPage(); page.on('pageerror',error=>errors.push(error.message));
+  page.on('response',r=>{ if(r.status()>=400) errors.push(`${r.status()} ${r.url()}`); });
+  await page.goto(url); await page.waitForSelector('#study-layout:visible');
+  assert.equal(await page.locator('[data-question]').count(),350);
+  assert.equal(await page.locator('#confirm-answer').isDisabled(),true);
+  await mkdir(new URL('../test-results/',import.meta.url),{recursive:true});
+  await page.screenshot({path:new URL('../test-results/practica-escritorio.png',import.meta.url).pathname,fullPage:true});
+  await page.keyboard.press('Tab'); // Skip link and native tab order are available.
+  await page.locator('.answer-option').nth(0).click(); await page.locator('#confirm-answer').click();
+  await page.waitForSelector('#feedback:visible'); assert.equal(await page.locator('#hint-panel').isVisible(),true);
+  assert.equal(await page.locator('.is-incorrect').count(),1); assert.equal(await page.locator('.is-correct').count(),1);
+  await page.locator('#retry-answer').click(); assert.equal(await page.locator('#feedback').isVisible(),false);
+  await page.reload(); await page.waitForSelector('#study-layout:visible'); assert.equal(await page.locator('#feedback').isVisible(),false);
+  await page.locator('#show-hint').click(); await page.locator('.answer-option').nth(4).click(); await page.locator('#confirm-answer').click();
+  const state=await page.evaluate(()=>JSON.parse(localStorage.getItem('ic2026.progress.v1')));
+  assert.equal(state.attempts.length,2); assert.equal(state.attempts[0].hintUsed,false); assert.equal(state.attempts[1].hintUsed,true);
+  await page.locator('#topic-filter').selectOption('malware'); await page.locator('#status-filter').selectOption('pending');
+  assert.equal(await page.locator('[data-question]').count(),124);
+  await page.locator('#next-question').click(); await page.reload(); await page.waitForSelector('#study-layout:visible');
+  assert.match(await page.locator('#question-position').textContent(),/228/); assert.equal(await page.locator('#topic-filter').inputValue(),'malware');
+  await page.locator('#manage-progress').click();
+  const downloadPromise=page.waitForEvent('download'); await page.locator('#export-progress').click(); const download=await downloadPromise;
+  const exported=await readFile(await download.path(),'utf8'); assert.equal(JSON.parse(exported).attempts.length,2);
+  await page.locator('#import-progress').setInputFiles({name:'invalid.json',mimeType:'application/json',buffer:Buffer.from('{bad')});
+  await page.waitForFunction(()=>document.querySelector('#transfer-status').textContent.includes('JSON válido'));
+  page.once('dialog',d=>d.dismiss()); await page.locator('#import-progress').setInputFiles({name:'cancel.json',mimeType:'application/json',buffer:Buffer.from(exported)});
+  await page.waitForFunction(()=>document.querySelector('#transfer-status').textContent.includes('cancelada'));
+  page.once('dialog',d=>d.accept()); await page.locator('#reset-progress').click();
+  assert.equal(await page.locator('#answered-count').textContent(),'0');
+  page.once('dialog',d=>d.accept()); await page.locator('#import-progress').setInputFiles({name:'progress.json',mimeType:'application/json',buffer:Buffer.from(exported)});
+  await page.waitForFunction(()=>document.querySelector('#transfer-status').textContent.includes('Progreso importado'));
+  assert.equal(await page.locator('#answered-count').textContent(),'1');
+  await page.keyboard.press('Escape'); assert.equal(await page.locator('#progress-dialog').isVisible(),false);
+  await page.locator('#reset-filters').click();
+  await page.locator('[data-question="1"]').click(); await page.locator('#retry-answer').click();
+  await page.locator('input[value="A"]').focus(); await page.keyboard.press('ArrowDown');
+  assert.equal(await page.locator('input[value="B"]').isChecked(),true);
+  await page.keyboard.press('Alt+ArrowRight'); assert.match(await page.locator('#question-position').textContent(),/002/);
+  await page.goto(`${url}glosario.html#run-key`); await page.waitForSelector('#run-key');
+  assert.equal(await page.locator('.glossary-entry').count(),89);
+  await page.locator('#glossary-search').fill('criptografia simetrica'); assert.equal(await page.locator('#simetrica').count(),1);
+  await page.locator('#glossary-topic').selectOption('malware'); assert.equal(await page.locator('.glossary-entry').count(),0);
+  await page.locator('#clear-search').click();
+  await page.locator('#glossary-search').fill('base64');
+  await page.screenshot({path:new URL('../test-results/glosario-escritorio.png',import.meta.url).pathname,fullPage:true});
+  for (const width of [320,390,768,1440]) {
+    await page.setViewportSize({width,height:900}); await page.goto(url); await page.waitForSelector('#study-layout:visible');
+    assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,`Horizontal overflow at ${width}px`);
+    if(width===390) await page.screenshot({path:new URL('../test-results/practica-celular.png',import.meta.url).pathname,fullPage:true});
+    await page.goto(`${url}glosario.html?q=base64`); await page.waitForSelector('#base64');
+    assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,`Glossary overflow at ${width}px`);
+    if(width===390) await page.screenshot({path:new URL('../test-results/glosario-celular.png',import.meta.url).pathname,fullPage:true});
+  }
+  const blocked=await browser.newContext(); await blocked.addInitScript(()=>Object.defineProperty(window,'localStorage',{get(){throw new DOMException('blocked','SecurityError');}}));
+  const p=await blocked.newPage(); await p.goto(url); await p.waitForSelector('#study-layout:visible');
+  await p.locator('.answer-option').nth(4).click(); await p.locator('#confirm-answer').click(); assert.equal(await p.locator('#storage-warning').isVisible(),true);
+  assert.equal(await p.locator('#correct-count').textContent(),'1'); await blocked.close();
+  for(const file of ['Manual_IC2026_Cripto_CSIRT_Malware_Descarga.pdf','IC_2026_Cripto_CSIRT_Malware_350_Preguntas.pdf','IC_2026_Cripto_CSIRT_Malware_Solucionario.pdf']) { const response=await context.request.get(`${url}docs/${file}`); assert.equal(response.status(),200); }
+  assert.deepEqual(errors,[]); console.log('PASS: práctica, glosario, progreso, teclado, 320/390/768/1440 px y subruta /ic2026/. Capturas en test-results/.');
+} finally { if(browser) await browser.close(); if(server.listening) await new Promise(resolve=>server.close(resolve)); }

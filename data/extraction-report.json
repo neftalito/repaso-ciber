@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "extractor": "pypdf",
+  "extractorVersion": "6.20.1",
+  "checks": {
+    "uniqueConsecutiveIds": 350,
+    "optionsPerQuestion": 5,
+    "solutionPromptsMatched": 350,
+    "solutionAnswersMatched": 350,
+    "annexPromptsMatched": 350,
+    "annexAnswersMatched": 350,
+    "glossaryLinksValidated": 350,
+    "topicCounts": {
+      "cripto": 66,
+      "csirt": 160,
+      "malware": 124
+    }
+  },
+  "documents": [
+    {
+      "file": "docs/IC_2026_Cripto_CSIRT_Malware_350_Preguntas.pdf",
+      "pages": 172,
+      "sha256": "f83a281538d445b89637e7625046c61b0dff66dee371d580637f4f9aa8b15c4a"
+    },
+    {
+      "file": "docs/IC_2026_Cripto_CSIRT_Malware_Solucionario.pdf",
+      "pages": 43,
+      "sha256": "8c554a8cb76d5d381f63c06cfc2fc0c61a20c6ec701329b62bbd7b8ae97e6cb4"
+    },
+    {
+      "file": "docs/Manual_IC2026_Cripto_CSIRT_Malware_Descarga.pdf",
+      "pages": 55,
+      "sha256": "1106ac4dec0d370b2b8e819e97b9b4e019252ec7746ba474afd914af1e85871a"
+    }
+  ]
+}

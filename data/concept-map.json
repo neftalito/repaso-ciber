@@ -1,0 +1,1301 @@
+{
+  "1": [
+    "base64",
+    "cifrado"
+  ],
+  "2": [
+    "ascii"
+  ],
+  "3": [
+    "ascii"
+  ],
+  "4": [
+    "ascii"
+  ],
+  "5": [
+    "ascii"
+  ],
+  "6": [
+    "cifrado",
+    "simetrica"
+  ],
+  "7": [
+    "cesar",
+    "clasicos"
+  ],
+  "8": [
+    "cesar",
+    "clasicos"
+  ],
+  "9": [
+    "clasicos"
+  ],
+  "10": [
+    "clasicos"
+  ],
+  "11": [
+    "kerckhoffs",
+    "simetrica"
+  ],
+  "12": [
+    "simetrica"
+  ],
+  "13": [
+    "asimetrica"
+  ],
+  "14": [
+    "simetrica"
+  ],
+  "15": [
+    "ecb",
+    "bloques"
+  ],
+  "16": [
+    "cbc",
+    "xor"
+  ],
+  "17": [
+    "iv",
+    "cbc"
+  ],
+  "18": [
+    "flujo",
+    "keystream"
+  ],
+  "19": [
+    "ecb",
+    "bloques"
+  ],
+  "20": [
+    "bloques"
+  ],
+  "21": [
+    "hash"
+  ],
+  "22": [
+    "colisiones",
+    "hash"
+  ],
+  "23": [
+    "sha",
+    "ascii"
+  ],
+  "24": [
+    "sha",
+    "ascii"
+  ],
+  "25": [
+    "sha",
+    "ascii"
+  ],
+  "26": [
+    "colisiones",
+    "hash"
+  ],
+  "27": [
+    "contrasenas"
+  ],
+  "28": [
+    "hash"
+  ],
+  "29": [
+    "integridad-archivo",
+    "hash"
+  ],
+  "30": [
+    "colisiones",
+    "hash"
+  ],
+  "31": [
+    "firma",
+    "colisiones"
+  ],
+  "32": [
+    "simetrica"
+  ],
+  "33": [
+    "bloques"
+  ],
+  "34": [
+    "integridad-archivo",
+    "hash"
+  ],
+  "35": [
+    "cifrado",
+    "simetrica"
+  ],
+  "36": [
+    "hash"
+  ],
+  "37": [
+    "hash"
+  ],
+  "38": [
+    "hash"
+  ],
+  "39": [
+    "colisiones",
+    "hash"
+  ],
+  "40": [
+    "sha",
+    "ascii"
+  ],
+  "41": [
+    "contrasenas"
+  ],
+  "42": [
+    "integridad-archivo",
+    "hash"
+  ],
+  "43": [
+    "hash"
+  ],
+  "44": [
+    "firma",
+    "colisiones"
+  ],
+  "45": [
+    "simetrica"
+  ],
+  "46": [
+    "ecb",
+    "bloques"
+  ],
+  "47": [
+    "iv",
+    "cbc"
+  ],
+  "48": [
+    "flujo",
+    "keystream"
+  ],
+  "49": [
+    "xor",
+    "keystream"
+  ],
+  "50": [
+    "simetrica"
+  ],
+  "51": [
+    "clasicos"
+  ],
+  "52": [
+    "clasicos"
+  ],
+  "53": [
+    "base64",
+    "cifrado"
+  ],
+  "54": [
+    "ascii"
+  ],
+  "55": [
+    "cifrado",
+    "simetrica"
+  ],
+  "56": [
+    "cesar",
+    "clasicos"
+  ],
+  "57": [
+    "cesar",
+    "clasicos"
+  ],
+  "58": [
+    "cesar",
+    "clasicos"
+  ],
+  "59": [
+    "cesar",
+    "clasicos"
+  ],
+  "60": [
+    "cesar",
+    "clasicos"
+  ],
+  "61": [
+    "sha",
+    "ascii"
+  ],
+  "62": [
+    "sha",
+    "ascii"
+  ],
+  "63": [
+    "sha",
+    "ascii"
+  ],
+  "64": [
+    "xor",
+    "keystream"
+  ],
+  "65": [
+    "xor",
+    "keystream"
+  ],
+  "66": [
+    "xor",
+    "keystream"
+  ],
+  "67": [
+    "cia"
+  ],
+  "68": [
+    "cia"
+  ],
+  "69": [
+    "cia"
+  ],
+  "70": [
+    "cia"
+  ],
+  "71": [
+    "no-repudio",
+    "firma"
+  ],
+  "72": [
+    "riesgo"
+  ],
+  "73": [
+    "riesgo"
+  ],
+  "74": [
+    "riesgo"
+  ],
+  "75": [
+    "riesgo"
+  ],
+  "76": [
+    "actores",
+    "riesgo"
+  ],
+  "77": [
+    "actores",
+    "riesgo"
+  ],
+  "78": [
+    "actores",
+    "riesgo"
+  ],
+  "79": [
+    "mitm"
+  ],
+  "80": [
+    "phishing"
+  ],
+  "81": [
+    "fallos-web",
+    "riesgo"
+  ],
+  "82": [
+    "fallos-web",
+    "riesgo"
+  ],
+  "83": [
+    "suministro"
+  ],
+  "84": [
+    "fallos-web",
+    "riesgo"
+  ],
+  "85": [
+    "credenciales",
+    "contrasenas"
+  ],
+  "86": [
+    "credenciales",
+    "contrasenas"
+  ],
+  "87": [
+    "defensa"
+  ],
+  "88": [
+    "defensa"
+  ],
+  "89": [
+    "defensa"
+  ],
+  "90": [
+    "riesgo"
+  ],
+  "91": [
+    "riesgo"
+  ],
+  "92": [
+    "cia"
+  ],
+  "93": [
+    "rir"
+  ],
+  "94": [
+    "rir"
+  ],
+  "95": [
+    "rir"
+  ],
+  "96": [
+    "rir"
+  ],
+  "97": [
+    "rir"
+  ],
+  "98": [
+    "rir"
+  ],
+  "99": [
+    "whois",
+    "notificacion"
+  ],
+  "100": [
+    "rdap"
+  ],
+  "101": [
+    "whois",
+    "notificacion"
+  ],
+  "102": [
+    "whois",
+    "notificacion"
+  ],
+  "103": [
+    "erx",
+    "whois"
+  ],
+  "104": [
+    "erx",
+    "whois"
+  ],
+  "105": [
+    "erx",
+    "whois"
+  ],
+  "106": [
+    "erx",
+    "whois"
+  ],
+  "107": [
+    "rdap"
+  ],
+  "108": [
+    "rdap"
+  ],
+  "109": [
+    "whois",
+    "notificacion"
+  ],
+  "110": [
+    "rdap"
+  ],
+  "111": [
+    "rir"
+  ],
+  "112": [
+    "whois",
+    "notificacion"
+  ],
+  "113": [
+    "dns"
+  ],
+  "114": [
+    "dns"
+  ],
+  "115": [
+    "tld",
+    "dns"
+  ],
+  "116": [
+    "tld",
+    "dns"
+  ],
+  "117": [
+    "dns"
+  ],
+  "118": [
+    "tld",
+    "dns"
+  ],
+  "119": [
+    "tld",
+    "dns"
+  ],
+  "120": [
+    "tld",
+    "dns"
+  ],
+  "121": [
+    "tld",
+    "dns"
+  ],
+  "122": [
+    "tld",
+    "dns"
+  ],
+  "123": [
+    "privacidad-registro",
+    "whois"
+  ],
+  "124": [
+    "privacidad-registro",
+    "whois"
+  ],
+  "125": [
+    "rdap"
+  ],
+  "126": [
+    "dns"
+  ],
+  "127": [
+    "whois",
+    "notificacion"
+  ],
+  "128": [
+    "rdap"
+  ],
+  "129": [
+    "mx"
+  ],
+  "130": [
+    "mx"
+  ],
+  "131": [
+    "smtp"
+  ],
+  "132": [
+    "smtp"
+  ],
+  "133": [
+    "envelope",
+    "cabeceras"
+  ],
+  "134": [
+    "envelope",
+    "cabeceras"
+  ],
+  "135": [
+    "envelope",
+    "cabeceras"
+  ],
+  "136": [
+    "cabeceras",
+    "phishing"
+  ],
+  "137": [
+    "cabeceras",
+    "phishing"
+  ],
+  "138": [
+    "cabeceras",
+    "phishing"
+  ],
+  "139": [
+    "cabeceras",
+    "phishing"
+  ],
+  "140": [
+    "received"
+  ],
+  "141": [
+    "received"
+  ],
+  "142": [
+    "received"
+  ],
+  "143": [
+    "ip-privadas",
+    "ip"
+  ],
+  "144": [
+    "ip-privadas",
+    "ip"
+  ],
+  "145": [
+    "ip-privadas",
+    "ip"
+  ],
+  "146": [
+    "tiempos",
+    "received"
+  ],
+  "147": [
+    "envelope",
+    "cabeceras"
+  ],
+  "148": [
+    "envelope",
+    "cabeceras"
+  ],
+  "149": [
+    "received"
+  ],
+  "150": [
+    "cabeceras",
+    "phishing"
+  ],
+  "151": [
+    "cabeceras",
+    "phishing"
+  ],
+  "152": [
+    "received",
+    "cabeceras"
+  ],
+  "153": [
+    "received"
+  ],
+  "154": [
+    "envelope",
+    "cabeceras"
+  ],
+  "155": [
+    "comandos-smtp",
+    "envelope"
+  ],
+  "156": [
+    "comandos-smtp",
+    "envelope"
+  ],
+  "157": [
+    "comandos-smtp",
+    "envelope"
+  ],
+  "158": [
+    "envelope",
+    "cabeceras"
+  ],
+  "159": [
+    "smtp"
+  ],
+  "160": [
+    "tiempos",
+    "received"
+  ],
+  "161": [
+    "whois",
+    "received"
+  ],
+  "162": [
+    "tls-correo"
+  ],
+  "163": [
+    "ip-privadas",
+    "ip"
+  ],
+  "164": [
+    "riesgo",
+    "csirt"
+  ],
+  "165": [
+    "pertinencia",
+    "csirt"
+  ],
+  "166": [
+    "pertinencia",
+    "csirt"
+  ],
+  "167": [
+    "csirt"
+  ],
+  "168": [
+    "csirt"
+  ],
+  "169": [
+    "pertinencia",
+    "csirt"
+  ],
+  "170": [
+    "pertinencia",
+    "csirt"
+  ],
+  "171": [
+    "prioridad",
+    "riesgo"
+  ],
+  "172": [
+    "prioridad",
+    "riesgo"
+  ],
+  "173": [
+    "prioridad",
+    "riesgo"
+  ],
+  "174": [
+    "prioridad",
+    "riesgo"
+  ],
+  "175": [
+    "riesgo"
+  ],
+  "176": [
+    "cia"
+  ],
+  "177": [
+    "pertinencia",
+    "csirt"
+  ],
+  "178": [
+    "prioridad",
+    "riesgo"
+  ],
+  "179": [
+    "riesgo"
+  ],
+  "180": [
+    "notificacion",
+    "tiempos"
+  ],
+  "181": [
+    "tiempos",
+    "received"
+  ],
+  "182": [
+    "whois",
+    "notificacion"
+  ],
+  "183": [
+    "notificacion",
+    "tiempos"
+  ],
+  "184": [
+    "servicios-csirt"
+  ],
+  "185": [
+    "servicios-csirt"
+  ],
+  "186": [
+    "servicios-csirt"
+  ],
+  "187": [
+    "datos-sensibles",
+    "tlp"
+  ],
+  "188": [
+    "notificacion",
+    "tiempos"
+  ],
+  "189": [
+    "csirt"
+  ],
+  "190": [
+    "defacement",
+    "cia"
+  ],
+  "191": [
+    "cia",
+    "riesgo"
+  ],
+  "192": [
+    "prioridad",
+    "riesgo"
+  ],
+  "193": [
+    "pertinencia",
+    "csirt"
+  ],
+  "194": [
+    "riesgo"
+  ],
+  "195": [
+    "notificacion",
+    "tiempos"
+  ],
+  "196": [
+    "notificacion",
+    "tiempos"
+  ],
+  "197": [
+    "servicios-csirt"
+  ],
+  "198": [
+    "pertinencia",
+    "csirt"
+  ],
+  "199": [
+    "pertinencia",
+    "csirt"
+  ],
+  "200": [
+    "prioridad",
+    "riesgo"
+  ],
+  "201": [
+    "riesgo"
+  ],
+  "202": [
+    "tiempos",
+    "received"
+  ],
+  "203": [
+    "whois",
+    "notificacion"
+  ],
+  "204": [
+    "erx",
+    "whois"
+  ],
+  "205": [
+    "tld",
+    "dns"
+  ],
+  "206": [
+    "rdap"
+  ],
+  "207": [
+    "privacidad-registro",
+    "whois"
+  ],
+  "208": [
+    "envelope",
+    "cabeceras"
+  ],
+  "209": [
+    "comandos-smtp",
+    "envelope"
+  ],
+  "210": [
+    "ip-privadas",
+    "ip"
+  ],
+  "211": [
+    "received"
+  ],
+  "212": [
+    "privacidad-registro",
+    "whois"
+  ],
+  "213": [
+    "tlp",
+    "datos-sensibles"
+  ],
+  "214": [
+    "pgp",
+    "datos-sensibles"
+  ],
+  "215": [
+    "pertinencia",
+    "csirt"
+  ],
+  "216": [
+    "servicios-csirt"
+  ],
+  "217": [
+    "servicios-csirt"
+  ],
+  "218": [
+    "prioridad",
+    "riesgo"
+  ],
+  "219": [
+    "pertinencia",
+    "csirt"
+  ],
+  "220": [
+    "riesgo"
+  ],
+  "221": [
+    "received",
+    "cabeceras"
+  ],
+  "222": [
+    "mx"
+  ],
+  "223": [
+    "whois",
+    "notificacion"
+  ],
+  "224": [
+    "datos-sensibles",
+    "tlp"
+  ],
+  "225": [
+    "prioridad",
+    "riesgo"
+  ],
+  "226": [
+    "cabeceras",
+    "phishing"
+  ],
+  "227": [
+    "estatico",
+    "dinamico"
+  ],
+  "228": [
+    "estatico",
+    "dinamico"
+  ],
+  "229": [
+    "ioc",
+    "integridad-archivo"
+  ],
+  "230": [
+    "ioc",
+    "integridad-archivo"
+  ],
+  "231": [
+    "ioc",
+    "integridad-archivo"
+  ],
+  "232": [
+    "ioc",
+    "integridad-archivo"
+  ],
+  "233": [
+    "familias",
+    "malware"
+  ],
+  "234": [
+    "familias",
+    "malware"
+  ],
+  "235": [
+    "antivirus",
+    "estatico"
+  ],
+  "236": [
+    "antivirus",
+    "estatico"
+  ],
+  "237": [
+    "antivirus",
+    "estatico"
+  ],
+  "238": [
+    "strings",
+    "ascii"
+  ],
+  "239": [
+    "strings",
+    "ascii"
+  ],
+  "240": [
+    "strings",
+    "ascii"
+  ],
+  "241": [
+    "pe"
+  ],
+  "242": [
+    "pe"
+  ],
+  "243": [
+    "pe"
+  ],
+  "244": [
+    "imports",
+    "estatico"
+  ],
+  "245": [
+    "apis-red",
+    "imports"
+  ],
+  "246": [
+    "create-service",
+    "servicios-windows"
+  ],
+  "247": [
+    "virtualprotect",
+    "imports"
+  ],
+  "248": [
+    "carga-dinamica",
+    "packing"
+  ],
+  "249": [
+    "apis-red",
+    "imports"
+  ],
+  "250": [
+    "apis-red",
+    "imports"
+  ],
+  "251": [
+    "recursos-pe",
+    "pe"
+  ],
+  "252": [
+    "recursos-pe",
+    "pe"
+  ],
+  "253": [
+    "packing",
+    "strings"
+  ],
+  "254": [
+    "packing",
+    "strings"
+  ],
+  "255": [
+    "packing",
+    "strings"
+  ],
+  "256": [
+    "packing",
+    "strings"
+  ],
+  "257": [
+    "imports",
+    "estatico"
+  ],
+  "258": [
+    "pe"
+  ],
+  "259": [
+    "pe"
+  ],
+  "260": [
+    "pe"
+  ],
+  "261": [
+    "antivirus",
+    "estatico"
+  ],
+  "262": [
+    "ioc",
+    "integridad-archivo"
+  ],
+  "263": [
+    "strings",
+    "estatico"
+  ],
+  "264": [
+    "ioc",
+    "integridad-archivo"
+  ],
+  "265": [
+    "strings",
+    "ascii"
+  ],
+  "266": [
+    "imports",
+    "estatico"
+  ],
+  "267": [
+    "dinamico",
+    "estatico"
+  ],
+  "268": [
+    "dinamico",
+    "estatico"
+  ],
+  "269": [
+    "laboratorio",
+    "dinamico"
+  ],
+  "270": [
+    "laboratorio",
+    "dinamico"
+  ],
+  "271": [
+    "laboratorio",
+    "dinamico"
+  ],
+  "272": [
+    "laboratorio",
+    "dinamico"
+  ],
+  "273": [
+    "laboratorio",
+    "dinamico"
+  ],
+  "274": [
+    "laboratorio",
+    "dinamico"
+  ],
+  "275": [
+    "run-key",
+    "registry"
+  ],
+  "276": [
+    "registry"
+  ],
+  "277": [
+    "registry"
+  ],
+  "278": [
+    "run-key",
+    "registry"
+  ],
+  "279": [
+    "servicios-windows",
+    "registry"
+  ],
+  "280": [
+    "servicios-windows",
+    "registry"
+  ],
+  "281": [
+    "regshot",
+    "run-key"
+  ],
+  "282": [
+    "regshot",
+    "run-key"
+  ],
+  "283": [
+    "procmon",
+    "regshot"
+  ],
+  "284": [
+    "procmon",
+    "regshot"
+  ],
+  "285": [
+    "procmon",
+    "regshot"
+  ],
+  "286": [
+    "captura-red"
+  ],
+  "287": [
+    "red-simulada",
+    "laboratorio"
+  ],
+  "288": [
+    "red-simulada",
+    "laboratorio"
+  ],
+  "289": [
+    "red-simulada",
+    "laboratorio"
+  ],
+  "290": [
+    "procesos"
+  ],
+  "291": [
+    "dinamico",
+    "estatico"
+  ],
+  "292": [
+    "run-key",
+    "registry"
+  ],
+  "293": [
+    "familias",
+    "malware"
+  ],
+  "294": [
+    "familias",
+    "malware"
+  ],
+  "295": [
+    "familias",
+    "malware"
+  ],
+  "296": [
+    "familias",
+    "malware"
+  ],
+  "297": [
+    "familias",
+    "malware"
+  ],
+  "298": [
+    "botnet",
+    "malware"
+  ],
+  "299": [
+    "laboratorio",
+    "dinamico"
+  ],
+  "300": [
+    "laboratorio",
+    "dinamico"
+  ],
+  "301": [
+    "dinamico",
+    "estatico"
+  ],
+  "302": [
+    "antivirus",
+    "estatico"
+  ],
+  "303": [
+    "strings",
+    "ascii"
+  ],
+  "304": [
+    "virtualprotect",
+    "imports"
+  ],
+  "305": [
+    "carga-dinamica",
+    "packing"
+  ],
+  "306": [
+    "carga-dinamica",
+    "packing"
+  ],
+  "307": [
+    "pe"
+  ],
+  "308": [
+    "recursos-pe",
+    "pe"
+  ],
+  "309": [
+    "packing",
+    "strings"
+  ],
+  "310": [
+    "packing",
+    "strings"
+  ],
+  "311": [
+    "imports",
+    "estatico"
+  ],
+  "312": [
+    "apis-red",
+    "imports"
+  ],
+  "313": [
+    "apis-red",
+    "imports"
+  ],
+  "314": [
+    "create-service",
+    "servicios-windows"
+  ],
+  "315": [
+    "dinamico",
+    "estatico"
+  ],
+  "316": [
+    "dinamico",
+    "estatico"
+  ],
+  "317": [
+    "laboratorio",
+    "dinamico"
+  ],
+  "318": [
+    "laboratorio",
+    "dinamico"
+  ],
+  "319": [
+    "laboratorio",
+    "dinamico"
+  ],
+  "320": [
+    "laboratorio",
+    "dinamico"
+  ],
+  "321": [
+    "run-key",
+    "registry"
+  ],
+  "322": [
+    "servicios-windows",
+    "registry"
+  ],
+  "323": [
+    "run-key",
+    "registry"
+  ],
+  "324": [
+    "regshot",
+    "run-key"
+  ],
+  "325": [
+    "regshot",
+    "run-key"
+  ],
+  "326": [
+    "procmon",
+    "regshot"
+  ],
+  "327": [
+    "procmon",
+    "regshot"
+  ],
+  "328": [
+    "captura-red"
+  ],
+  "329": [
+    "red-simulada",
+    "laboratorio"
+  ],
+  "330": [
+    "red-simulada",
+    "laboratorio"
+  ],
+  "331": [
+    "captura-red"
+  ],
+  "332": [
+    "dinamico",
+    "estatico"
+  ],
+  "333": [
+    "procesos"
+  ],
+  "334": [
+    "packing",
+    "strings"
+  ],
+  "335": [
+    "procmon",
+    "regshot"
+  ],
+  "336": [
+    "run-key",
+    "registry"
+  ],
+  "337": [
+    "recursos-pe",
+    "pe"
+  ],
+  "338": [
+    "ioc",
+    "integridad-archivo"
+  ],
+  "339": [
+    "packing",
+    "strings"
+  ],
+  "340": [
+    "imports",
+    "estatico"
+  ],
+  "341": [
+    "run-key",
+    "registry"
+  ],
+  "342": [
+    "laboratorio",
+    "dinamico"
+  ],
+  "343": [
+    "ioc",
+    "integridad-archivo"
+  ],
+  "344": [
+    "ioc",
+    "integridad-archivo"
+  ],
+  "345": [
+    "ioc",
+    "integridad-archivo"
+  ],
+  "346": [
+    "ioc",
+    "integridad-archivo"
+  ],
+  "347": [
+    "dinamico",
+    "estatico"
+  ],
+  "348": [
+    "red-simulada",
+    "laboratorio"
+  ],
+  "349": [
+    "estatico",
+    "run-key",
+    "create-service"
+  ],
+  "350": [
+    "procmon",
+    "regshot"
+  ]
+}

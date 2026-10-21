@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#245a48">
+  <meta name="description" content="Practicá las 350 preguntas de Introducción a la Ciberseguridad 2026, con explicaciones, pistas y progreso en tu navegador.">
+  <title>IC 2026 · Práctica de ciberseguridad</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/styles.css">
+  <script type="module" src="assets/app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#question-panel">Saltar a la pregunta</a>
+  <header class="site-header"><div class="header-inner">
+    <a class="brand" href="index.html" aria-label="IC 2026, inicio"><span class="brand-mark" aria-hidden="true">ic<span>·</span></span><span>IC <strong>2026</strong><small>ESPACIO DE ESTUDIO</small></span></a>
+    <nav aria-label="Navegación principal"><a class="nav-link active" aria-current="page" href="index.html">Práctica</a><a class="nav-link" href="glosario.html">Glosario <span aria-hidden="true">↗</span></a><button class="nav-link" data-materials>Material de consulta</button></nav>
+    <span class="course-tag">UNLP <span> / </span> Informática</span>
+  </div></header>
+  <div id="storage-warning" class="notice warning" role="status" hidden></div>
+  <main class="page-shell">
+    <section class="intro" aria-labelledby="page-title"><div><p class="eyebrow"><span class="tiny-dot"></span> INTRODUCCIÓN A LA CIBERSEGURIDAD</p><h1 id="page-title">Un concepto a la vez<span>.</span></h1><p class="intro-description">Practicá, entendé el porqué y seguí avanzando a tu ritmo.</p></div><div class="local-label"><span class="save-dot" aria-hidden="true"></span><span id="save-state">Progreso en este navegador</span></div></section>
+    <section class="progress-overview" aria-label="Resumen de progreso">
+      <div class="journey"><div class="stat-label">TU RECORRIDO <span id="progress-percent">0%</span></div><div><strong id="answered-count">0</strong><span class="muted"> / 350 preguntas</span></div><progress id="overall-progress" max="350" value="0" aria-label="Preguntas con al menos un intento">0 / 350</progress></div>
+      <div class="stat"><span class="stat-label"><span class="status-dot correct"></span> CORRECTAS</span><strong id="correct-count">0</strong><small>según el último intento</small></div>
+      <div class="stat"><span class="stat-label"><span class="status-dot incorrect"></span> FALLADAS</span><strong id="incorrect-count">0</strong><small>una oportunidad de repasar</small></div>
+      <div class="stat"><span class="stat-label">INTENTOS TOTALES</span><strong id="attempt-count">0</strong><small id="assisted-count">0 con pista · 0 sin pista</small></div>
+      <button class="button button-quiet manage-button" id="manage-progress">Mi progreso <span aria-hidden="true">↗</span></button>
+    </section>
+    <div id="load-status" class="loading" role="status">Preparando tus preguntas…</div>
+    <div class="study-layout" id="study-layout" hidden>
+      <section class="question-area" id="question-panel" tabindex="-1" aria-label="Práctica">
+        <div class="question-topline"><span id="question-position">Pregunta 001 de 350</span><span class="keyboard-note">Navegá con <kbd>Alt</kbd> + <kbd>←</kbd> <kbd>→</kbd></span></div>
+        <article class="question-card" id="question-card">
+          <div class="card-meta"><span class="topic-badge" id="question-topic">Criptografía</span><span class="state-label" id="question-state">Pendiente</span></div>
+          <h2 id="question-title" tabindex="-1"></h2>
+          <p class="selection-note" id="selection-note">Elegí una opción. Podés cambiarla antes de confirmar.</p>
+          <form id="answer-form"><fieldset id="answer-options"><legend class="sr-only">Opciones de respuesta</legend></fieldset><div class="answer-actions"><button class="button button-primary" type="submit" id="confirm-answer" disabled>Confirmar respuesta <span aria-hidden="true">→</span></button><button class="button button-quiet" id="show-hint" type="button"><span aria-hidden="true">◇</span> Ver pista</button><button class="button button-primary" id="retry-answer" type="button" hidden>Intentar de nuevo <span aria-hidden="true">↻</span></button></div></form>
+          <section id="feedback" class="feedback" role="status" aria-live="polite" hidden></section>
+          <section id="hint-panel" class="hint-panel" aria-labelledby="hint-title" hidden><div class="section-heading"><span class="hint-icon" aria-hidden="true">◇</span><h3 id="hint-title">Una idea para orientarte</h3></div><div id="hint-content"></div><a class="text-link" href="glosario.html">Explorar el glosario completo <span aria-hidden="true">↗</span></a></section>
+          <details id="question-history" class="question-history" hidden><summary>Historial de esta pregunta <span id="history-count"></span></summary><ol id="history-list"></ol></details>
+          <p class="question-source" id="question-source"></p>
+        </article>
+        <div id="outside-filter" class="notice" hidden>La pregunta actual ya no coincide con el filtro. Podés revisar la corrección y continuar con las restantes.</div>
+        <section id="empty-state" class="empty-state" hidden><span aria-hidden="true">✓</span><h2>No hay preguntas con estos filtros</h2><p>Probá otro tema o volvé a ver todos los estados.</p><button class="button button-primary" id="clear-filters">Ver todas las preguntas</button></section>
+        <nav class="question-navigation" aria-label="Entre preguntas"><button class="button button-outline" id="previous-question"><span aria-hidden="true">←</span> Anterior</button><span id="filtered-position"></span><button class="button button-outline" id="next-question">Siguiente <span aria-hidden="true">→</span></button></nav>
+        <div class="study-note"><span aria-hidden="true">↳</span><p>Aprender también es volver a intentar.<br><span>Tu historial se conserva cada vez que confirmás.</span></p></div>
+      </section>
+      <aside class="index-panel" aria-label="Índice y filtros de preguntas">
+        <div class="index-heading"><h2>Tu mapa de estudio</h2><span class="count-pill">350</span></div><p class="muted index-description">Un recorrido, tres temas.</p>
+        <div class="filter-field"><label for="topic-filter">Tema</label><select id="topic-filter"><option value="all">Todos los temas · 350</option><option value="cripto">Criptografía · 66</option><option value="csirt">CSIRT · 160</option><option value="malware">Malware · 124</option></select></div>
+        <div class="filter-field"><label for="status-filter">Estado</label><select id="status-filter"><option value="all">Todos los estados</option><option value="pending">Pendientes</option><option value="correct">Correctas</option><option value="incorrect">Falladas</option></select></div>
+        <div class="index-caption"><span id="index-count">350 preguntas</span><button id="reset-filters" class="text-button">Limpiar filtros</button></div>
+        <div id="question-index" class="question-index" tabindex="0" aria-label="Preguntas filtradas, desplazable"></div>
+        <div class="index-legend"><span><i class="status-dot pending"></i>Pendiente</span><span><i class="status-dot correct"></i>Correcta</span><span><i class="status-dot incorrect"></i>Fallada</span></div>
+        <a class="glossary-callout" href="glosario.html"><span aria-hidden="true">Aa</span><div><strong>Las ideas, más claras</strong><small>Consultá el glosario ampliado</small></div><span aria-hidden="true">↗</span></a>
+      </aside>
+    </div>
+  </main>
+  <footer class="site-footer"><span><strong>IC 2026</strong> · Hecho para entender.</span><p>Tu progreso es local a este navegador y dispositivo. Exportalo para llevarlo con vos.</p><button class="text-button" data-materials>Consultar los 3 PDF <span aria-hidden="true">↗</span></button></footer>
+  <dialog id="materials-dialog" aria-labelledby="materials-title"><div class="dialog-heading"><h2 id="materials-title">Material de consulta</h2><button class="close-button" data-close aria-label="Cerrar material">×</button></div><p>Los tres documentos originales, disponibles para consultar o descargar.</p><div class="document-links"><a href="docs/Manual_IC2026_Cripto_CSIRT_Malware_Descarga.pdf" target="_blank" rel="noopener"><span>01</span><div><strong>Manual de estudio</strong><small>55 páginas · conceptos y glosario</small></div><span>↗</span></a><a href="docs/IC_2026_Cripto_CSIRT_Malware_350_Preguntas.pdf" target="_blank" rel="noopener"><span>02</span><div><strong>350 preguntas originales</strong><small>172 páginas · incluye el anexo original</small></div><span>↗</span></a><a href="docs/IC_2026_Cripto_CSIRT_Malware_Solucionario.pdf" target="_blank" rel="noopener"><span>03</span><div><strong>Solucionario explicado</strong><small>43 páginas · respuestas y fuentes</small></div><span>↗</span></a></div><p class="small muted">Las citas «Fuente original» corresponden a las diapositivas de la cátedra mencionadas en el solucionario. Esos archivos no están incluidos. Los enlaces «Manual» abren páginas del manual disponible, con numeración propia. Los PDF se abren en una pestaña nueva.</p></dialog>
+  <dialog id="progress-dialog" aria-labelledby="progress-title"><div class="dialog-heading"><h2 id="progress-title">Tu progreso, con vos</h2><button class="close-button" data-close aria-label="Cerrar progreso">×</button></div><p>Se guarda en este navegador. Exportá una copia para transferirlo o conservar un respaldo.</p><div id="detailed-stats" class="detailed-stats"></div><p class="small muted">«Con pista» cuenta el uso de Ver pista antes de confirmar. La ayuda automática después de fallar no modifica el resultado registrado.</p><div class="progress-controls"><button class="button button-primary" id="export-progress">↓ Exportar JSON</button><label class="button button-outline file-button" for="import-progress">↑ Importar JSON<input type="file" id="import-progress" accept=".json,application/json"></label></div><p id="transfer-status" role="status" class="small"></p><details class="all-history"><summary>Ver historial completo de intentos</summary><div id="all-attempts"></div></details><div class="reset-area"><p>¿Querés empezar desde cero?<small>El reinicio borra el historial, los borradores y los filtros.</small></p><button class="button button-danger" id="reset-progress">Reiniciar progreso</button></div></dialog>
+  <noscript><p class="notice warning">Activá JavaScript para practicar y guardar el progreso. Podés consultar los tres PDF en la carpeta docs.</p></noscript>
+</body></html>

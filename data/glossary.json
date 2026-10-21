@@ -1,0 +1,1571 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "id": "base64",
+      "term": "Base64",
+      "topics": [
+        "cripto"
+      ],
+      "manualPages": [
+        5,
+        6,
+        51
+      ],
+      "definition": "Codificación reversible que representa bytes mediante caracteres imprimibles.",
+      "explanation": "Se utiliza para transportar datos en medios de texto. No necesita una clave secreta para recuperar los bytes originales.",
+      "hint": "Compará la finalidad de representar datos con la de restringir quién puede leerlos. Una representación pública y un mecanismo con clave cumplen funciones diferentes.",
+      "example": "La palabra Hola se representa como SG9sYQ==.",
+      "fromManualGlossary": true,
+      "referenceNote": ""
+    },
+    {
+      "id": "ascii",
+      "term": "ASCII, Unicode y bases numéricas",
+      "topics": [
+        "cripto",
+        "malware"
+      ],
+      "manualPages": [
+        6,
+        7,
+        35
+      ],
+      "definition": "ASCII básico asigna valores de 7 bits a 128 símbolos; Unicode define un repertorio mucho mayor.",
+      "explanation": "Un byte tiene 8 bits. Un dígito hexadecimal representa 4 bits; dos dígitos representan un byte. UTF-8 y UTF-16 codifican puntos de código Unicode en bytes.",
+      "hint": "Identificá primero la base numérica. Para pasar de hexadecimal a decimal, multiplicá cada dígito por su potencia de 16; después consultá la correspondencia del carácter.",
+      "example": "H es 72 en decimal, 0x48 en hexadecimal y 01001000 en binario.",
+      "fromManualGlossary": false,
+      "referenceNote": ""
+    },
+    {
+      "id": "cifrado",
+      "term": "Cifrado, plaintext y ciphertext",
+      "topics": [
+        "cripto"
+      ],
+      "manualPages": [
+        6,
+        10,
+        51
+      ],
+      "definition": "El cifrado transforma datos originales (plaintext) en datos cifrados (ciphertext) mediante un algoritmo y una clave.",
+      "explanation": "El descifrado recupera el original con los parámetros adecuados. Se distingue de codificar y de calcular un resumen hash.",
+      "hint": "Pensá qué información necesita quien recibe los datos para recuperar el contenido y qué objetivo tiene la transformación.",
+      "example": "El emisor cifra un documento; el receptor lo descifra con la clave correspondiente.",
+      "fromManualGlossary": false,
+      "referenceNote": ""
+    },
+    {
+      "id": "plaintext",
+      "term": "Plaintext",
+      "topics": [
+        "cripto"
+      ],
+      "manualPages": [
+        6,
+        51
+      ],
+      "definition": "Datos originales antes de aplicar el cifrado.",
+      "explanation": "Puede ser texto, una imagen o cualquier secuencia de bytes; el nombre no exige que sea lenguaje legible.",
+      "hint": "Seguí el recorrido de los datos antes y después de la transformación criptográfica.",
+      "example": "El mensaje «Reunión a las 10» es el texto claro antes de cifrarlo.",
+      "fromManualGlossary": true,
+      "referenceNote": ""
+    },
+    {
+      "id": "ciphertext",
+      "term": "Ciphertext",
+      "topics": [
+        "cripto"
+      ],
+      "manualPages": [
+        6,
+        51
+      ],
+      "definition": "Resultado de aplicar un cifrado a los datos originales.",
+      "explanation": "Su recuperación exige la clave y los parámetros del esquema. La codificación visible del resultado, como hexadecimal, es una capa distinta.",
+      "hint": "Separá los bytes cifrados de la forma en que una herramienta los muestra.",
+      "example": "Al cifrar un archivo se obtiene otra secuencia de bytes; codificar ese resultado en Base64 solo cambia cómo se representa.",
+      "fromManualGlossary": true,
+      "referenceNote": ""
+    },
+    {
+      "id": "cesar",
+      "term": "César, ROT3 y ROT13",
+      "topics": [
+        "cripto"
+      ],
+      "manualPages": [
+        7
+      ],
+      "definition": "Cifrado clásico de sustitución por desplazamiento en un alfabeto.",
+      "explanation": "Para A=0 hasta Z=25, cifrar aplica (P+k) mod 26 y descifrar aplica (C−k) mod 26. Al llegar a Z, se vuelve al principio.",
+      "hint": "Escribí las posiciones del alfabeto y desplazá cada letra por separado. Tené presente el retorno al principio y el sentido del desplazamiento.",
+      "example": "Con desplazamiento 2, HOLA se convierte en JQNC.",
+      "fromManualGlossary": false,
+      "referenceNote": ""
+    },
+    {
+      "id": "clasicos",
+      "term": "Sustitución, transposición y Enigma",
+      "topics": [
+        "cripto"
+      ],
+      "manualPages": [
+        7,
+        8
+      ],
+      "definition": "La sustitución reemplaza símbolos; la transposición cambia sus posiciones.",
+      "explanation": "La escítala y la transposición columnar conservan las letras y alteran su orden. Enigma fue una máquina electromecánica de sustitución con rotores.",
+      "hint": "Observá si el método cambia la identidad de las letras o conserva las letras y modifica cómo se ordenan.",
+      "example": "Una sustitución cambia A por D; una transposición conserva las letras pero cambia el orden.",
+      "fromManualGlossary": false,
+      "referenceNote": ""
+    },
+    {
+      "id": "kerckhoffs",
+      "term": "Principio de Kerckhoffs",
+      "topics": [
+        "cripto"
+      ],
+      "manualPages": [
+        8
+      ],
+      "definition": "La seguridad de un sistema criptográfico debe descansar en el secreto de la clave.",
+      "explanation": "Publicar el algoritmo permite estudiarlo y revisarlo. La gestión de claves sigue siendo necesaria aunque todos conozcan el funcionamiento del cifrado.",
+      "hint": "Distinguí qué parte del sistema se puede publicar y qué material debe proteger cada participante.",
+      "example": "Publicar el algoritmo no debería permitir descifrar mensajes a quien no posee la clave necesaria.",
+      "fromManualGlossary": false,
+      "referenceNote": ""
+    },
+    {
+      "id": "simetrica",
+      "term": "Criptografía simétrica y distribución de claves",
+      "topics": [
+        "cripto"
+      ],
+      "manualPages": [
+        10
+      ],
+      "definition": "Cifrado basado en una clave secreta compartida para cifrar y descifrar.",
+      "explanation": "Ofrece buen rendimiento. Distribuir, revocar y proteger el secreto se vuelve más complejo a medida que aumenta la cantidad de participantes.",
+      "hint": "Dibujá emisor y receptor y anotá qué secreto necesita cada uno. Después imaginá qué cambia al incorporar muchos usuarios.",
+      "example": "Dos personas necesitan recibir la misma clave por un canal seguro antes de intercambiar mensajes confidenciales.",
+      "fromManualGlossary": false,
+      "referenceNote": ""
+    },
+    {
+      "id": "asimetrica",
+      "term": "Criptografía asimétrica",
+      "topics": [
+        "cripto"
+      ],
+      "manualPages": [
+        11
+      ],
+      "definition": "Utiliza un par de claves relacionadas: una pública y una privada.",
+      "explanation": "En cifrado, la pública puede permitir cifrar para el destinatario y la privada descifrar. En firma, la privada firma y la pública verifica; son operaciones con finalidades distintas.",
+      "hint": "Identificá el papel de cada clave y distinguí las operaciones de cifrar y firmar.",
+      "example": "Para enviar información confidencial a Ana, se cifra para su clave pública; Ana conserva en secreto la privada.",
+      "fromManualGlossary": false,
+      "referenceNote": ""
+    },
+    {
+      "id": "ecb",
+      "term": "ECB y patrones de bloques",
+      "topics": [
+        "cripto"
+      ],
+      "manualPages": [
+        10,
+        12,
+        13
+      ],
+      "definition": "Modo que cifra cada bloque de manera independiente con la misma clave.",
+      "explanation": "Los bloques iguales producen bloques cifrados iguales. Esto revela patrones del contenido, incluso cuando no permite leer cada byte.",
+      "hint": "Compará cómo se tratan dos bloques de entrada repetidos. Pensá si el resultado depende de otros bloques o de un estado inicial.",
+      "example": "Una imagen con regiones repetidas puede conservar patrones reconocibles al cifrarse con ECB.",
+      "fromManualGlossary": false,
+      "referenceNote": ""
+    },
+    {
+      "id": "cbc",
+      "term": "CBC y encadenamiento",
+      "topics": [
+        "cripto"
+      ],
+      "manualPages": [
+        10,
+        11,
+        51
+      ],
+      "definition": "Modo de bloques que combina cada bloque de texto plano con el cifrado anterior mediante XOR antes de cifrarlo.",
+      "explanation": "El primer bloque utiliza un IV. CBC necesita parámetros adecuados y protección de integridad adicional; cifrar no autentica por sí solo.",
+      "hint": "Seguí la dependencia entre bloques: ¿qué dato reemplaza al bloque anterior cuando se procesa el primero?",
+      "example": "El primer bloque se combina con el IV; el segundo, con el primer bloque cifrado.",
+      "fromManualGlossary": true,
+      "referenceNote": ""
+    },
+    {
+      "id": "iv",
+      "term": "IV: vector de inicialización",
+      "topics": [
+        "cripto"
+      ],
+      "manualPages": [
+        10,
+        11,
+        51
+      ],
+      "definition": "Valor inicial usado por determinados modos criptográficos.",
+      "explanation": "No es la clave secreta. Sus requisitos dependen del modo: en CBC debe ser impredecible para nuevos mensajes.",
+      "hint": "Separá el secreto compartido del estado que inicia el procesamiento de cada mensaje.",
+      "example": "Dos cifrados de un mismo primer bloque pueden comenzar de forma diferente cuando se usa un IV adecuado para CBC.",
+      "fromManualGlossary": true,
+      "referenceNote": ""
+    },
+    {
+      "id": "flujo",
+      "term": "Cifrado de flujo y keystream",
+      "topics": [
+        "cripto"
+      ],
+      "manualPages": [
+        11,
+        51
+      ],
+      "definition": "El cifrado de flujo genera una secuencia cifrante (keystream) que se combina con los datos, habitualmente con XOR.",
+      "explanation": "Permite trabajar con datos continuos sin esperar bloques completos. Reutilizar la misma secuencia con distintos mensajes expone relaciones entre ellos.",
+      "hint": "Pensá cómo procesar datos que llegan de forma continua. Distinguí la secuencia generada de los datos y del algoritmo.",
+      "example": "Un canal de audio produce datos continuamente y puede combinarse con una secuencia cifrante sin esperar un mensaje completo.",
+      "fromManualGlossary": false,
+      "referenceNote": ""
+    },
+    {
+      "id": "keystream",
+      "term": "Keystream",
+      "topics": [
+        "cripto"
+      ],
+      "manualPages": [
+        11,
+        51
+      ],
+      "definition": "Secuencia cifrante que se combina con el texto plano.",
+      "explanation": "La misma secuencia permite invertir una combinación XOR, pero reutilizarla entre mensajes compromete la protección.",
+      "hint": "Recordá las propiedades de XOR y analizá qué pasa cuando una misma secuencia participa en dos mensajes.",
+      "example": "Si C = P XOR K, entonces C XOR K recupera P; por eso la secuencia K necesita protección.",
+      "fromManualGlossary": true,
+      "referenceNote": ""
+    },
+    {
+      "id": "xor",
+      "term": "XOR: operación bit a bit",
+      "topics": [
+        "cripto"
+      ],
+      "manualPages": [
+        11
+      ],
+      "definition": "Operación lógica cuyo resultado es 1 cuando los dos bits comparados son distintos.",
+      "explanation": "Se aplica a bits en la misma posición. Usar XOR dos veces con el mismo valor restaura el dato inicial.",
+      "hint": "Convertí ambos valores a binario, alineá los bits y compará cada columna. Volvé a agrupar el resultado en grupos de cuatro bits.",
+      "example": "1010 XOR 0110 = 1100.",
+      "fromManualGlossary": false,
+      "referenceNote": ""
+    },
+    {
+      "id": "bloques",
+      "term": "AES, bloques y padding",
+      "topics": [
+        "cripto"
+      ],
+      "manualPages": [
+        10,
+        11
+      ],
+      "definition": "AES es un cifrador con bloques de 128 bits; el padding completa mensajes cuando el modo lo necesita.",
+      "explanation": "El tamaño del bloque y el de la clave son parámetros distintos. Un byte equivale a 8 bits. El modo decide cómo procesar una secuencia de bloques.",
+      "hint": "Separá tamaño de clave, tamaño de bloque y longitud del mensaje. Para convertir bits a bytes, revisá cuántos bits forman un byte.",
+      "example": "Un bloque de 128 bits contiene 16 bytes. El tamaño del bloque no debe confundirse con la longitud de la clave.",
+      "fromManualGlossary": false,
+      "referenceNote": ""
+    },
+    {
+      "id": "hash",
+      "term": "Hash y digest",
+      "topics": [
+        "cripto",
+        "malware"
+      ],
+      "manualPages": [
+        8,
+        9,
+        51
+      ],
+      "definition": "Una función hash transforma una entrada de longitud variable en un resumen de tamaño fijo llamado digest.",
+      "explanation": "Es determinista: los mismos bytes producen el mismo resumen. Un cambio pequeño puede cambiar ampliamente la salida; no existe un descifrado del digest.",
+      "hint": "Distinguí calcular un resumen de recuperar un mensaje. Verificá si cambian los bytes de entrada, incluso por una mayúscula o un salto de línea.",
+      "example": "Agregar un salto de línea al final de un archivo cambia sus bytes y puede cambiar completamente su digest.",
+      "fromManualGlossary": false,
+      "referenceNote": ""
+    },
+    {
+      "id": "digest",
+      "term": "Digest",
+      "topics": [
+        "cripto",
+        "malware"
+      ],
+      "manualPages": [
+        8,
+        51
+      ],
+      "definition": "Valor resumen producido por una función hash.",
+      "explanation": "Se utiliza para comparar datos e identificar muestras. Es necesario conocer la función empleada y la confiabilidad de la referencia.",
+      "hint": "Antes de comparar resúmenes, comprobá que se usó la misma función sobre los mismos bytes.",
+      "example": "Un SHA-256 completo se representa con 64 dígitos hexadecimales, aunque su longitud sea de 256 bits.",
+      "fromManualGlossary": true,
+      "referenceNote": ""
+    },
+    {
+      "id": "colisiones",
+      "term": "Colisión, preimagen y segunda preimagen",
+      "topics": [
+        "cripto"
+      ],
+      "manualPages": [
+        9
+      ],
+      "definition": "Una colisión ocurre cuando dos entradas diferentes producen el mismo digest.",
+      "explanation": "Preimagen es encontrar una entrada dado un digest. Segunda preimagen es hallar otra entrada con el mismo resumen que un mensaje fijado. Las colisiones conocidas limitan MD5 y SHA-1.",
+      "hint": "Diferenciá igualdad de resúmenes e igualdad de archivos. Preguntate si el ataque fija previamente un mensaje o permite elegir ambos.",
+      "example": "Dos imágenes diferentes con el mismo MD5 muestran que igual digest no implica identidad matemática de contenido.",
+      "fromManualGlossary": false,
+      "referenceNote": ""
+    },
+    {
+      "id": "sha",
+      "term": "MD5, SHA-1 y familia SHA-2",
+      "topics": [
+        "cripto",
+        "malware"
+      ],
+      "manualPages": [
+        8,
+        9,
+        52
+      ],
+      "definition": "Familias de funciones hash con longitudes de salida definidas.",
+      "explanation": "MD5 produce 128 bits y SHA-1 160 bits. SHA-224, SHA-256, SHA-384 y SHA-512 pertenecen a SHA-2. Cada cifra hexadecimal representa cuatro bits.",
+      "hint": "Para obtener la longitud hexadecimal, relacioná los bits de salida con la cantidad de bits representada por cada dígito.",
+      "example": "SHA-224, SHA-256, SHA-384 y SHA-512 generan resúmenes de distintas longitudes dentro de SHA-2.",
+      "fromManualGlossary": false,
+      "referenceNote": ""
+    },
+    {
+      "id": "sha-256",
+      "term": "SHA-256",
+      "topics": [
+        "cripto",
+        "malware"
+      ],
+      "manualPages": [
+        8,
+        9,
+        52
+      ],
+      "definition": "Función de SHA-2 que produce un digest de 256 bits.",
+      "explanation": "Sirve para identificación y comparación de archivos; el resumen no acredita por sí solo la identidad de quien los publica.",
+      "hint": "Separá la identificación del contenido de la confianza en su origen.",
+      "example": "Un archivo con SHA-256 distinto del esperado tiene bytes diferentes; eso no basta para afirmar que es malware.",
+      "fromManualGlossary": true,
+      "referenceNote": ""
+    },
+    {
+      "id": "contrasenas",
+      "term": "Hash de contraseñas, sal y costo",
+      "topics": [
+        "cripto",
+        "csirt"
+      ],
+      "manualPages": [
+        9
+      ],
+      "definition": "Las contraseñas necesitan funciones de derivación con sal y costo de cálculo.",
+      "explanation": "Un hash rápido permite probar numerosos candidatos. Una sal aleatoria diferencia contraseñas iguales; el costo encarece cada prueba. El manual menciona Argon2id, scrypt, bcrypt y PBKDF2.",
+      "hint": "Analizá el costo de probar millones de candidatos y si dos usuarios con la misma contraseña tendrían el mismo dato almacenado.",
+      "example": "Dos usuarios con la misma contraseña deberían tener valores almacenados distintos si se usan salts diferentes.",
+      "fromManualGlossary": false,
+      "referenceNote": ""
+    },
+    {
+      "id": "integridad-archivo",
+      "term": "Verificación de integridad de archivos",
+      "topics": [
+        "cripto",
+        "malware"
+      ],
+      "manualPages": [
+        9,
+        13,
+        33
+      ],
+      "definition": "Compara el hash de un archivo con una referencia confiable para detectar diferencias.",
+      "explanation": "Hashes distintos prueban que los bytes difieren bajo una misma función, pero no explican por qué cambiaron ni si hay malware. Una coincidencia exige considerar la resistencia a colisiones.",
+      "hint": "Separá tres preguntas: si los bytes coinciden, si el origen es confiable y si el archivo tiene comportamiento malicioso.",
+      "example": "Comparar el hash de una descarga con un valor obtenido de una fuente confiable ayuda a detectar sustituciones.",
+      "fromManualGlossary": false,
+      "referenceNote": ""
+    },
+    {
+      "id": "firma",
+      "term": "Firma digital y autenticidad",
+      "topics": [
+        "cripto",
+        "csirt"
+      ],
+      "manualPages": [
+        6,
+        11,
+        13
+      ],
+      "definition": "Una firma digital vincula datos con una clave privada y permite verificar su integridad y origen mediante la pública.",
+      "explanation": "La resistencia a colisiones del hash importa para impedir sustituciones de documentos con el mismo resumen. La validación de identidad de la clave sigue siendo necesaria.",
+      "hint": "Pensá qué ocurriría si documentos distintos pudieran compartir el resumen usado al firmar.",
+      "example": "Un informe firmado puede ser legible para cualquiera. Si debe ser confidencial, también necesita cifrado.",
+      "fromManualGlossary": false,
+      "referenceNote": ""
+    },
+    {
+      "id": "aead",
+      "term": "AEAD",
+      "topics": [
+        "cripto"
+      ],
+      "manualPages": [
+        11,
+        51
+      ],
+      "definition": "Cifrado autenticado con datos adicionales.",
+      "explanation": "Combina confidencialidad con detección de alteraciones y autenticación de los datos protegidos. Los datos adicionales se autentican aunque no se cifren.",
+      "hint": "Separá ocultar el contenido de detectar si alguien lo modificó.",
+      "example": "Un encabezado puede permanecer visible, pero quedar autenticado para detectar si alguien lo modifica.",
+      "fromManualGlossary": true,
+      "referenceNote": ""
+    },
+    {
+      "id": "cia",
+      "term": "Tríada CIA",
+      "topics": [
+        "csirt"
+      ],
+      "manualPages": [
+        14,
+        51
+      ],
+      "definition": "Confidencialidad, integridad y disponibilidad son tres propiedades centrales de la seguridad de la información.",
+      "explanation": "La confidencialidad restringe acceso; la integridad protege modificaciones autorizadas; la disponibilidad permite acceso oportuno. La autenticidad y el no repudio son propiedades adicionales.",
+      "hint": "Identificá la acción del caso: leer, modificar, impedir el acceso o suplantar identidad. Relacioná esa acción con la propiedad afectada.",
+      "example": "Leer una nómina sin permiso afecta confidencialidad; alterar un saldo afecta integridad; impedir acceso al servicio afecta disponibilidad.",
+      "fromManualGlossary": true,
+      "referenceNote": ""
+    },
+    {
+      "id": "no-repudio",
+      "term": "No repudio",
+      "topics": [
+        "csirt",
+        "cripto"
+      ],
+      "manualPages": [
+        13,
+        51
+      ],
+      "definition": "Evidencia para impedir la negación plausible de una acción bajo condiciones dadas.",
+      "explanation": "Requiere controles de identidad, claves y registros. Es distinto de confidencialidad y no surge simplemente de calcular un hash.",
+      "hint": "Diferenciá demostrar quién intervino de impedir que alguien lea o cambie los datos.",
+      "example": "Una firma vinculada de forma confiable a una identidad puede aportar evidencia de autoría, según el control de claves y el contexto.",
+      "fromManualGlossary": true,
+      "referenceNote": ""
+    },
+    {
+      "id": "riesgo",
+      "term": "Amenaza, vulnerabilidad, riesgo e incidente",
+      "topics": [
+        "csirt"
+      ],
+      "manualPages": [
+        14,
+        24,
+        25
+      ],
+      "definition": "Una vulnerabilidad es una debilidad; una amenaza es un actor o suceso potencialmente dañino; un riesgo considera probabilidad e impacto.",
+      "explanation": "Un incidente implica un evento adverso que compromete o pone en peligro la seguridad. Las amenazas pueden ser humanas intencionales, accidentales o naturales. Una alerta necesita verificación.",
+      "hint": "Ordená el caso: condición débil, posible daño, señal observada y evento confirmado. Evitá tratar toda alerta como una conclusión.",
+      "example": "Una contraseña débil es una vulnerabilidad; un acceso no autorizado confirmado es evidencia de un incidente.",
+      "fromManualGlossary": false,
+      "referenceNote": ""
+    },
+    {
+      "id": "actores",
+      "term": "Actores de amenaza y motivaciones",
+      "topics": [
+        "csirt"
+      ],
+      "manualPages": [
+        14,
+        15
+      ],
+      "definition": "Los actores se analizan por acceso, motivación, recursos y relación con la organización.",
+      "explanation": "El hacktivismo se vincula con motivos ideológicos; actores estatales con objetivos estratégicos; una persona interna puede abusar de permisos legítimos. Los accidentes y fenómenos naturales también generan amenazas.",
+      "hint": "Identificá motivación y acceso por separado. Tener permisos legítimos no determina si el uso de esos permisos está autorizado.",
+      "example": "Borrar datos por error es una amenaza humana no intencional; robar información usando acceso legítimo es una amenaza interna maliciosa.",
+      "fromManualGlossary": false,
+      "referenceNote": "Ampliación para las preguntas 76–78 y 90–91; las páginas del manual dan el marco de amenazas."
+    },
+    {
+      "id": "mitm",
+      "term": "MitM: intermediación de comunicaciones",
+      "topics": [
+        "csirt"
+      ],
+      "manualPages": [
+        14,
+        51
+      ],
+      "definition": "Intercepción o intermediación de una comunicación entre partes.",
+      "explanation": "Puede permitir observar o modificar tráfico si faltan protecciones de autenticidad y confidencialidad. El escenario debe distinguirse de un ataque directo al servidor.",
+      "hint": "Dibujá quién cree comunicarse con quién y en qué punto interviene un tercero.",
+      "example": "Un intermediario que intercepta la comunicación entre dos extremos puede intentar leerla o alterarla si los controles lo permiten.",
+      "fromManualGlossary": true,
+      "referenceNote": ""
+    },
+    {
+      "id": "phishing",
+      "term": "Phishing e ingeniería social",
+      "topics": [
+        "csirt",
+        "malware"
+      ],
+      "manualPages": [
+        23,
+        24,
+        43,
+        51
+      ],
+      "definition": "La ingeniería social manipula personas; el phishing usa comunicaciones que aparentan un origen confiable para inducir acciones.",
+      "explanation": "Una apariencia conocida o un remitente visible no acreditan autenticidad. Se revisan cabeceras, ruta, identidad, contexto y destino de enlaces.",
+      "hint": "Evaluá qué intenta conseguir el mensaje y cómo se construye la confianza. Un indicador aislado necesita contexto.",
+      "example": "Un correo que aparenta venir del jefe y pide responder a un dominio desconocido merece revisar cabeceras y contexto.",
+      "fromManualGlossary": true,
+      "referenceNote": ""
+    },
+    {
+      "id": "fallos-web",
+      "term": "SSRF, inyección SQL y dependencias vulnerables",
+      "topics": [
+        "csirt"
+      ],
+      "manualPages": [
+        14,
+        15,
+        26
+      ],
+      "definition": "SSRF induce solicitudes desde un servidor; la inyección SQL altera consultas construidas de forma insegura.",
+      "explanation": "Log4Shell es el caso de la biblioteca Java Log4j citado en las preguntas. Para estudiar estos casos, separá la debilidad técnica del incidente que su explotación puede producir.",
+      "hint": "Identificá qué interpreta la entrada controlada por el atacante: una URL, una consulta de base de datos o una biblioteca de la aplicación.",
+      "example": "Si un servidor recibe una URL elegida por el usuario y consulta un recurso interno no previsto, corresponde investigar SSRF.",
+      "fromManualGlossary": false,
+      "referenceNote": "Ampliación vinculada con las preguntas 81, 82 y 84. El manual ofrece contexto de vulnerabilidades y clasificación, no desarrolla estos fallos en detalle."
+    },
+    {
+      "id": "suministro",
+      "term": "Cadena de suministro de software",
+      "topics": [
+        "csirt",
+        "cripto"
+      ],
+      "manualPages": [
+        5,
+        14,
+        15
+      ],
+      "definition": "Relaciones entre un producto, sus componentes y los canales por los que se desarrolla y distribuye.",
+      "explanation": "Comprometer un proveedor o una dependencia puede afectar a sus usuarios. SolarWinds 2020 es el caso citado en la pregunta 83; el manual desarrolla el vínculo general con dependencias.",
+      "hint": "Pensá si la entrada del compromiso está en el objetivo final o en un componente que ese objetivo ya confía.",
+      "example": "Una actualización de un proveedor comprometido puede llevar código malicioso a organizaciones que confían en ese proveedor.",
+      "fromManualGlossary": false,
+      "referenceNote": "El caso SolarWinds se cita en el solucionario; el manual aporta el fundamento general."
+    },
+    {
+      "id": "credenciales",
+      "term": "Filtración y reutilización de credenciales",
+      "topics": [
+        "csirt"
+      ],
+      "manualPages": [
+        9,
+        14,
+        15
+      ],
+      "definition": "Credenciales expuestas pueden reutilizarse para intentar accesos a otros servicios.",
+      "explanation": "Credential stuffing prueba pares de usuario y contraseña filtrados. Have I Been Pwned permite consultar exposición conocida de cuentas; no confirma por sí solo un acceso a un servicio particular.",
+      "hint": "Relacioná la exposición de una contraseña con su reutilización en otras cuentas y con la evidencia necesaria para afirmar un acceso.",
+      "example": "Una contraseña filtrada y reutilizada en otro servicio permite que un atacante pruebe ese mismo par de usuario y contraseña.",
+      "fromManualGlossary": false,
+      "referenceNote": "Ampliación de las preguntas 85–86; el manual desarrolla contraseñas y riesgos, no el servicio de consulta en detalle."
+    },
+    {
+      "id": "defensa",
+      "term": "Defensa en profundidad",
+      "topics": [
+        "csirt"
+      ],
+      "manualPages": [
+        15
+      ],
+      "definition": "Combinación de controles en distintas capas para reducir la dependencia de una sola barrera.",
+      "explanation": "Segmentación, controles de host, autenticación, monitoreo, copias y procedimientos cumplen roles complementarios. Un firewall perimetral no cubre todos los riesgos del endpoint.",
+      "hint": "Ubicá cada control en red, host, identidad o recuperación. Analizá qué ocurre si una capa falla.",
+      "example": "Si falla el control perimetral, la segmentación y los controles de endpoint pueden limitar el alcance del compromiso.",
+      "fromManualGlossary": false,
+      "referenceNote": ""
+    },
+    {
+      "id": "rir",
+      "term": "RIR e IANA",
+      "topics": [
+        "csirt"
+      ],
+      "manualPages": [
+        16,
+        51,
+        52
+      ],
+      "definition": "Los RIR administran asignaciones y registros de recursos numéricos por región; IANA coordina recursos globales.",
+      "explanation": "ARIN: Estados Unidos, Canadá y parte del Caribe; LACNIC: América Latina y parte del Caribe; AFRINIC: África; RIPE NCC: Europa, Oriente Medio y Asia Central; APNIC: Asia-Pacífico.",
+      "hint": "Distinguí la coordinación global de la administración regional. Los registros de asignación ayudan a localizar operadores y contactos.",
+      "example": "Los ejemplos de clase consultan LACNIC para recursos de la región latinoamericana; el registro informa asignación, no autor humano.",
+      "fromManualGlossary": true,
+      "referenceNote": ""
+    },
+    {
+      "id": "whois",
+      "term": "WHOIS y contactos de abuso",
+      "topics": [
+        "csirt"
+      ],
+      "manualPages": [
+        16,
+        17,
+        20,
+        52
+      ],
+      "definition": "Consulta de datos de registro de recursos de Internet, generalmente en texto de formato variable.",
+      "explanation": "inetnum indica el rango; owner, la entidad registrada; abuse-c, un contacto de abuso; tech-c, un contacto técnico. Los datos orientan notificaciones, sin demostrar autoría individual.",
+      "hint": "Identificá si buscás un rango, un titular o el destinatario de una denuncia. Conservá la fuente y la fecha de la consulta.",
+      "example": "whois -h whois.lacnic.net 163.10.5.66",
+      "fromManualGlossary": true,
+      "referenceNote": ""
+    },
+    {
+      "id": "erx",
+      "term": "Bloques históricos y ERX",
+      "topics": [
+        "csirt"
+      ],
+      "manualPages": [
+        17,
+        29
+      ],
+      "definition": "Registros asociados a asignaciones anteriores a la organización actual de los RIR.",
+      "explanation": "Una respuesta ERX genérica puede requerir seguir remisiones o consultar el registro competente. El ejemplo histórico de 163.10.0.0/16 remite a UNLP mediante LACNIC.",
+      "hint": "Ante una respuesta genérica, revisá si existe un registro más específico y qué servidor tiene la información operativa.",
+      "example": "La consulta de 163.10.5.66 en un registro histórico genérico puede requerir seguir la remisión a LACNIC.",
+      "fromManualGlossary": false,
+      "referenceNote": ""
+    },
+    {
+      "id": "rdap",
+      "term": "RDAP",
+      "topics": [
+        "csirt"
+      ],
+      "manualPages": [
+        16,
+        17,
+        18,
+        51
+      ],
+      "definition": "Registration Data Access Protocol: acceso estructurado a datos de registro mediante HTTP(S) y JSON.",
+      "explanation": "events contiene eventos fechados; entities representa organizaciones o contactos; handle identifica el objeto. Puede haber datos omitidos por privacidad. No certifica el contenido de un sitio web.",
+      "hint": "Separá los datos de registro de un recurso de la actividad actual que ocurre en él. Para automatizar, observá cómo se estructuran los campos.",
+      "example": "Un programa puede recorrer entities para localizar contactos y events para recuperar fechas del registro.",
+      "fromManualGlossary": true,
+      "referenceNote": ""
+    },
+    {
+      "id": "ip",
+      "term": "Direcciones IP, CIDR y atribución",
+      "topics": [
+        "csirt"
+      ],
+      "manualPages": [
+        15,
+        16,
+        20
+      ],
+      "definition": "Una dirección IP permite encaminar tráfico; CIDR expresa prefijos de red.",
+      "explanation": "IPv4 usa 32 bits e IPv6 128. El titular de un rango no es necesariamente la persona que originó una conexión: puede haber NAT, proxies, nube o redes compartidas.",
+      "hint": "Diferenciá pertenencia de un recurso y autoría de una acción. Para correlacionar hacen falta tiempos, puertos y registros.",
+      "example": "Una IP pública compartida mediante NAT puede corresponder a muchas personas; atribuir una conexión requiere más contexto.",
+      "fromManualGlossary": false,
+      "referenceNote": ""
+    },
+    {
+      "id": "dns",
+      "term": "DNS y jerarquía de nombres",
+      "topics": [
+        "csirt"
+      ],
+      "manualPages": [
+        18,
+        19,
+        51
+      ],
+      "definition": "Base de datos distribuida y jerárquica y protocolo de consulta de nombres de Internet.",
+      "explanation": "La raíz es el punto final; debajo se encuentran TLD, dominios y subdominios. A y AAAA relacionan nombres con IPv4 e IPv6; PTR ayuda a la resolución inversa.",
+      "hint": "Descomponé el nombre desde la derecha hacia la izquierda y distinguí un nombre de un registro asociado.",
+      "example": "En mail.unlp.edu.ar., el punto final representa la raíz y ar es el ccTLD.",
+      "fromManualGlossary": true,
+      "referenceNote": ""
+    },
+    {
+      "id": "tld",
+      "term": "TLD, Registry, Registrar y Registrant",
+      "topics": [
+        "csirt"
+      ],
+      "manualPages": [
+        18,
+        19
+      ],
+      "definition": "TLD es un dominio de nivel superior; Registry opera su registro, Registrar intermedia la registración y Registrant es el titular.",
+      "explanation": "Hay gTLD como .com, ccTLD como .ar y .arpa para infraestructura. Un Registry puede también prestar registración. NIC Argentina interviene en .ar en el ejemplo del manual.",
+      "hint": "Separá quién opera la zona, quién tramita el registro y quién obtiene el nombre. No todos son la misma entidad.",
+      "example": ".ar es un ccTLD; .com es un gTLD; .arpa se utiliza para infraestructura técnica como resolución inversa.",
+      "fromManualGlossary": false,
+      "referenceNote": ""
+    },
+    {
+      "id": "privacidad-registro",
+      "term": "Privacidad en registros de dominio",
+      "topics": [
+        "csirt"
+      ],
+      "manualPages": [
+        19,
+        20,
+        27
+      ],
+      "definition": "Los datos públicos de registro pueden estar ocultos o redactados por privacidad.",
+      "explanation": "La ausencia de nombre público no elimina contactos institucionales o de abuso. Autoridades competentes pueden solicitar datos no públicos mediante los procedimientos legales aplicables.",
+      "hint": "Distinguí dato no publicado de dato inexistente. Buscá qué contacto operativo sigue disponible para coordinar el incidente.",
+      "example": "«Redacted by Privacy» indica datos no expuestos públicamente; el contacto de abuso del registrar puede seguir disponible.",
+      "fromManualGlossary": false,
+      "referenceNote": ""
+    },
+    {
+      "id": "mx",
+      "term": "MX: recepción de correo",
+      "topics": [
+        "csirt"
+      ],
+      "manualPages": [
+        19,
+        20,
+        21,
+        51
+      ],
+      "definition": "Registro DNS que anuncia los servidores receptores de correo y su preferencia.",
+      "explanation": "Los valores numéricos menores tienen mayor preferencia. Una consulta MX indica destinos previstos de recepción, no prueba el camino de un mensaje particular.",
+      "hint": "Interpretá la preferencia como orden de intento y separala del análisis de una traza concreta.",
+      "example": "host -t mx info.unlp.edu.ar",
+      "fromManualGlossary": true,
+      "referenceNote": ""
+    },
+    {
+      "id": "smtp",
+      "term": "SMTP y recuperación de mensajes",
+      "topics": [
+        "csirt"
+      ],
+      "manualPages": [
+        20,
+        21,
+        22,
+        52
+      ],
+      "definition": "SMTP transfiere correo entre agentes y servidores; IMAP y POP permiten recuperar mensajes del buzón.",
+      "explanation": "La transferencia tradicional entre servidores utiliza TCP/25. El transporte tiene un sobre y luego contenido con cabeceras y cuerpo.",
+      "hint": "Ubicá la operación en el recorrido del correo: envío entre servidores o acceso al buzón del usuario.",
+      "example": "Tras RCPT TO, un 250 acepta ese destinatario en esa etapa; no demuestra que el usuario haya recibido o leído el mensaje.",
+      "fromManualGlossary": true,
+      "referenceNote": ""
+    },
+    {
+      "id": "envelope",
+      "term": "Envelope SMTP",
+      "topics": [
+        "csirt"
+      ],
+      "manualPages": [
+        21,
+        22,
+        51
+      ],
+      "definition": "Parámetros de transporte definidos en la transacción SMTP, especialmente MAIL FROM y RCPT TO.",
+      "explanation": "MAIL FROM es el remitente de sobre usado para rebotes; RCPT TO define destinatarios efectivos. From: y To: son campos del mensaje y pueden diferir del sobre.",
+      "hint": "Dibujá dos capas: instrucciones para entregar el mensaje y datos que ve quien lo lee. Determiná a cuál pertenece cada campo.",
+      "example": "Un correo puede tener un destinatario RCPT TO que no figure en To, como sucede con destinatarios ocultos.",
+      "fromManualGlossary": true,
+      "referenceNote": ""
+    },
+    {
+      "id": "cabeceras",
+      "term": "Cabeceras: From, Reply-To, Return-Path y Message-ID",
+      "topics": [
+        "csirt"
+      ],
+      "manualPages": [
+        21,
+        22,
+        23,
+        24
+      ],
+      "definition": "Campos del mensaje que describen identidades declaradas, respuestas, retorno y trazabilidad.",
+      "explanation": "From: declara autor; Reply-To: orienta respuestas; Return-Path: suele registrar el remitente del sobre; Message-ID: identifica el mensaje sin acreditar su autenticidad. RFC 5322 define el formato de mensaje.",
+      "hint": "Preguntate si el campo indica autor visible, destino de una respuesta, retorno de rebotes o identificación del mensaje.",
+      "example": "Reply-To puede dirigir las respuestas a otra dirección aunque From muestre el nombre de una organización conocida.",
+      "fromManualGlossary": false,
+      "referenceNote": ""
+    },
+    {
+      "id": "received",
+      "term": "Received y ruta de un mensaje",
+      "topics": [
+        "csirt"
+      ],
+      "manualPages": [
+        22,
+        23,
+        24,
+        29
+      ],
+      "definition": "Cada servidor de correo agrega un Received que describe el salto recibido.",
+      "explanation": "La reconstrucción cronológica suele ir de abajo hacia arriba. from indica origen declarado y by receptor. Los saltos anteriores a una frontera confiable pueden ser falsificados. MXToolbox Email Headers y Google Admin Toolbox ayudan a visualizar trazas, pero no reemplazan revisar las cabeceras originales.",
+      "hint": "Dibujá cada salto con su origen, receptor y hora. Diferenciá lo registrado por infraestructura confiable de lo declarado por el remitente.",
+      "example": "En «Received: from cliente by mx», mx es el receptor declarado de ese salto.",
+      "fromManualGlossary": false,
+      "referenceNote": ""
+    },
+    {
+      "id": "ip-privadas",
+      "term": "IP privadas y trazas SMTP",
+      "topics": [
+        "csirt"
+      ],
+      "manualPages": [
+        23,
+        44
+      ],
+      "definition": "Los rangos privados IPv4 de RFC 1918 son 10.0.0.0/8, 172.16.0.0/12 y 192.168.0.0/16.",
+      "explanation": "No se atribuyen por WHOIS como direcciones públicas globales. En una traza conviene identificar el salto público confiable y conservar el contexto de las direcciones internas.",
+      "hint": "Revisá el prefijo completo: no todas las direcciones que empiezan con 172 pertenecen al rango privado.",
+      "example": "172.20.1.5 pertenece al rango privado 172.16.0.0/12; no toda dirección que empiece con 172 es privada.",
+      "fromManualGlossary": false,
+      "referenceNote": ""
+    },
+    {
+      "id": "tiempos",
+      "term": "Timestamps, zonas horarias y correlación",
+      "topics": [
+        "csirt",
+        "malware"
+      ],
+      "manualPages": [
+        23,
+        26,
+        27,
+        28
+      ],
+      "definition": "Un timestamp necesita fecha, hora y zona para compararse con otros eventos.",
+      "explanation": "Antes de restar horarios, normalizá las zonas. La hora declarada por un mensaje puede diferir de la observada por un servidor; documentá ambas y el origen de cada registro.",
+      "hint": "Convertí los eventos a una misma zona horaria. Evitá asumir que horas escritas igual representan el mismo instante.",
+      "example": "Entre 16:32 y 16:48 de la misma fecha y zona transcurren 16 minutos. Sin zona horaria, la comparación puede ser ambigua.",
+      "fromManualGlossary": false,
+      "referenceNote": ""
+    },
+    {
+      "id": "comandos-smtp",
+      "term": "Comandos y códigos SMTP",
+      "topics": [
+        "csirt"
+      ],
+      "manualPages": [
+        22
+      ],
+      "definition": "HELO/EHLO inicia la identificación; MAIL FROM y RCPT TO definen el sobre; DATA comienza el contenido; QUIT cierra la sesión.",
+      "explanation": "220 suele dar bienvenida, 250 confirma una operación, 354 solicita el contenido y 221 cierra. La aceptación de un destinatario no confirma entrega final ni lectura.",
+      "hint": "Asociá el código con el comando inmediatamente anterior y con la fase del intercambio, sin inferir etapas posteriores.",
+      "example": "DATA inicia la transferencia del contenido cuando el servidor responde 354; MAIL FROM y RCPT TO pertenecen al sobre.",
+      "fromManualGlossary": false,
+      "referenceNote": ""
+    },
+    {
+      "id": "tls-correo",
+      "term": "ESMTPS, SPF, DKIM y DMARC",
+      "topics": [
+        "csirt"
+      ],
+      "manualPages": [
+        23,
+        24
+      ],
+      "definition": "ESMTPS indica SMTP extendido transportado con TLS en un salto; SPF, DKIM y DMARC evalúan distintas identidades del correo.",
+      "explanation": "TLS protege un tramo y no acredita por sí solo al autor del mensaje. SPF verifica autorización de envío; DKIM verifica una firma; DMARC relaciona identidades y políticas.",
+      "hint": "Separá protección del transporte, autenticación de dominio y legitimidad del contenido del mensaje.",
+      "example": "ESMTPS en un Received describe protección de transporte en ese salto, no una garantía de identidad de todos los remitentes.",
+      "fromManualGlossary": false,
+      "referenceNote": ""
+    },
+    {
+      "id": "csirt",
+      "term": "CSIRT, CERT y comunidad objetivo",
+      "topics": [
+        "csirt"
+      ],
+      "manualPages": [
+        25,
+        51
+      ],
+      "definition": "Equipo que coordina el tratamiento de incidentes de seguridad de su comunidad objetivo.",
+      "explanation": "CSIRT significa Computer Security Incident Response Team; CERT, Computer Emergency Response Team. En el material comparten la función de respuesta. El ámbito incluye impactos desde sus recursos hacia terceros.",
+      "hint": "Ubicá quiénes son los usuarios y activos atendidos y de qué recursos se originó el hecho.",
+      "example": "Una computadora universitaria que ataca a terceros continúa dentro del ámbito de su equipo de respuesta.",
+      "fromManualGlossary": true,
+      "referenceNote": ""
+    },
+    {
+      "id": "pertinencia",
+      "term": "Recepción y pertinencia de incidentes",
+      "topics": [
+        "csirt"
+      ],
+      "manualPages": [
+        25,
+        29,
+        30
+      ],
+      "definition": "La recepción registra el reporte y la pertinencia determina su relación con el ámbito del CSIRT.",
+      "explanation": "Los avisos pueden llegar de usuarios internos, externos, otros equipos o monitoreo. Se verifica si afectan la comunidad o se originan en sus recursos antes de coordinar la gestión.",
+      "hint": "Revisá ambos extremos: quién sufrió el impacto y quién administra el recurso de origen. Conservá la evidencia aun si corresponde derivar el aviso.",
+      "example": "Un phishing recibido por un miembro de la comunidad o un ataque originado desde su red puede resultar pertinente.",
+      "fromManualGlossary": false,
+      "referenceNote": ""
+    },
+    {
+      "id": "prioridad",
+      "term": "Clasificación y priorización",
+      "topics": [
+        "csirt"
+      ],
+      "manualPages": [
+        26,
+        30
+      ],
+      "definition": "Clasificar identifica el tipo de incidente; priorizar decide la urgencia según el contexto.",
+      "explanation": "Se consideran activos, sensibilidad, alcance, tareas críticas, propagación e impacto a terceros. El volumen de reportes por sí solo no determina criticidad.",
+      "hint": "Compará impacto y activos antes de ordenar los casos. Una misma categoría puede tener prioridades diferentes.",
+      "example": "Una base de datos sensible expuesta puede requerir más urgencia que un incidente aislado de spam en una PC secundaria.",
+      "fromManualGlossary": false,
+      "referenceNote": ""
+    },
+    {
+      "id": "notificacion",
+      "term": "Notificación técnica de incidentes",
+      "topics": [
+        "csirt"
+      ],
+      "manualPages": [
+        26,
+        27
+      ],
+      "definition": "Comunicación al responsable adecuado con evidencia que permita verificar e investigar.",
+      "explanation": "Incluye IP, origen/destino, puertos relevantes, fecha, hora, zona horaria, descripción y contacto. WHOIS/RDAP ayudan a localizar al operador; documentación y coordinación evitan repetir trabajo.",
+      "hint": "Evaluá si el destinatario puede reproducir la búsqueda en sus registros con los datos recibidos.",
+      "example": "Un reporte de abuso puede incluir IP origen y destino, fecha UTC, puertos y logs, dirigido al contacto de abuso del bloque.",
+      "fromManualGlossary": false,
+      "referenceNote": ""
+    },
+    {
+      "id": "servicios-csirt",
+      "term": "Servicios reactivos, proactivos y de gestión",
+      "topics": [
+        "csirt"
+      ],
+      "manualPages": [
+        27
+      ],
+      "definition": "El CSIRT responde a incidentes, anticipa problemas y contribuye a la gestión de calidad de seguridad.",
+      "explanation": "Reactivos: alertas, gestión y forense. Proactivos: auditorías, protección y detección. Gestión: continuidad, recuperación, asesoría, concientización y capacitación, según la clasificación de la cátedra.",
+      "hint": "Determiná si la actividad responde a un hecho, busca anticiparlo o mejora la capacidad organizacional a largo plazo.",
+      "example": "Atender un incidente es reactivo; realizar una auditoría es proactivo; preparar continuidad se ubica en gestión de calidad según la cátedra.",
+      "fromManualGlossary": false,
+      "referenceNote": ""
+    },
+    {
+      "id": "datos-sensibles",
+      "term": "Evidencia y protección de datos",
+      "topics": [
+        "csirt",
+        "malware"
+      ],
+      "manualPages": [
+        27,
+        28,
+        35,
+        41
+      ],
+      "definition": "La evidencia debe conservar trazabilidad e integridad y compartirse solo con quienes la necesitan.",
+      "explanation": "Documentar origen, copias, accesos y hashes ayuda a preservar la cadena de custodia. Los reportes y muestras pueden contener datos personales, claves o secretos.",
+      "hint": "Identificá qué datos necesita realmente el destinatario, cómo protegerlos y cómo conservar la posibilidad de verificar el hallazgo.",
+      "example": "Antes de compartir un log con otro equipo se evalúa qué datos personales son necesarios para investigar el incidente.",
+      "fromManualGlossary": false,
+      "referenceNote": ""
+    },
+    {
+      "id": "tlp",
+      "term": "TLP: Traffic Light Protocol",
+      "topics": [
+        "csirt"
+      ],
+      "manualPages": [
+        28,
+        52
+      ],
+      "definition": "Etiquetado de restricciones para distribuir información.",
+      "explanation": "TLP comunica con quién puede compartirse un contenido. No cifra los datos ni reemplaza un canal seguro; la interpretación de etiquetas debe seguir la versión usada por los equipos.",
+      "hint": "Distinguí reglas de redistribución de mecanismos que protegen técnicamente el transporte.",
+      "example": "Una etiqueta TLP indica con quién se permite compartir el reporte, pero no cifra el archivo.",
+      "fromManualGlossary": true,
+      "referenceNote": ""
+    },
+    {
+      "id": "pgp",
+      "term": "PGP y GPG",
+      "topics": [
+        "csirt",
+        "cripto"
+      ],
+      "manualPages": [
+        28,
+        51
+      ],
+      "definition": "Tecnologías de cifrado y firma para proteger el intercambio de información.",
+      "explanation": "Cifrar para la clave del destinatario protege confidencialidad; firmar permite verificar integridad y origen de clave. La identidad y autenticidad de las claves deben comprobarse.",
+      "hint": "Elegí controles según la necesidad: restringir lectura, verificar cambios o establecer reglas sobre quién puede recibir la información.",
+      "example": "Un reporte puede cifrarse para el destinatario y firmarse por el equipo que lo elaboró: cada operación aporta una propiedad diferente.",
+      "fromManualGlossary": true,
+      "referenceNote": ""
+    },
+    {
+      "id": "defacement",
+      "term": "Defacement y denegación de servicio",
+      "topics": [
+        "csirt"
+      ],
+      "manualPages": [
+        14,
+        24,
+        26
+      ],
+      "definition": "Defacement es modificar sin autorización la apariencia o contenido de un sitio; DoS impide o degrada el servicio.",
+      "explanation": "Un DDoS distribuye el tráfico de ataque entre múltiples orígenes. La clasificación debe relacionarse con la propiedad afectada y el impacto real.",
+      "hint": "Observá si se alteró el contenido o si se impidió acceder a él. Después evaluá los activos e impactos involucrados.",
+      "example": "Reemplazar sin autorización la portada de un sitio modifica su contenido y compromete su integridad.",
+      "fromManualGlossary": false,
+      "referenceNote": ""
+    },
+    {
+      "id": "malware",
+      "term": "Malware y familias",
+      "topics": [
+        "malware"
+      ],
+      "manualPages": [
+        31,
+        32,
+        51
+      ],
+      "definition": "Software que ejecuta funciones perjudiciales o no autorizadas.",
+      "explanation": "Las categorías describen comportamiento, propagación o engaño y pueden coexistir. El análisis busca saber qué hace una muestra, cómo detectarla y cómo tratar el incidente.",
+      "hint": "Separá modo de llegada, forma de propagación y capacidades de la muestra. Una sola etiqueta puede no describirla por completo.",
+      "example": "Un supuesto instalador puede descargar otro componente, crear autoinicio y comunicarse con un servidor remoto.",
+      "fromManualGlossary": true,
+      "referenceNote": ""
+    },
+    {
+      "id": "familias",
+      "term": "Ransomware, RAT, gusano, troyano y otras familias",
+      "topics": [
+        "malware"
+      ],
+      "manualPages": [
+        31,
+        32
+      ],
+      "definition": "Las familias de malware agrupan conductas como extorsión, control remoto, propagación, espionaje u ocultamiento.",
+      "explanation": "Ransomware extorsiona; RAT ofrece control remoto; downloader obtiene otras cargas; keylogger registra teclas; rootkit oculta; gusano se propaga; troyano disfraza su función; spyware recopila; scareware engaña con alertas.",
+      "hint": "Identificá el verbo principal de la conducta y distinguí esa capacidad de la forma de propagarse.",
+      "example": "Un troyano puede instalar un downloader que luego obtiene una RAT. Una infección puede reunir varias categorías.",
+      "fromManualGlossary": false,
+      "referenceNote": ""
+    },
+    {
+      "id": "backdoor",
+      "term": "Backdoor",
+      "topics": [
+        "malware"
+      ],
+      "manualPages": [
+        32,
+        51
+      ],
+      "definition": "Mecanismo de acceso que evita vías previstas o autorizadas.",
+      "explanation": "Puede instalarlo otra carga y servir para acceso posterior. Su existencia no determina por sí sola el método inicial de compromiso.",
+      "hint": "Separá la vía de acceso inicial de las capacidades que quedan disponibles después.",
+      "example": "Un componente que habilita acceso evitando el mecanismo de autenticación previsto funciona como una puerta trasera.",
+      "fromManualGlossary": true,
+      "referenceNote": ""
+    },
+    {
+      "id": "botnet",
+      "term": "Botnet",
+      "topics": [
+        "malware"
+      ],
+      "manualPages": [
+        32,
+        51
+      ],
+      "definition": "Conjunto de sistemas controlados de forma coordinada.",
+      "explanation": "Describe una red de equipos, que puede utilizarse para distintos fines como DDoS, spam o distribución de cargas.",
+      "hint": "Distinguí una muestra individual de la infraestructura de control y el conjunto de equipos involucrados.",
+      "example": "Muchos equipos comprometidos pueden recibir órdenes coordinadas para enviar spam o participar en DDoS.",
+      "fromManualGlossary": true,
+      "referenceNote": ""
+    },
+    {
+      "id": "ioc",
+      "term": "IOC y límites de atribución",
+      "topics": [
+        "malware",
+        "csirt"
+      ],
+      "manualPages": [
+        33,
+        41,
+        51
+      ],
+      "definition": "Indicador de compromiso: señal técnica útil para buscar actividad o sistemas afectados.",
+      "explanation": "Puede ser un hash, ruta, proceso, servicio, clave del Registro, dominio o IP. Un indicador necesita contexto; no prueba por sí solo quién desarrolló u operó el malware.",
+      "hint": "Diferenciá identificación de una muestra, búsqueda de equipos relacionados y atribución a una persona.",
+      "example": "La ruta y el hash de un archivo creado, junto con un dominio observado, pueden ayudar a buscar otros equipos afectados.",
+      "fromManualGlossary": true,
+      "referenceNote": ""
+    },
+    {
+      "id": "estatico",
+      "term": "Análisis estático e hipótesis",
+      "topics": [
+        "malware"
+      ],
+      "manualPages": [
+        32,
+        33,
+        34,
+        41,
+        42
+      ],
+      "definition": "Estudia una muestra sin ejecutarla, mediante su estructura y contenido.",
+      "explanation": "Incluye hashes, tipo de archivo, antivirus, strings, secciones e importaciones. Permite formular hipótesis de capacidad; requiere otras evidencias para afirmar conducta observada.",
+      "hint": "Separá lo que aparece en el archivo de lo que efectivamente se observó hacer. Una capacidad disponible no implica que haya sido utilizada.",
+      "example": "Una URL en strings sugiere un destino posible, pero no demuestra que el programa se haya conectado allí.",
+      "fromManualGlossary": false,
+      "referenceNote": ""
+    },
+    {
+      "id": "antivirus",
+      "term": "Antivirus y VirusTotal",
+      "topics": [
+        "malware"
+      ],
+      "manualPages": [
+        34,
+        35
+      ],
+      "definition": "Herramientas de clasificación por firmas, heurísticas y otros métodos; VirusTotal agrega resultados de múltiples motores.",
+      "explanation": "Cero detecciones no prueba inocuidad; una detección aislada puede ser falsa o temprana. La consulta por hash y el análisis de conducta complementan el resultado.",
+      "hint": "Interpretá una detección como evidencia con límites. Considerá también qué información se compartiría al subir la muestra.",
+      "example": "Cero detecciones exige continuar el análisis si existen otros indicios; no permite declarar automáticamente que el archivo sea seguro.",
+      "fromManualGlossary": false,
+      "referenceNote": ""
+    },
+    {
+      "id": "strings",
+      "term": "Strings, WideChar y UTF-16LE",
+      "topics": [
+        "malware"
+      ],
+      "manualPages": [
+        34,
+        35
+      ],
+      "definition": "Extracción de secuencias legibles dentro de un binario.",
+      "explanation": "Permite hallar rutas, dominios o mensajes, pero puede perder datos codificados, cifrados o comprimidos. UTF-16LE usa dos bytes para muchos caracteres habituales; algunos requieren cuatro.",
+      "hint": "Revisá la codificación buscada y si la cadena está disponible en disco o se construye durante la ejecución.",
+      "example": "En GNU strings, strings -a -el muestra.bin busca texto con unidades de 16 bits little-endian.",
+      "fromManualGlossary": false,
+      "referenceNote": ""
+    },
+    {
+      "id": "pe",
+      "term": "PE, cabeceras y secciones",
+      "topics": [
+        "malware"
+      ],
+      "manualPages": [
+        35,
+        36,
+        51
+      ],
+      "definition": "Portable Executable es un formato habitual de archivos .exe y .dll de Windows.",
+      "explanation": "MZ es la firma DOS inicial; se valida el resto de la estructura PE. .text suele contener código, .data datos modificables inicializados, .rdata datos de solo lectura y .rsrc recursos. Los nombres no son obligatorios.",
+      "hint": "Ubicá si el dato corresponde a código, variables modificables, constantes o recursos. Verificá estructura y permisos además del nombre de sección.",
+      "example": ".text suele contener código y .rsrc recursos, pero esos nombres son convenciones y requieren validar la estructura real.",
+      "fromManualGlossary": true,
+      "referenceNote": ""
+    },
+    {
+      "id": "imports",
+      "term": "DLL, imports y exports",
+      "topics": [
+        "malware"
+      ],
+      "manualPages": [
+        35,
+        36,
+        42
+      ],
+      "definition": "Imports declara dependencias y funciones usadas; exports expone funciones de un módulo.",
+      "explanation": "La tabla de importación sugiere capacidades. El software legítimo usa muchas de las mismas APIs; otras funciones pueden resolverse en ejecución y no figurar en la tabla.",
+      "hint": "Tratando cada import como una hipótesis, preguntate qué evidencia adicional demostraría que la función se ejecutó.",
+      "example": "Importar una función de descarga indica una capacidad potencial; observar su uso requiere evidencia adicional.",
+      "fromManualGlossary": false,
+      "referenceNote": ""
+    },
+    {
+      "id": "apis-red",
+      "term": "APIs de red: WinINet y descarga",
+      "topics": [
+        "malware"
+      ],
+      "manualPages": [
+        36
+      ],
+      "definition": "InternetOpen inicializa un contexto WinINet; InternetOpenUrl abre un recurso; URLDownloadToFile descarga a archivo.",
+      "explanation": "InternetOpen puede configurar parámetros como agente de usuario y acceso a Internet. Importar estas APIs no prueba una conexión o descarga en una ejecución concreta.",
+      "hint": "Separá inicializar una sesión, abrir un recurso y guardar una descarga. Relacioná la API con lo que se capturó en la red.",
+      "example": "Una importación de InternetOpen puede incluir un User-Agent; URLDownloadToFile sugiere una capacidad de descarga a archivo.",
+      "fromManualGlossary": false,
+      "referenceNote": ""
+    },
+    {
+      "id": "virtualprotect",
+      "term": "VirtualProtect",
+      "topics": [
+        "malware"
+      ],
+      "manualPages": [
+        36,
+        52
+      ],
+      "definition": "API de Windows que modifica las protecciones de páginas de memoria.",
+      "explanation": "Puede cambiar permisos de lectura, escritura o ejecución. Se usa también legítimamente; hace falta correlacionar sus argumentos y uso con el comportamiento observado.",
+      "hint": "Relacioná permisos de memoria y ejecución de código; evitá inferir intención solo por la presencia del nombre.",
+      "example": "Una muestra puede usar esta API para cambiar permisos de memoria; una importación aislada no prueba que lo haya hecho.",
+      "fromManualGlossary": true,
+      "referenceNote": ""
+    },
+    {
+      "id": "carga-dinamica",
+      "term": "LoadLibrary y GetProcAddress",
+      "topics": [
+        "malware"
+      ],
+      "manualPages": [
+        36,
+        37
+      ],
+      "definition": "APIs para cargar bibliotecas y obtener direcciones de funciones exportadas en ejecución.",
+      "explanation": "Su combinación puede facilitar resolución dinámica de APIs. Pocas importaciones junto con pocos strings pueden motivar investigar packing, sin demostrarlo por sí solas.",
+      "hint": "Distinguí cargar un módulo de localizar una función dentro de él. Después revisá qué oculta esa resolución al análisis del archivo.",
+      "example": "Un binario con pocos imports puede cargar una DLL con LoadLibrary y resolver sus funciones con GetProcAddress al ejecutar.",
+      "fromManualGlossary": false,
+      "referenceNote": ""
+    },
+    {
+      "id": "create-service",
+      "term": "CreateService y servicios",
+      "topics": [
+        "malware"
+      ],
+      "manualPages": [
+        36,
+        38,
+        39
+      ],
+      "definition": "CreateService configura un servicio de Windows.",
+      "explanation": "La presencia del import permite plantear una hipótesis de instalación de servicio. La observación debe buscar la configuración, binario, permisos y modo de arranque en el sistema probado.",
+      "hint": "Separá la API disponible de los cambios confirmados. Compará servicios configurados con otras ubicaciones de autoinicio.",
+      "example": "Encontrar este import justifica revisar servicios; documentar solo una Run key no confirma que se haya creado un servicio.",
+      "fromManualGlossary": false,
+      "referenceNote": ""
+    },
+    {
+      "id": "recursos-pe",
+      "term": "Recursos PE, Resource Hacker y PEStudio",
+      "topics": [
+        "malware"
+      ],
+      "manualPages": [
+        36
+      ],
+      "definition": "Los recursos PE pueden incluir iconos, menús, manifiestos y otros datos incrustados.",
+      "explanation": "Resource Hacker explora y extrae recursos. PEStudio reúne comprobaciones estáticas del ejecutable. Un icono conocido no certifica legitimidad.",
+      "hint": "Separá la apariencia del programa de su contenido y sus capacidades. Elegí una herramienta según el elemento que querés inspeccionar.",
+      "example": "Un icono legítimo incrustado en un ejecutable puede ser reutilizado y no demuestra la identidad de su fabricante.",
+      "fromManualGlossary": false,
+      "referenceNote": ""
+    },
+    {
+      "id": "packing",
+      "term": "Packing y ofuscación",
+      "topics": [
+        "malware"
+      ],
+      "manualPages": [
+        37,
+        51
+      ],
+      "definition": "Transformaciones que dificultan ver o comprender el contenido original de un ejecutable.",
+      "explanation": "Un packer puede comprimir o cifrar y añadir código que recupera el contenido al ejecutarse. Pocos strings, pocas imports o diferencias raw/virtual son indicios, no pruebas de intención maliciosa.",
+      "hint": "Combiná varios indicios de transformación. Pensá qué contenido podría aparecer en memoria aunque no sea visible directamente en disco.",
+      "example": "Una sección pequeña en disco y grande en memoria puede justificar investigar empaquetamiento, sin demostrar malicia por sí sola.",
+      "fromManualGlossary": true,
+      "referenceNote": ""
+    },
+    {
+      "id": "dinamico",
+      "term": "Análisis dinámico y sus límites",
+      "topics": [
+        "malware"
+      ],
+      "manualPages": [
+        37,
+        38,
+        41,
+        42
+      ],
+      "definition": "Observación de una muestra durante una ejecución controlada.",
+      "explanation": "Registra cambios en archivos, Registro, procesos, servicios y comunicaciones. Una corrida solo cubre los caminos activados por sus permisos, entradas, condiciones y duración.",
+      "hint": "Delimitá la conclusión al entorno y la ventana observados. La ausencia de una acción en una corrida no demuestra que el programa no pueda realizarla.",
+      "example": "No ver conexiones durante una ejecución no descarta que otra ruta se active con distintos parámetros o condiciones.",
+      "fromManualGlossary": false,
+      "referenceNote": ""
+    },
+    {
+      "id": "laboratorio",
+      "term": "Laboratorio aislado, VM y snapshots",
+      "topics": [
+        "malware"
+      ],
+      "manualPages": [
+        38
+      ],
+      "definition": "Entorno controlado y separado de redes y datos de producción para observar muestras.",
+      "explanation": "Un snapshot limpio permite restaurar la base antes de cada ensayo. Carpetas compartidas, portapapeles o red real pueden romper el aislamiento. La evidencia debe guardarse antes de restaurar.",
+      "hint": "Revisá qué recursos puede alcanzar la muestra y cómo repetirías la prueba desde el mismo estado inicial.",
+      "example": "Después de conservar los logs y archivos de una prueba, restaurar un snapshot limpio permite repetir las condiciones iniciales.",
+      "fromManualGlossary": false,
+      "referenceNote": ""
+    },
+    {
+      "id": "registry",
+      "term": "Registro de Windows: HKCU y HKLM",
+      "topics": [
+        "malware"
+      ],
+      "manualPages": [
+        38,
+        39,
+        52
+      ],
+      "definition": "Base jerárquica de configuración del sistema y usuarios.",
+      "explanation": "HKCU corresponde al usuario actual; HKLM a la configuración del equipo. Las rutas y permisos ayudan a interpretar el alcance de los cambios y su necesidad de elevación.",
+      "hint": "Identificá si la configuración pertenece al perfil de usuario o al equipo y qué permisos necesita modificarla.",
+      "example": "HKCU corresponde al usuario actual; HKLM contiene configuración del equipo. Los permisos de escritura dependen de la rama.",
+      "fromManualGlossary": true,
+      "referenceNote": ""
+    },
+    {
+      "id": "run-key",
+      "term": "Run keys y persistencia",
+      "topics": [
+        "malware"
+      ],
+      "manualPages": [
+        38,
+        39,
+        52
+      ],
+      "definition": "Entradas del Registro que permiten ejecutar programas al iniciar sesión.",
+      "explanation": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run afecta al usuario actual; escribir en su perfil suele no requerir elevación. Una Run key es una vía de persistencia distinta de crear un servicio.",
+      "hint": "Relacioná el momento de reaparición del proceso con la ubicación de arranque y verificá a qué archivo apunta.",
+      "example": "Una entrada Run que referencia un archivo debe correlacionarse con el proceso que aparece al iniciar sesión.",
+      "fromManualGlossary": true,
+      "referenceNote": ""
+    },
+    {
+      "id": "servicios-windows",
+      "term": "Servicios de Windows y persistencia",
+      "topics": [
+        "malware"
+      ],
+      "manualPages": [
+        38,
+        39
+      ],
+      "definition": "Los servicios permiten ejecutar funciones del sistema con una configuración de inicio y cuenta.",
+      "explanation": "HKLM\\System\\CurrentControlSet\\Services contiene definiciones de servicios y controladores. Modificarlo suele requerir privilegios administrativos; su mera presencia no prueba malicia.",
+      "hint": "Compará configuración de servicio, inicio de sesión de usuario y privilegios. Correlacioná la nueva entrada con el binario y el proceso observado.",
+      "example": "Una modificación en HKLM\\System\\CurrentControlSet\\Services requiere examinar la configuración del servicio correspondiente.",
+      "fromManualGlossary": false,
+      "referenceNote": ""
+    },
+    {
+      "id": "regshot",
+      "term": "Regshot, Autoruns y línea de base",
+      "topics": [
+        "malware"
+      ],
+      "manualPages": [
+        39,
+        40
+      ],
+      "definition": "Regshot compara estados del Registro; Autoruns inspecciona ubicaciones de autoinicio.",
+      "explanation": "Una captura previa y otra posterior permiten aislar cambios, que deben separarse del ruido normal del sistema. Autoruns complementa la búsqueda de persistencia en múltiples ubicaciones.",
+      "hint": "Elegí entre comparar dos estados o inspeccionar configuraciones de arranque. Explicá cómo reconocerías un cambio nuevo frente a uno preexistente.",
+      "example": "Comparar una captura anterior y otra posterior puede revelar un valor Run nuevo; hay que separar ese cambio del ruido normal del sistema.",
+      "fromManualGlossary": false,
+      "referenceNote": ""
+    },
+    {
+      "id": "procmon",
+      "term": "Process Monitor (Procmon)",
+      "topics": [
+        "malware"
+      ],
+      "manualPages": [
+        39,
+        40
+      ],
+      "definition": "Registra eventos de procesos sobre archivos, Registro y otros recursos.",
+      "explanation": "Los filtros por PID, nombre, operación y ruta facilitan correlacionar cambios con la muestra. Conviene comenzar la captura antes de la ejecución y conservar los eventos.",
+      "hint": "Relacioná qué recurso cambia con el proceso responsable. Un registro de red o una lista de procesos puede no mostrar cambios de archivos y claves.",
+      "example": "Filtrar por PID y por operaciones sobre CurrentVersion\\Run ayuda a relacionar una escritura con el proceso que la realizó.",
+      "fromManualGlossary": false,
+      "referenceNote": ""
+    },
+    {
+      "id": "captura-red",
+      "term": "Wireshark, tcpdump y evidencia de red",
+      "topics": [
+        "malware"
+      ],
+      "manualPages": [
+        40,
+        41
+      ],
+      "definition": "Herramientas para capturar e inspeccionar paquetes de red.",
+      "explanation": "Permiten observar consultas DNS, conexiones y transferencias dentro de la visibilidad de la captura. Una consulta DNS no prueba una descarga; HTTPS puede ocultar contenido.",
+      "hint": "Diferenciá nombre consultado, conexión establecida y datos transferidos. Afirmá solo la etapa que sostiene la captura.",
+      "example": "Una consulta DNS capturada demuestra resolución de nombre; todavía no confirma una descarga posterior.",
+      "fromManualGlossary": false,
+      "referenceNote": ""
+    },
+    {
+      "id": "red-simulada",
+      "term": "FakeNet y FakeDNS",
+      "topics": [
+        "malware"
+      ],
+      "manualPages": [
+        40
+      ],
+      "definition": "Servicios simulados para observar comunicaciones en un laboratorio sin exponer redes reales.",
+      "explanation": "FakeNet emula múltiples servicios; FakeDNS emula resolución de nombres. La simulación puede activar rutas de ejecución y permite capturar intentos de comunicación bajo control.",
+      "hint": "Determiná si necesitás respuestas de nombres o de varios protocolos. Diseñá la observación dentro de una red aislada.",
+      "example": "FakeDNS puede responder consultas de nombres y FakeNet emular otros servicios para observar intentos de comunicación en el laboratorio.",
+      "fromManualGlossary": false,
+      "referenceNote": ""
+    },
+    {
+      "id": "procesos",
+      "term": "Process Explorer y Process Hacker",
+      "topics": [
+        "malware"
+      ],
+      "manualPages": [
+        39,
+        41
+      ],
+      "definition": "Exploradores de procesos activos, relaciones, módulos y otros recursos de ejecución.",
+      "explanation": "El árbol de procesos ayuda a relacionar padres e hijos y las DLL cargadas aportan contexto. Para completar el informe se combinan con archivos, Registro y red.",
+      "hint": "Separá observar procesos de registrar operaciones y tráfico. Considerá qué parte del comportamiento cubre cada herramienta.",
+      "example": "Un árbol de procesos puede mostrar un ejecutable hijo que conviene correlacionar con archivos creados y conexiones.",
+      "fromManualGlossary": false,
+      "referenceNote": ""
+    },
+    {
+      "id": "prompt-injection",
+      "term": "Prompt injection",
+      "topics": [
+        "csirt"
+      ],
+      "manualPages": [
+        5,
+        51
+      ],
+      "definition": "Instrucciones adversarias dentro de contenido de menor confianza consumido por una IA.",
+      "explanation": "Una aplicación que trata documentos o respuestas externas como órdenes puede ejecutar acciones fuera del propósito del usuario. Es una ampliación del glosario del manual y no una unidad de estas preguntas.",
+      "hint": "Separá las instrucciones autorizadas del contenido que un sistema debe analizar.",
+      "example": "Un documento que ordena ignorar las instrucciones del usuario contiene una instrucción incrustada, no una nueva autorización.",
+      "fromManualGlossary": true,
+      "referenceNote": ""
+    }
+  ]
+}
