@@ -75,7 +75,7 @@ try {
   await page.locator('#next-question-inline').click(); assert.match(await page.locator('#question-position').textContent(),/002/);
   await page.locator('#previous-question').click(); assert.equal(await page.locator('#answer-options > details[open]').count(),0);
   await page.locator('#topic-filter').selectOption('malware'); await page.locator('#status-filter').selectOption('pending');
-  assert.equal(await page.locator('[data-question]').count(),124);
+  assert.equal(await page.locator('[data-question]').count(),147);
   await page.locator('#next-question').click(); await page.reload(); await page.waitForSelector('#study-layout:visible');
   assert.match(await page.locator('#question-position').textContent(),/228/); assert.equal(await page.locator('#topic-filter').inputValue(),'malware');
   await page.locator('#manage-progress').click();
