@@ -36,7 +36,17 @@ No se necesita generar una carpeta `dist/` ni ejecutar npm. `.nojekyll` permite 
 - Los 92 ejercicios nuevos son consignas abiertas: las cinco opciones y las 368 explicaciones de distractores son **adaptaciones didácticas**, señaladas como tales. La explicación correcta conserva el texto del solucionario de prácticas. Los comandos y logs se muestran en bloques con saltos de línea.
 - El índice y los filtros usan el **último intento confirmado**. Durante un reintento, el estado anterior sigue vigente hasta confirmar. Si una respuesta deja de coincidir con el filtro, su corrección sigue visible hasta navegar o cambiar los filtros.
 - El recorrido se cuenta sobre 442 preguntas con al menos un intento, independientemente del resultado. Las estadísticas de correctas/falladas corresponden al último intento; las estadísticas con/sin pista consideran todos los intentos.
-- Los botones y controles funcionan con Tab, Mayús+Tab, Enter y Espacio; las flechas cambian opciones dentro del grupo de radio. **Alt+← / Alt+→** navega preguntas del recorrido filtrado. Escape cierra las ventanas de material y progreso.
+- Los botones y controles funcionan con Tab, Mayús+Tab, Enter y Espacio; las flechas cambian opciones dentro del grupo de radio. **Alt+← / Alt+→** navega preguntas del recorrido filtrado. Escape cierra las ventanas de material, progreso y modo estudio.
+
+## Modo estudio
+
+El botón **Modo estudio** abre la configuración de un recorrido aleatorio. Permite elegir una cantidad entera entre 1 y el número de preguntas disponibles, un tema (todos, Criptografía, CSIRT o Malware) y un origen (Teoría y Práctica, Teoría o Práctica). Los filtros se combinan y la cantidad disponible se actualiza antes de empezar. Se incluyen tanto preguntas pendientes como respondidas.
+
+La selección usa Fisher–Yates, sin repetir preguntas dentro del mismo recorrido. El índice y los botones anterior/siguiente, incluido **Alt+← / Alt+→**, respetan ese orden aleatorio. Mientras el recorrido está activo, su configuración reemplaza los filtros habituales del índice; **Nuevo recorrido** permite elegir otra configuración.
+
+Cada pregunta seleccionada empieza con un intento nuevo y las soluciones ocultas, conservando todo el historial confirmado. Las pistas, los acordeones y los reintentos funcionan como en la práctica habitual. El panel de modo estudio muestra respondidas, correctas, falladas y respuestas con pista de este recorrido; al completarlo, permite revisar las respuestas o crear otro. Un reintento vuelve a dejar esa pregunta pendiente en el recorrido hasta confirmar de nuevo. Las estadísticas generales siguen incluyendo todos los intentos.
+
+Se guardan el orden, el punto de lectura, los borradores y los resultados para continuar al recargar o después de consultar el glosario. **Salir del modo estudio** restaura el punto de lectura y los filtros previos, conservando intentos y borradores. Crear otro recorrido reemplaza la selección activa y conserva el historial. Un enlace directo a una pregunta desde el glosario o el historial abre la práctica habitual. Escape o Cancelar cierra la configuración sin cambiar el recorrido activo.
 
 ## Progreso y transferencia
 
@@ -57,7 +67,7 @@ La clave local es `ic2026.progress.v1`. El formato exportado contiene:
 }
 ```
 
-El formato conserva la versión 1: al leer respaldos anteriores sin `view.origin`, se utiliza `all`, manteniendo intentos, borradores y punto de lectura. Los nuevos respaldos incluyen `origin` (`all`, `theory` o `practice`).
+El formato conserva la versión 1: al leer respaldos anteriores sin `view.origin`, se utiliza `all`, manteniendo intentos, borradores y punto de lectura. Los nuevos respaldos incluyen `origin` (`all`, `theory` o `practice`). Si hay un recorrido de modo estudio activo, incorporan también el campo opcional `studySession`: `questionIds` en orden aleatorio, `topic`, `origin`, `answers` (pregunta → ID del intento confirmado en ese recorrido) y `previousView` para restaurar la práctica habitual. Los respaldos anteriores sin ese campo siguen siendo válidos. La importación comprueba que la selección sea única, respete los filtros y contenga borradores o resultados coherentes con el historial y el punto de lectura.
 
 La importación valida versión, IDs, opciones, resultados contra el solucionario, fechas, ayuda, duplicados, borradores y filtros **antes de pedir confirmación**. Reemplaza el historial; no lo mezcla. Rechaza archivos mayores a 10 MB y más de 50.000 intentos. Cancelar la importación o el reinicio conserva los datos. Si falla el almacenamiento, se informa y la sesión continúa en memoria: exportar antes de salir. Si los datos guardados no se pueden interpretar, se preservan sin sobrescribirlos y se ofrece descargarlos desde **Mi progreso**; importar un respaldo válido o reiniciar permite volver a guardar.
 

@@ -1,4 +1,4 @@
-import { STORAGE_KEY, TOPICS, ORIGINS, emptyProgress, latestAttempt, questionStatus, filterQuestions, statistics, confirmAttempt, beginRetry, validateProgress, loadProgress, saveProgress } from './progress.mjs?v=20261021-6';
+import { STORAGE_KEY, TOPICS, ORIGINS, emptyProgress, latestAttempt, questionStatus, filterQuestions, statistics, confirmAttempt, beginRetry, startStudySession, endStudySession, studyStatistics, validateProgress, loadProgress, saveProgress } from './progress.mjs?v=20261021-7';
 const $ = id => document.getElementById(id);
 const el = (tag, className, text) => { const node = document.createElement(tag); if (className) node.className = className; if (text !== undefined) node.textContent = text; return node; };
 const number = id => String(id).padStart(3, '0');
@@ -48,6 +48,11 @@ function renderStats() {
   $('progress-percent').textContent = `${Math.round(s.answered / questions.length * 100)}%`;
 }
 function renderIndex(filtered) {
+  const session = progress.studySession;
+  $('bank-count').textContent = session ? filtered.length : questions.length;
+  $('index-description').textContent = session ? 'Este es el orden aleatorio de tu recorrido. Los estados corresponden a las respuestas de este recorrido.' : '350 de teoría y 92 de práctica, en tres temas.';
+  for (const id of ['topic-filter', 'status-filter', 'origin-filter']) $(id).closest('.filter-field').hidden = Boolean(session);
+  $('reset-filters').hidden = Boolean(session);
   $('topic-filter').value = progress.view.topic;
   $('status-filter').value = progress.view.status;
   $('origin-filter').value = progress.view.origin;
@@ -57,19 +62,19 @@ function renderIndex(filtered) {
   }
   $('index-count').textContent = `${filtered.length} ${filtered.length === 1 ? 'pregunta' : 'preguntas'}`;
   const fragment = document.createDocumentFragment();
-  for (const [topic, label] of Object.entries(TOPICS)) {
-    const group = filtered.filter(q => q.topic === topic);
+  for (const [topic, label] of session ? [['study', 'Orden aleatorio']] : Object.entries(TOPICS)) {
+    const group = session ? filtered : filtered.filter(q => q.topic === topic);
     if (!group.length) continue;
     const heading = el('h3', `index-topic ${topic}`, label);
     heading.append(el('span', '', group.length));
     fragment.append(heading);
     const grid = el('div', 'number-grid');
-    for (const q of group) {
-      const status = questionStatus(progress, q.id);
+    for (const [position, q] of group.entries()) {
+      const status = session && !session.answers[q.id] ? 'pending' : questionStatus(progress, q.id);
       const b = el('button', `question-number ${status}`, number(q.id));
       b.type = 'button'; b.dataset.question = q.id;
-      b.setAttribute('aria-label', `Pregunta ${q.id}, ${ORIGINS[q.origin]}, ${TOPICS[q.topic]}, ${stateLabels[status].toLowerCase()}`);
-      b.title = `Pregunta ${number(q.id)} · ${ORIGINS[q.origin]} · ${stateLabels[status]}`;
+      b.setAttribute('aria-label', `${session ? `Lugar ${position + 1} de ${group.length}. ` : ''}Pregunta ${q.id}, ${ORIGINS[q.origin]}, ${TOPICS[q.topic]}, ${stateLabels[status].toLowerCase()}`);
+      b.title = `${session ? `${position + 1} de ${group.length} · ` : ''}Pregunta ${number(q.id)} · ${ORIGINS[q.origin]} · ${stateLabels[status]}`;
       if (q.id === progress.view.questionId) b.setAttribute('aria-current', 'step');
       grid.append(b);
     }
@@ -79,6 +84,35 @@ function renderIndex(filtered) {
   const scroll = $('question-index').scrollTop;
   $('question-index').replaceChildren(fragment);
   $('question-index').scrollTop = scroll;
+}
+function renderStudySession() {
+  const session = progress.studySession;
+  $('study-session').hidden = !session;
+  if (!session) return;
+  const s = studyStatistics(progress), total = session.questionIds.length;
+  const complete = s.answered === total;
+  $('study-session-title').textContent = complete ? '¡Recorrido completado!' : `Tu recorrido de ${total} ${total === 1 ? 'pregunta' : 'preguntas'}`;
+  $('study-session-filters').textContent = `${TOPICS[session.topic] ?? 'Todos los temas'} · ${ORIGINS[session.origin] ?? 'Teoría y Práctica'} · Sin repeticiones`;
+  $('study-session-status').textContent = `${s.answered} de ${total} respondidas · ${s.correct} correctas · ${s.incorrect} falladas · ${s.assisted} con pista${complete ? '. Podés revisar las respuestas o empezar otro recorrido.' : ''}`;
+  $('study-session-progress').max = total;
+  $('study-session-progress').value = s.answered;
+}
+function updateStudyAvailability() {
+  const topic = $('study-topic').value, origin = $('study-origin').value;
+  const count = questions.filter(q => (topic === 'all' || q.topic === topic) && (origin === 'all' || q.origin === origin)).length;
+  $('study-count').max = count;
+  $('study-available').textContent = `${count} preguntas disponibles con estos filtros. Elegí entre 1 y ${count}.`;
+  $('study-error').hidden = true;
+  $('study-count').removeAttribute('aria-invalid');
+}
+function openStudySetup() {
+  const session = progress.studySession;
+  $('study-topic').value = session?.topic ?? progress.view.topic;
+  $('study-origin').value = session?.origin ?? progress.view.origin;
+  $('study-replace-note').hidden = !session;
+  updateStudyAvailability();
+  $('study-count').value = Math.min(session?.questionIds.length ?? 10, Number($('study-count').max));
+  $('study-dialog').showModal();
 }
 function renderHint(q, show, automatic = false) {
   $('hint-panel').hidden = !show;
@@ -204,14 +238,14 @@ function renderQuestion(filtered) {
   if (q.adaptationNote) $('question-source').append(el('span', 'reference-note', q.adaptationNote));
   const index = filtered.findIndex(item => item.id === q.id);
   $('outside-filter').hidden = empty || index >= 0;
-  const previous = filtered.filter(item => item.id < q.id).at(-1);
-  const next = filtered.find(item => item.id > q.id);
+  const previous = progress.studySession ? filtered[index - 1] : filtered.filter(item => item.id < q.id).at(-1);
+  const next = progress.studySession ? filtered[index + 1] : filtered.find(item => item.id > q.id);
   $('previous-question').disabled = empty || !previous;
   $('next-question').disabled = empty || !next;
   $('next-question-inline').disabled = empty || !next;
   $('filtered-position').textContent = index >= 0 ? `${index + 1} de ${filtered.length} en este recorrido` : `${filtered.length} en el filtro`;
 }
-function render() { const filtered = filterQuestions(questions, progress); renderStats(); renderIndex(filtered); renderQuestion(filtered); }
+function render() { const filtered = filterQuestions(questions, progress); renderStats(); renderStudySession(); renderIndex(filtered); renderQuestion(filtered); }
 function navigate(id) {
   autoOpenQuestion = null;
   progress.view.questionId = id; pinned = false; persist(); render();
@@ -220,10 +254,12 @@ function navigate(id) {
 }
 function move(direction) {
   const filtered = filterQuestions(questions, progress);
-  const candidate = direction > 0 ? filtered.find(q => q.id > current().id) : filtered.filter(q => q.id < current().id).at(-1);
+  const candidate = progress.studySession ? filtered[filtered.findIndex(q => q.id === current().id) + direction]
+    : direction > 0 ? filtered.find(q => q.id > current().id) : filtered.filter(q => q.id < current().id).at(-1);
   if (candidate) navigate(candidate.id);
 }
 function setFilters(topic = $('topic-filter').value, status = $('status-filter').value, origin = $('origin-filter').value) {
+  if (progress.studySession) return;
   progress.view.topic = topic; progress.view.status = status; progress.view.origin = origin; pinned = false;
   const filtered = filterQuestions(questions, progress);
   if (filtered.length && !filtered.some(q => q.id === current().id)) progress.view.questionId = filtered[0].id;
@@ -247,6 +283,24 @@ function renderDetailedStats() {
   $('all-attempts').replaceChildren(); $('all-attempts').parentElement.open = false;
 }
 function bindEvents() {
+  $('open-study').disabled = false;
+  $('open-study').addEventListener('click', openStudySetup);
+  $('new-study').addEventListener('click', openStudySetup);
+  for (const id of ['study-topic', 'study-origin']) $(id).addEventListener('change', updateStudyAvailability);
+  $('study-form').addEventListener('submit', event => {
+    event.preventDefault();
+    try {
+      startStudySession(progress, questions, { count: Number($('study-count').value), topic: $('study-topic').value, origin: $('study-origin').value });
+      autoOpenQuestion = null; pinned = false; persist(); render(); $('study-dialog').close();
+      $('question-title').focus({ preventScroll: true }); $('study-session').scrollIntoView({ block: 'start', behavior: 'smooth' });
+    } catch (error) {
+      $('study-error').textContent = error.message; $('study-error').hidden = false;
+      $('study-count').setAttribute('aria-invalid', 'true'); $('study-count').focus();
+    }
+  });
+  $('end-study').addEventListener('click', () => {
+    endStudySession(progress); autoOpenQuestion = null; pinned = false; persist(); render(); $('open-study').focus();
+  });
   $('answer-form').addEventListener('change', event => {
     if (event.target.name !== 'answer') return;
     draftFor(current()).option = event.target.value; persist();
@@ -291,7 +345,7 @@ function bindEvents() {
     const list = el('ol', 'full-history-list');
     for (const a of progress.attempts.toReversed()) {
       const li = attemptItem(a); const link = el('button', 'text-button', `Pregunta ${number(a.questionId)}`);
-      link.addEventListener('click', () => { $('progress-dialog').close(); progress.view.topic = 'all'; progress.view.status = 'all'; progress.view.origin = 'all'; navigate(a.questionId); });
+      link.addEventListener('click', () => { $('progress-dialog').close(); endStudySession(progress); progress.view.topic = 'all'; progress.view.status = 'all'; progress.view.origin = 'all'; navigate(a.questionId); });
       li.prepend(link); list.append(li);
     }
     $('all-attempts').replaceChildren(progress.attempts.length ? list : el('p', 'muted small', 'Todavía no confirmaste intentos.'));
@@ -314,7 +368,7 @@ function bindEvents() {
     finally { event.target.value = ''; }
   });
   $('reset-progress').addEventListener('click', () => {
-    if (!window.confirm('¿Borrar todos los intentos, borradores y filtros de este navegador? Podés exportar una copia antes.')) return;
+    if (!window.confirm('¿Borrar todos los intentos, borradores, filtros y el recorrido de modo estudio de este navegador? Podés exportar una copia antes.')) return;
     progress = emptyProgress(); pinned = false; recoveryRaw = null;
     const saved = persist(); render(); renderDetailedStats();
     $('transfer-status').textContent = saved ? 'Progreso reiniciado.' : 'La sesión se reinició, pero el navegador no pudo guardar el cambio.';
@@ -338,6 +392,7 @@ try {
   const loaded = loadProgress(storage, questions); progress = loaded.progress; recoveryRaw = loaded.recoveryRaw; warn(loaded.warning);
   const linkedId = new URL(location.href).searchParams.get('pregunta');
   if (linkedId && /^\d+$/.test(linkedId) && questions.some(q => q.id === Number(linkedId))) {
+    endStudySession(progress);
     progress.view = { questionId: Number(linkedId), topic: 'all', status: 'all', origin: 'all' }; persist();
     history.replaceState(null, '', location.pathname);
   }

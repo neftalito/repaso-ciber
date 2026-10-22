@@ -1,4 +1,4 @@
-import { TOPICS } from './progress.mjs?v=20261021-6';
+import { TOPICS } from './progress.mjs?v=20261021-7';
 const $ = id => document.getElementById(id);
 const el = (tag, cls, text) => { const n = document.createElement(tag); if (cls) n.className = cls; if (text !== undefined) n.textContent = text; return n; };
 const normalize = value => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();

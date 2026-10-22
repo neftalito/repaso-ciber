@@ -20,6 +20,7 @@ const server = createServer(async (req,res) => {
 let browser;
 const errors=[];
 const glossaryEntryCount=JSON.parse(await readFile(new URL('../data/glossary.json',import.meta.url),'utf8')).entries.length;
+const studyBank=[...JSON.parse(await readFile(new URL('../data/questions.json',import.meta.url),'utf8')).questions,...JSON.parse(await readFile(new URL('../data/practice-questions.json',import.meta.url),'utf8')).questions];
 async function assertGlossaryLayout(page, width) {
   const layout = await page.evaluate(() => {
     const box = selector => {
@@ -97,6 +98,65 @@ try {
   await page.locator('input[value="A"]').focus(); await page.keyboard.press('ArrowDown');
   assert.equal(await page.locator('input[value="B"]').isChecked(),true);
   await page.keyboard.press('Alt+ArrowRight'); assert.match(await page.locator('#question-position').textContent(),/002/);
+  // Native dialog, keyboard, shuffled navigation and portable study state.
+  const studyContext=await browser.newContext({viewport:{width:1440,height:1000}});
+  const studyPage=await studyContext.newPage(); studyPage.on('pageerror',e=>errors.push(e.message));
+  await studyPage.goto(url); await studyPage.waitForSelector('#study-layout:visible');
+  await studyPage.locator('#origin-filter').selectOption('practice');
+  await studyPage.locator('#topic-filter').selectOption('csirt');
+  const studyPrevious=await studyPage.evaluate(()=>JSON.parse(localStorage.getItem('ic2026.progress.v1')).view);
+  await studyPage.locator('#open-study').focus(); await studyPage.keyboard.press('Enter');
+  assert.equal(await studyPage.locator('#study-dialog').isVisible(),true);
+  await studyPage.keyboard.press('Alt+ArrowRight');
+  assert.deepEqual(await studyPage.evaluate(()=>JSON.parse(localStorage.getItem('ic2026.progress.v1')).view),studyPrevious);
+  await studyPage.keyboard.press('Escape');
+  assert.equal(await studyPage.locator('#study-dialog').isVisible(),false);
+  assert.equal(await studyPage.locator('#open-study').evaluate(n=>document.activeElement===n),true);
+  await studyPage.locator('#open-study').click();
+  assert.equal(await studyPage.locator('#study-count').getAttribute('max'),'29');
+  await studyPage.locator('#study-count').fill('30'); await studyPage.locator('#start-study').click();
+  assert.equal(await studyPage.locator('#study-error').isVisible(),true);
+  assert.equal(await studyPage.locator('#study-count').getAttribute('aria-invalid'),'true');
+  await studyPage.locator('#study-count').fill('2'); await studyPage.locator('#start-study').click();
+  const studyIds=await studyPage.evaluate(()=>JSON.parse(localStorage.getItem('ic2026.progress.v1')).studySession.questionIds);
+  assert.equal(studyIds.length,2); assert.equal(new Set(studyIds).size,2);
+  assert.ok(studyIds.every(id=>studyBank.find(q=>q.id===id).topic==='csirt'&&id>350));
+  assert.deepEqual(await studyPage.locator('[data-question]').evaluateAll(nodes=>nodes.map(n=>Number(n.dataset.question))),studyIds);
+  assert.equal(await studyPage.locator('#origin-filter').isVisible(),false);
+  assert.equal(await studyPage.locator('.option-explanation').count(),0);
+  await studyPage.locator(`input[value="${studyBank[studyIds[0]-1].answer}"]`).check(); await studyPage.locator('#confirm-answer').click();
+  await studyPage.locator('#next-question-inline').click();
+  assert.equal(await studyPage.evaluate(()=>JSON.parse(localStorage.getItem('ic2026.progress.v1')).view.questionId),studyIds[1]);
+  await studyPage.keyboard.press('Alt+ArrowLeft');
+  assert.equal(await studyPage.evaluate(()=>JSON.parse(localStorage.getItem('ic2026.progress.v1')).view.questionId),studyIds[0]);
+  await studyPage.locator('#next-question').click();
+  const secondStudyQ=studyBank[studyIds[1]-1], wrongStudyOption=Object.keys(secondStudyQ.options).find(k=>k!==secondStudyQ.answer);
+  await studyPage.locator('#show-hint').click(); await studyPage.locator(`input[value="${wrongStudyOption}"]`).check();
+  await studyPage.locator('#confirm-answer').click();
+  assert.match(await studyPage.locator('#study-session-title').textContent(),/completado/);
+  assert.match(await studyPage.locator('#study-session-status').textContent(),/2 de 2 respondidas · 1 correctas · 1 falladas · 1 con pista/);
+  assert.equal(await studyPage.locator('#next-question-inline').isDisabled(),true);
+  await studyPage.reload(); await studyPage.waitForSelector('#study-layout:visible');
+  assert.deepEqual(await studyPage.evaluate(()=>JSON.parse(localStorage.getItem('ic2026.progress.v1')).studySession.questionIds),studyIds);
+  assert.equal(await studyPage.locator('#answer-options details[open]').count(),0);
+  await studyPage.locator('#manage-progress').click();
+  const studyDownloadPromise=studyPage.waitForEvent('download'); await studyPage.locator('#export-progress').click();
+  const studyDownload=await studyDownloadPromise, studyExport=await readFile(await studyDownload.path(),'utf8');
+  const invalidStudy=JSON.parse(studyExport); invalidStudy.studySession.questionIds[1]=invalidStudy.studySession.questionIds[0];
+  await studyPage.locator('#import-progress').setInputFiles({name:'bad-study.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(invalidStudy))});
+  await studyPage.waitForFunction(()=>document.querySelector('#transfer-status').textContent.includes('repetidas'));
+  studyPage.once('dialog',d=>d.accept()); await studyPage.locator('#reset-progress').click();
+  studyPage.once('dialog',d=>d.accept());
+  await studyPage.locator('#import-progress').setInputFiles({name:'study.json',mimeType:'application/json',buffer:Buffer.from(studyExport)});
+  await studyPage.waitForFunction(()=>document.querySelector('#transfer-status').textContent.includes('Progreso importado'));
+  await studyPage.keyboard.press('Escape');
+  assert.match(await studyPage.locator('#study-session-title').textContent(),/completado/);
+  await studyPage.locator('#retry-answer').click(); assert.equal(await studyPage.locator('#study-session-progress').getAttribute('value'),'1');
+  assert.equal(await studyPage.locator('.option-explanation').count(),0);
+  await studyPage.locator('#end-study').click();
+  assert.deepEqual(await studyPage.evaluate(()=>JSON.parse(localStorage.getItem('ic2026.progress.v1')).view),studyPrevious);
+  assert.equal(await studyPage.locator('#origin-filter').isVisible(),true);
+  await studyContext.close();
   await page.goto(`${url}glosario.html#run-key`); await page.waitForSelector('#run-key');
   assert.equal(await page.locator('.glossary-entry').count(),glossaryEntryCount);
   await page.locator('#glossary-search').fill('criptografia simetrica'); assert.equal(await page.locator('#simetrica').count(),1);
@@ -138,6 +198,24 @@ try {
     await page.reload(); await page.waitForSelector('#study-layout:visible');
     assert.equal(await page.locator('#origin-filter').inputValue(),'practice');
     assert.match(await page.locator('#question-position').textContent(),/428/);
+    await page.locator('#open-study').click();
+    await page.locator('#study-topic').selectOption('malware');
+    await page.locator('#study-origin').selectOption('practice');
+    await page.locator('#study-count').fill('3');
+    assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,`Study dialog overflow at ${width}px`);
+    const studyDialogFits=await page.locator('#study-dialog').evaluate(n=>n.scrollWidth<=n.clientWidth);
+    assert.equal(studyDialogFits,true,`Study dialog inner overflow at ${width}px`);
+    if(width===390||width===1440) await page.screenshot({path:new URL(`../test-results/modo-estudio-configurar-${width}.png`,import.meta.url).pathname,fullPage:true});
+    await page.locator('#start-study').click();
+    const mobileStudyIds=await page.evaluate(()=>JSON.parse(localStorage.getItem('ic2026.progress.v1')).studySession.questionIds);
+    assert.equal(await page.locator('[data-question]').count(),3);
+    assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,`Study banner overflow at ${width}px`);
+    await page.locator(`input[value="${studyBank[mobileStudyIds[0]-1].answer}"]`).check(); await page.locator('#confirm-answer').click();
+    await page.locator('#next-question-inline').click();
+    assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('ic2026.progress.v1')).view.questionId),mobileStudyIds[1]);
+    assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,`Study question overflow at ${width}px`);
+    if(width===390||width===1440) await page.screenshot({path:new URL(`../test-results/modo-estudio-recorrido-${width}.png`,import.meta.url).pathname,fullPage:true});
+    await page.locator('#end-study').click();
     await page.goto(`${url}glosario.html`); await page.waitForSelector('#base64');
     await assertGlossaryLayout(page, width);
     assert.equal(await page.locator('.glossary-entry').count(),glossaryEntryCount);
@@ -219,5 +297,5 @@ try {
   await p.locator('.answer-option').nth(4).click(); await p.locator('#confirm-answer').click(); assert.equal(await p.locator('#storage-warning').isVisible(),true);
   assert.equal(await p.locator('#correct-count').textContent(),'1'); await blocked.close();
   for(const file of ['Manual_IC2026_Cripto_CSIRT_Malware_Descarga.pdf','IC_2026_Cripto_CSIRT_Malware_350_Preguntas.pdf','IC_2026_Cripto_CSIRT_Malware_Solucionario.pdf','IC2026_Preguntas_Basadas_en_Practicas_1_y_2.pdf','IC2026_Solucionario_Practicas_1_y_2.pdf','Guia_de_estudio_IC_Practicas_1_y_2.pdf']) { const response=await context.request.get(`${url}docs/${file}`); assert.equal(response.status(),200); }
-  assert.deepEqual(errors,[]); console.log('PASS: práctica, glosario, progreso, teclado, columnas del glosario a 320/390/768/800/801/1024/1440/1920 px y subruta /ic2026/. Capturas en test-results/.');
+  assert.deepEqual(errors,[]); console.log('PASS: práctica, modo estudio aleatorio, glosario, progreso, teclado, columnas del glosario a 320/390/768/800/801/1024/1440/1920 px y subruta /ic2026/. Capturas en test-results/.');
 } finally { if(browser) await browser.close(); if(server.listening) await new Promise(resolve=>server.close(resolve)); }

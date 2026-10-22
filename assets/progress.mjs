@@ -11,6 +11,10 @@ export function questionStatus(progress, questionId) {
   return !last ? 'pending' : last.correct ? 'correct' : 'incorrect';
 }
 export function filterQuestions(questions, progress) {
+  if (progress.studySession) {
+    const byId = new Map(questions.map(q => [q.id, q]));
+    return progress.studySession.questionIds.map(id => byId.get(id));
+  }
   return questions.filter(q => (progress.view.topic === 'all' || q.topic === progress.view.topic)
     && ((progress.view.origin ?? 'all') === 'all' || q.origin === progress.view.origin)
     && (progress.view.status === 'all' || questionStatus(progress, q.id) === progress.view.status));
@@ -31,10 +35,37 @@ export function confirmAttempt(progress, question, date = new Date().toISOString
     questionId: question.id, option: draft.option, correct: draft.option === question.answer, date, hintUsed: draft.hintUsed };
   progress.attempts.push(attempt);
   delete progress.drafts[question.id];
+  if (progress.studySession?.questionIds.includes(question.id)) progress.studySession.answers[question.id] = attempt.id;
   return attempt;
 }
 export function beginRetry(progress, questionId) {
   progress.drafts[questionId] = { option: null, hintUsed: false };
+  if (progress.studySession) delete progress.studySession.answers[questionId];
+}
+export function startStudySession(progress, questions, { count, topic = 'all', origin = 'all' }, random = Math.random) {
+  if (!['all', ...Object.keys(TOPICS)].includes(topic) || !['all', ...Object.keys(ORIGINS)].includes(origin)) throw new Error('Elegí un tema y un origen válidos.');
+  const pool = questions.filter(q => (topic === 'all' || q.topic === topic) && (origin === 'all' || q.origin === origin));
+  if (!Number.isInteger(count) || count < 1 || count > pool.length) throw new Error(`Elegí una cantidad entera entre 1 y ${pool.length}.`);
+  // Fisher–Yates shuffles a copy, preserving the bank and sampling without replacement.
+  for (let i = pool.length - 1; i > 0; i--) {
+    const j = Math.floor(random() * (i + 1));
+    [pool[i], pool[j]] = [pool[j], pool[i]];
+  }
+  const previousView = { ...(progress.studySession?.previousView ?? progress.view) };
+  progress.studySession = { questionIds: pool.slice(0, count).map(q => q.id), topic, origin, answers: {}, previousView };
+  for (const id of progress.studySession.questionIds) beginRetry(progress, id);
+  progress.view = { questionId: progress.studySession.questionIds[0], topic, origin, status: 'all' };
+}
+export function endStudySession(progress) {
+  if (!progress.studySession) return;
+  progress.view = { ...progress.studySession.previousView };
+  delete progress.studySession;
+}
+export function studyStatistics(progress) {
+  const ids = new Set(Object.values(progress.studySession?.answers ?? {}));
+  const attempts = progress.attempts.filter(a => ids.has(a.id));
+  return { answered: attempts.length, correct: attempts.filter(a => a.correct).length,
+    incorrect: attempts.filter(a => !a.correct).length, assisted: attempts.filter(a => a.hintUsed).length };
 }
 export function validateProgress(value, questions) {
   const fail = message => { throw new Error(`Progreso inválido: ${message}`); };
@@ -65,7 +96,32 @@ export function validateProgress(value, questions) {
     drafts[id] = { option: d.option, hintUsed: d.hintUsed };
   }
   // Older v1 backups have no origin filter; their IDs and attempts remain valid.
-  return { format: 'ic2026-progress', version: 1, attempts, drafts, view: { questionId: v.questionId, topic: v.topic, status: v.status, origin } };
+  const restored = { format: 'ic2026-progress', version: 1, attempts, drafts, view: { questionId: v.questionId, topic: v.topic, status: v.status, origin } };
+  if (value.studySession !== undefined) {
+    const s = value.studySession;
+    if (!s || typeof s !== 'object' || !['all', ...Object.keys(TOPICS)].includes(s.topic)
+        || !['all', ...Object.keys(ORIGINS)].includes(s.origin)) fail('configuración de modo estudio inválida.');
+    if (!Array.isArray(s.questionIds) || !s.questionIds.length || s.questionIds.length > questions.length
+        || new Set(s.questionIds).size !== s.questionIds.length || s.questionIds.some(id => {
+          const q = byId.get(id);
+          return !q || (s.topic !== 'all' && q.topic !== s.topic) || (s.origin !== 'all' && q.origin !== s.origin);
+        })) fail('preguntas desconocidas, repetidas o fuera de los filtros del modo estudio.');
+    if (!s.questionIds.includes(v.questionId) || v.topic !== s.topic || origin !== s.origin || v.status !== 'all') fail('punto de lectura incompatible con el modo estudio.');
+    const previous = s.previousView;
+    if (!previous || !byId.has(previous.questionId) || !['all', ...Object.keys(TOPICS)].includes(previous.topic)
+        || !['all', ...Object.keys(ORIGINS)].includes(previous.origin) || !Object.hasOwn(STATUSES, previous.status)) fail('recorrido anterior inválido.');
+    if (!s.answers || typeof s.answers !== 'object' || Array.isArray(s.answers)) fail('resultados del modo estudio inválidos.');
+    const answers = {};
+    const latest = new Map(attempts.map(a => [a.questionId, a]));
+    for (const [id, attemptId] of Object.entries(s.answers)) {
+      if (String(Number(id)) !== id || !s.questionIds.includes(Number(id)) || typeof attemptId !== 'string' || latest.get(Number(id))?.id !== attemptId || Object.hasOwn(drafts, id)) fail('resultado de modo estudio sin un intento correspondiente.');
+      answers[id] = attemptId;
+    }
+    if (s.questionIds.some(id => !Object.hasOwn(answers, id) && !Object.hasOwn(drafts, id))) fail('pregunta de modo estudio sin borrador ni resultado.');
+    restored.studySession = { questionIds: [...s.questionIds], topic: s.topic, origin: s.origin, answers,
+      previousView: { questionId: previous.questionId, topic: previous.topic, status: previous.status, origin: previous.origin } };
+  }
+  return restored;
 }
 export function loadProgress(storage, questions) {
   let raw;

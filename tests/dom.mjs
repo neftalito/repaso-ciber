@@ -314,4 +314,125 @@ check('a new acronym permalink reveals its entry despite incompatible URL filter
   assert.ok(glossary.$('edr')); assert.equal(glossary.$('glossary-search').value,'');
   assert.equal(glossary.$('glossary-topic').value,'all'); assert.equal(glossary.w.document.activeElement,glossary.$('edr'));
 }); glossary.close();
+// Exercise a fresh study route over questions with an existing history.
+const studyOldAttempts=practiceQuestions.filter(q=>q.topic==='csirt').map(q=>({
+  id:`previous-${q.id}`,questionId:q.id,option:q.answer,correct:true,date:'2026-10-21T12:00:00.000Z',hintUsed:false
+}));
+const studyPreviousView={questionId:391,topic:'csirt',origin:'practice',status:'correct'};
+const studyMemory=new Map([[key,JSON.stringify({format:'ic2026-progress',version:1,attempts:studyOldAttempts,drafts:{},view:studyPreviousView})]]);
+app=await mount('index.html',{memory:studyMemory}); app.click('open-study');
+const submitStudy=()=>app.$('study-form').dispatchEvent(new app.w.Event('submit',{bubbles:true,cancelable:true}));
+check('study setup inherits topic and origin and reports the matching pool size',()=>{
+  assert.equal(app.$('study-dialog').open,true); assert.equal(app.$('study-topic').value,'csirt');
+  assert.equal(app.$('study-origin').value,'practice'); assert.equal(app.$('study-count').max,'29');
+  assert.match(app.$('study-available').textContent,/29 preguntas/);
+});
+const beforeStudy=JSON.stringify(app.state());
+check('invalid study counts show an accessible error without changing saved progress',()=>{
+  for(const value of ['30','0','1.5','']) { app.$('study-count').value=value; submitStudy();
+    assert.equal(app.$('study-error').hidden,false); assert.equal(app.$('study-count').getAttribute('aria-invalid'),'true');
+    assert.equal(app.$('study-dialog').open,true); assert.equal(JSON.stringify(app.state()),beforeStudy);
+  }
+});
+app.$('study-dialog').querySelector('[data-close]').click();
+check('closing study setup leaves the current history and filters untouched',()=>{
+  assert.equal(app.$('study-dialog').open,false); assert.equal(JSON.stringify(app.state()),beforeStudy);
+});
+app.click('open-study'); app.$('study-count').value='2'; submitStudy();
+let studyRoute=app.state().studySession.questionIds;
+check('study starts a filtered draw without repeats and hides old solutions while keeping history',()=>{
+  assert.equal(app.$('study-dialog').open,false); assert.equal(app.$('study-session').hidden,false);
+  assert.equal(studyRoute.length,2); assert.equal(new Set(studyRoute).size,2);
+  assert.ok(studyRoute.every(id=>practiceQuestions.find(q=>q.id===id)?.topic==='csirt'));
+  assert.equal(app.state().attempts.length,29); assert.equal(app.$('feedback').hidden,true);
+  assert.equal(app.w.document.querySelectorAll('.option-explanation').length,0);
+  assert.equal(app.$('study-session-progress').value,0);
+  assert.equal(app.$('question-index').querySelectorAll('.pending').length,2);
+});
+check('study index preserves shuffled order and temporarily replaces ordinary filters',()=>{
+  assert.deepEqual([...app.$('question-index').querySelectorAll('[data-question]')].map(n=>Number(n.dataset.question)),studyRoute);
+  assert.equal(app.$('origin-filter').closest('.filter-field').hidden,true);
+  assert.equal(app.$('status-filter').closest('.filter-field').hidden,true);
+  assert.equal(app.$('reset-filters').hidden,true); assert.match(app.$('filtered-position').textContent,/1 de 2/);
+});
+const firstStudyQ=practiceQuestions.find(q=>q.id===studyRoute[0]);
+app.click('show-hint'); app.select(Object.keys(firstStudyQ.options).find(k=>k!==firstStudyQ.answer)); app.submit();
+check('study confirmation records help and a result for this route independently of old answers',()=>{
+  assert.equal(app.state().attempts.length,30); assert.equal(app.$('study-session-progress').value,1);
+  assert.match(app.$('study-session-status').textContent,/1 de 2 respondidas · 0 correctas · 1 falladas · 1 con pista/);
+  assert.equal(app.w.document.querySelectorAll('#answer-options details[open]').length,1);
+});
+app.click('next-question-inline');
+check('both study navigation buttons follow the draw rather than question numbering',()=>{
+  assert.equal(app.state().view.questionId,studyRoute[1]); assert.equal(app.$('feedback').hidden,true);
+  assert.equal(app.$('next-question').disabled,true); assert.equal(app.$('previous-question').disabled,false);
+  app.w.document.dispatchEvent(new app.w.KeyboardEvent('keydown',{key:'ArrowLeft',altKey:true,bubbles:true}));
+  assert.equal(app.state().view.questionId,studyRoute[0]);
+  assert.equal(app.w.document.querySelectorAll('#answer-options details[open]').length,0);
+  app.click('next-question'); assert.equal(app.state().view.questionId,studyRoute[1]);
+});
+app.select(practiceQuestions.find(q=>q.id===studyRoute[1]).answer); app.submit();
+check('finishing a study route shows its own totals without counting the older history',()=>{
+  assert.match(app.$('study-session-title').textContent,/completado/); assert.equal(app.$('study-session-progress').value,2);
+  assert.match(app.$('study-session-status').textContent,/2 de 2 respondidas · 1 correctas · 1 falladas · 1 con pista/);
+  assert.equal(app.$('next-question-inline').disabled,true); assert.equal(app.state().attempts.length,31);
+});
+app.close(); app=await mount('index.html',{memory:studyMemory});
+check('reload restores study order, current question and completed results with accordions closed',()=>{
+  assert.deepEqual(app.state().studySession.questionIds,studyRoute); assert.equal(app.state().view.questionId,studyRoute[1]);
+  assert.match(app.$('study-session-title').textContent,/completado/);
+  assert.equal(app.w.document.querySelectorAll('#answer-options details[open]').length,0);
+});
+app.click('retry-answer');
+check('retrying within study clears only that route result until another answer is confirmed',()=>{
+  assert.equal(app.$('study-session-progress').value,1); assert.equal(app.$('feedback').hidden,true);
+  assert.equal(app.state().attempts.length,31); assert.equal(app.state().studySession.answers[studyRoute[1]],undefined);
+});
+app.select(practiceQuestions.find(q=>q.id===studyRoute[1]).answer); app.submit();
+app.click('manage-progress'); app.click('export-progress');
+const studyReader=new app.w.FileReader();
+const studyExport=await new Promise(resolve=>{studyReader.onload=()=>resolve(studyReader.result);studyReader.readAsText(app.downloads[0]);});
+const badStudy=JSON.parse(studyExport); badStudy.studySession.questionIds[1]=badStudy.studySession.questionIds[0];
+await app.importData(JSON.stringify(badStudy));
+check('an invalid imported study draw is rejected without confirmation or changing the active route',()=>{
+  assert.match(app.$('transfer-status').textContent,/repetidas/); assert.equal(app.confirmations.length,0);
+  assert.deepEqual(app.state().studySession.questionIds,studyRoute);
+});
+app.click('reset-progress'); await app.importData(studyExport);
+check('export and confirmed import restore the complete study route along with all previous attempts',()=>{
+  assert.equal(app.confirmations.length,2); assert.equal(app.$('study-session').hidden,false);
+  assert.deepEqual(app.state().studySession.questionIds,studyRoute); assert.equal(app.state().attempts.length,32);
+});
+app.$('progress-dialog').querySelector('[data-close]').click(); app.click('new-study');
+const activeStudyBefore=JSON.stringify(app.state());
+app.$('study-dialog').querySelector('[data-close]').click();
+check('cancelling a replacement study keeps the active route and its results',()=>{
+  assert.equal(JSON.stringify(app.state()),activeStudyBefore);
+});
+app.click('new-study'); app.change('study-topic','malware'); app.change('study-origin','practice');
+app.$('study-count').value='1'; submitStudy();
+check('a new draw can change filters and quantity while retaining attempts and the original reading view',()=>{
+  assert.equal(app.state().studySession.questionIds.length,1);
+  assert.deepEqual(app.state().studySession.previousView,studyPreviousView);
+  assert.equal(app.state().attempts.length,32); assert.match(app.$('study-session-filters').textContent,/Malware · Práctica/);
+});
+app.click('end-study');
+check('leaving study restores ordinary navigation and the filters used before starting',()=>{
+  assert.equal(app.$('study-session').hidden,true); assert.equal(app.state().studySession,undefined);
+  assert.deepEqual(app.state().view,studyPreviousView); assert.equal(app.state().attempts.length,32);
+  assert.equal(app.$('origin-filter').closest('.filter-field').hidden,false);
+  assert.equal(app.$('origin-filter').value,'practice'); assert.equal(app.$('status-filter').value,'correct');
+});
+app.click('open-study'); app.$('study-count').value='1'; submitStudy(); app.close();
+app=await mount('index.html',{memory:studyMemory,suffix:'?pregunta=1'});
+check('a glossary question link exits study and opens the requested question in ordinary practice',()=>{
+  assert.equal(app.state().studySession,undefined); assert.equal(app.state().view.questionId,1);
+  assert.equal(app.$('study-session').hidden,true); assert.equal(app.state().attempts.length,32);
+}); app.close();
+app=await mount('index.html',{blocked:true}); app.click('open-study'); app.$('study-count').value='1'; submitStudy();
+app.select('A'); app.submit();
+check('study remains usable with blocked storage and advertises export for preserving the session',()=>{
+  assert.equal(app.$('study-session-progress').value,1); assert.match(app.$('study-session-title').textContent,/completado/);
+  assert.equal(app.$('storage-warning').hidden,false); assert.match(app.$('storage-warning').textContent,/exportá/i);
+}); app.close();
 console.log(`PASS: ${checks} comprobaciones de interacción DOM. La revisión visual requiere un navegador real.`);

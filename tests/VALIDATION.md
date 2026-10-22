@@ -60,3 +60,12 @@ Se revisaron las 442 consignas, sus opciones, soluciones, referencias y 1.768 ex
 El glosario incorpora 21 entradas (129 en total) y 152 significados de siglas, abreviaturas y denominaciones, con fuentes oficiales y referencias de contexto separadas. Se verifican EDR en la pregunta 89, distinción DOS/DoS, alias, fuentes HTTPS y correspondencia de cada término con sus preguntas.
 
 Pasaron 19 pruebas de contenido/progreso y 63 comprobaciones DOM. Incluyen búsqueda por significado completo en inglés, búsqueda por alias, acceso directo a EDR con filtros incompatibles y enlaces externos seguros. La suite de Chromium incorpora los nuevos bloques de definición y las búsquedas EDR/HKCR en los ocho tamaños, con capturas específicas de EDR en móvil y escritorio.
+
+
+## Modo estudio aleatorio
+
+Pasaron localmente 25 pruebas de contenido/progreso y 80 comprobaciones DOM, además de la validación completa de contenido y referencias. Se probaron las 12 combinaciones de tema/origen, cantidades mínimas y máximas, muestreo sin reemplazo y conservación del banco, selección con orden distinto de la numeración, rechazo de cantidades inválidas sin mutar el progreso, intentos nuevos sobre preguntas respondidas, resultados del recorrido con/sin ayuda, reintentos, finalización, recarga, exportación/importación y restauración de filtros al salir.
+
+La importación rechaza selecciones vacías, duplicadas, desconocidas o ajenas a los filtros, puntos de lectura incompatibles y resultados sin intento confirmado correspondiente. Los respaldos v1 anteriores siguen siendo válidos. Se comprobaron también cancelación de un nuevo recorrido, enlaces desde el glosario y funcionamiento en memoria con almacenamiento bloqueado.
+
+La suite de Chromium incluye la ventana nativa con Enter/Escape y restauración de foco, cantidades inválidas, navegación aleatoria con botones y teclado, resultado final, recarga y transferencia del recorrido, además de controles de desbordamiento del diálogo y del panel activo en los ocho anchos de 320 a 1920 px bajo `/ic2026/`. Genera capturas de configuración y recorrido a 390 y 1440 px en `test-results/`.
