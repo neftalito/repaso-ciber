@@ -2,7 +2,7 @@
 
 Repositorio: [neftalito/repaso-ciber](https://github.com/neftalito/repaso-ciber). Al habilitar GitHub Pages desde `main` y `/(root)`, la dirección será [neftalito.github.io/repaso-ciber](https://neftalito.github.io/repaso-ciber/).
 
-Aplicación estática en español para practicar **442 preguntas** de Introducción a la Ciberseguridad: **350 de Teoría** y **92 de Práctica**. Criptografía (106), CSIRT (189) y Malware (147). Incluye corrección explicada de cada opción, pistas conceptuales, un glosario de **108 entradas**, historial de intentos y progreso local.
+Aplicación estática en español para practicar **442 preguntas** de Introducción a la Ciberseguridad: **350 de Teoría** y **92 de Práctica**. Criptografía (106), CSIRT (189) y Malware (147). Incluye corrección explicada de cada opción, pistas conceptuales, un glosario de **129 entradas**, historial de intentos y progreso local.
 
 HTML, CSS y JavaScript nativos. No requiere compilación, framework, cuenta, backend ni dependencias para funcionar en GitHub Pages. Los seis PDF de consulta están en `docs/`. No se utilizan fuentes remotas, analítica ni servicios externos.
 
@@ -64,10 +64,12 @@ La importación valida versión, IDs, opciones, resultados contra el solucionari
 ## Datos y trazabilidad
 
 - `data/questions.json`: banco de origen `theory` con 350 preguntas con IDs estables `1`–`350`, opciones originales A–E en orden, solución, explicación, fuente de las diapositivas, páginas de los PDF y conceptos relacionados.
-- `data/glossary.json`: 108 entradas con ID, temas, definición, explicación, ejemplo cuando aporta claridad, pista y páginas del manual de teorías y/o de la guía de prácticas. Conserva los 33 términos del glosario original de pp. 51–52; las demás entradas amplían su cobertura.
+- `data/glossary.json`: 129 entradas con ID, temas, definición, explicación, ejemplo cuando aporta claridad, pista y páginas del manual de teorías y/o de la guía de prácticas. Conserva los 33 términos del glosario original de pp. 51–52; las demás entradas amplían su cobertura.
 - `data/concept-map.json`: correspondencia revisada de las 350 preguntas con los conceptos. El primer concepto orienta la pista; los demás permiten profundizar. La extracción no adivina relaciones por palabras clave.
 - `data/option-explanations.json`: 1.400 explicaciones específicas para los cuatro distractores de cada pregunta, con referencias conceptuales al manual, notas de contexto y una huella del enunciado/opciones/respuesta que permite detectar cambios que requieren revisión editorial. No modifica las explicaciones originales ni se regenera desde los PDF.
 - `data/comparisons.json`: 13 cuadros de elaboración didáctica sobre conceptos que suelen confundirse, con columnas, diferencias, ejemplos, enlaces a entradas y páginas del manual.
+- `data/acronym-audit.json`: inventario reproducible de 295 candidatos de las preguntas, opciones, soluciones y explicaciones; 166 variantes con significado y 129 exclusiones revisadas (cadenas cifradas, identificadores, comandos y expansiones ficticias).
+- `data/acronym-exclusions.json`: decisiones editoriales explícitas; una sigla nueva sin definición ni revisión hace fallar la validación.
 - `data/ascii.json`: tabla de las 52 letras A–Z y a–z, con sus valores decimales y hexadecimales, una aclaración sobre los caracteres del español que quedan fuera del ASCII estándar y referencias al manual.
 - `data/practice-questions.json`: 92 ejercicios con IDs 351–442, origen `practice`, número y parte de práctica, consigna y código originales, opciones adaptadas, solución literal, páginas y conceptos.
 - `data/practice-editorial.json`: adaptación revisada de cada ejercicio abierto, cuatro distractores y sus explicaciones, conceptos y páginas de la guía. La huella de título/consigna/referencia/solución detecta cambios que exigen revisión.
@@ -86,6 +88,16 @@ La **Tabla ASCII del alfabeto** se consulta en `glosario.html#tabla-ascii` o des
 Se añadieron **19 entradas**: A1Z26/Braille, Vigenère, Rail Fence/transposición columnar, aritmética modular, RSA, Diffie–Hellman, esteganografía/steghide, LSB, confianza en claves GPG/passphrase/ASCII armor, ataques de diccionario, NIR, logs SSH, canales encubiertos ICMP/DNS/PCAP, HID/Rubber Ducky, Unicode invisible, ofuscación VBScript, macros DOCM/XLS/VBA/XLM, exfiltración y writeups. Cada una tiene definición, explicación, ejemplo, pista y páginas de la guía disponible.
 
 Otras **58 entradas existentes** suman referencias a esa guía, cubriendo codificación, cifrados, hashes, PGP, recursos de Internet, correo, análisis de malware y gestión de incidentes. Las 442 preguntas están vinculadas a conceptos revisados; no se deducen respuestas ni flags de archivos o servicios ausentes.
+
+## Siglas y acrónimos
+
+La revisión de los enunciados, bloques de datos, opciones, soluciones y explicaciones de distractores añadió **21 entradas** y dejó el glosario en **129 entradas**. Se incorporaron significados explícitos en listas de definición, variantes como `SHA256`/`SHA-256`, referencias oficiales y enlaces a las preguntas que usan cada término. La búsqueda admite siglas, variantes y nombres completos como `Endpoint Detection and Response`.
+
+Se explican 152 siglas, abreviaturas y denominaciones, incluyendo las que ya aparecían sin desarrollo. Se distinguen DOS/DoS, los significados de MAC y el uso de GUI como tecla en DuckyScript; no se inventan expansiones para extensiones o nombres como DOCM, WAV o WHOIS. Las páginas del manual aportan contexto y los enlaces oficiales documentan las ampliaciones.
+
+Las 53 denominaciones que no estaban nombradas en las definiciones anteriores son: ARM, ARP, ASN, BGP, BSD, CA, CEDIA, CLSID, CNAME, COM, CPU, CTF, DB, DH, DHCP, DNI, DNSSEC, EDR, ELF, ESMTP, GDB, GPU, GUI, GUID, HKCR, HKEY_USERS, HTML, ICANN, IDA, JPEG, KDF, LAN, LEA, MAC, Mach-O, MIME, MTA, OpenPGP, PDF, PDF/A, PNG, POP3, RC5, RISC, S/MIME, SRV, TAR, TTL, TXT, VBS, VPN, WAV, XSS. RISC se añade además para explicar el nombre histórico de ARM.
+
+El script `scripts/audit_acronyms.py` genera el inventario con preguntas relacionadas y hashes de los cuatro archivos de contenido. `--check` no escribe: exige que todos los candidatos tengan significado o una exclusión explícita y que el informe coincida con el banco vigente. El contenido de preguntas, opciones y soluciones y el progreso de los usuarios se conservan.
 
 ## Extracción reproducible
 
@@ -117,6 +129,7 @@ Sin dependencias adicionales, salvo Node para las pruebas JavaScript:
 
 ```sh
 python3 scripts/validate_data.py
+python3 scripts/audit_acronyms.py --check
 npm test
 ```
 

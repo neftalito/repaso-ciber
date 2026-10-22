@@ -41,12 +41,72 @@
       "hint": "Identificá primero la base numérica. Para pasar de hexadecimal a decimal, multiplicá cada dígito por su potencia de 16; después consultá la correspondencia del carácter.",
       "example": "H es 72 en decimal, 0x48 en hexadecimal y 01001000 en binario.",
       "fromManualGlossary": false,
-      "referenceNote": "",
+      "referenceNote": "Los enlaces a fuentes oficiales documentan los significados ampliados; las páginas del manual y de la guía se citan como contexto.",
       "practicePages": [
         2,
         3,
         12,
         13
+      ],
+      "acronyms": [
+        {
+          "term": "ASCII",
+          "meaning": "American Standard Code for Information Interchange: código estadounidense estándar para intercambio de información.",
+          "aliases": []
+        },
+        {
+          "term": "UTF-8",
+          "meaning": "Unicode Transformation Format de 8 bits: codificación Unicode de longitud variable.",
+          "aliases": []
+        },
+        {
+          "term": "UTF-16",
+          "meaning": "Unicode Transformation Format de 16 bits: codificación Unicode basada en unidades de 16 bits.",
+          "aliases": []
+        }
+      ],
+      "externalReferences": [
+        {
+          "title": "Unicode: glosario",
+          "url": "https://www.unicode.org/glossary/"
+        }
+      ],
+      "relatedQuestionIds": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        13,
+        36,
+        40,
+        45,
+        46,
+        50,
+        54,
+        213,
+        239,
+        240,
+        265,
+        301,
+        303,
+        309,
+        317,
+        322,
+        343,
+        351,
+        352,
+        354,
+        355,
+        356,
+        377,
+        378,
+        383,
+        388,
+        414,
+        416,
+        420,
+        434
       ]
     },
     {
@@ -119,6 +179,30 @@
       "practicePages": [
         3,
         4
+      ],
+      "acronyms": [
+        {
+          "term": "ROT3",
+          "meaning": "Rotation by 3: rotación o desplazamiento de tres posiciones en el alfabeto.",
+          "aliases": []
+        },
+        {
+          "term": "ROT13",
+          "meaning": "Rotation by 13: rotación o desplazamiento de trece posiciones en el alfabeto.",
+          "aliases": []
+        }
+      ],
+      "relatedQuestionIds": [
+        7,
+        8,
+        9,
+        42,
+        56,
+        57,
+        58,
+        59,
+        60,
+        322
       ]
     },
     {
@@ -215,6 +299,24 @@
       "referenceNote": "",
       "practicePages": [
         5
+      ],
+      "acronyms": [
+        {
+          "term": "ECB",
+          "meaning": "Electronic Codebook: modo de libro de códigos electrónico.",
+          "aliases": []
+        }
+      ],
+      "relatedQuestionIds": [
+        15,
+        18,
+        19,
+        46,
+        48,
+        213,
+        295,
+        371,
+        372
       ]
     },
     {
@@ -236,6 +338,26 @@
       "referenceNote": "",
       "practicePages": [
         5
+      ],
+      "acronyms": [
+        {
+          "term": "CBC",
+          "meaning": "Cipher Block Chaining: encadenamiento de bloques cifrados.",
+          "aliases": []
+        }
+      ],
+      "relatedQuestionIds": [
+        16,
+        17,
+        22,
+        33,
+        36,
+        41,
+        46,
+        47,
+        282,
+        306,
+        372
       ]
     },
     {
@@ -254,7 +376,28 @@
       "hint": "Separá el secreto compartido del estado que inicia el procesamiento de cada mensaje.",
       "example": "Dos cifrados de un mismo primer bloque pueden comenzar de forma diferente cuando se usa un IV adecuado para CBC.",
       "fromManualGlossary": true,
-      "referenceNote": ""
+      "referenceNote": "",
+      "acronyms": [
+        {
+          "term": "IV",
+          "meaning": "Initialization Vector: vector de inicialización.",
+          "aliases": []
+        }
+      ],
+      "relatedQuestionIds": [
+        13,
+        16,
+        17,
+        22,
+        26,
+        35,
+        36,
+        39,
+        41,
+        47,
+        54,
+        372
+      ]
     },
     {
       "id": "flujo",
@@ -310,6 +453,25 @@
       "referenceNote": "",
       "practicePages": [
         5
+      ],
+      "acronyms": [
+        {
+          "term": "XOR",
+          "meaning": "Exclusive OR: operación lógica «o exclusivo».",
+          "aliases": []
+        }
+      ],
+      "relatedQuestionIds": [
+        16,
+        46,
+        49,
+        64,
+        65,
+        66,
+        365,
+        373,
+        374,
+        375
       ]
     },
     {
@@ -327,9 +489,54 @@
       "hint": "Separá tamaño de clave, tamaño de bloque y longitud del mensaje. Para convertir bits a bytes, revisá cuántos bits forman un byte.",
       "example": "Un bloque de 128 bits contiene 16 bytes. El tamaño del bloque no debe confundirse con la longitud de la clave.",
       "fromManualGlossary": false,
-      "referenceNote": "",
+      "referenceNote": "Los enlaces a fuentes oficiales documentan los significados ampliados; las páginas del manual y de la guía se citan como contexto.",
       "practicePages": [
         5
+      ],
+      "acronyms": [
+        {
+          "term": "AES",
+          "meaning": "Advanced Encryption Standard: estándar de cifrado avanzado. AES-128 usa una clave de 128 bits; ECB y CBC indican modos.",
+          "aliases": [
+            "AES-128",
+            "AES-128-ECB",
+            "AES-ECB",
+            "AES-CBC"
+          ]
+        }
+      ],
+      "externalReferences": [
+        {
+          "title": "NIST: Advanced Encryption Standard",
+          "url": "https://csrc.nist.gov/glossary/term/advanced_encryption_standard"
+        }
+      ],
+      "relatedQuestionIds": [
+        9,
+        17,
+        29,
+        30,
+        31,
+        46,
+        47,
+        51,
+        52,
+        53,
+        83,
+        117,
+        123,
+        151,
+        240,
+        288,
+        303,
+        326,
+        334,
+        354,
+        356,
+        357,
+        371,
+        372,
+        433
       ]
     },
     {
@@ -408,9 +615,83 @@
       "hint": "Para obtener la longitud hexadecimal, relacioná los bits de salida con la cantidad de bits representada por cada dígito.",
       "example": "SHA-224, SHA-256, SHA-384 y SHA-512 generan resúmenes de distintas longitudes dentro de SHA-2.",
       "fromManualGlossary": false,
-      "referenceNote": "",
+      "referenceNote": "Los enlaces a fuentes oficiales documentan los significados ampliados; las páginas del manual y de la guía se citan como contexto.",
       "practicePages": [
         4
+      ],
+      "acronyms": [
+        {
+          "term": "MD5",
+          "meaning": "Message Digest 5: algoritmo de resumen de mensaje de 128 bits.",
+          "aliases": []
+        },
+        {
+          "term": "SHA-1",
+          "meaning": "Secure Hash Algorithm 1: algoritmo hash seguro de la familia SHA, con salida de 160 bits.",
+          "aliases": []
+        },
+        {
+          "term": "SHA-2",
+          "meaning": "Secure Hash Algorithm 2: familia de algoritmos hash que incluye SHA-224, SHA-256, SHA-384 y SHA-512.",
+          "aliases": [
+            "SHA-224/256/384/512"
+          ]
+        },
+        {
+          "term": "SHA-224",
+          "meaning": "Secure Hash Algorithm, variante de SHA-2 con salida de 224 bits.",
+          "aliases": []
+        },
+        {
+          "term": "SHA-384",
+          "meaning": "Secure Hash Algorithm, variante de SHA-2 con salida de 384 bits.",
+          "aliases": []
+        },
+        {
+          "term": "SHA-512",
+          "meaning": "Secure Hash Algorithm, variante de SHA-2 con salida de 512 bits.",
+          "aliases": []
+        }
+      ],
+      "externalReferences": [
+        {
+          "title": "RFC 1321",
+          "url": "https://www.rfc-editor.org/rfc/rfc1321"
+        },
+        {
+          "title": "NIST: Secure Hash Standard",
+          "url": "https://csrc.nist.gov/pubs/fips/180-4/upd1/final"
+        }
+      ],
+      "relatedQuestionIds": [
+        8,
+        16,
+        23,
+        24,
+        26,
+        30,
+        38,
+        39,
+        40,
+        45,
+        48,
+        50,
+        52,
+        55,
+        61,
+        62,
+        63,
+        221,
+        223,
+        248,
+        313,
+        316,
+        341,
+        366,
+        367,
+        368,
+        369,
+        370
       ]
     },
     {
@@ -433,6 +714,34 @@
       "referenceNote": "",
       "practicePages": [
         4
+      ],
+      "acronyms": [
+        {
+          "term": "SHA-256",
+          "meaning": "Secure Hash Algorithm, variante de SHA-2 con salida de 256 bits.",
+          "aliases": [
+            "SHA256"
+          ]
+        }
+      ],
+      "relatedQuestionIds": [
+        9,
+        25,
+        27,
+        28,
+        34,
+        36,
+        40,
+        230,
+        248,
+        282,
+        322,
+        366,
+        368,
+        369,
+        420,
+        421,
+        422
       ]
     },
     {
@@ -514,7 +823,20 @@
       "hint": "Separá ocultar el contenido de detectar si alguien lo modificó.",
       "example": "Un encabezado puede permanecer visible, pero quedar autenticado para detectar si alguien lo modifica.",
       "fromManualGlossary": true,
-      "referenceNote": ""
+      "referenceNote": "Los enlaces a fuentes oficiales documentan los significados ampliados; las páginas del manual y de la guía se citan como contexto.",
+      "acronyms": [
+        {
+          "term": "AEAD",
+          "meaning": "Authenticated Encryption with Associated Data: cifrado autenticado con datos asociados.",
+          "aliases": []
+        }
+      ],
+      "externalReferences": [
+        {
+          "title": "RFC 5116",
+          "url": "https://www.rfc-editor.org/rfc/rfc5116"
+        }
+      ]
     },
     {
       "id": "cia",
@@ -531,7 +853,19 @@
       "hint": "Identificá la acción del caso: leer, modificar, impedir el acceso o suplantar identidad. Relacioná esa acción con la propiedad afectada.",
       "example": "Leer una nómina sin permiso afecta confidencialidad; alterar un saldo afecta integridad; impedir acceso al servicio afecta disponibilidad.",
       "fromManualGlossary": true,
-      "referenceNote": ""
+      "referenceNote": "",
+      "acronyms": [
+        {
+          "term": "CIA",
+          "meaning": "Confidentiality, Integrity, Availability: confidencialidad, integridad y disponibilidad.",
+          "aliases": []
+        }
+      ],
+      "relatedQuestionIds": [
+        68,
+        69,
+        70
+      ]
     },
     {
       "id": "no-repudio",
@@ -607,6 +941,17 @@
         6,
         7,
         8
+      ],
+      "acronyms": [
+        {
+          "term": "MitM",
+          "meaning": "Man in the Middle: intermediario que se interpone en una comunicación.",
+          "aliases": []
+        }
+      ],
+      "relatedQuestionIds": [
+        79,
+        381
       ]
     },
     {
@@ -634,7 +979,7 @@
     },
     {
       "id": "fallos-web",
-      "term": "SSRF, inyección SQL y dependencias vulnerables",
+      "term": "SSRF, SQL, XSS y fallos en aplicaciones web",
       "topics": [
         "csirt"
       ],
@@ -644,11 +989,53 @@
         26
       ],
       "definition": "SSRF induce solicitudes desde un servidor; la inyección SQL altera consultas construidas de forma insegura.",
-      "explanation": "Log4Shell es el caso de la biblioteca Java Log4j citado en las preguntas. Para estudiar estos casos, separá la debilidad técnica del incidente que su explotación puede producir.",
+      "explanation": "Log4Shell es el caso de la biblioteca Java Log4j citado en las preguntas. Para estudiar estos casos, separá la debilidad técnica del incidente que su explotación puede producir. XSS consiste en introducir contenido que puede ejecutarse como script en el navegador de otra persona; se distingue de inyectar consultas SQL o forzar solicitudes desde el servidor.",
       "hint": "Identificá qué interpreta la entrada controlada por el atacante: una URL, una consulta de base de datos o una biblioteca de la aplicación.",
       "example": "Si un servidor recibe una URL elegida por el usuario y consulta un recurso interno no previsto, corresponde investigar SSRF.",
       "fromManualGlossary": false,
-      "referenceNote": "Ampliación vinculada con las preguntas 81, 82 y 84. El manual ofrece contexto de vulnerabilidades y clasificación, no desarrolla estos fallos en detalle."
+      "referenceNote": "Ampliación vinculada con las preguntas 81, 82 y 84. El manual ofrece contexto de vulnerabilidades y clasificación, no desarrolla estos fallos en detalle. Los enlaces a fuentes oficiales documentan los significados ampliados; las páginas del manual y de la guía se citan como contexto.",
+      "acronyms": [
+        {
+          "term": "SSRF",
+          "meaning": "Server-Side Request Forgery: falsificación de solicitudes realizadas desde el servidor.",
+          "aliases": []
+        },
+        {
+          "term": "SQL",
+          "meaning": "Structured Query Language: lenguaje de consultas estructuradas.",
+          "aliases": []
+        },
+        {
+          "term": "HTML",
+          "meaning": "Hypertext Markup Language: lenguaje de marcado de hipertexto.",
+          "aliases": []
+        },
+        {
+          "term": "XSS",
+          "meaning": "Cross-Site Scripting: inyección de contenido que se ejecuta como script en el navegador de una víctima.",
+          "aliases": []
+        }
+      ],
+      "externalReferences": [
+        {
+          "title": "OWASP: prevención de XSS",
+          "url": "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html"
+        },
+        {
+          "title": "OWASP: prevención de SSRF",
+          "url": "https://cheatsheetseries.owasp.org/cheatsheets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html"
+        },
+        {
+          "title": "WHATWG: HTML",
+          "url": "https://html.spec.whatwg.org/"
+        }
+      ],
+      "relatedQuestionIds": [
+        81,
+        82,
+        93,
+        100
+      ]
     },
     {
       "id": "suministro",
@@ -719,9 +1106,94 @@
       "hint": "Distinguí la coordinación global de la administración regional. Los registros de asignación ayudan a localizar operadores y contactos.",
       "example": "Los ejemplos de clase consultan LACNIC para recursos de la región latinoamericana; el registro informa asignación, no autor humano.",
       "fromManualGlossary": true,
-      "referenceNote": "",
+      "referenceNote": "Los enlaces a fuentes oficiales documentan los significados ampliados; las páginas del manual y de la guía se citan como contexto.",
       "practicePages": [
         9
+      ],
+      "acronyms": [
+        {
+          "term": "RIR",
+          "meaning": "Regional Internet Registry: registro regional de Internet.",
+          "aliases": []
+        },
+        {
+          "term": "IANA",
+          "meaning": "Internet Assigned Numbers Authority: autoridad de números asignados de Internet.",
+          "aliases": []
+        },
+        {
+          "term": "ARIN",
+          "meaning": "American Registry for Internet Numbers: registro de números de Internet para su región de servicio.",
+          "aliases": []
+        },
+        {
+          "term": "APNIC",
+          "meaning": "Asia Pacific Network Information Centre: centro de información de red de Asia-Pacífico.",
+          "aliases": []
+        },
+        {
+          "term": "AFRINIC",
+          "meaning": "African Network Information Centre: centro africano de información de red.",
+          "aliases": []
+        },
+        {
+          "term": "LACNIC",
+          "meaning": "Latin American and Caribbean Internet Addresses Registry: registro de direcciones de Internet para América Latina y el Caribe.",
+          "aliases": []
+        },
+        {
+          "term": "RIPE",
+          "meaning": "Réseaux IP Européens: denominación francesa de la comunidad de redes IP europeas.",
+          "aliases": []
+        },
+        {
+          "term": "NCC",
+          "meaning": "Network Coordination Centre: centro de coordinación de redes; forma parte del nombre RIPE NCC.",
+          "aliases": []
+        }
+      ],
+      "externalReferences": [
+        {
+          "title": "IANA: registros regionales",
+          "url": "https://www.iana.org/numbers"
+        },
+        {
+          "title": "RIPE NCC: organización",
+          "url": "https://www.ripe.net/about-us/"
+        }
+      ],
+      "relatedQuestionIds": [
+        32,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        100,
+        103,
+        104,
+        106,
+        111,
+        117,
+        120,
+        122,
+        204,
+        205,
+        210,
+        213,
+        251,
+        270,
+        272,
+        282,
+        293,
+        297,
+        313,
+        322,
+        341,
+        391,
+        392,
+        396
       ]
     },
     {
@@ -744,6 +1216,49 @@
       "referenceNote": "",
       "practicePages": [
         9
+      ],
+      "acronyms": [
+        {
+          "term": "WHOIS",
+          "meaning": "Nombre del protocolo y consulta derivado de «who is?» («¿quién es?»); no es una sigla con expansión letra por letra.",
+          "aliases": []
+        }
+      ],
+      "relatedQuestionIds": [
+        33,
+        53,
+        89,
+        99,
+        100,
+        101,
+        103,
+        104,
+        105,
+        112,
+        117,
+        124,
+        127,
+        128,
+        161,
+        189,
+        191,
+        203,
+        204,
+        206,
+        207,
+        223,
+        235,
+        282,
+        285,
+        286,
+        290,
+        326,
+        350,
+        395,
+        396,
+        397,
+        400,
+        406
       ]
     },
     {
@@ -761,9 +1276,41 @@
       "hint": "Ante una respuesta genérica, revisá si existe un registro más específico y qué servidor tiene la información operativa.",
       "example": "La consulta de 163.10.5.66 en un registro histórico genérico puede requerir seguir la remisión a LACNIC.",
       "fromManualGlossary": false,
-      "referenceNote": "",
+      "referenceNote": "Los enlaces a fuentes oficiales documentan los significados ampliados; las páginas del manual y de la guía se citan como contexto.",
       "practicePages": [
         9
+      ],
+      "acronyms": [
+        {
+          "term": "ERX",
+          "meaning": "Early Registration Transfer: proyecto de transferencia de registros históricos.",
+          "aliases": [
+            "ERX-NETBLOCK"
+          ]
+        },
+        {
+          "term": "UNLP",
+          "meaning": "Universidad Nacional de La Plata.",
+          "aliases": []
+        }
+      ],
+      "externalReferences": [
+        {
+          "title": "RIPE NCC: proyecto ERX",
+          "url": "https://www.ripe.net/about-us/news/early-registration-transfer-erx-project-1/"
+        },
+        {
+          "title": "UNLP: institución",
+          "url": "https://unlp.edu.ar/"
+        }
+      ],
+      "relatedQuestionIds": [
+        103,
+        104,
+        106,
+        112,
+        204,
+        396
       ]
     },
     {
@@ -783,9 +1330,66 @@
       "hint": "Separá los datos de registro de un recurso de la actividad actual que ocurre en él. Para automatizar, observá cómo se estructuran los campos.",
       "example": "Un programa puede recorrer entities para localizar contactos y events para recuperar fechas del registro.",
       "fromManualGlossary": true,
-      "referenceNote": "",
+      "referenceNote": "Los enlaces a fuentes oficiales documentan los significados ampliados; las páginas del manual y de la guía se citan como contexto.",
       "practicePages": [
         9
+      ],
+      "acronyms": [
+        {
+          "term": "RDAP",
+          "meaning": "Registration Data Access Protocol: protocolo de acceso a datos de registro.",
+          "aliases": []
+        },
+        {
+          "term": "JSON",
+          "meaning": "JavaScript Object Notation: notación de objetos de JavaScript para representar datos.",
+          "aliases": []
+        }
+      ],
+      "externalReferences": [
+        {
+          "title": "RFC 7480",
+          "url": "https://www.rfc-editor.org/rfc/rfc7480"
+        },
+        {
+          "title": "RFC 8259",
+          "url": "https://www.rfc-editor.org/rfc/rfc8259"
+        }
+      ],
+      "relatedQuestionIds": [
+        47,
+        99,
+        100,
+        107,
+        108,
+        110,
+        117,
+        122,
+        125,
+        127,
+        128,
+        132,
+        161,
+        203,
+        206,
+        207,
+        223,
+        233,
+        282,
+        286,
+        287,
+        290,
+        296,
+        304,
+        323,
+        333,
+        341,
+        393,
+        394,
+        395,
+        396,
+        397,
+        406
       ]
     },
     {
@@ -804,9 +1408,150 @@
       "hint": "Diferenciá pertenencia de un recurso y autoría de una acción. Para correlacionar hacen falta tiempos, puertos y registros.",
       "example": "Una IP pública compartida mediante NAT puede corresponder a muchas personas; atribuir una conexión requiere más contexto.",
       "fromManualGlossary": false,
-      "referenceNote": "",
+      "referenceNote": "Los enlaces a fuentes oficiales documentan los significados ampliados; las páginas del manual y de la guía se citan como contexto.",
       "practicePages": [
         9
+      ],
+      "acronyms": [
+        {
+          "term": "IP",
+          "meaning": "Internet Protocol: protocolo de Internet.",
+          "aliases": [
+            "IPs"
+          ]
+        },
+        {
+          "term": "IPv4",
+          "meaning": "Internet Protocol version 4: versión 4 del protocolo de Internet.",
+          "aliases": []
+        },
+        {
+          "term": "IPv6",
+          "meaning": "Internet Protocol version 6: versión 6 del protocolo de Internet.",
+          "aliases": []
+        },
+        {
+          "term": "CIDR",
+          "meaning": "Classless Inter-Domain Routing: enrutamiento entre dominios sin clases.",
+          "aliases": []
+        },
+        {
+          "term": "NAT",
+          "meaning": "Network Address Translation: traducción de direcciones de red.",
+          "aliases": []
+        }
+      ],
+      "externalReferences": [
+        {
+          "title": "RFC 791",
+          "url": "https://www.rfc-editor.org/rfc/rfc791"
+        },
+        {
+          "title": "RFC 8200",
+          "url": "https://www.rfc-editor.org/rfc/rfc8200"
+        },
+        {
+          "title": "RFC 4632",
+          "url": "https://www.rfc-editor.org/rfc/rfc4632"
+        },
+        {
+          "title": "RFC 3022",
+          "url": "https://www.rfc-editor.org/rfc/rfc3022"
+        }
+      ],
+      "relatedQuestionIds": [
+        29,
+        33,
+        47,
+        55,
+        89,
+        93,
+        97,
+        98,
+        99,
+        100,
+        102,
+        103,
+        104,
+        105,
+        107,
+        109,
+        110,
+        111,
+        114,
+        117,
+        120,
+        121,
+        126,
+        127,
+        128,
+        129,
+        135,
+        136,
+        138,
+        139,
+        142,
+        143,
+        145,
+        149,
+        150,
+        154,
+        158,
+        159,
+        161,
+        163,
+        168,
+        169,
+        181,
+        183,
+        185,
+        186,
+        192,
+        193,
+        196,
+        197,
+        203,
+        204,
+        206,
+        210,
+        211,
+        215,
+        222,
+        223,
+        226,
+        230,
+        231,
+        237,
+        244,
+        253,
+        262,
+        267,
+        282,
+        293,
+        313,
+        316,
+        334,
+        335,
+        343,
+        346,
+        392,
+        393,
+        394,
+        395,
+        396,
+        397,
+        399,
+        402,
+        404,
+        405,
+        406,
+        407,
+        410,
+        411,
+        412,
+        413,
+        425,
+        431
       ]
     },
     {
@@ -829,6 +1574,86 @@
       "practicePages": [
         12,
         13
+      ],
+      "acronyms": [
+        {
+          "term": "DNS",
+          "meaning": "Domain Name System: sistema de nombres de dominio.",
+          "aliases": []
+        }
+      ],
+      "relatedQuestionIds": [
+        14,
+        22,
+        33,
+        35,
+        79,
+        83,
+        88,
+        89,
+        102,
+        103,
+        104,
+        105,
+        107,
+        108,
+        111,
+        113,
+        114,
+        116,
+        117,
+        120,
+        123,
+        124,
+        126,
+        128,
+        129,
+        131,
+        136,
+        145,
+        148,
+        150,
+        156,
+        159,
+        168,
+        174,
+        176,
+        190,
+        202,
+        205,
+        218,
+        225,
+        226,
+        232,
+        246,
+        251,
+        255,
+        258,
+        271,
+        275,
+        278,
+        281,
+        288,
+        292,
+        296,
+        304,
+        313,
+        314,
+        322,
+        324,
+        329,
+        331,
+        333,
+        335,
+        341,
+        343,
+        347,
+        392,
+        398,
+        402,
+        415,
+        416,
+        440
       ]
     },
     {
@@ -846,9 +1671,60 @@
       "hint": "Separá quién opera la zona, quién tramita el registro y quién obtiene el nombre. No todos son la misma entidad.",
       "example": ".ar es un ccTLD; .com es un gTLD; .arpa se utiliza para infraestructura técnica como resolución inversa.",
       "fromManualGlossary": false,
-      "referenceNote": "",
+      "referenceNote": "Los enlaces a fuentes oficiales documentan los significados ampliados; las páginas del manual y de la guía se citan como contexto.",
       "practicePages": [
         10
+      ],
+      "acronyms": [
+        {
+          "term": "TLD",
+          "meaning": "Top-Level Domain: dominio de nivel superior.",
+          "aliases": []
+        },
+        {
+          "term": "gTLD",
+          "meaning": "Generic Top-Level Domain: dominio genérico de nivel superior.",
+          "aliases": []
+        },
+        {
+          "term": "ccTLD",
+          "meaning": "Country-Code Top-Level Domain: dominio de nivel superior de código de país.",
+          "aliases": []
+        },
+        {
+          "term": "NIC",
+          "meaning": "Network Information Center: centro de información de red; NIC Argentina es la denominación usada para el registro .ar.",
+          "aliases": []
+        }
+      ],
+      "externalReferences": [
+        {
+          "title": "ICANN: acrónimos y términos",
+          "url": "https://www.icann.org/resources/pages/glossary-2014-02-03-en"
+        }
+      ],
+      "relatedQuestionIds": [
+        45,
+        89,
+        97,
+        113,
+        114,
+        115,
+        116,
+        118,
+        121,
+        122,
+        125,
+        126,
+        205,
+        207,
+        210,
+        270,
+        319,
+        323,
+        343,
+        398,
+        401
       ]
     },
     {
@@ -870,6 +1746,16 @@
       "referenceNote": "",
       "practicePages": [
         10
+      ],
+      "acronyms": [
+        {
+          "term": "LEA",
+          "meaning": "Law Enforcement Agency: organismo competente de aplicación de la ley.",
+          "aliases": []
+        }
+      ],
+      "relatedQuestionIds": [
+        124
       ]
     },
     {
@@ -893,11 +1779,57 @@
       "practicePages": [
         10,
         11
+      ],
+      "acronyms": [
+        {
+          "term": "MX",
+          "meaning": "Mail Exchanger: intercambiador de correo; también se usa «Mail Exchange» para el tipo de registro.",
+          "aliases": []
+        }
+      ],
+      "relatedQuestionIds": [
+        29,
+        33,
+        42,
+        49,
+        89,
+        102,
+        105,
+        107,
+        119,
+        124,
+        129,
+        130,
+        145,
+        148,
+        161,
+        204,
+        207,
+        208,
+        218,
+        222,
+        226,
+        271,
+        275,
+        295,
+        298,
+        310,
+        313,
+        314,
+        322,
+        333,
+        344,
+        398,
+        399,
+        402,
+        404,
+        406,
+        409
       ]
     },
     {
       "id": "smtp",
-      "term": "SMTP y recuperación de mensajes",
+      "term": "SMTP, MTA, IMAP y POP3",
       "topics": [
         "csirt"
       ],
@@ -912,7 +1844,102 @@
       "hint": "Ubicá la operación en el recorrido del correo: envío entre servidores o acceso al buzón del usuario.",
       "example": "Tras RCPT TO, un 250 acepta ese destinatario en esa etapa; no demuestra que el usuario haya recibido o leído el mensaje.",
       "fromManualGlossary": true,
-      "referenceNote": ""
+      "referenceNote": "Los enlaces a fuentes oficiales documentan los significados ampliados; las páginas del manual y de la guía se citan como contexto.",
+      "acronyms": [
+        {
+          "term": "SMTP",
+          "meaning": "Simple Mail Transfer Protocol: protocolo simple de transferencia de correo.",
+          "aliases": []
+        },
+        {
+          "term": "MTA",
+          "meaning": "Message Transfer Agent, también Mail Transfer Agent: agente de transferencia de correo.",
+          "aliases": []
+        },
+        {
+          "term": "IMAP",
+          "meaning": "Internet Message Access Protocol: protocolo de acceso a mensajes de Internet.",
+          "aliases": []
+        },
+        {
+          "term": "POP3",
+          "meaning": "Post Office Protocol version 3: versión 3 del protocolo de oficina de correos.",
+          "aliases": []
+        }
+      ],
+      "externalReferences": [
+        {
+          "title": "RFC 5321",
+          "url": "https://www.rfc-editor.org/rfc/rfc5321"
+        },
+        {
+          "title": "RFC 5598",
+          "url": "https://www.rfc-editor.org/rfc/rfc5598"
+        },
+        {
+          "title": "RFC 9051",
+          "url": "https://www.rfc-editor.org/rfc/rfc9051"
+        },
+        {
+          "title": "RFC 1939",
+          "url": "https://www.rfc-editor.org/rfc/rfc1939"
+        }
+      ],
+      "relatedQuestionIds": [
+        27,
+        31,
+        41,
+        47,
+        83,
+        93,
+        103,
+        111,
+        118,
+        120,
+        122,
+        130,
+        131,
+        132,
+        133,
+        134,
+        135,
+        138,
+        139,
+        142,
+        146,
+        147,
+        148,
+        154,
+        155,
+        156,
+        157,
+        158,
+        159,
+        162,
+        186,
+        206,
+        208,
+        209,
+        213,
+        214,
+        221,
+        225,
+        226,
+        233,
+        255,
+        266,
+        270,
+        275,
+        279,
+        280,
+        293,
+        294,
+        304,
+        402,
+        403,
+        408,
+        409
+      ]
     },
     {
       "id": "envelope",
@@ -934,6 +1961,22 @@
       "practicePages": [
         10,
         11
+      ],
+      "acronyms": [
+        {
+          "term": "RCPT",
+          "meaning": "Recipient: destinatario; abreviatura usada por el comando SMTP RCPT TO.",
+          "aliases": []
+        }
+      ],
+      "relatedQuestionIds": [
+        133,
+        155,
+        156,
+        158,
+        208,
+        209,
+        248
       ]
     },
     {
@@ -997,9 +2040,31 @@
       "hint": "Revisá el prefijo completo: no todas las direcciones que empiezan con 172 pertenecen al rango privado.",
       "example": "172.20.1.5 pertenece al rango privado 172.16.0.0/12; no toda dirección que empiece con 172 es privada.",
       "fromManualGlossary": false,
-      "referenceNote": "",
+      "referenceNote": "Los enlaces a fuentes oficiales documentan los significados ampliados; las páginas del manual y de la guía se citan como contexto.",
       "practicePages": [
         11
+      ],
+      "acronyms": [
+        {
+          "term": "RFC",
+          "meaning": "Request for Comments: serie de documentos técnicos usada, entre otros fines, para especificaciones de Internet.",
+          "aliases": [
+            "RFC1918"
+          ]
+        }
+      ],
+      "externalReferences": [
+        {
+          "title": "RFC Editor: sobre las RFC",
+          "url": "https://www.rfc-editor.org/about/"
+        }
+      ],
+      "relatedQuestionIds": [
+        136,
+        143,
+        145,
+        210,
+        405
       ]
     },
     {
@@ -1024,6 +2089,16 @@
       "practicePages": [
         11,
         12
+      ],
+      "acronyms": [
+        {
+          "term": "UTC",
+          "meaning": "Coordinated Universal Time: tiempo universal coordinado; UTC es la abreviatura internacional acordada.",
+          "aliases": []
+        }
+      ],
+      "relatedQuestionIds": [
+        202
       ]
     },
     {
@@ -1057,9 +2132,81 @@
       "hint": "Separá protección del transporte, autenticación de dominio y legitimidad del contenido del mensaje.",
       "example": "ESMTPS en un Received describe protección de transporte en ese salto, no una garantía de identidad de todos los remitentes.",
       "fromManualGlossary": false,
-      "referenceNote": "",
+      "referenceNote": "Los enlaces a fuentes oficiales documentan los significados ampliados; las páginas del manual y de la guía se citan como contexto.",
       "practicePages": [
         11
+      ],
+      "acronyms": [
+        {
+          "term": "ESMTP",
+          "meaning": "Extended Simple Mail Transfer Protocol: SMTP extendido.",
+          "aliases": []
+        },
+        {
+          "term": "ESMTPS",
+          "meaning": "ESMTP con TLS: identificador del transporte SMTP extendido protegido en ese salto.",
+          "aliases": []
+        },
+        {
+          "term": "TLS",
+          "meaning": "Transport Layer Security: seguridad de la capa de transporte.",
+          "aliases": []
+        },
+        {
+          "term": "SPF",
+          "meaning": "Sender Policy Framework: marco de políticas de remitente.",
+          "aliases": []
+        },
+        {
+          "term": "DKIM",
+          "meaning": "DomainKeys Identified Mail: mecanismo de firmas de correo vinculadas a un dominio.",
+          "aliases": []
+        },
+        {
+          "term": "DMARC",
+          "meaning": "Domain-based Message Authentication, Reporting, and Conformance: autenticación de mensajes basada en dominio, informes y conformidad.",
+          "aliases": []
+        }
+      ],
+      "externalReferences": [
+        {
+          "title": "RFC 5321",
+          "url": "https://www.rfc-editor.org/rfc/rfc5321"
+        },
+        {
+          "title": "RFC 3848",
+          "url": "https://www.rfc-editor.org/rfc/rfc3848"
+        },
+        {
+          "title": "RFC 8446",
+          "url": "https://www.rfc-editor.org/rfc/rfc8446"
+        },
+        {
+          "title": "RFC 7208",
+          "url": "https://www.rfc-editor.org/rfc/rfc7208"
+        },
+        {
+          "title": "RFC 6376",
+          "url": "https://www.rfc-editor.org/rfc/rfc6376"
+        },
+        {
+          "title": "RFC 7489",
+          "url": "https://www.rfc-editor.org/rfc/rfc7489"
+        }
+      ],
+      "relatedQuestionIds": [
+        82,
+        93,
+        102,
+        112,
+        147,
+        157,
+        162,
+        203,
+        255,
+        275,
+        406,
+        409
       ]
     },
     {
@@ -1081,6 +2228,117 @@
       "practicePages": [
         11,
         12
+      ],
+      "acronyms": [
+        {
+          "term": "CSIRT",
+          "meaning": "Computer Security Incident Response Team: equipo de respuesta a incidentes de seguridad informática.",
+          "aliases": [
+            "CSIRTs"
+          ]
+        },
+        {
+          "term": "CERT",
+          "meaning": "Computer Emergency Response Team: equipo de respuesta a emergencias informáticas.",
+          "aliases": []
+        }
+      ],
+      "relatedQuestionIds": [
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        122,
+        123,
+        124,
+        125,
+        126,
+        127,
+        128,
+        164,
+        165,
+        166,
+        167,
+        168,
+        169,
+        170,
+        171,
+        172,
+        173,
+        174,
+        175,
+        176,
+        177,
+        178,
+        179,
+        180,
+        181,
+        182,
+        183,
+        184,
+        185,
+        186,
+        187,
+        188,
+        189,
+        190,
+        191,
+        192,
+        193,
+        194,
+        195,
+        196,
+        197,
+        198,
+        199,
+        200,
+        201,
+        202,
+        203,
+        204,
+        205,
+        206,
+        207,
+        212,
+        213,
+        214,
+        215,
+        216,
+        217,
+        218,
+        219,
+        220,
+        223,
+        224,
+        225,
+        412,
+        440,
+        441
       ]
     },
     {
@@ -1124,6 +2382,16 @@
       "referenceNote": "",
       "practicePages": [
         16
+      ],
+      "acronyms": [
+        {
+          "term": "DB",
+          "meaning": "Database: base de datos.",
+          "aliases": []
+        }
+      ],
+      "relatedQuestionIds": [
+        200
       ]
     },
     {
@@ -1180,7 +2448,17 @@
       "hint": "Identificá qué datos necesita realmente el destinatario, cómo protegerlos y cómo conservar la posibilidad de verificar el hallazgo.",
       "example": "Antes de compartir un log con otro equipo se evalúa qué datos personales son necesarios para investigar el incidente.",
       "fromManualGlossary": false,
-      "referenceNote": ""
+      "referenceNote": "",
+      "acronyms": [
+        {
+          "term": "DNI",
+          "meaning": "Documento Nacional de Identidad.",
+          "aliases": []
+        }
+      ],
+      "relatedQuestionIds": [
+        262
+      ]
     },
     {
       "id": "tlp",
@@ -1197,7 +2475,24 @@
       "hint": "Distinguí reglas de redistribución de mecanismos que protegen técnicamente el transporte.",
       "example": "Una etiqueta TLP indica con quién se permite compartir el reporte, pero no cifra el archivo.",
       "fromManualGlossary": true,
-      "referenceNote": ""
+      "referenceNote": "Los enlaces a fuentes oficiales documentan los significados ampliados; las páginas del manual y de la guía se citan como contexto.",
+      "acronyms": [
+        {
+          "term": "TLP",
+          "meaning": "Traffic Light Protocol: protocolo del semáforo para compartir información.",
+          "aliases": []
+        }
+      ],
+      "externalReferences": [
+        {
+          "title": "FIRST: Traffic Light Protocol",
+          "url": "https://www.first.org/tlp/"
+        }
+      ],
+      "relatedQuestionIds": [
+        213,
+        224
+      ]
     },
     {
       "id": "pgp",
@@ -1215,10 +2510,53 @@
       "hint": "Elegí controles según la necesidad: restringir lectura, verificar cambios o establecer reglas sobre quién puede recibir la información.",
       "example": "Un reporte puede cifrarse para el destinatario y firmarse por el equipo que lo elaboró: cada operación aporta una propiedad diferente.",
       "fromManualGlossary": true,
-      "referenceNote": "",
+      "referenceNote": "Los enlaces a fuentes oficiales documentan los significados ampliados; las páginas del manual y de la guía se citan como contexto.",
       "practicePages": [
         7,
         8
+      ],
+      "acronyms": [
+        {
+          "term": "PGP",
+          "meaning": "Pretty Good Privacy: nombre de la tecnología de protección mediante cifrado y firmas.",
+          "aliases": []
+        },
+        {
+          "term": "GPG",
+          "meaning": "GNU Privacy Guard: implementación del ecosistema OpenPGP.",
+          "aliases": [
+            "GnuPG"
+          ]
+        },
+        {
+          "term": "OpenPGP",
+          "meaning": "Estándar abierto de mensajes y claves derivado de PGP (Pretty Good Privacy); no es una expansión letra por letra.",
+          "aliases": []
+        }
+      ],
+      "externalReferences": [
+        {
+          "title": "GnuPG: GNU Privacy Guard",
+          "url": "https://www.gnupg.org/"
+        },
+        {
+          "title": "RFC 9580",
+          "url": "https://www.rfc-editor.org/rfc/rfc9580"
+        }
+      ],
+      "relatedQuestionIds": [
+        53,
+        214,
+        223,
+        313,
+        327,
+        332,
+        333,
+        336,
+        385,
+        386,
+        387,
+        388
       ]
     },
     {
@@ -1237,7 +2575,27 @@
       "hint": "Observá si se alteró el contenido o si se impidió acceder a él. Después evaluá los activos e impactos involucrados.",
       "example": "Reemplazar sin autorización la portada de un sitio modifica su contenido y compromete su integridad.",
       "fromManualGlossary": false,
-      "referenceNote": ""
+      "referenceNote": "",
+      "acronyms": [
+        {
+          "term": "DoS",
+          "meaning": "Denial of Service: denegación de servicio.",
+          "aliases": []
+        },
+        {
+          "term": "DDoS",
+          "meaning": "Distributed Denial of Service: denegación de servicio distribuida.",
+          "aliases": []
+        }
+      ],
+      "relatedQuestionIds": [
+        69,
+        81,
+        151,
+        175,
+        218,
+        298
+      ]
     },
     {
       "id": "malware",
@@ -1276,6 +2634,16 @@
       "practicePages": [
         13,
         14
+      ],
+      "acronyms": [
+        {
+          "term": "RAT",
+          "meaning": "Remote Access Trojan: troyano de acceso remoto, en el contexto de familias de malware.",
+          "aliases": []
+        }
+      ],
+      "relatedQuestionIds": [
+        234
       ]
     },
     {
@@ -1334,6 +2702,36 @@
         13,
         14,
         16
+      ],
+      "acronyms": [
+        {
+          "term": "IOC",
+          "meaning": "Indicator of Compromise: indicador de compromiso.",
+          "aliases": []
+        }
+      ],
+      "relatedQuestionIds": [
+        104,
+        229,
+        231,
+        239,
+        257,
+        262,
+        263,
+        267,
+        340,
+        344,
+        345,
+        346,
+        420,
+        422,
+        425,
+        431,
+        434,
+        439,
+        440,
+        441,
+        442
       ]
     },
     {
@@ -1396,6 +2794,17 @@
       "practicePages": [
         13,
         14
+      ],
+      "acronyms": [
+        {
+          "term": "WideChar",
+          "meaning": "Wide Character: carácter ancho; en el contexto de las preguntas se relaciona con cadenas UTF-16 de Windows.",
+          "aliases": []
+        }
+      ],
+      "relatedQuestionIds": [
+        240,
+        303
       ]
     },
     {
@@ -1414,10 +2823,82 @@
       "hint": "Ubicá si el dato corresponde a código, variables modificables, constantes o recursos. Verificá estructura y permisos además del nombre de sección.",
       "example": ".text suele contener código y .rsrc recursos, pero esos nombres son convenciones y requieren validar la estructura real.",
       "fromManualGlossary": true,
-      "referenceNote": "",
+      "referenceNote": "Los enlaces a fuentes oficiales documentan los significados ampliados; las páginas del manual y de la guía se citan como contexto.",
       "practicePages": [
         13,
         14
+      ],
+      "acronyms": [
+        {
+          "term": "PE",
+          "meaning": "Portable Executable: formato ejecutable portátil de Windows.",
+          "aliases": []
+        },
+        {
+          "term": "DOS",
+          "meaning": "Disk Operating System: sistema operativo de disco; en este contexto se refiere al entorno y cabecera de compatibilidad de MS-DOS.",
+          "aliases": []
+        },
+        {
+          "term": "MZ",
+          "meaning": "Iniciales de Mark Zbikowski, usadas como firma de la cabecera DOS; no es una frase técnica de dos palabras.",
+          "aliases": []
+        }
+      ],
+      "externalReferences": [
+        {
+          "title": "Microsoft: formato PE",
+          "url": "https://learn.microsoft.com/en-us/windows/win32/debug/pe-format"
+        },
+        {
+          "title": "Microsoft: firmas MZ y PE",
+          "url": "https://devblogs.microsoft.com/oldnewthing/20060130-00/?p=32483"
+        }
+      ],
+      "relatedQuestionIds": [
+        36,
+        47,
+        152,
+        159,
+        239,
+        241,
+        242,
+        243,
+        244,
+        249,
+        251,
+        252,
+        253,
+        254,
+        255,
+        258,
+        259,
+        260,
+        261,
+        265,
+        283,
+        284,
+        287,
+        301,
+        303,
+        304,
+        307,
+        308,
+        310,
+        311,
+        315,
+        316,
+        318,
+        324,
+        325,
+        329,
+        330,
+        337,
+        420,
+        421,
+        423,
+        424,
+        439
       ]
     },
     {
@@ -1436,10 +2917,54 @@
       "hint": "Tratando cada import como una hipótesis, preguntate qué evidencia adicional demostraría que la función se ejecutó.",
       "example": "Importar una función de descarga indica una capacidad potencial; observar su uso requiere evidencia adicional.",
       "fromManualGlossary": false,
-      "referenceNote": "",
+      "referenceNote": "Los enlaces a fuentes oficiales documentan los significados ampliados; las páginas del manual y de la guía se citan como contexto.",
       "practicePages": [
         13,
         14
+      ],
+      "acronyms": [
+        {
+          "term": "DLL",
+          "meaning": "Dynamic-Link Library: biblioteca de enlace dinámico.",
+          "aliases": []
+        },
+        {
+          "term": "API",
+          "meaning": "Application Programming Interface: interfaz de programación de aplicaciones.",
+          "aliases": [
+            "APIs"
+          ]
+        }
+      ],
+      "externalReferences": [
+        {
+          "title": "Microsoft: bibliotecas de enlace dinámico",
+          "url": "https://learn.microsoft.com/en-us/windows/win32/dlls/dynamic-link-libraries"
+        }
+      ],
+      "relatedQuestionIds": [
+        191,
+        244,
+        245,
+        246,
+        247,
+        248,
+        249,
+        250,
+        254,
+        257,
+        267,
+        302,
+        304,
+        305,
+        306,
+        312,
+        314,
+        315,
+        332,
+        337,
+        349,
+        423
       ]
     },
     {
@@ -1456,10 +2981,58 @@
       "hint": "Separá inicializar una sesión, abrir un recurso y guardar una descarga. Relacioná la API con lo que se capturó en la red.",
       "example": "Una importación de InternetOpen puede incluir un User-Agent; URLDownloadToFile sugiere una capacidad de descarga a archivo.",
       "fromManualGlossary": false,
-      "referenceNote": "",
+      "referenceNote": "Los enlaces a fuentes oficiales documentan los significados ampliados; las páginas del manual y de la guía se citan como contexto.",
       "practicePages": [
         13,
         14
+      ],
+      "acronyms": [
+        {
+          "term": "WinINet",
+          "meaning": "Windows Internet: conjunto de API de Windows para funciones de Internet.",
+          "aliases": []
+        },
+        {
+          "term": "URL",
+          "meaning": "Uniform Resource Locator: localizador uniforme de recursos.",
+          "aliases": [
+            "URLs"
+          ]
+        }
+      ],
+      "externalReferences": [
+        {
+          "title": "Microsoft: WinINet",
+          "url": "https://learn.microsoft.com/en-us/windows/win32/wininet/about-wininet"
+        },
+        {
+          "title": "RFC 3986",
+          "url": "https://www.rfc-editor.org/rfc/rfc3986"
+        }
+      ],
+      "relatedQuestionIds": [
+        81,
+        154,
+        209,
+        231,
+        238,
+        239,
+        245,
+        249,
+        250,
+        263,
+        291,
+        303,
+        312,
+        313,
+        332,
+        343,
+        420,
+        425,
+        431,
+        433,
+        435,
+        439
       ]
     },
     {
@@ -1595,6 +3168,27 @@
       "referenceNote": "",
       "practicePages": [
         14
+      ],
+      "acronyms": [
+        {
+          "term": "VM",
+          "meaning": "Virtual Machine: máquina virtual.",
+          "aliases": []
+        }
+      ],
+      "relatedQuestionIds": [
+        266,
+        271,
+        274,
+        299,
+        300,
+        315,
+        317,
+        318,
+        319,
+        320,
+        342,
+        426
       ]
     },
     {
@@ -1613,9 +3207,61 @@
       "hint": "Identificá si la configuración pertenece al perfil de usuario o al equipo y qué permisos necesita modificarla.",
       "example": "HKCU corresponde al usuario actual; HKLM contiene configuración del equipo. Los permisos de escritura dependen de la rama.",
       "fromManualGlossary": true,
-      "referenceNote": "",
+      "referenceNote": "Los enlaces a fuentes oficiales documentan los significados ampliados; las páginas del manual y de la guía se citan como contexto.",
       "practicePages": [
         14
+      ],
+      "acronyms": [
+        {
+          "term": "HKCU",
+          "meaning": "HKEY_CURRENT_USER: clave predefinida del usuario actual.",
+          "aliases": [
+            "HKEY_CURRENT_USER"
+          ]
+        },
+        {
+          "term": "HKLM",
+          "meaning": "HKEY_LOCAL_MACHINE: clave predefinida de la configuración del equipo.",
+          "aliases": [
+            "HKEY_LOCAL_MACHINE"
+          ]
+        },
+        {
+          "term": "HKCR",
+          "meaning": "HKEY_CLASSES_ROOT: clave predefinida de información de clases y asociaciones.",
+          "aliases": [
+            "HKEY_CLASSES_ROOT"
+          ]
+        },
+        {
+          "term": "HKEY_USERS",
+          "meaning": "Clave predefinida con los perfiles de usuario cargados; denominación literal del Registro.",
+          "aliases": [
+            "HKU"
+          ]
+        }
+      ],
+      "externalReferences": [
+        {
+          "title": "Microsoft: claves predefinidas del Registro",
+          "url": "https://learn.microsoft.com/en-us/windows/win32/sysinfo/predefined-keys"
+        }
+      ],
+      "relatedQuestionIds": [
+        275,
+        276,
+        277,
+        278,
+        279,
+        292,
+        303,
+        321,
+        322,
+        323,
+        336,
+        349,
+        428,
+        429
       ]
     },
     {
@@ -1715,11 +3361,39 @@
       "hint": "Diferenciá nombre consultado, conexión establecida y datos transferidos. Afirmá solo la etapa que sostiene la captura.",
       "example": "Una consulta DNS capturada demuestra resolución de nombre; todavía no confirma una descarga posterior.",
       "fromManualGlossary": false,
-      "referenceNote": "",
+      "referenceNote": "Los enlaces a fuentes oficiales documentan los significados ampliados; las páginas del manual y de la guía se citan como contexto.",
       "practicePages": [
         12,
         13,
         14
+      ],
+      "acronyms": [
+        {
+          "term": "PCAP",
+          "meaning": "Packet Capture: captura de paquetes; también da nombre a un formato de archivos de captura.",
+          "aliases": []
+        },
+        {
+          "term": "ICMP",
+          "meaning": "Internet Control Message Protocol: protocolo de mensajes de control de Internet.",
+          "aliases": []
+        }
+      ],
+      "externalReferences": [
+        {
+          "title": "Tcpdump: formato de archivo pcap",
+          "url": "https://www.tcpdump.org/manpages/pcap-savefile.5.html"
+        },
+        {
+          "title": "RFC 792",
+          "url": "https://www.rfc-editor.org/rfc/rfc792"
+        }
+      ],
+      "relatedQuestionIds": [
+        127,
+        414,
+        416,
+        440
       ]
     },
     {
@@ -1794,7 +3468,17 @@
       "hint": "Identificá las reglas del alfabeto y el punto de inicio de la numeración antes de convertir símbolos.",
       "example": "Con A=1, 2-1 representa BA. Si se empieza en A=0, la misma secuencia representa otras letras.",
       "fromManualGlossary": false,
-      "referenceNote": "Ampliación didáctica basada en la guía de prácticas disponible; las páginas citadas pertenecen a esa guía, no al manual de teorías."
+      "referenceNote": "Ampliación didáctica basada en la guía de prácticas disponible; las páginas citadas pertenecen a esa guía, no al manual de teorías.",
+      "acronyms": [
+        {
+          "term": "A1Z26",
+          "meaning": "Notación de posiciones alfabéticas A=1, B=2, …, Z=26; no es una sigla de una frase.",
+          "aliases": []
+        }
+      ],
+      "relatedQuestionIds": [
+        355
+      ]
     },
     {
       "id": "vigenere",
@@ -1865,7 +3549,25 @@
       "hint": "Identificá qué cantidades son públicas, cuáles permiten calcular el inverso y cómo se representan los bytes del mensaje.",
       "example": "Con primos pequeños se puede comprobar una ida y vuelta de un entero; convertirlo a texto exige conocer codificación, longitud y orden de bytes.",
       "fromManualGlossary": false,
-      "referenceNote": "Ampliación didáctica basada en la guía de prácticas disponible; las páginas citadas pertenecen a esa guía, no al manual de teorías."
+      "referenceNote": "Ampliación didáctica basada en la guía de prácticas disponible; las páginas citadas pertenecen a esa guía, no al manual de teorías.",
+      "acronyms": [
+        {
+          "term": "RSA",
+          "meaning": "Rivest, Shamir y Adleman: apellidos de los autores que dan nombre al esquema.",
+          "aliases": []
+        }
+      ],
+      "relatedQuestionIds": [
+        9,
+        35,
+        258,
+        376,
+        377,
+        378,
+        379,
+        381,
+        387
+      ]
     },
     {
       "id": "diffie-hellman",
@@ -1883,7 +3585,20 @@
       "hint": "Distinguí parámetros públicos, exponentes privados y secreto compartido. Acordar una clave no verifica por sí solo quién está del otro lado.",
       "example": "Alice calcula B^a mod p y Bob A^b mod p. Las firmas o certificados se evalúan aparte para autenticar el intercambio.",
       "fromManualGlossary": false,
-      "referenceNote": "Ampliación didáctica basada en la guía de prácticas disponible; las páginas citadas pertenecen a esa guía, no al manual de teorías."
+      "referenceNote": "Ampliación didáctica basada en la guía de prácticas disponible; las páginas citadas pertenecen a esa guía, no al manual de teorías.",
+      "acronyms": [
+        {
+          "term": "DH",
+          "meaning": "Diffie–Hellman: apellidos que dan nombre al acuerdo de claves.",
+          "aliases": [
+            "Diffie-Hellman"
+          ]
+        }
+      ],
+      "relatedQuestionIds": [
+        380,
+        381
+      ]
     },
     {
       "id": "esteganografia",
@@ -1917,7 +3632,19 @@
       "hint": "Ubicá el bit de menor peso en cada muestra y respetá el orden declarado para ensamblar un byte.",
       "example": "Cambiar 10010100 a 10010101 altera sólo la unidad. Ocho bits obtenidos de ocho muestras pueden formar un byte.",
       "fromManualGlossary": false,
-      "referenceNote": "Ampliación didáctica basada en la guía de prácticas disponible; las páginas citadas pertenecen a esa guía, no al manual de teorías."
+      "referenceNote": "Ampliación didáctica basada en la guía de prácticas disponible; las páginas citadas pertenecen a esa guía, no al manual de teorías.",
+      "acronyms": [
+        {
+          "term": "LSB",
+          "meaning": "Least Significant Bit: bit menos significativo.",
+          "aliases": []
+        }
+      ],
+      "relatedQuestionIds": [
+        357,
+        383,
+        384
+      ]
     },
     {
       "id": "pgp-confianza",
@@ -1970,7 +3697,18 @@
       "hint": "Seguí la cadena registral y distinguí organismo asignador, responsable del bloque y contacto de abuso.",
       "example": "La práctica menciona NIR de Brasil y México en la región LACNIC; la respuesta para una IP específica requiere consultar su registro.",
       "fromManualGlossary": false,
-      "referenceNote": "Ampliación didáctica basada en la guía de prácticas disponible; las páginas citadas pertenecen a esa guía, no al manual de teorías."
+      "referenceNote": "Ampliación didáctica basada en la guía de prácticas disponible; las páginas citadas pertenecen a esa guía, no al manual de teorías.",
+      "acronyms": [
+        {
+          "term": "NIR",
+          "meaning": "National Internet Registry: registro nacional de Internet.",
+          "aliases": []
+        }
+      ],
+      "relatedQuestionIds": [
+        392,
+        397
+      ]
     },
     {
       "id": "ssh-logs",
@@ -1988,7 +3726,32 @@
       "hint": "Separá resultado de autenticación, patrón temporal y valoración de legitimidad antes de clasificar el incidente.",
       "example": "Veinte fallos y una aceptación son hechos distintos: se correlacionan sus IP, usuarios y horarios para evaluar relación y alcance.",
       "fromManualGlossary": false,
-      "referenceNote": "Ampliación didáctica basada en la guía de prácticas disponible; las páginas citadas pertenecen a esa guía, no al manual de teorías."
+      "referenceNote": "Ampliación didáctica basada en la guía de prácticas disponible; las páginas citadas pertenecen a esa guía, no al manual de teorías. Los enlaces a fuentes oficiales documentan los significados ampliados; las páginas del manual y de la guía se citan como contexto.",
+      "acronyms": [
+        {
+          "term": "SSH",
+          "meaning": "Secure Shell: protocolo para acceso remoto seguro.",
+          "aliases": []
+        },
+        {
+          "term": "CRON",
+          "meaning": "Nombre del planificador cron y de sus eventos en los logs; no es una sigla técnica que deba expandirse letra por letra.",
+          "aliases": []
+        }
+      ],
+      "externalReferences": [
+        {
+          "title": "RFC 4251",
+          "url": "https://www.rfc-editor.org/rfc/rfc4251"
+        }
+      ],
+      "relatedQuestionIds": [
+        246,
+        410,
+        411,
+        413,
+        418
+      ]
     },
     {
       "id": "canal-encubierto",
@@ -2025,7 +3788,39 @@
       "hint": "Distinguí el rol de un teclado del de un disco USB y traducí cada instrucción a una acción de entrada.",
       "example": "Una instrucción STRING escribe texto; que ese texto se ejecute depende de la ventana activa y de las pulsaciones posteriores.",
       "fromManualGlossary": false,
-      "referenceNote": "Ampliación didáctica basada en la guía de prácticas disponible; las páginas citadas pertenecen a esa guía, no al manual de teorías."
+      "referenceNote": "Ampliación didáctica basada en la guía de prácticas disponible; las páginas citadas pertenecen a esa guía, no al manual de teorías. Los enlaces a fuentes oficiales documentan los significados ampliados; las páginas del manual y de la guía se citan como contexto.",
+      "acronyms": [
+        {
+          "term": "HID",
+          "meaning": "Human Interface Device: dispositivo de interfaz humana.",
+          "aliases": []
+        },
+        {
+          "term": "USB",
+          "meaning": "Universal Serial Bus: bus serie universal.",
+          "aliases": []
+        },
+        {
+          "term": "GUI",
+          "meaning": "Graphical User Interface: interfaz gráfica de usuario. En el DuckyScript del ejercicio, GUI nombra la tecla Windows/Super; GUI r expresa su combinación con r.",
+          "aliases": []
+        }
+      ],
+      "externalReferences": [
+        {
+          "title": "USB-IF: clase HID",
+          "url": "https://www.usb.org/hid"
+        },
+        {
+          "title": "Hak5: referencia de DuckyScript",
+          "url": "https://docs.hak5.org/hak5-usb-rubber-ducky/duckyscript-tm-quick-reference"
+        }
+      ],
+      "relatedQuestionIds": [
+        270,
+        417,
+        418
+      ]
     },
     {
       "id": "unicode-invisible",
@@ -2061,7 +3856,26 @@
       "hint": "Reconstruí literales por etapas y verificá en qué llamadas se usarían antes de inferir una acción.",
       "example": "Chr(65) & Chr(66) construye AB. Una búsqueda del literal completo puede no hallarlo en el código original.",
       "fromManualGlossary": false,
-      "referenceNote": "Ampliación didáctica basada en la guía de prácticas disponible; las páginas citadas pertenecen a esa guía, no al manual de teorías."
+      "referenceNote": "Ampliación didáctica basada en la guía de prácticas disponible; las páginas citadas pertenecen a esa guía, no al manual de teorías. Los enlaces a fuentes oficiales documentan los significados ampliados; las páginas del manual y de la guía se citan como contexto.",
+      "acronyms": [
+        {
+          "term": "VBS",
+          "meaning": "Extensión de scripts de VBScript; Visual Basic Scripting Edition es la denominación del lenguaje.",
+          "aliases": [
+            "VBScript"
+          ]
+        }
+      ],
+      "externalReferences": [
+        {
+          "title": "Microsoft: VBScript",
+          "url": "https://learn.microsoft.com/en-us/office/vba/outlook/how-to/using-visual-basic-to-customize-outlook-forms/about-using-vbscript-in-outlook"
+        }
+      ],
+      "relatedQuestionIds": [
+        433,
+        434
+      ]
     },
     {
       "id": "macros-documentos",
@@ -2078,7 +3892,40 @@
       "hint": "Diferenciá capacidad de ejecutar contenido de ejecución observada. Buscá activadores y acciones sin habilitar macros para descubrirlos.",
       "example": "Un evento de apertura puede invocar un proceso. La inspección del código y los registros permiten comprobar si ocurrió y qué ejecutó.",
       "fromManualGlossary": false,
-      "referenceNote": "Ampliación didáctica basada en la guía de prácticas disponible; las páginas citadas pertenecen a esa guía, no al manual de teorías."
+      "referenceNote": "Ampliación didáctica basada en la guía de prácticas disponible; las páginas citadas pertenecen a esa guía, no al manual de teorías. Los enlaces a fuentes oficiales documentan los significados ampliados; las páginas del manual y de la guía se citan como contexto.",
+      "acronyms": [
+        {
+          "term": "VBA",
+          "meaning": "Visual Basic for Applications: entorno/lenguaje de macros usado en aplicaciones de Office.",
+          "aliases": []
+        },
+        {
+          "term": "DOCM",
+          "meaning": "Extensión de documento de Word habilitado para macros; denominación de formato, no sigla con expansión normativa.",
+          "aliases": []
+        },
+        {
+          "term": "XLS",
+          "meaning": "Extensión del formato binario de libros de Excel; denominación de formato, no una frase de iniciales.",
+          "aliases": []
+        },
+        {
+          "term": "XLM",
+          "meaning": "Lenguaje de macros de Excel 4.0, distinto de VBA.",
+          "aliases": []
+        }
+      ],
+      "externalReferences": [
+        {
+          "title": "Microsoft: formatos y extensiones de Office",
+          "url": "https://support.microsoft.com/en-us/office/open-xml-formats-and-file-name-extensions-5200d93c-3449-4380-8e11-31ef14555b18"
+        }
+      ],
+      "relatedQuestionIds": [
+        435,
+        436,
+        437
+      ]
     },
     {
       "id": "exfiltracion",
@@ -2119,6 +3966,1970 @@
       "example": "Importar una API de descarga es una observación estática; afirmar una descarga exige evidencia adicional de ejecución o tráfico.",
       "fromManualGlossary": false,
       "referenceNote": "Ampliación didáctica basada en la guía de prácticas disponible; las páginas citadas pertenecen a esa guía, no al manual de teorías."
+    },
+    {
+      "id": "edr",
+      "term": "EDR: detección y respuesta en endpoints",
+      "topics": [
+        "csirt",
+        "malware"
+      ],
+      "manualPages": [
+        15,
+        38,
+        39
+      ],
+      "definition": "Tecnología para detectar actividad sospechosa y apoyar la investigación y respuesta en equipos finales.",
+      "explanation": "Reúne señales de procesos, archivos y actividad del equipo para relacionar eventos y permitir acciones de respuesta según la herramienta. Se ubica en la protección del host dentro de una defensa en profundidad; una alerta debe investigarse y no constituye por sí sola prueba de compromiso.",
+      "hint": "Ubicá si el control observa un equipo final, una red o información registral, y qué evidencia proporciona.",
+      "example": "Un proceso que crea persistencia y lanza otro ejecutable puede generar una secuencia de eventos para investigar desde el EDR.",
+      "fromManualGlossary": false,
+      "referenceNote": "Ampliación didáctica: las páginas del manual aportan contexto; los significados y detalles añadidos se documentan en las fuentes oficiales enlazadas.",
+      "externalReferences": [
+        {
+          "title": "Microsoft: Endpoint detection and response",
+          "url": "https://learn.microsoft.com/en-us/defender-endpoint/overview-endpoint-detection-response"
+        }
+      ],
+      "acronyms": [
+        {
+          "term": "EDR",
+          "meaning": "Endpoint Detection and Response: detección y respuesta en equipos finales.",
+          "aliases": []
+        }
+      ],
+      "relatedQuestionIds": [
+        89
+      ]
+    },
+    {
+      "id": "asn-bgp",
+      "term": "ASN y BGP: sistemas autónomos y rutas",
+      "topics": [
+        "csirt",
+        "malware"
+      ],
+      "manualPages": [
+        16
+      ],
+      "definition": "Un sistema autónomo es un conjunto de redes con una política de enrutamiento; su número permite identificarlo en intercambios de rutas.",
+      "explanation": "Los números de sistema autónomo se relacionan con la administración de recursos numéricos. BGP intercambia información de rutas entre sistemas autónomos. Un registro regional de asignación y el protocolo que anuncia rutas cumplen funciones diferentes.",
+      "hint": "Distinguí la identificación administrativa de un recurso y el intercambio de rutas para alcanzarlo.",
+      "example": "Consultar quién tiene asignado un ASN no equivale a capturar un anuncio BGP ni a identificar a una persona que originó tráfico.",
+      "fromManualGlossary": false,
+      "referenceNote": "Ampliación didáctica: las páginas del manual aportan contexto; los significados y detalles añadidos se documentan en las fuentes oficiales enlazadas.",
+      "externalReferences": [
+        {
+          "title": "RFC 1930",
+          "url": "https://www.rfc-editor.org/rfc/rfc1930"
+        },
+        {
+          "title": "RFC 4271",
+          "url": "https://www.rfc-editor.org/rfc/rfc4271"
+        }
+      ],
+      "acronyms": [
+        {
+          "term": "ASN",
+          "meaning": "Autonomous System Number: número de sistema autónomo.",
+          "aliases": []
+        },
+        {
+          "term": "BGP",
+          "meaning": "Border Gateway Protocol: protocolo de intercambio de rutas entre sistemas autónomos.",
+          "aliases": []
+        }
+      ],
+      "relatedQuestionIds": [
+        93,
+        98,
+        132,
+        251,
+        260,
+        275
+      ]
+    },
+    {
+      "id": "arp-mac",
+      "term": "ARP y dirección MAC",
+      "topics": [
+        "csirt",
+        "malware"
+      ],
+      "manualPages": [
+        15,
+        20,
+        46
+      ],
+      "definition": "ARP resuelve direcciones IPv4 a direcciones de enlace en una red local; una dirección MAC identifica una interfaz en ese nivel.",
+      "explanation": "Una dirección de enlace no identifica al registrante de un dominio ni a una persona. ARP spoofing consiste en introducir asociaciones engañosas en ese contexto local. En criptografía MAC también puede significar código de autenticación de mensaje; en la pregunta sobre una dirección MAC se usa el significado de red.",
+      "hint": "Observá si el contexto habla de una dirección de interfaz, resolución local o autenticación criptográfica.",
+      "example": "Una trama local tiene direcciones de enlace; el servidor remoto puede observar una IP pública sin conocer la MAC original del equipo.",
+      "fromManualGlossary": false,
+      "referenceNote": "Ampliación didáctica: las páginas del manual aportan contexto; los significados y detalles añadidos se documentan en las fuentes oficiales enlazadas.",
+      "externalReferences": [
+        {
+          "title": "RFC 826",
+          "url": "https://www.rfc-editor.org/rfc/rfc826"
+        },
+        {
+          "title": "NIST: Message Authentication Code",
+          "url": "https://csrc.nist.gov/glossary/term/message_authentication_code"
+        }
+      ],
+      "acronyms": [
+        {
+          "term": "ARP",
+          "meaning": "Address Resolution Protocol: protocolo de resolución de direcciones IPv4 a direcciones de enlace.",
+          "aliases": []
+        },
+        {
+          "term": "MAC",
+          "meaning": "Media Access Control: control de acceso al medio, en «dirección MAC». En criptografía: Message Authentication Code, código de autenticación de mensaje.",
+          "aliases": []
+        }
+      ],
+      "relatedQuestionIds": [
+        82,
+        128,
+        132,
+        212,
+        258
+      ]
+    },
+    {
+      "id": "registros-dns",
+      "term": "Registros DNS: A, AAAA, CNAME, PTR, SRV, TXT y TTL",
+      "topics": [
+        "csirt",
+        "malware"
+      ],
+      "manualPages": [
+        18,
+        19,
+        20
+      ],
+      "definition": "Los tipos de registro describen datos distintos de un nombre; el tiempo de vida controla su permanencia en caché.",
+      "explanation": "A contiene una dirección IPv4 y AAAA una IPv6. CNAME expresa un alias, PTR una referencia a un nombre, SRV ubica un servicio y TXT transporta texto. El número de letras de AAAA indica el tipo usado para direcciones de mayor longitud: no es una frase de cuatro palabras. Para recepción de correo existe el tipo MX, explicado en su entrada.",
+      "hint": "Relacioná cada tipo con el dato que publica y separá el contenido del registro de su duración en caché.",
+      "example": "Un TXT puede publicar información usada por mecanismos de correo; un CNAME no es una prioridad de entrega de mensajes.",
+      "fromManualGlossary": false,
+      "referenceNote": "Ampliación didáctica: las páginas del manual aportan contexto; los significados y detalles añadidos se documentan en las fuentes oficiales enlazadas.",
+      "externalReferences": [
+        {
+          "title": "IANA: tipos de registros DNS",
+          "url": "https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml"
+        },
+        {
+          "title": "RFC 1035",
+          "url": "https://www.rfc-editor.org/rfc/rfc1035"
+        },
+        {
+          "title": "RFC 3596",
+          "url": "https://www.rfc-editor.org/rfc/rfc3596"
+        },
+        {
+          "title": "RFC 2782",
+          "url": "https://www.rfc-editor.org/rfc/rfc2782"
+        }
+      ],
+      "acronyms": [
+        {
+          "term": "A",
+          "meaning": "Address: registro de dirección IPv4.",
+          "aliases": []
+        },
+        {
+          "term": "AAAA",
+          "meaning": "Tipo de registro de dirección IPv6; denominación «quad-A», no sigla de cuatro palabras.",
+          "aliases": []
+        },
+        {
+          "term": "CNAME",
+          "meaning": "Canonical Name: nombre canónico, usado para un alias.",
+          "aliases": []
+        },
+        {
+          "term": "PTR",
+          "meaning": "Pointer: puntero a un nombre, usado por ejemplo en resolución inversa.",
+          "aliases": []
+        },
+        {
+          "term": "SRV",
+          "meaning": "Service: registro que indica dónde encontrar un servicio.",
+          "aliases": []
+        },
+        {
+          "term": "TXT",
+          "meaning": "Text: registro que contiene cadenas de texto.",
+          "aliases": []
+        },
+        {
+          "term": "TTL",
+          "meaning": "Time To Live: tiempo de vida del dato en caché.",
+          "aliases": []
+        }
+      ],
+      "relatedQuestionIds": [
+        112,
+        114,
+        117,
+        126,
+        129,
+        154,
+        159,
+        214,
+        246,
+        258,
+        296,
+        313
+      ]
+    },
+    {
+      "id": "dnssec",
+      "term": "DNSSEC: autenticidad de datos DNS",
+      "topics": [
+        "csirt",
+        "malware"
+      ],
+      "manualPages": [
+        18,
+        19,
+        23
+      ],
+      "definition": "Extensiones que permiten autenticar el origen y verificar la integridad de datos DNS mediante firmas.",
+      "explanation": "La validación se apoya en claves y una cadena de confianza. No cifra las consultas ni convierte un campo de correo declarado por su emisor en prueba de identidad. DNSSEC y la autenticación del contenido de un mensaje responden preguntas distintas.",
+      "hint": "Identificá qué dato está firmado y qué propiedad se valida antes de extender la conclusión a otro servicio.",
+      "example": "Validar un registro DNS no demuestra que quien escribió un correo sea la persona nombrada en From.",
+      "fromManualGlossary": false,
+      "referenceNote": "Ampliación didáctica: las páginas del manual aportan contexto; los significados y detalles añadidos se documentan en las fuentes oficiales enlazadas.",
+      "externalReferences": [
+        {
+          "title": "RFC 4033",
+          "url": "https://www.rfc-editor.org/rfc/rfc4033"
+        }
+      ],
+      "acronyms": [
+        {
+          "term": "DNSSEC",
+          "meaning": "Domain Name System Security Extensions: extensiones de seguridad de DNS.",
+          "aliases": []
+        }
+      ],
+      "relatedQuestionIds": [
+        139
+      ]
+    },
+    {
+      "id": "dhcp",
+      "term": "DHCP: configuración de red",
+      "topics": [
+        "csirt",
+        "malware"
+      ],
+      "manualPages": [
+        15,
+        16,
+        38
+      ],
+      "definition": "Protocolo que permite entregar parámetros de configuración de red a clientes.",
+      "explanation": "Puede proporcionar dirección, máscara, puerta de enlace y otros parámetros según el entorno. Su función no equivale a gestionar servicios de Windows ni a registrar la titularidad global de recursos de Internet.",
+      "hint": "Separá configuración de un cliente, configuración de servicios del sistema y registro de recursos.",
+      "example": "Asignar una dirección a un equipo de un laboratorio no es instalar un servicio de persistencia.",
+      "fromManualGlossary": false,
+      "referenceNote": "Ampliación didáctica: las páginas del manual aportan contexto; los significados y detalles añadidos se documentan en las fuentes oficiales enlazadas.",
+      "externalReferences": [
+        {
+          "title": "RFC 2131",
+          "url": "https://www.rfc-editor.org/rfc/rfc2131"
+        }
+      ],
+      "acronyms": [
+        {
+          "term": "DHCP",
+          "meaning": "Dynamic Host Configuration Protocol: protocolo de configuración dinámica de equipos.",
+          "aliases": []
+        }
+      ],
+      "relatedQuestionIds": [
+        279
+      ]
+    },
+    {
+      "id": "lan-vpn",
+      "term": "LAN y VPN: alcance y conectividad",
+      "topics": [
+        "csirt",
+        "malware"
+      ],
+      "manualPages": [
+        15,
+        20,
+        23
+      ],
+      "definition": "Una red local tiene un ámbito acotado; una red privada virtual proporciona conectividad lógica privada sobre otra infraestructura.",
+      "explanation": "Una VPN puede proteger tráfico según el protocolo y la configuración, pero no vuelve confiable todo contenido ni identifica por sí sola a una persona. Estar en una LAN no impide que un incidente afecte a servicios externos.",
+      "hint": "Distinguí el alcance de la red del mecanismo que conecta participantes y de las propiedades que protege.",
+      "example": "Un equipo puede estar en una LAN y conectarse mediante una VPN a otra red; son características distintas.",
+      "fromManualGlossary": false,
+      "referenceNote": "Ampliación didáctica: las páginas del manual aportan contexto; los significados y detalles añadidos se documentan en las fuentes oficiales enlazadas.",
+      "externalReferences": [
+        {
+          "title": "NIST: Local Area Network",
+          "url": "https://csrc.nist.gov/glossary/term/local_area_network"
+        },
+        {
+          "title": "NIST: Virtual Private Network",
+          "url": "https://csrc.nist.gov/glossary/term/virtual_private_network"
+        }
+      ],
+      "acronyms": [
+        {
+          "term": "LAN",
+          "meaning": "Local Area Network: red de área local.",
+          "aliases": []
+        },
+        {
+          "term": "VPN",
+          "meaning": "Virtual Private Network: red privada virtual.",
+          "aliases": []
+        }
+      ],
+      "relatedQuestionIds": [
+        163,
+        190
+      ]
+    },
+    {
+      "id": "icann",
+      "term": "ICANN: coordinación de identificadores de Internet",
+      "topics": [
+        "csirt",
+        "malware"
+      ],
+      "manualPages": [
+        17,
+        18,
+        19
+      ],
+      "definition": "Organización que coordina funciones relacionadas con identificadores únicos de Internet.",
+      "explanation": "No es un servidor de correo, un indicador de compromiso ni un protocolo. Para recursos concretos se distingue la coordinación global de los registros regionales, registries, registrars y titulares que intervienen en cada caso.",
+      "hint": "Identificá el rol de la organización y el recurso concreto consultado antes de atribuirle una función operativa.",
+      "example": "Encontrar el nombre de ICANN en un contexto de dominios no la convierte en titular de cada dominio o bloque de direcciones.",
+      "fromManualGlossary": false,
+      "referenceNote": "Ampliación didáctica: las páginas del manual aportan contexto; los significados y detalles añadidos se documentan en las fuentes oficiales enlazadas.",
+      "externalReferences": [
+        {
+          "title": "ICANN: acrónimos y términos",
+          "url": "https://www.icann.org/resources/pages/glossary-2014-02-03-en"
+        }
+      ],
+      "acronyms": [
+        {
+          "term": "ICANN",
+          "meaning": "Internet Corporation for Assigned Names and Numbers: corporación para la asignación de nombres y números en Internet.",
+          "aliases": []
+        }
+      ],
+      "relatedQuestionIds": [
+        106,
+        319,
+        333
+      ]
+    },
+    {
+      "id": "cedia",
+      "term": "CEDIA: investigación y academia en Ecuador",
+      "topics": [
+        "csirt"
+      ],
+      "manualPages": [
+        17
+      ],
+      "definition": "Corporación ecuatoriana que promueve investigación, desarrollo académico y colaboración mediante infraestructura y servicios.",
+      "explanation": "Es el nombre de una organización, no un RIR ni un protocolo. Aparece como alternativa institucional en las preguntas; para determinar el titular de un bloque concreto se utiliza la información registral pertinente.",
+      "hint": "Separá el nombre de una institución de su papel comprobado en el registro del recurso consultado.",
+      "example": "Que una organización aparezca como opción no prueba que sea titular de la red mencionada.",
+      "fromManualGlossary": false,
+      "referenceNote": "Ampliación didáctica: las páginas del manual aportan contexto; los significados y detalles añadidos se documentan en las fuentes oficiales enlazadas.",
+      "externalReferences": [
+        {
+          "title": "CEDIA: sobre nosotros",
+          "url": "https://cedia.edu.ec/sobre-nosotros/"
+        }
+      ],
+      "acronyms": [
+        {
+          "term": "CEDIA",
+          "meaning": "Corporación Ecuatoriana para el Desarrollo de la Investigación y la Academia, denominación institucional actual.",
+          "aliases": []
+        }
+      ],
+      "relatedQuestionIds": [
+        106
+      ]
+    },
+    {
+      "id": "kdf",
+      "term": "KDF: derivación de claves",
+      "topics": [
+        "cripto"
+      ],
+      "manualPages": [
+        9,
+        10
+      ],
+      "definition": "Procedimiento que deriva material de clave a partir de un secreto y otros parámetros definidos.",
+      "explanation": "En esquemas basados en contraseñas pueden intervenir salt y parámetros de costo. No toda función de derivación es necesariamente lenta ni todo hash aislado constituye un esquema adecuado de protección de contraseñas. Para reproducir una operación hay que respetar algoritmo y parámetros.",
+      "hint": "Comprobá si la contraseña se usa directamente o si primero se transforma en material criptográfico.",
+      "example": "Dos archivos con parámetros de derivación diferentes pueden requerir procedimientos distintos aun usando la misma contraseña.",
+      "fromManualGlossary": false,
+      "referenceNote": "Ampliación didáctica: las páginas del manual aportan contexto; los significados y detalles añadidos se documentan en las fuentes oficiales enlazadas.",
+      "externalReferences": [
+        {
+          "title": "NIST: Key Derivation Function",
+          "url": "https://csrc.nist.gov/glossary/term/key_derivation_function"
+        }
+      ],
+      "acronyms": [
+        {
+          "term": "KDF",
+          "meaning": "Key Derivation Function: función de derivación de claves.",
+          "aliases": []
+        }
+      ],
+      "relatedQuestionIds": [
+        370,
+        390
+      ]
+    },
+    {
+      "id": "rc5",
+      "term": "RC5: cifrador de bloques",
+      "topics": [
+        "cripto"
+      ],
+      "manualPages": [
+        10
+      ],
+      "definition": "Algoritmo simétrico por bloques diseñado por Ronald Rivest con parámetros configurables.",
+      "explanation": "El nombre pertenece a una familia de diseños: su autor explicó que RC significaba originalmente Ron’s Code. No es un algoritmo de resumen ni un protocolo de correo. Longitud de clave, tamaño de palabra y rondas son parámetros diferentes.",
+      "hint": "Identificá si el nombre corresponde a cifrado, hash o representación de datos antes de asociarlo a una tarea.",
+      "example": "Comparar RC5 con SHA-512 exige distinguir cifrado reversible con clave de cálculo de un digest.",
+      "fromManualGlossary": false,
+      "referenceNote": "Ampliación didáctica: las páginas del manual aportan contexto; los significados y detalles añadidos se documentan en las fuentes oficiales enlazadas.",
+      "externalReferences": [
+        {
+          "title": "Ronald Rivest: significado original de RC",
+          "url": "https://people.csail.mit.edu/rivest/faq.html"
+        },
+        {
+          "title": "RFC 2040",
+          "url": "https://www.rfc-editor.org/rfc/rfc2040"
+        }
+      ],
+      "acronyms": [
+        {
+          "term": "RC5",
+          "meaning": "Ron’s Code 5: nombre de la familia de cifradores de Ronald Rivest; RC significaba originalmente Ron’s Code.",
+          "aliases": []
+        }
+      ],
+      "relatedQuestionIds": [
+        52
+      ]
+    },
+    {
+      "id": "mime-smime",
+      "term": "MIME y S/MIME: contenido y protección del correo",
+      "topics": [
+        "csirt",
+        "malware"
+      ],
+      "manualPages": [
+        21,
+        22,
+        23
+      ],
+      "definition": "MIME organiza tipos y representaciones del contenido del correo; S/MIME agrega mecanismos de firma y cifrado.",
+      "explanation": "Una cabecera de tipo de contenido o un adjunto no demuestra que haya firma o cifrado. S/MIME y PGP son tecnologías distintas de protección del mensaje; el transporte SMTP y la consulta de recursos de Internet cumplen otras funciones.",
+      "hint": "Separá la descripción del formato de un mensaje de la operación criptográfica que podría protegerlo.",
+      "example": "Indicar text/plain describe un tipo de contenido. No prueba que se haya autenticado al remitente.",
+      "fromManualGlossary": false,
+      "referenceNote": "Ampliación didáctica: las páginas del manual aportan contexto; los significados y detalles añadidos se documentan en las fuentes oficiales enlazadas.",
+      "externalReferences": [
+        {
+          "title": "RFC 2045",
+          "url": "https://www.rfc-editor.org/rfc/rfc2045"
+        },
+        {
+          "title": "RFC 8551",
+          "url": "https://www.rfc-editor.org/rfc/rfc8551"
+        }
+      ],
+      "acronyms": [
+        {
+          "term": "MIME",
+          "meaning": "Multipurpose Internet Mail Extensions: extensiones multipropósito del correo de Internet.",
+          "aliases": []
+        },
+        {
+          "term": "S/MIME",
+          "meaning": "Secure/Multipurpose Internet Mail Extensions: protección criptográfica de mensajes MIME.",
+          "aliases": []
+        }
+      ],
+      "relatedQuestionIds": [
+        84,
+        148,
+        158,
+        282
+      ]
+    },
+    {
+      "id": "tcp-http",
+      "term": "TCP/IP, HTTP y HTTPS",
+      "topics": [
+        "csirt",
+        "malware"
+      ],
+      "manualPages": [
+        20,
+        21,
+        40,
+        41
+      ],
+      "definition": "Protocolos de distintas capas: IP encamina, TCP proporciona transporte y HTTP define intercambios de aplicación.",
+      "explanation": "HTTPS utiliza HTTP con protección criptográfica mediante TLS. Un puerto habitual orienta, pero la evidencia debe confirmar el protocolo. Una respuesta HTTP informa un resultado del intercambio; no prueba por sí sola autoría, conservación remota ni que se enviara un archivo completo.",
+      "hint": "Distinguí transporte, aplicación y protección del canal, y limitá la conclusión a la evidencia capturada.",
+      "example": "Ver TCP hacia un puerto conocido no basta para atribuir un mensaje a una persona.",
+      "fromManualGlossary": false,
+      "referenceNote": "Ampliación didáctica: las páginas del manual aportan contexto; los significados y detalles añadidos se documentan en las fuentes oficiales enlazadas.",
+      "externalReferences": [
+        {
+          "title": "RFC 9293",
+          "url": "https://www.rfc-editor.org/rfc/rfc9293"
+        },
+        {
+          "title": "RFC 9110",
+          "url": "https://www.rfc-editor.org/rfc/rfc9110"
+        },
+        {
+          "title": "RFC 8446",
+          "url": "https://www.rfc-editor.org/rfc/rfc8446"
+        }
+      ],
+      "acronyms": [
+        {
+          "term": "TCP",
+          "meaning": "Transmission Control Protocol: protocolo de control de transmisión. TCP/IP nombra su uso junto con Internet Protocol.",
+          "aliases": [
+            "TCP/25",
+            "TCP/IP"
+          ]
+        },
+        {
+          "term": "HTTP",
+          "meaning": "Hypertext Transfer Protocol: protocolo de transferencia de hipertexto.",
+          "aliases": [
+            "HTTP/1.1"
+          ]
+        },
+        {
+          "term": "HTTPS",
+          "meaning": "Hypertext Transfer Protocol Secure: uso de HTTP sobre un canal protegido con TLS.",
+          "aliases": []
+        }
+      ],
+      "relatedQuestionIds": [
+        10,
+        100,
+        102,
+        112,
+        131,
+        136,
+        157,
+        158,
+        206,
+        292,
+        315,
+        332,
+        335,
+        416,
+        432
+      ]
+    },
+    {
+      "id": "elf",
+      "term": "ELF y Mach-O: formatos de ejecutables y objetos",
+      "topics": [
+        "malware"
+      ],
+      "manualPages": [
+        35,
+        36
+      ],
+      "definition": "Formato de archivos ejecutables, bibliotecas y objetos utilizado en diversos sistemas, especialmente de tipo Unix.",
+      "explanation": "El formato no implica que el archivo sea malicioso. Se distingue de PE, habitual en Windows, y de otros formatos. La identificación se apoya en cabeceras y estructura, no sólo en la extensión del nombre.",
+      "hint": "Antes de elegir herramientas, reconocé el formato real del archivo y separalo de su finalidad.",
+      "example": "Un ejecutable ELF y uno PE pueden estudiarse estáticamente, pero sus cabeceras y convenciones no son iguales.",
+      "fromManualGlossary": false,
+      "referenceNote": "Ampliación didáctica: las páginas del manual aportan contexto; los significados y detalles añadidos se documentan en las fuentes oficiales enlazadas.",
+      "externalReferences": [
+        {
+          "title": "System V ABI: formato ELF",
+          "url": "https://gabi.xinuos.com/elf/00-foreword.html"
+        },
+        {
+          "title": "Apple: glosario de Mach-O",
+          "url": "https://developer.apple.com/library/archive/documentation/Porting/Conceptual/PortingUnix/glossary/glossary.html"
+        }
+      ],
+      "acronyms": [
+        {
+          "term": "ELF",
+          "meaning": "Executable and Linkable Format: formato ejecutable y enlazable.",
+          "aliases": []
+        },
+        {
+          "term": "Mach-O",
+          "meaning": "Mach Object: formato de objetos y ejecutables de la familia de sistemas de Apple; denominación de formato.",
+          "aliases": []
+        }
+      ],
+      "relatedQuestionIds": [
+        241,
+        265,
+        269,
+        284
+      ]
+    },
+    {
+      "id": "gdb-ida",
+      "term": "GDB e IDA: depuración y desensamblado",
+      "topics": [
+        "malware"
+      ],
+      "manualPages": [
+        32,
+        33,
+        36,
+        41,
+        42
+      ],
+      "definition": "Herramientas para investigar programas mediante depuración, desensamblado y otras vistas del código.",
+      "explanation": "GDB permite observar y controlar ejecuciones depuradas. IDA ofrece análisis interactivo de binarios y funciones de depuración según la herramienta. Sus capacidades no reemplazan por sí solas captura de red, consultas registrales o comparación de cambios del Registro.",
+      "hint": "Elegí la herramienta por la evidencia que necesitás obtener y registrá el modo en que la utilizaste.",
+      "example": "Un depurador puede ayudar a examinar una llamada, mientras que un capturador de paquetes documenta el tráfico observado.",
+      "fromManualGlossary": false,
+      "referenceNote": "Ampliación didáctica: las páginas del manual aportan contexto; los significados y detalles añadidos se documentan en las fuentes oficiales enlazadas.",
+      "externalReferences": [
+        {
+          "title": "GDB: GNU Project Debugger",
+          "url": "https://www.sourceware.org/gdb/"
+        },
+        {
+          "title": "Hex-Rays: documentación de IDA",
+          "url": "https://docs.hex-rays.com/"
+        },
+        {
+          "title": "GNU: significado del nombre",
+          "url": "https://www.gnu.org/gnu/gnu.html"
+        }
+      ],
+      "acronyms": [
+        {
+          "term": "GDB",
+          "meaning": "GNU Debugger: depurador del proyecto GNU.",
+          "aliases": []
+        },
+        {
+          "term": "IDA",
+          "meaning": "Interactive Disassembler: desensamblador interactivo.",
+          "aliases": []
+        },
+        {
+          "term": "GNU",
+          "meaning": "GNU’s Not Unix: nombre recursivo del proyecto GNU.",
+          "aliases": []
+        }
+      ],
+      "relatedQuestionIds": [
+        235,
+        251,
+        281,
+        286,
+        287
+      ]
+    },
+    {
+      "id": "hardware",
+      "term": "CPU, GPU, PC y arquitectura ARM",
+      "topics": [
+        "csirt",
+        "malware"
+      ],
+      "manualPages": [
+        15,
+        35,
+        36,
+        38
+      ],
+      "definition": "Abreviaturas que identifican unidades de procesamiento, computadoras personales y una familia de arquitecturas.",
+      "explanation": "La CPU ejecuta instrucciones generales; la GPU está orientada a procesamiento gráfico y tareas paralelas. Arm es hoy un nombre de marca y arquitectura: su historia incluye la denominación Advanced RISC Machines. El tipo de hardware no determina por sí solo prioridad de un incidente o familia de malware.",
+      "hint": "Distinguí componente físico, arquitectura y aplicación, sin deducir comportamiento de seguridad de un nombre.",
+      "example": "Una importación relacionada con red no se convierte en lectura de memoria gráfica porque una alternativa mencione GPU.",
+      "fromManualGlossary": false,
+      "referenceNote": "Ampliación didáctica: las páginas del manual aportan contexto; los significados y detalles añadidos se documentan en las fuentes oficiales enlazadas.",
+      "externalReferences": [
+        {
+          "title": "Arm: historia oficial",
+          "url": "https://newsroom.arm.com/blog/arm-official-history"
+        },
+        {
+          "title": "Arm: RISC y origen de la arquitectura",
+          "url": "https://newsroom.arm.com/blog/40-year-anniversary-of-arm-architecture"
+        },
+        {
+          "title": "NIST: Personal Computer",
+          "url": "https://csrc.nist.gov/glossary/term/personal_computer"
+        }
+      ],
+      "acronyms": [
+        {
+          "term": "CPU",
+          "meaning": "Central Processing Unit: unidad central de procesamiento.",
+          "aliases": []
+        },
+        {
+          "term": "GPU",
+          "meaning": "Graphics Processing Unit: unidad de procesamiento gráfico.",
+          "aliases": []
+        },
+        {
+          "term": "PC",
+          "meaning": "Personal Computer: computadora personal.",
+          "aliases": []
+        },
+        {
+          "term": "ARM",
+          "meaning": "Nombre histórico Advanced RISC Machines; actualmente Arm es un nombre de marca y familia de arquitecturas.",
+          "aliases": []
+        },
+        {
+          "term": "RISC",
+          "meaning": "Reduced Instruction Set Computing: enfoque de arquitectura con conjunto reducido de instrucciones.",
+          "aliases": []
+        }
+      ],
+      "relatedQuestionIds": [
+        84,
+        174,
+        200,
+        216,
+        245,
+        337,
+        341,
+        435,
+        440
+      ]
+    },
+    {
+      "id": "bsd",
+      "term": "BSD: familia de sistemas operativos",
+      "topics": [
+        "csirt",
+        "malware"
+      ],
+      "manualPages": [
+        15,
+        35
+      ],
+      "definition": "Nombre de una distribución histórica de software de Berkeley y de la familia de sistemas derivada de ella.",
+      "explanation": "No designa un protocolo de correo ni una biblioteca Java. Identificar una vulnerabilidad requiere relacionarla con el componente afectado; una arquitectura, un sistema operativo y una biblioteca son categorías distintas.",
+      "hint": "Antes de vincular un fallo con un ecosistema, determiná qué clase de componente nombra cada alternativa.",
+      "example": "Nombrar BSD como alternativa no sitúa automáticamente una vulnerabilidad de una biblioteca en el kernel.",
+      "fromManualGlossary": false,
+      "referenceNote": "Ampliación didáctica: las páginas del manual aportan contexto; los significados y detalles añadidos se documentan en las fuentes oficiales enlazadas.",
+      "externalReferences": [
+        {
+          "title": "FreeBSD: preguntas frecuentes",
+          "url": "https://docs.freebsd.org/en/books/faq/"
+        }
+      ],
+      "acronyms": [
+        {
+          "term": "BSD",
+          "meaning": "Berkeley Software Distribution: distribución de software de Berkeley.",
+          "aliases": []
+        }
+      ],
+      "relatedQuestionIds": [
+        84
+      ]
+    },
+    {
+      "id": "identificadores",
+      "term": "ID, GUID, CLSID y COM",
+      "topics": [
+        "csirt",
+        "malware"
+      ],
+      "manualPages": [
+        38,
+        39
+      ],
+      "definition": "Identificadores y un modelo de componentes que aparecen al estudiar objetos y configuraciones de Windows.",
+      "explanation": "Un GUID es un identificador de 128 bits; un CLSID identifica una clase COM. Pueden tener usos legítimos. Para atribuir una técnica de persistencia se requiere el identificador exacto, claves y valores, procesos relacionados y evidencia de activación.",
+      "hint": "Conservá exactamente el identificador y vinculalo con el objeto y la acción observados.",
+      "example": "Encontrar un GUID aislado no demuestra por sí solo persistencia ni permite adivinar una técnica específica.",
+      "fromManualGlossary": false,
+      "referenceNote": "Ampliación didáctica: las páginas del manual aportan contexto; los significados y detalles añadidos se documentan en las fuentes oficiales enlazadas.",
+      "externalReferences": [
+        {
+          "title": "Microsoft: GUID",
+          "url": "https://learn.microsoft.com/en-us/windows/win32/api/guiddef/ns-guiddef-guid"
+        },
+        {
+          "title": "Microsoft: CLSID",
+          "url": "https://learn.microsoft.com/en-us/windows/win32/com/clsid-key-hklm"
+        },
+        {
+          "title": "Microsoft: Component Object Model",
+          "url": "https://learn.microsoft.com/en-us/windows/win32/com/component-object-model--com--portal"
+        }
+      ],
+      "acronyms": [
+        {
+          "term": "ID",
+          "meaning": "Identifier: identificador; en Message-ID identifica un mensaje según las convenciones de correo.",
+          "aliases": [
+            "Message-ID"
+          ]
+        },
+        {
+          "term": "GUID",
+          "meaning": "Globally Unique Identifier: identificador globalmente único.",
+          "aliases": []
+        },
+        {
+          "term": "CLSID",
+          "meaning": "Class Identifier: identificador de clase COM.",
+          "aliases": []
+        },
+        {
+          "term": "COM",
+          "meaning": "Component Object Model: modelo de objetos componentes de Microsoft.",
+          "aliases": []
+        }
+      ],
+      "relatedQuestionIds": [
+        137,
+        141,
+        150,
+        321,
+        430
+      ]
+    },
+    {
+      "id": "ctf",
+      "term": "CTF: desafíos de seguridad",
+      "topics": [
+        "cripto",
+        "csirt",
+        "malware"
+      ],
+      "manualPages": [
+        5,
+        42
+      ],
+      "definition": "Actividad de resolución de desafíos que utiliza resultados o flags para comprobar avances.",
+      "explanation": "Los retos pueden proporcionar datos autocontenidos o depender de adjuntos y servicios. Es necesario conservar el procedimiento y verificar la respuesta real. Sin los archivos o registros requeridos no corresponde inventar resultados.",
+      "hint": "Separá la estrategia para investigar del resultado que sólo puede comprobarse con los datos del reto.",
+      "example": "Un writeup puede documentar hipótesis y límites cuando falta el adjunto necesario para recuperar una flag.",
+      "fromManualGlossary": false,
+      "referenceNote": "Ampliación didáctica: las páginas del manual aportan contexto; los significados y detalles añadidos se documentan en las fuentes oficiales enlazadas.",
+      "externalReferences": [
+        {
+          "title": "picoCTF: proyecto educativo",
+          "url": "https://picoctf.org/about.html"
+        }
+      ],
+      "acronyms": [
+        {
+          "term": "CTF",
+          "meaning": "Capture The Flag: captura de la bandera, formato de desafíos de seguridad.",
+          "aliases": []
+        }
+      ],
+      "relatedQuestionIds": [
+        197,
+        358,
+        365,
+        369,
+        375,
+        399,
+        441
+      ]
+    },
+    {
+      "id": "formatos-archivo",
+      "term": "PDF, PDF/A, PNG, JPEG, TAR y WAV",
+      "topics": [
+        "cripto",
+        "csirt",
+        "malware"
+      ],
+      "manualPages": [
+        33,
+        35,
+        36
+      ],
+      "definition": "Nombres y abreviaturas de formatos de documentos, imágenes, archivos agrupados y audio.",
+      "explanation": "PDF representa documentos y PDF/A es un perfil para preservación a largo plazo. PNG y JPEG se relacionan con imágenes; JPEG nombra al grupo que desarrolló el estándar. TAR agrupa archivos y no implica compresión por sí solo. WAV/WAVE es una denominación de formato de audio. La extensión no demuestra formato real, datos ocultos ni seguridad.",
+      "hint": "Comprobá el formato mediante la estructura del archivo y distinguí agrupación, compresión y contenido multimedia.",
+      "example": "Un archivo llamado .png puede contener otros datos; se inspecciona su cabecera y contenido antes de concluir.",
+      "fromManualGlossary": false,
+      "referenceNote": "Ampliación didáctica: las páginas del manual aportan contexto; los significados y detalles añadidos se documentan en las fuentes oficiales enlazadas.",
+      "externalReferences": [
+        {
+          "title": "PDF Association: PDF/A",
+          "url": "https://pdfa.org/resource/iso-19005-pdfa/"
+        },
+        {
+          "title": "W3C: Portable Network Graphics",
+          "url": "https://www.w3.org/TR/png-3/"
+        },
+        {
+          "title": "JPEG: estándar y grupo",
+          "url": "https://jpeg.org/jpeg/"
+        },
+        {
+          "title": "GNU: introducción a tar",
+          "url": "https://www.gnu.org/software/tar/manual/tar.html"
+        },
+        {
+          "title": "Microsoft: audio WAVE",
+          "url": "https://learn.microsoft.com/en-us/windows/win32/multimedia/waveform-audio-interface"
+        }
+      ],
+      "acronyms": [
+        {
+          "term": "PDF",
+          "meaning": "Portable Document Format: formato de documento portátil.",
+          "aliases": []
+        },
+        {
+          "term": "PDF/A",
+          "meaning": "Perfil de PDF para archivo y preservación a largo plazo; la A remite a su finalidad de archivo.",
+          "aliases": []
+        },
+        {
+          "term": "PNG",
+          "meaning": "Portable Network Graphics: formato de gráficos de red portátiles.",
+          "aliases": []
+        },
+        {
+          "term": "JPEG",
+          "meaning": "Joint Photographic Experts Group: grupo que da nombre al estándar de imagen.",
+          "aliases": []
+        },
+        {
+          "term": "TAR",
+          "meaning": "Tape Archiver: archivador de cinta; da nombre al formato para agrupar archivos, sin comprimir por sí mismo.",
+          "aliases": []
+        },
+        {
+          "term": "WAV",
+          "meaning": "Extensión del formato WAVE de audio de forma de onda (waveform audio); es una denominación de formato.",
+          "aliases": []
+        }
+      ],
+      "relatedQuestionIds": [
+        231,
+        241,
+        246,
+        255,
+        258,
+        310,
+        384
+      ]
+    },
+    {
+      "id": "ca",
+      "term": "CA y Root CA: autoridades de certificación",
+      "topics": [
+        "cripto",
+        "csirt",
+        "malware"
+      ],
+      "manualPages": [
+        11,
+        13,
+        23
+      ],
+      "definition": "Entidad que emite certificados para vincular claves públicas con identidades según sus políticas.",
+      "explanation": "Una autoridad raíz actúa como punto de confianza en una cadena de certificados. Ese papel es distinto de registrar pulsaciones, consultar titulares de redes o transferir correo. El alcance de la confianza depende de la validación y del contexto.",
+      "hint": "Identificá si se habla de identidad y certificados o de una acción observada en el equipo.",
+      "example": "Confiar en una raíz permite evaluar cadenas de certificados; no implica que cualquier programa firmado sea seguro.",
+      "fromManualGlossary": false,
+      "referenceNote": "Ampliación didáctica: las páginas del manual aportan contexto; los significados y detalles añadidos se documentan en las fuentes oficiales enlazadas.",
+      "externalReferences": [
+        {
+          "title": "RFC 5280",
+          "url": "https://www.rfc-editor.org/rfc/rfc5280"
+        }
+      ],
+      "acronyms": [
+        {
+          "term": "CA",
+          "meaning": "Certification Authority, también Certificate Authority: autoridad de certificación; Root CA es la autoridad raíz.",
+          "aliases": []
+        }
+      ],
+      "relatedQuestionIds": [
+        294
+      ]
     }
-  ]
+  ],
+  "acronymAudit": {
+    "version": 1,
+    "newEntryIds": [
+      "edr",
+      "asn-bgp",
+      "arp-mac",
+      "registros-dns",
+      "dnssec",
+      "dhcp",
+      "lan-vpn",
+      "icann",
+      "cedia",
+      "kdf",
+      "rc5",
+      "mime-smime",
+      "tcp-http",
+      "elf",
+      "gdb-ida",
+      "hardware",
+      "bsd",
+      "identificadores",
+      "ctf",
+      "formatos-archivo",
+      "ca"
+    ],
+    "meanings": [
+      {
+        "term": "EDR",
+        "meaning": "Endpoint Detection and Response: detección y respuesta en equipos finales.",
+        "conceptId": "edr",
+        "action": "added"
+      },
+      {
+        "term": "ASN",
+        "meaning": "Autonomous System Number: número de sistema autónomo.",
+        "conceptId": "asn-bgp",
+        "action": "added"
+      },
+      {
+        "term": "BGP",
+        "meaning": "Border Gateway Protocol: protocolo de intercambio de rutas entre sistemas autónomos.",
+        "conceptId": "asn-bgp",
+        "action": "added"
+      },
+      {
+        "term": "ARP",
+        "meaning": "Address Resolution Protocol: protocolo de resolución de direcciones IPv4 a direcciones de enlace.",
+        "conceptId": "arp-mac",
+        "action": "added"
+      },
+      {
+        "term": "MAC",
+        "meaning": "Media Access Control: control de acceso al medio, en «dirección MAC». En criptografía: Message Authentication Code, código de autenticación de mensaje.",
+        "conceptId": "arp-mac",
+        "action": "added"
+      },
+      {
+        "term": "A",
+        "meaning": "Address: registro de dirección IPv4.",
+        "conceptId": "registros-dns",
+        "action": "expanded"
+      },
+      {
+        "term": "AAAA",
+        "meaning": "Tipo de registro de dirección IPv6; denominación «quad-A», no sigla de cuatro palabras.",
+        "conceptId": "registros-dns",
+        "action": "expanded"
+      },
+      {
+        "term": "CNAME",
+        "meaning": "Canonical Name: nombre canónico, usado para un alias.",
+        "conceptId": "registros-dns",
+        "action": "added"
+      },
+      {
+        "term": "PTR",
+        "meaning": "Pointer: puntero a un nombre, usado por ejemplo en resolución inversa.",
+        "conceptId": "registros-dns",
+        "action": "expanded"
+      },
+      {
+        "term": "SRV",
+        "meaning": "Service: registro que indica dónde encontrar un servicio.",
+        "conceptId": "registros-dns",
+        "action": "added"
+      },
+      {
+        "term": "TXT",
+        "meaning": "Text: registro que contiene cadenas de texto.",
+        "conceptId": "registros-dns",
+        "action": "added"
+      },
+      {
+        "term": "TTL",
+        "meaning": "Time To Live: tiempo de vida del dato en caché.",
+        "conceptId": "registros-dns",
+        "action": "added"
+      },
+      {
+        "term": "DNSSEC",
+        "meaning": "Domain Name System Security Extensions: extensiones de seguridad de DNS.",
+        "conceptId": "dnssec",
+        "action": "added"
+      },
+      {
+        "term": "DHCP",
+        "meaning": "Dynamic Host Configuration Protocol: protocolo de configuración dinámica de equipos.",
+        "conceptId": "dhcp",
+        "action": "added"
+      },
+      {
+        "term": "LAN",
+        "meaning": "Local Area Network: red de área local.",
+        "conceptId": "lan-vpn",
+        "action": "added"
+      },
+      {
+        "term": "VPN",
+        "meaning": "Virtual Private Network: red privada virtual.",
+        "conceptId": "lan-vpn",
+        "action": "added"
+      },
+      {
+        "term": "ICANN",
+        "meaning": "Internet Corporation for Assigned Names and Numbers: corporación para la asignación de nombres y números en Internet.",
+        "conceptId": "icann",
+        "action": "added"
+      },
+      {
+        "term": "CEDIA",
+        "meaning": "Corporación Ecuatoriana para el Desarrollo de la Investigación y la Academia, denominación institucional actual.",
+        "conceptId": "cedia",
+        "action": "added"
+      },
+      {
+        "term": "KDF",
+        "meaning": "Key Derivation Function: función de derivación de claves.",
+        "conceptId": "kdf",
+        "action": "added"
+      },
+      {
+        "term": "RC5",
+        "meaning": "Ron’s Code 5: nombre de la familia de cifradores de Ronald Rivest; RC significaba originalmente Ron’s Code.",
+        "conceptId": "rc5",
+        "action": "added"
+      },
+      {
+        "term": "MIME",
+        "meaning": "Multipurpose Internet Mail Extensions: extensiones multipropósito del correo de Internet.",
+        "conceptId": "mime-smime",
+        "action": "added"
+      },
+      {
+        "term": "S/MIME",
+        "meaning": "Secure/Multipurpose Internet Mail Extensions: protección criptográfica de mensajes MIME.",
+        "conceptId": "mime-smime",
+        "action": "added"
+      },
+      {
+        "term": "TCP",
+        "meaning": "Transmission Control Protocol: protocolo de control de transmisión. TCP/IP nombra su uso junto con Internet Protocol.",
+        "conceptId": "tcp-http",
+        "action": "expanded"
+      },
+      {
+        "term": "HTTP",
+        "meaning": "Hypertext Transfer Protocol: protocolo de transferencia de hipertexto.",
+        "conceptId": "tcp-http",
+        "action": "expanded"
+      },
+      {
+        "term": "HTTPS",
+        "meaning": "Hypertext Transfer Protocol Secure: uso de HTTP sobre un canal protegido con TLS.",
+        "conceptId": "tcp-http",
+        "action": "expanded"
+      },
+      {
+        "term": "ELF",
+        "meaning": "Executable and Linkable Format: formato ejecutable y enlazable.",
+        "conceptId": "elf",
+        "action": "added"
+      },
+      {
+        "term": "Mach-O",
+        "meaning": "Mach Object: formato de objetos y ejecutables de la familia de sistemas de Apple; denominación de formato.",
+        "conceptId": "elf",
+        "action": "added"
+      },
+      {
+        "term": "GDB",
+        "meaning": "GNU Debugger: depurador del proyecto GNU.",
+        "conceptId": "gdb-ida",
+        "action": "added"
+      },
+      {
+        "term": "IDA",
+        "meaning": "Interactive Disassembler: desensamblador interactivo.",
+        "conceptId": "gdb-ida",
+        "action": "added"
+      },
+      {
+        "term": "GNU",
+        "meaning": "GNU’s Not Unix: nombre recursivo del proyecto GNU.",
+        "conceptId": "gdb-ida",
+        "action": "expanded"
+      },
+      {
+        "term": "CPU",
+        "meaning": "Central Processing Unit: unidad central de procesamiento.",
+        "conceptId": "hardware",
+        "action": "added"
+      },
+      {
+        "term": "GPU",
+        "meaning": "Graphics Processing Unit: unidad de procesamiento gráfico.",
+        "conceptId": "hardware",
+        "action": "added"
+      },
+      {
+        "term": "PC",
+        "meaning": "Personal Computer: computadora personal.",
+        "conceptId": "hardware",
+        "action": "expanded"
+      },
+      {
+        "term": "ARM",
+        "meaning": "Nombre histórico Advanced RISC Machines; actualmente Arm es un nombre de marca y familia de arquitecturas.",
+        "conceptId": "hardware",
+        "action": "added"
+      },
+      {
+        "term": "RISC",
+        "meaning": "Reduced Instruction Set Computing: enfoque de arquitectura con conjunto reducido de instrucciones.",
+        "conceptId": "hardware",
+        "action": "added"
+      },
+      {
+        "term": "BSD",
+        "meaning": "Berkeley Software Distribution: distribución de software de Berkeley.",
+        "conceptId": "bsd",
+        "action": "added"
+      },
+      {
+        "term": "ID",
+        "meaning": "Identifier: identificador; en Message-ID identifica un mensaje según las convenciones de correo.",
+        "conceptId": "identificadores",
+        "action": "expanded"
+      },
+      {
+        "term": "GUID",
+        "meaning": "Globally Unique Identifier: identificador globalmente único.",
+        "conceptId": "identificadores",
+        "action": "added"
+      },
+      {
+        "term": "CLSID",
+        "meaning": "Class Identifier: identificador de clase COM.",
+        "conceptId": "identificadores",
+        "action": "added"
+      },
+      {
+        "term": "COM",
+        "meaning": "Component Object Model: modelo de objetos componentes de Microsoft.",
+        "conceptId": "identificadores",
+        "action": "added"
+      },
+      {
+        "term": "CTF",
+        "meaning": "Capture The Flag: captura de la bandera, formato de desafíos de seguridad.",
+        "conceptId": "ctf",
+        "action": "added"
+      },
+      {
+        "term": "PDF",
+        "meaning": "Portable Document Format: formato de documento portátil.",
+        "conceptId": "formatos-archivo",
+        "action": "added"
+      },
+      {
+        "term": "PDF/A",
+        "meaning": "Perfil de PDF para archivo y preservación a largo plazo; la A remite a su finalidad de archivo.",
+        "conceptId": "formatos-archivo",
+        "action": "added"
+      },
+      {
+        "term": "PNG",
+        "meaning": "Portable Network Graphics: formato de gráficos de red portátiles.",
+        "conceptId": "formatos-archivo",
+        "action": "added"
+      },
+      {
+        "term": "JPEG",
+        "meaning": "Joint Photographic Experts Group: grupo que da nombre al estándar de imagen.",
+        "conceptId": "formatos-archivo",
+        "action": "added"
+      },
+      {
+        "term": "TAR",
+        "meaning": "Tape Archiver: archivador de cinta; da nombre al formato para agrupar archivos, sin comprimir por sí mismo.",
+        "conceptId": "formatos-archivo",
+        "action": "added"
+      },
+      {
+        "term": "WAV",
+        "meaning": "Extensión del formato WAVE de audio de forma de onda (waveform audio); es una denominación de formato.",
+        "conceptId": "formatos-archivo",
+        "action": "added"
+      },
+      {
+        "term": "CA",
+        "meaning": "Certification Authority, también Certificate Authority: autoridad de certificación; Root CA es la autoridad raíz.",
+        "conceptId": "ca",
+        "action": "added"
+      },
+      {
+        "term": "ASCII",
+        "meaning": "American Standard Code for Information Interchange: código estadounidense estándar para intercambio de información.",
+        "conceptId": "ascii",
+        "action": "expanded"
+      },
+      {
+        "term": "UTF-8",
+        "meaning": "Unicode Transformation Format de 8 bits: codificación Unicode de longitud variable.",
+        "conceptId": "ascii",
+        "action": "expanded"
+      },
+      {
+        "term": "UTF-16",
+        "meaning": "Unicode Transformation Format de 16 bits: codificación Unicode basada en unidades de 16 bits.",
+        "conceptId": "ascii",
+        "action": "expanded"
+      },
+      {
+        "term": "AES",
+        "meaning": "Advanced Encryption Standard: estándar de cifrado avanzado. AES-128 usa una clave de 128 bits; ECB y CBC indican modos.",
+        "conceptId": "bloques",
+        "action": "expanded"
+      },
+      {
+        "term": "ECB",
+        "meaning": "Electronic Codebook: modo de libro de códigos electrónico.",
+        "conceptId": "ecb",
+        "action": "expanded"
+      },
+      {
+        "term": "CBC",
+        "meaning": "Cipher Block Chaining: encadenamiento de bloques cifrados.",
+        "conceptId": "cbc",
+        "action": "expanded"
+      },
+      {
+        "term": "IV",
+        "meaning": "Initialization Vector: vector de inicialización.",
+        "conceptId": "iv",
+        "action": "expanded"
+      },
+      {
+        "term": "XOR",
+        "meaning": "Exclusive OR: operación lógica «o exclusivo».",
+        "conceptId": "xor",
+        "action": "expanded"
+      },
+      {
+        "term": "MD5",
+        "meaning": "Message Digest 5: algoritmo de resumen de mensaje de 128 bits.",
+        "conceptId": "sha",
+        "action": "expanded"
+      },
+      {
+        "term": "SHA-1",
+        "meaning": "Secure Hash Algorithm 1: algoritmo hash seguro de la familia SHA, con salida de 160 bits.",
+        "conceptId": "sha",
+        "action": "expanded"
+      },
+      {
+        "term": "SHA-2",
+        "meaning": "Secure Hash Algorithm 2: familia de algoritmos hash que incluye SHA-224, SHA-256, SHA-384 y SHA-512.",
+        "conceptId": "sha",
+        "action": "expanded"
+      },
+      {
+        "term": "SHA-224",
+        "meaning": "Secure Hash Algorithm, variante de SHA-2 con salida de 224 bits.",
+        "conceptId": "sha",
+        "action": "expanded"
+      },
+      {
+        "term": "SHA-384",
+        "meaning": "Secure Hash Algorithm, variante de SHA-2 con salida de 384 bits.",
+        "conceptId": "sha",
+        "action": "expanded"
+      },
+      {
+        "term": "SHA-512",
+        "meaning": "Secure Hash Algorithm, variante de SHA-2 con salida de 512 bits.",
+        "conceptId": "sha",
+        "action": "expanded"
+      },
+      {
+        "term": "SHA-256",
+        "meaning": "Secure Hash Algorithm, variante de SHA-2 con salida de 256 bits.",
+        "conceptId": "sha-256",
+        "action": "expanded"
+      },
+      {
+        "term": "AEAD",
+        "meaning": "Authenticated Encryption with Associated Data: cifrado autenticado con datos asociados.",
+        "conceptId": "aead",
+        "action": "expanded"
+      },
+      {
+        "term": "CIA",
+        "meaning": "Confidentiality, Integrity, Availability: confidencialidad, integridad y disponibilidad.",
+        "conceptId": "cia",
+        "action": "expanded"
+      },
+      {
+        "term": "MitM",
+        "meaning": "Man in the Middle: intermediario que se interpone en una comunicación.",
+        "conceptId": "mitm",
+        "action": "expanded"
+      },
+      {
+        "term": "RIR",
+        "meaning": "Regional Internet Registry: registro regional de Internet.",
+        "conceptId": "rir",
+        "action": "expanded"
+      },
+      {
+        "term": "IANA",
+        "meaning": "Internet Assigned Numbers Authority: autoridad de números asignados de Internet.",
+        "conceptId": "rir",
+        "action": "expanded"
+      },
+      {
+        "term": "ARIN",
+        "meaning": "American Registry for Internet Numbers: registro de números de Internet para su región de servicio.",
+        "conceptId": "rir",
+        "action": "expanded"
+      },
+      {
+        "term": "APNIC",
+        "meaning": "Asia Pacific Network Information Centre: centro de información de red de Asia-Pacífico.",
+        "conceptId": "rir",
+        "action": "expanded"
+      },
+      {
+        "term": "AFRINIC",
+        "meaning": "African Network Information Centre: centro africano de información de red.",
+        "conceptId": "rir",
+        "action": "expanded"
+      },
+      {
+        "term": "LACNIC",
+        "meaning": "Latin American and Caribbean Internet Addresses Registry: registro de direcciones de Internet para América Latina y el Caribe.",
+        "conceptId": "rir",
+        "action": "expanded"
+      },
+      {
+        "term": "RIPE",
+        "meaning": "Réseaux IP Européens: denominación francesa de la comunidad de redes IP europeas.",
+        "conceptId": "rir",
+        "action": "expanded"
+      },
+      {
+        "term": "NCC",
+        "meaning": "Network Coordination Centre: centro de coordinación de redes; forma parte del nombre RIPE NCC.",
+        "conceptId": "rir",
+        "action": "expanded"
+      },
+      {
+        "term": "ERX",
+        "meaning": "Early Registration Transfer: proyecto de transferencia de registros históricos.",
+        "conceptId": "erx",
+        "action": "expanded"
+      },
+      {
+        "term": "UNLP",
+        "meaning": "Universidad Nacional de La Plata.",
+        "conceptId": "erx",
+        "action": "expanded"
+      },
+      {
+        "term": "RDAP",
+        "meaning": "Registration Data Access Protocol: protocolo de acceso a datos de registro.",
+        "conceptId": "rdap",
+        "action": "already-defined"
+      },
+      {
+        "term": "JSON",
+        "meaning": "JavaScript Object Notation: notación de objetos de JavaScript para representar datos.",
+        "conceptId": "rdap",
+        "action": "expanded"
+      },
+      {
+        "term": "IP",
+        "meaning": "Internet Protocol: protocolo de Internet.",
+        "conceptId": "ip",
+        "action": "expanded"
+      },
+      {
+        "term": "IPv4",
+        "meaning": "Internet Protocol version 4: versión 4 del protocolo de Internet.",
+        "conceptId": "ip",
+        "action": "expanded"
+      },
+      {
+        "term": "IPv6",
+        "meaning": "Internet Protocol version 6: versión 6 del protocolo de Internet.",
+        "conceptId": "ip",
+        "action": "expanded"
+      },
+      {
+        "term": "CIDR",
+        "meaning": "Classless Inter-Domain Routing: enrutamiento entre dominios sin clases.",
+        "conceptId": "ip",
+        "action": "expanded"
+      },
+      {
+        "term": "NAT",
+        "meaning": "Network Address Translation: traducción de direcciones de red.",
+        "conceptId": "ip",
+        "action": "expanded"
+      },
+      {
+        "term": "DNS",
+        "meaning": "Domain Name System: sistema de nombres de dominio.",
+        "conceptId": "dns",
+        "action": "expanded"
+      },
+      {
+        "term": "TLD",
+        "meaning": "Top-Level Domain: dominio de nivel superior.",
+        "conceptId": "tld",
+        "action": "expanded"
+      },
+      {
+        "term": "gTLD",
+        "meaning": "Generic Top-Level Domain: dominio genérico de nivel superior.",
+        "conceptId": "tld",
+        "action": "expanded"
+      },
+      {
+        "term": "ccTLD",
+        "meaning": "Country-Code Top-Level Domain: dominio de nivel superior de código de país.",
+        "conceptId": "tld",
+        "action": "expanded"
+      },
+      {
+        "term": "NIC",
+        "meaning": "Network Information Center: centro de información de red; NIC Argentina es la denominación usada para el registro .ar.",
+        "conceptId": "tld",
+        "action": "expanded"
+      },
+      {
+        "term": "LEA",
+        "meaning": "Law Enforcement Agency: organismo competente de aplicación de la ley.",
+        "conceptId": "privacidad-registro",
+        "action": "added"
+      },
+      {
+        "term": "MX",
+        "meaning": "Mail Exchanger: intercambiador de correo; también se usa «Mail Exchange» para el tipo de registro.",
+        "conceptId": "mx",
+        "action": "expanded"
+      },
+      {
+        "term": "SMTP",
+        "meaning": "Simple Mail Transfer Protocol: protocolo simple de transferencia de correo.",
+        "conceptId": "smtp",
+        "action": "expanded"
+      },
+      {
+        "term": "MTA",
+        "meaning": "Message Transfer Agent, también Mail Transfer Agent: agente de transferencia de correo.",
+        "conceptId": "smtp",
+        "action": "added"
+      },
+      {
+        "term": "IMAP",
+        "meaning": "Internet Message Access Protocol: protocolo de acceso a mensajes de Internet.",
+        "conceptId": "smtp",
+        "action": "expanded"
+      },
+      {
+        "term": "POP3",
+        "meaning": "Post Office Protocol version 3: versión 3 del protocolo de oficina de correos.",
+        "conceptId": "smtp",
+        "action": "added"
+      },
+      {
+        "term": "ESMTP",
+        "meaning": "Extended Simple Mail Transfer Protocol: SMTP extendido.",
+        "conceptId": "tls-correo",
+        "action": "added"
+      },
+      {
+        "term": "ESMTPS",
+        "meaning": "ESMTP con TLS: identificador del transporte SMTP extendido protegido en ese salto.",
+        "conceptId": "tls-correo",
+        "action": "expanded"
+      },
+      {
+        "term": "TLS",
+        "meaning": "Transport Layer Security: seguridad de la capa de transporte.",
+        "conceptId": "tls-correo",
+        "action": "expanded"
+      },
+      {
+        "term": "SPF",
+        "meaning": "Sender Policy Framework: marco de políticas de remitente.",
+        "conceptId": "tls-correo",
+        "action": "expanded"
+      },
+      {
+        "term": "DKIM",
+        "meaning": "DomainKeys Identified Mail: mecanismo de firmas de correo vinculadas a un dominio.",
+        "conceptId": "tls-correo",
+        "action": "expanded"
+      },
+      {
+        "term": "DMARC",
+        "meaning": "Domain-based Message Authentication, Reporting, and Conformance: autenticación de mensajes basada en dominio, informes y conformidad.",
+        "conceptId": "tls-correo",
+        "action": "expanded"
+      },
+      {
+        "term": "CSIRT",
+        "meaning": "Computer Security Incident Response Team: equipo de respuesta a incidentes de seguridad informática.",
+        "conceptId": "csirt",
+        "action": "already-defined"
+      },
+      {
+        "term": "CERT",
+        "meaning": "Computer Emergency Response Team: equipo de respuesta a emergencias informáticas.",
+        "conceptId": "csirt",
+        "action": "already-defined"
+      },
+      {
+        "term": "TLP",
+        "meaning": "Traffic Light Protocol: protocolo del semáforo para compartir información.",
+        "conceptId": "tlp",
+        "action": "already-defined"
+      },
+      {
+        "term": "PGP",
+        "meaning": "Pretty Good Privacy: nombre de la tecnología de protección mediante cifrado y firmas.",
+        "conceptId": "pgp",
+        "action": "expanded"
+      },
+      {
+        "term": "GPG",
+        "meaning": "GNU Privacy Guard: implementación del ecosistema OpenPGP.",
+        "conceptId": "pgp",
+        "action": "expanded"
+      },
+      {
+        "term": "OpenPGP",
+        "meaning": "Estándar abierto de mensajes y claves derivado de PGP (Pretty Good Privacy); no es una expansión letra por letra.",
+        "conceptId": "pgp",
+        "action": "added"
+      },
+      {
+        "term": "RAT",
+        "meaning": "Remote Access Trojan: troyano de acceso remoto, en el contexto de familias de malware.",
+        "conceptId": "familias",
+        "action": "expanded"
+      },
+      {
+        "term": "IOC",
+        "meaning": "Indicator of Compromise: indicador de compromiso.",
+        "conceptId": "ioc",
+        "action": "expanded"
+      },
+      {
+        "term": "DLL",
+        "meaning": "Dynamic-Link Library: biblioteca de enlace dinámico.",
+        "conceptId": "imports",
+        "action": "expanded"
+      },
+      {
+        "term": "API",
+        "meaning": "Application Programming Interface: interfaz de programación de aplicaciones.",
+        "conceptId": "imports",
+        "action": "expanded"
+      },
+      {
+        "term": "WinINet",
+        "meaning": "Windows Internet: conjunto de API de Windows para funciones de Internet.",
+        "conceptId": "apis-red",
+        "action": "expanded"
+      },
+      {
+        "term": "URL",
+        "meaning": "Uniform Resource Locator: localizador uniforme de recursos.",
+        "conceptId": "apis-red",
+        "action": "expanded"
+      },
+      {
+        "term": "PE",
+        "meaning": "Portable Executable: formato ejecutable portátil de Windows.",
+        "conceptId": "pe",
+        "action": "already-defined"
+      },
+      {
+        "term": "DOS",
+        "meaning": "Disk Operating System: sistema operativo de disco; en este contexto se refiere al entorno y cabecera de compatibilidad de MS-DOS.",
+        "conceptId": "pe",
+        "action": "expanded"
+      },
+      {
+        "term": "MZ",
+        "meaning": "Iniciales de Mark Zbikowski, usadas como firma de la cabecera DOS; no es una frase técnica de dos palabras.",
+        "conceptId": "pe",
+        "action": "expanded"
+      },
+      {
+        "term": "VM",
+        "meaning": "Virtual Machine: máquina virtual.",
+        "conceptId": "laboratorio",
+        "action": "expanded"
+      },
+      {
+        "term": "HKCU",
+        "meaning": "HKEY_CURRENT_USER: clave predefinida del usuario actual.",
+        "conceptId": "registry",
+        "action": "expanded"
+      },
+      {
+        "term": "HKLM",
+        "meaning": "HKEY_LOCAL_MACHINE: clave predefinida de la configuración del equipo.",
+        "conceptId": "registry",
+        "action": "expanded"
+      },
+      {
+        "term": "HKCR",
+        "meaning": "HKEY_CLASSES_ROOT: clave predefinida de información de clases y asociaciones.",
+        "conceptId": "registry",
+        "action": "added"
+      },
+      {
+        "term": "HKEY_USERS",
+        "meaning": "Clave predefinida con los perfiles de usuario cargados; denominación literal del Registro.",
+        "conceptId": "registry",
+        "action": "added"
+      },
+      {
+        "term": "PCAP",
+        "meaning": "Packet Capture: captura de paquetes; también da nombre a un formato de archivos de captura.",
+        "conceptId": "captura-red",
+        "action": "expanded"
+      },
+      {
+        "term": "ICMP",
+        "meaning": "Internet Control Message Protocol: protocolo de mensajes de control de Internet.",
+        "conceptId": "captura-red",
+        "action": "expanded"
+      },
+      {
+        "term": "NIR",
+        "meaning": "National Internet Registry: registro nacional de Internet.",
+        "conceptId": "nir",
+        "action": "expanded"
+      },
+      {
+        "term": "SSH",
+        "meaning": "Secure Shell: protocolo para acceso remoto seguro.",
+        "conceptId": "ssh-logs",
+        "action": "expanded"
+      },
+      {
+        "term": "HID",
+        "meaning": "Human Interface Device: dispositivo de interfaz humana.",
+        "conceptId": "hid",
+        "action": "expanded"
+      },
+      {
+        "term": "USB",
+        "meaning": "Universal Serial Bus: bus serie universal.",
+        "conceptId": "hid",
+        "action": "expanded"
+      },
+      {
+        "term": "GUI",
+        "meaning": "Graphical User Interface: interfaz gráfica de usuario. En el DuckyScript del ejercicio, GUI nombra la tecla Windows/Super; GUI r expresa su combinación con r.",
+        "conceptId": "hid",
+        "action": "added"
+      },
+      {
+        "term": "VBA",
+        "meaning": "Visual Basic for Applications: entorno/lenguaje de macros usado en aplicaciones de Office.",
+        "conceptId": "macros-documentos",
+        "action": "expanded"
+      },
+      {
+        "term": "DOCM",
+        "meaning": "Extensión de documento de Word habilitado para macros; denominación de formato, no sigla con expansión normativa.",
+        "conceptId": "macros-documentos",
+        "action": "expanded"
+      },
+      {
+        "term": "XLS",
+        "meaning": "Extensión del formato binario de libros de Excel; denominación de formato, no una frase de iniciales.",
+        "conceptId": "macros-documentos",
+        "action": "expanded"
+      },
+      {
+        "term": "XLM",
+        "meaning": "Lenguaje de macros de Excel 4.0, distinto de VBA.",
+        "conceptId": "macros-documentos",
+        "action": "expanded"
+      },
+      {
+        "term": "VBS",
+        "meaning": "Extensión de scripts de VBScript; Visual Basic Scripting Edition es la denominación del lenguaje.",
+        "conceptId": "ofuscacion-vbs",
+        "action": "added"
+      },
+      {
+        "term": "RSA",
+        "meaning": "Rivest, Shamir y Adleman: apellidos de los autores que dan nombre al esquema.",
+        "conceptId": "rsa",
+        "action": "expanded"
+      },
+      {
+        "term": "DH",
+        "meaning": "Diffie–Hellman: apellidos que dan nombre al acuerdo de claves.",
+        "conceptId": "diffie-hellman",
+        "action": "added"
+      },
+      {
+        "term": "LSB",
+        "meaning": "Least Significant Bit: bit menos significativo.",
+        "conceptId": "lsb",
+        "action": "expanded"
+      },
+      {
+        "term": "UTC",
+        "meaning": "Coordinated Universal Time: tiempo universal coordinado; UTC es la abreviatura internacional acordada.",
+        "conceptId": "tiempos",
+        "action": "expanded"
+      },
+      {
+        "term": "RFC",
+        "meaning": "Request for Comments: serie de documentos técnicos usada, entre otros fines, para especificaciones de Internet.",
+        "conceptId": "ip-privadas",
+        "action": "expanded"
+      },
+      {
+        "term": "SSRF",
+        "meaning": "Server-Side Request Forgery: falsificación de solicitudes realizadas desde el servidor.",
+        "conceptId": "fallos-web",
+        "action": "expanded"
+      },
+      {
+        "term": "SQL",
+        "meaning": "Structured Query Language: lenguaje de consultas estructuradas.",
+        "conceptId": "fallos-web",
+        "action": "expanded"
+      },
+      {
+        "term": "HTML",
+        "meaning": "Hypertext Markup Language: lenguaje de marcado de hipertexto.",
+        "conceptId": "fallos-web",
+        "action": "added"
+      },
+      {
+        "term": "XSS",
+        "meaning": "Cross-Site Scripting: inyección de contenido que se ejecuta como script en el navegador de una víctima.",
+        "conceptId": "fallos-web",
+        "action": "added"
+      },
+      {
+        "term": "DoS",
+        "meaning": "Denial of Service: denegación de servicio.",
+        "conceptId": "defacement",
+        "action": "expanded"
+      },
+      {
+        "term": "DDoS",
+        "meaning": "Distributed Denial of Service: denegación de servicio distribuida.",
+        "conceptId": "defacement",
+        "action": "expanded"
+      },
+      {
+        "term": "DNI",
+        "meaning": "Documento Nacional de Identidad.",
+        "conceptId": "datos-sensibles",
+        "action": "added"
+      },
+      {
+        "term": "DB",
+        "meaning": "Database: base de datos.",
+        "conceptId": "prioridad",
+        "action": "added"
+      },
+      {
+        "term": "WideChar",
+        "meaning": "Wide Character: carácter ancho; en el contexto de las preguntas se relaciona con cadenas UTF-16 de Windows.",
+        "conceptId": "strings",
+        "action": "expanded"
+      },
+      {
+        "term": "ROT3",
+        "meaning": "Rotation by 3: rotación o desplazamiento de tres posiciones en el alfabeto.",
+        "conceptId": "cesar",
+        "action": "expanded"
+      },
+      {
+        "term": "ROT13",
+        "meaning": "Rotation by 13: rotación o desplazamiento de trece posiciones en el alfabeto.",
+        "conceptId": "cesar",
+        "action": "expanded"
+      },
+      {
+        "term": "A1Z26",
+        "meaning": "Notación de posiciones alfabéticas A=1, B=2, …, Z=26; no es una sigla de una frase.",
+        "conceptId": "a1z26-braille",
+        "action": "expanded"
+      },
+      {
+        "term": "RCPT",
+        "meaning": "Recipient: destinatario; abreviatura usada por el comando SMTP RCPT TO.",
+        "conceptId": "envelope",
+        "action": "expanded"
+      },
+      {
+        "term": "WHOIS",
+        "meaning": "Nombre del protocolo y consulta derivado de «who is?» («¿quién es?»); no es una sigla con expansión letra por letra.",
+        "conceptId": "whois",
+        "action": "expanded"
+      },
+      {
+        "term": "CRON",
+        "meaning": "Nombre del planificador cron y de sus eventos en los logs; no es una sigla técnica que deba expandirse letra por letra.",
+        "conceptId": "ssh-logs",
+        "action": "expanded"
+      }
+    ]
+  }
 }

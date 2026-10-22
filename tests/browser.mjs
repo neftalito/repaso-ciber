@@ -19,6 +19,7 @@ const server = createServer(async (req,res) => {
 });
 let browser;
 const errors=[];
+const glossaryEntryCount=JSON.parse(await readFile(new URL('../data/glossary.json',import.meta.url),'utf8')).entries.length;
 async function assertGlossaryLayout(page, width) {
   const layout = await page.evaluate(() => {
     const box = selector => {
@@ -97,7 +98,7 @@ try {
   assert.equal(await page.locator('input[value="B"]').isChecked(),true);
   await page.keyboard.press('Alt+ArrowRight'); assert.match(await page.locator('#question-position').textContent(),/002/);
   await page.goto(`${url}glosario.html#run-key`); await page.waitForSelector('#run-key');
-  assert.equal(await page.locator('.glossary-entry').count(),108);
+  assert.equal(await page.locator('.glossary-entry').count(),glossaryEntryCount);
   await page.locator('#glossary-search').fill('criptografia simetrica'); assert.equal(await page.locator('#simetrica').count(),1);
   await page.locator('#glossary-topic').selectOption('malware'); assert.equal(await page.locator('.glossary-entry').count(),0);
   await page.locator('#clear-search').click();
@@ -139,7 +140,17 @@ try {
     assert.match(await page.locator('#question-position').textContent(),/428/);
     await page.goto(`${url}glosario.html`); await page.waitForSelector('#base64');
     await assertGlossaryLayout(page, width);
-    assert.equal(await page.locator('.glossary-entry').count(),108);
+    assert.equal(await page.locator('.glossary-entry').count(),glossaryEntryCount);
+    await page.locator('#glossary-search').fill('endpoint detection response');
+    assert.equal(await page.locator('#edr').count(),1);
+    assert.match(await page.locator('#edr .acronym-list').textContent(),/Endpoint Detection and Response/);
+    await assertGlossaryLayout(page,width);
+    assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,`EDR acronym overflow at ${width}px`);
+    if(width===390||width===1440) await page.screenshot({path:new URL(`../test-results/glosario-edr-${width}.png`,import.meta.url).pathname,fullPage:true});
+    await page.locator('#glossary-search').fill('HKCR');
+    assert.equal(await page.locator('#registry').count(),1);
+    assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,`Registry acronym overflow at ${width}px`);
+    await page.locator('#clear-search').click();
     await page.locator('#comparaciones > summary').click();
     await page.locator('#comparar-codificacion-cifrado-hash-firma > summary').click();
     await assertGlossaryLayout(page, width);
@@ -174,6 +185,8 @@ try {
   await page.waitForSelector('#tabla-ascii[open]');
   assert.equal(await page.locator('#glossary-topic').inputValue(), 'all');
   assert.equal(await page.locator('#glossary-search').inputValue(), '');
+  await page.goto(`${url}glosario.html?q=base64&tema=cripto#edr`); await page.waitForSelector('#edr');
+  assert.equal(await page.locator('#glossary-search').inputValue(),''); assert.equal(await page.locator('#glossary-topic').inputValue(),'all');
   await page.goto(`${url}index.html?pregunta=442`); await page.waitForSelector('#study-layout:visible');
   await page.locator('.answer-option').nth(2).click(); await page.locator('#confirm-answer').click();
   assert.equal(await page.locator('#next-question-inline').isDisabled(),true);

@@ -4,6 +4,9 @@ const el = (tag, cls, text) => { const n = document.createElement(tag); if (cls)
 const normalize = value => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
 let entries, questions, comparisons, ascii;
 function matchesSearch(text, search) { return search.split(/\s+/).every(word => normalize(text).includes(word)); }
+function acronymText(entry) {
+  return (entry.acronyms ?? []).flatMap(a => [a.term, a.meaning, ...(a.aliases ?? [])]).join(' ');
+}
 function manualReferences(pages, practicePages = []) {
   const refs = el('div', 'entry-references'); refs.append(practicePages.length ? 'PROFUNDIZÁ EN LOS APUNTES · ' : 'PROFUNDIZÁ EN EL MANUAL · ');
   for (const page of pages) {
@@ -78,7 +81,7 @@ function renderComparisons(search, topic) {
 function render() {
   const search = normalize($('glossary-search').value.trim());
   const topic = $('glossary-topic').value;
-  const found = entries.filter(e => (topic === 'all' || e.topics.includes(topic)) && matchesSearch([e.term, e.definition, e.explanation, e.example].join(' '), search));
+  const found = entries.filter(e => (topic === 'all' || e.topics.includes(topic)) && matchesSearch([e.term, e.definition, e.explanation, e.example, acronymText(e)].join(' '), search));
   const comparisonCount = renderComparisons(search, topic);
   filterAsciiTable(search, topic);
   $('glossary-count').textContent = `${found.length} de ${entries.length} conceptos · ${comparisonCount} comparaciones${search || topic !== 'all' ? ' con estos filtros' : ' para seguir aprendiendo'}`;
@@ -94,7 +97,13 @@ function render() {
     const heading = el('div', 'entry-heading'); const title = el('div'); title.append(el('h2', '', entry.term));
     const badges = el('div', 'entry-badges'); entry.topics.forEach(t => badges.append(el('span', `topic-badge ${t}`, TOPICS[t]))); title.append(badges);
     const permalink = el('a', 'entry-link', '#'); permalink.href = `#${entry.id}`; permalink.setAttribute('aria-label', `Enlace directo a ${entry.term}`); permalink.title = 'Enlace directo a este concepto';
-    heading.append(title, permalink); article.append(heading, el('p', 'definition', entry.definition), el('p', '', entry.explanation));
+    heading.append(title, permalink); article.append(heading, el('p', 'definition', entry.definition));
+    if (entry.acronyms?.length) {
+      const meanings = el('dl', 'acronym-list'); meanings.setAttribute('aria-label', 'Significado de las siglas y abreviaturas');
+      for (const acronym of entry.acronyms) { meanings.append(el('dt', '', acronym.term), el('dd', '', acronym.meaning)); }
+      article.append(meanings);
+    }
+    article.append(el('p', '', entry.explanation));
     if (entry.example) { const example = el('div', 'entry-example'); example.append(el('strong', '', 'Por ejemplo'), document.createTextNode(entry.example)); article.append(example); }
     if (entry.id === ascii.conceptId) { const link = el('a', 'text-link ascii-entry-link', 'Consultar la tabla ASCII: letras, decimal y hexadecimal ↑'); link.href = '#tabla-ascii'; article.append(link); }
     const relatedComparisons = comparisons.filter(c => c.conceptIds.includes(entry.id));
@@ -105,8 +114,16 @@ function render() {
     }
     const refs = manualReferences(entry.manualPages, entry.practicePages);
     if (entry.referenceNote) refs.append(el('span', 'reference-note', entry.referenceNote));
+    if (entry.externalReferences?.length) {
+      const sources = el('div', 'acronym-sources'); sources.append(el('strong', '', 'Fuentes de los significados'));
+      for (const source of entry.externalReferences) {
+        const link = el('a', 'text-link', `${source.title} ↗`); link.href = source.url; link.target = '_blank'; link.rel = 'noopener';
+        link.setAttribute('aria-label', `${source.title} (sitio externo, nueva pestaña)`); sources.append(link);
+      }
+      refs.append(sources);
+    }
     article.append(refs, el('span', 'origin-label', entry.fromManualGlossary ? 'Concepto del glosario original · definición ampliada para estudiar' : 'Ampliación del glosario · elaboración didáctica'));
-    const related = questions.filter(q => q.conceptIds.includes(entry.id));
+    const related = questions.filter(q => q.conceptIds.includes(entry.id) || entry.relatedQuestionIds?.includes(q.id));
     if (related.length) {
       const details = el('details', 'question-history'); details.append(el('summary', '', `Practicar preguntas relacionadas (${related.length})`));
       const links = el('div', 'concept-links');

@@ -1,0 +1,3441 @@
+{
+  "version": 1,
+  "scope": "442 consignas, opciones, soluciones, referencias y 1.768 explicaciones de distractores; se revisan siglas, acrónimos, variantes y abreviaturas técnicas.",
+  "checks": {
+    "questionsScanned": 442,
+    "distractorExplanationsScanned": 1768,
+    "candidates": 295,
+    "covered": 166,
+    "reviewedExclusions": 129,
+    "missing": 0
+  },
+  "coverage": [
+    {
+      "token": "A1Z26",
+      "term": "A1Z26",
+      "meaning": "Notación de posiciones alfabéticas A=1, B=2, …, Z=26; no es una sigla de una frase.",
+      "conceptId": "a1z26-braille",
+      "questionIds": [
+        355
+      ]
+    },
+    {
+      "token": "AAAA",
+      "term": "AAAA",
+      "meaning": "Tipo de registro de dirección IPv6; denominación «quad-A», no sigla de cuatro palabras.",
+      "conceptId": "registros-dns",
+      "questionIds": [
+        129
+      ]
+    },
+    {
+      "token": "AES",
+      "term": "AES",
+      "meaning": "Advanced Encryption Standard: estándar de cifrado avanzado. AES-128 usa una clave de 128 bits; ECB y CBC indican modos.",
+      "conceptId": "bloques",
+      "questionIds": [
+        17,
+        29,
+        30,
+        31,
+        46,
+        47,
+        51,
+        52,
+        53,
+        83,
+        117,
+        123,
+        151,
+        240,
+        288,
+        303,
+        326,
+        334,
+        354,
+        356,
+        357,
+        371,
+        372,
+        433
+      ]
+    },
+    {
+      "token": "AES-128",
+      "term": "AES",
+      "meaning": "Advanced Encryption Standard: estándar de cifrado avanzado. AES-128 usa una clave de 128 bits; ECB y CBC indican modos.",
+      "conceptId": "bloques",
+      "questionIds": [
+        371
+      ]
+    },
+    {
+      "token": "AES-128-ECB",
+      "term": "AES",
+      "meaning": "Advanced Encryption Standard: estándar de cifrado avanzado. AES-128 usa una clave de 128 bits; ECB y CBC indican modos.",
+      "conceptId": "bloques",
+      "questionIds": [
+        371
+      ]
+    },
+    {
+      "token": "AES-CBC",
+      "term": "AES",
+      "meaning": "Advanced Encryption Standard: estándar de cifrado avanzado. AES-128 usa una clave de 128 bits; ECB y CBC indican modos.",
+      "conceptId": "bloques",
+      "questionIds": [
+        9
+      ]
+    },
+    {
+      "token": "AES-ECB",
+      "term": "AES",
+      "meaning": "Advanced Encryption Standard: estándar de cifrado avanzado. AES-128 usa una clave de 128 bits; ECB y CBC indican modos.",
+      "conceptId": "bloques",
+      "questionIds": [
+        371,
+        372
+      ]
+    },
+    {
+      "token": "AFRINIC",
+      "term": "AFRINIC",
+      "meaning": "African Network Information Centre: centro africano de información de red.",
+      "conceptId": "rir",
+      "questionIds": [
+        94,
+        95,
+        96,
+        97,
+        391
+      ]
+    },
+    {
+      "token": "API",
+      "term": "API",
+      "meaning": "Application Programming Interface: interfaz de programación de aplicaciones.",
+      "conceptId": "imports",
+      "questionIds": [
+        191,
+        245,
+        246,
+        247,
+        249,
+        250,
+        257,
+        267,
+        304,
+        305,
+        312,
+        314,
+        423
+      ]
+    },
+    {
+      "token": "APIs",
+      "term": "API",
+      "meaning": "Application Programming Interface: interfaz de programación de aplicaciones.",
+      "conceptId": "imports",
+      "questionIds": [
+        244,
+        248,
+        249,
+        254,
+        302,
+        306,
+        337,
+        349,
+        423
+      ]
+    },
+    {
+      "token": "APNIC",
+      "term": "APNIC",
+      "meaning": "Asia Pacific Network Information Centre: centro de información de red de Asia-Pacífico.",
+      "conceptId": "rir",
+      "questionIds": [
+        94,
+        95,
+        96,
+        97,
+        106,
+        391,
+        396
+      ]
+    },
+    {
+      "token": "ARIN",
+      "term": "ARIN",
+      "meaning": "American Registry for Internet Numbers: registro de números de Internet para su región de servicio.",
+      "conceptId": "rir",
+      "questionIds": [
+        94,
+        95,
+        96,
+        97,
+        213,
+        391
+      ]
+    },
+    {
+      "token": "ARM",
+      "term": "ARM",
+      "meaning": "Nombre histórico Advanced RISC Machines; actualmente Arm es un nombre de marca y familia de arquitecturas.",
+      "conceptId": "hardware",
+      "questionIds": [
+        84
+      ]
+    },
+    {
+      "token": "ARP",
+      "term": "ARP",
+      "meaning": "Address Resolution Protocol: protocolo de resolución de direcciones IPv4 a direcciones de enlace.",
+      "conceptId": "arp-mac",
+      "questionIds": [
+        82,
+        128,
+        132,
+        258
+      ]
+    },
+    {
+      "token": "ASCII",
+      "term": "ASCII",
+      "meaning": "American Standard Code for Information Interchange: código estadounidense estándar para intercambio de información.",
+      "conceptId": "ascii",
+      "questionIds": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        13,
+        36,
+        40,
+        45,
+        46,
+        50,
+        54,
+        213,
+        239,
+        240,
+        265,
+        301,
+        303,
+        309,
+        317,
+        322,
+        343,
+        351,
+        352,
+        354,
+        355,
+        356,
+        377,
+        378,
+        383,
+        388,
+        414,
+        416,
+        420,
+        434
+      ]
+    },
+    {
+      "token": "ASN",
+      "term": "ASN",
+      "meaning": "Autonomous System Number: número de sistema autónomo.",
+      "conceptId": "asn-bgp",
+      "questionIds": [
+        93,
+        275
+      ]
+    },
+    {
+      "token": "BGP",
+      "term": "BGP",
+      "meaning": "Border Gateway Protocol: protocolo de intercambio de rutas entre sistemas autónomos.",
+      "conceptId": "asn-bgp",
+      "questionIds": [
+        98,
+        132,
+        251,
+        260,
+        275
+      ]
+    },
+    {
+      "token": "BSD",
+      "term": "BSD",
+      "meaning": "Berkeley Software Distribution: distribución de software de Berkeley.",
+      "conceptId": "bsd",
+      "questionIds": [
+        84
+      ]
+    },
+    {
+      "token": "CA",
+      "term": "CA",
+      "meaning": "Certification Authority, también Certificate Authority: autoridad de certificación; Root CA es la autoridad raíz.",
+      "conceptId": "ca",
+      "questionIds": [
+        294
+      ]
+    },
+    {
+      "token": "CBC",
+      "term": "CBC",
+      "meaning": "Cipher Block Chaining: encadenamiento de bloques cifrados.",
+      "conceptId": "cbc",
+      "questionIds": [
+        16,
+        17,
+        22,
+        33,
+        36,
+        41,
+        46,
+        47,
+        282,
+        306,
+        372
+      ]
+    },
+    {
+      "token": "CEDIA",
+      "term": "CEDIA",
+      "meaning": "Corporación Ecuatoriana para el Desarrollo de la Investigación y la Academia, denominación institucional actual.",
+      "conceptId": "cedia",
+      "questionIds": [
+        106
+      ]
+    },
+    {
+      "token": "CERT",
+      "term": "CERT",
+      "meaning": "Computer Emergency Response Team: equipo de respuesta a emergencias informáticas.",
+      "conceptId": "csirt",
+      "questionIds": [
+        168
+      ]
+    },
+    {
+      "token": "CIA",
+      "term": "CIA",
+      "meaning": "Confidentiality, Integrity, Availability: confidencialidad, integridad y disponibilidad.",
+      "conceptId": "cia",
+      "questionIds": [
+        68,
+        69,
+        70
+      ]
+    },
+    {
+      "token": "CIDR",
+      "term": "CIDR",
+      "meaning": "Classless Inter-Domain Routing: enrutamiento entre dominios sin clases.",
+      "conceptId": "ip",
+      "questionIds": [
+        102,
+        313
+      ]
+    },
+    {
+      "token": "CLSID",
+      "term": "CLSID",
+      "meaning": "Class Identifier: identificador de clase COM.",
+      "conceptId": "identificadores",
+      "questionIds": [
+        321
+      ]
+    },
+    {
+      "token": "CNAME",
+      "term": "CNAME",
+      "meaning": "Canonical Name: nombre canónico, usado para un alias.",
+      "conceptId": "registros-dns",
+      "questionIds": [
+        129
+      ]
+    },
+    {
+      "token": "COM",
+      "term": "COM",
+      "meaning": "Component Object Model: modelo de objetos componentes de Microsoft.",
+      "conceptId": "identificadores",
+      "questionIds": [
+        430
+      ]
+    },
+    {
+      "token": "CPU",
+      "term": "CPU",
+      "meaning": "Central Processing Unit: unidad central de procesamiento.",
+      "conceptId": "hardware",
+      "questionIds": [
+        174,
+        337
+      ]
+    },
+    {
+      "token": "CRON",
+      "term": "CRON",
+      "meaning": "Nombre del planificador cron y de sus eventos en los logs; no es una sigla técnica que deba expandirse letra por letra.",
+      "conceptId": "ssh-logs",
+      "questionIds": [
+        410
+      ]
+    },
+    {
+      "token": "CSIRT",
+      "term": "CSIRT",
+      "meaning": "Computer Security Incident Response Team: equipo de respuesta a incidentes de seguridad informática.",
+      "conceptId": "csirt",
+      "questionIds": [
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        122,
+        123,
+        124,
+        125,
+        126,
+        127,
+        128,
+        164,
+        165,
+        166,
+        167,
+        168,
+        169,
+        170,
+        171,
+        172,
+        173,
+        174,
+        175,
+        176,
+        177,
+        178,
+        179,
+        180,
+        181,
+        182,
+        183,
+        184,
+        185,
+        186,
+        187,
+        188,
+        189,
+        190,
+        191,
+        192,
+        193,
+        194,
+        195,
+        196,
+        197,
+        198,
+        199,
+        200,
+        201,
+        202,
+        203,
+        204,
+        205,
+        206,
+        207,
+        212,
+        213,
+        214,
+        215,
+        216,
+        217,
+        218,
+        219,
+        220,
+        223,
+        224,
+        225,
+        412,
+        440,
+        441
+      ]
+    },
+    {
+      "token": "CSIRTs",
+      "term": "CSIRT",
+      "meaning": "Computer Security Incident Response Team: equipo de respuesta a incidentes de seguridad informática.",
+      "conceptId": "csirt",
+      "questionIds": [
+        213,
+        219,
+        224
+      ]
+    },
+    {
+      "token": "CTF",
+      "term": "CTF",
+      "meaning": "Capture The Flag: captura de la bandera, formato de desafíos de seguridad.",
+      "conceptId": "ctf",
+      "questionIds": [
+        197,
+        358,
+        365,
+        369,
+        375,
+        399,
+        441
+      ]
+    },
+    {
+      "token": "DB",
+      "term": "DB",
+      "meaning": "Database: base de datos.",
+      "conceptId": "prioridad",
+      "questionIds": [
+        200
+      ]
+    },
+    {
+      "token": "DDoS",
+      "term": "DDoS",
+      "meaning": "Distributed Denial of Service: denegación de servicio distribuida.",
+      "conceptId": "defacement",
+      "questionIds": [
+        69,
+        81,
+        151,
+        175,
+        298
+      ]
+    },
+    {
+      "token": "DH",
+      "term": "DH",
+      "meaning": "Diffie–Hellman: apellidos que dan nombre al acuerdo de claves.",
+      "conceptId": "diffie-hellman",
+      "questionIds": [
+        380,
+        381
+      ]
+    },
+    {
+      "token": "DHCP",
+      "term": "DHCP",
+      "meaning": "Dynamic Host Configuration Protocol: protocolo de configuración dinámica de equipos.",
+      "conceptId": "dhcp",
+      "questionIds": [
+        279
+      ]
+    },
+    {
+      "token": "DKIM",
+      "term": "DKIM",
+      "meaning": "DomainKeys Identified Mail: mecanismo de firmas de correo vinculadas a un dominio.",
+      "conceptId": "tls-correo",
+      "questionIds": [
+        157,
+        255,
+        409
+      ]
+    },
+    {
+      "token": "DLL",
+      "term": "DLL",
+      "meaning": "Dynamic-Link Library: biblioteca de enlace dinámico.",
+      "conceptId": "imports",
+      "questionIds": [
+        244,
+        248,
+        257,
+        305,
+        315,
+        332
+      ]
+    },
+    {
+      "token": "DMARC",
+      "term": "DMARC",
+      "meaning": "Domain-based Message Authentication, Reporting, and Conformance: autenticación de mensajes basada en dominio, informes y conformidad.",
+      "conceptId": "tls-correo",
+      "questionIds": [
+        409
+      ]
+    },
+    {
+      "token": "DNI",
+      "term": "DNI",
+      "meaning": "Documento Nacional de Identidad.",
+      "conceptId": "datos-sensibles",
+      "questionIds": [
+        262
+      ]
+    },
+    {
+      "token": "DNS",
+      "term": "DNS",
+      "meaning": "Domain Name System: sistema de nombres de dominio.",
+      "conceptId": "dns",
+      "questionIds": [
+        14,
+        22,
+        33,
+        35,
+        79,
+        83,
+        88,
+        89,
+        102,
+        103,
+        104,
+        105,
+        107,
+        108,
+        111,
+        113,
+        114,
+        116,
+        117,
+        120,
+        123,
+        124,
+        126,
+        128,
+        129,
+        131,
+        136,
+        145,
+        148,
+        150,
+        156,
+        159,
+        168,
+        174,
+        176,
+        190,
+        202,
+        205,
+        218,
+        225,
+        226,
+        232,
+        246,
+        251,
+        255,
+        258,
+        271,
+        275,
+        278,
+        281,
+        288,
+        292,
+        296,
+        304,
+        313,
+        314,
+        322,
+        324,
+        329,
+        331,
+        333,
+        335,
+        341,
+        343,
+        347,
+        392,
+        398,
+        402,
+        415,
+        416,
+        440
+      ]
+    },
+    {
+      "token": "DNSSEC",
+      "term": "DNSSEC",
+      "meaning": "Domain Name System Security Extensions: extensiones de seguridad de DNS.",
+      "conceptId": "dnssec",
+      "questionIds": [
+        139
+      ]
+    },
+    {
+      "token": "DOCM",
+      "term": "DOCM",
+      "meaning": "Extensión de documento de Word habilitado para macros; denominación de formato, no sigla con expansión normativa.",
+      "conceptId": "macros-documentos",
+      "questionIds": [
+        435,
+        436
+      ]
+    },
+    {
+      "token": "DOS",
+      "term": "DOS",
+      "meaning": "Disk Operating System: sistema operativo de disco; en este contexto se refiere al entorno y cabecera de compatibilidad de MS-DOS.",
+      "conceptId": "pe",
+      "questionIds": [
+        258,
+        421
+      ]
+    },
+    {
+      "token": "Diffie-Hellman",
+      "term": "DH",
+      "meaning": "Diffie–Hellman: apellidos que dan nombre al acuerdo de claves.",
+      "conceptId": "diffie-hellman",
+      "questionIds": [
+        380,
+        381
+      ]
+    },
+    {
+      "token": "DoS",
+      "term": "DoS",
+      "meaning": "Denial of Service: denegación de servicio.",
+      "conceptId": "defacement",
+      "questionIds": [
+        218
+      ]
+    },
+    {
+      "token": "ECB",
+      "term": "ECB",
+      "meaning": "Electronic Codebook: modo de libro de códigos electrónico.",
+      "conceptId": "ecb",
+      "questionIds": [
+        15,
+        18,
+        19,
+        46,
+        48,
+        213,
+        295,
+        371,
+        372
+      ]
+    },
+    {
+      "token": "EDR",
+      "term": "EDR",
+      "meaning": "Endpoint Detection and Response: detección y respuesta en equipos finales.",
+      "conceptId": "edr",
+      "questionIds": [
+        89
+      ]
+    },
+    {
+      "token": "ELF",
+      "term": "ELF",
+      "meaning": "Executable and Linkable Format: formato ejecutable y enlazable.",
+      "conceptId": "elf",
+      "questionIds": [
+        241,
+        265,
+        269,
+        284
+      ]
+    },
+    {
+      "token": "ERX",
+      "term": "ERX",
+      "meaning": "Early Registration Transfer: proyecto de transferencia de registros históricos.",
+      "conceptId": "erx",
+      "questionIds": [
+        103,
+        204,
+        396
+      ]
+    },
+    {
+      "token": "ERX-NETBLOCK",
+      "term": "ERX",
+      "meaning": "Early Registration Transfer: proyecto de transferencia de registros históricos.",
+      "conceptId": "erx",
+      "questionIds": [
+        103,
+        396
+      ]
+    },
+    {
+      "token": "ESMTP",
+      "term": "ESMTP",
+      "meaning": "Extended Simple Mail Transfer Protocol: SMTP extendido.",
+      "conceptId": "tls-correo",
+      "questionIds": [
+        406
+      ]
+    },
+    {
+      "token": "ESMTPS",
+      "term": "ESMTPS",
+      "meaning": "ESMTP con TLS: identificador del transporte SMTP extendido protegido en ese salto.",
+      "conceptId": "tls-correo",
+      "questionIds": [
+        162
+      ]
+    },
+    {
+      "token": "GDB",
+      "term": "GDB",
+      "meaning": "GNU Debugger: depurador del proyecto GNU.",
+      "conceptId": "gdb-ida",
+      "questionIds": [
+        235,
+        251,
+        287
+      ]
+    },
+    {
+      "token": "GPG",
+      "term": "GPG",
+      "meaning": "GNU Privacy Guard: implementación del ecosistema OpenPGP.",
+      "conceptId": "pgp",
+      "questionIds": [
+        388
+      ]
+    },
+    {
+      "token": "GPU",
+      "term": "GPU",
+      "meaning": "Graphics Processing Unit: unidad de procesamiento gráfico.",
+      "conceptId": "hardware",
+      "questionIds": [
+        245
+      ]
+    },
+    {
+      "token": "GUI",
+      "term": "GUI",
+      "meaning": "Graphical User Interface: interfaz gráfica de usuario. En el DuckyScript del ejercicio, GUI nombra la tecla Windows/Super; GUI r expresa su combinación con r.",
+      "conceptId": "hid",
+      "questionIds": [
+        418
+      ]
+    },
+    {
+      "token": "GUID",
+      "term": "GUID",
+      "meaning": "Globally Unique Identifier: identificador globalmente único.",
+      "conceptId": "identificadores",
+      "questionIds": [
+        430
+      ]
+    },
+    {
+      "token": "GnuPG",
+      "term": "GPG",
+      "meaning": "GNU Privacy Guard: implementación del ecosistema OpenPGP.",
+      "conceptId": "pgp",
+      "questionIds": [
+        385
+      ]
+    },
+    {
+      "token": "HID",
+      "term": "HID",
+      "meaning": "Human Interface Device: dispositivo de interfaz humana.",
+      "conceptId": "hid",
+      "questionIds": [
+        417,
+        418
+      ]
+    },
+    {
+      "token": "HKCR",
+      "term": "HKCR",
+      "meaning": "HKEY_CLASSES_ROOT: clave predefinida de información de clases y asociaciones.",
+      "conceptId": "registry",
+      "questionIds": [
+        279
+      ]
+    },
+    {
+      "token": "HKCU",
+      "term": "HKCU",
+      "meaning": "HKEY_CURRENT_USER: clave predefinida del usuario actual.",
+      "conceptId": "registry",
+      "questionIds": [
+        275,
+        276,
+        278,
+        279,
+        292,
+        303,
+        321,
+        323,
+        336,
+        349,
+        428,
+        429
+      ]
+    },
+    {
+      "token": "HKEY_CLASSES_ROOT",
+      "term": "HKCR",
+      "meaning": "HKEY_CLASSES_ROOT: clave predefinida de información de clases y asociaciones.",
+      "conceptId": "registry",
+      "questionIds": [
+        321
+      ]
+    },
+    {
+      "token": "HKEY_CURRENT_USER",
+      "term": "HKCU",
+      "meaning": "HKEY_CURRENT_USER: clave predefinida del usuario actual.",
+      "conceptId": "registry",
+      "questionIds": [
+        276
+      ]
+    },
+    {
+      "token": "HKEY_LOCAL_MACHINE",
+      "term": "HKLM",
+      "meaning": "HKEY_LOCAL_MACHINE: clave predefinida de la configuración del equipo.",
+      "conceptId": "registry",
+      "questionIds": [
+        277
+      ]
+    },
+    {
+      "token": "HKEY_USERS",
+      "term": "HKEY_USERS",
+      "meaning": "Clave predefinida con los perfiles de usuario cargados; denominación literal del Registro.",
+      "conceptId": "registry",
+      "questionIds": [
+        275
+      ]
+    },
+    {
+      "token": "HKLM",
+      "term": "HKLM",
+      "meaning": "HKEY_LOCAL_MACHINE: clave predefinida de la configuración del equipo.",
+      "conceptId": "registry",
+      "questionIds": [
+        275,
+        277,
+        279,
+        321,
+        322,
+        429
+      ]
+    },
+    {
+      "token": "HTML",
+      "term": "HTML",
+      "meaning": "Hypertext Markup Language: lenguaje de marcado de hipertexto.",
+      "conceptId": "fallos-web",
+      "questionIds": [
+        93,
+        100
+      ]
+    },
+    {
+      "token": "HTTP",
+      "term": "HTTP",
+      "meaning": "Hypertext Transfer Protocol: protocolo de transferencia de hipertexto.",
+      "conceptId": "tcp-http",
+      "questionIds": [
+        102,
+        112,
+        206,
+        332,
+        416,
+        432
+      ]
+    },
+    {
+      "token": "HTTP/1.1",
+      "term": "HTTP",
+      "meaning": "Hypertext Transfer Protocol: protocolo de transferencia de hipertexto.",
+      "conceptId": "tcp-http",
+      "questionIds": [
+        432
+      ]
+    },
+    {
+      "token": "HTTPS",
+      "term": "HTTPS",
+      "meaning": "Hypertext Transfer Protocol Secure: uso de HTTP sobre un canal protegido con TLS.",
+      "conceptId": "tcp-http",
+      "questionIds": [
+        131
+      ]
+    },
+    {
+      "token": "IANA",
+      "term": "IANA",
+      "meaning": "Internet Assigned Numbers Authority: autoridad de números asignados de Internet.",
+      "conceptId": "rir",
+      "questionIds": [
+        111,
+        322,
+        392
+      ]
+    },
+    {
+      "token": "ICANN",
+      "term": "ICANN",
+      "meaning": "Internet Corporation for Assigned Names and Numbers: corporación para la asignación de nombres y números en Internet.",
+      "conceptId": "icann",
+      "questionIds": [
+        106,
+        319,
+        333
+      ]
+    },
+    {
+      "token": "ICMP",
+      "term": "ICMP",
+      "meaning": "Internet Control Message Protocol: protocolo de mensajes de control de Internet.",
+      "conceptId": "captura-red",
+      "questionIds": [
+        127,
+        414,
+        416
+      ]
+    },
+    {
+      "token": "IDA",
+      "term": "IDA",
+      "meaning": "Interactive Disassembler: desensamblador interactivo.",
+      "conceptId": "gdb-ida",
+      "questionIds": [
+        281,
+        286
+      ]
+    },
+    {
+      "token": "IMAP",
+      "term": "IMAP",
+      "meaning": "Internet Message Access Protocol: protocolo de acceso a mensajes de Internet.",
+      "conceptId": "smtp",
+      "questionIds": [
+        118,
+        131,
+        132,
+        159,
+        233,
+        255,
+        293
+      ]
+    },
+    {
+      "token": "IOC",
+      "term": "IOC",
+      "meaning": "Indicator of Compromise: indicador de compromiso.",
+      "conceptId": "ioc",
+      "questionIds": [
+        104,
+        229,
+        231,
+        239,
+        257,
+        262,
+        263,
+        267,
+        340,
+        344,
+        345,
+        346,
+        420,
+        422,
+        425,
+        431,
+        434,
+        439,
+        440,
+        441,
+        442
+      ]
+    },
+    {
+      "token": "IP",
+      "term": "IP",
+      "meaning": "Internet Protocol: protocolo de Internet.",
+      "conceptId": "ip",
+      "questionIds": [
+        29,
+        33,
+        55,
+        89,
+        93,
+        97,
+        98,
+        100,
+        102,
+        103,
+        104,
+        105,
+        109,
+        110,
+        111,
+        114,
+        117,
+        120,
+        121,
+        126,
+        127,
+        128,
+        135,
+        138,
+        139,
+        142,
+        145,
+        149,
+        150,
+        154,
+        158,
+        159,
+        161,
+        163,
+        169,
+        181,
+        183,
+        185,
+        186,
+        192,
+        193,
+        196,
+        203,
+        204,
+        206,
+        210,
+        211,
+        215,
+        222,
+        223,
+        226,
+        230,
+        231,
+        237,
+        244,
+        253,
+        262,
+        267,
+        282,
+        293,
+        316,
+        334,
+        335,
+        343,
+        346,
+        392,
+        393,
+        394,
+        395,
+        396,
+        399,
+        402,
+        404,
+        405,
+        406,
+        407,
+        410,
+        411,
+        412,
+        413,
+        425,
+        431
+      ]
+    },
+    {
+      "token": "IPs",
+      "term": "IP",
+      "meaning": "Internet Protocol: protocolo de Internet.",
+      "conceptId": "ip",
+      "questionIds": [
+        107
+      ]
+    },
+    {
+      "token": "IPv4",
+      "term": "IPv4",
+      "meaning": "Internet Protocol version 4: versión 4 del protocolo de Internet.",
+      "conceptId": "ip",
+      "questionIds": [
+        99,
+        103,
+        127,
+        136,
+        143,
+        145,
+        197,
+        397,
+        405
+      ]
+    },
+    {
+      "token": "IPv6",
+      "term": "IPv6",
+      "meaning": "Internet Protocol version 6: versión 6 del protocolo de Internet.",
+      "conceptId": "ip",
+      "questionIds": [
+        47,
+        103,
+        129,
+        136,
+        138,
+        143,
+        168,
+        237,
+        397
+      ]
+    },
+    {
+      "token": "IV",
+      "term": "IV",
+      "meaning": "Initialization Vector: vector de inicialización.",
+      "conceptId": "iv",
+      "questionIds": [
+        13,
+        16,
+        17,
+        22,
+        26,
+        35,
+        36,
+        39,
+        41,
+        47,
+        54,
+        372
+      ]
+    },
+    {
+      "token": "JPEG",
+      "term": "JPEG",
+      "meaning": "Joint Photographic Experts Group: grupo que da nombre al estándar de imagen.",
+      "conceptId": "formatos-archivo",
+      "questionIds": [
+        258
+      ]
+    },
+    {
+      "token": "JSON",
+      "term": "JSON",
+      "meaning": "JavaScript Object Notation: notación de objetos de JavaScript para representar datos.",
+      "conceptId": "rdap",
+      "questionIds": [
+        99,
+        100,
+        125,
+        128,
+        206,
+        395
+      ]
+    },
+    {
+      "token": "KDF",
+      "term": "KDF",
+      "meaning": "Key Derivation Function: función de derivación de claves.",
+      "conceptId": "kdf",
+      "questionIds": [
+        370,
+        390
+      ]
+    },
+    {
+      "token": "LACNIC",
+      "term": "LACNIC",
+      "meaning": "Latin American and Caribbean Internet Addresses Registry: registro de direcciones de Internet para América Latina y el Caribe.",
+      "conceptId": "rir",
+      "questionIds": [
+        94,
+        95,
+        96,
+        97,
+        106,
+        313,
+        391,
+        392,
+        396
+      ]
+    },
+    {
+      "token": "LAN",
+      "term": "LAN",
+      "meaning": "Local Area Network: red de área local.",
+      "conceptId": "lan-vpn",
+      "questionIds": [
+        163
+      ]
+    },
+    {
+      "token": "LEA",
+      "term": "LEA",
+      "meaning": "Law Enforcement Agency: organismo competente de aplicación de la ley.",
+      "conceptId": "privacidad-registro",
+      "questionIds": [
+        124
+      ]
+    },
+    {
+      "token": "LSB",
+      "term": "LSB",
+      "meaning": "Least Significant Bit: bit menos significativo.",
+      "conceptId": "lsb",
+      "questionIds": [
+        357,
+        383,
+        384
+      ]
+    },
+    {
+      "token": "MAC",
+      "term": "MAC",
+      "meaning": "Media Access Control: control de acceso al medio, en «dirección MAC». En criptografía: Message Authentication Code, código de autenticación de mensaje.",
+      "conceptId": "arp-mac",
+      "questionIds": [
+        212
+      ]
+    },
+    {
+      "token": "MD5",
+      "term": "MD5",
+      "meaning": "Message Digest 5: algoritmo de resumen de mensaje de 128 bits.",
+      "conceptId": "sha",
+      "questionIds": [
+        23,
+        26,
+        30,
+        38,
+        39,
+        40,
+        45,
+        48,
+        55,
+        221,
+        248,
+        341,
+        366,
+        367,
+        368,
+        369,
+        370
+      ]
+    },
+    {
+      "token": "MIME",
+      "term": "MIME",
+      "meaning": "Multipurpose Internet Mail Extensions: extensiones multipropósito del correo de Internet.",
+      "conceptId": "mime-smime",
+      "questionIds": [
+        148,
+        158,
+        282
+      ]
+    },
+    {
+      "token": "MTA",
+      "term": "MTA",
+      "meaning": "Message Transfer Agent, también Mail Transfer Agent: agente de transferencia de correo.",
+      "conceptId": "smtp",
+      "questionIds": [
+        131
+      ]
+    },
+    {
+      "token": "MX",
+      "term": "MX",
+      "meaning": "Mail Exchanger: intercambiador de correo; también se usa «Mail Exchange» para el tipo de registro.",
+      "conceptId": "mx",
+      "questionIds": [
+        29,
+        33,
+        42,
+        49,
+        89,
+        102,
+        105,
+        107,
+        119,
+        124,
+        129,
+        130,
+        145,
+        148,
+        161,
+        204,
+        207,
+        208,
+        218,
+        222,
+        226,
+        271,
+        275,
+        295,
+        298,
+        310,
+        313,
+        314,
+        322,
+        333,
+        344,
+        398,
+        399,
+        402,
+        404,
+        406,
+        409
+      ]
+    },
+    {
+      "token": "MZ",
+      "term": "MZ",
+      "meaning": "Iniciales de Mark Zbikowski, usadas como firma de la cabecera DOS; no es una frase técnica de dos palabras.",
+      "conceptId": "pe",
+      "questionIds": [
+        258,
+        316,
+        421
+      ]
+    },
+    {
+      "token": "Mach-O",
+      "term": "Mach-O",
+      "meaning": "Mach Object: formato de objetos y ejecutables de la familia de sistemas de Apple; denominación de formato.",
+      "conceptId": "elf",
+      "questionIds": [
+        241
+      ]
+    },
+    {
+      "token": "Message-ID",
+      "term": "ID",
+      "meaning": "Identifier: identificador; en Message-ID identifica un mensaje según las convenciones de correo.",
+      "conceptId": "identificadores",
+      "questionIds": [
+        137,
+        141,
+        150
+      ]
+    },
+    {
+      "token": "MitM",
+      "term": "MitM",
+      "meaning": "Man in the Middle: intermediario que se interpone en una comunicación.",
+      "conceptId": "mitm",
+      "questionIds": [
+        79,
+        381
+      ]
+    },
+    {
+      "token": "NAT",
+      "term": "NAT",
+      "meaning": "Network Address Translation: traducción de direcciones de red.",
+      "conceptId": "ip",
+      "questionIds": [
+        183
+      ]
+    },
+    {
+      "token": "NCC",
+      "term": "NCC",
+      "meaning": "Network Coordination Centre: centro de coordinación de redes; forma parte del nombre RIPE NCC.",
+      "conceptId": "rir",
+      "questionIds": [
+        94,
+        95,
+        96,
+        391
+      ]
+    },
+    {
+      "token": "NIC",
+      "term": "NIC",
+      "meaning": "Network Information Center: centro de información de red; NIC Argentina es la denominación usada para el registro .ar.",
+      "conceptId": "tld",
+      "questionIds": [
+        97,
+        122,
+        401
+      ]
+    },
+    {
+      "token": "NIR",
+      "term": "NIR",
+      "meaning": "National Internet Registry: registro nacional de Internet.",
+      "conceptId": "nir",
+      "questionIds": [
+        392,
+        397
+      ]
+    },
+    {
+      "token": "OpenPGP",
+      "term": "OpenPGP",
+      "meaning": "Estándar abierto de mensajes y claves derivado de PGP (Pretty Good Privacy); no es una expansión letra por letra.",
+      "conceptId": "pgp",
+      "questionIds": [
+        385,
+        387
+      ]
+    },
+    {
+      "token": "PC",
+      "term": "PC",
+      "meaning": "Personal Computer: computadora personal.",
+      "conceptId": "hardware",
+      "questionIds": [
+        200,
+        216,
+        341,
+        435,
+        440
+      ]
+    },
+    {
+      "token": "PCAP",
+      "term": "PCAP",
+      "meaning": "Packet Capture: captura de paquetes; también da nombre a un formato de archivos de captura.",
+      "conceptId": "captura-red",
+      "questionIds": [
+        416,
+        440
+      ]
+    },
+    {
+      "token": "PDF",
+      "term": "PDF",
+      "meaning": "Portable Document Format: formato de documento portátil.",
+      "conceptId": "formatos-archivo",
+      "questionIds": [
+        231,
+        255,
+        310
+      ]
+    },
+    {
+      "token": "PDF/A",
+      "term": "PDF/A",
+      "meaning": "Perfil de PDF para archivo y preservación a largo plazo; la A remite a su finalidad de archivo.",
+      "conceptId": "formatos-archivo",
+      "questionIds": [
+        241
+      ]
+    },
+    {
+      "token": "PE",
+      "term": "PE",
+      "meaning": "Portable Executable: formato ejecutable portátil de Windows.",
+      "conceptId": "pe",
+      "questionIds": [
+        36,
+        47,
+        152,
+        159,
+        239,
+        241,
+        242,
+        243,
+        244,
+        249,
+        251,
+        252,
+        253,
+        254,
+        255,
+        258,
+        259,
+        260,
+        261,
+        265,
+        283,
+        284,
+        287,
+        301,
+        303,
+        304,
+        307,
+        308,
+        310,
+        311,
+        315,
+        318,
+        324,
+        325,
+        329,
+        330,
+        337,
+        420,
+        421,
+        423,
+        424,
+        439
+      ]
+    },
+    {
+      "token": "PGP",
+      "term": "PGP",
+      "meaning": "Pretty Good Privacy: nombre de la tecnología de protección mediante cifrado y firmas.",
+      "conceptId": "pgp",
+      "questionIds": [
+        53,
+        214,
+        223,
+        313,
+        327,
+        332,
+        333,
+        336,
+        385,
+        386,
+        387
+      ]
+    },
+    {
+      "token": "PNG",
+      "term": "PNG",
+      "meaning": "Portable Network Graphics: formato de gráficos de red portátiles.",
+      "conceptId": "formatos-archivo",
+      "questionIds": [
+        246
+      ]
+    },
+    {
+      "token": "POP3",
+      "term": "POP3",
+      "meaning": "Post Office Protocol version 3: versión 3 del protocolo de oficina de correos.",
+      "conceptId": "smtp",
+      "questionIds": [
+        131,
+        213
+      ]
+    },
+    {
+      "token": "PTR",
+      "term": "PTR",
+      "meaning": "Pointer: puntero a un nombre, usado por ejemplo en resolución inversa.",
+      "conceptId": "registros-dns",
+      "questionIds": [
+        114,
+        117,
+        126,
+        129,
+        154,
+        159,
+        214,
+        246
+      ]
+    },
+    {
+      "token": "RAT",
+      "term": "RAT",
+      "meaning": "Remote Access Trojan: troyano de acceso remoto, en el contexto de familias de malware.",
+      "conceptId": "familias",
+      "questionIds": [
+        234
+      ]
+    },
+    {
+      "token": "RC5",
+      "term": "RC5",
+      "meaning": "Ron’s Code 5: nombre de la familia de cifradores de Ronald Rivest; RC significaba originalmente Ron’s Code.",
+      "conceptId": "rc5",
+      "questionIds": [
+        52
+      ]
+    },
+    {
+      "token": "RCPT",
+      "term": "RCPT",
+      "meaning": "Recipient: destinatario; abreviatura usada por el comando SMTP RCPT TO.",
+      "conceptId": "envelope",
+      "questionIds": [
+        133,
+        155,
+        156,
+        158,
+        208,
+        209,
+        248
+      ]
+    },
+    {
+      "token": "RDAP",
+      "term": "RDAP",
+      "meaning": "Registration Data Access Protocol: protocolo de acceso a datos de registro.",
+      "conceptId": "rdap",
+      "questionIds": [
+        47,
+        99,
+        100,
+        107,
+        108,
+        110,
+        117,
+        122,
+        125,
+        127,
+        128,
+        132,
+        161,
+        203,
+        206,
+        207,
+        223,
+        233,
+        282,
+        286,
+        287,
+        290,
+        296,
+        304,
+        323,
+        333,
+        341,
+        393,
+        394,
+        395,
+        396,
+        397,
+        406
+      ]
+    },
+    {
+      "token": "RFC",
+      "term": "RFC",
+      "meaning": "Request for Comments: serie de documentos técnicos usada, entre otros fines, para especificaciones de Internet.",
+      "conceptId": "ip-privadas",
+      "questionIds": [
+        136,
+        143,
+        145,
+        210,
+        405
+      ]
+    },
+    {
+      "token": "RFC1918",
+      "term": "RFC",
+      "meaning": "Request for Comments: serie de documentos técnicos usada, entre otros fines, para especificaciones de Internet.",
+      "conceptId": "ip-privadas",
+      "questionIds": [
+        405
+      ]
+    },
+    {
+      "token": "RIPE",
+      "term": "RIPE",
+      "meaning": "Réseaux IP Européens: denominación francesa de la comunidad de redes IP europeas.",
+      "conceptId": "rir",
+      "questionIds": [
+        94,
+        95,
+        96,
+        391
+      ]
+    },
+    {
+      "token": "RIR",
+      "term": "RIR",
+      "meaning": "Regional Internet Registry: registro regional de Internet.",
+      "conceptId": "rir",
+      "questionIds": [
+        32,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        100,
+        103,
+        104,
+        111,
+        117,
+        120,
+        122,
+        204,
+        205,
+        210,
+        251,
+        270,
+        272,
+        282,
+        293,
+        297,
+        313,
+        341,
+        391,
+        392,
+        396
+      ]
+    },
+    {
+      "token": "ROT13",
+      "term": "ROT13",
+      "meaning": "Rotation by 13: rotación o desplazamiento de trece posiciones en el alfabeto.",
+      "conceptId": "cesar",
+      "questionIds": [
+        8,
+        322
+      ]
+    },
+    {
+      "token": "ROT3",
+      "term": "ROT3",
+      "meaning": "Rotation by 3: rotación o desplazamiento de tres posiciones en el alfabeto.",
+      "conceptId": "cesar",
+      "questionIds": [
+        7,
+        9,
+        42,
+        56,
+        57,
+        58,
+        59,
+        60
+      ]
+    },
+    {
+      "token": "RSA",
+      "term": "RSA",
+      "meaning": "Rivest, Shamir y Adleman: apellidos de los autores que dan nombre al esquema.",
+      "conceptId": "rsa",
+      "questionIds": [
+        9,
+        35,
+        258,
+        376,
+        377,
+        378,
+        379,
+        381,
+        387
+      ]
+    },
+    {
+      "token": "S/MIME",
+      "term": "S/MIME",
+      "meaning": "Secure/Multipurpose Internet Mail Extensions: protección criptográfica de mensajes MIME.",
+      "conceptId": "mime-smime",
+      "questionIds": [
+        84
+      ]
+    },
+    {
+      "token": "SHA-1",
+      "term": "SHA-1",
+      "meaning": "Secure Hash Algorithm 1: algoritmo hash seguro de la familia SHA, con salida de 160 bits.",
+      "conceptId": "sha",
+      "questionIds": [
+        8,
+        16,
+        24,
+        40,
+        50,
+        223,
+        316,
+        366
+      ]
+    },
+    {
+      "token": "SHA-2",
+      "term": "SHA-2",
+      "meaning": "Secure Hash Algorithm 2: familia de algoritmos hash que incluye SHA-224, SHA-256, SHA-384 y SHA-512.",
+      "conceptId": "sha",
+      "questionIds": [
+        40
+      ]
+    },
+    {
+      "token": "SHA-224",
+      "term": "SHA-224",
+      "meaning": "Secure Hash Algorithm, variante de SHA-2 con salida de 224 bits.",
+      "conceptId": "sha",
+      "questionIds": [
+        61
+      ]
+    },
+    {
+      "token": "SHA-224/256/384/512",
+      "term": "SHA-2",
+      "meaning": "Secure Hash Algorithm 2: familia de algoritmos hash que incluye SHA-224, SHA-256, SHA-384 y SHA-512.",
+      "conceptId": "sha",
+      "questionIds": [
+        40
+      ]
+    },
+    {
+      "token": "SHA-256",
+      "term": "SHA-256",
+      "meaning": "Secure Hash Algorithm, variante de SHA-2 con salida de 256 bits.",
+      "conceptId": "sha-256",
+      "questionIds": [
+        9,
+        25,
+        27,
+        28,
+        34,
+        36,
+        40,
+        230,
+        248,
+        282,
+        322,
+        366,
+        368,
+        369,
+        420,
+        421,
+        422
+      ]
+    },
+    {
+      "token": "SHA-384",
+      "term": "SHA-384",
+      "meaning": "Secure Hash Algorithm, variante de SHA-2 con salida de 384 bits.",
+      "conceptId": "sha",
+      "questionIds": [
+        62
+      ]
+    },
+    {
+      "token": "SHA-512",
+      "term": "SHA-512",
+      "meaning": "Secure Hash Algorithm, variante de SHA-2 con salida de 512 bits.",
+      "conceptId": "sha",
+      "questionIds": [
+        40,
+        52,
+        63,
+        313,
+        366
+      ]
+    },
+    {
+      "token": "SHA256",
+      "term": "SHA-256",
+      "meaning": "Secure Hash Algorithm, variante de SHA-2 con salida de 256 bits.",
+      "conceptId": "sha-256",
+      "questionIds": [
+        248
+      ]
+    },
+    {
+      "token": "SMTP",
+      "term": "SMTP",
+      "meaning": "Simple Mail Transfer Protocol: protocolo simple de transferencia de correo.",
+      "conceptId": "smtp",
+      "questionIds": [
+        27,
+        31,
+        41,
+        47,
+        83,
+        93,
+        103,
+        111,
+        120,
+        122,
+        130,
+        131,
+        132,
+        133,
+        134,
+        135,
+        138,
+        139,
+        142,
+        146,
+        147,
+        148,
+        154,
+        155,
+        156,
+        157,
+        158,
+        159,
+        162,
+        186,
+        206,
+        208,
+        209,
+        214,
+        221,
+        225,
+        226,
+        266,
+        270,
+        275,
+        279,
+        280,
+        294,
+        304,
+        402,
+        403,
+        408,
+        409
+      ]
+    },
+    {
+      "token": "SPF",
+      "term": "SPF",
+      "meaning": "Sender Policy Framework: marco de políticas de remitente.",
+      "conceptId": "tls-correo",
+      "questionIds": [
+        112,
+        275,
+        409
+      ]
+    },
+    {
+      "token": "SQL",
+      "term": "SQL",
+      "meaning": "Structured Query Language: lenguaje de consultas estructuradas.",
+      "conceptId": "fallos-web",
+      "questionIds": [
+        81,
+        82
+      ]
+    },
+    {
+      "token": "SRV",
+      "term": "SRV",
+      "meaning": "Service: registro que indica dónde encontrar un servicio.",
+      "conceptId": "registros-dns",
+      "questionIds": [
+        129
+      ]
+    },
+    {
+      "token": "SSH",
+      "term": "SSH",
+      "meaning": "Secure Shell: protocolo para acceso remoto seguro.",
+      "conceptId": "ssh-logs",
+      "questionIds": [
+        246,
+        410,
+        411,
+        413,
+        418
+      ]
+    },
+    {
+      "token": "SSRF",
+      "term": "SSRF",
+      "meaning": "Server-Side Request Forgery: falsificación de solicitudes realizadas desde el servidor.",
+      "conceptId": "fallos-web",
+      "questionIds": [
+        81
+      ]
+    },
+    {
+      "token": "TAR",
+      "term": "TAR",
+      "meaning": "Tape Archiver: archivador de cinta; da nombre al formato para agrupar archivos, sin comprimir por sí mismo.",
+      "conceptId": "formatos-archivo",
+      "questionIds": [
+        241
+      ]
+    },
+    {
+      "token": "TCP",
+      "term": "TCP",
+      "meaning": "Transmission Control Protocol: protocolo de control de transmisión. TCP/IP nombra su uso junto con Internet Protocol.",
+      "conceptId": "tcp-http",
+      "questionIds": [
+        10,
+        100,
+        131,
+        136,
+        157,
+        158,
+        292,
+        315,
+        335
+      ]
+    },
+    {
+      "token": "TCP/25",
+      "term": "TCP",
+      "meaning": "Transmission Control Protocol: protocolo de control de transmisión. TCP/IP nombra su uso junto con Internet Protocol.",
+      "conceptId": "tcp-http",
+      "questionIds": [
+        131
+      ]
+    },
+    {
+      "token": "TLD",
+      "term": "TLD",
+      "meaning": "Top-Level Domain: dominio de nivel superior.",
+      "conceptId": "tld",
+      "questionIds": [
+        89,
+        113,
+        114,
+        115,
+        116,
+        118,
+        121,
+        126,
+        205,
+        207,
+        210,
+        270,
+        319,
+        323,
+        343,
+        398,
+        401
+      ]
+    },
+    {
+      "token": "TLP",
+      "term": "TLP",
+      "meaning": "Traffic Light Protocol: protocolo del semáforo para compartir información.",
+      "conceptId": "tlp",
+      "questionIds": [
+        213,
+        224
+      ]
+    },
+    {
+      "token": "TLS",
+      "term": "TLS",
+      "meaning": "Transport Layer Security: seguridad de la capa de transporte.",
+      "conceptId": "tls-correo",
+      "questionIds": [
+        82,
+        93,
+        102,
+        147,
+        162,
+        203
+      ]
+    },
+    {
+      "token": "TTL",
+      "term": "TTL",
+      "meaning": "Time To Live: tiempo de vida del dato en caché.",
+      "conceptId": "registros-dns",
+      "questionIds": [
+        313
+      ]
+    },
+    {
+      "token": "TXT",
+      "term": "TXT",
+      "meaning": "Text: registro que contiene cadenas de texto.",
+      "conceptId": "registros-dns",
+      "questionIds": [
+        112,
+        258,
+        296
+      ]
+    },
+    {
+      "token": "UNLP",
+      "term": "UNLP",
+      "meaning": "Universidad Nacional de La Plata.",
+      "conceptId": "erx",
+      "questionIds": [
+        104,
+        106,
+        112
+      ]
+    },
+    {
+      "token": "URL",
+      "term": "URL",
+      "meaning": "Uniform Resource Locator: localizador uniforme de recursos.",
+      "conceptId": "apis-red",
+      "questionIds": [
+        81,
+        154,
+        239,
+        245,
+        250,
+        263,
+        291,
+        303,
+        312,
+        332,
+        343,
+        420,
+        425,
+        431,
+        439
+      ]
+    },
+    {
+      "token": "URLs",
+      "term": "URL",
+      "meaning": "Uniform Resource Locator: localizador uniforme de recursos.",
+      "conceptId": "apis-red",
+      "questionIds": [
+        209,
+        231,
+        238,
+        239,
+        433,
+        435
+      ]
+    },
+    {
+      "token": "USB",
+      "term": "USB",
+      "meaning": "Universal Serial Bus: bus serie universal.",
+      "conceptId": "hid",
+      "questionIds": [
+        270,
+        417
+      ]
+    },
+    {
+      "token": "UTC",
+      "term": "UTC",
+      "meaning": "Coordinated Universal Time: tiempo universal coordinado; UTC es la abreviatura internacional acordada.",
+      "conceptId": "tiempos",
+      "questionIds": [
+        202
+      ]
+    },
+    {
+      "token": "UTF-16",
+      "term": "UTF-16",
+      "meaning": "Unicode Transformation Format de 16 bits: codificación Unicode basada en unidades de 16 bits.",
+      "conceptId": "ascii",
+      "questionIds": [
+        54,
+        240,
+        265
+      ]
+    },
+    {
+      "token": "VBA",
+      "term": "VBA",
+      "meaning": "Visual Basic for Applications: entorno/lenguaje de macros usado en aplicaciones de Office.",
+      "conceptId": "macros-documentos",
+      "questionIds": [
+        435,
+        436
+      ]
+    },
+    {
+      "token": "VBS",
+      "term": "VBS",
+      "meaning": "Extensión de scripts de VBScript; Visual Basic Scripting Edition es la denominación del lenguaje.",
+      "conceptId": "ofuscacion-vbs",
+      "questionIds": [
+        433
+      ]
+    },
+    {
+      "token": "VBScript",
+      "term": "VBS",
+      "meaning": "Extensión de scripts de VBScript; Visual Basic Scripting Edition es la denominación del lenguaje.",
+      "conceptId": "ofuscacion-vbs",
+      "questionIds": [
+        433,
+        434
+      ]
+    },
+    {
+      "token": "VM",
+      "term": "VM",
+      "meaning": "Virtual Machine: máquina virtual.",
+      "conceptId": "laboratorio",
+      "questionIds": [
+        266,
+        271,
+        274,
+        299,
+        300,
+        315,
+        317,
+        318,
+        319,
+        320,
+        342,
+        426
+      ]
+    },
+    {
+      "token": "VPN",
+      "term": "VPN",
+      "meaning": "Virtual Private Network: red privada virtual.",
+      "conceptId": "lan-vpn",
+      "questionIds": [
+        190
+      ]
+    },
+    {
+      "token": "WAV",
+      "term": "WAV",
+      "meaning": "Extensión del formato WAVE de audio de forma de onda (waveform audio); es una denominación de formato.",
+      "conceptId": "formatos-archivo",
+      "questionIds": [
+        384
+      ]
+    },
+    {
+      "token": "WHOIS",
+      "term": "WHOIS",
+      "meaning": "Nombre del protocolo y consulta derivado de «who is?» («¿quién es?»); no es una sigla con expansión letra por letra.",
+      "conceptId": "whois",
+      "questionIds": [
+        33,
+        53,
+        89,
+        99,
+        100,
+        101,
+        103,
+        104,
+        105,
+        112,
+        117,
+        124,
+        127,
+        128,
+        161,
+        189,
+        191,
+        203,
+        204,
+        206,
+        207,
+        223,
+        235,
+        282,
+        285,
+        286,
+        290,
+        326,
+        350,
+        395,
+        396,
+        397,
+        400,
+        406
+      ]
+    },
+    {
+      "token": "WideChar",
+      "term": "WideChar",
+      "meaning": "Wide Character: carácter ancho; en el contexto de las preguntas se relaciona con cadenas UTF-16 de Windows.",
+      "conceptId": "strings",
+      "questionIds": [
+        240,
+        303
+      ]
+    },
+    {
+      "token": "WinINet",
+      "term": "WinINet",
+      "meaning": "Windows Internet: conjunto de API de Windows para funciones de Internet.",
+      "conceptId": "apis-red",
+      "questionIds": [
+        249,
+        313
+      ]
+    },
+    {
+      "token": "XLS",
+      "term": "XLS",
+      "meaning": "Extensión del formato binario de libros de Excel; denominación de formato, no una frase de iniciales.",
+      "conceptId": "macros-documentos",
+      "questionIds": [
+        436,
+        437
+      ]
+    },
+    {
+      "token": "XOR",
+      "term": "XOR",
+      "meaning": "Exclusive OR: operación lógica «o exclusivo».",
+      "conceptId": "xor",
+      "questionIds": [
+        16,
+        46,
+        49,
+        64,
+        65,
+        66,
+        365,
+        373,
+        374,
+        375
+      ]
+    },
+    {
+      "token": "XSS",
+      "term": "XSS",
+      "meaning": "Cross-Site Scripting: inyección de contenido que se ejecuta como script en el navegador de una víctima.",
+      "conceptId": "fallos-web",
+      "questionIds": [
+        82
+      ]
+    },
+    {
+      "token": "ccTLD",
+      "term": "ccTLD",
+      "meaning": "Country-Code Top-Level Domain: dominio de nivel superior de código de país.",
+      "conceptId": "tld",
+      "questionIds": [
+        45,
+        115,
+        121,
+        125,
+        323
+      ]
+    },
+    {
+      "token": "gTLD",
+      "term": "gTLD",
+      "meaning": "Generic Top-Level Domain: dominio genérico de nivel superior.",
+      "conceptId": "tld",
+      "questionIds": [
+        115,
+        401
+      ]
+    }
+  ],
+  "exclusions": [
+    {
+      "token": "A-Z",
+      "reason": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna.",
+      "questionIds": [
+        56,
+        57,
+        58,
+        59
+      ]
+    },
+    {
+      "token": "ABC",
+      "reason": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna.",
+      "questionIds": [
+        7
+      ]
+    },
+    {
+      "token": "ASAC",
+      "reason": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna.",
+      "questionIds": [
+        364
+      ]
+    },
+    {
+      "token": "ATAQUE",
+      "reason": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna.",
+      "questionIds": [
+        56
+      ]
+    },
+    {
+      "token": "AppData",
+      "reason": "Nombre literal de carpeta, rama, valor, servicio o prefijo de una ruta; no es una sigla técnica independiente en el contexto mostrado.",
+      "questionIds": [
+        428
+      ]
+    },
+    {
+      "token": "AutoOpen",
+      "reason": "Nombre de función, API o evento escrito como identificador; no se expande como sigla. Las abreviaturas técnicas de su contexto tienen significado en el glosario.",
+      "questionIds": [
+        435
+      ]
+    },
+    {
+      "token": "BCD",
+      "reason": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna.",
+      "questionIds": [
+        7
+      ]
+    },
+    {
+      "token": "BLUE",
+      "reason": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna.",
+      "questionIds": [
+        362
+      ]
+    },
+    {
+      "token": "BUBRVF",
+      "reason": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna.",
+      "questionIds": [
+        56
+      ]
+    },
+    {
+      "token": "C-A-T",
+      "reason": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna.",
+      "questionIds": [
+        362
+      ]
+    },
+    {
+      "token": "CASA",
+      "reason": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna.",
+      "questionIds": [
+        364
+      ]
+    },
+    {
+      "token": "CAT",
+      "reason": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna.",
+      "questionIds": [
+        362
+      ]
+    },
+    {
+      "token": "CBIER",
+      "reason": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna.",
+      "questionIds": [
+        361
+      ]
+    },
+    {
+      "token": "CBR",
+      "reason": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna.",
+      "questionIds": [
+        361
+      ]
+    },
+    {
+      "token": "CBRIE",
+      "reason": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna.",
+      "questionIds": [
+        361
+      ]
+    },
+    {
+      "token": "CI",
+      "reason": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna.",
+      "questionIds": [
+        359
+      ]
+    },
+    {
+      "token": "CIBER",
+      "reason": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna.",
+      "questionIds": [
+        361
+      ]
+    },
+    {
+      "token": "CLAVE",
+      "reason": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna.",
+      "questionIds": [
+        58,
+        60,
+        382
+      ]
+    },
+    {
+      "token": "CVCSWG",
+      "reason": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna.",
+      "questionIds": [
+        56
+      ]
+    },
+    {
+      "token": "CiberSeguridad",
+      "reason": "Literal de entrada, salt, candidata o cadena codificada del ejercicio; se conserva sin inventar una expansión de sus letras.",
+      "questionIds": [
+        38
+      ]
+    },
+    {
+      "token": "Content-Length",
+      "reason": "Nombre de un campo o cabecera; es una etiqueta descriptiva, no una sigla pendiente de expansión.",
+      "questionIds": [
+        140
+      ]
+    },
+    {
+      "token": "CreateFile",
+      "reason": "Nombre de función, API o evento escrito como identificador; no se expande como sigla. Las abreviaturas técnicas de su contexto tienen significado en el glosario.",
+      "questionIds": [
+        247
+      ]
+    },
+    {
+      "token": "CreateService",
+      "reason": "Nombre de función, API o evento escrito como identificador; no se expande como sigla. Las abreviaturas técnicas de su contexto tienen significado en el glosario.",
+      "questionIds": [
+        246,
+        305,
+        314,
+        349
+      ]
+    },
+    {
+      "token": "CurrentControlSet",
+      "reason": "Nombre literal de carpeta, rama, valor, servicio o prefijo de una ruta; no es una sigla técnica independiente en el contexto mostrado.",
+      "questionIds": [
+        279,
+        321,
+        322,
+        429
+      ]
+    },
+    {
+      "token": "CurrentVersion",
+      "reason": "Nombre literal de carpeta, rama, valor, servicio o prefijo de una ruta; no es una sigla técnica independiente en el contexto mostrado.",
+      "questionIds": [
+        275,
+        321,
+        323,
+        428
+      ]
+    },
+    {
+      "token": "DATA",
+      "reason": "Comando, tecla o palabra literal de un protocolo/script; se interpreta por su función, no como sigla de varias palabras.",
+      "questionIds": [
+        155,
+        157,
+        209
+      ]
+    },
+    {
+      "token": "DATOS",
+      "reason": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna.",
+      "questionIds": [
+        59
+      ]
+    },
+    {
+      "token": "DELAY",
+      "reason": "Comando, tecla o palabra literal de un protocolo/script; se interpreta por su función, no como sigla de varias palabras.",
+      "questionIds": [
+        418
+      ]
+    },
+    {
+      "token": "DMBWF",
+      "reason": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna.",
+      "questionIds": [
+        58,
+        60
+      ]
+    },
+    {
+      "token": "DNSCache",
+      "reason": "Nombre literal de carpeta, rama, valor, servicio o prefijo de una ruta; no es una sigla técnica independiente en el contexto mostrado.",
+      "questionIds": [
+        279
+      ]
+    },
+    {
+      "token": "DWDTXH",
+      "reason": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna.",
+      "questionIds": [
+        56
+      ]
+    },
+    {
+      "token": "Document_Open",
+      "reason": "Nombre de función, API o evento escrito como identificador; no se expande como sigla. Las abreviaturas técnicas de su contexto tienen significado en el glosario.",
+      "questionIds": [
+        435
+      ]
+    },
+    {
+      "token": "EBUPT",
+      "reason": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna.",
+      "questionIds": [
+        59
+      ]
+    },
+    {
+      "token": "ENCXG",
+      "reason": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna.",
+      "questionIds": [
+        58,
+        60
+      ]
+    },
+    {
+      "token": "ENTER",
+      "reason": "Comando, tecla o palabra literal de un protocolo/script; se interpreta por su función, no como sigla de varias palabras.",
+      "questionIds": [
+        418
+      ]
+    },
+    {
+      "token": "ERIBC",
+      "reason": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna.",
+      "questionIds": [
+        361
+      ]
+    },
+    {
+      "token": "EVALC",
+      "reason": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna.",
+      "questionIds": [
+        60
+      ]
+    },
+    {
+      "token": "EYBE",
+      "reason": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna.",
+      "questionIds": [
+        362
+      ]
+    },
+    {
+      "token": "FCVQU",
+      "reason": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna.",
+      "questionIds": [
+        59
+      ]
+    },
+    {
+      "token": "FDVD",
+      "reason": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna.",
+      "questionIds": [
+        364
+      ]
+    },
+    {
+      "token": "FODYH",
+      "reason": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna.",
+      "questionIds": [
+        58,
+        60
+      ]
+    },
+    {
+      "token": "FROM",
+      "reason": "Comando, tecla o palabra literal de un protocolo/script; se interpreta por su función, no como sigla de varias palabras.",
+      "questionIds": [
+        134,
+        135,
+        147,
+        154,
+        155,
+        208,
+        403
+      ]
+    },
+    {
+      "token": "FakeDNS",
+      "reason": "Nombre propio de herramienta, producto, formato o vulnerabilidad; no es una sigla independiente. Sus componentes abreviados se explican cuando corresponden.",
+      "questionIds": [
+        288,
+        308,
+        324,
+        325,
+        329,
+        348
+      ]
+    },
+    {
+      "token": "FakeNet",
+      "reason": "Nombre propio de herramienta, producto, formato o vulnerabilidad; no es una sigla independiente. Sus componentes abreviados se explican cuando corresponden.",
+      "questionIds": [
+        287,
+        330,
+        348
+      ]
+    },
+    {
+      "token": "GDGLUXJHV",
+      "reason": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna.",
+      "questionIds": [
+        57
+      ]
+    },
+    {
+      "token": "GDWRV",
+      "reason": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna.",
+      "questionIds": [
+        59
+      ]
+    },
+    {
+      "token": "GetProcAddress",
+      "reason": "Nombre de función, API o evento escrito como identificador; no se expande como sigla. Las abreviaturas técnicas de su contexto tienen significado en el glosario.",
+      "questionIds": [
+        248,
+        250,
+        305,
+        306,
+        329,
+        424
+      ]
+    },
+    {
+      "token": "GetTickCount",
+      "reason": "Nombre de función, API o evento escrito como identificador; no se expande como sigla. Las abreviaturas técnicas de su contexto tienen significado en el glosario.",
+      "questionIds": [
+        247
+      ]
+    },
+    {
+      "token": "GetVersionEx",
+      "reason": "Nombre de función, API o evento escrito como identificador; no se expande como sigla. Las abreviaturas técnicas de su contexto tienen significado en el glosario.",
+      "questionIds": [
+        250
+      ]
+    },
+    {
+      "token": "HARDWARE_KERNEL_CONFIGURATION_UTILITY",
+      "reason": "Expansión ficticia de un distractor sobre claves del Registro; no es una denominación real que deba aprenderse como sigla.",
+      "questionIds": [
+        276
+      ]
+    },
+    {
+      "token": "HARD_KEY_LOGIN_MANAGER",
+      "reason": "Expansión ficticia de un distractor sobre claves del Registro; no es una denominación real que deba aprenderse como sigla.",
+      "questionIds": [
+        277
+      ]
+    },
+    {
+      "token": "HELLO",
+      "reason": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna.",
+      "questionIds": [
+        363
+      ]
+    },
+    {
+      "token": "HELO",
+      "reason": "Comando, tecla o palabra literal de un protocolo/script; se interpreta por su función, no como sigla de varias palabras.",
+      "questionIds": [
+        148,
+        155
+      ]
+    },
+    {
+      "token": "HIGH_KERNEL_LOAD_MODULE",
+      "reason": "Expansión ficticia de un distractor sobre claves del Registro; no es una denominación real que deba aprenderse como sigla.",
+      "questionIds": [
+        277
+      ]
+    },
+    {
+      "token": "HIGH_KEY_CREDENTIAL_UNIT",
+      "reason": "Expansión ficticia de un distractor sobre claves del Registro; no es una denominación real que deba aprenderse como sigla.",
+      "questionIds": [
+        276
+      ]
+    },
+    {
+      "token": "HK",
+      "reason": "Nombre literal de carpeta, rama, valor, servicio o prefijo de una ruta; no es una sigla técnica independiente en el contexto mostrado.",
+      "questionIds": [
+        428
+      ]
+    },
+    {
+      "token": "HKEY_COMPUTER_UNIVERSE",
+      "reason": "Expansión ficticia de un distractor sobre claves del Registro; no es una denominación real que deba aprenderse como sigla.",
+      "questionIds": [
+        276
+      ]
+    },
+    {
+      "token": "HKEY_LIST_MESSAGE",
+      "reason": "Expansión ficticia de un distractor sobre claves del Registro; no es una denominación real que deba aprenderse como sigla.",
+      "questionIds": [
+        277
+      ]
+    },
+    {
+      "token": "HKSU",
+      "reason": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna.",
+      "questionIds": [
+        362
+      ]
+    },
+    {
+      "token": "HKSUTSILEYBE",
+      "reason": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna.",
+      "questionIds": [
+        362
+      ]
+    },
+    {
+      "token": "HOST_KEY_CURRENT_UPDATE",
+      "reason": "Expansión ficticia de un distractor sobre claves del Registro; no es una denominación real que deba aprenderse como sigla.",
+      "questionIds": [
+        276
+      ]
+    },
+    {
+      "token": "HOST_KEY_LOCAL_MEMORY",
+      "reason": "Expansión ficticia de un distractor sobre claves del Registro; no es una denominación real que deba aprenderse como sigla.",
+      "questionIds": [
+        277
+      ]
+    },
+    {
+      "token": "HXTDWD",
+      "reason": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna.",
+      "questionIds": [
+        56
+      ]
+    },
+    {
+      "token": "HYDOF",
+      "reason": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna.",
+      "questionIds": [
+        58
+      ]
+    },
+    {
+      "token": "IC",
+      "reason": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna.",
+      "questionIds": [
+        352,
+        353,
+        354,
+        359,
+        360,
+        373,
+        414,
+        415,
+        419,
+        434
+      ]
+    },
+    {
+      "token": "ICAA",
+      "reason": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna.",
+      "questionIds": [
+        352
+      ]
+    },
+    {
+      "token": "ICSEGURO",
+      "reason": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna.",
+      "questionIds": [
+        355
+      ]
+    },
+    {
+      "token": "IE",
+      "reason": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna.",
+      "questionIds": [
+        361
+      ]
+    },
+    {
+      "token": "IS",
+      "reason": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna.",
+      "questionIds": [
+        362
+      ]
+    },
+    {
+      "token": "ImagePath",
+      "reason": "Nombre literal de carpeta, rama, valor, servicio o prefijo de una ruta; no es una sigla técnica independiente en el contexto mostrado.",
+      "questionIds": [
+        429
+      ]
+    },
+    {
+      "token": "InternetOpen",
+      "reason": "Nombre de función, API o evento escrito como identificador; no se expande como sigla. Las abreviaturas técnicas de su contexto tienen significado en el glosario.",
+      "questionIds": [
+        247,
+        249,
+        305,
+        313
+      ]
+    },
+    {
+      "token": "InternetOpenUrl",
+      "reason": "Nombre de función, API o evento escrito como identificador; no se expande como sigla. Las abreviaturas técnicas de su contexto tienen significado en el glosario.",
+      "questionIds": [
+        250
+      ]
+    },
+    {
+      "token": "IntroCiberseguridad",
+      "reason": "Literal de entrada, salt, candidata o cadena codificada del ejercicio; se conserva sin inventar una expansión de sus letras.",
+      "questionIds": [
+        370
+      ]
+    },
+    {
+      "token": "IntroCiberseguridadmate",
+      "reason": "Literal de entrada, salt, candidata o cadena codificada del ejercicio; se conserva sin inventar una expansión de sus letras.",
+      "questionIds": [
+        370
+      ]
+    },
+    {
+      "token": "JDTFHVSP",
+      "reason": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna.",
+      "questionIds": [
+        355
+      ]
+    },
+    {
+      "token": "KEY",
+      "reason": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna.",
+      "questionIds": [
+        360,
+        363
+      ]
+    },
+    {
+      "token": "KEYKE",
+      "reason": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna.",
+      "questionIds": [
+        363
+      ]
+    },
+    {
+      "token": "LF",
+      "reason": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna.",
+      "questionIds": [
+        359,
+        360
+      ]
+    },
+    {
+      "token": "LoadLibrary",
+      "reason": "Nombre de función, API o evento escrito como identificador; no se expande como sigla. Las abreviaturas técnicas de su contexto tienen significado en el glosario.",
+      "questionIds": [
+        248,
+        306,
+        424
+      ]
+    },
+    {
+      "token": "Log4Shell",
+      "reason": "Nombre propio de herramienta, producto, formato o vulnerabilidad; no es una sigla independiente. Sus componentes abreviados se explican cuando corresponden.",
+      "questionIds": [
+        84
+      ]
+    },
+    {
+      "token": "MAIL",
+      "reason": "Comando, tecla o palabra literal de un protocolo/script; se interpreta por su función, no como sigla de varias palabras.",
+      "questionIds": [
+        134,
+        135,
+        147,
+        154,
+        155,
+        208,
+        403
+      ]
+    },
+    {
+      "token": "MXToolbox",
+      "reason": "Nombre propio de herramienta, producto, formato o vulnerabilidad; no es una sigla independiente. Sus componentes abreviados se explican cuando corresponden.",
+      "questionIds": [
+        235,
+        283,
+        290
+      ]
+    },
+    {
+      "token": "NETWORK",
+      "reason": "Nombre literal de carpeta, rama, valor, servicio o prefijo de una ruta; no es una sigla técnica independiente en el contexto mostrado.",
+      "questionIds": [
+        279
+      ]
+    },
+    {
+      "token": "NO",
+      "reason": "Palabra natural u operador lógico del texto; las mayúsculas no lo convierten en una sigla técnica.",
+      "questionIds": [
+        34,
+        366,
+        397,
+        432
+      ]
+    },
+    {
+      "token": "OI",
+      "reason": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna.",
+      "questionIds": [
+        360
+      ]
+    },
+    {
+      "token": "OK",
+      "reason": "Comando, tecla o palabra literal de un protocolo/script; se interpreta por su función, no como sigla de varias palabras.",
+      "questionIds": [
+        432
+      ]
+    },
+    {
+      "token": "OR",
+      "reason": "Palabra natural u operador lógico del texto; las mayúsculas no lo convierten en una sigla técnica.",
+      "questionIds": [
+        16
+      ]
+    },
+    {
+      "token": "PEStudio",
+      "reason": "Nombre propio de herramienta, producto, formato o vulnerabilidad; no es una sigla independiente. Sus componentes abreviados se explican cuando corresponden.",
+      "questionIds": [
+        152,
+        283,
+        325,
+        328,
+        330
+      ]
+    },
+    {
+      "token": "POST",
+      "reason": "Comando, tecla o palabra literal de un protocolo/script; se interpreta por su función, no como sigla de varias palabras.",
+      "questionIds": [
+        432
+      ]
+    },
+    {
+      "token": "PowerShell",
+      "reason": "Nombre propio de herramienta, producto, formato o vulnerabilidad; no es una sigla independiente. Sus componentes abreviados se explican cuando corresponden.",
+      "questionIds": [
+        427
+      ]
+    },
+    {
+      "token": "QUIT",
+      "reason": "Comando, tecla o palabra literal de un protocolo/script; se interpreta por su función, no como sigla de varias palabras.",
+      "questionIds": [
+        155
+      ]
+    },
+    {
+      "token": "RIJVS",
+      "reason": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna.",
+      "questionIds": [
+        363
+      ]
+    },
+    {
+      "token": "RegCloseKey",
+      "reason": "Nombre de función, API o evento escrito como identificador; no se expande como sigla. Las abreviaturas técnicas de su contexto tienen significado en el glosario.",
+      "questionIds": [
+        247
+      ]
+    },
+    {
+      "token": "RegSetValueEx",
+      "reason": "Nombre de función, API o evento escrito como identificador; no se expande como sigla. Las abreviaturas técnicas de su contexto tienen significado en el glosario.",
+      "questionIds": [
+        423
+      ]
+    },
+    {
+      "token": "Reply-To",
+      "reason": "Nombre de un campo o cabecera; es una etiqueta descriptiva, no una sigla pendiente de expansión.",
+      "questionIds": [
+        134,
+        137,
+        140,
+        151,
+        226,
+        407,
+        440
+      ]
+    },
+    {
+      "token": "Return-Path",
+      "reason": "Nombre de un campo o cabecera; es una etiqueta descriptiva, no una sigla pendiente de expansión.",
+      "questionIds": [
+        138,
+        211,
+        350
+      ]
+    },
+    {
+      "token": "Return-Receipt-To",
+      "reason": "Nombre de un campo o cabecera; es una etiqueta descriptiva, no una sigla pendiente de expansión.",
+      "questionIds": [
+        134
+      ]
+    },
+    {
+      "token": "RootDNS",
+      "reason": "Nombre literal de carpeta, rama, valor, servicio o prefijo de una ruta; no es una sigla técnica independiente en el contexto mostrado.",
+      "questionIds": [
+        279
+      ]
+    },
+    {
+      "token": "RootZone",
+      "reason": "Nombre literal de carpeta, rama, valor, servicio o prefijo de una ruta; no es una sigla técnica independiente en el contexto mostrado.",
+      "questionIds": [
+        275
+      ]
+    },
+    {
+      "token": "SEGURIDAD",
+      "reason": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna.",
+      "questionIds": [
+        57
+      ]
+    },
+    {
+      "token": "SKY",
+      "reason": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna.",
+      "questionIds": [
+        362
+      ]
+    },
+    {
+      "token": "SOFTWARE",
+      "reason": "Nombre literal de carpeta, rama, valor, servicio o prefijo de una ruta; no es una sigla técnica independiente en el contexto mostrado.",
+      "questionIds": [
+        275
+      ]
+    },
+    {
+      "token": "STRING",
+      "reason": "Comando, tecla o palabra literal de un protocolo/script; se interpreta por su función, no como sigla de varias palabras.",
+      "questionIds": [
+        418
+      ]
+    },
+    {
+      "token": "SUN7YmFzZTY0X25vX2VzX2NpZnJhZG99",
+      "reason": "Literal de entrada, salt, candidata o cadena codificada del ejercicio; se conserva sin inventar una expansión de sus letras.",
+      "questionIds": [
+        353
+      ]
+    },
+    {
+      "token": "SYSTEM",
+      "reason": "Nombre literal de carpeta, rama, valor, servicio o prefijo de una ruta; no es una sigla técnica independiente en el contexto mostrado.",
+      "questionIds": [
+        279,
+        429
+      ]
+    },
+    {
+      "token": "SendMail",
+      "reason": "Nombre de función, API o evento escrito como identificador; no se expande como sigla. Las abreviaturas técnicas de su contexto tienen significado en el glosario.",
+      "questionIds": [
+        248
+      ]
+    },
+    {
+      "token": "ServicioX",
+      "reason": "Nombre literal de carpeta, rama, valor, servicio o prefijo de una ruta; no es una sigla técnica independiente en el contexto mostrado.",
+      "questionIds": [
+        429
+      ]
+    },
+    {
+      "token": "SolarWinds",
+      "reason": "Nombre propio de herramienta, producto, formato o vulnerabilidad; no es una sigla independiente. Sus componentes abreviados se explican cuando corresponden.",
+      "questionIds": [
+        83
+      ]
+    },
+    {
+      "token": "TFHVSJEBE",
+      "reason": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna.",
+      "questionIds": [
+        57
+      ]
+    },
+    {
+      "token": "THE",
+      "reason": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna.",
+      "questionIds": [
+        362
+      ]
+    },
+    {
+      "token": "THESKYISBLUE",
+      "reason": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna.",
+      "questionIds": [
+        362
+      ]
+    },
+    {
+      "token": "TO",
+      "reason": "Comando, tecla o palabra literal de un protocolo/script; se interpreta por su función, no como sigla de varias palabras.",
+      "questionIds": [
+        133,
+        155,
+        156,
+        158,
+        208,
+        209,
+        248
+      ]
+    },
+    {
+      "token": "TSIL",
+      "reason": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna.",
+      "questionIds": [
+        362
+      ]
+    },
+    {
+      "token": "UGIWTKFCF",
+      "reason": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna.",
+      "questionIds": [
+        57
+      ]
+    },
+    {
+      "token": "URLDownloadToFile",
+      "reason": "Nombre de función, API o evento escrito como identificador; no se expande como sigla. Las abreviaturas técnicas de su contexto tienen significado en el glosario.",
+      "questionIds": [
+        245,
+        305,
+        312,
+        423
+      ]
+    },
+    {
+      "token": "UVW",
+      "reason": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna.",
+      "questionIds": [
+        7
+      ]
+    },
+    {
+      "token": "User-Agent",
+      "reason": "Nombre de un campo o cabecera; es una etiqueta descriptiva, no una sigla pendiente de expansión.",
+      "questionIds": [
+        133,
+        313,
+        323
+      ]
+    },
+    {
+      "token": "VHJXULGDG",
+      "reason": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna.",
+      "questionIds": [
+        57
+      ]
+    },
+    {
+      "token": "VRWDG",
+      "reason": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna.",
+      "questionIds": [
+        59
+      ]
+    },
+    {
+      "token": "VirtualAlloc",
+      "reason": "Nombre de función, API o evento escrito como identificador; no se expande como sigla. Las abreviaturas técnicas de su contexto tienen significado en el glosario.",
+      "questionIds": [
+        250
+      ]
+    },
+    {
+      "token": "VirtualBox",
+      "reason": "Nombre propio de herramienta, producto, formato o vulnerabilidad; no es una sigla independiente. Sus componentes abreviados se explican cuando corresponden.",
+      "questionIds": [
+        260
+      ]
+    },
+    {
+      "token": "VirtualProtect",
+      "reason": "Nombre de función, API o evento escrito como identificador; no se expande como sigla. Las abreviaturas técnicas de su contexto tienen significado en el glosario.",
+      "questionIds": [
+        247,
+        304,
+        329
+      ]
+    },
+    {
+      "token": "VirusTotal",
+      "reason": "Nombre propio de herramienta, producto, formato o vulnerabilidad; no es una sigla independiente. Sus componentes abreviados se explican cuando corresponden.",
+      "questionIds": [
+        235,
+        236
+      ]
+    },
+    {
+      "token": "Wi-Fi",
+      "reason": "Nombre de marca de conectividad inalámbrica, no una sigla normativa de «Wireless Fidelity»; no se inventa una expansión.",
+      "questionIds": [
+        109
+      ]
+    },
+    {
+      "token": "X-Original-To",
+      "reason": "Nombre de un campo o cabecera; es una etiqueta descriptiva, no una sigla pendiente de expansión.",
+      "questionIds": [
+        137
+      ]
+    },
+    {
+      "token": "X-Priority",
+      "reason": "Nombre de un campo o cabecera; es una etiqueta descriptiva, no una sigla pendiente de expansión.",
+      "questionIds": [
+        140
+      ]
+    },
+    {
+      "token": "XYZ",
+      "reason": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna.",
+      "questionIds": [
+        7
+      ]
+    },
+    {
+      "token": "YZA",
+      "reason": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna.",
+      "questionIds": [
+        7
+      ]
+    },
+    {
+      "token": "ZAB",
+      "reason": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna.",
+      "questionIds": [
+        7
+      ]
+    }
+  ],
+  "documents": [
+    {
+      "file": "data/questions.json",
+      "sha256": "384eb4d3156fde241a46f1782ee9bb8451708fea133ea9c17f289b2e706f4685"
+    },
+    {
+      "file": "data/practice-questions.json",
+      "sha256": "43b459bb4f4cd1554dbab3a5b5999ebda43de17f9a781398ee9e40935200ce73"
+    },
+    {
+      "file": "data/option-explanations.json",
+      "sha256": "9f47cf8e7b6b12114e950acd5114f101657a3049c87647ea27c8e23f2c84a1a2"
+    },
+    {
+      "file": "data/practice-option-explanations.json",
+      "sha256": "6ccc33338eb61965c919ff20eadcf52cf44c3794a0965ece3af99b4d499d4bc2"
+    }
+  ]
+}

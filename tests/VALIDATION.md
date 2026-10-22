@@ -11,9 +11,9 @@ Validación realizada el 21 de octubre de 2026.
 | Coincidencia de enunciados y respuestas con anexo | 350 de 350 |
 | Cantidades por tema | Criptografía 66, CSIRT 160, Malware 124 |
 | Referencias locales, páginas PDF y enlaces de conceptos | Correcto |
-| Glosario ampliado | 108 entradas; conserva los 33 términos originales |
-| Pruebas de contenido y modelo de progreso | 18 pruebas aprobadas |
-| Interacciones en DOM con los módulos reales | 59 comprobaciones aprobadas |
+| Glosario ampliado | 129 entradas; conserva los 33 términos originales |
+| Pruebas de contenido y modelo de progreso | 19 pruebas aprobadas |
+| Interacciones en DOM con los módulos reales | 63 comprobaciones aprobadas |
 | Renderizado en Chromium, capturas y dimensiones de pantalla | Correcto en GitHub Actions a 320/390/768/800/801/1024/1440/1920 px |
 | Publicación efectiva en GitHub Pages | Corrección desplegada correctamente desde `main` |
 
@@ -52,3 +52,11 @@ Los 92 enunciados y sus referencias coinciden entre cuadernillo y solucionario. 
 Se incorporaron 19 conceptos (108 en total) y referencias de prácticas en 58 entradas previas. Se verificó la cobertura conceptual de las 442 preguntas y que los enlaces apunten al manual de teorías o a la guía de prácticas según corresponda.
 
 Pasaron 18 pruebas de contenido/progreso y 59 comprobaciones DOM. Incluyen los filtros combinados de origen/tema/estado, persistencia, distinción de fuentes, referencias de pistas y distractores, reintento de prácticas y compatibilidad con progreso v1 sin filtro de origen. Los cálculos de los ejemplos autocontenidos y las rutas, comandos y saltos de línea sensibles tienen verificaciones específicas. La suite de Chromium incorpora práctica con bloques de código y acordeones abiertos en los ocho anchos, exportación/importación del origen, rechazo de origen inválido y disponibilidad de los seis PDF.
+
+## Auditoría de siglas y acrónimos
+
+Se revisaron las 442 consignas, sus opciones, soluciones, referencias y 1.768 explicaciones de distractores. El informe versionado registra 295 candidatos: 166 variantes con significado en el glosario y 129 exclusiones revisadas. Las exclusiones incluyen textos de ejemplo, identificadores de código, comandos y expansiones inventadas por distractores; un candidato nuevo sin revisión hace fallar la validación. No se cambiaron preguntas, opciones ni soluciones.
+
+El glosario incorpora 21 entradas (129 en total) y 152 significados de siglas, abreviaturas y denominaciones, con fuentes oficiales y referencias de contexto separadas. Se verifican EDR en la pregunta 89, distinción DOS/DoS, alias, fuentes HTTPS y correspondencia de cada término con sus preguntas.
+
+Pasaron 19 pruebas de contenido/progreso y 63 comprobaciones DOM. Incluyen búsqueda por significado completo en inglés, búsqueda por alias, acceso directo a EDR con filtros incompatibles y enlaces externos seguros. La suite de Chromium incorpora los nuevos bloques de definición y las búsquedas EDR/HKCR en los ocho tamaños, con capturas específicas de EDR en móvil y escritorio.

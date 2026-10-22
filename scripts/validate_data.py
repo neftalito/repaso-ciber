@@ -6,6 +6,7 @@ from collections import Counter
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
+from audit_acronyms import audit
 ROOT = Path(__file__).resolve().parents[1]
 
 def read(name):
@@ -29,6 +30,15 @@ def validate():
         assert e['manualPages'] or e.get('practicePages'), f'Missing references: {e["id"]}'
         assert all(type(p) is int and 1 <= p <= 55 for p in e['manualPages'])
         assert all(type(p) is int and 1 <= p <= 18 for p in e.get('practicePages', []))
+        for source in e.get('externalReferences', []):
+            url = urlsplit(source['url'])
+            assert source['title'] and url.scheme == 'https' and url.netloc and not url.username
+        for acronym in e.get('acronyms', []):
+            assert acronym['term'] and acronym['meaning'] and isinstance(acronym.get('aliases', []), list)
+        related = e.get('relatedQuestionIds', [])
+        assert related == sorted(set(related)) and all(type(i) is int and 1 <= i <= 442 for i in related)
+    acronym_report = audit()
+    assert acronym_report == read('data/acronym-audit.json'), 'Acronym coverage changed; regenerate and review'
     ascii_table = read('data/ascii.json')
     assert ascii_table['version'] == 1 and ascii_table['conceptId'] in ids
     assert all(ascii_table[k].strip() for k in ['title','description','notation','note','referenceNote'])

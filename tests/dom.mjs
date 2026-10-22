@@ -228,6 +228,19 @@ check('navigation after old final question reaches the first practice without lo
   assert.equal(app.state().attempts[0].id,'legacy-test');
 }); app.close();
 let glossary=await mount('glosario.html');
+check('EDR has an explicit meaning, official source and a link to the question that uses it', () => {
+  const entry=glossary.$('edr'); assert.ok(entry);
+  assert.match(entry.querySelector('.acronym-list').textContent,/Endpoint Detection and Response/);
+  assert.ok(entry.querySelector('a[href="index.html?pregunta=89"]'));
+  assert.ok(entry.querySelector('.acronym-sources a[href^="https://learn.microsoft.com/"]'));
+});
+glossary.$('glossary-search').value='endpoint detection response'; glossary.$('glossary-search').dispatchEvent(new glossary.w.Event('input'));
+check('glossary search finds the expanded English meaning', () => {
+  assert.ok(glossary.$('edr')); assert.equal(glossary.w.document.querySelectorAll('.glossary-entry').length,1);
+});
+glossary.$('glossary-search').value='SHA256'; glossary.$('glossary-search').dispatchEvent(new glossary.w.Event('input'));
+check('acronym aliases resolve to their canonical glossary entry', () => assert.ok(glossary.$('sha-256')));
+glossary.click('clear-search');
 check('new glossary concepts cite the practice guide and link to relevant practical exercises', () => {
   const rsa = glossary.$('rsa'); assert.ok(rsa);
   assert.equal(rsa.querySelector('.entry-references a').getAttribute('href'),'docs/Guia_de_estudio_IC_Practicas_1_y_2.pdf#page=5');
@@ -244,7 +257,7 @@ check('ASCII reference starts closed, contains all 52 letters and is linked from
   assert.deepEqual(rows[26].textContent, 'a970x61'); assert.deepEqual(rows[51].textContent, 'z1220x7A');
   assert.equal(glossary.$('ascii').querySelector('.ascii-entry-link').getAttribute('href'), '#tabla-ascii');
 });
-check('glossary renders 108 entries with unique direct links', () => { assert.equal(glossary.w.document.querySelectorAll('.glossary-entry').length,108); assert.equal(new Set([...glossary.w.document.querySelectorAll('.glossary-entry')].map(n=>n.id)).size,108); });
+check('glossary renders all entries with unique direct links', () => { assert.equal(glossary.w.document.querySelectorAll('.glossary-entry').length,glossaryEntries.length); assert.equal(new Set([...glossary.w.document.querySelectorAll('.glossary-entry')].map(n=>n.id)).size,glossaryEntries.length); });
 check('the glossary includes thirteen comparison tables, initially collapsed', () => {
   assert.equal(glossary.w.document.querySelectorAll('.comparison-card').length, 13);
   assert.equal(glossary.w.document.querySelectorAll('.comparison-card[open]').length, 0);
@@ -285,7 +298,7 @@ check('ASCII permalink clears conflicting filters and opens the table', () => {
 glossary.close();
 glossary=await mount('glosario.html',{suffix:'?q=base64&tema=cripto#run-key'});
 check('deep link after asynchronous loading takes priority over conflicting filters', () => { assert.ok(glossary.$('run-key')); assert.equal(glossary.$('glossary-search').value,''); });
-check('all rendered local links resolve inside the deployment subpath', () => { for(const a of glossary.w.document.querySelectorAll('a[href]')) { const url=new URL(a.href); assert.ok(url.pathname.startsWith('/ic2026/')); } }); glossary.close();
+check('all rendered local links resolve inside the deployment subpath', () => { for(const a of glossary.w.document.querySelectorAll('a[href]')) { const url=new URL(a.href); if(url.origin===glossary.w.location.origin) assert.ok(url.pathname.startsWith('/ic2026/')); else { assert.equal(url.protocol,'https:'); assert.equal(a.target,'_blank'); assert.equal(a.rel,'noopener'); } } }); glossary.close();
 glossary = await mount('glosario.html', { suffix: '?q=base64&tema=malware#comparar-estatico-dinamico' });
 check('a comparison permalink opens after asynchronous loading with conflicting URL filters', () => {
   assert.equal(glossary.$('comparar-estatico-dinamico').open, true); assert.equal(glossary.$('comparaciones').open, true);
@@ -295,5 +308,10 @@ glossary = await mount('glosario.html', { suffix: '?q=base64&tema=csirt#tabla-as
 check('ASCII URL opens after loading even when URL search and topic conflict', () => {
   assert.equal(glossary.$('tabla-ascii').open, true); assert.equal(glossary.$('tabla-ascii').hidden, false);
   assert.equal(glossary.$('glossary-search').value, ''); assert.equal(glossary.$('glossary-topic').value, 'all');
+}); glossary.close();
+glossary = await mount('glosario.html',{suffix:'?q=base64&tema=cripto#edr'});
+check('a new acronym permalink reveals its entry despite incompatible URL filters', () => {
+  assert.ok(glossary.$('edr')); assert.equal(glossary.$('glossary-search').value,'');
+  assert.equal(glossary.$('glossary-topic').value,'all'); assert.equal(glossary.w.document.activeElement,glossary.$('edr'));
 }); glossary.close();
 console.log(`PASS: ${checks} comprobaciones de interacción DOM. La revisión visual requiere un navegador real.`);

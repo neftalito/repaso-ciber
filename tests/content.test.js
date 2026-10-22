@@ -12,6 +12,31 @@ const comparisons = await readJSON('data/comparisons.json');
 const ascii = await readJSON('data/ascii.json');
 const practical = await readJSON('data/practice-questions.json');
 const practicalNotes = await readJSON('data/practice-option-explanations.json');
+test('acronym audit covers the full bank, resolves EDR and distinguishes DOS from DoS', async () => {
+  const report = await readJSON('data/acronym-audit.json');
+  const glossary = await readJSON('data/glossary.json');
+  assert.equal(report.checks.questionsScanned,442); assert.equal(report.checks.distractorExplanationsScanned,1768);
+  assert.equal(report.checks.missing,0); assert.equal(report.coverage.length,report.checks.covered);
+  assert.equal(report.exclusions.length,report.checks.reviewedExclusions);
+  const concepts = new Map(entries.map(e=>[e.id,e]));
+  for (const record of report.coverage) {
+    const entry=concepts.get(record.conceptId);
+    const meaning=entry.acronyms.find(a=>a.term===record.term);
+    assert.ok(meaning); assert.equal(record.meaning,meaning.meaning);
+    assert.ok([meaning.term,...meaning.aliases].includes(record.token));
+    assert.ok(record.questionIds.every(id=>entry.relatedQuestionIds.includes(id)));
+  }
+  const edr=report.coverage.find(a=>a.token==='EDR');
+  assert.match(edr.meaning,/Endpoint Detection and Response/); assert.deepEqual(edr.questionIds,[89]);
+  assert.equal(report.coverage.find(a=>a.token==='DOS').conceptId,'pe');
+  assert.equal(report.coverage.find(a=>a.token==='DoS').conceptId,'defacement');
+  assert.ok(report.exclusions.some(a=>a.token==='HXTDWD'));
+  assert.ok(!report.exclusions.some(a=>a.token==='RC5'||a.token==='Mach-O'));
+  assert.equal(glossary.acronymAudit.newEntryIds.length,21);
+  for(const document of report.documents) {
+    assert.equal(createHash('sha256').update(await readFile(new URL(document.file,root))).digest('hex'),document.sha256);
+  }
+});
 test('92 adapted practice exercises have stable IDs, five choices, option explanations and valid guide/concept references', () => {
   assert.equal(practical.version,1); assert.equal(practicalNotes.version,1);
   assert.deepEqual(practical.questions.map(q=>q.id),Array.from({length:92},(_,i)=>351+i));
@@ -103,7 +128,7 @@ test('all 350 question links agree with the reviewed concept map and appropriate
   }
 });
 test('expanded glossary preserves all 33 original terms and has explanations, hints and references to the right document', () => {
-  assert.equal(entries.length, 108); assert.equal(entries.filter(e => e.fromManualGlossary).length, 33);
+  assert.equal(entries.length, 129); assert.equal(entries.filter(e => e.fromManualGlossary).length, 33);
   for (const e of entries) {
     assert.match(e.id, /^[a-z0-9-]+$/);
     assert.ok(e.term.trim());
