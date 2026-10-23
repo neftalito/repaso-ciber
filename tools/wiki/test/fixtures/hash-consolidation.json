@@ -1,0 +1,135 @@
+{
+  "origin": "Academic paragraphs and review answers from the five pre-consolidation notes; headings may be reorganized without changing these blocks.",
+  "blocks": [
+    {
+      "note": "crypto-hash",
+      "sha256": "0bd29c46479328f96133c8c5fe470f2ebaa4f058773a0e3ce4dd33eeff9fc4b8"
+    },
+    {
+      "note": "crypto-hash",
+      "sha256": "38934ce5ceabd3c86c10e8239d5d7acb10006def869897476a1d098097a5716d"
+    },
+    {
+      "note": "crypto-hash",
+      "sha256": "61421854a182b73f27829ff9c356abdab20b95bcb65e2da0c9ca73b075a56dfe"
+    },
+    {
+      "note": "crypto-collisions",
+      "sha256": "7d4bc8468d7058f463febcba4f62ca1a8c026757c4cc1b09233a15f84a0da99f"
+    },
+    {
+      "note": "crypto-collisions",
+      "sha256": "941e28ccd39fcb43956cf1fa30c91650ed65573762d5673e8cedea70aaa329f1"
+    },
+    {
+      "note": "crypto-collisions",
+      "sha256": "b250f7b9ad4a0461681c9be1a3ab0b30c874b2d3eb077ba3dd4ab89eb9f34623"
+    },
+    {
+      "note": "crypto-collisions",
+      "sha256": "fdacc726365eb2a3e414e2ecdf9c6c358344f8e22e43e1aa6a252e1dd73a2db9"
+    },
+    {
+      "note": "crypto-collisions",
+      "sha256": "2b1798fc82a9ede3fa2114ad4937d87de38438e67700c1b5749d00ac4735ef07"
+    },
+    {
+      "note": "crypto-password-hashes",
+      "sha256": "202325d96de4682cb7af9bfd7390394b62d318badafe0055ba585e2a68d3f826"
+    },
+    {
+      "note": "crypto-password-hashes",
+      "sha256": "ac5b3b31f91ea56026d19dc48b4397cb8be992ce4f73a8215260f27a57b1e757"
+    },
+    {
+      "note": "crypto-password-hashes",
+      "sha256": "60f44f9d38c347c01d6b5037c29c7c089baf315316dbcd71fe643a17bc289850"
+    },
+    {
+      "note": "crypto-password-hashes",
+      "sha256": "1770fcfbd7c52f0664e009dd2c6fbf29faf076535c050c74276138cb7f8614a0"
+    },
+    {
+      "note": "crypto-password-hashes",
+      "sha256": "47a189e60e0792835d7498aaa2dcd6aa39e929b4b7429e0cbb5565ee1c039461"
+    },
+    {
+      "note": "crypto-dictionary",
+      "sha256": "10c2a8c46381e4eeeca3f5cdcc4b83ae48db2332bee55106079dd35d71897418"
+    },
+    {
+      "note": "crypto-dictionary",
+      "sha256": "f13d6d68263ab7c975f1e70727ab75cb3dedbd19022fc23deff14f50c532984e"
+    },
+    {
+      "note": "crypto-dictionary",
+      "sha256": "7a0f049be21961d93b5220ea2682383fc0f911c311bab4f35c92f27896ddb283"
+    },
+    {
+      "note": "crypto-dictionary",
+      "sha256": "e799453659c0ee78cd8a9d94da848798b2394da1cf6204c6636862695da1c80e"
+    },
+    {
+      "note": "crypto-salt",
+      "sha256": "22a396e8623f5c7821bed844b9b15058341a8a28c2ae6ba33aefcaecda9c0d61"
+    },
+    {
+      "note": "crypto-salt",
+      "sha256": "5cf7ca7c6108fe68b6a753889090945847a1565e17a88552df4c5a376ca317d2"
+    },
+    {
+      "note": "crypto-salt",
+      "sha256": "413d8503ae06e4ffb8028165fa92474b939e84960282a03901c4a7eba193c03e"
+    },
+    {
+      "note": "crypto-salt",
+      "sha256": "a02c45413bb2184fbe2e8c922d6d8cc84e45db69f43834adb0c37d8bf0607c7c"
+    }
+  ],
+  "sources": [
+    {
+      "id": "lecture-crypto-1",
+      "pages": [
+        17,
+        18,
+        19,
+        20
+      ]
+    },
+    {
+      "id": "manual",
+      "pages": [
+        8,
+        9
+      ]
+    },
+    {
+      "id": "practice-guide",
+      "pages": [
+        4
+      ]
+    }
+  ],
+  "legacy": [
+    {
+      "id": "crypto-collisions",
+      "file": "collisions.md",
+      "url": "cryptography/hash/collisions/"
+    },
+    {
+      "id": "crypto-password-hashes",
+      "file": "password-hashes.md",
+      "url": "cryptography/hash/password-hashes/"
+    },
+    {
+      "id": "crypto-dictionary",
+      "file": "dictionary.md",
+      "url": "cryptography/hash/password-hashes/dictionary/"
+    },
+    {
+      "id": "crypto-salt",
+      "file": "salt.md",
+      "url": "cryptography/hash/password-hashes/salt/"
+    }
+  ]
+}

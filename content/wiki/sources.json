@@ -1,0 +1,20 @@
+[
+  { "id": "lecture-intro", "title": "Presentación de la materia", "kind": "official", "pageCount": 12, "url": "docs/catedra cosas/01a - Presentacion.pdf" },
+  { "id": "lecture-writeup", "title": "Writeup example", "kind": "official", "pageCount": 6, "url": "docs/catedra cosas/01b - Writeup example.pdf" },
+  { "id": "lecture-fundamentals", "title": "Conceptos básicos", "kind": "official", "pageCount": 19, "url": "docs/catedra cosas/01c - Conceptos Básicos.pdf" },
+  { "id": "lecture-crypto-1", "title": "Cripto, parte 1", "kind": "official", "pageCount": 30, "url": "docs/catedra cosas/02 - Cripto parte 1.pdf" },
+  { "id": "lecture-crypto-2", "title": "Cripto, parte 2", "kind": "official", "pageCount": 30, "url": "docs/catedra cosas/03 - Cripto parte 2.pdf" },
+  { "id": "lecture-resources", "title": "CSIRT, parte 1: Gestión de Recursos de Internet", "kind": "official", "pageCount": 20, "url": "docs/catedra cosas/04 - CSIRT parte 1 - Gestión de Recursos de Internet.pdf" },
+  { "id": "lecture-email", "title": "CSIRT, parte 2: SMTP y análisis de encabezados", "kind": "official", "pageCount": 17, "url": "docs/catedra cosas/04 - CSIRT parte 2 - SMTP Y Analisis de Encabezados.pdf" },
+  { "id": "lecture-incidents", "title": "CSIRT, parte 3: Gestión de incidentes", "kind": "official", "pageCount": 26, "url": "docs/catedra cosas/04 - CSIRT parte 3 - Gestión de incidentes.pdf" },
+  { "id": "lecture-malware", "title": "Análisis de malware", "kind": "official", "pageCount": 57, "url": "docs/catedra cosas/05 - Analisis_de_malware.pdf" },
+  { "id": "practice-1a", "title": "Explicación de la práctica 1, parte 1", "kind": "official", "pageCount": 10, "url": "docs/catedra cosas/Explicación - Práctica 1 - Parte 1.pdf" },
+  { "id": "practice-1b", "title": "Explicación de la práctica 1, parte 2", "kind": "official", "pageCount": 8, "url": "docs/catedra cosas/Explicación - Práctica 1 - Parte 2.pdf" },
+  { "id": "practice-2", "title": "Explicación de la práctica 2: Malware", "kind": "official", "pageCount": 25, "url": "docs/catedra cosas/Explicación - Práctica 2 - Malware.pdf" },
+  { "id": "manual", "title": "Manual de estudio: Cripto, CSIRT y Malware", "kind": "companion", "pageCount": 55, "url": "docs/Manual_IC2026_Cripto_CSIRT_Malware_Descarga.pdf" },
+  { "id": "theory-questions", "title": "350 preguntas de teoría", "kind": "companion", "pageCount": 172, "url": "docs/IC_2026_Cripto_CSIRT_Malware_350_Preguntas.pdf" },
+  { "id": "theory-solutions", "title": "Solucionario de teoría", "kind": "companion", "pageCount": 43, "url": "docs/IC_2026_Cripto_CSIRT_Malware_Solucionario.pdf" },
+  { "id": "practice-guide", "title": "Guía de estudio de prácticas 1 y 2", "kind": "companion", "pageCount": 18, "url": "docs/Guia_de_estudio_IC_Practicas_1_y_2.pdf" },
+  { "id": "practice-questions", "title": "Preguntas basadas en prácticas 1 y 2", "kind": "companion", "pageCount": 16, "url": "docs/IC2026_Preguntas_Basadas_en_Practicas_1_y_2.pdf" },
+  { "id": "practice-solutions", "title": "Solucionario de prácticas 1 y 2", "kind": "companion", "pageCount": 22, "url": "docs/IC2026_Solucionario_Practicas_1_y_2.pdf" }
+]

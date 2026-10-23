@@ -33,7 +33,7 @@ jobs:
           package-manager-cache: false
       - name: Instalar dependencias de prueba
         run: |
-          npm install --ignore-scripts
+          npm ci --ignore-scripts
           python3 -m pip install -r requirements.txt
       - name: Validar datos y progreso
         run: |

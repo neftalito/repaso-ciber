@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#245a48">
+  <meta name="description" content="{{description}}">
+  <title>{{title}} · Wiki Académica · IC 2026</title>
+  <link rel="icon" href="{{siteRoot}}assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="{{siteRoot}}assets/styles.css?v=20261021-9">
+  <link rel="stylesheet" href="{{wikiRoot}}assets/wiki.css?v=20261023-2">
+  <script type="module" src="{{wikiRoot}}assets/wiki.mjs?v=20261023-1"></script>
+</head>
+<body class="wiki-page">
+  <a class="skip-link" href="#wiki-main">Saltar al contenido</a>
+  <header class="site-header"><div class="header-inner">
+    <a class="brand" href="{{siteRoot}}index.html" aria-label="IC 2026, inicio"><span class="brand-mark" aria-hidden="true">ic<span>·</span></span><span>IC <strong>2026</strong><small>ESPACIO DE ESTUDIO</small></span></a>
+    <nav aria-label="Navegación principal"><a class="nav-link" href="{{siteRoot}}index.html">Práctica</a><a class="nav-link" href="{{siteRoot}}glosario.html">Glosario</a><a class="nav-link active" aria-current="page" href="{{wikiRoot}}">Wiki Académica</a></nav>
+    <span class="course-tag">UNLP <span> / </span> Informática</span>
+  </div></header>
+  <div class="wiki-shell">
+    <aside class="wiki-sidebar">
+      <div class="wiki-menu"><h2 class="wiki-menu-title">Explorar temas <span>{{count}} páginas</span></h2><nav aria-label="Árbol de temas">{{tree}}</nav></div>
+    </aside>
+    <div class="wiki-reading">
+      <section class="wiki-search" aria-label="Buscar páginas">
+        <form role="search"><label for="wiki-query">Buscar en la wiki</label><input id="wiki-query" name="q" type="search" placeholder="Concepto, técnica o herramienta…" autocomplete="off" aria-controls="wiki-results"><button type="submit">Buscar</button></form>
+        <p id="wiki-search-status" role="status" aria-live="polite">Por nombre, tema o contenido. La búsqueda ignora los acentos.</p>
+        <ol id="wiki-results" hidden></ol>
+        <noscript><p>La búsqueda requiere JavaScript. El árbol de temas y las notas funcionan sin él.</p></noscript>
+      </section>
+      {{breadcrumbs}}
+      <main id="wiki-main" class="wiki-article" tabindex="-1">
+        <p class="eyebrow">INTRODUCCIÓN A LA CIBERSEGURIDAD · {{type}}</p>
+        <h1>{{title}}</h1>
+        {{content}}
+{{children}}
+        {{related}}
+        {{sources}}
+      </main>
+      <footer class="wiki-footer"><p>IC 2026 · Elaboración didáctica original basada en las fuentes indicadas. Las páginas citadas corresponden al archivo PDF, contando desde 1.</p><a href="{{wikiRoot}}">Volver al inicio de la wiki</a></footer>
+    </div>
+  </div>
+</body>
+</html>

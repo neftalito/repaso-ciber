@@ -52,7 +52,7 @@ try {
   assert.equal(await page.locator('#confirm-answer').isDisabled(),true);
   assert.equal(await page.locator('.option-explanation').count(),0);
   await mkdir(new URL('../test-results/',import.meta.url),{recursive:true});
-  await page.screenshot({path:new URL('../test-results/practica-escritorio.png',import.meta.url).pathname,fullPage:true});
+  await page.screenshot({path:fileURLToPath(new URL('../test-results/practica-escritorio.png',import.meta.url)),fullPage:true});
   await page.keyboard.press('Tab'); // Skip link and native tab order are available.
   await page.locator('.answer-option').nth(0).click(); await page.locator('#confirm-answer').click();
   await page.waitForSelector('#feedback:visible'); assert.equal(await page.locator('#hint-panel').isVisible(),true);
@@ -163,12 +163,12 @@ try {
   await page.locator('#glossary-topic').selectOption('malware'); assert.equal(await page.locator('.glossary-entry').count(),0);
   await page.locator('#clear-search').click();
   await page.locator('#glossary-search').fill('base64');
-  await page.screenshot({path:new URL('../test-results/glosario-escritorio.png',import.meta.url).pathname,fullPage:true});
+  await page.screenshot({path:fileURLToPath(new URL('../test-results/glosario-escritorio.png',import.meta.url)),fullPage:true});
   for (const width of [320,390,768,800,801,1024,1440,1920]) {
     await page.setViewportSize({width,height:900}); await page.evaluate(()=>localStorage.clear());
     await page.goto(url); await page.waitForSelector('#study-layout:visible');
     assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,`Horizontal overflow at ${width}px`);
-    if(width===390) await page.screenshot({path:new URL('../test-results/practica-celular.png',import.meta.url).pathname,fullPage:true});
+    if(width===390) await page.screenshot({path:fileURLToPath(new URL('../test-results/practica-celular.png',import.meta.url)),fullPage:true});
     await page.locator('.answer-option').nth(0).click(); await page.locator('#confirm-answer').click();
     await page.locator('#next-question-inline').scrollIntoViewIfNeeded();
     const actions = await page.evaluate(() => {
@@ -179,7 +179,7 @@ try {
     assert.ok(Math.abs(actions.retry.y - actions.next.y) <= 2, `Answer actions must stay on one row at ${width}px`);
     assert.ok(Math.abs(actions.rowRight - actions.retry.right) <= 2, `Retry must align right at ${width}px`);
     assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,`Expanded option overflow at ${width}px`);
-    if(width===390 || width===1440) await page.screenshot({path:new URL(`../test-results/opcion-desplegada-${width}.png`,import.meta.url).pathname,fullPage:true});
+    if(width===390 || width===1440) await page.screenshot({path:fileURLToPath(new URL(`../test-results/opcion-desplegada-${width}.png`,import.meta.url)),fullPage:true});
     await page.locator('#origin-filter').selectOption('practice');
     assert.equal(await page.locator('[data-question]').count(),92);
     assert.equal(await page.locator('#question-origin').textContent(),'Práctica');
@@ -194,7 +194,7 @@ try {
       outside:[...document.querySelectorAll('#question-card *')].filter(n=>n.getBoundingClientRect().right>innerWidth).slice(0,8).map(n=>({tag:n.tagName,id:n.id,className:n.className,right:n.getBoundingClientRect().right}))
     }));
     assert.equal(feedbackLayout.fits,true,`Practice feedback overflow at ${width}px: ${JSON.stringify(feedbackLayout.outside)}`);
-    if(width===390 || width===1440) await page.screenshot({path:new URL(`../test-results/practica-origen-${width}.png`,import.meta.url).pathname,fullPage:true});
+    if(width===390 || width===1440) await page.screenshot({path:fileURLToPath(new URL(`../test-results/practica-origen-${width}.png`,import.meta.url)),fullPage:true});
     await page.reload(); await page.waitForSelector('#study-layout:visible');
     assert.equal(await page.locator('#origin-filter').inputValue(),'practice');
     assert.match(await page.locator('#question-position').textContent(),/428/);
@@ -205,7 +205,7 @@ try {
     assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,`Study dialog overflow at ${width}px`);
     const studyDialogFits=await page.locator('#study-dialog').evaluate(n=>n.scrollWidth<=n.clientWidth);
     assert.equal(studyDialogFits,true,`Study dialog inner overflow at ${width}px`);
-    if(width===390||width===1440) await page.screenshot({path:new URL(`../test-results/modo-estudio-configurar-${width}.png`,import.meta.url).pathname,fullPage:true});
+    if(width===390||width===1440) await page.screenshot({path:fileURLToPath(new URL(`../test-results/modo-estudio-configurar-${width}.png`,import.meta.url)),fullPage:true});
     await page.locator('#start-study').click();
     const mobileStudyIds=await page.evaluate(()=>JSON.parse(localStorage.getItem('ic2026.progress.v1')).studySession.questionIds);
     assert.equal(await page.locator('[data-question]').count(),3);
@@ -214,7 +214,7 @@ try {
     await page.locator('#next-question-inline').click();
     assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('ic2026.progress.v1')).view.questionId),mobileStudyIds[1]);
     assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,`Study question overflow at ${width}px`);
-    if(width===390||width===1440) await page.screenshot({path:new URL(`../test-results/modo-estudio-recorrido-${width}.png`,import.meta.url).pathname,fullPage:true});
+    if(width===390||width===1440) await page.screenshot({path:fileURLToPath(new URL(`../test-results/modo-estudio-recorrido-${width}.png`,import.meta.url)),fullPage:true});
     await page.locator('#end-study').click();
     await page.goto(`${url}glosario.html`); await page.waitForSelector('#base64');
     await assertGlossaryLayout(page, width);
@@ -224,7 +224,7 @@ try {
     assert.match(await page.locator('#edr .acronym-list').textContent(),/Endpoint Detection and Response/);
     await assertGlossaryLayout(page,width);
     assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,`EDR acronym overflow at ${width}px`);
-    if(width===390||width===1440) await page.screenshot({path:new URL(`../test-results/glosario-edr-${width}.png`,import.meta.url).pathname,fullPage:true});
+    if(width===390||width===1440) await page.screenshot({path:fileURLToPath(new URL(`../test-results/glosario-edr-${width}.png`,import.meta.url)),fullPage:true});
     await page.locator('#glossary-search').fill('HKCR');
     assert.equal(await page.locator('#registry').count(),1);
     assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,`Registry acronym overflow at ${width}px`);
@@ -236,9 +236,9 @@ try {
     if (width <= 480) {
       assert.equal(await page.locator('#comparar-codificacion-cifrado-hash-firma .comparison-table-scroll').evaluate(n => n.scrollWidth > n.clientWidth),true);
     }
-    if(width===390 || width===1440) await page.screenshot({path:new URL(`../test-results/comparaciones-${width}.png`,import.meta.url).pathname});
+    if(width===390 || width===1440) await page.screenshot({path:fileURLToPath(new URL(`../test-results/comparaciones-${width}.png`,import.meta.url))});
     await page.locator('#comparaciones > summary').click();
-    if(width===1440) await page.screenshot({path:new URL('../test-results/glosario-escritorio-completo.png',import.meta.url).pathname});
+    if(width===1440) await page.screenshot({path:fileURLToPath(new URL('../test-results/glosario-escritorio-completo.png',import.meta.url))});
     await page.locator('#tabla-ascii > summary').focus(); await page.keyboard.press('Enter');
     assert.equal(await page.locator('#tabla-ascii').getAttribute('open'), '');
     assert.equal(await page.locator('.ascii-table tbody tr').count(), 52);
@@ -247,13 +247,13 @@ try {
     await assertGlossaryLayout(page, width);
     assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,`ASCII table overflow at ${width}px`);
     assert.equal(await page.locator('.ascii-table').evaluateAll(tables => tables.every(table => table.scrollWidth <= table.clientWidth)),true,`ASCII cells overflow at ${width}px`);
-    if(width===390 || width===1440) await page.screenshot({path:new URL(`../test-results/ascii-${width}.png`,import.meta.url).pathname});
+    if(width===390 || width===1440) await page.screenshot({path:fileURLToPath(new URL(`../test-results/ascii-${width}.png`,import.meta.url))});
     await page.locator('#tabla-ascii > summary').focus(); await page.keyboard.press('Space');
     assert.equal(await page.locator('#tabla-ascii').getAttribute('open'), null);
     await page.locator('#glossary-search').fill('base64');
     await assertGlossaryLayout(page, width);
     assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,`Glossary overflow at ${width}px`);
-    if(width===390) await page.screenshot({path:new URL('../test-results/glosario-celular.png',import.meta.url).pathname,fullPage:true});
+    if(width===390) await page.screenshot({path:fileURLToPath(new URL('../test-results/glosario-celular.png',import.meta.url)),fullPage:true});
   }
   await page.goto(`${url}glosario.html?q=base64&tema=malware#comparar-whois-rdap`);
   await page.waitForSelector('#comparar-whois-rdap[open]');

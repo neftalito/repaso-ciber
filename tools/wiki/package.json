@@ -1,0 +1,13 @@
+{
+  "name": "ic2026-academic-wiki",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "build": "node build.mjs",
+    "check": "node build.mjs --check",
+    "test": "node --test test/build.test.mjs"
+  },
+  "devDependencies": { "marked": "17.0.5" }
+}
