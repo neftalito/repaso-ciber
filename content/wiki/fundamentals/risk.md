@@ -8,3 +8,7 @@ La cátedra resume esa relación de forma conceptual:
 `Riesgo = Amenaza × Vulnerabilidad × Impacto`
 
 La fórmula ayuda a recordar que intervienen los tres factores. No permite calcular por sí sola un valor numérico: para eso haría falta definir escalas y criterios de medición. La presencia de una vulnerabilidad tampoco demuestra que haya ocurrido un ataque o una [filtración](wiki:fundamentals-leaks).
+
+:::question ¿Detectar una vulnerabilidad confirma automáticamente un incidente?
+No. Indica una condición de riesgo, pero el incidente requiere evidencia de explotación o de impacto real.
+:::

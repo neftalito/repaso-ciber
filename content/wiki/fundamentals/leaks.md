@@ -6,3 +6,7 @@ Una **filtración de información** ocurre cuando datos que debían permanecer r
 La cátedra muestra incidentes de filtración y menciona **Have I Been Pwned** como recurso para consultar exposiciones conocidas. Si una dirección de correo aparece en sus registros, hay que averiguar a qué incidente corresponde y qué datos se expusieron. La coincidencia no demuestra que el equipo actual esté infectado; la ausencia de coincidencia tampoco garantiza que nunca haya habido una filtración.
 
 La presentación también muestra un correo extorsivo que afirma conocer datos personales. Esa afirmación requiere verificación: el contenido del mensaje, por sí solo, no prueba el compromiso que anuncia.
+
+:::question ¿Que un correo afirme tener datos personales prueba por sí solo una filtración reciente?
+No. Es una señal que debe verificarse con evidencia del incidente y del tipo de datos realmente expuestos.
+:::
