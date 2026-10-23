@@ -78,6 +78,7 @@ try {
     await page.reload();
     assert.equal(await page.locator('h1').innerText(), 'Tríada CIA');
     assert.deepEqual(await page.locator('.wiki-breadcrumbs li').allTextContents(), ['Wiki Académica', 'Fundamentos de ciberseguridad', 'Seguridad de la información', 'Tríada CIA']);
+    await page.goto(`${origin}${prefix}/wiki/fundamentals/threat/`);
     const answer = page.locator('.wiki-review').first();
     assert.equal(await answer.getAttribute('open'), null);
     await answer.locator('summary').click();
@@ -254,8 +255,8 @@ try {
   assert.equal(await page.locator('.wiki-menu nav').isVisible(), true);
   await page.screenshot({ path: path.join(root, 'test-results/wiki/mobile.png'), fullPage: true });
   const offlinePage = await browser.newPage({ javaScriptEnabled: false });
-  await offlinePage.goto(`${origin}/repaso-ciber/wiki/fundamentals/cia/`);
-  assert.equal(await offlinePage.locator('h1').innerText(), 'Tríada CIA');
+  await offlinePage.goto(`${origin}/repaso-ciber/wiki/fundamentals/threat/`);
+  assert.equal(await offlinePage.locator('h1').innerText(), 'Amenaza');
   await offlinePage.locator('.wiki-review summary').first().click();
   assert.notEqual(await offlinePage.locator('.wiki-review').first().getAttribute('open'), null);
   await offlinePage.goto(`${origin}/repaso-ciber/wiki/fundamentals/attacks/phishing/`);
@@ -275,7 +276,7 @@ try {
   }
   await offlinePage.goto(`${origin}/repaso-ciber/wiki/cryptography/hash/password-hashes/salt/`);
   await offlinePage.waitForURL(`${origin}/repaso-ciber/wiki/cryptography/hash/#sal-en-el-calculo-de-contrasenas`);
-  assert.ok(await offlinePage.locator('#wiki-main').innerText().then(text => text.includes('curso:luna')));
+  assert.ok(await offlinePage.locator('#wiki-main').innerText().then(text => text.includes('MD5(salt + password)')));
   assert.deepEqual(errors, []);
   console.log(`Wiki browser checks passed at root and /repaso-ciber/: ${index.length} indexed pages; desktop, mobile, search, direct reload and no-JavaScript reading.`);
 } finally {
