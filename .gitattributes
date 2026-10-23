@@ -2,3 +2,9 @@
 /tools/wiki/** text eol=lf
 /wiki/** text eol=lf linguist-generated=true
 /.github/workflows/wiki.yml text eol=lf
+
+# These audit digests depend on the committed JSON bytes.
+/data/questions.json text eol=lf
+/data/practice-questions.json text eol=lf
+/data/option-explanations.json text eol=lf
+/data/practice-option-explanations.json text eol=lf

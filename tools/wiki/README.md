@@ -75,7 +75,35 @@ The CSIRT fixture records 185 original blocks across 28 notes, their citations, 
 
 The Malware fixture records 201 original blocks across 55 notes, their citations, stable IDs, routes and canonical destinations. Four focused/complete assertions cover the revised 35-page tree and 23 lossless component/tool integrations. Three new notes group identification, system monitoring and process/file monitoring. Old tool URLs redirect directly to their named sections, while every original procedure and review question remains available in the corresponding article. Browser checks include all 23 redirects without JavaScript and mobile layouts of the enlarged notes. No malware or academic example command is executed by these checks.
 
-Source references use physical PDF pages counted from 1, not printed slide numbers. `sources.json` distinguishes official material from companion guides. The twelve PDFs in `docs/catedra cosas/` remain local working sources: never stage, move, edit or delete them. Their titles and page references are displayed without broken public links. The six PDFs already distributed by the original application retain their existing download paths.
+Source references use physical PDF pages counted from 1, not printed slide numbers. `sources.json` distinguishes official material from companion guides. The twelve PDFs in `docs/catedra cosas/` are versioned with the contributor's explicit authorization; retain their existing bytes and filenames. Their bibliography entries use titles and page references. The six PDFs already distributed by the original application retain their existing download paths. Internal implementation logs under `odd/tasks/` are local, ignored bookkeeping and must remain outside new commits.
+
+## Prepare the test environment
+
+Use Node 24 or a compatible Node version supported by the pinned development packages. Python dependencies belong in `.venv/`; do not replace global packages or regenerate academic data to match a different extractor version. `requirements.txt` pins the version recorded in the extraction reports.
+
+On Windows PowerShell, from the repository root:
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+npm ci --ignore-scripts
+npm --prefix tools/wiki ci --ignore-scripts
+$env:PLAYWRIGHT_CHROMIUM_EXECUTABLE = 'C:\Program Files\Google\Chrome\Application\chrome.exe'
+```
+
+The browser executable override reuses an installed Chrome. If it is unavailable, run `npx playwright install chromium` and omit the override. No `PLAYWRIGHT_MODULE` override is needed after installing the root development dependencies. Capture paths use `fileURLToPath` so Windows drive letters, spaces and Linux paths resolve correctly.
+
+On Linux/macOS:
+
+```sh
+python3 -m venv .venv
+.venv/bin/python -m pip install -r requirements.txt
+npm ci --ignore-scripts
+npm --prefix tools/wiki ci --ignore-scripts
+npx playwright install chromium
+```
+
+Linux CI uses `npx playwright install --with-deps chromium` when operating-system browser libraries are also required. Both workflows install the locked JavaScript dependencies with `npm ci`.
 
 ## Verify changes
 
@@ -87,11 +115,20 @@ npm test
 npm run test:dom
 npm run test:browser
 node tools/wiki/test/browser.mjs
-python -X utf8 scripts/validate_data.py
 ```
+
+Run the Python checks through the virtual environment. On PowerShell:
+
+```powershell
+.\.venv\Scripts\python.exe -X utf8 -B scripts/validate_data.py
+.\.venv\Scripts\python.exe -X utf8 -B scripts/extract_questions.py --check
+.\.venv\Scripts\python.exe -X utf8 -B scripts/extract_practice_questions.py --check
+```
+
+On Linux/macOS, use `.venv/bin/python` with the same arguments. The extraction checks compare outputs without rewriting them. Review `git diff --check` after changes. Test screenshots are ignored; no test needs to change a PDF or regenerate the original JSON data.
 
 Original DOM/browser tests require the root development dependencies and a Playwright browser. The Wiki browser test uses the existing Playwright dependency and writes screenshots only under ignored `test-results/wiki/`. `PLAYWRIGHT_MODULE` and `PLAYWRIGHT_CHROMIUM_EXECUTABLE` can select an already installed local module and Chrome/Chromium executable; no browser download is needed when these are available. This same override is supported by the original browser test.
 
-On Windows, `python -X utf8` avoids the system code-page default. The original acronym audit hashes four original JSON files byte-for-byte. A checkout with CRLF conversions can fail that original audit even with unchanged data; use a clean LF checkout for the original data validation rather than regenerating or changing academic data. The Wiki's scoped `.gitattributes` entries keep new source/output bytes stable without changing existing file conventions.
+On Windows, `python -X utf8` avoids the system code-page default. The original acronym audit hashes four original JSON files byte-for-byte. Their explicit `.gitattributes` rules preserve LF bytes even when `core.autocrlf` is enabled, so fresh Windows and Linux checkouts use the same expected hashes. Do not regenerate academic data or change expected digests to compensate for line-ending conversions. Other original files retain their existing conventions.
 
 The additional `wiki.yml` workflow validates content and output and exercises the browser. It never deploys; the existing publishing mechanism remains responsible for hosting. No push or PR publication is part of these local commands.
