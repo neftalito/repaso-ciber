@@ -265,15 +265,18 @@ try {
     assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,`Partial feedback overflow at ${width}px`);
     await page.locator('[data-question="554"]').click();
     assert.match(await page.locator('#question-title').textContent(),/ContextMenuHandlers/);
+    // The preceding random study draw may already have confirmed this question.
+    if (await page.locator('#retry-answer').isVisible()) await page.locator('#retry-answer').click();
+    assert.equal(await page.locator('#answer-options input').count(),4);
     await page.locator('input[value="A"]').check();await page.locator('#confirm-answer').click();
     assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,`Partial Windows path overflow at ${width}px`);
-    if(width===390||width===1440) await page.screenshot({path:new URL(`../test-results/parcial-${width}.png`,import.meta.url).pathname,fullPage:true});
+    if(width===390||width===1440) await page.screenshot({path:fileURLToPath(new URL(`../test-results/parcial-${width}.png`,import.meta.url)),fullPage:true});
     await page.reload();await page.waitForSelector('#study-layout:visible');
     assert.equal(await page.locator('#bank-filter').inputValue(),'exam');assert.match(await page.locator('#question-position').textContent(),/554/);
     await page.goto(`${url}glosario.html#comparar-diffie-hellman-rsa`);await page.waitForSelector('#comparar-diffie-hellman-rsa[open]');
     assert.ok(await page.locator('#comparar-diffie-hellman-rsa a[href="docs/Guia_Diffie_Hellman_y_RSA.pdf#page=9"]').count());
     assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,`DH/RSA table overflow at ${width}px`);
-    if(width===390||width===1440) await page.screenshot({path:new URL(`../test-results/comparacion-dh-rsa-${width}.png`,import.meta.url).pathname,fullPage:true});
+    if(width===390||width===1440) await page.screenshot({path:fileURLToPath(new URL(`../test-results/comparacion-dh-rsa-${width}.png`,import.meta.url)),fullPage:true});
     await page.goto(`${url}glosario.html`); await page.waitForSelector('#base64');
     await assertGlossaryLayout(page, width);
     assert.equal(await page.locator('.glossary-entry').count(),glossaryEntryCount);
@@ -324,6 +327,7 @@ try {
   await page.goto(`${url}glosario.html?q=base64&tema=cripto#edr`); await page.waitForSelector('#edr');
   assert.equal(await page.locator('#glossary-search').inputValue(),''); assert.equal(await page.locator('#glossary-topic').inputValue(),'all');
   await page.goto(`${url}index.html?pregunta=562`); await page.waitForSelector('#study-layout:visible');
+  if (await page.locator('#retry-answer').isVisible()) await page.locator('#retry-answer').click();
   await page.locator('.answer-option').nth(2).click(); await page.locator('#confirm-answer').click();
   assert.equal(await page.locator('#next-question-inline').isDisabled(),true);
   assert.equal(await page.locator('#next-question').isDisabled(),true);
