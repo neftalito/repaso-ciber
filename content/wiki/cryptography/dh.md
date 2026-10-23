@@ -1,5 +1,5 @@
 ---
-{"id":"crypto-dh","title":"Diffie–Hellman","slug":"dh","parent":"crypto-key-agreement","type":"algorithm","order":10,"related":["crypto-signature","crypto-pki","crypto-symmetric"],"sources":[{"id":"lecture-crypto-2","pages":[10]},{"id":"practice-1b","pages":[4]},{"id":"practice-guide","pages":[6,7]},{"id":"practice-solutions","pages":[8]}],"aliases":["DH","intercambio de claves"],"permalink":"cryptography/key-agreement/dh"}
+{"id":"crypto-dh","title":"Diffie–Hellman","slug":"dh","parent":"crypto-key-agreement","type":"algorithm","order":10,"related":["crypto-signature","crypto-pki","crypto-symmetric"],"sources":[{"id":"lecture-crypto-2","pages":[10]},{"id":"practice-1b","pages":[4]},{"id":"practice-guide","pages":[6,7]},{"id":"practice-solutions","pages":[8]},{"id":"dh-rsa-guide","pages":[3,4,9]},{"id":"exam-questions","pages":[11]},{"id":"exam-solutions","pages":[7]}],"aliases":["DH","intercambio de claves"],"permalink":"cryptography/key-agreement/dh"}
 ---
 ## Para qué sirve
 
@@ -45,4 +45,28 @@ Esto no demuestra la identidad de los participantes. En DH básico, un atacante 
 
 :::question ¿Por qué Diffie–Hellman no es una subclase de cifrado de mensajes?
 Porque acuerda un secreto compartido. Para cifrar los mensajes se necesita después un mecanismo de cifrado.
+:::
+
+## Segundo ejemplo completo: p=23 y g=5
+
+La guía complementaria, página 3, usa `a=6` para Alice y `b=15` para Bob. Ambos conservan sus exponentes privados.
+
+| Paso | Alice | Bob |
+| --- | --- | --- |
+| Valor público que envía | A=5^6 mod 23=8 | B=5^15 mod 23=19 |
+| Valor que recibe | B=19 | A=8 |
+| Secreto que calcula | s=19^6 mod 23=2 | s=8^15 mod 23=2 |
+
+La coincidencia se debe a que ambas expresiones representan `g^(ab) mod p`. Para comprobar un cálculo sin escribir una potencia enorme se reducen cuadrados sucesivos: `5² mod 23=2`, `5⁴ mod 23=4` y `5⁸ mod 23=16`.
+
+## Del secreto a un mensaje: demostración y protocolo
+
+La página 4 usa el byte 2 para ilustrar XOR: los códigos ASCII de HOLA, `72,79,76,65`, se transforman en `74,77,78,67`, es decir, **JMNC**. Aplicar XOR con 2 otra vez recupera HOLA. Un XOR de byte repetido no ofrece la seguridad de un esquema de cifrado moderno.
+
+En un protocolo se deriva material adecuado a partir del secreto, por ejemplo mediante **HKDF**, y luego se cifra con un esquema autenticado. HKDF significa *HMAC-based Extract-and-Expand Key Derivation Function*: extracción y expansión de claves basada en HMAC. Esa derivación no autentica por sí sola la identidad de Alice o Bob.
+
+La guía menciona **ECDH**, acuerdo Diffie–Hellman sobre curvas elípticas, y X25519 como una función usada en ese acuerdo. Son mecanismos para establecer material secreto; la autenticación y el cifrado de datos siguen siendo funciones que debe cubrir el protocolo.
+
+:::question ¿Qué puede ver una persona que intercepta este intercambio pequeño?
+Puede ver p=23, g=5, A=8 y B=19. No recibe los exponentes a y b ni el secreto s. Con parámetros tan pequeños puede ensayar exponentes y resolver fácilmente el ejemplo; no representa la dificultad buscada en un intercambio real con parámetros adecuados.
 :::

@@ -1,10 +1,11 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { emptyProgress, beginRetry, confirmAttempt, latestAttempt, questionStatus, statistics, filterQuestions, validateProgress, loadProgress, saveProgress, startStudySession, endStudySession, studyStatistics, STORAGE_KEY } from '../assets/progress.mjs';
+import { emptyProgress, beginRetry, confirmAttempt, latestAttempt, questionStatus, statistics, filterQuestions, validateProgress, loadProgress, saveProgress, questionBank, startStudySession, endStudySession, studyStatistics, STORAGE_KEY } from '../assets/progress.mjs';
 const theoretical = JSON.parse(readFileSync(new URL('../data/questions.json', import.meta.url))).questions.map(q => ({ ...q, origin:'theory' }));
 const practical = JSON.parse(readFileSync(new URL('../data/practice-questions.json', import.meta.url))).questions;
-const questions = [...theoretical, ...practical];
+const exam=JSON.parse(readFileSync(new URL('../data/exam-questions.json',import.meta.url))).questions;
+const questions = [...theoretical, ...practical, ...exam];
 const confirm = (s, id, option, hintUsed = false) => { s.drafts[id] = { option, hintUsed }; return confirmAttempt(s, questions[id - 1]); };
 
 test('correction uses the bank, records date/help, and latest attempt determines status', () => {
@@ -36,21 +37,21 @@ test('export/import round-trip keeps history, reading position, filters and retr
 });
 test('imports reject incompatible versions, unknown ids/options, incoherent results and malformed dates', () => {
   const good = emptyProgress(); confirm(good, 1, 'E');
-  const mutations = [s => s.version = 2, s => s.format = 'other', s => s.attempts = {}, s => s.attempts[0].questionId = 443,
+  const mutations = [s => s.version = 2, s => s.format = 'other', s => s.attempts = {}, s => s.attempts[0].questionId = 563,
     s => s.attempts[0].option = 'F', s => s.attempts[0].option = '__proto__', s => s.attempts[0].correct = false,
     s => s.attempts[0].date = 'ayer', s => s.attempts[0].date = 0, s => s.attempts[0].hintUsed = 'false',
     s => s.attempts.push({ ...s.attempts[0] }), s => s.view.questionId = 0, s => s.view.topic = 'typo', s => s.view.status = 'unknown',
-    s => s.drafts = null, s => s.drafts[443] = { option: 'A', hintUsed: false }, s => s.drafts[1] = { option: 'F', hintUsed: false },
+    s => s.drafts = null, s => s.drafts[563] = { option: 'A', hintUsed: false }, s => s.drafts[1] = { option: 'F', hintUsed: false },
     s => s.view.origin = 'unknown', s => s.view.origin = null];
   for (const mutate of mutations) { const s = structuredClone(good); mutate(s); assert.throws(() => validateProgress(s, questions), /Progreso inválido/); }
   assert.throws(() => validateProgress(null, questions));
 });
 test('practice origin combines with topic and last result without mixing the original theoretical IDs', () => {
   const s = emptyProgress(); s.view.origin = 'practice';
-  assert.deepEqual(filterQuestions(questions,s).map(q => q.id), Array.from({length:92},(_,i)=>351+i));
-  s.view.topic = 'csirt'; assert.equal(filterQuestions(questions,s).length,29);
+  assert.deepEqual(filterQuestions(questions,s).map(q => q.id), Array.from({length:212},(_,i)=>351+i));
+  s.view.topic = 'csirt'; assert.equal(filterQuestions(questions,s).length,69);
   confirm(s,391,questions[390].answer,true); s.view.status = 'pending';
-  assert.equal(filterQuestions(questions,s).length,28); s.view.status = 'correct';
+  assert.equal(filterQuestions(questions,s).length,68); s.view.status = 'correct';
   assert.deepEqual(filterQuestions(questions,s).map(q=>q.id),[391]);
   assert.deepEqual(validateProgress(s,questions),s);
 });
@@ -95,7 +96,7 @@ test('study draws exact counts without replacement for every combination of topi
 });
 test('invalid study configurations leave the current route, drafts and attempts intact', () => {
   const s = emptyProgress(); confirm(s,1,'E'); const before=JSON.stringify(s);
-  for (const count of [0,-1,1.5,NaN,Infinity,30,'2']) {
+  for (const count of [0,-1,1.5,NaN,Infinity,70,'2']) {
     assert.throws(() => startStudySession(s,questions,{count,topic:'csirt',origin:'practice'}), /cantidad entera/);
     assert.equal(JSON.stringify(s),before);
   }
@@ -159,4 +160,32 @@ test('replacing or leaving a study route preserves history and restores the prev
   endStudySession(s); assert.deepEqual(s.view,originalView); assert.equal(s.studySession,undefined);
   assert.deepEqual(validateProgress(s,questions),s);
   endStudySession(s); assert.deepEqual(s.view,originalView);
+});
+
+test('collection filters and study sessions select only the requested source and round-trip with old v1 progress', () => {
+  const s=emptyProgress();s.view.bank='exam';
+  assert.deepEqual(filterQuestions(questions,s).map(q=>q.id),exam.map(q=>q.id));
+  s.view.topic='cripto';s.view.origin='practice';assert.equal(filterQuestions(questions,s).length,60);
+  startStudySession(s,questions,{count:60,topic:'cripto',origin:'practice',bank:'exam'},()=>0.4);
+  assert.ok(s.studySession.questionIds.every(id=>questionBank(questions[id-1])==='exam'));
+  assert.deepEqual(validateProgress(JSON.parse(JSON.stringify(s)),questions),s);
+  for(const id of s.studySession.questionIds.slice(0,2)) confirm(s,id,questions[id-1].answer);
+  assert.equal(studyStatistics(s).answered,2);assert.deepEqual(validateProgress(s,questions),s);
+  endStudySession(s); assert.equal(s.view.bank,'exam'); assert.equal(filterQuestions(questions,s).length,60);
+  s.view.bank='guides';assert.equal(filterQuestions(questions,s).length,40);
+  s.view.bank='invalid';assert.throws(()=>validateProgress(s,questions),/colección/);
+});
+test('four-choice answers reject a fabricated fifth option while older five-choice attempts remain valid',()=>{
+  const s=emptyProgress();confirm(s,1,'E');confirm(s,443,questions[442].answer);
+  s.view.questionId=443;assert.deepEqual(validateProgress(s,questions),s);
+  const bad=structuredClone(s);bad.attempts[1].option='E';assert.throws(()=>validateProgress(bad,questions),/opción desconocida/);
+  beginRetry(s,443);s.drafts[443].option='E';assert.throws(()=>confirmAttempt(s,questions[442]),/Elegí/);
+  assert.throws(()=>validateProgress(s,questions),/borrador/);
+});
+
+test('an older study session without a collection keeps its exact original draw after the bank grows',()=>{
+  const old={format:'ic2026-progress',version:1,attempts:[],drafts:{1:{option:null,hintUsed:false},350:{option:null,hintUsed:true},442:{option:'E',hintUsed:false}},view:{questionId:350,topic:'all',status:'all',origin:'all'},studySession:{questionIds:[350,1,442],topic:'all',origin:'all',answers:{},previousView:{questionId:442,topic:'all',status:'all',origin:'all'}}};
+  const restored=validateProgress(JSON.parse(JSON.stringify(old)),questions);
+  assert.deepEqual(restored,old);assert.deepEqual(filterQuestions(questions,restored).map(q=>q.id),[350,1,442]);
+  assert.equal(restored.drafts[350].hintUsed,true);assert.equal(restored.studySession.bank,undefined);
 });

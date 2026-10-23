@@ -44,10 +44,47 @@
 <li><a href="elliptic-curves/">Criptografía de curvas elípticas</a>: identifica una familia matemática, no un único procedimiento.</li>
 </ul>
 <p>La página 10 también distingue DSA, destinado a firma, y <a href="../../../key-agreement/dh/">Diffie–Hellman</a>, destinado a acordar un secreto. Por eso la frase «una clave deshace lo que hace la otra» no debe generalizarse como definición de todas las operaciones de clave pública.</p>
+<h2 id="comparar-acuerdo-cifrado-y-autenticacion">Comparar acuerdo, cifrado y autenticación</h2>
+<table>
+<thead>
+<tr>
+<th>Aspecto</th>
+<th>Diffie–Hellman</th>
+<th>RSA</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Objetivo del ejemplo</td>
+<td>Acordar un secreto compartido.</td>
+<td>Cifrar un entero con clave pública y recuperarlo con la privada.</td>
+</tr>
+<tr>
+<td>Datos públicos</td>
+<td>p, g, A y B.</td>
+<td>n y e.</td>
+</tr>
+<tr>
+<td>Datos secretos</td>
+<td>a, b y el secreto resultante.</td>
+<td>p, q y d.</td>
+</tr>
+<tr>
+<td>Operación central</td>
+<td>B^a mod p = A^b mod p.</td>
+<td>c=m^e mod n; m=c^d mod n.</td>
+</tr>
+<tr>
+<td>Autenticación</td>
+<td>Hay que autenticar el intercambio.</td>
+<td>Hay que autenticar el vínculo entre clave pública e identidad.</td>
+</tr>
+</tbody></table>
+<p>El secreto DH suele pasar por una función de derivación; RSA requiere un esquema completo de cifrado o de firma. Los ejemplos con números pequeños sirven para estudiar las operaciones. La guía, página 8, advierte además que RSA y DH clásicos no proporcionan resistencia frente a un ordenador cuántico suficientemente potente.</p>
+<p>Los cálculos se desarrollan en <a href="../../../key-agreement/dh/">Diffie–Hellman</a> y <a href="rsa/">RSA</a>.</p>
 
 <section class="wiki-section" aria-labelledby="subtemas"><h2 id="subtemas">Subtemas</h2><ul class="wiki-cards"><li><a href="rsa/">RSA</a></li><li><a href="elgamal/">ElGamal</a></li><li><a href="elliptic-curves/">Criptografía de curvas elípticas</a></li></ul></section>
         <section class="wiki-section" aria-labelledby="relacionados"><h2 id="relacionados">Conceptos relacionados</h2><ul><li><a href="../symmetric/">Criptografía simétrica</a></li><li><a href="../../../signature/">Firma digital</a></li><li><a href="../../../key-agreement/dh/">Diffie–Hellman</a></li></ul></section>
-        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Cripto, parte 2 · <a href="../../../../../docs/catedra%20cosas/03%20-%20Cripto%20parte%202.pdf#page=4" target="_blank" rel="noopener">p. 4 ↗</a>, <a href="../../../../../docs/catedra%20cosas/03%20-%20Cripto%20parte%202.pdf#page=5" target="_blank" rel="noopener">p. 5 ↗</a>, <a href="../../../../../docs/catedra%20cosas/03%20-%20Cripto%20parte%202.pdf#page=6" target="_blank" rel="noopener">p. 6 ↗</a>, <a href="../../../../../docs/catedra%20cosas/03%20-%20Cripto%20parte%202.pdf#page=7" target="_blank" rel="noopener">p. 7 ↗</a>, <a href="../../../../../docs/catedra%20cosas/03%20-%20Cripto%20parte%202.pdf#page=8" target="_blank" rel="noopener">p. 8 ↗</a>, <a href="../../../../../docs/catedra%20cosas/03%20-%20Cripto%20parte%202.pdf#page=9" target="_blank" rel="noopener">p. 9 ↗</a>, <a href="../../../../../docs/catedra%20cosas/03%20-%20Cripto%20parte%202.pdf#page=10" target="_blank" rel="noopener">p. 10 ↗</a>. <span>Material de cátedra</span></li><li>Explicación de la práctica 1, parte 2 · <a href="../../../../../docs/catedra%20cosas/Explicaci%C3%B3n%20-%20Pr%C3%A1ctica%201%20-%20Parte%202.pdf#page=1" target="_blank" rel="noopener">p. 1 ↗</a>. <span>Material de cátedra</span></li><li>Glosario · <a href="../../../../../glosario.html#asimetrica">Criptografía asimétrica ↗</a></li><li><a href="../../../../../glosario.html">Explorar el glosario completo ↗</a></li></ul></section>
+        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Cripto, parte 2 · <a href="../../../../../docs/catedra%20cosas/03%20-%20Cripto%20parte%202.pdf#page=4" target="_blank" rel="noopener">p. 4 ↗</a>, <a href="../../../../../docs/catedra%20cosas/03%20-%20Cripto%20parte%202.pdf#page=5" target="_blank" rel="noopener">p. 5 ↗</a>, <a href="../../../../../docs/catedra%20cosas/03%20-%20Cripto%20parte%202.pdf#page=6" target="_blank" rel="noopener">p. 6 ↗</a>, <a href="../../../../../docs/catedra%20cosas/03%20-%20Cripto%20parte%202.pdf#page=7" target="_blank" rel="noopener">p. 7 ↗</a>, <a href="../../../../../docs/catedra%20cosas/03%20-%20Cripto%20parte%202.pdf#page=8" target="_blank" rel="noopener">p. 8 ↗</a>, <a href="../../../../../docs/catedra%20cosas/03%20-%20Cripto%20parte%202.pdf#page=9" target="_blank" rel="noopener">p. 9 ↗</a>, <a href="../../../../../docs/catedra%20cosas/03%20-%20Cripto%20parte%202.pdf#page=10" target="_blank" rel="noopener">p. 10 ↗</a>. <span>Material de cátedra</span></li><li>Explicación de la práctica 1, parte 2 · <a href="../../../../../docs/catedra%20cosas/Explicaci%C3%B3n%20-%20Pr%C3%A1ctica%201%20-%20Parte%202.pdf#page=1" target="_blank" rel="noopener">p. 1 ↗</a>. <span>Material de cátedra</span></li><li>Guía de Diffie–Hellman y RSA: ejemplos numéricos completos · <a href="../../../../../docs/Guia_Diffie_Hellman_y_RSA.pdf#page=4" target="_blank" rel="noopener">p. 4 ↗</a>, <a href="../../../../../docs/Guia_Diffie_Hellman_y_RSA.pdf#page=8" target="_blank" rel="noopener">p. 8 ↗</a>, <a href="../../../../../docs/Guia_Diffie_Hellman_y_RSA.pdf#page=9" target="_blank" rel="noopener">p. 9 ↗</a>. <span>Material complementario</span></li><li>Glosario · <a href="../../../../../glosario.html#asimetrica">Criptografía asimétrica ↗</a></li><li>Glosario · <a href="../../../../../glosario.html#rsa">RSA: parámetros, factorización y descifrado ↗</a></li><li>Glosario · <a href="../../../../../glosario.html#diffie-hellman">Diffie–Hellman: acuerdo de secreto ↗</a></li><li>Glosario · <a href="../../../../../glosario.html#rsa-padding">RSA-OAEP, RSA-PSS y límites del RSA sin padding ↗</a></li><li><a href="../../../../../glosario.html">Explorar el glosario completo ↗</a></li></ul></section>
       </main>
       <footer class="wiki-footer"><p>IC 2026 · Elaboración didáctica original basada en las fuentes indicadas. Las páginas citadas corresponden al archivo PDF, contando desde 1.</p><a href="../../../../">Volver al inicio de la wiki</a></footer>
     </div>

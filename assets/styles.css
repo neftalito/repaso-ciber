@@ -2473,3 +2473,9 @@ select {
     padding: 0 10px 15px;
   }
 }
+
+.study-bank-field { grid-column:1 / -1; }
+
+#question-title { overflow-wrap:anywhere; }
+.filter-field { min-width:0; }
+.filter-field select { min-width:0; max-width:100%; }

@@ -37,7 +37,7 @@
         35
       ],
       "definition": "ASCII básico asigna valores de 7 bits a 128 símbolos; Unicode define un repertorio mucho mayor.",
-      "explanation": "Un byte tiene 8 bits. Un dígito hexadecimal representa 4 bits; dos dígitos representan un byte. UTF-8 y UTF-16 codifican puntos de código Unicode en bytes.",
+      "explanation": "Un byte tiene 8 bits. Un dígito hexadecimal representa 4 bits; dos dígitos representan un byte. UTF-8 y UTF-16 codifican puntos de código Unicode en bytes. Interpretar los mismos bytes como UTF-8, UTF-16LE o Latin-1 puede dar resultados distintos. UTF-16LE ordena primero el byte menos significativo de cada unidad de 16 bits; representar un texto no lo cifra.",
       "hint": "Identificá primero la base numérica. Para pasar de hexadecimal a decimal, multiplicá cada dígito por su potencia de 16; después consultá la correspondencia del carácter.",
       "example": "H es 72 en decimal, 0x48 en hexadecimal y 01001000 en binario.",
       "fromManualGlossary": false,
@@ -62,6 +62,11 @@
         {
           "term": "UTF-16",
           "meaning": "Unicode Transformation Format de 16 bits: codificación Unicode basada en unidades de 16 bits.",
+          "aliases": []
+        },
+        {
+          "term": "UTF-16LE",
+          "meaning": "Unicode Transformation Format de 16 bits, Little Endian: codificación con el byte menos significativo primero.",
           "aliases": []
         }
       ],
@@ -106,7 +111,23 @@
         414,
         416,
         420,
-        434
+        434,
+        444,
+        445,
+        447,
+        448,
+        449,
+        456,
+        478,
+        495,
+        502,
+        540
+      ],
+      "dhRsaPages": [
+        2,
+        4,
+        6,
+        7
       ]
     },
     {
@@ -316,7 +337,10 @@
         213,
         295,
         371,
-        372
+        372,
+        475,
+        476,
+        482
       ]
     },
     {
@@ -396,7 +420,8 @@
         41,
         47,
         54,
-        372
+        372,
+        481
       ]
     },
     {
@@ -471,7 +496,22 @@
         365,
         373,
         374,
-        375
+        375,
+        473,
+        474,
+        475,
+        476,
+        477,
+        478,
+        479,
+        480,
+        481,
+        482,
+        486,
+        562
+      ],
+      "dhRsaPages": [
+        4
       ]
     },
     {
@@ -501,7 +541,8 @@
             "AES-128",
             "AES-128-ECB",
             "AES-ECB",
-            "AES-CBC"
+            "AES-CBC",
+            "AES-256"
           ]
         }
       ],
@@ -536,7 +577,25 @@
         357,
         371,
         372,
-        433
+        433,
+        467,
+        469,
+        473,
+        474,
+        475,
+        476,
+        477,
+        478,
+        479,
+        480,
+        481,
+        482,
+        492,
+        494,
+        514,
+        537,
+        554,
+        556
       ]
     },
     {
@@ -691,7 +750,13 @@
         367,
         368,
         369,
-        370
+        370,
+        446,
+        465,
+        467,
+        469,
+        491,
+        555
       ]
     },
     {
@@ -741,7 +806,15 @@
         369,
         420,
         421,
-        422
+        422,
+        456,
+        459,
+        465,
+        472,
+        486,
+        487,
+        502,
+        550
       ]
     },
     {
@@ -829,13 +902,32 @@
           "term": "AEAD",
           "meaning": "Authenticated Encryption with Associated Data: cifrado autenticado con datos asociados.",
           "aliases": []
+        },
+        {
+          "term": "GCM",
+          "meaning": "Galois/Counter Mode: modo de cifrado autenticado que combina cifrado e integridad.",
+          "aliases": [
+            "AES-GCM"
+          ]
         }
       ],
       "externalReferences": [
         {
           "title": "RFC 5116",
           "url": "https://www.rfc-editor.org/rfc/rfc5116"
+        },
+        {
+          "title": "NIST SP 800-38D: Galois/Counter Mode",
+          "url": "https://csrc.nist.gov/pubs/sp/800/38/d/final"
         }
+      ],
+      "dhRsaPages": [
+        4,
+        8
+      ],
+      "relatedQuestionIds": [
+        458,
+        480
       ]
     },
     {
@@ -952,6 +1044,11 @@
       "relatedQuestionIds": [
         79,
         381
+      ],
+      "dhRsaPages": [
+        4,
+        8,
+        9
       ]
     },
     {
@@ -1068,11 +1165,27 @@
         15
       ],
       "definition": "Credenciales expuestas pueden reutilizarse para intentar accesos a otros servicios.",
-      "explanation": "Credential stuffing prueba pares de usuario y contraseña filtrados. Have I Been Pwned permite consultar exposición conocida de cuentas; no confirma por sí solo un acceso a un servicio particular.",
+      "explanation": "Credential stuffing prueba pares de usuario y contraseña filtrados. Have I Been Pwned permite consultar exposición conocida de cuentas; no confirma por sí solo un acceso a un servicio particular. La MFA combina clases de factores, como conocimiento y posesión; dos contraseñas no constituyen por sí solas dos clases diferentes.",
       "hint": "Relacioná la exposición de una contraseña con su reutilización en otras cuentas y con la evidencia necesaria para afirmar un acceso.",
       "example": "Una contraseña filtrada y reutilizada en otro servicio permite que un atacante pruebe ese mismo par de usuario y contraseña.",
       "fromManualGlossary": false,
-      "referenceNote": "Ampliación de las preguntas 85–86; el manual desarrolla contraseñas y riesgos, no el servicio de consulta en detalle."
+      "referenceNote": "Ampliación de las preguntas 85–86; el manual desarrolla contraseñas y riesgos, no el servicio de consulta en detalle.",
+      "acronyms": [
+        {
+          "term": "MFA",
+          "meaning": "Multi-Factor Authentication: autenticación con dos o más factores de clases diferentes.",
+          "aliases": []
+        }
+      ],
+      "externalReferences": [
+        {
+          "title": "NIST: MFA",
+          "url": "https://csrc.nist.gov/glossary/term/mfa"
+        }
+      ],
+      "relatedQuestionIds": [
+        532
+      ]
     },
     {
       "id": "defensa",
@@ -1134,7 +1247,9 @@
         {
           "term": "AFRINIC",
           "meaning": "African Network Information Centre: centro africano de información de red.",
-          "aliases": []
+          "aliases": [
+            "AfriNIC"
+          ]
         },
         {
           "term": "LACNIC",
@@ -1193,7 +1308,21 @@
         341,
         391,
         392,
-        396
+        396,
+        468,
+        500,
+        503,
+        504,
+        505,
+        506,
+        507,
+        508,
+        509,
+        510,
+        511,
+        512,
+        516,
+        553
       ]
     },
     {
@@ -1258,7 +1387,20 @@
         396,
         397,
         400,
-        406
+        406,
+        470,
+        501,
+        503,
+        504,
+        505,
+        506,
+        507,
+        508,
+        509,
+        510,
+        511,
+        512,
+        534
       ]
     },
     {
@@ -1389,7 +1531,21 @@
         395,
         396,
         397,
-        406
+        406,
+        470,
+        500,
+        503,
+        504,
+        505,
+        506,
+        507,
+        508,
+        509,
+        510,
+        511,
+        512,
+        513,
+        559
       ]
     },
     {
@@ -1551,7 +1707,29 @@
         412,
         413,
         425,
-        431
+        431,
+        468,
+        488,
+        503,
+        506,
+        507,
+        508,
+        509,
+        510,
+        512,
+        514,
+        517,
+        519,
+        520,
+        521,
+        524,
+        528,
+        535,
+        545,
+        551,
+        555,
+        557,
+        560
       ]
     },
     {
@@ -1653,7 +1831,33 @@
         402,
         415,
         416,
-        440
+        440,
+        473,
+        491,
+        499,
+        500,
+        503,
+        513,
+        514,
+        515,
+        516,
+        517,
+        518,
+        519,
+        520,
+        521,
+        522,
+        524,
+        525,
+        528,
+        532,
+        537,
+        538,
+        546,
+        553,
+        554,
+        557,
+        560
       ]
     },
     {
@@ -1724,7 +1928,11 @@
         323,
         343,
         398,
-        401
+        401,
+        515,
+        516,
+        534,
+        559
       ]
     },
     {
@@ -1824,7 +2032,13 @@
         402,
         404,
         406,
-        409
+        409,
+        494,
+        499,
+        520,
+        525,
+        537,
+        554
       ]
     },
     {
@@ -1938,7 +2152,20 @@
         402,
         403,
         408,
-        409
+        409,
+        462,
+        497,
+        498,
+        508,
+        513,
+        515,
+        517,
+        519,
+        521,
+        522,
+        527,
+        549,
+        559
       ]
     },
     {
@@ -1976,7 +2203,8 @@
         158,
         208,
         209,
-        248
+        248,
+        521
       ]
     },
     {
@@ -2081,7 +2309,7 @@
         28
       ],
       "definition": "Un timestamp necesita fecha, hora y zona para compararse con otros eventos.",
-      "explanation": "Antes de restar horarios, normalizá las zonas. La hora declarada por un mensaje puede diferir de la observada por un servidor; documentá ambas y el origen de cada registro.",
+      "explanation": "Antes de restar horarios, normalizá las zonas. La hora declarada por un mensaje puede diferir de la observada por un servidor; documentá ambas y el origen de cada registro. NTP permite sincronizar relojes; aun así, la investigación debe considerar zona horaria, desfase, procedencia y confiabilidad de cada registro.",
       "hint": "Convertí los eventos a una misma zona horaria. Evitá asumir que horas escritas igual representan el mismo instante.",
       "example": "Entre 16:32 y 16:48 de la misma fecha y zona transcurren 16 minutos. Sin zona horaria, la comparación puede ser ambigua.",
       "fromManualGlossary": false,
@@ -2095,10 +2323,23 @@
           "term": "UTC",
           "meaning": "Coordinated Universal Time: tiempo universal coordinado; UTC es la abreviatura internacional acordada.",
           "aliases": []
+        },
+        {
+          "term": "NTP",
+          "meaning": "Network Time Protocol: protocolo para sincronizar relojes en una red.",
+          "aliases": []
         }
       ],
       "relatedQuestionIds": [
-        202
+        202,
+        528,
+        531
+      ],
+      "externalReferences": [
+        {
+          "title": "RFC 5905: Network Time Protocol",
+          "url": "https://www.rfc-editor.org/rfc/rfc5905.html"
+        }
       ]
     },
     {
@@ -2206,7 +2447,17 @@
         255,
         275,
         406,
-        409
+        409,
+        495,
+        500,
+        523,
+        524,
+        525,
+        526,
+        527,
+        537,
+        557,
+        559
       ]
     },
     {
@@ -2338,7 +2589,17 @@
         225,
         412,
         440,
-        441
+        441,
+        503,
+        504,
+        505,
+        506,
+        507,
+        508,
+        509,
+        510,
+        511,
+        512
       ]
     },
     {
@@ -2556,7 +2817,25 @@
         385,
         386,
         387,
-        388
+        388,
+        487,
+        493,
+        494,
+        495,
+        496,
+        497,
+        498,
+        499,
+        500,
+        501,
+        502,
+        516,
+        522,
+        528,
+        539,
+        541,
+        544,
+        556
       ]
     },
     {
@@ -2731,7 +3010,17 @@
         439,
         440,
         441,
-        442
+        442,
+        543,
+        544,
+        545,
+        546,
+        547,
+        548,
+        549,
+        550,
+        551,
+        552
       ]
     },
     {
@@ -2811,7 +3100,8 @@
       "id": "pe",
       "term": "PE, cabeceras y secciones",
       "topics": [
-        "malware"
+        "malware",
+        "csirt"
       ],
       "manualPages": [
         35,
@@ -2898,7 +3188,13 @@
         421,
         423,
         424,
-        439
+        439,
+        446,
+        451,
+        499,
+        500,
+        541,
+        549
       ]
     },
     {
@@ -2964,7 +3260,8 @@
         332,
         337,
         349,
-        423
+        423,
+        500
       ]
     },
     {
@@ -3032,7 +3329,11 @@
         431,
         433,
         435,
-        439
+        439,
+        445,
+        447,
+        544,
+        545
       ]
     },
     {
@@ -3105,7 +3406,24 @@
       "hint": "Separá la apariencia del programa de su contenido y sus capacidades. Elegí una herramienta según el elemento que querés inspeccionar.",
       "example": "Un icono legítimo incrustado en un ejecutable puede ser reutilizado y no demuestra la identidad de su fabricante.",
       "fromManualGlossary": false,
-      "referenceNote": ""
+      "referenceNote": "",
+      "acronyms": [
+        {
+          "term": "CFF",
+          "meaning": "Parte del nombre CFF Explorer, editor e inspector de ejecutables PE de Explorer Suite; el nombre de la herramienta no se expande aquí como una frase de iniciales.",
+          "aliases": []
+        }
+      ],
+      "externalReferences": [
+        {
+          "title": "NTCore: Explorer Suite y CFF Explorer",
+          "url": "https://ntcore.com/explorer-suite/"
+        }
+      ],
+      "relatedQuestionIds": [
+        451,
+        549
+      ]
     },
     {
       "id": "packing",
@@ -3261,7 +3579,9 @@
         336,
         349,
         428,
-        429
+        429,
+        553,
+        554
       ]
     },
     {
@@ -3357,7 +3677,7 @@
         41
       ],
       "definition": "Herramientas para capturar e inspeccionar paquetes de red.",
-      "explanation": "Permiten observar consultas DNS, conexiones y transferencias dentro de la visibilidad de la captura. Una consulta DNS no prueba una descarga; HTTPS puede ocultar contenido.",
+      "explanation": "Permiten observar consultas DNS, conexiones y transferencias dentro de la visibilidad de la captura. Una consulta DNS no prueba una descarga; HTTPS puede ocultar contenido. En TShark, -T fields selecciona salida por campos y -e data solicita el campo data; -p desactiva el modo promiscuo, -n evita resolución de nombres y -D enumera interfaces.",
       "hint": "Diferenciá nombre consultado, conexión establecida y datos transferidos. Afirmá solo la etapa que sostiene la captura.",
       "example": "Una consulta DNS capturada demuestra resolución de nombre; todavía no confirma una descarga posterior.",
       "fromManualGlossary": false,
@@ -3387,13 +3707,19 @@
         {
           "title": "RFC 792",
           "url": "https://www.rfc-editor.org/rfc/rfc792"
+        },
+        {
+          "title": "Wireshark: manual de TShark y opciones de salida",
+          "url": "https://www.wireshark.org/docs/man-pages/tshark.html"
         }
       ],
       "relatedQuestionIds": [
         127,
         414,
         416,
-        440
+        440,
+        534,
+        535
       ]
     },
     {
@@ -3527,11 +3853,18 @@
         6
       ],
       "definition": "La aritmética modular trabaja con restos; un inverso multiplicativo deshace una multiplicación dentro del módulo.",
-      "explanation": "a y b son congruentes módulo n si tienen el mismo resto al dividir por n. El inverso d de e satisface e·d ≡ 1 (mod n) y existe cuando e y n son coprimos. La exponenciación modular calcula potencias reducidas y se usa en RSA y Diffie–Hellman.",
+      "explanation": "a y b son congruentes módulo n si tienen el mismo resto al dividir por n. El inverso d de e satisface e·d ≡ 1 (mod n) y existe cuando e y n son coprimos. La exponenciación modular calcula potencias reducidas y se usa en RSA y Diffie–Hellman. Los cuadrados sucesivos permiten calcular potencias con residuos intermedios pequeños: con módulo 23, 5²≡2, 5⁴≡4 y 5⁸≡16. No se debe confundir un exponente con un producto escrito en la extracción de un PDF.",
       "hint": "Separá producto, potencia e inverso modular. Comprobá cada relación con el módulo indicado.",
       "example": "El inverso de 3 módulo 10 es 7 porque 3·7=21 deja resto 1. No equivale a la fracción real 1/3.",
       "fromManualGlossary": false,
-      "referenceNote": "Ampliación didáctica basada en la guía de prácticas disponible; las páginas citadas pertenecen a esa guía, no al manual de teorías."
+      "referenceNote": "Ampliación didáctica basada en la guía de prácticas disponible; las páginas citadas pertenecen a esa guía, no al manual de teorías.",
+      "dhRsaPages": [
+        2,
+        3,
+        5,
+        6,
+        7
+      ]
     },
     {
       "id": "rsa",
@@ -3545,9 +3878,9 @@
         6
       ],
       "definition": "Esquema asimétrico que distingue una clave pública (n,e) y material privado que permite obtener d.",
-      "explanation": "En el modelo didáctico con primos distintos p y q, n=p·q y φ(n)=(p−1)(q−1). Se obtiene d como inverso de e módulo φ(n). Un entero m se cifra como m^e mod n y se recupera como c^d mod n. Factorizar un módulo pequeño permite derivar d; el ejemplo no representa seguridad real y RSA requiere parámetros y padding adecuados.",
+      "explanation": "En el modelo didáctico con primos distintos p y q, n=p·q y φ(n)=(p−1)(q−1). Se obtiene d como inverso de e módulo φ(n). Un entero m se cifra como m^e mod n y se recupera como c^d mod n. Factorizar un módulo pequeño permite derivar d; el ejemplo no representa seguridad real y RSA requiere parámetros y padding adecuados. En el ejemplo de la nueva guía, 17·2753 deja resto 1 módulo 3120. La exponenciación por cuadrados sucesivos reduce resultados intermedios; descifrar requiere interpretar después los enteros como bytes con la codificación original.",
       "hint": "Identificá qué cantidades son públicas, cuáles permiten calcular el inverso y cómo se representan los bytes del mensaje.",
-      "example": "Con primos pequeños se puede comprobar una ida y vuelta de un entero; convertirlo a texto exige conocer codificación, longitud y orden de bytes.",
+      "example": "Con p=61, q=53 y e=17: n=3233, φ(n)=3120 y d=2753. En el ejemplo sin padding, HOLA (72,79,76,65) se cifra como (3000,1307,2726,2790) y se recupera con el exponente privado. Son parámetros didácticos inseguros.",
       "fromManualGlossary": false,
       "referenceNote": "Ampliación didáctica basada en la guía de prácticas disponible; las páginas citadas pertenecen a esa guía, no al manual de teorías.",
       "acronyms": [
@@ -3566,7 +3899,38 @@
         378,
         379,
         381,
-        387
+        387,
+        456,
+        458,
+        460,
+        462,
+        465,
+        467,
+        483,
+        484,
+        485,
+        486,
+        487,
+        488,
+        489,
+        490,
+        491,
+        492,
+        498,
+        523,
+        533,
+        535,
+        542,
+        557,
+        560
+      ],
+      "dhRsaPages": [
+        2,
+        5,
+        6,
+        7,
+        8,
+        9
       ]
     },
     {
@@ -3581,9 +3945,9 @@
         7
       ],
       "definition": "Permite calcular un secreto compartido sin enviarlo directamente, a partir de valores públicos y exponentes privados.",
-      "explanation": "Con p y g públicos, cada parte publica una potencia modular de g. Al elevar el valor recibido a su propio exponente obtiene el mismo secreto que la contraparte. El intercambio básico no autentica identidades: un intermediario puede sustituir valores si no se añade autenticación.",
+      "explanation": "Con p y g públicos, cada parte publica una potencia modular de g. Al elevar el valor recibido a su propio exponente obtiene el mismo secreto que la contraparte. El intercambio básico no autentica identidades: un intermediario puede sustituir valores si no se añade autenticación. Con A=g^a mod p y B=g^b mod p, ambos calculan g^(ab) mod p mediante B^a o A^b. El secreto obtenido no se usa sin más como una clave de aplicación: se deriva material adecuado con una KDF y se autentica el protocolo.",
       "hint": "Distinguí parámetros públicos, exponentes privados y secreto compartido. Acordar una clave no verifica por sí solo quién está del otro lado.",
-      "example": "Alice calcula B^a mod p y Bob A^b mod p. Las firmas o certificados se evalúan aparte para autenticar el intercambio.",
+      "example": "La guía usa p=23, g=5, a=6 y b=15: A=8, B=19 y ambos obtienen s=2. El XOR didáctico de HOLA con el byte 2 produce JMNC y se revierte con el mismo byte; no representa un cifrado seguro.",
       "fromManualGlossary": false,
       "referenceNote": "Ampliación didáctica basada en la guía de prácticas disponible; las páginas citadas pertenecen a esa guía, no al manual de teorías.",
       "acronyms": [
@@ -3597,7 +3961,22 @@
       ],
       "relatedQuestionIds": [
         380,
-        381
+        381,
+        483,
+        484,
+        485,
+        486,
+        487,
+        488,
+        489,
+        490,
+        491,
+        492
+      ],
+      "dhRsaPages": [
+        3,
+        4,
+        9
       ]
     },
     {
@@ -3643,7 +4022,9 @@
       "relatedQuestionIds": [
         357,
         383,
-        384
+        384,
+        499,
+        523
       ]
     },
     {
@@ -3707,7 +4088,17 @@
       ],
       "relatedQuestionIds": [
         392,
-        397
+        397,
+        503,
+        504,
+        505,
+        506,
+        507,
+        508,
+        509,
+        510,
+        511,
+        512
       ]
     },
     {
@@ -3750,7 +4141,13 @@
         410,
         411,
         413,
-        418
+        418,
+        525,
+        528,
+        529,
+        532,
+        544,
+        559
       ]
     },
     {
@@ -3819,7 +4216,18 @@
       "relatedQuestionIds": [
         270,
         417,
-        418
+        418,
+        539,
+        553,
+        554,
+        555,
+        556,
+        557,
+        558,
+        559,
+        560,
+        561,
+        562
       ]
     },
     {
@@ -3874,7 +4282,8 @@
       ],
       "relatedQuestionIds": [
         433,
-        434
+        434,
+        556
       ]
     },
     {
@@ -3924,7 +4333,11 @@
       "relatedQuestionIds": [
         435,
         436,
-        437
+        437,
+        558,
+        559,
+        560,
+        562
       ]
     },
     {
@@ -4046,7 +4459,8 @@
         132,
         251,
         260,
-        275
+        275,
+        508
       ]
     },
     {
@@ -4110,7 +4524,7 @@
         20
       ],
       "definition": "Los tipos de registro describen datos distintos de un nombre; el tiempo de vida controla su permanencia en caché.",
-      "explanation": "A contiene una dirección IPv4 y AAAA una IPv6. CNAME expresa un alias, PTR una referencia a un nombre, SRV ubica un servicio y TXT transporta texto. El número de letras de AAAA indica el tipo usado para direcciones de mayor longitud: no es una frase de cuatro palabras. Para recepción de correo existe el tipo MX, explicado en su entrada.",
+      "explanation": "A contiene una dirección IPv4 y AAAA una IPv6. CNAME expresa un alias, PTR una referencia a un nombre, SRV ubica un servicio y TXT transporta texto. El número de letras de AAAA indica el tipo usado para direcciones de mayor longitud: no es una frase de cuatro palabras. Para recepción de correo existe el tipo MX, explicado en su entrada. CAA publica autorizaciones para la emisión de certificados; no señala servidores de recepción de correo ni sustituye MX.",
       "hint": "Relacioná cada tipo con el dato que publica y separá el contenido del registro de su duración en caché.",
       "example": "Un TXT puede publicar información usada por mecanismos de correo; un CNAME no es una prioridad de entrega de mensajes.",
       "fromManualGlossary": false,
@@ -4131,6 +4545,10 @@
         {
           "title": "RFC 2782",
           "url": "https://www.rfc-editor.org/rfc/rfc2782"
+        },
+        {
+          "title": "RFC 8659: CAA",
+          "url": "https://www.rfc-editor.org/rfc/rfc8659.html"
         }
       ],
       "acronyms": [
@@ -4168,6 +4586,11 @@
           "term": "TTL",
           "meaning": "Time To Live: tiempo de vida del dato en caché.",
           "aliases": []
+        },
+        {
+          "term": "CAA",
+          "meaning": "Certification Authority Authorization: registro que indica qué autoridades pueden emitir certificados para el dominio.",
+          "aliases": []
         }
       ],
       "relatedQuestionIds": [
@@ -4182,7 +4605,12 @@
         246,
         258,
         296,
-        313
+        313,
+        491,
+        520,
+        532,
+        538,
+        560
       ]
     },
     {
@@ -4217,7 +4645,8 @@
         }
       ],
       "relatedQuestionIds": [
-        139
+        139,
+        528
       ]
     },
     {
@@ -4380,7 +4809,7 @@
         10
       ],
       "definition": "Procedimiento que deriva material de clave a partir de un secreto y otros parámetros definidos.",
-      "explanation": "En esquemas basados en contraseñas pueden intervenir salt y parámetros de costo. No toda función de derivación es necesariamente lenta ni todo hash aislado constituye un esquema adecuado de protección de contraseñas. Para reproducir una operación hay que respetar algoritmo y parámetros.",
+      "explanation": "En esquemas basados en contraseñas pueden intervenir salt y parámetros de costo. No toda función de derivación es necesariamente lenta ni todo hash aislado constituye un esquema adecuado de protección de contraseñas. Para reproducir una operación hay que respetar algoritmo y parámetros. HKDF sigue una estructura de extracción y expansión basada en HMAC; puede derivar claves de un secreto DH con contexto apropiado. No sustituye una función costosa de contraseñas ni corrige la falta de autenticación del acuerdo.",
       "hint": "Comprobá si la contraseña se usa directamente o si primero se transforma en material criptográfico.",
       "example": "Dos archivos con parámetros de derivación diferentes pueden requerir procedimientos distintos aun usando la misma contraseña.",
       "fromManualGlossary": false,
@@ -4389,6 +4818,10 @@
         {
           "title": "NIST: Key Derivation Function",
           "url": "https://csrc.nist.gov/glossary/term/key_derivation_function"
+        },
+        {
+          "title": "RFC 5869: HKDF",
+          "url": "https://www.rfc-editor.org/rfc/rfc5869.html"
         }
       ],
       "acronyms": [
@@ -4396,11 +4829,24 @@
           "term": "KDF",
           "meaning": "Key Derivation Function: función de derivación de claves.",
           "aliases": []
+        },
+        {
+          "term": "HKDF",
+          "meaning": "HMAC-based Extract-and-Expand Key Derivation Function: función de derivación con extracción y expansión basada en HMAC.",
+          "aliases": []
+        },
+        {
+          "term": "HMAC",
+          "meaning": "Hash-based Message Authentication Code: código de autenticación de mensajes basado en una función hash.",
+          "aliases": []
         }
       ],
       "relatedQuestionIds": [
         370,
         390
+      ],
+      "dhRsaPages": [
+        4
       ]
     },
     {
@@ -4539,6 +4985,11 @@
           "term": "HTTPS",
           "meaning": "Hypertext Transfer Protocol Secure: uso de HTTP sobre un canal protegido con TLS.",
           "aliases": []
+        },
+        {
+          "term": "SSL",
+          "meaning": "Secure Sockets Layer: familia histórica de protocolos de protección de comunicaciones, antecedente de TLS.",
+          "aliases": []
         }
       ],
       "relatedQuestionIds": [
@@ -4556,7 +5007,11 @@
         332,
         335,
         416,
-        432
+        432,
+        498,
+        507,
+        538,
+        554
       ]
     },
     {
@@ -4828,7 +5283,8 @@
         141,
         150,
         321,
-        430
+        430,
+        555
       ]
     },
     {
@@ -4943,6 +5399,11 @@
           "term": "WAV",
           "meaning": "Extensión del formato WAVE de audio de forma de onda (waveform audio); es una denominación de formato.",
           "aliases": []
+        },
+        {
+          "term": "ZIP",
+          "meaning": "Denominación de un formato contenedor de archivos con opciones de compresión; no se le atribuye una expansión de iniciales.",
+          "aliases": []
         }
       ],
       "relatedQuestionIds": [
@@ -4952,7 +5413,13 @@
         255,
         258,
         310,
-        384
+        384,
+        468,
+        488,
+        502,
+        508,
+        524,
+        541
       ]
     },
     {
@@ -4989,6 +5456,273 @@
       ],
       "relatedQuestionIds": [
         294
+      ]
+    },
+    {
+      "id": "url-encoding",
+      "term": "URL encoding: codificación porcentual",
+      "topics": [
+        "cripto",
+        "csirt"
+      ],
+      "manualPages": [],
+      "practicePages": [
+        2,
+        3
+      ],
+      "definition": "Representación de bytes mediante el signo % seguido de dos dígitos hexadecimales en los componentes de una URL.",
+      "explanation": "Percent-encoding permite representar bytes que no se escriben directamente en un componente. %20 representa 0x20, el espacio; %25 representa el signo %. La interpretación del texto depende también de la codificación de caracteres. Esta representación pública no cifra ni autentica los datos.",
+      "hint": "Diferenciá el carácter visible, su código numérico y la escritura de ese byte dentro de una dirección.",
+      "example": "Un espacio en un componente puede escribirse %20; decodificarlo no requiere una clave secreta.",
+      "fromManualGlossary": false,
+      "referenceNote": "Ampliación didáctica para el nuevo banco de parcial. Cada enlace distingue la guía de prácticas de la guía específica de Diffie–Hellman y RSA.",
+      "externalReferences": [
+        {
+          "title": "RFC 3986: percent-encoding",
+          "url": "https://www.rfc-editor.org/rfc/rfc3986.html#section-2.1"
+        }
+      ]
+    },
+    {
+      "id": "coprimos-totiente",
+      "term": "Coprimos, MCD y totiente de Euler",
+      "topics": [
+        "cripto"
+      ],
+      "manualPages": [],
+      "practicePages": [
+        6
+      ],
+      "definition": "Dos enteros son coprimos si su máximo común divisor es 1. φ(n) cuenta los residuos entre 1 y n−1 coprimos con n.",
+      "explanation": "Si p y q son primos distintos, φ(pq)=(p−1)(q−1). RSA elige un exponente e coprimo con φ(n), lo que permite calcular un inverso d con e·d≡1 módulo φ(n). El algoritmo extendido de Euclides encuentra ese inverso. La fórmula del producto requiere la condición de primos distintos.",
+      "hint": "Separá el producto que forma el módulo del recuento de enteros coprimos. Comprobá con qué módulo se define el inverso.",
+      "example": "Con p=61 y q=53, n=3233 y φ(n)=3120. Como MCD(17,3120)=1, existe el inverso 2753: 17·2753=1+15·3120.",
+      "fromManualGlossary": false,
+      "referenceNote": "Ampliación didáctica para el nuevo banco de parcial. Cada enlace distingue la guía de prácticas de la guía específica de Diffie–Hellman y RSA.",
+      "dhRsaPages": [
+        2,
+        5,
+        8
+      ],
+      "acronyms": [
+        {
+          "term": "MCD",
+          "meaning": "Máximo común divisor: mayor entero positivo que divide exactamente a los números considerados.",
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "rsa-padding",
+      "term": "RSA-OAEP, RSA-PSS y límites del RSA sin padding",
+      "topics": [
+        "cripto"
+      ],
+      "manualPages": [],
+      "practicePages": [
+        6
+      ],
+      "definition": "La operación modular RSA necesita un esquema completo: OAEP se utiliza para cifrado y PSS para firmas digitales.",
+      "explanation": "RSA matemático sin relleno es determinista: el mismo entero con la misma clave produce el mismo resultado, por lo que cifrar cada carácter revela repeticiones. OAEP incorpora una codificación aleatorizada apropiada para cifrado; PSS corresponde a otra finalidad, la firma. En cifrado híbrido, RSA protege una clave de sesión y un esquema autenticado cifra los datos. No se debe confundir esa codificación criptográfica con Base64.",
+      "hint": "Distinguí una fórmula matemática aislada del esquema que prepara el mensaje y define cómo comprobar el resultado.",
+      "example": "La guía cifra HOLA carácter por carácter para practicar cuentas; en una aplicación se usa un esquema completo y una clave de sesión, no esa demostración literal.",
+      "fromManualGlossary": false,
+      "referenceNote": "Ampliación didáctica para el nuevo banco de parcial. Cada enlace distingue la guía de prácticas de la guía específica de Diffie–Hellman y RSA.",
+      "dhRsaPages": [
+        6,
+        8,
+        9
+      ],
+      "externalReferences": [
+        {
+          "title": "RFC 8017: esquemas RSA-OAEP y RSA-PSS",
+          "url": "https://www.rfc-editor.org/rfc/rfc8017.html"
+        }
+      ],
+      "acronyms": [
+        {
+          "term": "OAEP",
+          "meaning": "Optimal Asymmetric Encryption Padding: codificación aleatorizada utilizada por el esquema RSA-OAEP.",
+          "aliases": [
+            "RSA-OAEP"
+          ]
+        },
+        {
+          "term": "PSS",
+          "meaning": "Probabilistic Signature Scheme: esquema probabilístico utilizado para firmas RSA.",
+          "aliases": [
+            "RSA-PSS"
+          ]
+        }
+      ],
+      "relatedQuestionIds": [
+        492
+      ]
+    },
+    {
+      "id": "logaritmo-discreto",
+      "term": "Logaritmo discreto y secreto de Diffie–Hellman",
+      "topics": [
+        "cripto"
+      ],
+      "manualPages": [],
+      "practicePages": [
+        6,
+        7
+      ],
+      "definition": "Dado un grupo y valores g y A=g^a, el problema de logaritmo discreto consiste en recuperar un exponente a adecuado.",
+      "explanation": "En el ejemplo modular de DH, observar p, g y los valores públicos no entrega directamente los exponentes privados. Con parámetros pequeños se pueden probar exponentes; con grupos y tamaños adecuados se busca que los ataques conocidos sean impracticables. Recuperar un exponente permite calcular el secreto, pero calcular el secreto DH y resolver logaritmos discretos son problemas relacionados que no deben identificarse sin más. Nada de esto autentica la identidad de la otra parte.",
+      "hint": "Preguntate qué cálculo es fácil con el exponente conocido y cuál debe resolver quien sólo observa los valores públicos.",
+      "example": "Con p=23 y g=5 se puede enumerar potencias hasta encontrar 5^6 mod 23=8; ese tamaño sólo sirve para una demostración.",
+      "fromManualGlossary": false,
+      "referenceNote": "Ampliación didáctica para el nuevo banco de parcial. Cada enlace distingue la guía de prácticas de la guía específica de Diffie–Hellman y RSA.",
+      "dhRsaPages": [
+        3,
+        4,
+        9
+      ]
+    },
+    {
+      "id": "espectrograma",
+      "term": "Espectrograma y esteganografía en audio",
+      "topics": [
+        "cripto"
+      ],
+      "manualPages": [],
+      "practicePages": [
+        7
+      ],
+      "definition": "Visualización que muestra cómo cambia el contenido de frecuencias de una señal a lo largo del tiempo.",
+      "explanation": "Un espectrograma combina tiempo, frecuencia e intensidad. Puede revelar formas o texto introducidos como componentes de audio que no se detectan sólo escuchándolo. Es una técnica de inspección: un hallazgo debe contrastarse con el archivo y no demuestra por sí solo que todo audio tenga un mensaje oculto.",
+      "hint": "Pensá en una representación visual que mantenga tanto el tiempo como las componentes de frecuencia de la señal.",
+      "example": "Al abrir una copia del audio en una vista de espectrograma podrían aparecer letras dibujadas mediante tonos.",
+      "fromManualGlossary": false,
+      "referenceNote": "Ampliación didáctica para el nuevo banco de parcial. Cada enlace distingue la guía de prácticas de la guía específica de Diffie–Hellman y RSA."
+    },
+    {
+      "id": "gpt-particiones",
+      "term": "GPT: tabla de particiones con identificadores GUID",
+      "topics": [
+        "cripto",
+        "malware"
+      ],
+      "manualPages": [],
+      "practicePages": [
+        7
+      ],
+      "definition": "Esquema que describe particiones de un disco y utiliza identificadores GUID para tipos y particiones.",
+      "explanation": "Una tabla de particiones organiza regiones del dispositivo. No es una representación de frecuencias de un audio ni un método de esteganografía. GPT y un sistema de archivos como NTFS actúan en niveles diferentes: el primero describe particiones y el segundo organiza archivos dentro de un volumen.",
+      "hint": "Ubicá si el concepto describe la organización de un disco, la estructura de un archivo o el contenido de una señal.",
+      "example": "Un disco con particionado GPT puede contener un volumen NTFS; ese dato no revela un mensaje oculto en un archivo de audio.",
+      "fromManualGlossary": false,
+      "referenceNote": "Ampliación didáctica para el nuevo banco de parcial. Cada enlace distingue la guía de prácticas de la guía específica de Diffie–Hellman y RSA.",
+      "externalReferences": [
+        {
+          "title": "Microsoft: estilos de partición y GPT",
+          "url": "https://learn.microsoft.com/en-us/windows/win32/fileio/basic-and-dynamic-disks"
+        }
+      ],
+      "acronyms": [
+        {
+          "term": "GPT",
+          "meaning": "GUID Partition Table: tabla de particiones que utiliza identificadores GUID.",
+          "aliases": []
+        }
+      ],
+      "relatedQuestionIds": [
+        501
+      ]
+    },
+    {
+      "id": "ntfs",
+      "term": "NTFS: sistema de archivos de Windows",
+      "topics": [
+        "malware"
+      ],
+      "manualPages": [],
+      "practicePages": [
+        14,
+        15
+      ],
+      "definition": "Sistema de archivos de Windows que organiza archivos y directorios, con metadatos y controles de acceso.",
+      "explanation": "NTFS describe cómo se almacenan y administran archivos en un volumen. No es un algoritmo hash ni la finalidad de una clave Run del Registro. Al investigar un archivo se distinguen su contenido, su ruta y permisos, y los mecanismos del sistema que provocan su ejecución.",
+      "hint": "Separá el sistema que organiza archivos del mecanismo de inicio automático que referencia una ruta.",
+      "example": "Una entrada Run puede apuntar a un ejecutable almacenado en un volumen NTFS; son dos componentes con funciones diferentes.",
+      "fromManualGlossary": false,
+      "referenceNote": "Ampliación didáctica para el nuevo banco de parcial. Cada enlace distingue la guía de prácticas de la guía específica de Diffie–Hellman y RSA.",
+      "externalReferences": [
+        {
+          "title": "Microsoft: NTFS overview",
+          "url": "https://learn.microsoft.com/en-us/windows-server/storage/file-server/ntfs-overview"
+        }
+      ],
+      "acronyms": [
+        {
+          "term": "NTFS",
+          "meaning": "New Technology File System: sistema de archivos de Windows.",
+          "aliases": []
+        }
+      ],
+      "relatedQuestionIds": [
+        553
+      ]
+    },
+    {
+      "id": "powershell-codificado",
+      "term": "PowerShell EncodedCommand y UTF-16LE",
+      "topics": [
+        "csirt",
+        "malware"
+      ],
+      "manualPages": [],
+      "practicePages": [
+        12,
+        13,
+        18
+      ],
+      "definition": "EncodedCommand permite proporcionar a PowerShell un comando representado como Base64 de texto UTF-16LE.",
+      "explanation": "El argumento se puede inspeccionar decodificando primero Base64 y después los bytes como UTF-16LE, sin ejecutar el resultado. Una cadena codificada puede reconstruir comandos con efectos sobre archivos, red o Registro; decodificar y ejecutar son acciones distintas. La codificación no crea confidencialidad.",
+      "hint": "Identificá las dos capas de representación del argumento y examiná el texto recuperado antes de considerar cualquier ejecución.",
+      "example": "Decodificar el argumento puede mostrar nombres de comandos y rutas; leer esas cadenas no requiere lanzar el script.",
+      "fromManualGlossary": false,
+      "referenceNote": "Ampliación didáctica para el nuevo banco de parcial. Cada enlace distingue la guía de prácticas de la guía específica de Diffie–Hellman y RSA.",
+      "externalReferences": [
+        {
+          "title": "Microsoft: powershell.exe y EncodedCommand",
+          "url": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_powershell_exe"
+        }
+      ]
+    },
+    {
+      "id": "ecdh",
+      "term": "ECDH y X25519: acuerdo con curvas elípticas",
+      "topics": [
+        "cripto"
+      ],
+      "manualPages": [],
+      "practicePages": [],
+      "definition": "ECDH realiza un acuerdo de secreto compartido con operaciones sobre curvas elípticas; X25519 es una función usada para ese acuerdo.",
+      "explanation": "La guía presenta ECDH como una alternativa habitual al ejemplo didáctico de potencias módulo un primo. Los participantes combinan material privado propio y un valor público recibido para obtener material secreto. Después se derivan claves con una KDF; el acuerdo por sí solo no cifra los mensajes ni verifica la identidad de la contraparte.",
+      "hint": "Mantené separadas las funciones de acordar material secreto, derivar claves y cifrar datos autenticados.",
+      "example": "Un protocolo puede combinar X25519, HKDF y un cifrado autenticado, añadiendo un mecanismo para autenticar a los participantes.",
+      "fromManualGlossary": false,
+      "referenceNote": "Ampliación didáctica para el nuevo banco de parcial. Cada enlace distingue la guía de prácticas de la guía específica de Diffie–Hellman y RSA.",
+      "dhRsaPages": [
+        4,
+        8
+      ],
+      "externalReferences": [
+        {
+          "title": "RFC 7748: X25519 y acuerdo de claves",
+          "url": "https://www.rfc-editor.org/rfc/rfc7748.html"
+        }
+      ],
+      "acronyms": [
+        {
+          "term": "ECDH",
+          "meaning": "Elliptic Curve Diffie–Hellman: acuerdo Diffie–Hellman mediante curvas elípticas.",
+          "aliases": []
+        }
       ]
     }
   ],
@@ -5930,6 +6664,24 @@
         "conceptId": "ssh-logs",
         "action": "expanded"
       }
+    ]
+  },
+  "newPDFExpansion": {
+    "documents": [
+      "Guia_Diffie_Hellman_y_RSA.pdf",
+      "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "Parcial_IC_Solucionario_Razonado.pdf"
+    ],
+    "newEntryIds": [
+      "url-encoding",
+      "coprimos-totiente",
+      "rsa-padding",
+      "logaritmo-discreto",
+      "espectrograma",
+      "gpt-particiones",
+      "ntfs",
+      "powershell-codificado",
+      "ecdh"
     ]
   }
 }

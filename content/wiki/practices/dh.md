@@ -1,5 +1,5 @@
 ---
-{"id":"practices-dh","title":"Caso: comprobar el secreto de Diffie-Hellman","slug":"dh","parent":"practices","type":"practice","order":70,"related":["crypto-signature","crypto-pki","fundamentals-mitm"],"sources":[{"id":"practice-1b","pages":[4]},{"id":"practice-solutions","pages":[8]},{"id":"practice-guide","pages":[6,7]}]}
+{"id":"practices-dh","title":"Caso: comprobar el secreto de Diffie-Hellman","slug":"dh","parent":"practices","type":"practice","order":70,"related":["crypto-signature","crypto-pki","fundamentals-mitm"],"sources":[{"id":"practice-1b","pages":[4]},{"id":"practice-solutions","pages":[8]},{"id":"practice-guide","pages":[6,7]},{"id":"dh-rsa-guide","pages":[3,4,9]},{"id":"exam-questions","pages":[11]},{"id":"exam-solutions","pages":[7]}]}
 ---
 ## Datos del ejemplo oficial
 
@@ -39,4 +39,14 @@ Se acordó un secreto; no se cifró un mensaje con esta tabla. El esquema básic
 
 :::question ¿Por qué obtener el mismo número no demuestra que se habló con la persona esperada?
 Porque el cálculo muestra consistencia matemática del intercambio, pero no vincula los valores públicos con identidades. La autenticación necesita evidencia o mecanismos adicionales.
+:::
+
+## Repaso adicional de la guía de Diffie–Hellman
+
+:::question Con p=23, g=5, a=6 y b=15, ¿qué envían Alice y Bob y qué secreto obtienen?
+Alice envía `A=8` y Bob `B=19`. Alice calcula `19^6 mod 23=2`; Bob calcula `8^15 mod 23=2`. Ninguno transmite directamente ese secreto ni su exponente privado.
+:::
+
+:::question Si se observan p, g, A y B, ¿qué dificultad busca un intercambio con parámetros seguros?
+La guía relaciona la dificultad de recuperar un exponente privado con el logaritmo discreto. Recuperar ese exponente permitiría calcular el secreto; el observador no lo recibe directamente. El ejemplo con módulo 23 es fácil de resolver por prueba y no representa seguridad real. También hace falta autenticar el intercambio para impedir que un intermediario sustituya valores.
 :::

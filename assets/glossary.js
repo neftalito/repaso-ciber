@@ -1,4 +1,4 @@
-import { TOPICS } from './progress.mjs?v=20261021-7';
+import { TOPICS } from './progress.mjs?v=20261023-1';
 const $ = id => document.getElementById(id);
 const el = (tag, cls, text) => { const n = document.createElement(tag); if (cls) n.className = cls; if (text !== undefined) n.textContent = text; return n; };
 const normalize = value => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
@@ -7,8 +7,8 @@ function matchesSearch(text, search) { return search.split(/\s+/).every(word => 
 function acronymText(entry) {
   return (entry.acronyms ?? []).flatMap(a => [a.term, a.meaning, ...(a.aliases ?? [])]).join(' ');
 }
-function manualReferences(pages, practicePages = []) {
-  const refs = el('div', 'entry-references'); refs.append(practicePages.length ? 'PROFUNDIZÁ EN LOS APUNTES · ' : 'PROFUNDIZÁ EN EL MANUAL · ');
+function manualReferences(pages, practicePages = [], dhRsaPages = []) {
+  const refs = el('div', 'entry-references'); refs.append(practicePages.length || dhRsaPages.length ? 'PROFUNDIZÁ EN LOS APUNTES · ' : 'PROFUNDIZÁ EN EL MANUAL · ');
   for (const page of pages) {
     const a = el('a', 'text-link', `p. ${page} ↗`); a.href = `docs/Manual_IC2026_Cripto_CSIRT_Malware_Descarga.pdf#page=${page}`; a.target = '_blank'; a.rel = 'noopener';
     a.setAttribute('aria-label', `Manual, página ${page} (PDF, nueva pestaña)`); refs.append(a);
@@ -16,6 +16,10 @@ function manualReferences(pages, practicePages = []) {
   for (const page of practicePages) {
     const a = el('a', 'text-link', `Guía de prácticas, p. ${page} ↗`); a.href = `docs/Guia_de_estudio_IC_Practicas_1_y_2.pdf#page=${page}`; a.target = '_blank'; a.rel = 'noopener';
     a.setAttribute('aria-label', `Guía de prácticas, página ${page} (PDF, nueva pestaña)`); refs.append(a);
+  }
+  for (const page of dhRsaPages) {
+    const a = el('a', 'text-link', `Guía DH y RSA, p. ${page} ↗`); a.href = `docs/Guia_Diffie_Hellman_y_RSA.pdf#page=${page}`; a.target = '_blank'; a.rel = 'noopener';
+    a.setAttribute('aria-label', `Guía de Diffie–Hellman y RSA, página ${page} (PDF, nueva pestaña)`); refs.append(a);
   }
   return refs;
 }
@@ -70,7 +74,7 @@ function renderComparisons(search, topic) {
       row.values.forEach(value => tr.append(el('td', '', value))); tbody.append(tr);
     }
     table.append(tbody); scroll.append(table); content.append(scroll, el('p', 'comparison-takeaway', c.takeaway));
-    const example = el('div', 'entry-example'); example.append(el('strong', '', 'Por ejemplo'), document.createTextNode(c.example)); content.append(example, manualReferences(c.manualPages));
+    const example = el('div', 'entry-example'); example.append(el('strong', '', 'Por ejemplo'), document.createTextNode(c.example)); content.append(example, manualReferences(c.manualPages, c.practicePages, c.dhRsaPages));
     const permalink = el('a', 'text-link', 'Enlace directo a esta comparación #'); permalink.href = `#${c.id}`; content.append(permalink);
     details.append(content); fragment.append(details);
   }
@@ -112,7 +116,7 @@ function render() {
       for (const c of relatedComparisons) { const a = el('a', 'concept-link', `Comparar: ${c.title} ↗`); a.href = `#${c.id}`; links.append(a); }
       article.append(links);
     }
-    const refs = manualReferences(entry.manualPages, entry.practicePages);
+    const refs = manualReferences(entry.manualPages, entry.practicePages, entry.dhRsaPages);
     if (entry.referenceNote) refs.append(el('span', 'reference-note', entry.referenceNote));
     if (entry.externalReferences?.length) {
       const sources = el('div', 'acronym-sources'); sources.append(el('strong', '', 'Fuentes de los significados'));
@@ -127,7 +131,7 @@ function render() {
     if (related.length) {
       const details = el('details', 'question-history'); details.append(el('summary', '', `Practicar preguntas relacionadas (${related.length})`));
       const links = el('div', 'concept-links');
-      related.forEach(q => { const a = el('a', 'concept-link', `Pregunta ${String(q.id).padStart(3, '0')} · ${q.origin === 'practice' ? 'Práctica' : 'Teoría'}`); a.href = `index.html?pregunta=${q.id}`; links.append(a); });
+      related.forEach(q => { const a = el('a', 'concept-link', `Pregunta ${String(q.id).padStart(3, '0')} · ${q.collection === 'exam' ? 'Práctica · Banco del parcial' : q.origin === 'practice' ? 'Práctica' : 'Teoría'}`); a.href = `index.html?pregunta=${q.id}`; links.append(a); });
       details.append(links); article.append(details);
     }
     fragment.append(article);
@@ -159,13 +163,14 @@ function showHash() {
 document.querySelectorAll('[data-materials]').forEach(b => b.addEventListener('click', () => $('materials-dialog').showModal()));
 document.querySelector('[data-close]').addEventListener('click', () => $('materials-dialog').close());
 try {
-  const responses = await Promise.all([fetch('data/glossary.json', { cache: 'no-cache' }), fetch('data/questions.json', { cache: 'no-cache' }), fetch('data/comparisons.json', { cache: 'no-cache' }), fetch('data/ascii.json', { cache: 'no-cache' }), fetch('data/practice-questions.json', { cache: 'no-cache' })]);
+  const responses = await Promise.all([fetch('data/glossary.json', { cache: 'no-cache' }), fetch('data/questions.json', { cache: 'no-cache' }), fetch('data/comparisons.json', { cache: 'no-cache' }), fetch('data/ascii.json', { cache: 'no-cache' }), fetch('data/practice-questions.json', { cache: 'no-cache' }), fetch('data/exam-questions.json', { cache: 'no-cache' })]);
   if (responses.some(r => !r.ok)) throw new Error('No se pudieron cargar los conceptos.');
-  const [glossary, bank, comparisonsBank, asciiBank, practical] = await Promise.all(responses.map(r => r.json()));
+  const [glossary, bank, comparisonsBank, asciiBank, practical, exam] = await Promise.all(responses.map(r => r.json()));
   if (comparisonsBank.version !== 1 || !comparisonsBank.comparisons?.length) throw new Error('No se pudieron cargar las comparaciones.');
   if (asciiBank.version !== 1 || !asciiBank.groups?.length) throw new Error('No se pudo cargar la tabla ASCII.');
   if (practical.version !== 1 || !practical.questions?.length) throw new Error('No se pudieron cargar los ejercicios de prácticas.');
-  entries = glossary.entries.sort((a, b) => a.term.localeCompare(b.term, 'es')); questions = [...bank.questions, ...practical.questions]; comparisons = comparisonsBank.comparisons;
+  if (exam.version !== 1 || !exam.questions?.length) throw new Error('No se pudo cargar el banco del parcial.');
+  entries = glossary.entries.sort((a, b) => a.term.localeCompare(b.term, 'es')); questions = [...bank.questions, ...practical.questions, ...exam.questions]; comparisons = comparisonsBank.comparisons;
   ascii = asciiBank; buildAsciiTable();
   const params = new URL(location.href).searchParams;
   $('glossary-search').value = params.get('q') ?? '';

@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "scope": "442 consignas, opciones, soluciones, referencias y 1.768 explicaciones de distractores; se revisan siglas, acrónimos, variantes y abreviaturas técnicas.",
+  "scope": "562 consignas, opciones, soluciones, referencias y 2.128 explicaciones de distractores; se revisan siglas, acrónimos, variantes y abreviaturas técnicas.",
   "checks": {
-    "questionsScanned": 442,
-    "distractorExplanationsScanned": 1768,
-    "candidates": 295,
-    "covered": 166,
-    "reviewedExclusions": 129,
+    "questionsScanned": 562,
+    "distractorExplanationsScanned": 2128,
+    "candidates": 330,
+    "covered": 182,
+    "reviewedExclusions": 148,
     "missing": 0
   },
   "coverage": [
@@ -25,7 +25,18 @@
       "meaning": "Tipo de registro de dirección IPv6; denominación «quad-A», no sigla de cuatro palabras.",
       "conceptId": "registros-dns",
       "questionIds": [
-        129
+        129,
+        520,
+        560
+      ]
+    },
+    {
+      "token": "AEAD",
+      "term": "AEAD",
+      "meaning": "Authenticated Encryption with Associated Data: cifrado autenticado con datos asociados.",
+      "conceptId": "aead",
+      "questionIds": [
+        480
       ]
     },
     {
@@ -57,7 +68,22 @@
         357,
         371,
         372,
-        433
+        433,
+        467,
+        473,
+        474,
+        475,
+        476,
+        477,
+        478,
+        479,
+        480,
+        481,
+        482,
+        492,
+        494,
+        514,
+        537
       ]
     },
     {
@@ -66,7 +92,8 @@
       "meaning": "Advanced Encryption Standard: estándar de cifrado avanzado. AES-128 usa una clave de 128 bits; ECB y CBC indican modos.",
       "conceptId": "bloques",
       "questionIds": [
-        371
+        371,
+        474
       ]
     },
     {
@@ -79,12 +106,23 @@
       ]
     },
     {
+      "token": "AES-256",
+      "term": "AES",
+      "meaning": "Advanced Encryption Standard: estándar de cifrado avanzado. AES-128 usa una clave de 128 bits; ECB y CBC indican modos.",
+      "conceptId": "bloques",
+      "questionIds": [
+        474,
+        556
+      ]
+    },
+    {
       "token": "AES-CBC",
       "term": "AES",
       "meaning": "Advanced Encryption Standard: estándar de cifrado avanzado. AES-128 usa una clave de 128 bits; ECB y CBC indican modos.",
       "conceptId": "bloques",
       "questionIds": [
-        9
+        9,
+        554
       ]
     },
     {
@@ -94,7 +132,23 @@
       "conceptId": "bloques",
       "questionIds": [
         371,
-        372
+        372,
+        469,
+        475,
+        476,
+        480,
+        482,
+        494
+      ]
+    },
+    {
+      "token": "AES-GCM",
+      "term": "GCM",
+      "meaning": "Galois/Counter Mode: modo de cifrado autenticado que combina cifrado e integridad.",
+      "conceptId": "aead",
+      "questionIds": [
+        458,
+        480
       ]
     },
     {
@@ -107,7 +161,9 @@
         95,
         96,
         97,
-        391
+        391,
+        511,
+        516
       ]
     },
     {
@@ -160,7 +216,9 @@
         97,
         106,
         391,
-        396
+        396,
+        504,
+        511
       ]
     },
     {
@@ -174,7 +232,9 @@
         96,
         97,
         213,
-        391
+        391,
+        504,
+        516
       ]
     },
     {
@@ -238,7 +298,13 @@
         414,
         416,
         420,
-        434
+        434,
+        444,
+        445,
+        447,
+        448,
+        478,
+        495
       ]
     },
     {
@@ -248,7 +314,17 @@
       "conceptId": "asn-bgp",
       "questionIds": [
         93,
-        275
+        275,
+        508
+      ]
+    },
+    {
+      "token": "AfriNIC",
+      "term": "AFRINIC",
+      "meaning": "African Network Information Centre: centro africano de información de red.",
+      "conceptId": "rir",
+      "questionIds": [
+        516
       ]
     },
     {
@@ -280,6 +356,15 @@
       "conceptId": "ca",
       "questionIds": [
         294
+      ]
+    },
+    {
+      "token": "CAA",
+      "term": "CAA",
+      "meaning": "Certification Authority Authorization: registro que indica qué autoridades pueden emitir certificados para el dominio.",
+      "conceptId": "registros-dns",
+      "questionIds": [
+        520
       ]
     },
     {
@@ -320,6 +405,16 @@
       ]
     },
     {
+      "token": "CFF",
+      "term": "CFF",
+      "meaning": "Parte del nombre CFF Explorer, editor e inspector de ejecutables PE de Explorer Suite; el nombre de la herramienta no se expande aquí como una frase de iniciales.",
+      "conceptId": "recursos-pe",
+      "questionIds": [
+        451,
+        549
+      ]
+    },
+    {
       "token": "CIA",
       "term": "CIA",
       "meaning": "Confidentiality, Integrity, Availability: confidencialidad, integridad y disponibilidad.",
@@ -346,7 +441,8 @@
       "meaning": "Class Identifier: identificador de clase COM.",
       "conceptId": "identificadores",
       "questionIds": [
-        321
+        321,
+        555
       ]
     },
     {
@@ -364,7 +460,8 @@
       "meaning": "Component Object Model: modelo de objetos componentes de Microsoft.",
       "conceptId": "identificadores",
       "questionIds": [
-        430
+        430,
+        555
       ]
     },
     {
@@ -486,7 +583,17 @@
         225,
         412,
         440,
-        441
+        441,
+        503,
+        504,
+        505,
+        506,
+        507,
+        508,
+        509,
+        510,
+        511,
+        512
       ]
     },
     {
@@ -544,7 +651,10 @@
       "conceptId": "diffie-hellman",
       "questionIds": [
         380,
-        381
+        381,
+        488,
+        489,
+        490
       ]
     },
     {
@@ -564,7 +674,11 @@
       "questionIds": [
         157,
         255,
-        409
+        409,
+        525,
+        526,
+        527,
+        557
       ]
     },
     {
@@ -578,7 +692,8 @@
         257,
         305,
         315,
-        332
+        332,
+        500
       ]
     },
     {
@@ -587,7 +702,10 @@
       "meaning": "Domain-based Message Authentication, Reporting, and Conformance: autenticación de mensajes basada en dominio, informes y conformidad.",
       "conceptId": "tls-correo",
       "questionIds": [
-        409
+        409,
+        523,
+        526,
+        527
       ]
     },
     {
@@ -675,7 +793,33 @@
         402,
         415,
         416,
-        440
+        440,
+        473,
+        491,
+        499,
+        500,
+        503,
+        513,
+        514,
+        515,
+        516,
+        517,
+        518,
+        519,
+        520,
+        521,
+        522,
+        524,
+        525,
+        528,
+        532,
+        537,
+        538,
+        546,
+        553,
+        554,
+        557,
+        560
       ]
     },
     {
@@ -684,7 +828,8 @@
       "meaning": "Domain Name System Security Extensions: extensiones de seguridad de DNS.",
       "conceptId": "dnssec",
       "questionIds": [
-        139
+        139,
+        528
       ]
     },
     {
@@ -694,7 +839,9 @@
       "conceptId": "macros-documentos",
       "questionIds": [
         435,
-        436
+        436,
+        558,
+        560
       ]
     },
     {
@@ -704,7 +851,8 @@
       "conceptId": "pe",
       "questionIds": [
         258,
-        421
+        421,
+        541
       ]
     },
     {
@@ -714,7 +862,17 @@
       "conceptId": "diffie-hellman",
       "questionIds": [
         380,
-        381
+        381,
+        483,
+        484,
+        485,
+        486,
+        487,
+        488,
+        489,
+        490,
+        491,
+        492
       ]
     },
     {
@@ -740,7 +898,10 @@
         213,
         295,
         371,
-        372
+        372,
+        475,
+        476,
+        482
       ]
     },
     {
@@ -804,6 +965,15 @@
       ]
     },
     {
+      "token": "GCM",
+      "term": "GCM",
+      "meaning": "Galois/Counter Mode: modo de cifrado autenticado que combina cifrado e integridad.",
+      "conceptId": "aead",
+      "questionIds": [
+        480
+      ]
+    },
+    {
       "token": "GDB",
       "term": "GDB",
       "meaning": "GNU Debugger: depurador del proyecto GNU.",
@@ -820,7 +990,19 @@
       "meaning": "GNU Privacy Guard: implementación del ecosistema OpenPGP.",
       "conceptId": "pgp",
       "questionIds": [
-        388
+        388,
+        495,
+        496,
+        544
+      ]
+    },
+    {
+      "token": "GPT",
+      "term": "GPT",
+      "meaning": "GUID Partition Table: tabla de particiones que utiliza identificadores GUID.",
+      "conceptId": "gpt-particiones",
+      "questionIds": [
+        501
       ]
     },
     {
@@ -847,7 +1029,8 @@
       "meaning": "Globally Unique Identifier: identificador globalmente único.",
       "conceptId": "identificadores",
       "questionIds": [
-        430
+        430,
+        555
       ]
     },
     {
@@ -866,7 +1049,8 @@
       "conceptId": "hid",
       "questionIds": [
         417,
-        418
+        418,
+        539
       ]
     },
     {
@@ -875,7 +1059,8 @@
       "meaning": "HKEY_CLASSES_ROOT: clave predefinida de información de clases y asociaciones.",
       "conceptId": "registry",
       "questionIds": [
-        279
+        279,
+        554
       ]
     },
     {
@@ -895,7 +1080,8 @@
         336,
         349,
         428,
-        429
+        429,
+        553
       ]
     },
     {
@@ -969,7 +1155,10 @@
         206,
         332,
         416,
-        432
+        432,
+        498,
+        507,
+        554
       ]
     },
     {
@@ -1020,7 +1209,9 @@
       "questionIds": [
         127,
         414,
-        416
+        416,
+        534,
+        535
       ]
     },
     {
@@ -1074,7 +1265,17 @@
         439,
         440,
         441,
-        442
+        442,
+        543,
+        544,
+        545,
+        546,
+        547,
+        548,
+        549,
+        550,
+        551,
+        552
       ]
     },
     {
@@ -1164,7 +1365,26 @@
         412,
         413,
         425,
-        431
+        431,
+        468,
+        488,
+        503,
+        506,
+        507,
+        508,
+        509,
+        510,
+        512,
+        514,
+        517,
+        519,
+        521,
+        524,
+        528,
+        535,
+        545,
+        551,
+        557
       ]
     },
     {
@@ -1190,7 +1410,8 @@
         145,
         197,
         397,
-        405
+        405,
+        508
       ]
     },
     {
@@ -1207,7 +1428,11 @@
         143,
         168,
         237,
-        397
+        397,
+        508,
+        520,
+        555,
+        560
       ]
     },
     {
@@ -1227,7 +1452,8 @@
         41,
         47,
         54,
-        372
+        372,
+        481
       ]
     },
     {
@@ -1236,7 +1462,10 @@
       "meaning": "Joint Photographic Experts Group: grupo que da nombre al estándar de imagen.",
       "conceptId": "formatos-archivo",
       "questionIds": [
-        258
+        258,
+        502,
+        508,
+        541
       ]
     },
     {
@@ -1277,7 +1506,10 @@
         313,
         391,
         392,
-        396
+        396,
+        504,
+        505,
+        511
       ]
     },
     {
@@ -1306,7 +1538,9 @@
       "questionIds": [
         357,
         383,
-        384
+        384,
+        499,
+        523
       ]
     },
     {
@@ -1340,7 +1574,19 @@
         367,
         368,
         369,
-        370
+        370,
+        465,
+        467,
+        469
+      ]
+    },
+    {
+      "token": "MFA",
+      "term": "MFA",
+      "meaning": "Multi-Factor Authentication: autenticación con dos o más factores de clases diferentes.",
+      "conceptId": "credenciales",
+      "questionIds": [
+        532
       ]
     },
     {
@@ -1405,7 +1651,13 @@
         402,
         404,
         406,
-        409
+        409,
+        494,
+        499,
+        520,
+        525,
+        537,
+        554
       ]
     },
     {
@@ -1416,7 +1668,8 @@
       "questionIds": [
         258,
         316,
-        421
+        421,
+        541
       ]
     },
     {
@@ -1467,7 +1720,9 @@
         94,
         95,
         96,
-        391
+        391,
+        504,
+        511
       ]
     },
     {
@@ -1478,7 +1733,9 @@
       "questionIds": [
         97,
         122,
-        401
+        401,
+        516,
+        559
       ]
     },
     {
@@ -1488,7 +1745,35 @@
       "conceptId": "nir",
       "questionIds": [
         392,
-        397
+        397,
+        503,
+        504,
+        505,
+        506,
+        507,
+        508,
+        509,
+        510,
+        511,
+        512
+      ]
+    },
+    {
+      "token": "NTFS",
+      "term": "NTFS",
+      "meaning": "New Technology File System: sistema de archivos de Windows.",
+      "conceptId": "ntfs",
+      "questionIds": [
+        553
+      ]
+    },
+    {
+      "token": "NTP",
+      "term": "NTP",
+      "meaning": "Network Time Protocol: protocolo para sincronizar relojes en una red.",
+      "conceptId": "tiempos",
+      "questionIds": [
+        528
       ]
     },
     {
@@ -1498,7 +1783,9 @@
       "conceptId": "pgp",
       "questionIds": [
         385,
-        387
+        387,
+        516,
+        541
       ]
     },
     {
@@ -1532,7 +1819,9 @@
       "questionIds": [
         231,
         255,
-        310
+        310,
+        468,
+        488
       ]
     },
     {
@@ -1591,7 +1880,13 @@
         421,
         423,
         424,
-        439
+        439,
+        446,
+        451,
+        499,
+        500,
+        541,
+        549
       ]
     },
     {
@@ -1610,7 +1905,22 @@
         336,
         385,
         386,
-        387
+        387,
+        487,
+        493,
+        494,
+        495,
+        496,
+        497,
+        498,
+        499,
+        500,
+        501,
+        502,
+        522,
+        528,
+        539,
+        556
       ]
     },
     {
@@ -1629,7 +1939,8 @@
       "conceptId": "smtp",
       "questionIds": [
         131,
-        213
+        213,
+        515
       ]
     },
     {
@@ -1645,7 +1956,9 @@
         154,
         159,
         214,
-        246
+        246,
+        520,
+        538
       ]
     },
     {
@@ -1678,7 +1991,8 @@
         158,
         208,
         209,
-        248
+        248,
+        521
       ]
     },
     {
@@ -1719,7 +2033,21 @@
         395,
         396,
         397,
-        406
+        406,
+        470,
+        500,
+        503,
+        504,
+        505,
+        506,
+        507,
+        508,
+        509,
+        510,
+        511,
+        512,
+        513,
+        559
       ]
     },
     {
@@ -1753,7 +2081,9 @@
         94,
         95,
         96,
-        391
+        391,
+        504,
+        511
       ]
     },
     {
@@ -1789,7 +2119,20 @@
         341,
         391,
         392,
-        396
+        396,
+        468,
+        500,
+        503,
+        504,
+        505,
+        506,
+        507,
+        508,
+        509,
+        510,
+        511,
+        512,
+        553
       ]
     },
     {
@@ -1832,7 +2175,39 @@
         378,
         379,
         381,
-        387
+        387,
+        456,
+        458,
+        460,
+        462,
+        465,
+        467,
+        483,
+        484,
+        485,
+        486,
+        487,
+        488,
+        489,
+        490,
+        491,
+        492,
+        498,
+        523,
+        533,
+        535,
+        542,
+        557,
+        560
+      ]
+    },
+    {
+      "token": "RSA-OAEP",
+      "term": "OAEP",
+      "meaning": "Optimal Asymmetric Encryption Padding: codificación aleatorizada utilizada por el esquema RSA-OAEP.",
+      "conceptId": "rsa-padding",
+      "questionIds": [
+        492
       ]
     },
     {
@@ -1857,7 +2232,8 @@
         50,
         223,
         316,
-        366
+        366,
+        469
       ]
     },
     {
@@ -1909,7 +2285,15 @@
         369,
         420,
         421,
-        422
+        422,
+        456,
+        459,
+        465,
+        472,
+        486,
+        487,
+        502,
+        550
       ]
     },
     {
@@ -1931,7 +2315,11 @@
         52,
         63,
         313,
-        366
+        366,
+        446,
+        465,
+        491,
+        555
       ]
     },
     {
@@ -1940,7 +2328,8 @@
       "meaning": "Secure Hash Algorithm, variante de SHA-2 con salida de 256 bits.",
       "conceptId": "sha-256",
       "questionIds": [
-        248
+        248,
+        486
       ]
     },
     {
@@ -1996,7 +2385,19 @@
         402,
         403,
         408,
-        409
+        409,
+        462,
+        497,
+        498,
+        508,
+        513,
+        517,
+        519,
+        521,
+        522,
+        527,
+        549,
+        559
       ]
     },
     {
@@ -2007,7 +2408,12 @@
       "questionIds": [
         112,
         275,
-        409
+        409,
+        500,
+        523,
+        524,
+        526,
+        527
       ]
     },
     {
@@ -2039,7 +2445,22 @@
         410,
         411,
         413,
-        418
+        418,
+        525,
+        528,
+        529,
+        532,
+        544,
+        559
+      ]
+    },
+    {
+      "token": "SSL",
+      "term": "SSL",
+      "meaning": "Secure Sockets Layer: familia histórica de protocolos de protección de comunicaciones, antecedente de TLS.",
+      "conceptId": "tcp-http",
+      "questionIds": [
+        538
       ]
     },
     {
@@ -2108,7 +2529,9 @@
         323,
         343,
         398,
-        401
+        401,
+        515,
+        534
       ]
     },
     {
@@ -2132,7 +2555,10 @@
         102,
         147,
         162,
-        203
+        203,
+        495,
+        537,
+        559
       ]
     },
     {
@@ -2152,7 +2578,9 @@
       "questionIds": [
         112,
         258,
-        296
+        296,
+        491,
+        532
       ]
     },
     {
@@ -2186,7 +2614,10 @@
         420,
         425,
         431,
-        439
+        439,
+        445,
+        447,
+        545
       ]
     },
     {
@@ -2200,7 +2631,8 @@
         238,
         239,
         433,
-        435
+        435,
+        544
       ]
     },
     {
@@ -2210,7 +2642,18 @@
       "conceptId": "hid",
       "questionIds": [
         270,
-        417
+        417,
+        539,
+        553,
+        554,
+        555,
+        556,
+        557,
+        558,
+        559,
+        560,
+        561,
+        562
       ]
     },
     {
@@ -2219,7 +2662,8 @@
       "meaning": "Coordinated Universal Time: tiempo universal coordinado; UTC es la abreviatura internacional acordada.",
       "conceptId": "tiempos",
       "questionIds": [
-        202
+        202,
+        531
       ]
     },
     {
@@ -2230,7 +2674,28 @@
       "questionIds": [
         54,
         240,
-        265
+        265,
+        456
+      ]
+    },
+    {
+      "token": "UTF-16LE",
+      "term": "UTF-16LE",
+      "meaning": "Unicode Transformation Format de 16 bits, Little Endian: codificación con el byte menos significativo primero.",
+      "conceptId": "ascii",
+      "questionIds": [
+        540
+      ]
+    },
+    {
+      "token": "UTF-8",
+      "term": "UTF-8",
+      "meaning": "Unicode Transformation Format de 8 bits: codificación Unicode de longitud variable.",
+      "conceptId": "ascii",
+      "questionIds": [
+        447,
+        449,
+        502
       ]
     },
     {
@@ -2240,7 +2705,10 @@
       "conceptId": "macros-documentos",
       "questionIds": [
         435,
-        436
+        436,
+        558,
+        559,
+        562
       ]
     },
     {
@@ -2249,7 +2717,8 @@
       "meaning": "Extensión de scripts de VBScript; Visual Basic Scripting Edition es la denominación del lenguaje.",
       "conceptId": "ofuscacion-vbs",
       "questionIds": [
-        433
+        433,
+        556
       ]
     },
     {
@@ -2339,7 +2808,20 @@
         396,
         397,
         400,
-        406
+        406,
+        470,
+        501,
+        503,
+        504,
+        505,
+        506,
+        507,
+        508,
+        509,
+        510,
+        511,
+        512,
+        534
       ]
     },
     {
@@ -2387,7 +2869,19 @@
         365,
         373,
         374,
-        375
+        375,
+        473,
+        474,
+        475,
+        476,
+        477,
+        478,
+        479,
+        480,
+        481,
+        482,
+        486,
+        562
       ]
     },
     {
@@ -2397,6 +2891,15 @@
       "conceptId": "fallos-web",
       "questionIds": [
         82
+      ]
+    },
+    {
+      "token": "ZIP",
+      "term": "ZIP",
+      "meaning": "Denominación de un formato contenedor de archivos con opciones de compresión; no se le atribuye una expansión de iniciales.",
+      "conceptId": "formatos-archivo",
+      "questionIds": [
+        524
       ]
     },
     {
@@ -2431,14 +2934,17 @@
         56,
         57,
         58,
-        59
+        59,
+        446,
+        454
       ]
     },
     {
       "token": "ABC",
       "reason": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna.",
       "questionIds": [
-        7
+        7,
+        448
       ]
     },
     {
@@ -2498,10 +3004,33 @@
       ]
     },
     {
+      "token": "CAB",
+      "reason": "Cadena de ejemplo, resultado candidato o fragmento de Base64 del nuevo banco; no es una sigla técnica.",
+      "questionIds": [
+        448
+      ]
+    },
+    {
+      "token": "CABA",
+      "reason": "Cadena de ejemplo, resultado candidato o fragmento de Base64 del nuevo banco; no es una sigla técnica.",
+      "questionIds": [
+        450
+      ]
+    },
+    {
+      "token": "CARA",
+      "reason": "Cadena de ejemplo, resultado candidato o fragmento de Base64 del nuevo banco; no es una sigla técnica.",
+      "questionIds": [
+        450
+      ]
+    },
+    {
       "token": "CASA",
       "reason": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna.",
       "questionIds": [
-        364
+        364,
+        450,
+        454
       ]
     },
     {
@@ -2533,6 +3062,13 @@
       ]
     },
     {
+      "token": "CBTB",
+      "reason": "Cadena de ejemplo, resultado candidato o fragmento de Base64 del nuevo banco; no es una sigla técnica.",
+      "questionIds": [
+        454
+      ]
+    },
+    {
       "token": "CI",
       "reason": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna.",
       "questionIds": [
@@ -2556,6 +3092,13 @@
       ]
     },
     {
+      "token": "COMMAND",
+      "reason": "Etiqueta literal del comando invocado en la línea de log de sudo; no es una sigla.",
+      "questionIds": [
+        530
+      ]
+    },
+    {
       "token": "CVCSWG",
       "reason": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna.",
       "questionIds": [
@@ -2570,10 +3113,24 @@
       ]
     },
     {
+      "token": "Content-Language",
+      "reason": "Nombre literal de una cabecera de idioma, utilizado como distractor; no es una sigla.",
+      "questionIds": [
+        518
+      ]
+    },
+    {
       "token": "Content-Length",
       "reason": "Nombre de un campo o cabecera; es una etiqueta descriptiva, no una sigla pendiente de expansión.",
       "questionIds": [
         140
+      ]
+    },
+    {
+      "token": "ContextMenuHandlers",
+      "reason": "Nombre de una ruta de Registro para manejadores del menú contextual; no es una sigla.",
+      "questionIds": [
+        554
       ]
     },
     {
@@ -2610,7 +3167,22 @@
         275,
         321,
         323,
-        428
+        428,
+        553
+      ]
+    },
+    {
+      "token": "CyberChef",
+      "reason": "Nombre propio de una herramienta de transformaciones de datos; no es una sigla.",
+      "questionIds": [
+        451
+      ]
+    },
+    {
+      "token": "DASA",
+      "reason": "Cadena de ejemplo, resultado candidato o fragmento de Base64 del nuevo banco; no es una sigla técnica.",
+      "questionIds": [
+        450
       ]
     },
     {
@@ -2627,6 +3199,13 @@
       "reason": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna.",
       "questionIds": [
         59
+      ]
+    },
+    {
+      "token": "DBTB",
+      "reason": "Cadena de ejemplo, resultado candidato o fragmento de Base64 del nuevo banco; no es una sigla técnica.",
+      "questionIds": [
+        454
       ]
     },
     {
@@ -2656,6 +3235,13 @@
       "reason": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna.",
       "questionIds": [
         56
+      ]
+    },
+    {
+      "token": "Delivered-To",
+      "reason": "Nombre literal de una cabecera de entrega de correo; no es una sigla.",
+      "questionIds": [
+        518
       ]
     },
     {
@@ -2709,6 +3295,13 @@
       ]
     },
     {
+      "token": "EncodedCommand",
+      "reason": "Nombre de un parámetro de PowerShell, explicado en su entrada específica; no es una sigla.",
+      "questionIds": [
+        540
+      ]
+    },
+    {
       "token": "FCVQU",
       "reason": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna.",
       "questionIds": [
@@ -2719,7 +3312,8 @@
       "token": "FDVD",
       "reason": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna.",
       "questionIds": [
-        364
+        364,
+        454
       ]
     },
     {
@@ -2740,7 +3334,8 @@
         154,
         155,
         208,
-        403
+        403,
+        521
       ]
     },
     {
@@ -2830,7 +3425,8 @@
       "reason": "Comando, tecla o palabra literal de un protocolo/script; se interpreta por su función, no como sigla de varias palabras.",
       "questionIds": [
         148,
-        155
+        155,
+        524
       ]
     },
     {
@@ -2880,6 +3476,13 @@
       "reason": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna.",
       "questionIds": [
         362
+      ]
+    },
+    {
+      "token": "HOLA",
+      "reason": "Cadena de ejemplo, resultado candidato o fragmento de Base64 del nuevo banco; no es una sigla técnica.",
+      "questionIds": [
+        444
       ]
     },
     {
@@ -3048,7 +3651,8 @@
         154,
         155,
         208,
-        403
+        403,
+        521
       ]
     },
     {
@@ -3074,7 +3678,8 @@
         34,
         366,
         397,
-        432
+        432,
+        510
       ]
     },
     {
@@ -3120,7 +3725,9 @@
       "token": "PowerShell",
       "reason": "Nombre propio de herramienta, producto, formato o vulnerabilidad; no es una sigla independiente. Sus componentes abreviados se explican cuando corresponden.",
       "questionIds": [
-        427
+        427,
+        540,
+        545
       ]
     },
     {
@@ -3128,6 +3735,13 @@
       "reason": "Comando, tecla o palabra literal de un protocolo/script; se interpreta por su función, no como sigla de varias palabras.",
       "questionIds": [
         155
+      ]
+    },
+    {
+      "token": "REGISTRAR",
+      "reason": "Rol registral escrito en mayúsculas para enfatizar la consigna; se explica en TLD, Registry, Registrar y Registrant.",
+      "questionIds": [
+        517
       ]
     },
     {
@@ -3202,6 +3816,13 @@
       ]
     },
     {
+      "token": "SEVMQQ",
+      "reason": "Cadena de ejemplo, resultado candidato o fragmento de Base64 del nuevo banco; no es una sigla técnica.",
+      "questionIds": [
+        444
+      ]
+    },
+    {
       "token": "SKY",
       "reason": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna.",
       "questionIds": [
@@ -3220,6 +3841,13 @@
       "reason": "Comando, tecla o palabra literal de un protocolo/script; se interpreta por su función, no como sigla de varias palabras.",
       "questionIds": [
         418
+      ]
+    },
+    {
+      "token": "SUN7",
+      "reason": "Cadena de ejemplo, resultado candidato o fragmento de Base64 del nuevo banco; no es una sigla técnica.",
+      "questionIds": [
+        446
       ]
     },
     {
@@ -3289,7 +3917,8 @@
         158,
         208,
         209,
-        248
+        248,
+        521
       ]
     },
     {
@@ -3317,6 +3946,13 @@
       ]
     },
     {
+      "token": "USER",
+      "reason": "Etiqueta literal de usuario objetivo en el registro de sudo, no una sigla técnica.",
+      "questionIds": [
+        530
+      ]
+    },
+    {
       "token": "UVW",
       "reason": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna.",
       "questionIds": [
@@ -3329,7 +3965,8 @@
       "questionIds": [
         133,
         313,
-        323
+        323,
+        518
       ]
     },
     {
@@ -3374,7 +4011,8 @@
       "reason": "Nombre propio de herramienta, producto, formato o vulnerabilidad; no es una sigla independiente. Sus componentes abreviados se explican cuando corresponden.",
       "questionIds": [
         235,
-        236
+        236,
+        548
       ]
     },
     {
@@ -3388,7 +4026,15 @@
       "token": "X-Original-To",
       "reason": "Nombre de un campo o cabecera; es una etiqueta descriptiva, no una sigla pendiente de expansión.",
       "questionIds": [
-        137
+        137,
+        518
+      ]
+    },
+    {
+      "token": "X-Powered-By",
+      "reason": "Nombre literal de un campo informativo de implementación, utilizado como distractor; no es una sigla.",
+      "questionIds": [
+        518
       ]
     },
     {
@@ -3418,6 +4064,13 @@
       "questionIds": [
         7
       ]
+    },
+    {
+      "token": "ZXPA",
+      "reason": "Cadena de ejemplo, resultado candidato o fragmento de Base64 del nuevo banco; no es una sigla técnica.",
+      "questionIds": [
+        454
+      ]
     }
   ],
   "documents": [
@@ -3430,12 +4083,20 @@
       "sha256": "43b459bb4f4cd1554dbab3a5b5999ebda43de17f9a781398ee9e40935200ce73"
     },
     {
+      "file": "data/exam-questions.json",
+      "sha256": "ff57f65c598396c96d0caf7864ae037bb420a9bb714bbce07b7f90dd5a1b5fc2"
+    },
+    {
       "file": "data/option-explanations.json",
       "sha256": "9f47cf8e7b6b12114e950acd5114f101657a3049c87647ea27c8e23f2c84a1a2"
     },
     {
       "file": "data/practice-option-explanations.json",
       "sha256": "6ccc33338eb61965c919ff20eadcf52cf44c3794a0965ece3af99b4d499d4bc2"
+    },
+    {
+      "file": "data/exam-option-explanations.json",
+      "sha256": "84e1ee1e73800b5faffc04bfef27b4c33eecdde47f039ba4fbce315109d5782c"
     }
   ]
 }

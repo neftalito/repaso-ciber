@@ -1,0 +1,2088 @@
+{
+  "version": 1,
+  "authorship": "Las cuatro opciones y la solución son originales del PDF. Las explicaciones de distractores son ampliaciones didácticas revisadas.",
+  "questions": [
+    {
+      "questionId": 443,
+      "questionFingerprint": "e7a611f0496816f36cc7e7a2c49ca14815aba249ae77bed958dd50903de18a3f",
+      "distractors": {
+        "A": "Base64 utiliza reglas públicas y no una clave privada; cualquiera puede decodificar sus bytes.",
+        "C": "Una firma digital requiere un esquema y una clave de firma; Base64 sólo cambia la representación.",
+        "D": "Base64 suele aumentar el tamaño al representar tres bytes mediante cuatro caracteres, además del posible relleno."
+      },
+      "manualPages": [
+        5,
+        6,
+        51
+      ],
+      "practicePages": [
+        2,
+        3
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 444,
+      "questionFingerprint": "41f6342a510c09c182ecacdaf3082ad581af3db9bab9f9c2e23f2059112bada7",
+      "distractors": {
+        "B": "Los valores de las minúsculas son diferentes: h, o, l y a corresponden a 104, 111, 108 y 97.",
+        "C": "4F4C41 es una escritura hexadecimal de tres bytes; la consigna presenta cuatro valores decimales.",
+        "D": "SEVMQQ== es una cadena Base64; interpretar los números como ASCII decimal entrega caracteres directamente."
+      },
+      "manualPages": [
+        6,
+        7,
+        35
+      ],
+      "practicePages": [
+        2,
+        3,
+        12
+      ],
+      "dhRsaPages": [
+        2,
+        4,
+        6,
+        7
+      ]
+    },
+    {
+      "questionId": 445,
+      "questionFingerprint": "35728be877d65816c6b1c270fed6f497786f5d149377b04c02fcbd4c807164b6",
+      "distractors": {
+        "A": "Son reglas de representación públicas: interpretarlas no requiere acordar una clave secreta.",
+        "B": "Pueden representar texto y otros datos; su alcance no se limita a archivos de imagen.",
+        "D": "Las codificaciones permiten interpretar o recuperar datos; no son funciones hash irreversibles."
+      },
+      "manualPages": [
+        6,
+        7,
+        35
+      ],
+      "practicePages": [
+        2,
+        3,
+        12
+      ],
+      "dhRsaPages": [
+        2,
+        4,
+        6,
+        7
+      ]
+    },
+    {
+      "questionId": 446,
+      "questionFingerprint": "149b8f8b284ded55927cafc13691336bedff5a11a75be0c4d191f667c6ff297c",
+      "distractors": {
+        "A": "El aspecto no prueba SHA-512: habría que verificar longitud y contexto, y distinguir el digest de su codificación.",
+        "B": "La notación hexadecimal usa dígitos y A–F; los símbolos + y / no pertenecen a ese alfabeto.",
+        "C": "César desplaza letras de un alfabeto; no explica por sí mismo el alfabeto y relleno característicos observados."
+      },
+      "manualPages": [
+        5,
+        6,
+        51
+      ],
+      "practicePages": [
+        2,
+        3
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 447,
+      "questionFingerprint": "4177d2bf7b79badc7f950c3c6b7014bf6ac5889c06dbf5da4e914f52a014d4d7",
+      "distractors": {
+        "A": "Un byte nulo se representa como %00; 0x20 es un valor diferente.",
+        "C": "El signo de porcentaje literal se representa normalmente como %25, no %20.",
+        "D": "Los saltos de línea se representan mediante bytes como %0A o %0D; 0x20 corresponde al espacio."
+      },
+      "manualPages": [],
+      "practicePages": [
+        2,
+        3
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 448,
+      "questionFingerprint": "3d02001d75156635e1b121f4cc3bc72b8aaedef8f5467bd30034294e6184bd6f",
+      "distractors": {
+        "B": "La interpretación ASCII de 0x41, 0x42 y 0x43 produce letras; los dígitos 1, 2 y 3 tienen otros códigos.",
+        "C": "414243 conserva la escritura hexadecimal de los bytes; todavía falta interpretarlos como caracteres.",
+        "D": "CAB cambia el orden de los bytes; la secuencia original empieza con el código de A y continúa con B y C."
+      },
+      "manualPages": [
+        6,
+        7,
+        35
+      ],
+      "practicePages": [
+        2,
+        3,
+        12
+      ],
+      "dhRsaPages": [
+        2,
+        4,
+        6,
+        7
+      ]
+    },
+    {
+      "questionId": 449,
+      "questionFingerprint": "a37b83c50f0c0063bd577361e55c957f15dec9a34915b5070745d51aed2718fc",
+      "distractors": {
+        "A": "UTF-8 es una codificación de caracteres sin clave secreta; no cifra el texto.",
+        "B": "Cambiar la interpretación no cambia necesariamente los bytes guardados: cambia su correspondencia con caracteres.",
+        "D": "Latin-1 representa letras, signos y otros caracteres; no se limita a los diez dígitos."
+      },
+      "manualPages": [
+        6,
+        7,
+        35
+      ],
+      "practicePages": [
+        2,
+        3,
+        12
+      ],
+      "dhRsaPages": [
+        2,
+        4,
+        6,
+        7
+      ]
+    },
+    {
+      "questionId": 450,
+      "questionFingerprint": "8c386a8fdb80e4544e01ed39b59812245e137d3075ec5e4163e4d3c990b4d55e",
+      "distractors": {
+        "A": "El tercer número es 19, que corresponde a S; B ocuparía la posición 2.",
+        "C": "El tercer número es 19, correspondiente a S; R ocupa la posición 18.",
+        "D": "El primer número es 3, correspondiente a C; D ocupa la posición 4."
+      },
+      "manualPages": [],
+      "practicePages": [
+        2,
+        3
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 451,
+      "questionFingerprint": "8fd69799b2c7081c23848011bbfc54f0dbf34fd0cd1e1e0ae87aa7dca8bb2f5f",
+      "distractors": {
+        "A": "Regshot compara estados del Registro de Windows; no es la herramienta de conversiones encadenadas de la guía.",
+        "B": "Autoruns inspecciona mecanismos de inicio automático; no cumple la función de convertir Hex, Base64 y texto.",
+        "C": "CFF Explorer inspecciona estructuras de ejecutables PE; no es la herramienta de transformaciones pedida."
+      },
+      "manualPages": [
+        5,
+        6,
+        51
+      ],
+      "practicePages": [
+        2,
+        3
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 452,
+      "questionFingerprint": "c94a2d6d8a51c2b2990fe9ff568ec437f5666d050257a8144767fc4903b34ce1",
+      "distractors": {
+        "A": "La cantidad de signos de relleno depende del tamaño de entrada; Base64 puede terminar con uno, dos o ninguno.",
+        "C": "Hexadecimal es una representación de bytes y puede contener texto, datos cifrados o muchos otros formatos.",
+        "D": "Los hashes también pueden escribirse con letras, por ejemplo los dígitos A–F de hexadecimal; la apariencia no alcanza."
+      },
+      "manualPages": [
+        5,
+        6,
+        51
+      ],
+      "practicePages": [
+        2,
+        3
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 453,
+      "questionFingerprint": "8f671ca2580955ba8636b98aaf8fb233ee92fbfa72f4165ab2b1625ae863ae5f",
+      "distractors": {
+        "A": "Cambiar sólo el orden manteniendo los símbolos describe una transposición, no una sustitución.",
+        "B": "La ubicación física del archivo no es la regla de transformación de letras de un cifrado por sustitución.",
+        "D": "Una sustitución actúa sobre símbolos del mensaje; no define el tamaño de un resumen hash."
+      },
+      "manualPages": [
+        7,
+        8
+      ],
+      "practicePages": [
+        3,
+        4
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 454,
+      "questionFingerprint": "7e961fad2eed4bbc1fd6734050130edd8e88d9e6f9a9fdaaaa3bd7e3d5c3df85",
+      "distractors": {
+        "B": "CBTB mezcla desplazamientos de una posición con otros distintos; César +3 debe aplicar la misma rotación a cada letra.",
+        "C": "ZXPA no resulta de sumar tres posiciones a cada letra de CASA; por ejemplo C debe transformarse en F.",
+        "D": "DBTB corresponde a otra secuencia de cambios; con +3 las dos A deben dar D y S debe dar V."
+      },
+      "manualPages": [
+        7
+      ],
+      "practicePages": [
+        3,
+        4
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 455,
+      "questionFingerprint": "c927b9addb4fcb6e27209244673b75334f9cdcfc91412a3e19db7bad17d09f8c",
+      "distractors": {
+        "B": "Reemplazar letras por índices modifica su representación; la transposición actúa sobre posiciones de los símbolos.",
+        "C": "Un digest resume una entrada mediante una función hash, sin conservar sus letras para reordenarlas.",
+        "D": "La transposición clásica no necesita dos pares de claves públicas; su regla especifica cómo permutar posiciones."
+      },
+      "manualPages": [],
+      "practicePages": [
+        3,
+        4
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 456,
+      "questionFingerprint": "09c2484ada11e053c86259742c5daf94e381293fb53c55fe46adba481c2db11b",
+      "distractors": {
+        "A": "RSA requiere parámetros y operaciones modulares; invertir todos los caracteres no constituye esa operación.",
+        "B": "SHA-256 produce un digest y no permite recuperar el mensaje invirtiendo caracteres del resultado.",
+        "C": "UTF-16 determina cómo interpretar bytes como caracteres; no explica la inversión completa de una cadena ya visible."
+      },
+      "manualPages": [],
+      "practicePages": [
+        3,
+        4
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 457,
+      "questionFingerprint": "618f1625262571b58afb182fe46bd2a74e76be3e0ebf2cce51bef1bb27ded01b",
+      "distractors": {
+        "A": "Atbash sustituye cada letra por la situada en el extremo opuesto del alfabeto; no reordena posiciones.",
+        "C": "César sustituye letras por otras mediante un desplazamiento fijo; mantiene el orden de las posiciones.",
+        "D": "Vigenère aplica desplazamientos controlados por una clave; es sustitución polialfabética, no transposición."
+      },
+      "manualPages": [],
+      "practicePages": [
+        3,
+        4
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 458,
+      "questionFingerprint": "38c40991a95220a0b0ec8eec2f8b078649a136dc5c77917c7799c2b9769869cb",
+      "distractors": {
+        "B": "Un nonce de AES-GCM pertenece a otro esquema y no determina los desplazamientos alfabéticos de Vigenère.",
+        "C": "Vigenère es un cifrado clásico de clave compartida; no utiliza el exponente privado de RSA.",
+        "D": "La palabra clave controla la transformación de las letras; no almacena simplemente la longitud del mensaje."
+      },
+      "manualPages": [],
+      "practicePages": [
+        3,
+        4
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 459,
+      "questionFingerprint": "f99a5b8ede3a9d32cbad2c3c1168be90dac236a472ba9f98d36cc4918aa9d26c",
+      "distractors": {
+        "A": "SHA-256 es una función hash; el tamaño de su digest no describe los patrones de una sustitución de letras.",
+        "B": "Un nonce de 96 bits se asocia a otros esquemas; la sustitución monoalfabética clásica no lo introduce.",
+        "D": "Un certificado X.509 vincula una identidad con una clave pública; no es un patrón que conserve ese cifrado clásico."
+      },
+      "manualPages": [
+        7,
+        8
+      ],
+      "practicePages": [
+        3,
+        4
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 460,
+      "questionFingerprint": "b7a1d395ef89e325229e52bbac64cb7651d7750b5c4ff03837348a682d74b25d",
+      "distractors": {
+        "B": "El orden de lectura de columnas no selecciona una función hash ni calcula un digest.",
+        "C": "RSA utiliza un módulo derivado de primos; una clave de transposición columnar ordena posiciones.",
+        "D": "La transposición no emite certificados ni vincula identidades con claves públicas."
+      },
+      "manualPages": [],
+      "practicePages": [
+        3,
+        4
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 461,
+      "questionFingerprint": "c1709f51e6d60189bb47e84e9a2842f526a05e66c248008ca567b1a67f564b6e",
+      "distractors": {
+        "A": "César se puede aplicar a palabras cortas; su debilidad está en la facilidad de probar sus rotaciones.",
+        "B": "La transformación se puede realizar a mano o sin conexión; no depende de Internet.",
+        "C": "César no calcula hashes; la longitud de un digest no explica la debilidad de su espacio de claves."
+      },
+      "manualPages": [
+        7
+      ],
+      "practicePages": [
+        3,
+        4
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 462,
+      "questionFingerprint": "2c7c28a208cb58253c5c2e8e492fef99d08072b4743b6be9b90015b4f8f33d8e",
+      "distractors": {
+        "B": "Los exponentes pertenecen a esquemas como RSA; Rail Fence distribuye caracteres entre filas.",
+        "C": "El salt se usa, por ejemplo, en protección de contraseñas; no fija las filas del zigzag de Rail Fence.",
+        "D": "El puerto SMTP interviene en transporte de correo y no determina el reordenamiento de caracteres."
+      },
+      "manualPages": [],
+      "practicePages": [
+        3,
+        4
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 463,
+      "questionFingerprint": "02d216d00fef5fd6677648a02bde04792e5c93eff850b0cf91d45508bfefb4d0",
+      "distractors": {
+        "A": "Un hash no es un compresor reversible: su resumen de tamaño fijo no contiene una recuperación general del archivo.",
+        "C": "Obtener texto claro con una clave corresponde a otros mecanismos; una función hash común no descifra entradas.",
+        "D": "Una función hash procesa datos y calcula un resumen; no registra ni asigna nombres de dominio."
+      },
+      "manualPages": [
+        8,
+        9,
+        51
+      ],
+      "practicePages": [
+        4
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 464,
+      "questionFingerprint": "ae4b903eafb76268f28e49535a8d8bfcf200d699a88b6d6888fa1e6b71937507",
+      "distractors": {
+        "B": "Un nonce es un valor usado en un esquema criptográfico; no es el nombre de dos entradas con el mismo hash.",
+        "C": "Un certificado vincula datos de identidad y clave pública; no describe una igualdad entre dos digests de mensajes distintos.",
+        "D": "Un cifrado de flujo transforma datos con una secuencia de clave; la igualdad de resúmenes es una colisión."
+      },
+      "manualPages": [
+        9
+      ],
+      "practicePages": [
+        4
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 465,
+      "questionFingerprint": "6fded7b90d5a6227333001c83ee182aef4a7f54b85f276b44f3c3df0344d0324",
+      "distractors": {
+        "A": "SHA-512 completo ocupa 512 bits: su escritura hexadecimal tiene 128 caracteres, no 32.",
+        "B": "SHA-256 completo ocupa 256 bits y se representa con 64 caracteres hexadecimales.",
+        "D": "Una cadena de 32 caracteres no identifica una clave pública RSA estándar; aquí se pide una longitud de digest compatible."
+      },
+      "manualPages": [
+        8,
+        9,
+        52
+      ],
+      "practicePages": [
+        4
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 466,
+      "questionFingerprint": "1125129273d0110c30fdf70bab1e73c6c1221a7ef1ccc4c9f35cfaeb8b59c6f8",
+      "distractors": {
+        "A": "Una sal distinta hace que contraseñas iguales puedan producir valores almacenados distintos; no busca igualarlos.",
+        "B": "El sistema sigue necesitando verificar candidatos mediante la función y los parámetros almacenados.",
+        "C": "La sal no es una clave para cifrar toda la tabla: acompaña el cálculo individual y puede almacenarse públicamente."
+      },
+      "manualPages": [
+        9
+      ],
+      "practicePages": [
+        4
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 467,
+      "questionFingerprint": "e76d281ecfd768d3752716915b80db40d27451f3748d0d1d3876793382879b7c",
+      "distractors": {
+        "A": "Concatenar no conmuta: anteponer y posponer bytes forma entradas distintas para MD5.",
+        "C": "Ambas expresiones siguen aplicando MD5; cambiar la concatenación no convierte la operación en RSA o AES.",
+        "D": "Un ataque de diccionario puede reproducir cualquiera de los dos órdenes si conoce el formato y la sal."
+      },
+      "manualPages": [
+        9
+      ],
+      "practicePages": [
+        4
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 468,
+      "questionFingerprint": "b7c8a688830098695c9c6c17be7bd5714e42daf0c0c95d64c01cc101b01e70fd",
+      "distractors": {
+        "B": "Probar candidatos no equivale a invertir matemáticamente un digest; se calculan resúmenes y se comparan.",
+        "C": "Consultar el registro regional de una IP pertenece a investigación de recursos de Internet, no al cotejo de contraseñas.",
+        "D": "El ataque busca un candidato que coincida con el resumen objetivo; no modifica firmas digitales del PDF."
+      },
+      "manualPages": [],
+      "practicePages": [
+        4,
+        8
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 469,
+      "questionFingerprint": "fc6f43b8d263b6cf6b7bf6bf8562753f864cd6ba001c0884c74941da736cfa12",
+      "distractors": {
+        "A": "MD5 es rápido y sin sal permite reutilizar trabajo entre usuarios; no es la protección especializada pedida.",
+        "B": "SHA-1 simple también permite probar muchos candidatos rápidamente y no incorpora el costo de una función de contraseñas.",
+        "D": "AES-ECB con una clave incrustada guarda datos reversibles y añade problemas de patrones y gestión del secreto."
+      },
+      "manualPages": [
+        9
+      ],
+      "practicePages": [
+        4
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 470,
+      "questionFingerprint": "ae5eef6d5a6a04d5334bde5ace73a38ec84e189dee00c659bf196bb198f07e82",
+      "distractors": {
+        "A": "Wireshark y tcpdump capturan o inspeccionan tráfico; no son las herramientas de cracking de hashes citadas.",
+        "C": "Regshot y Autoruns observan cambios o mecanismos de inicio de Windows; no prueban candidatos de contraseñas.",
+        "D": "WHOIS y RDAP consultan información de registro de recursos de Internet; no realizan el ataque de diccionario descrito."
+      },
+      "manualPages": [],
+      "practicePages": [
+        4,
+        8
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 471,
+      "questionFingerprint": "82e20dc676450a2002f8d5a513e692c99cdfbf4e62a8bcd92ef521460821c235",
+      "distractors": {
+        "A": "El digest suele tener tamaño fijo y puede ser menor que la entrada; avalancha describe cambios en los bits.",
+        "B": "Una función hash común no incorpora una clave que permita invertirla; avalancha no supone reversibilidad.",
+        "C": "Un hash sin clave y sin referencia confiable no demuestra por sí solo la identidad de quien envía los datos."
+      },
+      "manualPages": [
+        8,
+        9,
+        51
+      ],
+      "practicePages": [
+        4
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 472,
+      "questionFingerprint": "b67d6b973b728c071f26d08f37a3dfeb66f1a79b4580447a5f4d222159d8c770",
+      "distractors": {
+        "B": "Un atacante puede sustituir archivo y digest publicado; coincidir con esa referencia no demuestra que sea seguro.",
+        "C": "SHA-256 produce un resumen de los bytes y no una operación de descifrado del archivo.",
+        "D": "Un archivo malicioso también tiene un hash; la igualdad de digests no prueba ausencia de malware."
+      },
+      "manualPages": [
+        9,
+        13,
+        33
+      ],
+      "practicePages": [
+        4
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 473,
+      "questionFingerprint": "ac0b8961591403e4dbe3da938306cce819582c9d02480e7e12fb103329b982f2",
+      "distractors": {
+        "A": "Un par público/privado corresponde a criptografía asimétrica; el esquema simétrico necesita material secreto compartido.",
+        "C": "DNS resuelve nombres y otros registros; una consulta no sustituye el establecimiento de una clave secreta.",
+        "D": "Los certificados pueden ayudar a autenticar un protocolo, pero no son la clave secreta que comparten emisor y receptor."
+      },
+      "manualPages": [
+        10
+      ],
+      "practicePages": [],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 474,
+      "questionFingerprint": "26a4c27e30253403c71ec58a1b0519dab8047ad7d12da1a1345ac8a21eea03f4",
+      "distractors": {
+        "A": "128 bytes equivalen a 1024 bits; AES-128 utiliza una clave de 16 bytes.",
+        "B": "16 bits equivalen a dos bytes; se están confundiendo bits con la cantidad correcta de bytes.",
+        "D": "256 bits corresponden a AES-256; AES-128 usa 128 bits aunque ambos tengan bloques de 128 bits."
+      },
+      "manualPages": [
+        10,
+        11
+      ],
+      "practicePages": [
+        5
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 475,
+      "questionFingerprint": "7c6e6c13c35a7e69dbe5422a0d397392d7cd65ba6cbbc547a7f333a46ddcf6e5",
+      "distractors": {
+        "A": "Codificar el ciphertext no añade una clave ni fortalece el cifrado que ya se aplicó.",
+        "B": "La codificación conserva la información de los bytes; no corrige la igualdad de bloques que revela ECB.",
+        "C": "La contraseña o clave se establece aparte; Base64 representa la salida ya cifrada."
+      },
+      "manualPages": [
+        5,
+        6,
+        51
+      ],
+      "practicePages": [
+        2,
+        3
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 476,
+      "questionFingerprint": "4b28f95ab4d4b186d326d4b8e35cb7d4254504c368aeab762de041a2bb0d0c65",
+      "distractors": {
+        "B": "AES opera sobre bloques de bytes, incluidos datos binarios; las reglas de bloque y relleno dependen del modo.",
+        "C": "ECB no rota la clave según el reloj: en el caso planteado se usa la misma clave para comparar bloques.",
+        "D": "AES es simétrico; la fuga de patrones de ECB no se debe a una clave pública."
+      },
+      "manualPages": [
+        10,
+        12,
+        13
+      ],
+      "practicePages": [
+        5
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 477,
+      "questionFingerprint": "8663a2b1ac97005d86f9857d4d7f37d29e7a65415fe277c10598d0ac192b09da",
+      "distractors": {
+        "A": "XOR compara cada bit, sin acarreo: 01011010 XOR 00001111 da 01010101, no 11110101.",
+        "C": "0xA5 no coincide con la comparación bit a bit: los cuatro bits altos de 0x5A permanecen 0101 al combinarse con 0000.",
+        "D": "0x0F es la clave propuesta; el resultado requiere combinarla con 0x5A y no simplemente copiarla."
+      },
+      "manualPages": [
+        11
+      ],
+      "practicePages": [
+        5
+      ],
+      "dhRsaPages": [
+        4
+      ]
+    },
+    {
+      "questionId": 478,
+      "questionFingerprint": "dc0feeccea40b2eed2ecb0e693b5de87782911376d558b5bdb58b6f8b8ff9d32",
+      "distractors": {
+        "A": "Un byte tiene ocho bits y admite 2^8 valores; 2^128 correspondería a un espacio de clave mucho mayor.",
+        "B": "XOR opera sobre bytes arbitrarios, no sólo ASCII; la debilidad aquí es el pequeño número de claves.",
+        "D": "La operación XOR no exige primos: cualquiera de los 256 valores del byte puede ser una clave candidata."
+      },
+      "manualPages": [
+        11
+      ],
+      "practicePages": [
+        5
+      ],
+      "dhRsaPages": [
+        4
+      ]
+    },
+    {
+      "questionId": 479,
+      "questionFingerprint": "606f692f1774685f9eec3a7bdc1390ebdb3c188a62da2a1eaa8994d44c085f17",
+      "distractors": {
+        "A": "XOR es asociativo; precisamente esa propiedad permite agrupar las dos apariciones de la misma clave.",
+        "B": "XOR devuelve cero al combinar un valor consigo mismo, pero no para toda pareja de entradas.",
+        "C": "El XOR de una clave conocida se puede deshacer con la misma operación; no es un hash irreversible."
+      },
+      "manualPages": [
+        11
+      ],
+      "practicePages": [
+        5
+      ],
+      "dhRsaPages": [
+        4
+      ]
+    },
+    {
+      "questionId": 480,
+      "questionFingerprint": "b898579fe4d91b3cd6e970d9f85b3129cf8108aa3bae1c1642ac65d907f5cefa",
+      "distractors": {
+        "B": "GCM sigue necesitando una clave secreta compartida; la autenticación no elimina esa condición.",
+        "C": "AES-GCM utiliza criptografía simétrica y no un par público/privado para cifrar los bloques.",
+        "D": "Reutilizar un nonce con la misma clave compromete GCM; no es una ventaja ni una práctica admisible del modo."
+      },
+      "manualPages": [
+        11,
+        51
+      ],
+      "practicePages": [],
+      "dhRsaPages": [
+        4,
+        8
+      ]
+    },
+    {
+      "questionId": 481,
+      "questionFingerprint": "0df26c573e2d2f7b0d2392f6603dfaa4167f000382d0709f60512c8a4a08174e",
+      "distractors": {
+        "A": "Un nonce puede transmitirse públicamente; según el esquema importan su unicidad u otras condiciones, no su secreto.",
+        "C": "La contraseña es otro dato y no debe confundirse con el valor de inicialización o nonce del esquema.",
+        "D": "Los nonces pertenecen a protocolos y mecanismos criptográficos; Base64 no los necesita para decodificar."
+      },
+      "manualPages": [
+        10,
+        11,
+        51
+      ],
+      "practicePages": [],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 482,
+      "questionFingerprint": "54041257980b983084462023dbb9d8a10850a741955fd2b652f6e7475b89cc42",
+      "distractors": {
+        "A": "La igualdad permite reconocer bloques repetidos, pero no conocer todos los valores del texto claro.",
+        "B": "La repetición no identifica los bits de la clave: es una propiedad del modo con bloques iguales bajo la misma clave.",
+        "D": "Base64 puede representar correctamente datos cifrados con patrones; su validez no se deduce de esas repeticiones."
+      },
+      "manualPages": [
+        10,
+        12,
+        13
+      ],
+      "practicePages": [
+        5
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 483,
+      "questionFingerprint": "e158870358b00430e2416ee00bffdf89fad3c153fdd0a65aebf2fa43bc93f4a4",
+      "distractors": {
+        "A": "Sumar los primos no construye el módulo RSA: la relación utilizada es su producto.",
+        "C": "Restar los primos tampoco construye n; se multiplican para formar el módulo público.",
+        "D": "Elevar p a q es una operación distinta: n se define como p multiplicado por q."
+      },
+      "manualPages": [],
+      "practicePages": [
+        5,
+        6
+      ],
+      "dhRsaPages": [
+        2,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "questionId": 484,
+      "questionFingerprint": "c38248fefb971eccdd38f44769cdf4ad963232d181abfb17144938daf3120980",
+      "distractors": {
+        "A": "55 es n=5·11; el totiente para esos primos distintos es (5−1)(11−1).",
+        "B": "15 no cuenta los enteros coprimos con 55 ni resulta de aplicar (p−1)(q−1).",
+        "D": "60 no coincide con (5−1)(11−1)=4·10; se debe usar el totiente del módulo concreto."
+      },
+      "manualPages": [],
+      "practicePages": [
+        6
+      ],
+      "dhRsaPages": [
+        2,
+        5,
+        8
+      ]
+    },
+    {
+      "questionId": 485,
+      "questionFingerprint": "ddd021aa3c4ff987b04bda7f492f9d72d3a1a9668f162f0f71706f72b1ed36a7",
+      "distractors": {
+        "B": "Sumar n y e no garantiza que e·d deje resto 1 módulo φ(n).",
+        "C": "El exponente privado se deriva de los parámetros matemáticos de la clave, no del hash del texto que se cifrará.",
+        "D": "La raíz de n no es el inverso modular de e; además n procede de dos primos distintos."
+      },
+      "manualPages": [],
+      "practicePages": [
+        6
+      ],
+      "dhRsaPages": [
+        2,
+        3,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "questionId": 486,
+      "questionFingerprint": "04d7252452f8dc5b2c49cd031a04c65bb74516dc85b6bdc8010ee79d2cfb71ba",
+      "distractors": {
+        "A": "Aplicar XOR con e no invierte la exponenciación modular de RSA ni usa el exponente privado.",
+        "B": "Una suma modular de c y e no es la operación inversa del cifrado RSA elemental.",
+        "C": "SHA-256 resume c y no permite recuperar de forma general el entero m original."
+      },
+      "manualPages": [],
+      "practicePages": [
+        5,
+        6
+      ],
+      "dhRsaPages": [
+        2,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "questionId": 487,
+      "questionFingerprint": "d753991252a9a1917ac7cf78d4de3a72e499847f138de97882a689e846398983",
+      "distractors": {
+        "A": "SHA-256 no tiene una operación general de inversión y suponerla no permite factorizar el módulo RSA.",
+        "C": "Base64 es una representación pública; decodificarla no entrega por sí mismo los factores secretos de n.",
+        "D": "PGP sí utiliza criptografía de clave pública; esa afirmación no explica la debilidad matemática del reto RSA."
+      },
+      "manualPages": [],
+      "practicePages": [
+        5,
+        6
+      ],
+      "dhRsaPages": [
+        2,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "questionId": 488,
+      "questionFingerprint": "c6f08af9fbb32a8b15acc91b3caeb3a678671f5f33d781e74486cd97ed65aaaf",
+      "distractors": {
+        "B": "DH acuerda un secreto y no es un esquema de firma de documentos; firmar requiere otro mecanismo.",
+        "C": "DH no comprime claves RSA: intercambia valores públicos para obtener material secreto común.",
+        "D": "Un contacto de abuso se consulta en registros de Internet; no se deriva mediante el intercambio DH."
+      },
+      "manualPages": [],
+      "practicePages": [
+        6,
+        7
+      ],
+      "dhRsaPages": [
+        3,
+        4,
+        9
+      ]
+    },
+    {
+      "questionId": 489,
+      "questionFingerprint": "28f28345bbc2ada74534f9ab2b6c4f090e1d69e19e013bed6b2486d62362bc2a",
+      "distractors": {
+        "A": "6 es el exponente privado a; enviarlo como valor público revelaría directamente ese secreto.",
+        "B": "5 es la base pública g; falta elevarla al exponente privado y reducir módulo p.",
+        "D": "23 es el módulo público p; el valor A debe calcularse como 5^6 mod 23."
+      },
+      "manualPages": [],
+      "practicePages": [
+        6,
+        7
+      ],
+      "dhRsaPages": [
+        3,
+        4,
+        9
+      ]
+    },
+    {
+      "questionId": 490,
+      "questionFingerprint": "e57da878ba77dc502cc20b3c5d80e8c16c75323d9e6d0276ccf0c2eb912571a6",
+      "distractors": {
+        "A": "5 es el generador del ejemplo; el secreto se obtiene elevando el valor recibido B al exponente privado a.",
+        "B": "8 es el valor público A de Alice, no el resultado de combinar B con a.",
+        "C": "19 es el valor público recibido B; todavía debe calcularse B^a mod p."
+      },
+      "manualPages": [],
+      "practicePages": [
+        6,
+        7
+      ],
+      "dhRsaPages": [
+        3,
+        4,
+        9
+      ]
+    },
+    {
+      "questionId": 491,
+      "questionFingerprint": "21f57fcea01a99fffaf4b74cf84418634e8cec153487580e5651028442cd3e66",
+      "distractors": {
+        "A": "La falta de autenticación del intercambio no obliga a que SHA-512 presente una colisión.",
+        "C": "El problema no depende de un registro DNS TXT: un intermediario puede sustituir los valores públicos del intercambio.",
+        "D": "Morse es una representación de símbolos y no describe la suplantación de participantes durante el acuerdo de claves."
+      },
+      "manualPages": [
+        14,
+        51
+      ],
+      "practicePages": [
+        6,
+        7,
+        8
+      ],
+      "dhRsaPages": [
+        4,
+        8,
+        9
+      ]
+    },
+    {
+      "questionId": 492,
+      "questionFingerprint": "e0ecfd20ae69e80d7518f79a8fb73528efcf98e28497ac3b009cc4a2b6ac851a",
+      "distractors": {
+        "B": "RSA es asimétrico y su módulo no se describe como una clave simétrica AES de 16 bytes.",
+        "C": "n forma parte de la clave pública; ocultarlo no es el mecanismo de seguridad de RSA.",
+        "D": "RSA admite esquemas de firma; el defecto del cifrado directo está en carecer del esquema de codificación y protección adecuado."
+      },
+      "manualPages": [],
+      "practicePages": [
+        6
+      ],
+      "dhRsaPages": [
+        6,
+        8,
+        9
+      ]
+    },
+    {
+      "questionId": 493,
+      "questionFingerprint": "d58241f9840adb18ef61958db4df985d9a10d6e2a4c764425b5443740d1b15db",
+      "distractors": {
+        "A": "La privada del destinatario debe mantenerse secreta y se utiliza para recuperar el mensaje, no compartirse para enviarlo.",
+        "B": "Una contraseña expuesta no crea confidencialidad para el destinatario y compromete el secreto.",
+        "D": "El hash de un certificado no reemplaza la clave pública del destinatario necesaria para el esquema de cifrado."
+      },
+      "manualPages": [
+        28,
+        51
+      ],
+      "practicePages": [
+        7,
+        8
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 494,
+      "questionFingerprint": "03eceac0bf3e0b16ea0ac34fa6e609c9ea52c7405e73813ceed61cdc24252080",
+      "distractors": {
+        "B": "La firma se comprueba con la pública del firmante; la privada del receptor cumple otra finalidad y no debe publicarse.",
+        "C": "Una clave AES visible no verifica la firma asimétrica PGP ni demuestra el vínculo con el autor.",
+        "D": "Un registro MX señala servidores de recepción de correo; no contiene la operación de verificación de la firma."
+      },
+      "manualPages": [
+        6,
+        11,
+        13
+      ],
+      "practicePages": [
+        8
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 495,
+      "questionFingerprint": "7d59f5a27f2bee98e677a43199a209e418d5a67e34f0f8e978325d3965d1080a",
+      "distractors": {
+        "A": "ASCII armor representa el resultado en texto; no elimina el cifrado previamente aplicado.",
+        "B": "Generar una representación textual no emite un certificado TLS ni establece su cadena de confianza.",
+        "C": "El formato armor no consiste en adjuntar una contraseña en claro; transforma la representación de los datos binarios."
+      },
+      "manualPages": [],
+      "practicePages": [
+        7,
+        8
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 496,
+      "questionFingerprint": "8578d379f9ba05f2b227faf59c6ffb9f43592f815610acfdf0a5c79bec292855",
+      "distractors": {
+        "A": "--list-packets inspecciona paquetes de datos de GPG; no es la orden de generación del par personal citada.",
+        "C": "--recv-keys recupera claves de un servidor; no genera el nuevo par de claves del usuario.",
+        "D": "--delete-secret-keys elimina material secreto existente; cumple la finalidad opuesta a generar el par."
+      },
+      "manualPages": [],
+      "practicePages": [
+        7,
+        8
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 497,
+      "questionFingerprint": "a1879f3915114e9271591bb558fe063c610c469dcb0e24a7092a63b9455b9031",
+      "distractors": {
+        "A": "Una firma válida relaciona bytes y clave; no certifica que su propietario sea honesto.",
+        "B": "La firma y el transporte por SMTP son aspectos independientes: un correo firmado puede viajar por SMTP.",
+        "D": "Una firma no impide copiar el archivo; verifica propiedades del contenido y de la clave usada."
+      },
+      "manualPages": [],
+      "practicePages": [
+        7,
+        8
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 498,
+      "questionFingerprint": "b822d2a3108a735f7848824a4bc4c637af8ab91258e767f20682a19e9ba3d71f",
+      "distractors": {
+        "B": "Cifrar con RSA busca confidencialidad del contenido, mientras que ocultar su presencia corresponde a esteganografía.",
+        "C": "Cambiar SMTP por HTTP cambia un protocolo de transporte y no describe por sí solo ocultamiento dentro de un soporte.",
+        "D": "Convertir bytes en caracteres imprimibles es codificación; no supone ocultar un mensaje dentro de otro soporte."
+      },
+      "manualPages": [],
+      "practicePages": [
+        7
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 499,
+      "questionFingerprint": "07c706d9a77682251b82e9fbef3c10dbd733ae8f08fc58c003fc9250ef715891",
+      "distractors": {
+        "A": "Los encabezados PE describen ejecutables; no son los bits de menor peso de los píxeles de una imagen.",
+        "B": "DNS MX indica servidores de correo; no determina dónde insertar bits en valores de píxeles.",
+        "C": "Un hash resume datos y no es el mecanismo de modificar bits poco significativos para portar un mensaje."
+      },
+      "manualPages": [],
+      "practicePages": [
+        7
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 500,
+      "questionFingerprint": "05145d3409e1f916c4dc39711b0a36b83519846e78729316dee56846bb2bbe67",
+      "distractors": {
+        "A": "SPF publica una política DNS de autorización de envío; no es la función de steghide sobre archivos portadores.",
+        "C": "Inspeccionar o cargar un ejecutable PE no equivale a insertar o extraer datos ocultos de un soporte multimedia.",
+        "D": "RDAP consulta registros de recursos de Internet; steghide trabaja con soportes locales compatibles."
+      },
+      "manualPages": [],
+      "practicePages": [
+        7
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 501,
+      "questionFingerprint": "08c32dc0d94cb8f6cbb39c0deecb55e9285ea71fb3c6753b6a148022ed24f488",
+      "distractors": {
+        "A": "GPT describe la organización de particiones de un disco; no representa frecuencias de una señal de audio.",
+        "B": "WHOIS consulta datos de registro y contactos; no visualiza el contenido de las muestras de audio.",
+        "D": "Received describe saltos de transporte del correo y no muestra las frecuencias presentes en una grabación."
+      },
+      "manualPages": [],
+      "practicePages": [
+        7
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 502,
+      "questionFingerprint": "b14351809b2824ea8dd475ec84014799b658261393807301ccd107506d1ae9c3",
+      "distractors": {
+        "B": "Cambiar la extensión conserva normalmente los bytes y no elimina por sí mismo datos ocultos en ellos.",
+        "C": "Un cambio de nombre no recodifica los bytes JPEG como texto UTF-8 válido.",
+        "D": "Calcular un hash procesa los bytes con una función; renombrar un archivo no ejecuta ese cálculo."
+      },
+      "manualPages": [],
+      "practicePages": [
+        7
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 503,
+      "questionFingerprint": "63dd334dc899a84ebe991c9892e582b3e620e7d793ef8243532300ba30da27ef",
+      "distractors": {
+        "B": "La expansión propuesta no es la del RIR: se trata del registro regional encargado de recursos numéricos de Internet.",
+        "C": "Un resolutor DNS resuelve consultas de nombres; no es el registro regional de recursos IP al que se refiere RIR.",
+        "D": "El RIR no es un registro general de identidades remotas: administra recursos numéricos y su información de asignación."
+      },
+      "manualPages": [
+        16,
+        51,
+        52
+      ],
+      "practicePages": [
+        9
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 504,
+      "questionFingerprint": "7f0117fa162fafa1a497bb839a53755eaf4e9d62d02eeba9590abfbc36153104",
+      "distractors": {
+        "A": "ARIN atiende otra región; el registro señalado para gran parte de América Latina y el Caribe es LACNIC.",
+        "B": "APNIC corresponde a Asia Pacífico y no a la región latinoamericana y caribeña pedida.",
+        "C": "RIPE NCC atiende principalmente Europa, Oriente Medio y parte de Asia Central, no la región que pide la consigna."
+      },
+      "manualPages": [
+        16,
+        51,
+        52
+      ],
+      "practicePages": [
+        9
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 505,
+      "questionFingerprint": "fd02d9b9169cf546a7ad0e4541c994e0b53df51977bad72e7c669205128806b2",
+      "distractors": {
+        "A": "La guía no identifica Argentina y Uruguay como los dos NIR regionales citados; enumera Brasil y México.",
+        "C": "Chile y Perú no son la pareja de NIR enumerada en ese material; se mencionan Brasil y México.",
+        "D": "España y Portugal no corresponden a la pareja citada para la región de LACNIC; pertenecen a otra región de registro."
+      },
+      "manualPages": [],
+      "practicePages": [
+        9
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 506,
+      "questionFingerprint": "061e8bdf45e71e2cce6d9ca47b95e6ed99a1ae0158314b90e63d22c2580d4882",
+      "distractors": {
+        "A": "Facturación gestiona cuestiones comerciales; no es el canal técnico habitual para incidentes de abuso de una red.",
+        "B": "Marketing no es el contacto encargado de tramitar notificaciones técnicas de uso abusivo de recursos.",
+        "D": "El titular de un dominio de la víctima no reemplaza al contacto técnico de abuso de la red desde la que se observó actividad."
+      },
+      "manualPages": [
+        16,
+        17,
+        20
+      ],
+      "practicePages": [
+        9
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 507,
+      "questionFingerprint": "1e25bd0f6d9a73a4c0af4ddb0d4e23839d5a952aaafa5658d2f2ec649f51d55d",
+      "distractors": {
+        "B": "Consultar una asignación no convierte a quien consulta en titular del recurso ni garantiza pertenencia a su organización.",
+        "C": "RDAP define servicios de consulta estructurada sobre HTTP; no se define como cifrar toda consulta con una clave compartida.",
+        "D": "RDAP ofrece acceso a datos de registro; afirmar que prescinde de registros públicos contradice la finalidad de la consulta."
+      },
+      "manualPages": [
+        16,
+        17,
+        18
+      ],
+      "practicePages": [
+        9
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 508,
+      "questionFingerprint": "fe1b353bb8e447f039ba7530d2d760082b4aab3b9015c515afbc854725f1d274",
+      "distractors": {
+        "A": "Los nombres de usuario locales no son la clase de recurso numérico o de dominio que consulta RDAP.",
+        "B": "SMTP transporta correo; sus mensajes no constituyen el conjunto adicional de recursos consultables pedido.",
+        "C": "JPEG es un formato de imagen y no una categoría de recurso de Internet registrado que describa RDAP."
+      },
+      "manualPages": [
+        16,
+        17,
+        18
+      ],
+      "practicePages": [
+        9
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 509,
+      "questionFingerprint": "e7bd15f33c224e56d8025ae81e51ab04665ae75f80db903a2201da3f219164a2",
+      "distractors": {
+        "A": "Ninguna fuente debe tratarse como infalible; hay que comprobar vigencia, recurso y contexto del contacto.",
+        "C": "Descartar ambas fuentes pierde evidencia útil; la guía pide contrastar y revisar la información de asignación.",
+        "D": "Un correo comercial elegido al azar no documenta el contacto técnico pertinente ni resuelve la discrepancia de fuentes."
+      },
+      "manualPages": [
+        16,
+        17,
+        18
+      ],
+      "practicePages": [
+        9
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 510,
+      "questionFingerprint": "6732fcfe6b04d40555233dd560039bcdb8986b35d4826cc3670cc35832d08beb",
+      "distractors": {
+        "A": "La organización asignataria es precisamente un dato que puede aparecer en RDAP, aunque no prueba autoría personal.",
+        "B": "Los contactos de abuso publicados pueden consultarse; su existencia no identifica por sí sola a la persona atacante.",
+        "D": "El bloque registrado puede formar parte de la respuesta RDAP; es información de asignación, no atribución individual."
+      },
+      "manualPages": [
+        15,
+        16,
+        20
+      ],
+      "practicePages": [
+        9
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 511,
+      "questionFingerprint": "18e1b3aa2049be070b478f0aa7eb1afb2393ef71a60d2805555ae520e33944c9",
+      "distractors": {
+        "B": "La región descrita no corresponde a RIPE NCC; África tiene su propio registro regional, AFRINIC.",
+        "C": "La región latinoamericana y caribeña corresponde principalmente a LACNIC, no a RIPE NCC.",
+        "D": "Oceanía se encuentra en el ámbito de APNIC; no es la única región atendida por RIPE NCC."
+      },
+      "manualPages": [
+        16,
+        51,
+        52
+      ],
+      "practicePages": [
+        9
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 512,
+      "questionFingerprint": "a9f3fbffb8dd272cbb262da5f72a6e94a62298ee72db6425fa96ddc8b9d1d2b6",
+      "distractors": {
+        "A": "Una frase sin IP, fechas ni registros no permite investigar ni correlacionar la actividad denunciada.",
+        "B": "Las credenciales son secretos y no deben incluirse para probar una notificación de abuso.",
+        "C": "Una asignación IP no prueba autoría inequívoca; la notificación debe describir hechos y evidencias verificables."
+      },
+      "manualPages": [
+        26,
+        27
+      ],
+      "practicePages": [
+        12
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 513,
+      "questionFingerprint": "5ffd547c051da60427513fcecfe1c4bb7137cd4acd8e7279558035a71959744f",
+      "distractors": {
+        "A": "Operar aspectos técnicos de la raíz DNS no define el papel de quien registra y mantiene un dominio.",
+        "C": "RDAP es un protocolo de consulta de información; no es la persona o entidad titular del dominio.",
+        "D": "El servidor de correo presta un servicio técnico; no es por ese hecho el titular registrante del nombre."
+      },
+      "manualPages": [
+        18,
+        19
+      ],
+      "practicePages": [
+        10
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 514,
+      "questionFingerprint": "4e3a77af9a0a4581c0d6920f39fab002472203266ef346df96efba5c0597d43b",
+      "distractors": {
+        "A": "La asignación de recursos IP pertenece a otra cadena de registros y no define el papel del registrar de dominios.",
+        "B": "El registrar no debe controlar por ese rol las claves privadas de todos los usuarios del dominio.",
+        "D": "El registro de dominios no es una operación de cifrado del correo; se relaciona con nombres y datos registrales."
+      },
+      "manualPages": [
+        18,
+        19
+      ],
+      "practicePages": [
+        10
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 515,
+      "questionFingerprint": "eff2d528823aaf46a48418ecc774a3ff57bedc4eece45b5779833db542474fb2",
+      "distractors": {
+        "B": "Un antivirus detecta amenazas; no mantiene el registro autoritativo de nombres de un TLD.",
+        "C": "Un servidor POP3 presta acceso al correo de un buzón y no mantiene el espacio de nombres del TLD.",
+        "D": "Una lista de emisores de spam es un recurso de reputación y no el registro autoritativo de delegaciones del TLD."
+      },
+      "manualPages": [
+        18,
+        19
+      ],
+      "practicePages": [
+        10
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 516,
+      "questionFingerprint": "cef24742d3d6ede8bd9863424db6042e3794d84d8ed1a7ebb0abc2403659eab1",
+      "distractors": {
+        "A": "ARIN es un registro regional de recursos numéricos; no cumple el rol nacional de dominios .ar pedido.",
+        "C": "AFRINIC es un registro regional de recursos numéricos de África, no el organismo identificado en la guía para .ar.",
+        "D": "OpenPGP es un estándar de protección criptográfica de mensajes; no un operador del registro de dominios argentinos."
+      },
+      "manualPages": [
+        18,
+        19
+      ],
+      "practicePages": [
+        10
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 517,
+      "questionFingerprint": "1aeb7983361e413fc592c96e3911afdd8d3c6f614ec457b5bf848ebd89f7d5f2",
+      "distractors": {
+        "A": "El usuario local de Windows no identifica el canal de notificación del registrador del dominio.",
+        "B": "La IP del lector del mensaje no indica qué empresa registra el dominio ni cuál es su contacto de abuso.",
+        "C": "Una contraseña SMTP es un secreto y no el dato público de contacto que corresponde obtener para notificar abuso."
+      },
+      "manualPages": [
+        18,
+        19
+      ],
+      "practicePages": [
+        10
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 518,
+      "questionFingerprint": "3185cd391d75d0b517ef48bfa5e69b9aa6df1f41dccff8f85453c52bd00ff0da",
+      "distractors": {
+        "B": "Content-Language describe el idioma del contenido; no identifica normalmente al destinatario original.",
+        "C": "User-Agent identifica software cliente en ciertos mensajes y no establece por sí mismo el destinatario del sobre.",
+        "D": "X-Powered-By describe una implementación o tecnología cuando aparece; no es la cabecera de destinatario usada en el ejemplo."
+      },
+      "manualPages": [
+        21,
+        22,
+        23
+      ],
+      "practicePages": [
+        10,
+        11
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 519,
+      "questionFingerprint": "8783b3a16e11200e369d900cf3206f558f4f35905f56689960158b5001edb418",
+      "distractors": {
+        "A": "Un remitente puede agregar campos falsos; no todas las líneas están autenticadas por su mera presencia.",
+        "B": "Los nombres y direcciones, contrastados con la evidencia fiable, ayudan a reconstruir los saltos y no deben ignorarse sin análisis.",
+        "D": "Una IP aislada no demuestra el recorrido: hay que delimitar los saltos añadidos por servidores en los que se confía."
+      },
+      "manualPages": [
+        22,
+        23,
+        24
+      ],
+      "practicePages": [
+        10,
+        11
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 520,
+      "questionFingerprint": "79a4c4ffbd68fb7b13c8004f708a5ae17a1bb9a69594f1a35309f94b52329a71",
+      "distractors": {
+        "A": "PTR relaciona una dirección con un nombre en resolución inversa; no publica el destino de entrega de correo.",
+        "C": "AAAA asocia un nombre con una dirección IPv6; no expresa la función y prioridad de los servidores de correo como MX.",
+        "D": "CAA especifica autoridades autorizadas a emitir certificados; no servidores de recepción de correo."
+      },
+      "manualPages": [
+        19,
+        20,
+        21
+      ],
+      "practicePages": [
+        10,
+        11
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 521,
+      "questionFingerprint": "12eedd3814f71129d59cb727bbe2608f12639e4e1b257a2992bddcc7e6abc842",
+      "distractors": {
+        "A": "El sobre y From pueden diferir y no están validados automáticamente por ser iguales o visibles.",
+        "B": "Ambas identidades pueden declararse o suplantarse; su validación requiere mecanismos y contexto adicionales.",
+        "C": "From es una cabecera de identidad visible y no obliga a que el mensaje salga de una IP concreta."
+      },
+      "manualPages": [
+        21,
+        22,
+        51
+      ],
+      "practicePages": [
+        10,
+        11
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 522,
+      "questionFingerprint": "b9740a4c59fb9f088e7a6b743acec5eeba5e6fc93dbdffc0e965a7ab4bd18e10",
+      "distractors": {
+        "B": "Received no se cifra automáticamente mediante PGP; es un campo de trazabilidad del transporte.",
+        "C": "Los servidores SMTP pueden añadir líneas Received; su orden y procedencia deben verificarse.",
+        "D": "Received no es un hash firmado por definición: una línea textual puede ser fabricada por un emisor."
+      },
+      "manualPages": [
+        22,
+        23,
+        24
+      ],
+      "practicePages": [
+        10,
+        11
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 523,
+      "questionFingerprint": "bd49ed97ecd563160d4bba5fe0eec47a4752d69797d8750f6420a9227e73b46a",
+      "distractors": {
+        "A": "RSA es un esquema criptográfico; el caso presenta una identidad de remitente suplantada, no una colisión matemática.",
+        "C": "La transposición reordena símbolos de un mensaje; no describe el uso de una dirección From falsa.",
+        "D": "LSB oculta bits en un portador; no es el mecanismo de suplantación de la identidad del remitente observado."
+      },
+      "manualPages": [
+        21,
+        22,
+        23
+      ],
+      "practicePages": [
+        10,
+        11
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 524,
+      "questionFingerprint": "5846cc8233b79b922d11b07bcba1709267262c94724d91e9f375f1859a4c49cb",
+      "distractors": {
+        "A": "SPF evalúa autorización de envío de una identidad de dominio; no verifica los bytes de cada archivo adjunto.",
+        "B": "El resultado SPF no documenta que un usuario haya leído o abierto el mensaje.",
+        "D": "SPF no consulta ni comprueba la contraseña del destinatario; compara la IP emisora con la política del dominio pertinente."
+      },
+      "manualPages": [
+        23,
+        24
+      ],
+      "practicePages": [
+        11
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 525,
+      "questionFingerprint": "1e0c6d26944f9b3fc7199ea0cf5fb35d5c989e5e53f91431469b2d64d18ec5a4",
+      "distractors": {
+        "B": "DKIM firma partes del mensaje y no cifra su cuerpo de extremo a extremo.",
+        "C": "La firma DKIM no almacena un hash de contraseña de Windows; se verifica mediante una clave pública publicada en DNS.",
+        "D": "DKIM no crea un túnel SSH hacia el MX; añade una firma verificable al mensaje."
+      },
+      "manualPages": [
+        23,
+        24
+      ],
+      "practicePages": [
+        11
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 526,
+      "questionFingerprint": "82143ed983089f4f224f48e740016a7b9aef790e6792744ba3d001a53a2dc71d",
+      "distractors": {
+        "A": "Solicitar rechazo corresponde a una política reject; p=none no pide rechazar todos los mensajes que fallen.",
+        "B": "Una política quarantine solicita cuarentena; p=none se usa para observación y reportes.",
+        "C": "DMARC p=none no desactiva SPF ni DKIM: siguen aportando resultados y alineación para evaluar el mensaje."
+      },
+      "manualPages": [
+        23,
+        24
+      ],
+      "practicePages": [
+        11
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 527,
+      "questionFingerprint": "7b4e9f2e320de36b6f2531e335979fa86976bfc7b87f289535f38d7603ce3733",
+      "distractors": {
+        "A": "Base64 representa datos y no prueba autorización SPF, firma DKIM ni alineación de dominios.",
+        "C": "El puerto de transporte no demuestra alineación entre la identidad validada y el dominio de From.",
+        "D": "La mera existencia de un registro A no satisface la validación SPF o DKIM alineada que necesita DMARC."
+      },
+      "manualPages": [
+        23,
+        24
+      ],
+      "practicePages": [
+        11
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 528,
+      "questionFingerprint": "d34cc650b65b2fd824eda38c778dbf0cf3a19f0d8bd39658b11616f6e6fd4f03",
+      "distractors": {
+        "A": "Los mensajes de fallo de contraseña de SSH no documentan por sí mismos una actualización del reloj mediante NTP.",
+        "B": "La rotación de claves PGP no explica una serie de autenticaciones SSH fallidas contra root.",
+        "D": "DNSSEC autentica datos DNS y no explica el patrón de intentos de contraseña observado en sshd."
+      },
+      "manualPages": [],
+      "practicePages": [
+        11,
+        12
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 529,
+      "questionFingerprint": "acda5795c8a87b5bed49ca8927bd6173245d4ae0010fce71ecb3965887515e43",
+      "distractors": {
+        "B": "Un intento fallido no prueba una sesión comprometida y una aceptación requiere evaluar contexto, cuenta y origen.",
+        "C": "Los dos mensajes pertenecen al servicio SSH; no equivalen a entradas de tareas programadas de cron.",
+        "D": "Accepted publickey informa una autenticación aceptada por clave pública, no un bloqueo de la conexión por firewall."
+      },
+      "manualPages": [],
+      "practicePages": [
+        11,
+        12
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 530,
+      "questionFingerprint": "22d87d07fb5bb7d0bc662eac21a5c3b62973e33932576304ba884699a3ef69f0",
+      "distractors": {
+        "A": "El registro documenta el uso de sudo con un comando, pero no demuestra instalación de malware ni identidad de atacante.",
+        "B": "La propia entrada no documenta un borrado de bitácoras; indica el comando concreto invocado.",
+        "C": "Consultar el estado del servicio no demuestra que nginx esté comprometido ni cuál fue el resultado de la consulta."
+      },
+      "manualPages": [],
+      "practicePages": [
+        11,
+        12
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 531,
+      "questionFingerprint": "cb963f886c8496770276686dba071fff79fc62afd11e5f671c6ef8c7e93992d9",
+      "distractors": {
+        "A": "El tamaño del periférico no permite ordenar ni correlacionar eventos entre registros de servidores.",
+        "C": "La apariencia del terminal no cambia el significado temporal ni la zona de los eventos registrados.",
+        "D": "Los colores de la visualización no sustituyen la normalización de fecha, hora y zona horaria."
+      },
+      "manualPages": [
+        23,
+        26,
+        27
+      ],
+      "practicePages": [
+        11,
+        12
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 532,
+      "questionFingerprint": "a674192090d2f9bc67203881aca66717196c37aa5b7abff2c394b8c6a87efb21",
+      "distractors": {
+        "A": "Publicar contraseñas revela secretos y no mitiga el tanteo de credenciales por SSH.",
+        "B": "Desactivar registros reduce la capacidad de detectar e investigar; no impide intentos de autenticación.",
+        "D": "Reiniciar no corrige la política de acceso ni el uso de credenciales débiles y puede afectar la disponibilidad del servicio."
+      },
+      "manualPages": [],
+      "practicePages": [
+        11,
+        12
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 533,
+      "questionFingerprint": "aa69ba3276679e8bf06772c763e9598d7d112ea723c04824962ec043c2e3b14b",
+      "distractors": {
+        "B": "Un canal encubierto aprovecha un uso no previsto del sistema o protocolo; no se define como correo normal autenticado.",
+        "C": "RSA es un esquema criptográfico; el concepto de canal encubierto se refiere a cómo se transporta información.",
+        "D": "Un canal encubierto no es una herramienta exclusiva de antivirus: puede aprovechar protocolos y otros recursos del sistema."
+      },
+      "manualPages": [],
+      "practicePages": [
+        12,
+        13
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 534,
+      "questionFingerprint": "e3ffc28c4afcfcfa3bb3ff78c1fcaecedc1e61c591ed76f967a00690e8443018",
+      "distractors": {
+        "A": "El idioma de la interfaz no muestra los bytes transportados en el mensaje ICMP.",
+        "B": "WHOIS ofrece información de registro; no revela qué información se insertó en el payload de cada paquete.",
+        "C": "La longitud de una contraseña local no permite inspeccionar los datos que viajan en las solicitudes ICMP."
+      },
+      "manualPages": [],
+      "practicePages": [
+        12,
+        13
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 535,
+      "questionFingerprint": "2c95cf62c4e57738e1333c106fc0f7e82169530146b8a0be00e2fff16c5d6440",
+      "distractors": {
+        "A": "ip.src compara la dirección de origen; para destino se usaría una condición sobre ip.dst.",
+        "C": "Un filtro de visualización selecciona paquetes; no descifra automáticamente el contenido del campo data.",
+        "D": "La expresión no extrae claves criptográficas: combina una condición de protocolo con otra de dirección de origen."
+      },
+      "manualPages": [],
+      "practicePages": [
+        12,
+        13
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 536,
+      "questionFingerprint": "c66a5a0faefd74dcfb9eeb7bb66556d51287b11fe45546082a32a494f2b90905",
+      "distractors": {
+        "A": "En tshark, -p desactiva el modo promiscuo; no selecciona la salida de un campo data.",
+        "B": "-n evita resolución de nombres, pero no pide por sí solo volcar un campo concreto en formato de texto.",
+        "D": "-D lista las interfaces disponibles; no configura la salida con los valores del campo data de los paquetes."
+      },
+      "manualPages": [
+        40,
+        41
+      ],
+      "practicePages": [
+        12,
+        13,
+        14
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 537,
+      "questionFingerprint": "bbe245a3542c96bd0ee306e72e5a3971fcdc22c260f67f1d5d36a3050c21e8c4",
+      "distractors": {
+        "B": "Las consultas con fragmentos extraños no prueban que fallen todos los servidores de correo MX.",
+        "C": "La forma de esos nombres DNS no documenta por sí sola una rotación de certificados TLS.",
+        "D": "Introducir texto codificado en nombres no implica que el propio protocolo DNS esté cifrado con AES."
+      },
+      "manualPages": [],
+      "practicePages": [
+        12,
+        13
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 538,
+      "questionFingerprint": "9d0c0f43bb2de9c8f56d149ce09acfa994ed7e330ffb6de6eb797c10fa2d7eb6",
+      "distractors": {
+        "A": "Una consulta común aislada es compatible con tráfico habitual y no basta para sostener la hipótesis de exfiltración.",
+        "B": "Un PTR válido describe resolución inversa; no demuestra transporte encubierto de fragmentos en nombres consultados.",
+        "C": "Un certificado válido puede aparecer en tráfico legítimo o malicioso; no evidencia por sí solo exfiltración mediante consultas DNS."
+      },
+      "manualPages": [],
+      "practicePages": [
+        12,
+        13
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 539,
+      "questionFingerprint": "48e1c9fbd9be1e0a61847da0280c4a6e8b928504aa2397116aa7c65d39f59fc8",
+      "distractors": {
+        "A": "Un dispositivo que emula un teclado no cifra necesariamente el disco ni representa a todos los pendrives.",
+        "C": "USB admite distintas clases de dispositivo, incluidas interfaces HID; no es exclusivamente almacenamiento.",
+        "D": "Conectar un periférico no instala necesariamente PGP; el riesgo descrito es la introducción automatizada de comandos."
+      },
+      "manualPages": [],
+      "practicePages": [
+        12,
+        13
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 540,
+      "questionFingerprint": "25faca23b4288ad015b3144cd7652340443d9477320a9f744688ae51588ac429",
+      "distractors": {
+        "A": "Ejecutar antes de inspeccionar puede activar las acciones del comando; la decodificación no necesita ejecutar la carga.",
+        "B": "Borrar registros destruye contexto y evidencia sin aportar nada a la interpretación del argumento codificado.",
+        "D": "Base64 de UTF-16LE es una representación recuperable sin clave secreta, no protección por cifrado."
+      },
+      "manualPages": [],
+      "practicePages": [
+        12,
+        13,
+        18
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 541,
+      "questionFingerprint": "1f8fb7c8d424da81c698a3c53b5669f2ab94295538a8290c416bad0be121c42a",
+      "distractors": {
+        "B": "La extensión .jpg no garantiza que los bytes tengan estructura JPEG; MZ amerita inspeccionar un posible ejecutable.",
+        "C": "OpenPGP tiene su propia estructura de paquetes; una firma de cabecera MZ no identifica una clave de ese formato.",
+        "D": "Los bytes MZ no prueban una firma digital válida: hay que analizar la estructura y verificar la firma por separado."
+      },
+      "manualPages": [
+        35,
+        36,
+        51
+      ],
+      "practicePages": [
+        13,
+        14
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 542,
+      "questionFingerprint": "6244f52bcab85beb3c499b10304cbee71631335218150aba87db3c444b25a6ce",
+      "distractors": {
+        "A": "Ignorar orden, pérdidas o duplicados puede producir bytes distintos del mensaje transmitido.",
+        "C": "Ordenar alfabéticamente no respeta necesariamente la secuencia de fragmentos del protocolo ni del mensaje original.",
+        "D": "RSA no es un paso general de reconstrucción de paquetes; primero debe recuperarse la secuencia correcta de bytes."
+      },
+      "manualPages": [
+        40,
+        41
+      ],
+      "practicePages": [
+        12,
+        13,
+        14
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 543,
+      "questionFingerprint": "c5de2861725f0f01b0153bcffcd5e166f02c84358a496067cee32bafcf8ed05c",
+      "distractors": {
+        "A": "Ejecutar en producción es una prueba de comportamiento con exposición al entorno, no análisis estático.",
+        "B": "Borrar el artefacto no permite inspeccionar y conservar sus propiedades como evidencia.",
+        "D": "Contactar al servidor atacante introduce interacción y riesgos; no es necesario para examinar estáticamente la muestra."
+      },
+      "manualPages": [
+        32,
+        33,
+        34
+      ],
+      "practicePages": [
+        13,
+        14
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 544,
+      "questionFingerprint": "f3d1c60391e5147d9bb202855f02b461f704765bc34882bd5c1cc82029585ac5",
+      "distractors": {
+        "B": "whois consulta información registral de recursos de Internet; no extrae cadenas de los bytes del binario.",
+        "C": "gpg --gen-key genera claves de GPG; no enumera el texto legible incrustado en un ejecutable.",
+        "D": "ssh-keygen genera o administra claves SSH; no reemplaza la extracción de cadenas de un archivo binario."
+      },
+      "manualPages": [
+        34,
+        35
+      ],
+      "practicePages": [
+        13,
+        14
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 545,
+      "questionFingerprint": "465d4fe9fad28ba0ee93d958b0c8610dfed8bc96c2c2472ed37bf8efd7a8618d",
+      "distractors": {
+        "A": "La marca del monitor no vincula de manera útil la muestra con un destino o comportamiento de red observado.",
+        "B": "La cantidad de filas del terminal es una preferencia de interfaz y no un indicador de comunicación de la infección.",
+        "C": "El tema visual de PowerShell no identifica una conexión o destino utilizado por la muestra."
+      },
+      "manualPages": [
+        33,
+        41,
+        51
+      ],
+      "practicePages": [
+        13,
+        14,
+        16
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 546,
+      "questionFingerprint": "50c91f704bbb71f0965cfc63b14a852f4a9d10450662deebf744d891fe763a03",
+      "distractors": {
+        "A": "La funcionalidad maliciosa oculta tras una calculadora no describe una herramienta que sólo comprime datos.",
+        "C": "Un algoritmo asimétrico define operaciones criptográficas; no es la clasificación conductual de este programa engañoso.",
+        "D": "Un servidor DNS resuelve consultas; esa función no explica la fachada de calculadora que descarga otra carga."
+      },
+      "manualPages": [
+        31,
+        32
+      ],
+      "practicePages": [
+        13,
+        14
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 547,
+      "questionFingerprint": "bb5fe3ead0080a61e4c4bcdd3da420cedac1e0893c12971ce6fb02398e3fbf8f",
+      "distractors": {
+        "A": "El aislamiento limita exposición pero no convierte la muestra en inocua ni elimina todos los riesgos del análisis.",
+        "B": "El monitoreo busca recopilar evidencia, incluidos eventos y logs; evitarlos elimina información relevante.",
+        "D": "Observar comportamiento no reconstruye automáticamente el código fuente original del programa."
+      },
+      "manualPages": [
+        38
+      ],
+      "practicePages": [
+        14
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 548,
+      "questionFingerprint": "7018f31bfe77c2ad5f70a91de40202766eedd9f008abf6870b37e36462b311a0",
+      "distractors": {
+        "B": "Las detecciones pueden contener falsos positivos o negativos; se interpretan junto con otras evidencias y contexto.",
+        "C": "Una consulta pública puede exponer información sensible; no se deben subir secretos para obtener un análisis.",
+        "D": "Desactivar defensas del equipo habitual aumenta exposición y no es una condición para interpretar resultados de esos servicios."
+      },
+      "manualPages": [
+        34,
+        35
+      ],
+      "practicePages": [],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 549,
+      "questionFingerprint": "35d386d3136f5067fa636bf6553cabbcabac15483882ebabbb9d0025741324de",
+      "distractors": {
+        "A": "CFF Explorer examina estructuras del ejecutable; no revela automáticamente mensajes SMTP de un supuesto atacante.",
+        "B": "Un análisis del formato PE no proporciona una lista de todas las contraseñas de las cuentas del sistema.",
+        "C": "La estructura de un ejecutable no determina por defecto la ubicación física de una computadora."
+      },
+      "manualPages": [
+        35,
+        36,
+        51
+      ],
+      "practicePages": [
+        13,
+        14
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 550,
+      "questionFingerprint": "d13d2247291457a3630ff7a301c79475e9d7a7e7719ed65eb44e4c1fdf388170",
+      "distractors": {
+        "A": "Un hash exacto identifica bytes concretos; una variante modificada puede producir otro digest y dejar de coincidir.",
+        "C": "El digest no indica por sí mismo el destino de mando y control ni la función de la muestra.",
+        "D": "SHA-256 admite entradas binarias arbitrarias y no está limitado a archivos de texto."
+      },
+      "manualPages": [
+        33,
+        41,
+        51
+      ],
+      "practicePages": [
+        13,
+        14,
+        16
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 551,
+      "questionFingerprint": "8c6e04722c75032df5d3004b67001afdece6468da854680bc40e1778d1a39b44",
+      "distractors": {
+        "A": "Los fallos también aportan evidencia sobre destinos, orden y condiciones; ignorarlos elimina contexto de la comunicación.",
+        "B": "El usuario local no documenta por sí solo los destinos, puertos, resultados o datos de las conexiones.",
+        "D": "Un hash del nombre no sustituye la identificación del destino ni los eventos que permiten reconstruir la actividad."
+      },
+      "manualPages": [
+        40,
+        41
+      ],
+      "practicePages": [
+        12,
+        13,
+        14
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 552,
+      "questionFingerprint": "1be60c6809b6d8925fa939eaff4a5a600eac3b43497cd94c662954f012d3e072",
+      "distractors": {
+        "B": "Modificar el original sin conservar versiones impide distinguir las propiedades originales de los efectos del análisis.",
+        "C": "Divulgar información sensible no mejora la trazabilidad y puede exponer datos ajenos a la finalidad de la investigación.",
+        "D": "Desactivar el reloj deteriora la referencia temporal necesaria para correlacionar y reproducir observaciones."
+      },
+      "manualPages": [],
+      "practicePages": [
+        15,
+        16
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 553,
+      "questionFingerprint": "b0e2569e8066a959b86559e5574098467908453039aef3b50afeae220cb2c101",
+      "distractors": {
+        "A": "El registro autoritativo DNS se administra con datos de zona y no mediante la clave Run del usuario de Windows.",
+        "B": "Un RIR gestiona recursos numéricos de Internet; una entrada Run no configura ese organismo.",
+        "C": "NTFS es un sistema de archivos; la finalidad habitual de esta clave es indicar programas de inicio de sesión."
+      },
+      "manualPages": [
+        38,
+        39,
+        52
+      ],
+      "practicePages": [
+        14
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 554,
+      "questionFingerprint": "ebf51622bf6d40eb7a40920d6cde572287a477295677a522e1a63f653e5482a8",
+      "distractors": {
+        "A": "MX es un tipo de registro DNS de correo y no define un manejador del menú contextual de Windows.",
+        "C": "AES-CBC es un modo de cifrado y no el mecanismo de registro de una extensión del shell.",
+        "D": "Las cookies HTTP son datos de la interacción web; no explican una inscripción de ContextMenuHandlers en HKCR."
+      },
+      "manualPages": [
+        38,
+        39,
+        52
+      ],
+      "practicePages": [
+        14
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 555,
+      "questionFingerprint": "2a4cdfbf0b5046d67d97fa15da6327e0c60ebdb730edfe4ead602ce8577bae56",
+      "distractors": {
+        "B": "Aunque ambos puedan escribirse en hexadecimal, un GUID de registro identifica un componente, no una dirección IPv6 del host.",
+        "C": "Un GUID no es por definición un digest SHA-512; su propósito y estructura corresponden a identificación de componentes.",
+        "D": "La presencia de un identificador en una clave COM no significa que contenga la contraseña del administrador."
+      },
+      "manualPages": [
+        38,
+        39
+      ],
+      "practicePages": [],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 556,
+      "questionFingerprint": "b4a7442bb80b41b9413206ba063a1149592739305f5e5280a1c4d98b46629589",
+      "distractors": {
+        "A": "Sumar un valor a códigos de caracteres no implementa AES-256 ni una etiqueta de autenticación.",
+        "B": "La expresión Chr sobre números no describe operaciones de curva elíptica ni un acuerdo de claves.",
+        "D": "Reconstruir caracteres mediante aritmética es una forma de ofuscación; no recupera por sí mismo una clave PGP."
+      },
+      "manualPages": [],
+      "practicePages": [
+        15
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 557,
+      "questionFingerprint": "c3ba00e8361e5936a43a045587c8c5369a525fbe69ae81b83d982819c92a615e",
+      "distractors": {
+        "A": "Cambiar resoluciones locales mediante hosts no firma mensajes ni publica claves DKIM.",
+        "B": "Una entrada de nombre e IP en hosts no genera un par de claves RSA.",
+        "C": "Modificar un archivo local no cambia los servidores raíz ni la delegación global del sistema DNS."
+      },
+      "manualPages": [
+        38,
+        39,
+        52
+      ],
+      "practicePages": [
+        14
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 558,
+      "questionFingerprint": "60a6cb3ab567ff0370c07333a5136a5ba52458c5bcecd4fcac2b120668bcd60a",
+      "distractors": {
+        "A": "El riesgo es la capacidad de ejecutar código con efectos, no que el documento contenga errores de escritura.",
+        "C": "Un libro puede conservar fórmulas y además ejecutar macros; admitir unas no elimina el riesgo de las otras.",
+        "D": "DOCM identifica un formato de documento habilitado para macros; cambiar su clasificación a imagen no explica sus capacidades."
+      },
+      "manualPages": [],
+      "practicePages": [
+        15
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 559,
+      "questionFingerprint": "f56ab3bd944e343dcf435abc22f9f3f3d7981bfd543c4d0a058d44d73449b7a5",
+      "distractors": {
+        "B": "Una sesión de transporte SMTP no extrae ni analiza el código VBA contenido en el documento.",
+        "C": "RDAP y NIC.ar sirven para información de registro de Internet, no para extraer macros de Office.",
+        "D": "Probar contraseñas contra SSH no inspecciona el código de macros del archivo y añade una interacción diferente."
+      },
+      "manualPages": [],
+      "practicePages": [
+        15
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 560,
+      "questionFingerprint": "056de56485eea273d0bf5c67bf6e8879ed556936c7deec1445452cc7b0c695e3",
+      "distractors": {
+        "A": "Regshot compara estados del Registro; no es una herramienta para resolver la factorización o el descifrado RSA.",
+        "B": "La comparación de instantáneas del Registro no traduce automáticamente el contenido de documentos DOCM.",
+        "D": "AAAA publica direcciones IPv6 en DNS; no describe la función de Regshot durante una ejecución controlada."
+      },
+      "manualPages": [
+        39,
+        40
+      ],
+      "practicePages": [
+        14
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 561,
+      "questionFingerprint": "8b635912eda1ec6a50a2a1faca6cd61abefd24635dcea5eab5dcae3ccf7afac4",
+      "distractors": {
+        "A": "El color del icono no prueba qué ejecuta la entrada ni permite atribuirla a una muestra concreta.",
+        "B": "La longitud del nombre no determina su funcionalidad o legitimidad; hay que inspeccionar valor y ejecución.",
+        "C": "La región del registrador de un dominio no identifica el programa que carga esa clave del sistema."
+      },
+      "manualPages": [
+        38,
+        39,
+        52
+      ],
+      "practicePages": [
+        14
+      ],
+      "dhRsaPages": []
+    },
+    {
+      "questionId": 562,
+      "questionFingerprint": "faf0e2904df5cf9a0248a838ab733d50446b9f66a757c3db14f923c296b33b86",
+      "distractors": {
+        "A": "Habilitar las macros puede disparar sus efectos; no es necesario para evaluar aritmética y reconstruir cadenas estáticamente.",
+        "C": "Importar la macro en el equipo habitual añade exposición y no sustituye la inspección sin ejecución de las expresiones.",
+        "D": "Eliminar advertencias no transforma ni explica el código; facilita ejecutar acciones que todavía no se han analizado."
+      },
+      "manualPages": [],
+      "practicePages": [
+        15
+      ],
+      "dhRsaPages": []
+    }
+  ]
+}

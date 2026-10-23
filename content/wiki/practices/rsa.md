@@ -1,5 +1,5 @@
 ---
-{"id":"practices-rsa","title":"Caso: verificar un cálculo RSA","slug":"rsa","parent":"practices","type":"practice","order":60,"related":["crypto-encryption","crypto-encoding","practices-writeup"],"sources":[{"id":"practice-1b","pages":[1,2]},{"id":"practice-questions","pages":[6]},{"id":"practice-solutions","pages":[7]},{"id":"practice-guide","pages":[5,6]}]}
+{"id":"practices-rsa","title":"Caso: verificar un cálculo RSA","slug":"rsa","parent":"practices","type":"practice","order":60,"related":["crypto-encryption","crypto-encoding","practices-writeup"],"sources":[{"id":"practice-1b","pages":[1,2]},{"id":"practice-questions","pages":[6]},{"id":"practice-solutions","pages":[7]},{"id":"practice-guide","pages":[5,6]},{"id":"dh-rsa-guide","pages":[5,6,7,8,9]},{"id":"exam-questions","pages":[10,11]},{"id":"exam-solutions","pages":[6,7]}]}
 ---
 ## Objetivo y parámetros
 
@@ -45,4 +45,18 @@ Así se conserva el ejemplo y se identifica exactamente el dato corregido. Son c
 
 :::question ¿Qué comprobación detecta un exponente privado equivocado antes de intentar interpretar texto?
 Verificar que e·d módulo φ(n) sea 1, dentro de este procedimiento de generación. Después se comprueba el ciclo de cifrado y descifrado; no debe elegirse un número solo porque figura en una línea del documento.
+:::
+
+## Repaso adicional de la guía de RSA
+
+:::question Con p=61, q=53 y e=17, ¿cuáles son n, φ(n) y d?
+`n=3233`, `φ(n)=3120` y `d=2753`. Se comprueba el inverso porque `17×2753 mod 3120=1`. Los pasos de Euclides y la ida y vuelta de HOLA están en [el segundo ejemplo RSA](wiki:crypto-rsa#segundo-ejemplo-completo-hola-con-numeros-pequenos).
+:::
+
+:::question ¿Qué resultado tiene cifrar m=7 con n=55 y e=3?
+La operación elemental da `c=7³ mod 55=13`. Elegir números pequeños permite verificar el procedimiento, pero no crea un esquema seguro.
+:::
+
+:::question ¿Por qué no se cifra un mensaje real carácter por carácter con RSA sin padding?
+Porque la operación directa es determinista, expone repeticiones y carece de la protección del esquema completo. La guía diferencia RSA-OAEP para cifrado de RSA-PSS para firmas, y presenta el uso de una clave de sesión en cifrado híbrido.
 :::

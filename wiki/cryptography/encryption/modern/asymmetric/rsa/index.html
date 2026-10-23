@@ -78,10 +78,63 @@ m = 1752132705
 <p>La guía complementaria, página 6, advierte que este RSA simplificado no debe trasladarse directamente a una aplicación: los parámetros y el relleno seguro forman parte del esquema real.</p>
 <details class="wiki-review"><summary>¿Por qué conocer p y q cambia el problema del ejercicio?</summary><p>Porque permite calcular φ(n) y obtener d como inverso modular de e. El módulo público n es su producto, pero no entrega por separado esos factores.</p>
 </details>
+<h2 id="segundo-ejemplo-completo-hola-con-numeros-pequenos">Segundo ejemplo completo: HOLA, con números pequeños</h2>
+<p>La nueva guía complementaria, páginas 5–7, utiliza otro conjunto de valores, independiente del ejemplo de la cátedra anterior:</p>
+<ol>
+<li><code>p=61</code>, <code>q=53</code> y <code>n=p×q=3233</code>.</li>
+<li><code>φ(n)=(61−1)(53−1)=3120</code>.</li>
+<li><code>e=17</code>, coprimo con 3120.</li>
+<li><code>d=2753</code>, porque <code>17×2753=46801=1+15×3120</code>.</li>
+</ol>
+<p>La clave pública del ejemplo es <code>(3233,17)</code>; el exponente privado es 2753. El algoritmo extendido de Euclides da <code>1=2×3120−367×17</code>, de donde <code>d=−367 mod 3120=2753</code>.</p>
+<h3 id="cifrar-cada-byte-de-hola">Cifrar cada byte de HOLA</h3>
+<p>Esta demostración usa ASCII y <strong>RSA matemático sin padding</strong>, carácter por carácter. No es un esquema apropiado para proteger mensajes reales.</p>
+<table>
+<thead>
+<tr>
+<th>Letra</th>
+<th>Entero m</th>
+<th>c = m^17 mod 3233</th>
+<th>c^2753 mod 3233</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>H</td>
+<td>72</td>
+<td>3000</td>
+<td>72</td>
+</tr>
+<tr>
+<td>O</td>
+<td>79</td>
+<td>1307</td>
+<td>79</td>
+</tr>
+<tr>
+<td>L</td>
+<td>76</td>
+<td>2726</td>
+<td>76</td>
+</tr>
+<tr>
+<td>A</td>
+<td>65</td>
+<td>2790</td>
+<td>65</td>
+</tr>
+</tbody></table>
+<p>Para calcular el primer bloque mediante cuadrados sucesivos: <code>72² mod 3233=1951</code>, <code>72⁴ mod 3233=1160</code>, <code>72⁸ mod 3233=672</code> y <code>72¹⁶ mod 3233=2197</code>. Como <code>17=16+1</code>, el cifrado es <code>(2197×72) mod 3233=3000</code>.</p>
+<h3 id="descifrar-el-primer-bloque">Descifrar el primer bloque</h3>
+<p>Se descompone <code>2753=2048+512+128+64+1</code>. Las potencias de 3000 para esos exponentes dejan residuos <code>1282</code>, <code>916</code>, <code>611</code>, <code>733</code> y <code>3000</code>. Al multiplicarlos y reducir módulo 3233 se recupera <code>72</code>, el código ASCII de H. Los demás bloques recuperan 79, 76 y 65; el texto final es <strong>HOLA</strong>.</p>
+<h3 id="por-que-coinciden-las-operaciones-y-que-falta-para-uso-real">Por qué coinciden las operaciones y qué falta para uso real</h3>
+<p>La relación <code>ed=1+kφ(n)</code> explica la recuperación para mensajes coprimos con n mediante el teorema de Euler; la justificación general para los enteros del rango utiliza el teorema chino del resto. Con un módulo tan pequeño, factorizar 3233 permite reconstruir la clave privada.</p>
+<p>La guía, página 8, distingue <strong>RSA-OAEP</strong> para cifrado de <strong>RSA-PSS</strong> para firma. OAEP significa <em>Optimal Asymmetric Encryption Padding</em> y PSS, <em>Probabilistic Signature Scheme</em>. En cifrado híbrido, RSA puede proteger una clave de sesión y un cifrado autenticado protege el mensaje. La clave pública también debe asociarse de forma confiable a su propietario.</p>
+<details class="wiki-review"><summary>Con n=55 y e=3, ¿qué da cifrar el entero 7 en el RSA elemental de repaso?</summary><p><code>7³ mod 55 = 343 mod 55 = 13</code>. Es una cuenta de la guía, página 9, que ilustra la operación modular; no un ejemplo de cifrado seguro para una aplicación.</p>
+</details>
 
 
         <section class="wiki-section" aria-labelledby="relacionados"><h2 id="relacionados">Conceptos relacionados</h2><ul><li><a href="../../../../signature/">Firma digital</a></li><li><a href="../../../../encoding/numbers/">Representaciones numéricas</a></li><li><a href="../../../">Cifrado</a></li></ul></section>
-        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Cripto, parte 2 · <a href="../../../../../../docs/catedra%20cosas/03%20-%20Cripto%20parte%202.pdf#page=10" target="_blank" rel="noopener">p. 10 ↗</a>, <a href="../../../../../../docs/catedra%20cosas/03%20-%20Cripto%20parte%202.pdf#page=12" target="_blank" rel="noopener">p. 12 ↗</a>. <span>Material de cátedra</span></li><li>Explicación de la práctica 1, parte 2 · <a href="../../../../../../docs/catedra%20cosas/Explicaci%C3%B3n%20-%20Pr%C3%A1ctica%201%20-%20Parte%202.pdf#page=1" target="_blank" rel="noopener">p. 1 ↗</a>, <a href="../../../../../../docs/catedra%20cosas/Explicaci%C3%B3n%20-%20Pr%C3%A1ctica%201%20-%20Parte%202.pdf#page=2" target="_blank" rel="noopener">p. 2 ↗</a>. <span>Material de cátedra</span></li><li>Guía de estudio de prácticas 1 y 2 · <a href="../../../../../../docs/Guia_de_estudio_IC_Practicas_1_y_2.pdf#page=6" target="_blank" rel="noopener">p. 6 ↗</a>. <span>Material complementario</span></li><li>Glosario · <a href="../../../../../../glosario.html#rsa">RSA: parámetros, factorización y descifrado ↗</a></li><li><a href="../../../../../../glosario.html">Explorar el glosario completo ↗</a></li></ul></section>
+        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Cripto, parte 2 · <a href="../../../../../../docs/catedra%20cosas/03%20-%20Cripto%20parte%202.pdf#page=10" target="_blank" rel="noopener">p. 10 ↗</a>, <a href="../../../../../../docs/catedra%20cosas/03%20-%20Cripto%20parte%202.pdf#page=12" target="_blank" rel="noopener">p. 12 ↗</a>. <span>Material de cátedra</span></li><li>Explicación de la práctica 1, parte 2 · <a href="../../../../../../docs/catedra%20cosas/Explicaci%C3%B3n%20-%20Pr%C3%A1ctica%201%20-%20Parte%202.pdf#page=1" target="_blank" rel="noopener">p. 1 ↗</a>, <a href="../../../../../../docs/catedra%20cosas/Explicaci%C3%B3n%20-%20Pr%C3%A1ctica%201%20-%20Parte%202.pdf#page=2" target="_blank" rel="noopener">p. 2 ↗</a>. <span>Material de cátedra</span></li><li>Guía de estudio de prácticas 1 y 2 · <a href="../../../../../../docs/Guia_de_estudio_IC_Practicas_1_y_2.pdf#page=6" target="_blank" rel="noopener">p. 6 ↗</a>. <span>Material complementario</span></li><li>Guía de Diffie–Hellman y RSA: ejemplos numéricos completos · <a href="../../../../../../docs/Guia_Diffie_Hellman_y_RSA.pdf#page=2" target="_blank" rel="noopener">p. 2 ↗</a>, <a href="../../../../../../docs/Guia_Diffie_Hellman_y_RSA.pdf#page=5" target="_blank" rel="noopener">p. 5 ↗</a>, <a href="../../../../../../docs/Guia_Diffie_Hellman_y_RSA.pdf#page=6" target="_blank" rel="noopener">p. 6 ↗</a>, <a href="../../../../../../docs/Guia_Diffie_Hellman_y_RSA.pdf#page=7" target="_blank" rel="noopener">p. 7 ↗</a>, <a href="../../../../../../docs/Guia_Diffie_Hellman_y_RSA.pdf#page=8" target="_blank" rel="noopener">p. 8 ↗</a>, <a href="../../../../../../docs/Guia_Diffie_Hellman_y_RSA.pdf#page=9" target="_blank" rel="noopener">p. 9 ↗</a>. <span>Material complementario</span></li><li>Banco complementario de 120 preguntas de prácticas · <a href="../../../../../../docs/Parcial_IC_Preguntas_Multiple_Choice.pdf#page=10" target="_blank" rel="noopener">p. 10 ↗</a>, <a href="../../../../../../docs/Parcial_IC_Preguntas_Multiple_Choice.pdf#page=11" target="_blank" rel="noopener">p. 11 ↗</a>. <span>Material complementario</span></li><li>Solucionario razonado de las 120 preguntas de prácticas · <a href="../../../../../../docs/Parcial_IC_Solucionario_Razonado.pdf#page=6" target="_blank" rel="noopener">p. 6 ↗</a>, <a href="../../../../../../docs/Parcial_IC_Solucionario_Razonado.pdf#page=7" target="_blank" rel="noopener">p. 7 ↗</a>. <span>Material complementario</span></li><li>Glosario · <a href="../../../../../../glosario.html#rsa">RSA: parámetros, factorización y descifrado ↗</a></li><li>Glosario · <a href="../../../../../../glosario.html#rsa-padding">RSA-OAEP, RSA-PSS y límites del RSA sin padding ↗</a></li><li>Glosario · <a href="../../../../../../glosario.html#coprimos-totiente">Coprimos, MCD y totiente de Euler ↗</a></li><li>Glosario · <a href="../../../../../../glosario.html#aritmetica-modular">Aritmética modular, potencias e inverso ↗</a></li><li><a href="../../../../../../glosario.html">Explorar el glosario completo ↗</a></li></ul></section>
       </main>
       <footer class="wiki-footer"><p>IC 2026 · Elaboración didáctica original basada en las fuentes indicadas. Las páginas citadas corresponden al archivo PDF, contando desde 1.</p><a href="../../../../../">Volver al inicio de la wiki</a></footer>
     </div>

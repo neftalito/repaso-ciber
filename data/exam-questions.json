@@ -1,0 +1,3421 @@
+{
+  "version": 1,
+  "origin": "practice",
+  "collection": "exam",
+  "questions": [
+    {
+      "id": 443,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 1,
+      "title": "Codificación y representación",
+      "practice": "Banco de parcial · Unidad 01",
+      "topic": "cripto",
+      "prompt": "¿Cuál es el objetivo principal de codificar datos con Base64?",
+      "options": {
+        "A": "Asegurar confidencialidad mediante una clave privada.",
+        "B": "Representar datos binarios como caracteres imprimibles.",
+        "C": "Generar una firma digital para el archivo.",
+        "D": "Reducir siempre el tamaño del archivo."
+      },
+      "answer": "B",
+      "explanation": "Base64 es una codificación reversible y no secreta; permite transportar bytes mediante un alfabeto textual.",
+      "source": "Base · P1.1 p.1",
+      "coverage": "Base",
+      "difficulty": "Básico",
+      "questionPage": 2,
+      "solutionPage": 2,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "base64",
+        "cifrado"
+      ]
+    },
+    {
+      "id": 444,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 2,
+      "title": "Codificación y representación",
+      "practice": "Banco de parcial · Unidad 01",
+      "topic": "cripto",
+      "prompt": "La secuencia decimal de bytes ASCII 72 79 76 65 corresponde a:",
+      "options": {
+        "A": "HOLA.",
+        "B": "hola.",
+        "C": "4F4C41.",
+        "D": "SEVMQQ==."
+      },
+      "answer": "A",
+      "explanation": "En ASCII decimal: 72=H, 79=O, 76=L y 65=A. La notación decimal no es cifrado.",
+      "source": "Base · P1.1 p.2",
+      "coverage": "Base",
+      "difficulty": "Intermedio",
+      "questionPage": 2,
+      "solutionPage": 2,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "ascii"
+      ]
+    },
+    {
+      "id": 445,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 3,
+      "title": "Codificación y representación",
+      "practice": "Banco de parcial · Unidad 01",
+      "topic": "cripto",
+      "prompt": "¿Qué característica comparten ASCII, Unicode y URL encoding en el uso presentado en la práctica?",
+      "options": {
+        "A": "Exigen intercambiar una clave secreta.",
+        "B": "Sólo funcionan con imágenes.",
+        "C": "Definen reglas de representación o codificación.",
+        "D": "Producen siempre un hash irreversible."
+      },
+      "answer": "C",
+      "explanation": "Definen representaciones y transformaciones de datos; no garantizan confidencialidad.",
+      "source": "Base · P1.1 pp.1-2",
+      "coverage": "Base",
+      "difficulty": "Básico",
+      "questionPage": 2,
+      "solutionPage": 2,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "ascii",
+        "url-encoding"
+      ]
+    },
+    {
+      "id": 446,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 4,
+      "title": "Codificación y representación",
+      "practice": "Banco de parcial · Unidad 01",
+      "topic": "cripto",
+      "prompt": "En un ejercicio aparece la cadena SUN7... con caracteres A-Z, a-z, 0-9, +, / y = final. ¿Cuál es la primera hipótesis razonable?",
+      "options": {
+        "A": "Es un hash SHA-512.",
+        "B": "Es un fichero PE en hexadecimal.",
+        "C": "Es un cifrado César.",
+        "D": "Es una cadena codificada en Base64."
+      },
+      "answer": "D",
+      "explanation": "El alfabeto y el relleno = son indicios frecuentes de Base64; se debe probar, no asumirlo como certeza.",
+      "source": "Base · P1.1 p.2",
+      "coverage": "Base",
+      "difficulty": "Intermedio",
+      "questionPage": 2,
+      "solutionPage": 2,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "base64",
+        "sha"
+      ]
+    },
+    {
+      "id": 447,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 5,
+      "title": "Codificación y representación",
+      "practice": "Banco de parcial · Unidad 01",
+      "topic": "cripto",
+      "prompt": "¿Qué representa normalmente %20 en una URL codificada?",
+      "options": {
+        "A": "Un byte nulo.",
+        "B": "Un espacio.",
+        "C": "El carácter %.",
+        "D": "Un salto de línea."
+      },
+      "answer": "B",
+      "explanation": "En percent-encoding, %20 representa el byte hexadecimal 0x20, usualmente un espacio en ASCII/UTF-8.",
+      "source": "Ampliación · Ampliación: representación",
+      "coverage": "Ampliación",
+      "difficulty": "Intermedio",
+      "questionPage": 2,
+      "solutionPage": 2,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "url-encoding"
+      ]
+    },
+    {
+      "id": 448,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 6,
+      "title": "Codificación y representación",
+      "practice": "Banco de parcial · Unidad 01",
+      "topic": "cripto",
+      "prompt": "La secuencia hexadecimal 41 42 43, leída como bytes ASCII, da:",
+      "options": {
+        "A": "ABC.",
+        "B": "123.",
+        "C": "414243.",
+        "D": "CAB."
+      },
+      "answer": "A",
+      "explanation": "0x41, 0x42 y 0x43 corresponden a A, B y C.",
+      "source": "Base · P1.1 p.2",
+      "coverage": "Base",
+      "difficulty": "Intermedio",
+      "questionPage": 3,
+      "solutionPage": 2,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "ascii"
+      ]
+    },
+    {
+      "id": 449,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 7,
+      "title": "Codificación y representación",
+      "practice": "Banco de parcial · Unidad 01",
+      "topic": "cripto",
+      "prompt": "¿Por qué una secuencia de bytes puede verse distinta al interpretarla como UTF-8 o como Latin-1?",
+      "options": {
+        "A": "Porque UTF-8 cifra el texto.",
+        "B": "Porque el contenido cambia al abrirlo.",
+        "C": "Porque las reglas de decodificación difieren.",
+        "D": "Porque Latin-1 sólo admite dígitos."
+      },
+      "answer": "C",
+      "explanation": "Los mismos bytes pueden mapearse a caracteres diferentes según el juego de caracteres utilizado.",
+      "source": "Ampliación · Ampliación: Unicode",
+      "coverage": "Ampliación",
+      "difficulty": "Avanzado",
+      "questionPage": 3,
+      "solutionPage": 2,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "ascii"
+      ]
+    },
+    {
+      "id": 450,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 8,
+      "title": "Codificación y representación",
+      "practice": "Banco de parcial · Unidad 01",
+      "topic": "cripto",
+      "prompt": "En el sistema A=1, B=2, ..., Z=26, ¿qué representa 3-1-19-1?",
+      "options": {
+        "A": "CABA.",
+        "B": "CASA.",
+        "C": "CARA.",
+        "D": "DASA."
+      },
+      "answer": "B",
+      "explanation": "3=C, 1=A, 19=S y 1=A. Es una sustitución simple por índices, sin protección criptográfica real.",
+      "source": "Base · P1.1 p.2; W1 pp. 3-6",
+      "coverage": "Base",
+      "difficulty": "Intermedio",
+      "questionPage": 3,
+      "solutionPage": 2,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "a1z26-braille"
+      ]
+    },
+    {
+      "id": 451,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 9,
+      "title": "Codificación y representación",
+      "practice": "Banco de parcial · Unidad 01",
+      "topic": "cripto",
+      "prompt": "¿Qué herramienta de la guía facilita encadenar conversiones Hex, Base64 y texto?",
+      "options": {
+        "A": "Regshot.",
+        "B": "Autoruns.",
+        "C": "CFF Explorer.",
+        "D": "CyberChef."
+      },
+      "answer": "D",
+      "explanation": "CyberChef ofrece operaciones de codificación, decodificación y transformaciones para analizar datos.",
+      "source": "Base · P1.1 p.2",
+      "coverage": "Base",
+      "difficulty": "Básico",
+      "questionPage": 3,
+      "solutionPage": 2,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "base64"
+      ]
+    },
+    {
+      "id": 452,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 10,
+      "title": "Codificación y representación",
+      "practice": "Banco de parcial · Unidad 01",
+      "topic": "cripto",
+      "prompt": "¿Cuál es una limitación de identificar un formato sólo por su apariencia?",
+      "options": {
+        "A": "Todo Base64 debe finalizar en ==.",
+        "B": "Un mismo aspecto puede corresponder a varias representaciones.",
+        "C": "Toda secuencia hexadecimal es un cifrado.",
+        "D": "Si tiene letras, no puede ser un hash."
+      },
+      "answer": "B",
+      "explanation": "Las pistas visuales orientan, pero hay formatos solapados: se debe verificar estructura, longitud y resultado de la transformación.",
+      "source": "Ampliación · Ampliación: codificación binaria",
+      "coverage": "Ampliación",
+      "difficulty": "Avanzado",
+      "questionPage": 3,
+      "solutionPage": 2,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "base64",
+        "ascii"
+      ]
+    },
+    {
+      "id": 453,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 11,
+      "title": "Cifrados clásicos",
+      "practice": "Banco de parcial · Unidad 02",
+      "topic": "cripto",
+      "prompt": "En un cifrado por sustitución, ¿qué se modifica típicamente?",
+      "options": {
+        "A": "El orden de las letras, sin cambiarlas.",
+        "B": "La posición física del archivo.",
+        "C": "Las letras o símbolos por otros símbolos.",
+        "D": "La longitud obligatoria del hash."
+      },
+      "answer": "C",
+      "explanation": "La sustitución reemplaza símbolos según una regla; la transposición cambia su orden.",
+      "source": "Base · P1.1 p.3",
+      "coverage": "Base",
+      "difficulty": "Básico",
+      "questionPage": 4,
+      "solutionPage": 3,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "clasicos"
+      ]
+    },
+    {
+      "id": 454,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 12,
+      "title": "Cifrados clásicos",
+      "practice": "Banco de parcial · Unidad 02",
+      "topic": "cripto",
+      "prompt": "Aplicando César +3 al texto CASA (alfabeto A-Z), se obtiene:",
+      "options": {
+        "A": "FDVD.",
+        "B": "CBTB.",
+        "C": "ZXPA.",
+        "D": "DBTB."
+      },
+      "answer": "A",
+      "explanation": "C→F, A→D, S→V, A→D; el resultado es FDVD.",
+      "source": "Base · P1.1 p.3",
+      "coverage": "Base",
+      "difficulty": "Intermedio",
+      "questionPage": 4,
+      "solutionPage": 3,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "cesar"
+      ]
+    },
+    {
+      "id": 455,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 13,
+      "title": "Cifrados clásicos",
+      "practice": "Banco de parcial · Unidad 02",
+      "topic": "cripto",
+      "prompt": "¿Qué describe mejor el cifrado por transposición?",
+      "options": {
+        "A": "Conservar las letras y reordenar sus posiciones.",
+        "B": "Reemplazar letras con índices de una tabla pública.",
+        "C": "Calcular un digest fijo.",
+        "D": "Usar dos pares de claves públicas."
+      },
+      "answer": "A",
+      "explanation": "Una transposición conserva el multiconjunto de símbolos pero cambia su posición.",
+      "source": "Base · P1.1 pp.3-4",
+      "coverage": "Base",
+      "difficulty": "Básico",
+      "questionPage": 4,
+      "solutionPage": 3,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "transposicion-riel-columna",
+        "clasicos"
+      ]
+    },
+    {
+      "id": 456,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 14,
+      "title": "Cifrados clásicos",
+      "practice": "Banco de parcial · Unidad 02",
+      "topic": "cripto",
+      "prompt": "En el ejercicio aparece un texto con todos los caracteres en orden inverso (incluidas llaves y prefijos). ¿Qué transformación conviene intentar primero?",
+      "options": {
+        "A": "RSA.",
+        "B": "SHA-256.",
+        "C": "Decodificación UTF-16.",
+        "D": "Invertir la cadena."
+      },
+      "answer": "D",
+      "explanation": "La inversión de la cadena es una transposición simple; mirar extremos y llaves ayuda a detectarla.",
+      "source": "Base · P1.1 p.4",
+      "coverage": "Base",
+      "difficulty": "Intermedio",
+      "questionPage": 4,
+      "solutionPage": 3,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "transposicion-riel-columna"
+      ]
+    },
+    {
+      "id": 457,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 15,
+      "title": "Cifrados clásicos",
+      "practice": "Banco de parcial · Unidad 02",
+      "topic": "cripto",
+      "prompt": "¿Cuál de los siguientes es un cifrado por transposición?",
+      "options": {
+        "A": "Atbash.",
+        "B": "Rail fence.",
+        "C": "César.",
+        "D": "Vigenère."
+      },
+      "answer": "B",
+      "explanation": "Rail fence reorganiza posiciones; César, Atbash y Vigenère sustituyen símbolos.",
+      "source": "Base · P1.1 pp.3-4",
+      "coverage": "Base",
+      "difficulty": "Intermedio",
+      "questionPage": 4,
+      "solutionPage": 3,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "transposicion-riel-columna",
+        "clasicos"
+      ]
+    },
+    {
+      "id": 458,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 16,
+      "title": "Cifrados clásicos",
+      "practice": "Banco de parcial · Unidad 02",
+      "topic": "cripto",
+      "prompt": "¿Qué función cumple la passphrase en el cifrado Vigenère clásico?",
+      "options": {
+        "A": "Determina la sucesión de desplazamientos alfabéticos.",
+        "B": "Es el nonce de AES-GCM.",
+        "C": "Es la clave privada RSA.",
+        "D": "Guarda la longitud del texto sin cifrar."
+      },
+      "answer": "A",
+      "explanation": "La palabra clave controla los desplazamientos de sustitución usados para cada posición del mensaje.",
+      "source": "Base · P1.1 p.4; W1 p.8",
+      "coverage": "Base",
+      "difficulty": "Intermedio",
+      "questionPage": 5,
+      "solutionPage": 3,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "vigenere"
+      ]
+    },
+    {
+      "id": 459,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 17,
+      "title": "Cifrados clásicos",
+      "practice": "Banco de parcial · Unidad 02",
+      "topic": "cripto",
+      "prompt": "¿Qué indicio suele conservarse en una sustitución monoalfabética larga?",
+      "options": {
+        "A": "La longitud del hash SHA-256.",
+        "B": "Un nonce único de 96 bits.",
+        "C": "Patrones estadísticos de frecuencia de letras.",
+        "D": "Los certificados X.509."
+      },
+      "answer": "C",
+      "explanation": "Un mapeo fijo de letras conserva relaciones de frecuencia que ayudan al análisis estadístico.",
+      "source": "Ampliación · Ampliación: criptoanálisis clásico",
+      "coverage": "Ampliación",
+      "difficulty": "Avanzado",
+      "questionPage": 5,
+      "solutionPage": 3,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "clasicos"
+      ]
+    },
+    {
+      "id": 460,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 18,
+      "title": "Cifrados clásicos",
+      "practice": "Banco de parcial · Unidad 02",
+      "topic": "cripto",
+      "prompt": "En una transposición por columnas, ¿qué papel cumple habitualmente la clave?",
+      "options": {
+        "A": "Establece qué columnas se leen primero.",
+        "B": "Elige el algoritmo hash.",
+        "C": "Determina el módulo primo RSA.",
+        "D": "Genera un certificado digital."
+      },
+      "answer": "A",
+      "explanation": "La clave ordena las columnas para formar el texto cifrado según el esquema acordado.",
+      "source": "Base · P1.1 p.4",
+      "coverage": "Base",
+      "difficulty": "Intermedio",
+      "questionPage": 5,
+      "solutionPage": 3,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "transposicion-riel-columna"
+      ]
+    },
+    {
+      "id": 461,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 19,
+      "title": "Cifrados clásicos",
+      "practice": "Banco de parcial · Unidad 02",
+      "topic": "cripto",
+      "prompt": "¿Por qué no debería usarse César para información confidencial real?",
+      "options": {
+        "A": "Porque no puede aplicarse a palabras cortas.",
+        "B": "Porque necesita Internet.",
+        "C": "Porque utiliza hashes demasiado largos.",
+        "D": "Porque su pequeño espacio de claves permite prueba exhaustiva trivial."
+      },
+      "answer": "D",
+      "explanation": "César tiene pocas rotaciones posibles y su estructura es predecible; es útil con fines didácticos, no para seguridad.",
+      "source": "Ampliación · Ampliación: propiedades",
+      "coverage": "Ampliación",
+      "difficulty": "Avanzado",
+      "questionPage": 5,
+      "solutionPage": 3,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "cesar"
+      ]
+    },
+    {
+      "id": 462,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 20,
+      "title": "Cifrados clásicos",
+      "practice": "Banco de parcial · Unidad 02",
+      "topic": "cripto",
+      "prompt": "Si la pista dice “rail fence”, ¿qué parámetro suele probarse para recuperar el texto?",
+      "options": {
+        "A": "La cantidad de raíles o filas.",
+        "B": "Los exponentes RSA.",
+        "C": "La longitud de salt.",
+        "D": "El puerto SMTP."
+      },
+      "answer": "A",
+      "explanation": "Rail fence distribuye caracteres en raíles; variar su cantidad permite ensayar la reconstrucción.",
+      "source": "Base · P1.1 p.4; W1 p.10",
+      "coverage": "Base",
+      "difficulty": "Intermedio",
+      "questionPage": 5,
+      "solutionPage": 3,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "transposicion-riel-columna"
+      ]
+    },
+    {
+      "id": 463,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 21,
+      "title": "Hashes, contraseñas y cracking",
+      "practice": "Banco de parcial · Unidad 03",
+      "topic": "cripto",
+      "prompt": "Una función hash criptográfica produce habitualmente:",
+      "options": {
+        "A": "Un archivo comprimido reversible.",
+        "B": "Un resumen de longitud fija para entradas arbitrarias.",
+        "C": "El texto claro mediante una clave pública.",
+        "D": "Un nuevo nombre de dominio."
+      },
+      "answer": "B",
+      "explanation": "El digest tiene un tamaño fijado por el algoritmo, aun cuando el mensaje original varíe.",
+      "source": "Base · P1.1 p.5",
+      "coverage": "Base",
+      "difficulty": "Básico",
+      "questionPage": 6,
+      "solutionPage": 4,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "hash",
+        "digest"
+      ]
+    },
+    {
+      "id": 464,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 22,
+      "title": "Hashes, contraseñas y cracking",
+      "practice": "Banco de parcial · Unidad 03",
+      "topic": "cripto",
+      "prompt": "Si dos mensajes distintos tienen el mismo hash, se ha encontrado:",
+      "options": {
+        "A": "Una colisión.",
+        "B": "Un nonce.",
+        "C": "Un certificado.",
+        "D": "Un cifrado de flujo."
+      },
+      "answer": "A",
+      "explanation": "Una colisión son dos entradas distintas con igual resumen; su existencia matemática no implica facilidad de hallarla.",
+      "source": "Base · P1.1 pp.5-6",
+      "coverage": "Base",
+      "difficulty": "Intermedio",
+      "questionPage": 6,
+      "solutionPage": 4,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "colisiones"
+      ]
+    },
+    {
+      "id": 465,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 23,
+      "title": "Hashes, contraseñas y cracking",
+      "practice": "Banco de parcial · Unidad 03",
+      "topic": "cripto",
+      "prompt": "Un digest de exactamente 32 caracteres hexadecimales puede ser compatible con:",
+      "options": {
+        "A": "SHA-512 en hexadecimal completo.",
+        "B": "SHA-256 en hexadecimal completo.",
+        "C": "MD5 en hexadecimal.",
+        "D": "Una clave RSA pública estándar."
+      },
+      "answer": "C",
+      "explanation": "MD5 genera 128 bits, es decir, 16 bytes o 32 caracteres hexadecimales; la longitud no demuestra por sí sola el algoritmo.",
+      "source": "Base · P1.1 p.6",
+      "coverage": "Base",
+      "difficulty": "Intermedio",
+      "questionPage": 6,
+      "solutionPage": 4,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "sha"
+      ]
+    },
+    {
+      "id": 466,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 24,
+      "title": "Hashes, contraseñas y cracking",
+      "practice": "Banco de parcial · Unidad 03",
+      "topic": "cripto",
+      "prompt": "El objetivo principal de añadir un salt aleatorio y distinto por contraseña es:",
+      "options": {
+        "A": "Hacer que todas las contraseñas tengan el mismo hash.",
+        "B": "Evitar la necesidad de comparar hashes.",
+        "C": "Cifrar la tabla de usuarios.",
+        "D": "Dificultar tablas precalculadas y compartir resultados entre usuarios."
+      },
+      "answer": "D",
+      "explanation": "El salt es público y normalmente diferente por usuario; fuerza cálculos separados y reduce la utilidad de rainbow tables.",
+      "source": "Base · P1.1 pp.5-6",
+      "coverage": "Base",
+      "difficulty": "Intermedio",
+      "questionPage": 6,
+      "solutionPage": 4,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "contrasenas"
+      ]
+    },
+    {
+      "id": 467,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 25,
+      "title": "Hashes, contraseñas y cracking",
+      "practice": "Banco de parcial · Unidad 03",
+      "topic": "cripto",
+      "prompt": "¿Qué diferencia existe entre MD5(salt + password) y MD5(password + salt)?",
+      "options": {
+        "A": "Ninguna: la concatenación conmuta.",
+        "B": "El orden de concatenación cambia la entrada y normalmente el hash.",
+        "C": "El primero es RSA y el segundo AES.",
+        "D": "El segundo no admite diccionarios."
+      },
+      "answer": "B",
+      "explanation": "La concatenación no es conmutativa; la práctica especifica MD5($salt.$pass), por lo que el orden importa.",
+      "source": "Base · P1.1 p.7; W1 pp.13-14",
+      "coverage": "Base",
+      "difficulty": "Intermedio",
+      "questionPage": 6,
+      "solutionPage": 4,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "contrasenas",
+        "diccionario"
+      ]
+    },
+    {
+      "id": 468,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 26,
+      "title": "Hashes, contraseñas y cracking",
+      "practice": "Banco de parcial · Unidad 03",
+      "topic": "cripto",
+      "prompt": "¿Cuál es el propósito de un ataque de diccionario sobre hashes?",
+      "options": {
+        "A": "Probar candidatos habituales y comparar sus resúmenes.",
+        "B": "Invertir matemáticamente el hash de forma directa.",
+        "C": "Determinar el RIR que emitió un bloque IP.",
+        "D": "Alterar la firma digital de un PDF."
+      },
+      "answer": "A",
+      "explanation": "Se calculan hashes de palabras candidatas y se contrastan con el objetivo; no se “descifra” el hash.",
+      "source": "Base · P1.1 pp.5-7",
+      "coverage": "Base",
+      "difficulty": "Básico",
+      "questionPage": 7,
+      "solutionPage": 4,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "diccionario"
+      ]
+    },
+    {
+      "id": 469,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 27,
+      "title": "Hashes, contraseñas y cracking",
+      "practice": "Banco de parcial · Unidad 03",
+      "topic": "cripto",
+      "prompt": "Para almacenar contraseñas en un sistema nuevo, ¿qué opción es más apropiada?",
+      "options": {
+        "A": "MD5 simple sin salt.",
+        "B": "SHA-1 simple.",
+        "C": "Argon2id con parámetros adecuados y salt único.",
+        "D": "AES-ECB con clave incrustada en el código."
+      },
+      "answer": "C",
+      "explanation": "Argon2id es una función especializada y costosa para derivar hashes de contraseñas, más resistente a intentos masivos que hashes rápidos.",
+      "source": "Ampliación · Ampliación: almacenamiento seguro",
+      "coverage": "Ampliación",
+      "difficulty": "Avanzado",
+      "questionPage": 7,
+      "solutionPage": 4,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "contrasenas"
+      ]
+    },
+    {
+      "id": 470,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 28,
+      "title": "Hashes, contraseñas y cracking",
+      "practice": "Banco de parcial · Unidad 03",
+      "topic": "cripto",
+      "prompt": "¿Qué herramientas menciona la guía para atacar hashes con diccionarios o fuerza bruta?",
+      "options": {
+        "A": "Wireshark y tcpdump.",
+        "B": "Hashcat y John the Ripper.",
+        "C": "Regshot y Autoruns.",
+        "D": "WHOIS y RDAP."
+      },
+      "answer": "B",
+      "explanation": "Hashcat y John the Ripper prueban candidatos y modos de hash; su uso depende del formato y contexto del ejercicio.",
+      "source": "Base · P1.1 p.6",
+      "coverage": "Base",
+      "difficulty": "Básico",
+      "questionPage": 7,
+      "solutionPage": 4,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "diccionario"
+      ]
+    },
+    {
+      "id": 471,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 29,
+      "title": "Hashes, contraseñas y cracking",
+      "practice": "Banco de parcial · Unidad 03",
+      "topic": "cripto",
+      "prompt": "¿Qué propiedad muestra el llamado efecto avalancha de un hash criptográfico?",
+      "options": {
+        "A": "La salida siempre es más larga que la entrada.",
+        "B": "La función es reversible con una clave.",
+        "C": "Los hashes permiten autenticación por sí solos.",
+        "D": "Un pequeño cambio de entrada altera muchos bits de salida de modo impredecible."
+      },
+      "answer": "D",
+      "explanation": "Una buena difusión hace que pequeñas modificaciones en la entrada afecten ampliamente al digest.",
+      "source": "Ampliación · Ampliación: hashing",
+      "coverage": "Ampliación",
+      "difficulty": "Avanzado",
+      "questionPage": 7,
+      "solutionPage": 5,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "hash"
+      ]
+    },
+    {
+      "id": 472,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 30,
+      "title": "Hashes, contraseñas y cracking",
+      "practice": "Banco de parcial · Unidad 03",
+      "topic": "cripto",
+      "prompt": "Si descargás un archivo y su SHA-256 coincide con el publicado en una página web comprometida, ¿qué conclusión es prudente?",
+      "options": {
+        "A": "La coincidencia confirma integridad respecto de ese digest, no necesariamente autenticidad de la fuente.",
+        "B": "El archivo es automáticamente seguro.",
+        "C": "SHA-256 descifra el contenido.",
+        "D": "La coincidencia demuestra que no contiene malware."
+      },
+      "answer": "A",
+      "explanation": "Un hash verifica identidad de bytes frente a una referencia confiable; si la referencia fue sustituida, la autenticidad no queda resuelta.",
+      "source": "Ampliación · Ampliación: verificación",
+      "coverage": "Ampliación",
+      "difficulty": "Intermedio",
+      "questionPage": 7,
+      "solutionPage": 5,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "integridad-archivo"
+      ]
+    },
+    {
+      "id": 473,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 31,
+      "title": "Criptografía simétrica: AES y XOR",
+      "practice": "Banco de parcial · Unidad 04",
+      "topic": "cripto",
+      "prompt": "En criptografía simétrica, el emisor y receptor usan:",
+      "options": {
+        "A": "Claves pública y privada totalmente distintas para cifrar.",
+        "B": "Una clave secreta compartida para cifrar y descifrar.",
+        "C": "Una clave derivada de DNS.",
+        "D": "Exclusivamente certificados X.509."
+      },
+      "answer": "B",
+      "explanation": "AES es simétrico: ambas partes deben disponer del mismo secreto o claves relacionadas de la misma función.",
+      "source": "Base · P1.1 p.7",
+      "coverage": "Base",
+      "difficulty": "Básico",
+      "questionPage": 8,
+      "solutionPage": 5,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "simetrica"
+      ]
+    },
+    {
+      "id": 474,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 32,
+      "title": "Criptografía simétrica: AES y XOR",
+      "practice": "Banco de parcial · Unidad 04",
+      "topic": "cripto",
+      "prompt": "AES-128 utiliza una clave de:",
+      "options": {
+        "A": "128 bytes.",
+        "B": "16 bits.",
+        "C": "128 bits (16 bytes).",
+        "D": "256 bits (32 bytes)."
+      },
+      "answer": "C",
+      "explanation": "AES-128 indica 128 bits de clave; el bloque de AES tiene siempre 128 bits.",
+      "source": "Base · P1.1 p.7",
+      "coverage": "Base",
+      "difficulty": "Intermedio",
+      "questionPage": 8,
+      "solutionPage": 5,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "bloques"
+      ]
+    },
+    {
+      "id": 475,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 33,
+      "title": "Criptografía simétrica: AES y XOR",
+      "practice": "Banco de parcial · Unidad 04",
+      "topic": "cripto",
+      "prompt": "Después de cifrar con AES-ECB, la práctica codifica la salida en Base64. ¿Para qué?",
+      "options": {
+        "A": "Para volver la salida criptográficamente más fuerte.",
+        "B": "Para evitar que ECB repita bloques.",
+        "C": "Para generar la contraseña.",
+        "D": "Para representar los bytes cifrados como texto."
+      },
+      "answer": "D",
+      "explanation": "Base64 sólo transforma la representación del ciphertext; no aporta secreto ni corrige debilidades de ECB.",
+      "source": "Base · P1.1 p.7; W1 p.11",
+      "coverage": "Base",
+      "difficulty": "Intermedio",
+      "questionPage": 8,
+      "solutionPage": 5,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "base64",
+        "ecb"
+      ]
+    },
+    {
+      "id": 476,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 34,
+      "title": "Criptografía simétrica: AES y XOR",
+      "practice": "Banco de parcial · Unidad 04",
+      "topic": "cripto",
+      "prompt": "¿Qué problema típico presenta AES-ECB para varios bloques de datos?",
+      "options": {
+        "A": "Bloques de texto idénticos producen bloques cifrados idénticos con la misma clave.",
+        "B": "No permite archivos binarios.",
+        "C": "Cambia de clave cada segundo.",
+        "D": "Usa claves públicas débiles."
+      },
+      "answer": "A",
+      "explanation": "ECB revela patrones repetidos porque cada bloque se cifra independientemente sin aleatorización.",
+      "source": "Ampliación · Ampliación: modos de operación",
+      "coverage": "Ampliación",
+      "difficulty": "Intermedio",
+      "questionPage": 8,
+      "solutionPage": 5,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "ecb"
+      ]
+    },
+    {
+      "id": 477,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 35,
+      "title": "Criptografía simétrica: AES y XOR",
+      "practice": "Banco de parcial · Unidad 04",
+      "topic": "cripto",
+      "prompt": "Si c = m XOR k con m=0x5A y k=0x0F, ¿cuánto vale c?",
+      "options": {
+        "A": "0xF5.",
+        "B": "0x55.",
+        "C": "0xA5.",
+        "D": "0x0F."
+      },
+      "answer": "B",
+      "explanation": "0x5A XOR 0x0F = 0x55, por operación bit a bit.",
+      "source": "Base · P1.1 p.8",
+      "coverage": "Base",
+      "difficulty": "Intermedio",
+      "questionPage": 8,
+      "solutionPage": 5,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "xor"
+      ]
+    },
+    {
+      "id": 478,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 36,
+      "title": "Criptografía simétrica: AES y XOR",
+      "practice": "Banco de parcial · Unidad 04",
+      "topic": "cripto",
+      "prompt": "¿Por qué un XOR con clave de un byte es vulnerable a fuerza bruta?",
+      "options": {
+        "A": "Tiene 2^128 combinaciones.",
+        "B": "Sólo funciona con texto ASCII.",
+        "C": "Existen apenas 256 posibles valores de clave.",
+        "D": "La clave debe ser un número primo."
+      },
+      "answer": "C",
+      "explanation": "Un byte admite 2^8=256 valores; puede probarse cada candidato y evaluar legibilidad del texto.",
+      "source": "Base · P1.1 p.8",
+      "coverage": "Base",
+      "difficulty": "Intermedio",
+      "questionPage": 9,
+      "solutionPage": 5,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "xor"
+      ]
+    },
+    {
+      "id": 479,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 37,
+      "title": "Criptografía simétrica: AES y XOR",
+      "practice": "Banco de parcial · Unidad 04",
+      "topic": "cripto",
+      "prompt": "¿Qué propiedad permite descifrar un byte cifrado con XOR usando la misma clave?",
+      "options": {
+        "A": "XOR es no asociativo.",
+        "B": "XOR siempre devuelve cero.",
+        "C": "La clave funciona como un hash irreversible.",
+        "D": "(m XOR k) XOR k = m."
+      },
+      "answer": "D",
+      "explanation": "Aplicar XOR dos veces con el mismo valor cancela la máscara porque k XOR k = 0.",
+      "source": "Base · P1.1 p.8; W1 pp.14-15",
+      "coverage": "Base",
+      "difficulty": "Intermedio",
+      "questionPage": 9,
+      "solutionPage": 5,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "xor"
+      ]
+    },
+    {
+      "id": 480,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 38,
+      "title": "Criptografía simétrica: AES y XOR",
+      "practice": "Banco de parcial · Unidad 04",
+      "topic": "cripto",
+      "prompt": "¿Cuál es una ventaja práctica de AES-GCM frente a AES-ECB?",
+      "options": {
+        "A": "Además de confidencialidad, ofrece autenticación/integridad del ciphertext.",
+        "B": "No necesita ningún secreto.",
+        "C": "Es un sistema de clave pública.",
+        "D": "Permite reutilizar sin riesgo el nonce con la misma clave."
+      },
+      "answer": "A",
+      "explanation": "GCM es un modo autenticado; exige gestión correcta de nonce, cuya reutilización bajo una clave es grave.",
+      "source": "Ampliación · Ampliación: AEAD",
+      "coverage": "Ampliación",
+      "difficulty": "Avanzado",
+      "questionPage": 9,
+      "solutionPage": 6,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "aead",
+        "ecb"
+      ]
+    },
+    {
+      "id": 481,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 39,
+      "title": "Criptografía simétrica: AES y XOR",
+      "practice": "Banco de parcial · Unidad 04",
+      "topic": "cripto",
+      "prompt": "¿Qué afirmación sobre un nonce en un modo de cifrado moderno es correcta?",
+      "options": {
+        "A": "Siempre debe ser secreto.",
+        "B": "Normalmente no es secreto, pero su unicidad puede ser esencial.",
+        "C": "Es la contraseña del usuario en texto claro.",
+        "D": "Sólo sirve para decodificar Base64."
+      },
+      "answer": "B",
+      "explanation": "Un nonce puede viajar público; la propiedad crítica depende del modo, especialmente evitar reutilización con la misma clave.",
+      "source": "Ampliación · Ampliación: IV/nonce",
+      "coverage": "Ampliación",
+      "difficulty": "Avanzado",
+      "questionPage": 9,
+      "solutionPage": 6,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "iv",
+        "aead"
+      ]
+    },
+    {
+      "id": 482,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 40,
+      "title": "Criptografía simétrica: AES y XOR",
+      "practice": "Banco de parcial · Unidad 04",
+      "topic": "cripto",
+      "prompt": "Un atacante observa que un mismo bloque de ciphertext se repite muchas veces en un archivo AES-ECB. ¿Qué puede inferir con más fundamento?",
+      "options": {
+        "A": "El texto claro entero está disponible.",
+        "B": "La clave AES contiene ceros.",
+        "C": "Hay bloques de entrada repetidos en esas posiciones.",
+        "D": "La codificación Base64 es incorrecta."
+      },
+      "answer": "C",
+      "explanation": "ECB preserva la igualdad de bloques bajo la misma clave, aunque no revela directamente los valores de esos bloques.",
+      "source": "Ampliación · Ampliación: análisis de ciphertext",
+      "coverage": "Ampliación",
+      "difficulty": "Intermedio",
+      "questionPage": 9,
+      "solutionPage": 6,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "ecb"
+      ]
+    },
+    {
+      "id": 483,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 41,
+      "title": "RSA y Diffie-Hellman",
+      "practice": "Banco de parcial · Unidad 05",
+      "topic": "cripto",
+      "prompt": "En RSA básico, dados primos p y q, ¿cómo se calcula n?",
+      "options": {
+        "A": "n=p+q.",
+        "B": "n=p*q.",
+        "C": "n=p-q.",
+        "D": "n=p^q."
+      },
+      "answer": "B",
+      "explanation": "El módulo de RSA es el producto de dos primos grandes: n = p·q.",
+      "source": "Base · P1.2 p.1",
+      "coverage": "Base",
+      "difficulty": "Intermedio",
+      "questionPage": 10,
+      "solutionPage": 6,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "rsa"
+      ]
+    },
+    {
+      "id": 484,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 42,
+      "title": "RSA y Diffie-Hellman",
+      "practice": "Banco de parcial · Unidad 05",
+      "topic": "cripto",
+      "prompt": "Si p=5 y q=11, ¿cuánto vale φ(n) en RSA con esos primos?",
+      "options": {
+        "A": "55.",
+        "B": "15.",
+        "C": "40.",
+        "D": "60."
+      },
+      "answer": "C",
+      "explanation": "φ(n)=(p-1)(q-1)=4·10=40; ejemplo didáctico con primos pequeños.",
+      "source": "Base · P1.2 p.1",
+      "coverage": "Base",
+      "difficulty": "Intermedio",
+      "questionPage": 10,
+      "solutionPage": 6,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "coprimos-totiente",
+        "rsa"
+      ]
+    },
+    {
+      "id": 485,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 43,
+      "title": "RSA y Diffie-Hellman",
+      "practice": "Banco de parcial · Unidad 05",
+      "topic": "cripto",
+      "prompt": "En RSA, la clave privada d cumple usualmente:",
+      "options": {
+        "A": "d es inverso modular de e módulo φ(n).",
+        "B": "d=n+e.",
+        "C": "d es igual al hash del texto.",
+        "D": "d es la raíz cuadrada de n."
+      },
+      "answer": "A",
+      "explanation": "Se elige e coprimo con φ(n) y se obtiene d tal que e·d ≡ 1 (mod φ(n)), en la versión didáctica.",
+      "source": "Base · P1.2 p.1",
+      "coverage": "Base",
+      "difficulty": "Intermedio",
+      "questionPage": 10,
+      "solutionPage": 6,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "aritmetica-modular",
+        "rsa"
+      ]
+    },
+    {
+      "id": 486,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 44,
+      "title": "RSA y Diffie-Hellman",
+      "practice": "Banco de parcial · Unidad 05",
+      "topic": "cripto",
+      "prompt": "¿Cuál es la operación matemática del descifrado RSA elemental?",
+      "options": {
+        "A": "m=e XOR c.",
+        "B": "m=c+e mod n.",
+        "C": "m=SHA256(c).",
+        "D": "m=c^d mod n."
+      },
+      "answer": "D",
+      "explanation": "Para RSA sin padding, se recupera m mediante exponenciación modular con el exponente privado.",
+      "source": "Base · P1.2 p.1",
+      "coverage": "Base",
+      "difficulty": "Intermedio",
+      "questionPage": 10,
+      "solutionPage": 6,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "rsa"
+      ]
+    },
+    {
+      "id": 487,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 45,
+      "title": "RSA y Diffie-Hellman",
+      "practice": "Banco de parcial · Unidad 05",
+      "topic": "cripto",
+      "prompt": "En un reto RSA se conoce n, e y c, pero no p ni q. ¿Qué debilidad explotan algunos ejercicios de la práctica?",
+      "options": {
+        "A": "Que SHA-256 sea reversible.",
+        "B": "Que n pueda factorizarse si los primos fueron mal elegidos.",
+        "C": "Que Base64 revele la clave.",
+        "D": "Que PGP no emplee claves públicas."
+      },
+      "answer": "B",
+      "explanation": "Si se consigue factorizar n se obtiene φ(n), luego d y finalmente el texto; es inviable para módulos correctamente generados con tamaños modernos.",
+      "source": "Base · P1.2 p.1",
+      "coverage": "Base",
+      "difficulty": "Avanzado",
+      "questionPage": 10,
+      "solutionPage": 6,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "rsa"
+      ]
+    },
+    {
+      "id": 488,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 46,
+      "title": "RSA y Diffie-Hellman",
+      "practice": "Banco de parcial · Unidad 05",
+      "topic": "cripto",
+      "prompt": "¿Qué problema intenta resolver Diffie-Hellman?",
+      "options": {
+        "A": "Permitir que dos partes acuerden un secreto compartido a través de un canal no privado.",
+        "B": "Firmar directamente documentos PDF.",
+        "C": "Comprimir claves RSA.",
+        "D": "Generar el correo de abuse de una IP."
+      },
+      "answer": "A",
+      "explanation": "Diffie-Hellman permite derivar un valor secreto común intercambiando valores públicos; por sí solo no autentica las identidades.",
+      "source": "Base · P1.2 p.2",
+      "coverage": "Base",
+      "difficulty": "Básico",
+      "questionPage": 11,
+      "solutionPage": 6,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "diffie-hellman"
+      ]
+    },
+    {
+      "id": 489,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 47,
+      "title": "RSA y Diffie-Hellman",
+      "practice": "Banco de parcial · Unidad 05",
+      "topic": "cripto",
+      "prompt": "Sean p=23, g=5, a=6. ¿Cuál es el valor público A de Alice?",
+      "options": {
+        "A": "A=6.",
+        "B": "A=5.",
+        "C": "A=8.",
+        "D": "A=23."
+      },
+      "answer": "C",
+      "explanation": "A=g^a mod p = 5^6 mod 23 = 8.",
+      "source": "Ampliación · Ampliación: ejercicio DH",
+      "coverage": "Ampliación",
+      "difficulty": "Intermedio",
+      "questionPage": 11,
+      "solutionPage": 7,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "diffie-hellman",
+        "aritmetica-modular"
+      ]
+    },
+    {
+      "id": 490,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 48,
+      "title": "RSA y Diffie-Hellman",
+      "practice": "Banco de parcial · Unidad 05",
+      "topic": "cripto",
+      "prompt": "Con p=23, g=5, a=6 y B=19, ¿cuál es el secreto compartido calculado por Alice?",
+      "options": {
+        "A": "5.",
+        "B": "8.",
+        "C": "19.",
+        "D": "2."
+      },
+      "answer": "D",
+      "explanation": "s=B^a mod p = 19^6 mod 23 = 2. Es un ejemplo pequeño e inseguro, usado sólo para practicar cuentas.",
+      "source": "Ampliación · Ampliación: ejercicio DH",
+      "coverage": "Ampliación",
+      "difficulty": "Avanzado",
+      "questionPage": 11,
+      "solutionPage": 7,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "diffie-hellman",
+        "aritmetica-modular"
+      ]
+    },
+    {
+      "id": 491,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 49,
+      "title": "RSA y Diffie-Hellman",
+      "practice": "Banco de parcial · Unidad 05",
+      "topic": "cripto",
+      "prompt": "¿Qué ataque amenaza a Diffie-Hellman si el intercambio no está autenticado?",
+      "options": {
+        "A": "Colisión obligatoria de SHA-512.",
+        "B": "Man-in-the-middle.",
+        "C": "Desbordamiento de DNS TXT.",
+        "D": "Fuga por codificación Morse."
+      },
+      "answer": "B",
+      "explanation": "Un intermediario puede negociar un secreto distinto con cada extremo y hacerse pasar por el otro.",
+      "source": "Ampliación · Ampliación: autenticación",
+      "coverage": "Ampliación",
+      "difficulty": "Avanzado",
+      "questionPage": 11,
+      "solutionPage": 7,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "mitm",
+        "diffie-hellman"
+      ]
+    },
+    {
+      "id": 492,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 50,
+      "title": "RSA y Diffie-Hellman",
+      "practice": "Banco de parcial · Unidad 05",
+      "topic": "cripto",
+      "prompt": "¿Por qué no se recomienda “RSA de libro” (m^e mod n) para cifrar mensajes reales?",
+      "options": {
+        "A": "Carece de padding seguro; deben usarse construcciones como RSA-OAEP.",
+        "B": "Porque RSA usa claves simétricas de 16 bytes.",
+        "C": "Porque n no debe ser público.",
+        "D": "Porque impide la verificación de firmas."
+      },
+      "answer": "A",
+      "explanation": "El RSA directo es determinista y vulnerable a varios ataques; RSA-OAEP añade el mecanismo de padding adecuado para cifrado.",
+      "source": "Ampliación · Ampliación: RSA real",
+      "coverage": "Ampliación",
+      "difficulty": "Intermedio",
+      "questionPage": 11,
+      "solutionPage": 7,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "rsa-padding",
+        "rsa"
+      ]
+    },
+    {
+      "id": 493,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 51,
+      "title": "PGP, firmas y esteganografía",
+      "practice": "Banco de parcial · Unidad 06",
+      "topic": "cripto",
+      "prompt": "Para enviar un mensaje confidencial usando PGP a una persona, normalmente se cifra con:",
+      "options": {
+        "A": "La clave privada del destinatario.",
+        "B": "La contraseña del remitente en texto claro.",
+        "C": "La clave pública del destinatario.",
+        "D": "El hash del certificado del dominio."
+      },
+      "answer": "C",
+      "explanation": "La clave pública del receptor permite establecer el cifrado; sólo quien tenga la clave privada correspondiente podrá descifrarlo.",
+      "source": "Base · P1.2 pp.2-4",
+      "coverage": "Base",
+      "difficulty": "Básico",
+      "questionPage": 12,
+      "solutionPage": 7,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "pgp"
+      ]
+    },
+    {
+      "id": 494,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 52,
+      "title": "PGP, firmas y esteganografía",
+      "practice": "Banco de parcial · Unidad 06",
+      "topic": "cripto",
+      "prompt": "Una firma digital PGP se verifica usando:",
+      "options": {
+        "A": "La clave pública del firmante.",
+        "B": "La clave privada del receptor.",
+        "C": "Una clave AES-ECB visible.",
+        "D": "Un registro MX."
+      },
+      "answer": "A",
+      "explanation": "Quien verifica utiliza la clave pública del supuesto autor para comprobar la firma hecha con su clave privada.",
+      "source": "Base · P1.2 pp.2-4",
+      "coverage": "Base",
+      "difficulty": "Intermedio",
+      "questionPage": 12,
+      "solutionPage": 7,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "firma",
+        "pgp"
+      ]
+    },
+    {
+      "id": 495,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 53,
+      "title": "PGP, firmas y esteganografía",
+      "practice": "Banco de parcial · Unidad 06",
+      "topic": "cripto",
+      "prompt": "¿Qué finalidad tiene la opción de salida ASCII armored de GPG?",
+      "options": {
+        "A": "Desactivar el cifrado.",
+        "B": "Crear un certificado TLS.",
+        "C": "Guardar la contraseña en el fichero.",
+        "D": "Representar el resultado binario en formato textual transportable."
+      },
+      "answer": "D",
+      "explanation": "ASCII armor emplea texto delimitado y codificación para facilitar el intercambio por canales textuales.",
+      "source": "Base · P1.2 p.2",
+      "coverage": "Base",
+      "difficulty": "Intermedio",
+      "questionPage": 12,
+      "solutionPage": 7,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "pgp-confianza",
+        "base64"
+      ]
+    },
+    {
+      "id": 496,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 54,
+      "title": "PGP, firmas y esteganografía",
+      "practice": "Banco de parcial · Unidad 06",
+      "topic": "cripto",
+      "prompt": "¿Qué comando de la práctica genera un par de claves con GPG?",
+      "options": {
+        "A": "gpg --list-packets.",
+        "B": "gpg --gen-key.",
+        "C": "gpg --recv-keys.",
+        "D": "gpg --delete-secret-keys."
+      },
+      "answer": "B",
+      "explanation": "La guía propone gpg --gen-key para generar las claves personales.",
+      "source": "Base · P1.2 p.2",
+      "coverage": "Base",
+      "difficulty": "Básico",
+      "questionPage": 12,
+      "solutionPage": 7,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "pgp-confianza",
+        "pgp"
+      ]
+    },
+    {
+      "id": 497,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 55,
+      "title": "PGP, firmas y esteganografía",
+      "practice": "Banco de parcial · Unidad 06",
+      "topic": "cripto",
+      "prompt": "Que una firma PGP sea criptográficamente válida significa que:",
+      "options": {
+        "A": "El firmante es necesariamente honesto.",
+        "B": "El correo no pasó por SMTP.",
+        "C": "El contenido coincide con la firma y la clave usada; aún hay que validar la identidad de esa clave.",
+        "D": "El archivo es imposible de copiar."
+      },
+      "answer": "C",
+      "explanation": "La verificación matemática de firma y la confianza en la vinculación clave-identidad son cuestiones distintas.",
+      "source": "Ampliación · Ampliación: confianza PGP",
+      "coverage": "Ampliación",
+      "difficulty": "Intermedio",
+      "questionPage": 12,
+      "solutionPage": 7,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "pgp-confianza",
+        "firma"
+      ]
+    },
+    {
+      "id": 498,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 56,
+      "title": "PGP, firmas y esteganografía",
+      "practice": "Banco de parcial · Unidad 06",
+      "topic": "cripto",
+      "prompt": "¿Qué describe mejor la esteganografía?",
+      "options": {
+        "A": "Ocultar la existencia o presencia de un mensaje dentro de otro soporte.",
+        "B": "Encriptar cada byte mediante RSA.",
+        "C": "Reemplazar correo SMTP por HTTP.",
+        "D": "Convertir bytes a caracteres imprimibles."
+      },
+      "answer": "A",
+      "explanation": "La esteganografía es ocultamiento del mensaje o de su presencia; puede combinarse con cifrado.",
+      "source": "Base · P1.1 p.1; P1.2 p.2",
+      "coverage": "Base",
+      "difficulty": "Básico",
+      "questionPage": 13,
+      "solutionPage": 8,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "esteganografia"
+      ]
+    },
+    {
+      "id": 499,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 57,
+      "title": "PGP, firmas y esteganografía",
+      "practice": "Banco de parcial · Unidad 06",
+      "topic": "cripto",
+      "prompt": "LSB aplicado a imágenes suele consistir en:",
+      "options": {
+        "A": "Cambiar completamente los encabezados PE.",
+        "B": "Guardar contraseñas en DNS MX.",
+        "C": "Destruir el fichero con un hash.",
+        "D": "Modificar bits menos significativos de valores de píxeles."
+      },
+      "answer": "D",
+      "explanation": "Los bits de menor peso afectan menos al aspecto visual; pueden codificar información, aunque no garantizan indetectabilidad.",
+      "source": "Base · P1.1 p.1; P1.2 p.2",
+      "coverage": "Base",
+      "difficulty": "Intermedio",
+      "questionPage": 13,
+      "solutionPage": 8,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "lsb"
+      ]
+    },
+    {
+      "id": 500,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 58,
+      "title": "PGP, firmas y esteganografía",
+      "practice": "Banco de parcial · Unidad 06",
+      "topic": "cripto",
+      "prompt": "¿Para qué se utiliza steghide en los ejercicios?",
+      "options": {
+        "A": "Para calcular los registros SPF de un dominio.",
+        "B": "Para extraer o insertar datos ocultos en soportes compatibles.",
+        "C": "Para abrir ejecutables PE como DLL.",
+        "D": "Para consultar RIR por RDAP."
+      },
+      "answer": "B",
+      "explanation": "Steghide oculta y extrae mensajes en determinados soportes, con posibilidad de protegerlos mediante contraseña.",
+      "source": "Base · P1.2 p.2; W1 pp.12-15",
+      "coverage": "Base",
+      "difficulty": "Intermedio",
+      "questionPage": 13,
+      "solutionPage": 8,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "esteganografia"
+      ]
+    },
+    {
+      "id": 501,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 59,
+      "title": "PGP, firmas y esteganografía",
+      "practice": "Banco de parcial · Unidad 06",
+      "topic": "cripto",
+      "prompt": "En una muestra de audio de los ejercicios, ¿qué análisis visual puede revelar contenido oculto?",
+      "options": {
+        "A": "Tabla de particiones GPT.",
+        "B": "WHOIS del dominio.",
+        "C": "Espectrograma de frecuencias en el tiempo.",
+        "D": "Cabeceras de correo Received."
+      },
+      "answer": "C",
+      "explanation": "Un espectrograma puede mostrar figuras o texto codificado como componentes de frecuencia.",
+      "source": "Base · P1.2 p.2; W1 p.15",
+      "coverage": "Base",
+      "difficulty": "Intermedio",
+      "questionPage": 13,
+      "solutionPage": 8,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "espectrograma",
+        "esteganografia"
+      ]
+    },
+    {
+      "id": 502,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 60,
+      "title": "PGP, firmas y esteganografía",
+      "practice": "Banco de parcial · Unidad 06",
+      "topic": "cripto",
+      "prompt": "¿Qué afirmación es correcta acerca de renombrar una imagen .jpg a .txt?",
+      "options": {
+        "A": "No descifra ni revela automáticamente el contenido; sólo cambia el nombre.",
+        "B": "Elimina siempre la carga esteganográfica.",
+        "C": "Convierte bytes JPEG en texto UTF-8 válido.",
+        "D": "Equivale a generar un hash SHA-256."
+      },
+      "answer": "A",
+      "explanation": "Extensión y contenido real son cosas distintas; hay que inspeccionar bytes, firmas y estructura.",
+      "source": "Ampliación · Ampliación: esteganografía",
+      "coverage": "Ampliación",
+      "difficulty": "Avanzado",
+      "questionPage": 13,
+      "solutionPage": 8,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "esteganografia",
+        "formatos-archivo"
+      ]
+    },
+    {
+      "id": 503,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 61,
+      "title": "CSIRT, RIR, NIR, WHOIS y RDAP",
+      "practice": "Banco de parcial · Unidad 07",
+      "topic": "csirt",
+      "prompt": "¿Qué significa RIR en el contexto de asignación de direcciones IP?",
+      "options": {
+        "A": "Registro Regional de Internet.",
+        "B": "Repositorio Interno de Rutas.",
+        "C": "Resolutor Internacional de Registros.",
+        "D": "Registro de Identidades Remotas."
+      },
+      "answer": "A",
+      "explanation": "Un RIR gestiona y distribuye recursos numéricos de Internet dentro de su región.",
+      "source": "Base · P2.1 p.1",
+      "coverage": "Base",
+      "difficulty": "Básico",
+      "questionPage": 14,
+      "solutionPage": 8,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "rir"
+      ]
+    },
+    {
+      "id": 504,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 62,
+      "title": "CSIRT, RIR, NIR, WHOIS y RDAP",
+      "practice": "Banco de parcial · Unidad 07",
+      "topic": "csirt",
+      "prompt": "¿Qué RIR corresponde a gran parte de América Latina y el Caribe?",
+      "options": {
+        "A": "ARIN.",
+        "B": "APNIC.",
+        "C": "RIPE NCC.",
+        "D": "LACNIC."
+      },
+      "answer": "D",
+      "explanation": "LACNIC es el Registro de Direcciones de Internet para América Latina y el Caribe.",
+      "source": "Base · P2.1 p.1",
+      "coverage": "Base",
+      "difficulty": "Intermedio",
+      "questionPage": 14,
+      "solutionPage": 8,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "rir"
+      ]
+    },
+    {
+      "id": 505,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 63,
+      "title": "CSIRT, RIR, NIR, WHOIS y RDAP",
+      "practice": "Banco de parcial · Unidad 07",
+      "topic": "csirt",
+      "prompt": "En el material, ¿qué dos países se citan como NIR dentro de la región de LACNIC?",
+      "options": {
+        "A": "Argentina y Uruguay.",
+        "B": "Brasil y México.",
+        "C": "Chile y Perú.",
+        "D": "España y Portugal."
+      },
+      "answer": "B",
+      "explanation": "La guía enumera a Brasil y México como NIR en la región de LACNIC.",
+      "source": "Base · P2.1 p.1",
+      "coverage": "Base",
+      "difficulty": "Intermedio",
+      "questionPage": 14,
+      "solutionPage": 8,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "nir",
+        "rir"
+      ]
+    },
+    {
+      "id": 506,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 64,
+      "title": "CSIRT, RIR, NIR, WHOIS y RDAP",
+      "practice": "Banco de parcial · Unidad 07",
+      "topic": "csirt",
+      "prompt": "Ante actividad maliciosa desde una IP, ¿qué contacto suele priorizar un CSIRT?",
+      "options": {
+        "A": "Facturación.",
+        "B": "Marketing.",
+        "C": "Abuse.",
+        "D": "Registrante del dominio de la víctima."
+      },
+      "answer": "C",
+      "explanation": "El contacto abuse es el canal habitual para notificar uso abusivo de redes o recursos.",
+      "source": "Base · P2.1 p.2",
+      "coverage": "Base",
+      "difficulty": "Básico",
+      "questionPage": 14,
+      "solutionPage": 8,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "whois",
+        "notificacion"
+      ]
+    },
+    {
+      "id": 507,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 65,
+      "title": "CSIRT, RIR, NIR, WHOIS y RDAP",
+      "practice": "Banco de parcial · Unidad 07",
+      "topic": "csirt",
+      "prompt": "¿Qué ventaja tiene RDAP respecto del WHOIS tradicional?",
+      "options": {
+        "A": "Entrega respuestas estructuradas más aptas para automatización.",
+        "B": "Garantiza que toda IP pertenece a la organización consultante.",
+        "C": "Cifra todas las consultas con una clave simétrica.",
+        "D": "No requiere ningún registro público."
+      },
+      "answer": "A",
+      "explanation": "RDAP normaliza estructura y acceso a los datos, facilitando consumo automático.",
+      "source": "Base · P2.1 pp.2-3",
+      "coverage": "Base",
+      "difficulty": "Intermedio",
+      "questionPage": 14,
+      "solutionPage": 8,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "rdap",
+        "whois"
+      ]
+    },
+    {
+      "id": 508,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 66,
+      "title": "CSIRT, RIR, NIR, WHOIS y RDAP",
+      "practice": "Banco de parcial · Unidad 07",
+      "topic": "csirt",
+      "prompt": "¿Qué recurso puede consultarse mediante RDAP además de direcciones IPv4?",
+      "options": {
+        "A": "Únicamente nombres de usuario locales.",
+        "B": "Sólo mensajes SMTP.",
+        "C": "Sólo imágenes JPEG.",
+        "D": "IPv6, ASN y nombres de dominio, según el servidor."
+      },
+      "answer": "D",
+      "explanation": "RDAP cubre recursos como IP, números de sistema autónomo y dominios bajo los registros correspondientes.",
+      "source": "Base · P2.1 p.2",
+      "coverage": "Base",
+      "difficulty": "Intermedio",
+      "questionPage": 15,
+      "solutionPage": 9,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "rdap",
+        "asn-bgp"
+      ]
+    },
+    {
+      "id": 509,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 67,
+      "title": "CSIRT, RIR, NIR, WHOIS y RDAP",
+      "practice": "Banco de parcial · Unidad 07",
+      "topic": "csirt",
+      "prompt": "Si el WHOIS y el RDAP de una IP discrepan sobre un contacto, ¿qué recomienda la guía en términos generales?",
+      "options": {
+        "A": "Considerar WHOIS siempre infalible.",
+        "B": "Revisar RDAP, que para recursos IP suele ser más actualizado, y comprobar los datos.",
+        "C": "Ignorar ambos protocolos.",
+        "D": "Elegir al azar un correo comercial."
+      },
+      "answer": "B",
+      "explanation": "La guía indica que para asignación IP RDAP suele disponer de información más precisa y actualizada, sin que ello elimine la verificación.",
+      "source": "Base · P2.1 pp.2-3",
+      "coverage": "Base",
+      "difficulty": "Intermedio",
+      "questionPage": 15,
+      "solutionPage": 9,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "rdap",
+        "whois"
+      ]
+    },
+    {
+      "id": 510,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 68,
+      "title": "CSIRT, RIR, NIR, WHOIS y RDAP",
+      "practice": "Banco de parcial · Unidad 07",
+      "topic": "csirt",
+      "prompt": "Una IP aparece como origen de un ataque en un log. ¿Qué NO puede concluirse sólo con la información RDAP?",
+      "options": {
+        "A": "Cuál organización tiene asignado el recurso.",
+        "B": "Qué contacto de abuso se publica.",
+        "C": "Qué persona física concreta ejecutó la acción.",
+        "D": "Qué bloque de red está registrado."
+      },
+      "answer": "C",
+      "explanation": "RDAP brinda datos de asignación y contacto; no atribuye automáticamente la acción a una persona.",
+      "source": "Ampliación · Ampliación: atribución",
+      "coverage": "Ampliación",
+      "difficulty": "Avanzado",
+      "questionPage": 15,
+      "solutionPage": 9,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "ip",
+        "rdap"
+      ]
+    },
+    {
+      "id": 511,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 69,
+      "title": "CSIRT, RIR, NIR, WHOIS y RDAP",
+      "practice": "Banco de parcial · Unidad 07",
+      "topic": "csirt",
+      "prompt": "¿Cuál es el área regional indicada en la guía para RIPE NCC?",
+      "options": {
+        "A": "Europa, Oriente Medio y parte de Asia Central.",
+        "B": "África subsahariana únicamente.",
+        "C": "América Latina exclusivamente.",
+        "D": "Oceanía únicamente."
+      },
+      "answer": "A",
+      "explanation": "RIPE NCC presta servicios de registro principalmente en Europa, Oriente Medio y parte de Asia Central.",
+      "source": "Base · P2.1 p.1",
+      "coverage": "Base",
+      "difficulty": "Intermedio",
+      "questionPage": 15,
+      "solutionPage": 9,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "rir"
+      ]
+    },
+    {
+      "id": 512,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 70,
+      "title": "CSIRT, RIR, NIR, WHOIS y RDAP",
+      "practice": "Banco de parcial · Unidad 07",
+      "topic": "csirt",
+      "prompt": "¿Qué debería acompañar a una notificación profesional de abuso de una IP?",
+      "options": {
+        "A": "Sólo la frase “me atacaron”.",
+        "B": "Credenciales del administrador afectado.",
+        "C": "Una acusación de autoría inequívoca.",
+        "D": "IP, marcas temporales con zona horaria y evidencias relevantes."
+      },
+      "answer": "D",
+      "explanation": "Fechas con zona horaria, registros y contexto facilitan que el proveedor investigue la actividad sin afirmaciones no probadas.",
+      "source": "Ampliación · Ampliación: notificación",
+      "coverage": "Ampliación",
+      "difficulty": "Intermedio",
+      "questionPage": 15,
+      "solutionPage": 9,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "notificacion",
+        "tiempos"
+      ]
+    },
+    {
+      "id": 513,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 71,
+      "title": "Dominios, DNS y correo electrónico",
+      "practice": "Banco de parcial · Unidad 08",
+      "topic": "csirt",
+      "prompt": "En el registro de nombres de dominio, ¿quién es el registrant?",
+      "options": {
+        "A": "El responsable técnico del DNS raíz.",
+        "B": "La persona o entidad que registra el dominio.",
+        "C": "El software RDAP.",
+        "D": "El servidor SMTP de la empresa."
+      },
+      "answer": "B",
+      "explanation": "El registrant es el titular que solicita y mantiene el registro a través de un registrar.",
+      "source": "Base · P2.1 pp.4-5",
+      "coverage": "Base",
+      "difficulty": "Básico",
+      "questionPage": 16,
+      "solutionPage": 9,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "tld"
+      ]
+    },
+    {
+      "id": 514,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 72,
+      "title": "Dominios, DNS y correo electrónico",
+      "practice": "Banco de parcial · Unidad 08",
+      "topic": "csirt",
+      "prompt": "¿Qué papel cumple el registrar?",
+      "options": {
+        "A": "Emitir direcciones IP sin intervención regional.",
+        "B": "Controlar la clave privada de cada usuario.",
+        "C": "Intermediar el registro del dominio y sus modificaciones frente al registry.",
+        "D": "Cifrar el correo con AES."
+      },
+      "answer": "C",
+      "explanation": "El registrar comercializa/gestiona registros de dominio y se comunica con el operador del registry correspondiente.",
+      "source": "Base · P2.1 p.5",
+      "coverage": "Base",
+      "difficulty": "Intermedio",
+      "questionPage": 16,
+      "solutionPage": 9,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "tld"
+      ]
+    },
+    {
+      "id": 515,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 73,
+      "title": "Dominios, DNS y correo electrónico",
+      "practice": "Banco de parcial · Unidad 08",
+      "topic": "csirt",
+      "prompt": "¿Qué describe al registry de un TLD?",
+      "options": {
+        "A": "El repositorio autoritativo de registros de ese TLD.",
+        "B": "El antivirus del titular.",
+        "C": "El servidor POP3 del dominio.",
+        "D": "La lista de usuarios que enviaron spam."
+      },
+      "answer": "A",
+      "explanation": "El registry mantiene los registros del espacio de nombres del TLD y sus delegaciones.",
+      "source": "Base · P2.1 p.5",
+      "coverage": "Base",
+      "difficulty": "Intermedio",
+      "questionPage": 16,
+      "solutionPage": 9,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "tld"
+      ]
+    },
+    {
+      "id": 516,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 74,
+      "title": "Dominios, DNS y correo electrónico",
+      "practice": "Banco de parcial · Unidad 08",
+      "topic": "csirt",
+      "prompt": "Según la guía, ¿qué organismo realiza en Argentina funciones de registry y registrar para los dominios que gestiona?",
+      "options": {
+        "A": "ARIN.",
+        "B": "NIC.ar.",
+        "C": "AfriNIC.",
+        "D": "OpenPGP."
+      },
+      "answer": "B",
+      "explanation": "La guía identifica a NIC.ar como responsable de ambas funciones dentro de su ámbito.",
+      "source": "Base · P2.1 pp.5-6",
+      "coverage": "Base",
+      "difficulty": "Intermedio",
+      "questionPage": 16,
+      "solutionPage": 9,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "tld"
+      ]
+    },
+    {
+      "id": 517,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 75,
+      "title": "Dominios, DNS y correo electrónico",
+      "practice": "Banco de parcial · Unidad 08",
+      "topic": "csirt",
+      "prompt": "La consigna pide contactar al REGISTRAR por abuso de un dominio. ¿Qué dato corresponde buscar?",
+      "options": {
+        "A": "El usuario de Windows del titular.",
+        "B": "La IP del lector del correo.",
+        "C": "La contraseña SMTP del registrant.",
+        "D": "El contacto de abuse del registrar responsable."
+      },
+      "answer": "D",
+      "explanation": "No es lo mismo notificar al titular que a la empresa registradora; el ejercicio distingue ambos destinos.",
+      "source": "Base · P2.1 pp.6-7",
+      "coverage": "Base",
+      "difficulty": "Intermedio",
+      "questionPage": 16,
+      "solutionPage": 10,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "tld",
+        "whois"
+      ]
+    },
+    {
+      "id": 518,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 76,
+      "title": "Dominios, DNS y correo electrónico",
+      "practice": "Banco de parcial · Unidad 08",
+      "topic": "csirt",
+      "prompt": "¿Qué cabecera de correo puede ayudar a identificar el destinatario original en los ejemplos de la práctica?",
+      "options": {
+        "A": "X-Original-To.",
+        "B": "Content-Language.",
+        "C": "User-Agent.",
+        "D": "X-Powered-By."
+      },
+      "answer": "A",
+      "explanation": "X-Original-To suele preservar el destinatario original en ciertas configuraciones; conviene corroborar Delivered-To y contexto.",
+      "source": "Base · P2.2 pp.1-2; W2 pp.2-4",
+      "coverage": "Base",
+      "difficulty": "Intermedio",
+      "questionPage": 17,
+      "solutionPage": 10,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "cabeceras"
+      ]
+    },
+    {
+      "id": 519,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 77,
+      "title": "Dominios, DNS y correo electrónico",
+      "practice": "Banco de parcial · Unidad 08",
+      "topic": "csirt",
+      "prompt": "Al analizar las líneas Received de un mensaje, ¿cuál es la estrategia más sólida?",
+      "options": {
+        "A": "Interpretar todas como afirmaciones autenticadas por el remitente.",
+        "B": "Ignorar los nombres de host.",
+        "C": "Reconstruir los saltos desde el servidor receptor confiable y validar qué recibió de quién.",
+        "D": "Tomar la primera IP que aparezca sin contexto."
+      },
+      "answer": "C",
+      "explanation": "Las líneas Received se agregan durante el transporte. Se analizan los saltos fiables para ubicar la conexión SMTP relevante.",
+      "source": "Base · P2.2 p.1; W2 pp.2-4",
+      "coverage": "Base",
+      "difficulty": "Intermedio",
+      "questionPage": 17,
+      "solutionPage": 10,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "received"
+      ]
+    },
+    {
+      "id": 520,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 78,
+      "title": "Dominios, DNS y correo electrónico",
+      "practice": "Banco de parcial · Unidad 08",
+      "topic": "csirt",
+      "prompt": "¿Qué tipo de registro DNS indica los servidores que reciben correo para un dominio?",
+      "options": {
+        "A": "PTR.",
+        "B": "MX.",
+        "C": "AAAA.",
+        "D": "CAA."
+      },
+      "answer": "B",
+      "explanation": "Los registros MX indican destinos de entrega de correo y prioridades relativas.",
+      "source": "Ampliación · Ampliación: DNS mail",
+      "coverage": "Ampliación",
+      "difficulty": "Intermedio",
+      "questionPage": 17,
+      "solutionPage": 10,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "mx",
+        "registros-dns"
+      ]
+    },
+    {
+      "id": 521,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 79,
+      "title": "Dominios, DNS y correo electrónico",
+      "practice": "Banco de parcial · Unidad 08",
+      "topic": "csirt",
+      "prompt": "¿Cuál es una diferencia importante entre el envelope SMTP y la cabecera visible From?",
+      "options": {
+        "A": "Siempre contienen la misma dirección validada.",
+        "B": "Ninguno puede falsificarse.",
+        "C": "El From visible define obligatoriamente el IP de origen.",
+        "D": "El envelope sirve para el transporte y puede diferir del From mostrado."
+      },
+      "answer": "D",
+      "explanation": "MAIL FROM/RCPT TO son datos del intercambio SMTP; From es un campo de cabecera, con finalidades distintas.",
+      "source": "Ampliación · Ampliación: transporte SMTP",
+      "coverage": "Ampliación",
+      "difficulty": "Intermedio",
+      "questionPage": 17,
+      "solutionPage": 10,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "envelope",
+        "cabeceras"
+      ]
+    },
+    {
+      "id": 522,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 80,
+      "title": "Dominios, DNS y correo electrónico",
+      "practice": "Banco de parcial · Unidad 08",
+      "topic": "csirt",
+      "prompt": "¿Por qué una línea Received supuestamente escrita por un servidor remoto no es, por sí sola, prueba concluyente de la ruta?",
+      "options": {
+        "A": "Porque los encabezados anteriores al primer salto confiable pueden falsificarse.",
+        "B": "Porque toda línea Received está cifrada por PGP.",
+        "C": "Porque SMTP nunca añade cabeceras.",
+        "D": "Porque Received equivale a un hash firmado."
+      },
+      "answer": "A",
+      "explanation": "Un emisor puede insertar cabeceras falsas; se debe delimitar la cadena de servidores bajo control o confianza.",
+      "source": "Ampliación · Ampliación: Received y confianza",
+      "coverage": "Ampliación",
+      "difficulty": "Avanzado",
+      "questionPage": 17,
+      "solutionPage": 10,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "received"
+      ]
+    },
+    {
+      "id": 523,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 81,
+      "title": "Investigación de incidentes y logs",
+      "practice": "Banco de parcial · Unidad 09",
+      "topic": "csirt",
+      "prompt": "Se observan emails falsos enviados con direcciones inexistentes del dominio víctima. ¿Qué fenómeno describe mejor el caso?",
+      "options": {
+        "A": "Colisión RSA.",
+        "B": "Suplantación del remitente (email spoofing).",
+        "C": "Cifrado por transposición.",
+        "D": "Esteganografía LSB."
+      },
+      "answer": "B",
+      "explanation": "El From puede suplantarse sin usar el servidor legítimo; la práctica lo analiza con SPF y DMARC.",
+      "source": "Base · P2.2 p.2; W2 pp.5-6",
+      "coverage": "Base",
+      "difficulty": "Intermedio",
+      "questionPage": 18,
+      "solutionPage": 10,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "cabeceras",
+        "tls-correo"
+      ]
+    },
+    {
+      "id": 524,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 82,
+      "title": "Investigación de incidentes y logs",
+      "practice": "Banco de parcial · Unidad 09",
+      "topic": "csirt",
+      "prompt": "¿Qué verifica principalmente SPF?",
+      "options": {
+        "A": "La integridad de cada adjunto ZIP.",
+        "B": "Que el usuario local haya abierto el mail.",
+        "C": "La autorización de la IP emisora para el dominio usado en la identidad SPF (envelope/HELO).",
+        "D": "La contraseña del destinatario."
+      },
+      "answer": "C",
+      "explanation": "SPF evalúa si el host de envío está autorizado por la política DNS del dominio pertinente; no autentica directamente todo el contenido.",
+      "source": "Ampliación · Ampliación: SPF",
+      "coverage": "Ampliación",
+      "difficulty": "Intermedio",
+      "questionPage": 18,
+      "solutionPage": 10,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "tls-correo"
+      ]
+    },
+    {
+      "id": 525,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 83,
+      "title": "Investigación de incidentes y logs",
+      "practice": "Banco de parcial · Unidad 09",
+      "topic": "csirt",
+      "prompt": "¿Qué aporta DKIM al correo electrónico?",
+      "options": {
+        "A": "Una firma criptográfica de partes seleccionadas del mensaje validable mediante DNS.",
+        "B": "Cifrado extremo a extremo del cuerpo.",
+        "C": "Un hash de contraseña de Windows.",
+        "D": "Un túnel SSH hacia el MX."
+      },
+      "answer": "A",
+      "explanation": "DKIM agrega una firma que se comprueba con la clave pública publicada en DNS; no garantiza por sí sola identidad visual ni confidencialidad.",
+      "source": "Ampliación · Ampliación: DKIM",
+      "coverage": "Ampliación",
+      "difficulty": "Intermedio",
+      "questionPage": 18,
+      "solutionPage": 11,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "tls-correo",
+        "firma"
+      ]
+    },
+    {
+      "id": 526,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 84,
+      "title": "Investigación de incidentes y logs",
+      "practice": "Banco de parcial · Unidad 09",
+      "topic": "csirt",
+      "prompt": "En un registro DMARC, ¿qué significa p=none?",
+      "options": {
+        "A": "Exige rechazar todo correo que falle.",
+        "B": "Obliga a cuarentena en todos los receptores.",
+        "C": "Desactiva SPF y DKIM en el emisor.",
+        "D": "Indica política de monitoreo, sin solicitar rechazo o cuarentena por fallas DMARC."
+      },
+      "answer": "D",
+      "explanation": "p=none sirve para observar/reportar; no instruye una acción coercitiva para mensajes que fallen DMARC.",
+      "source": "Base · W2 p.6; ampliación DMARC",
+      "coverage": "Base",
+      "difficulty": "Intermedio",
+      "questionPage": 18,
+      "solutionPage": 11,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "tls-correo"
+      ]
+    },
+    {
+      "id": 527,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 85,
+      "title": "Investigación de incidentes y logs",
+      "practice": "Banco de parcial · Unidad 09",
+      "topic": "csirt",
+      "prompt": "¿Qué condición general necesita DMARC para aprobar su validación?",
+      "options": {
+        "A": "Que el mensaje esté codificado en Base64.",
+        "B": "Que SPF o DKIM pasen y estén alineados con el dominio del From visible.",
+        "C": "Que SMTP use el puerto 25 exclusivamente.",
+        "D": "Que exista al menos un registro A."
+      },
+      "answer": "B",
+      "explanation": "DMARC exige alineación con From para un resultado SPF o DKIM que pase; no exige que ambos pasen a la vez.",
+      "source": "Ampliación · Ampliación: DMARC",
+      "coverage": "Ampliación",
+      "difficulty": "Avanzado",
+      "questionPage": 18,
+      "solutionPage": 11,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "tls-correo"
+      ]
+    },
+    {
+      "id": 528,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 86,
+      "title": "Investigación de incidentes y logs",
+      "practice": "Banco de parcial · Unidad 09",
+      "topic": "csirt",
+      "prompt": "En auth.log se repite “Failed password for root” desde una misma IP en segundos. ¿Cuál es la hipótesis más probable?",
+      "options": {
+        "A": "Actualización normal del reloj NTP.",
+        "B": "Rotación legítima de claves PGP.",
+        "C": "Intentos de fuerza bruta contra SSH.",
+        "D": "Resincronización DNSSEC."
+      },
+      "answer": "C",
+      "explanation": "El patrón de fallos sucesivos en SSH apunta a tanteo de credenciales; se debe corroborar con el resto de la evidencia.",
+      "source": "Base · P2.2 pp.2-3; W2 pp.4-5",
+      "coverage": "Base",
+      "difficulty": "Intermedio",
+      "questionPage": 19,
+      "solutionPage": 11,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "ssh-logs"
+      ]
+    },
+    {
+      "id": 529,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 87,
+      "title": "Investigación de incidentes y logs",
+      "practice": "Banco de parcial · Unidad 09",
+      "topic": "csirt",
+      "prompt": "¿Qué diferencia hay entre “Accepted publickey” y “Failed password” en logs sshd?",
+      "options": {
+        "A": "La primera indica autenticación aceptada por clave pública; la segunda un intento fallido con contraseña.",
+        "B": "Ambas indican sesión root comprometida.",
+        "C": "Ambas son eventos de cron.",
+        "D": "La primera equivale a que el firewall bloqueó la conexión."
+      },
+      "answer": "A",
+      "explanation": "Accepted señala que la autenticación tuvo éxito con el método indicado; Failed indica intento de autenticación sin éxito.",
+      "source": "Base · P2.2 pp.2-3",
+      "coverage": "Base",
+      "difficulty": "Intermedio",
+      "questionPage": 19,
+      "solutionPage": 11,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "ssh-logs"
+      ]
+    },
+    {
+      "id": 530,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 88,
+      "title": "Investigación de incidentes y logs",
+      "practice": "Banco de parcial · Unidad 09",
+      "topic": "csirt",
+      "prompt": "Un log muestra “sudo: deploy ... USER=root ; COMMAND=/usr/bin/systemctl status nginx”. ¿Qué hecho está respaldado?",
+      "options": {
+        "A": "El atacante logró instalar malware.",
+        "B": "Se eliminó toda la bitácora.",
+        "C": "El servicio nginx fue comprometido.",
+        "D": "El usuario deploy ejecutó el comando especificado mediante sudo como root."
+      },
+      "answer": "D",
+      "explanation": "La entrada documenta el comando privilegiado, pero no demuestra intenciones maliciosas ni resultado del comando.",
+      "source": "Base · P2.2 pp.2-3",
+      "coverage": "Base",
+      "difficulty": "Intermedio",
+      "questionPage": 19,
+      "solutionPage": 11,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "ssh-logs",
+        "writeup"
+      ]
+    },
+    {
+      "id": 531,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 89,
+      "title": "Investigación de incidentes y logs",
+      "practice": "Banco de parcial · Unidad 09",
+      "topic": "csirt",
+      "prompt": "Al correlacionar dos servidores durante un incidente, ¿qué dato hay que normalizar?",
+      "options": {
+        "A": "El tamaño del mouse del operador.",
+        "B": "Marcas de tiempo y zonas horarias.",
+        "C": "El nombre del tema visual del terminal.",
+        "D": "Los colores del archivo de log."
+      },
+      "answer": "B",
+      "explanation": "Comparar UTC y hora local sin normalizar puede cambiar el orden aparente de los eventos.",
+      "source": "Ampliación · Ampliación: correlación temporal",
+      "coverage": "Ampliación",
+      "difficulty": "Avanzado",
+      "questionPage": 19,
+      "solutionPage": 11,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "tiempos"
+      ]
+    },
+    {
+      "id": 532,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 90,
+      "title": "Investigación de incidentes y logs",
+      "practice": "Banco de parcial · Unidad 09",
+      "topic": "csirt",
+      "prompt": "¿Cuál es una medida adecuada para mitigar ataques de diccionario contra SSH?",
+      "options": {
+        "A": "Publicar contraseñas en TXT del DNS.",
+        "B": "Deshabilitar todos los logs.",
+        "C": "Preferir autenticación por clave, limitar acceso y aplicar defensas ante intentos repetidos.",
+        "D": "Reiniciar el servidor tras cada fallo."
+      },
+      "answer": "C",
+      "explanation": "La guía menciona claves públicas y fail2ban; también sirven restricciones de red, MFA y monitoreo.",
+      "source": "Base · W2 p.5; ampliación SSH",
+      "coverage": "Base",
+      "difficulty": "Intermedio",
+      "questionPage": 19,
+      "solutionPage": 11,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "ssh-logs",
+        "credenciales"
+      ]
+    },
+    {
+      "id": 533,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 91,
+      "title": "Análisis de tráfico y canales encubiertos",
+      "practice": "Banco de parcial · Unidad 10",
+      "topic": "csirt",
+      "prompt": "¿Qué es un canal encubierto (covert channel)?",
+      "options": {
+        "A": "Una forma no prevista o anómala de transportar información usando un canal o protocolo.",
+        "B": "Un protocolo de correo estándar y autenticado.",
+        "C": "Un algoritmo RSA nuevo.",
+        "D": "Una herramienta exclusiva de antivirus."
+      },
+      "answer": "A",
+      "explanation": "Los canales encubiertos aprovechan características de sistemas o protocolos para transportar datos fuera del uso esperado.",
+      "source": "Base · P2.2 p.3",
+      "coverage": "Base",
+      "difficulty": "Básico",
+      "questionPage": 20,
+      "solutionPage": 12,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "canal-encubierto"
+      ]
+    },
+    {
+      "id": 534,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 92,
+      "title": "Análisis de tráfico y canales encubiertos",
+      "practice": "Banco de parcial · Unidad 10",
+      "topic": "csirt",
+      "prompt": "En una captura con ICMP echo request repetidos, ¿qué campo inspeccionarías primero si se sospecha exfiltración codificada?",
+      "options": {
+        "A": "El idioma del sistema operativo.",
+        "B": "El contacto WHOIS del TLD.",
+        "C": "La longitud de la contraseña de root.",
+        "D": "El payload o campo data de los paquetes ICMP."
+      },
+      "answer": "D",
+      "explanation": "En el writeup se extraen bytes de data en ICMP, luego se transforman de hexadecimal y Base64.",
+      "source": "Base · P2.2 p.3; W2 pp.18-20",
+      "coverage": "Base",
+      "difficulty": "Intermedio",
+      "questionPage": 20,
+      "solutionPage": 12,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "canal-encubierto",
+        "captura-red"
+      ]
+    },
+    {
+      "id": 535,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 93,
+      "title": "Análisis de tráfico y canales encubiertos",
+      "practice": "Banco de parcial · Unidad 10",
+      "topic": "csirt",
+      "prompt": "¿Qué hace el filtro de Wireshark/tshark “icmp and ip.src == 192.168.0.33”?",
+      "options": {
+        "A": "Filtra cualquier paquete con destino a la IP.",
+        "B": "Selecciona paquetes ICMP enviados desde la IP indicada.",
+        "C": "Descifra un payload ICMP.",
+        "D": "Extrae automáticamente todas las claves RSA."
+      },
+      "answer": "B",
+      "explanation": "El filtro selecciona el protocolo ICMP y exige esa IP como origen del paquete.",
+      "source": "Base · W2 p.19",
+      "coverage": "Base",
+      "difficulty": "Intermedio",
+      "questionPage": 20,
+      "solutionPage": 12,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "canal-encubierto",
+        "captura-red"
+      ]
+    },
+    {
+      "id": 536,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 94,
+      "title": "Análisis de tráfico y canales encubiertos",
+      "practice": "Banco de parcial · Unidad 10",
+      "topic": "csirt",
+      "prompt": "En tshark, ¿qué opción extrae un campo del paquete como texto para analizarlo luego?",
+      "options": {
+        "A": "-p (modo promiscuo).",
+        "B": "-n (no resolver nombres).",
+        "C": "-T fields -e data.",
+        "D": "-D (interfaces disponibles)."
+      },
+      "answer": "C",
+      "explanation": "La combinación -T fields -e <campo> vuelca valores de campos concretos; la guía usa data.",
+      "source": "Base · W2 p.19",
+      "coverage": "Base",
+      "difficulty": "Intermedio",
+      "questionPage": 20,
+      "solutionPage": 12,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "captura-red"
+      ]
+    },
+    {
+      "id": 537,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 95,
+      "title": "Análisis de tráfico y canales encubiertos",
+      "practice": "Banco de parcial · Unidad 10",
+      "topic": "csirt",
+      "prompt": "Un pcap muestra consultas DNS cuyos nombres contienen fragmentos que parecen Base64. ¿Cuál es la sospecha relevante?",
+      "options": {
+        "A": "Uso de DNS como canal de transporte encubierto.",
+        "B": "Fallo de todos los servidores MX.",
+        "C": "Rotación de certificados TLS.",
+        "D": "Cifrado AES por bloques del propio DNS."
+      },
+      "answer": "A",
+      "explanation": "El atacante puede insertar fragmentos codificados en consultas DNS para transportar información a un extremo controlado.",
+      "source": "Base · W2 pp.20-21",
+      "coverage": "Base",
+      "difficulty": "Intermedio",
+      "questionPage": 20,
+      "solutionPage": 12,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "canal-encubierto",
+        "dns"
+      ]
+    },
+    {
+      "id": 538,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 96,
+      "title": "Análisis de tráfico y canales encubiertos",
+      "practice": "Banco de parcial · Unidad 10",
+      "topic": "csirt",
+      "prompt": "¿Qué evidencia refuerza la hipótesis de exfiltración por DNS?",
+      "options": {
+        "A": "Una única consulta normal a un sitio común.",
+        "B": "Un registro PTR válido.",
+        "C": "Un certificado SSL sin errores.",
+        "D": "Muchas consultas a subdominios extraños con etiquetas de alta entropía y secuencia correlacionada."
+      },
+      "answer": "D",
+      "explanation": "La frecuencia, forma de nombres, entropía y correlación temporal respaldan la detección; ningún indicador aislado basta.",
+      "source": "Ampliación · Ampliación: DNS covert channel",
+      "coverage": "Ampliación",
+      "difficulty": "Avanzado",
+      "questionPage": 21,
+      "solutionPage": 12,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "canal-encubierto"
+      ]
+    },
+    {
+      "id": 539,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 97,
+      "title": "Análisis de tráfico y canales encubiertos",
+      "practice": "Banco de parcial · Unidad 10",
+      "topic": "csirt",
+      "prompt": "En el desafío con USB Rubber Ducky, ¿qué riesgo se ilustra?",
+      "options": {
+        "A": "Que cualquier pendrive cifra el disco por hardware.",
+        "B": "Que un USB puede emular teclado e introducir comandos automatizados.",
+        "C": "Que todos los dispositivos USB son sólo almacenamiento.",
+        "D": "Que PGP se instala al conectar un periférico."
+      },
+      "answer": "B",
+      "explanation": "Un dispositivo HID programable puede teclear secuencias maliciosas cuando se conecta a un equipo.",
+      "source": "Base · P2.2 p.3; W2 pp.21-23",
+      "coverage": "Base",
+      "difficulty": "Intermedio",
+      "questionPage": 21,
+      "solutionPage": 12,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "hid"
+      ]
+    },
+    {
+      "id": 540,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 98,
+      "title": "Análisis de tráfico y canales encubiertos",
+      "practice": "Banco de parcial · Unidad 10",
+      "topic": "csirt",
+      "prompt": "Una instrucción de PowerShell usa “-Enc” con texto Base64 de UTF-16LE. ¿Qué enfoque es apropiado para investigarla?",
+      "options": {
+        "A": "Ejecutarla directamente en el equipo principal.",
+        "B": "Eliminar los logs antes de probarla.",
+        "C": "Decodificar el argumento como UTF-16LE sin ejecutar el contenido.",
+        "D": "Suponer que Base64 protege por cifrado."
+      },
+      "answer": "C",
+      "explanation": "La opción EncodedCommand usa una representación Base64 de texto Unicode UTF-16LE en Windows PowerShell; primero se inspecciona.",
+      "source": "Base · W2 pp.22-23",
+      "coverage": "Base",
+      "difficulty": "Intermedio",
+      "questionPage": 21,
+      "solutionPage": 12,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "powershell-codificado",
+        "ascii"
+      ]
+    },
+    {
+      "id": 541,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 99,
+      "title": "Análisis de tráfico y canales encubiertos",
+      "practice": "Banco de parcial · Unidad 10",
+      "topic": "csirt",
+      "prompt": "Una muestra descargada desde un pcap termina en .jpg pero comienza con bytes “MZ”. ¿Qué indica?",
+      "options": {
+        "A": "Que probablemente sea un ejecutable PE/Windows disfrazado, no una imagen JPEG normal.",
+        "B": "Que es necesariamente una imagen válida.",
+        "C": "Que se trata de una clave OpenPGP.",
+        "D": "Que el archivo está firmado digitalmente."
+      },
+      "answer": "A",
+      "explanation": "La firma MZ es característica del encabezado DOS usado por archivos PE; conviene inspeccionar la estructura antes de abrir.",
+      "source": "Ampliación · Ampliación: análisis seguro",
+      "coverage": "Ampliación",
+      "difficulty": "Avanzado",
+      "questionPage": 21,
+      "solutionPage": 13,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "pe",
+        "formatos-archivo"
+      ]
+    },
+    {
+      "id": 542,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 100,
+      "title": "Análisis de tráfico y canales encubiertos",
+      "practice": "Banco de parcial · Unidad 10",
+      "topic": "csirt",
+      "prompt": "Al reconstruir fragmentos codificados transmitidos por paquetes, ¿qué condición es importante?",
+      "options": {
+        "A": "Ignorar el orden de llegada.",
+        "B": "Unir los fragmentos en orden correcto y detectar faltantes o duplicados.",
+        "C": "Reordenarlos alfabéticamente siempre.",
+        "D": "Convertirlos primero a RSA."
+      },
+      "answer": "B",
+      "explanation": "La secuencia y la integridad de fragmentos determinan si la reconstrucción representa los datos originales.",
+      "source": "Ampliación · Ampliación: trazabilidad",
+      "coverage": "Ampliación",
+      "difficulty": "Intermedio",
+      "questionPage": 21,
+      "solutionPage": 13,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "captura-red",
+        "writeup"
+      ]
+    },
+    {
+      "id": 543,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 101,
+      "title": "Malware: análisis, ejecución e IOC",
+      "practice": "Banco de parcial · Unidad 11",
+      "topic": "malware",
+      "prompt": "¿Qué es el análisis estático de malware?",
+      "options": {
+        "A": "Ejecutarlo en producción para ver a quién infecta.",
+        "B": "Borrar automáticamente el ejecutable.",
+        "C": "Inspeccionar el artefacto sin ejecutar su comportamiento.",
+        "D": "Conectarlo al servidor atacante para probarlo."
+      },
+      "answer": "C",
+      "explanation": "Se estudian bytes, cadenas, cabeceras, metadatos y código sin poner en marcha la muestra.",
+      "source": "Base · P2.3 p.1",
+      "coverage": "Base",
+      "difficulty": "Básico",
+      "questionPage": 22,
+      "solutionPage": 13,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "estatico"
+      ]
+    },
+    {
+      "id": 544,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 102,
+      "title": "Malware: análisis, ejecución e IOC",
+      "practice": "Banco de parcial · Unidad 11",
+      "topic": "malware",
+      "prompt": "¿Qué herramienta permite ver cadenas de texto legibles embebidas en un binario?",
+      "options": {
+        "A": "strings.",
+        "B": "whois.",
+        "C": "gpg --gen-key.",
+        "D": "ssh-keygen."
+      },
+      "answer": "A",
+      "explanation": "strings extrae secuencias legibles y sirve para detectar URLs, rutas o nombres de claves, aunque el malware puede ofuscarlas.",
+      "source": "Base · P2.3 p.1",
+      "coverage": "Base",
+      "difficulty": "Intermedio",
+      "questionPage": 22,
+      "solutionPage": 13,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "strings"
+      ]
+    },
+    {
+      "id": 545,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 103,
+      "title": "Malware: análisis, ejecución e IOC",
+      "practice": "Banco de parcial · Unidad 11",
+      "topic": "malware",
+      "prompt": "¿Cuál de estos ejemplos es un IOC de red útil para investigar una infección?",
+      "options": {
+        "A": "La marca del monitor.",
+        "B": "El número de filas del terminal.",
+        "C": "El tema de colores de PowerShell.",
+        "D": "Un dominio al que la muestra se conecta."
+      },
+      "answer": "D",
+      "explanation": "Dominios, IP, URL y patrones de tráfico pueden ayudar a detectar compromisos, con control de falsos positivos.",
+      "source": "Base · P2.3 p.1",
+      "coverage": "Base",
+      "difficulty": "Intermedio",
+      "questionPage": 22,
+      "solutionPage": 13,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "ioc"
+      ]
+    },
+    {
+      "id": 546,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 104,
+      "title": "Malware: análisis, ejecución e IOC",
+      "practice": "Banco de parcial · Unidad 11",
+      "topic": "malware",
+      "prompt": "Una muestra aparenta ser calculadora, ejecuta calc.exe y además descarga un ejecutable. ¿Qué clasificación es razonable?",
+      "options": {
+        "A": "Compresor sin pérdidas.",
+        "B": "Troyano que presenta una fachada legítima.",
+        "C": "Algoritmo criptográfico asimétrico.",
+        "D": "Servidor DNS recursivo."
+      },
+      "answer": "B",
+      "explanation": "Oculta funcionalidad maliciosa detrás de una apariencia normal; la práctica clasifica ese caso como troyano.",
+      "source": "Base · P2.3 p.1; W2 pp.7-8",
+      "coverage": "Base",
+      "difficulty": "Intermedio",
+      "questionPage": 22,
+      "solutionPage": 13,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "familias"
+      ]
+    },
+    {
+      "id": 547,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 105,
+      "title": "Malware: análisis, ejecución e IOC",
+      "practice": "Banco de parcial · Unidad 11",
+      "topic": "malware",
+      "prompt": "¿Por qué puede ser útil un entorno aislado con monitoreo para análisis dinámico?",
+      "options": {
+        "A": "Porque cualquier muestra deja de ser maliciosa.",
+        "B": "Porque evita recopilar logs.",
+        "C": "Porque permite observar archivos, registro, procesos y red minimizando exposición.",
+        "D": "Porque transforma automáticamente el malware en código fuente."
+      },
+      "answer": "C",
+      "explanation": "Un laboratorio controlado permite ver comportamiento e interacciones, aunque el aislamiento debe planificarse y no garantiza riesgo cero.",
+      "source": "Ampliación · Ampliación: análisis dinámico",
+      "coverage": "Ampliación",
+      "difficulty": "Avanzado",
+      "questionPage": 22,
+      "solutionPage": 13,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "laboratorio",
+        "dinamico"
+      ]
+    },
+    {
+      "id": 548,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 106,
+      "title": "Malware: análisis, ejecución e IOC",
+      "practice": "Banco de parcial · Unidad 11",
+      "topic": "malware",
+      "prompt": "¿Cuál es el uso correcto de VirusTotal o Hybrid Analysis en el contexto de la práctica?",
+      "options": {
+        "A": "Complementar el análisis con detecciones e indicadores, interpretándolos críticamente.",
+        "B": "Dar por buena toda detección sin análisis.",
+        "C": "Subir contraseñas y archivos secretos empresariales para consulta pública.",
+        "D": "Desactivar medidas defensivas en el host real."
+      },
+      "answer": "A",
+      "explanation": "Son fuentes de señales y contexto, no veredictos absolutos; se debe considerar además la confidencialidad de las muestras subidas.",
+      "source": "Base · P2.3 p.1",
+      "coverage": "Base",
+      "difficulty": "Intermedio",
+      "questionPage": 23,
+      "solutionPage": 13,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "antivirus"
+      ]
+    },
+    {
+      "id": 549,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 107,
+      "title": "Malware: análisis, ejecución e IOC",
+      "practice": "Banco de parcial · Unidad 11",
+      "topic": "malware",
+      "prompt": "En un archivo PE, ¿qué información puede aportar CFF Explorer?",
+      "options": {
+        "A": "Los mensajes SMTP del atacante por defecto.",
+        "B": "Una lista de contraseñas de todas las cuentas.",
+        "C": "La ubicación física del computador.",
+        "D": "Secciones, imports, cabeceras y otras propiedades del ejecutable."
+      },
+      "answer": "D",
+      "explanation": "El formato PE incluye cabeceras, secciones e importaciones que ayudan a formular hipótesis sobre el programa.",
+      "source": "Ampliación · Ampliación: PE",
+      "coverage": "Ampliación",
+      "difficulty": "Intermedio",
+      "questionPage": 23,
+      "solutionPage": 14,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "pe",
+        "recursos-pe"
+      ]
+    },
+    {
+      "id": 550,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 108,
+      "title": "Malware: análisis, ejecución e IOC",
+      "practice": "Banco de parcial · Unidad 11",
+      "topic": "malware",
+      "prompt": "¿Cuál es una limitación de usar sólo el hash SHA-256 del malware como detector?",
+      "options": {
+        "A": "Identifica automáticamente familias completas pese a cualquier modificación.",
+        "B": "Una modificación mínima del archivo puede cambiar por completo su hash.",
+        "C": "El hash necesariamente indica C2.",
+        "D": "SHA-256 sólo funciona con archivos de texto."
+      },
+      "answer": "B",
+      "explanation": "Los hashes exactos sirven para muestras idénticas; variantes recompiladas u ofuscadas requieren señales más generales.",
+      "source": "Ampliación · Ampliación: IOC y hashes",
+      "coverage": "Ampliación",
+      "difficulty": "Avanzado",
+      "questionPage": 23,
+      "solutionPage": 14,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "ioc",
+        "sha-256"
+      ]
+    },
+    {
+      "id": 551,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 109,
+      "title": "Malware: análisis, ejecución e IOC",
+      "practice": "Banco de parcial · Unidad 11",
+      "topic": "malware",
+      "prompt": "Una muestra intenta conectarse primero a IP:puerto y luego a un dominio. ¿Qué es importante documentar?",
+      "options": {
+        "A": "Sólo la conexión exitosa, ignorando fallos.",
+        "B": "Sólo el nombre local del usuario.",
+        "C": "Ambos destinos, el orden, resultados y datos transmitidos.",
+        "D": "Únicamente el hash del dominio de destino."
+      },
+      "answer": "C",
+      "explanation": "Las conexiones fallidas y exitosas revelan estrategia de comunicación, indicadores y condiciones del entorno.",
+      "source": "Base · P2.3 p.2; W2 pp.11-12",
+      "coverage": "Base",
+      "difficulty": "Intermedio",
+      "questionPage": 23,
+      "solutionPage": 14,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "captura-red",
+        "ioc"
+      ]
+    },
+    {
+      "id": 552,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 110,
+      "title": "Malware: análisis, ejecución e IOC",
+      "practice": "Banco de parcial · Unidad 11",
+      "topic": "malware",
+      "prompt": "¿Qué práctica mejora la trazabilidad de una investigación de malware?",
+      "options": {
+        "A": "Conservar copia de muestra, hashes, tiempos y observaciones de cada prueba.",
+        "B": "Editar el binario original sin guardar versiones.",
+        "C": "Compartir públicamente todo dato sensible observado.",
+        "D": "Desactivar el reloj del sistema."
+      },
+      "answer": "A",
+      "explanation": "Mantener evidencias reproducibles y registrar qué se hizo ayuda a fundamentar conclusiones y recuperar el procedimiento.",
+      "source": "Ampliación · Ampliación: evidencia",
+      "coverage": "Ampliación",
+      "difficulty": "Avanzado",
+      "questionPage": 23,
+      "solutionPage": 14,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "writeup",
+        "datos-sensibles"
+      ]
+    },
+    {
+      "id": 553,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 111,
+      "title": "Persistencia, macros y dispositivos USB",
+      "practice": "Banco de parcial · Unidad 12",
+      "topic": "malware",
+      "prompt": "¿Para qué se usa frecuentemente HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run?",
+      "options": {
+        "A": "Guardar el registro autoritativo DNS.",
+        "B": "Configurar un RIR.",
+        "C": "Calcular hashes de NTFS.",
+        "D": "Iniciar programas automáticamente al ingresar el usuario."
+      },
+      "answer": "D",
+      "explanation": "Las entradas Run de HKCU son uno de los mecanismos habituales de persistencia tras el inicio de sesión.",
+      "source": "Base · P2.3 p.2; W2 p.11",
+      "coverage": "Base",
+      "difficulty": "Intermedio",
+      "questionPage": 24,
+      "solutionPage": 14,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "run-key"
+      ]
+    },
+    {
+      "id": 554,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 112,
+      "title": "Persistencia, macros y dispositivos USB",
+      "practice": "Banco de parcial · Unidad 12",
+      "topic": "malware",
+      "prompt": "La entrada HKCR\\*\\shellex\\ContextMenuHandlers\\Nombre apunta a una técnica de persistencia mediante:",
+      "options": {
+        "A": "Registros MX.",
+        "B": "Extensión del shell de Windows vinculada al menú contextual.",
+        "C": "Cifrado AES-CBC.",
+        "D": "Cookies HTTP."
+      },
+      "answer": "B",
+      "explanation": "Un manejador de menú contextual registrado como extensión del shell puede cargar componentes al interactuar con archivos.",
+      "source": "Base · P2.3 p.1; W2 pp.9-10",
+      "coverage": "Base",
+      "difficulty": "Intermedio",
+      "questionPage": 24,
+      "solutionPage": 14,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "registry",
+        "run-key"
+      ]
+    },
+    {
+      "id": 555,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 113,
+      "title": "Persistencia, macros y dispositivos USB",
+      "practice": "Banco de parcial · Unidad 12",
+      "topic": "malware",
+      "prompt": "En Windows, un GUID en una clave de registro COM suele usarse como:",
+      "options": {
+        "A": "Identificador de una clase o componente registrado.",
+        "B": "Dirección IPv6 del host.",
+        "C": "Digest SHA-512.",
+        "D": "Password del administrador."
+      },
+      "answer": "A",
+      "explanation": "Los GUID/CLSID identifican componentes COM; su presencia concreta exige correlación con las claves pertinentes.",
+      "source": "Base · P2.3 p.1",
+      "coverage": "Base",
+      "difficulty": "Básico",
+      "questionPage": 24,
+      "solutionPage": 14,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "identificadores",
+        "registry"
+      ]
+    },
+    {
+      "id": 556,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 114,
+      "title": "Persistencia, macros y dispositivos USB",
+      "practice": "Banco de parcial · Unidad 12",
+      "topic": "malware",
+      "prompt": "El VBS de los ejercicios arma caracteres con chr(B(i)+4). ¿Qué técnica ejemplifica?",
+      "options": {
+        "A": "Cifrado AES-256 con autenticación.",
+        "B": "Criptografía de curva elíptica.",
+        "C": "Ofuscación mediante desplazamiento aritmético de códigos de caracteres.",
+        "D": "Rescate de clave PGP."
+      },
+      "answer": "C",
+      "explanation": "Un arreglo de números se convierte en texto sumando 4 y aplicando Chr; el texto real se reconstruye sin ejecutar la carga.",
+      "source": "Base · P2.3 p.2; W2 pp.12-15",
+      "coverage": "Base",
+      "difficulty": "Intermedio",
+      "questionPage": 24,
+      "solutionPage": 14,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "ofuscacion-vbs"
+      ]
+    },
+    {
+      "id": 557,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 115,
+      "title": "Persistencia, macros y dispositivos USB",
+      "practice": "Banco de parcial · Unidad 12",
+      "topic": "malware",
+      "prompt": "Si un script añade entradas que mapean muchos dominios legítimos a una IP controlada dentro del archivo hosts, ¿qué efecto busca?",
+      "options": {
+        "A": "Firmar los correos por DKIM.",
+        "B": "Crear claves RSA públicas.",
+        "C": "Actualizar el DNS raíz.",
+        "D": "Redirigir localmente resoluciones de esos nombres a la IP elegida."
+      },
+      "answer": "D",
+      "explanation": "El archivo hosts puede prevalecer para la resolución local de nombres y desviar el tráfico hacia otra dirección.",
+      "source": "Base · W2 pp.12-15",
+      "coverage": "Base",
+      "difficulty": "Intermedio",
+      "questionPage": 24,
+      "solutionPage": 15,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "registry"
+      ]
+    },
+    {
+      "id": 558,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 116,
+      "title": "Persistencia, macros y dispositivos USB",
+      "practice": "Banco de parcial · Unidad 12",
+      "topic": "malware",
+      "prompt": "¿Qué riesgo presentan los documentos .docm y libros Excel con macros recibidos de fuentes no confiables?",
+      "options": {
+        "A": "Que siempre tienen errores de tipografía.",
+        "B": "Que el código VBA puede ejecutar acciones maliciosas si se habilita.",
+        "C": "Que los ficheros dejan de admitir fórmulas.",
+        "D": "Que todo archivo .docm es una imagen."
+      },
+      "answer": "B",
+      "explanation": "Las macros pueden manipular archivos, registro y red; conviene analizar sin habilitarlas en el equipo habitual.",
+      "source": "Base · P2.3 p.2; W2 pp.16-18",
+      "coverage": "Base",
+      "difficulty": "Intermedio",
+      "questionPage": 25,
+      "solutionPage": 15,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "macros-documentos"
+      ]
+    },
+    {
+      "id": 559,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 117,
+      "title": "Persistencia, macros y dispositivos USB",
+      "practice": "Banco de parcial · Unidad 12",
+      "topic": "malware",
+      "prompt": "¿Qué herramientas son razonables para inspeccionar macros de Office sin abrirlas para ejecución?",
+      "options": {
+        "A": "oletools/olevba y extracción estática de VBA.",
+        "B": "Una sesión SMTP sin TLS.",
+        "C": "RDAP y NIC.ar.",
+        "D": "Una contraseña por fuerza bruta sobre SSH."
+      },
+      "answer": "A",
+      "explanation": "Herramientas de análisis estático permiten extraer y examinar VBA, indicadores y patrones sospechosos.",
+      "source": "Base · W2 pp.16-18",
+      "coverage": "Base",
+      "difficulty": "Intermedio",
+      "questionPage": 25,
+      "solutionPage": 15,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "macros-documentos",
+        "estatico"
+      ]
+    },
+    {
+      "id": 560,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 118,
+      "title": "Persistencia, macros y dispositivos USB",
+      "practice": "Banco de parcial · Unidad 12",
+      "topic": "malware",
+      "prompt": "¿Qué función cumple Regshot en un laboratorio de análisis de malware?",
+      "options": {
+        "A": "Romper RSA sin factorizar n.",
+        "B": "Traducir automáticamente archivos DOCM.",
+        "C": "Comparar instantáneas del Registro antes y después de una prueba.",
+        "D": "Crear entradas DNS AAAA."
+      },
+      "answer": "C",
+      "explanation": "Comparar estados permite detectar modificaciones al Registro que acompañan la ejecución de una muestra.",
+      "source": "Ampliación · Ampliación: cambios en el sistema",
+      "coverage": "Ampliación",
+      "difficulty": "Intermedio",
+      "questionPage": 25,
+      "solutionPage": 15,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "regshot",
+        "registry"
+      ]
+    },
+    {
+      "id": 561,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 119,
+      "title": "Persistencia, macros y dispositivos USB",
+      "practice": "Banco de parcial · Unidad 12",
+      "topic": "malware",
+      "prompt": "¿Qué evidencia adicional conviene pedir antes de atribuir una persistencia a una clave Run sospechosa?",
+      "options": {
+        "A": "Sólo el color del icono.",
+        "B": "La longitud del nombre de la clave.",
+        "C": "La región del registrador de dominios.",
+        "D": "El valor de la entrada, la ruta del binario, firma, hash y eventos de ejecución."
+      },
+      "answer": "D",
+      "explanation": "La clave es una pista; correlacionar ubicación, proceso e historial reduce falsas atribuciones.",
+      "source": "Ampliación · Ampliación: detección de persistencia",
+      "coverage": "Ampliación",
+      "difficulty": "Avanzado",
+      "questionPage": 25,
+      "solutionPage": 15,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "run-key",
+        "ioc"
+      ]
+    },
+    {
+      "id": 562,
+      "origin": "practice",
+      "collection": "exam",
+      "sourceNumber": 120,
+      "title": "Persistencia, macros y dispositivos USB",
+      "practice": "Banco de parcial · Unidad 12",
+      "topic": "malware",
+      "prompt": "Para desofuscar VBA que construye strings con Chr, XOR y expresiones aritméticas, ¿qué método es más seguro?",
+      "options": {
+        "A": "Ejecutar el documento y habilitar contenido para observarlo.",
+        "B": "Simplificar y evaluar las expresiones de forma estática, aislando cualquier llamada con efectos.",
+        "C": "Importar macros en el Office del usuario principal.",
+        "D": "Eliminar las advertencias de seguridad antes de abrirlo."
+      },
+      "answer": "B",
+      "explanation": "La desofuscación estática permite recuperar cadenas y flujo lógico sin disparar operaciones de red, archivos o registro.",
+      "source": "Ampliación · Ampliación: análisis de ofuscación",
+      "coverage": "Ampliación",
+      "difficulty": "Avanzado",
+      "questionPage": 25,
+      "solutionPage": 15,
+      "questionDocument": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "solutionDocument": "Parcial_IC_Solucionario_Razonado.pdf",
+      "conceptIds": [
+        "ofuscacion-vbs",
+        "macros-documentos"
+      ]
+    }
+  ]
+}

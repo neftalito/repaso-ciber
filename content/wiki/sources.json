@@ -16,5 +16,8 @@
   { "id": "theory-solutions", "title": "Solucionario de teoría", "kind": "companion", "pageCount": 43, "url": "docs/IC_2026_Cripto_CSIRT_Malware_Solucionario.pdf" },
   { "id": "practice-guide", "title": "Guía de estudio de prácticas 1 y 2", "kind": "companion", "pageCount": 18, "url": "docs/Guia_de_estudio_IC_Practicas_1_y_2.pdf" },
   { "id": "practice-questions", "title": "Preguntas basadas en prácticas 1 y 2", "kind": "companion", "pageCount": 16, "url": "docs/IC2026_Preguntas_Basadas_en_Practicas_1_y_2.pdf" },
-  { "id": "practice-solutions", "title": "Solucionario de prácticas 1 y 2", "kind": "companion", "pageCount": 22, "url": "docs/IC2026_Solucionario_Practicas_1_y_2.pdf" }
+  { "id": "practice-solutions", "title": "Solucionario de prácticas 1 y 2", "kind": "companion", "pageCount": 22, "url": "docs/IC2026_Solucionario_Practicas_1_y_2.pdf" },
+  { "id": "dh-rsa-guide", "title": "Guía de Diffie–Hellman y RSA: ejemplos numéricos completos", "kind": "companion", "pageCount": 9, "url": "docs/Guia_Diffie_Hellman_y_RSA.pdf" },
+  { "id": "exam-questions", "title": "Banco complementario de 120 preguntas de prácticas", "kind": "companion", "pageCount": 25, "url": "docs/Parcial_IC_Preguntas_Multiple_Choice.pdf" },
+  { "id": "exam-solutions", "title": "Solucionario razonado de las 120 preguntas de prácticas", "kind": "companion", "pageCount": 15, "url": "docs/Parcial_IC_Solucionario_Razonado.pdf" }
 ]

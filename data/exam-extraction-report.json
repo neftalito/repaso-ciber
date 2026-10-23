@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "extractor": "scripts/extract_exam_questions.py",
+  "pypdfVersion": "6.20.1",
+  "checks": {
+    "questions": 120,
+    "originalOptions": 480,
+    "solutionOptionsMatched": 120,
+    "quickKeyMatched": 120,
+    "distractorExplanations": 360,
+    "topicCounts": {
+      "cripto": 60,
+      "csirt": 40,
+      "malware": 20
+    }
+  },
+  "documents": [
+    {
+      "file": "Parcial_IC_Preguntas_Multiple_Choice.pdf",
+      "pages": 25,
+      "sha256": "98db6052bb1912e7050a89cc5b06f43fbd87c9ddb97e6c4597d5446d0c9e95e8"
+    },
+    {
+      "file": "Parcial_IC_Solucionario_Razonado.pdf",
+      "pages": 15,
+      "sha256": "d321980ea2bd7283b724475edf1719daffc7a23d7e1d3b69f63316272882863f"
+    },
+    {
+      "file": "Guia_Diffie_Hellman_y_RSA.pdf",
+      "pages": 9,
+      "sha256": "6d95e7178a95ca4381b938eca155a2c658aa42f590bae4dc6ed0656613db57ef"
+    }
+  ]
+}

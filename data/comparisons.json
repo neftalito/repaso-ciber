@@ -871,6 +871,93 @@
         "integridad-archivo",
         "ip"
       ]
+    },
+    {
+      "id": "comparar-diffie-hellman-rsa",
+      "title": "Diffie–Hellman y RSA: acuerdo, cifrado y autenticación",
+      "topics": [
+        "cripto"
+      ],
+      "columns": [
+        {
+          "label": "Diffie–Hellman",
+          "conceptId": "diffie-hellman"
+        },
+        {
+          "label": "RSA",
+          "conceptId": "rsa"
+        }
+      ],
+      "rows": [
+        {
+          "aspect": "Finalidad",
+          "values": [
+            "Acordar material secreto común sin enviarlo directamente.",
+            "Cifrar con clave pública o firmar mediante esquemas específicos."
+          ]
+        },
+        {
+          "aspect": "Datos públicos",
+          "values": [
+            "p, g y valores A=g^a mod p, B=g^b mod p.",
+            "Módulo n y exponente e."
+          ]
+        },
+        {
+          "aspect": "Material secreto",
+          "values": [
+            "Exponentes privados a, b y secreto compartido resultante.",
+            "Factores p, q y exponente privado d."
+          ]
+        },
+        {
+          "aspect": "Cálculo didáctico",
+          "values": [
+            "s=B^a mod p=A^b mod p.",
+            "n=p·q; ed≡1 mod φ(n); c=m^e mod n; m=c^d mod n."
+          ]
+        },
+        {
+          "aspect": "Problema de seguridad",
+          "values": [
+            "Relacionado con problemas de logaritmo discreto y de cálculo del secreto DH en el grupo elegido.",
+            "Factorizar n permite recuperar material privado; el esquema completo requiere además protección apropiada."
+          ]
+        },
+        {
+          "aspect": "Autenticación",
+          "values": [
+            "El intercambio básico necesita un mecanismo adicional para impedir sustitución de valores.",
+            "La clave pública debe vincularse de forma confiable al destinatario o firmante."
+          ]
+        },
+        {
+          "aspect": "Uso de los datos",
+          "values": [
+            "Se deriva una clave adecuada, por ejemplo mediante HKDF, y luego se cifran los datos.",
+            "Puede proteger una clave de sesión con OAEP; PSS corresponde a firmas."
+          ]
+        }
+      ],
+      "takeaway": "Acordar un secreto, cifrar datos y autenticar identidades son funciones diferentes. Los números pequeños y RSA sin padding sirven para estudiar cuentas, no para copiar el ejemplo a una aplicación.",
+      "example": "En la guía, DH con p=23 y g=5 obtiene s=2. RSA con p=61, q=53 y e=17 obtiene n=3233 y d=2753. Ambos ejemplos recuperan HOLA mediante procedimientos diferentes.",
+      "manualPages": [],
+      "dhRsaPages": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "conceptIds": [
+        "diffie-hellman",
+        "rsa",
+        "rsa-padding",
+        "kdf",
+        "mitm"
+      ]
     }
   ]
 }

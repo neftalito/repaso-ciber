@@ -20,7 +20,7 @@ const server = createServer(async (req,res) => {
 let browser;
 const errors=[];
 const glossaryEntryCount=JSON.parse(await readFile(new URL('../data/glossary.json',import.meta.url),'utf8')).entries.length;
-const studyBank=[...JSON.parse(await readFile(new URL('../data/questions.json',import.meta.url),'utf8')).questions,...JSON.parse(await readFile(new URL('../data/practice-questions.json',import.meta.url),'utf8')).questions];
+const studyBank=[...JSON.parse(await readFile(new URL('../data/questions.json',import.meta.url),'utf8')).questions,...JSON.parse(await readFile(new URL('../data/practice-questions.json',import.meta.url),'utf8')).questions,...JSON.parse(await readFile(new URL('../data/exam-questions.json',import.meta.url),'utf8')).questions];
 async function assertGlossaryLayout(page, width) {
   const layout = await page.evaluate(() => {
     const box = selector => {
@@ -48,7 +48,7 @@ try {
   const page=await context.newPage(); page.on('pageerror',error=>errors.push(error.message));
   page.on('response',r=>{ if(r.status()>=400) errors.push(`${r.status()} ${r.url()}`); });
   await page.goto(url); await page.waitForSelector('#study-layout:visible');
-  assert.equal(await page.locator('[data-question]').count(),442);
+  assert.equal(await page.locator('[data-question]').count(),562);
   assert.equal(await page.locator('#confirm-answer').isDisabled(),true);
   assert.equal(await page.locator('.option-explanation').count(),0);
   await mkdir(new URL('../test-results/',import.meta.url),{recursive:true});
@@ -77,7 +77,7 @@ try {
   await page.locator('#next-question-inline').click(); assert.match(await page.locator('#question-position').textContent(),/002/);
   await page.locator('#previous-question').click(); assert.equal(await page.locator('#answer-options > details[open]').count(),0);
   await page.locator('#topic-filter').selectOption('malware'); await page.locator('#status-filter').selectOption('pending');
-  assert.equal(await page.locator('[data-question]').count(),147);
+  assert.equal(await page.locator('[data-question]').count(),167);
   await page.locator('#next-question').click(); await page.reload(); await page.waitForSelector('#study-layout:visible');
   assert.match(await page.locator('#question-position').textContent(),/228/); assert.equal(await page.locator('#topic-filter').inputValue(),'malware');
   await page.locator('#manage-progress').click();
@@ -104,6 +104,7 @@ try {
   await studyPage.goto(url); await studyPage.waitForSelector('#study-layout:visible');
   await studyPage.locator('#origin-filter').selectOption('practice');
   await studyPage.locator('#topic-filter').selectOption('csirt');
+  await studyPage.locator('#bank-filter').selectOption('guides');
   const studyPrevious=await studyPage.evaluate(()=>JSON.parse(localStorage.getItem('ic2026.progress.v1')).view);
   await studyPage.locator('#open-study').focus(); await studyPage.keyboard.press('Enter');
   assert.equal(await studyPage.locator('#study-dialog').isVisible(),true);
@@ -157,6 +158,45 @@ try {
   assert.deepEqual(await studyPage.evaluate(()=>JSON.parse(localStorage.getItem('ic2026.progress.v1')).view),studyPrevious);
   assert.equal(await studyPage.locator('#origin-filter').isVisible(),true);
   await studyContext.close();
+  const examContext=await browser.newContext({viewport:{width:1440,height:1000}});
+  const examPage=await examContext.newPage();examPage.on('pageerror',e=>errors.push(e.message));
+  await examPage.goto(url);await examPage.waitForSelector('#study-layout:visible');
+  await examPage.locator('#bank-filter').selectOption('exam');
+  assert.equal(await examPage.locator('#origin-filter').inputValue(),'practice');
+  assert.equal(await examPage.locator('[data-question]').count(),120);
+  assert.equal(await examPage.locator('#answer-options input').count(),4);
+  assert.equal(await examPage.locator('#answer-options input[value="E"]').count(),0);
+  assert.equal(await examPage.locator('#question-collection').isVisible(),true);
+  assert.match(await examPage.locator('#practice-context').textContent(),/Pregunta original 001/);
+  await examPage.locator('input[value="A"]').check();await examPage.locator('#confirm-answer').click();
+  assert.equal(await examPage.locator('#answer-options details').count(),4);
+  assert.equal(await examPage.locator('#answer-options details[open]').getAttribute('data-option'),'A');
+  assert.match(await examPage.locator('[data-option="B"] .option-reference a').getAttribute('href'),/Parcial_IC_Solucionario_Razonado.pdf#page=2/);
+  await examPage.locator('[data-option="B"] summary').focus();await examPage.keyboard.press('Enter');
+  assert.equal(await examPage.locator('[data-option="B"]').getAttribute('open'),'');
+  await examPage.locator('#retry-answer').click();assert.equal(await examPage.locator('.option-explanation').count(),0);
+  await examPage.locator('#show-hint').click();await examPage.locator('input[value="B"]').check();await examPage.locator('#confirm-answer').click();
+  await examPage.reload();await examPage.waitForSelector('#study-layout:visible');
+  assert.equal(await examPage.locator('#bank-filter').inputValue(),'exam');
+  assert.equal(await examPage.locator('#answer-options details[open]').count(),0);
+  await examPage.locator('#manage-progress').click();
+  const examDownloadPromise=examPage.waitForEvent('download');await examPage.locator('#export-progress').click();
+  const examDownload=await examDownloadPromise,examExport=await readFile(await examDownload.path(),'utf8');
+  assert.equal(JSON.parse(examExport).view.bank,'exam');
+  const badExam=JSON.parse(examExport);badExam.attempts.at(-1).option='E';
+  await examPage.locator('#import-progress').setInputFiles({name:'invalid-option.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(badExam))});
+  await examPage.waitForFunction(()=>document.querySelector('#transfer-status').textContent.includes('opción desconocida'));
+  examPage.once('dialog',d=>d.accept());
+  await examPage.locator('#import-progress').setInputFiles({name:'partial.json',mimeType:'application/json',buffer:Buffer.from(examExport)});
+  await examPage.waitForFunction(()=>document.querySelector('#transfer-status').textContent.includes('Progreso importado'));await examPage.keyboard.press('Escape');
+  await examPage.locator('#open-study').click();await examPage.locator('#study-topic').selectOption('cripto');
+  assert.equal(await examPage.locator('#study-bank').inputValue(),'exam');assert.equal(await examPage.locator('#study-count').getAttribute('max'),'60');
+  await examPage.locator('#study-count').fill('4');await examPage.locator('#start-study').click();
+  const examRoute=await examPage.evaluate(()=>JSON.parse(localStorage.getItem('ic2026.progress.v1')).studySession.questionIds);
+  assert.equal(new Set(examRoute).size,4);assert.ok(examRoute.every(id=>id>=443&&id<=502));
+  await examPage.reload();await examPage.waitForSelector('#study-layout:visible');
+  assert.match(await examPage.locator('#study-session-filters').textContent(),/Banco del parcial/);
+  await examPage.locator('#end-study').click();await examContext.close();
   await page.goto(`${url}glosario.html#run-key`); await page.waitForSelector('#run-key');
   assert.equal(await page.locator('.glossary-entry').count(),glossaryEntryCount);
   await page.locator('#glossary-search').fill('criptografia simetrica'); assert.equal(await page.locator('#simetrica').count(),1);
@@ -181,6 +221,7 @@ try {
     assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,`Expanded option overflow at ${width}px`);
     if(width===390 || width===1440) await page.screenshot({path:fileURLToPath(new URL(`../test-results/opcion-desplegada-${width}.png`,import.meta.url)),fullPage:true});
     await page.locator('#origin-filter').selectOption('practice');
+    await page.locator('#bank-filter').selectOption('guides');
     assert.equal(await page.locator('[data-question]').count(),92);
     assert.equal(await page.locator('#question-origin').textContent(),'Práctica');
     await page.locator('[data-question="428"]').click();
@@ -216,6 +257,23 @@ try {
     assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,`Study question overflow at ${width}px`);
     if(width===390||width===1440) await page.screenshot({path:fileURLToPath(new URL(`../test-results/modo-estudio-recorrido-${width}.png`,import.meta.url)),fullPage:true});
     await page.locator('#end-study').click();
+    await page.locator('#bank-filter').selectOption('exam');
+    assert.equal(await page.locator('[data-question]').count(),120);
+    assert.equal(await page.locator('#answer-options input').count(),4);
+    await page.locator('input[value="A"]').check();await page.locator('#confirm-answer').click();
+    assert.equal(await page.locator('#answer-options details').count(),4);
+    assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,`Partial feedback overflow at ${width}px`);
+    await page.locator('[data-question="554"]').click();
+    assert.match(await page.locator('#question-title').textContent(),/ContextMenuHandlers/);
+    await page.locator('input[value="A"]').check();await page.locator('#confirm-answer').click();
+    assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,`Partial Windows path overflow at ${width}px`);
+    if(width===390||width===1440) await page.screenshot({path:new URL(`../test-results/parcial-${width}.png`,import.meta.url).pathname,fullPage:true});
+    await page.reload();await page.waitForSelector('#study-layout:visible');
+    assert.equal(await page.locator('#bank-filter').inputValue(),'exam');assert.match(await page.locator('#question-position').textContent(),/554/);
+    await page.goto(`${url}glosario.html#comparar-diffie-hellman-rsa`);await page.waitForSelector('#comparar-diffie-hellman-rsa[open]');
+    assert.ok(await page.locator('#comparar-diffie-hellman-rsa a[href="docs/Guia_Diffie_Hellman_y_RSA.pdf#page=9"]').count());
+    assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,`DH/RSA table overflow at ${width}px`);
+    if(width===390||width===1440) await page.screenshot({path:new URL(`../test-results/comparacion-dh-rsa-${width}.png`,import.meta.url).pathname,fullPage:true});
     await page.goto(`${url}glosario.html`); await page.waitForSelector('#base64');
     await assertGlossaryLayout(page, width);
     assert.equal(await page.locator('.glossary-entry').count(),glossaryEntryCount);
@@ -265,12 +323,12 @@ try {
   assert.equal(await page.locator('#glossary-search').inputValue(), '');
   await page.goto(`${url}glosario.html?q=base64&tema=cripto#edr`); await page.waitForSelector('#edr');
   assert.equal(await page.locator('#glossary-search').inputValue(),''); assert.equal(await page.locator('#glossary-topic').inputValue(),'all');
-  await page.goto(`${url}index.html?pregunta=442`); await page.waitForSelector('#study-layout:visible');
+  await page.goto(`${url}index.html?pregunta=562`); await page.waitForSelector('#study-layout:visible');
   await page.locator('.answer-option').nth(2).click(); await page.locator('#confirm-answer').click();
   assert.equal(await page.locator('#next-question-inline').isDisabled(),true);
   assert.equal(await page.locator('#next-question').isDisabled(),true);
   await page.locator('#reset-filters').click(); await page.locator('#origin-filter').selectOption('practice');
-  await page.locator('#topic-filter').selectOption('csirt');
+  await page.locator('#topic-filter').selectOption('csirt'); await page.locator('#bank-filter').selectOption('guides');
   assert.equal(await page.locator('[data-question]').count(),29);
   await page.locator('[data-question="391"]').click();
   await page.locator('input[value="A"]').check(); await page.locator('#confirm-answer').click();
@@ -296,6 +354,6 @@ try {
   const p=await blocked.newPage(); await p.goto(url); await p.waitForSelector('#study-layout:visible');
   await p.locator('.answer-option').nth(4).click(); await p.locator('#confirm-answer').click(); assert.equal(await p.locator('#storage-warning').isVisible(),true);
   assert.equal(await p.locator('#correct-count').textContent(),'1'); await blocked.close();
-  for(const file of ['Manual_IC2026_Cripto_CSIRT_Malware_Descarga.pdf','IC_2026_Cripto_CSIRT_Malware_350_Preguntas.pdf','IC_2026_Cripto_CSIRT_Malware_Solucionario.pdf','IC2026_Preguntas_Basadas_en_Practicas_1_y_2.pdf','IC2026_Solucionario_Practicas_1_y_2.pdf','Guia_de_estudio_IC_Practicas_1_y_2.pdf']) { const response=await context.request.get(`${url}docs/${file}`); assert.equal(response.status(),200); }
+  for(const file of ['Manual_IC2026_Cripto_CSIRT_Malware_Descarga.pdf','IC_2026_Cripto_CSIRT_Malware_350_Preguntas.pdf','IC_2026_Cripto_CSIRT_Malware_Solucionario.pdf','IC2026_Preguntas_Basadas_en_Practicas_1_y_2.pdf','IC2026_Solucionario_Practicas_1_y_2.pdf','Guia_de_estudio_IC_Practicas_1_y_2.pdf','Guia_Diffie_Hellman_y_RSA.pdf','Parcial_IC_Preguntas_Multiple_Choice.pdf','Parcial_IC_Solucionario_Razonado.pdf']) { const response=await context.request.get(`${url}docs/${file}`); assert.equal(response.status(),200); }
   assert.deepEqual(errors,[]); console.log('PASS: práctica, modo estudio aleatorio, glosario, progreso, teclado, columnas del glosario a 320/390/768/800/801/1024/1440/1920 px y subruta /ic2026/. Capturas en test-results/.');
 } finally { if(browser) await browser.close(); if(server.listening) await new Promise(resolve=>server.close(resolve)); }

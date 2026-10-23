@@ -11,8 +11,9 @@ from collections import defaultdict
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-CORPUS = ['data/questions.json', 'data/practice-questions.json',
-          'data/option-explanations.json', 'data/practice-option-explanations.json']
+BANK_FILES = ['data/questions.json', 'data/practice-questions.json', 'data/exam-questions.json']
+NOTE_FILES = ['data/option-explanations.json', 'data/practice-option-explanations.json', 'data/exam-option-explanations.json']
+CORPUS = BANK_FILES + NOTE_FILES
 TOKEN = re.compile(r'(?<!\w)[A-Za-z][A-Za-z0-9_]*(?:[-/][A-Za-z0-9_]+)*(?:\.\d+)*(?!\w)')
 WHOLE_TOKENS = {'S/MIME', 'PDF/A', 'TCP/25', 'HTTP/1.1', 'SHA-224/256/384/512'}
 
@@ -69,8 +70,8 @@ def audit():
             reason = excluded['tokens'][token]
             assert len(reason.strip()) > 15
             exclusions.append(dict(token=token, reason=reason, questionIds=sorted(ids)))
-    question_count = sum(len(read(path)['questions']) for path in CORPUS[:2])
-    note_count = sum(len(record['distractors']) for path in CORPUS[2:] for record in read(path)['questions'])
+    question_count = sum(len(read(path)['questions']) for path in BANK_FILES)
+    note_count = sum(len(record['distractors']) for path in NOTE_FILES for record in read(path)['questions'])
     note_label = f'{note_count:,}'.replace(',', '.')
     return dict(version=1, scope=f'{question_count} consignas, opciones, soluciones, referencias y {note_label} explicaciones de distractores; se revisan siglas, acrónimos, variantes y abreviaturas técnicas.',
                 checks=dict(questionsScanned=question_count, distractorExplanationsScanned=note_count, candidates=len(found),

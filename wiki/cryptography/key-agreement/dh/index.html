@@ -67,10 +67,43 @@
 <p>Esto no demuestra la identidad de los participantes. En DH básico, un atacante que sustituye los valores públicos puede acordar un secreto distinto con Alicia y con Bob. Para evitar ese ataque de intermediario, el protocolo debe autenticar el intercambio.</p>
 <details class="wiki-review"><summary>¿Por qué Diffie–Hellman no es una subclase de cifrado de mensajes?</summary><p>Porque acuerda un secreto compartido. Para cifrar los mensajes se necesita después un mecanismo de cifrado.</p>
 </details>
+<h2 id="segundo-ejemplo-completo-p-23-y-g-5">Segundo ejemplo completo: p=23 y g=5</h2>
+<p>La guía complementaria, página 3, usa <code>a=6</code> para Alice y <code>b=15</code> para Bob. Ambos conservan sus exponentes privados.</p>
+<table>
+<thead>
+<tr>
+<th>Paso</th>
+<th>Alice</th>
+<th>Bob</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Valor público que envía</td>
+<td>A=5^6 mod 23=8</td>
+<td>B=5^15 mod 23=19</td>
+</tr>
+<tr>
+<td>Valor que recibe</td>
+<td>B=19</td>
+<td>A=8</td>
+</tr>
+<tr>
+<td>Secreto que calcula</td>
+<td>s=19^6 mod 23=2</td>
+<td>s=8^15 mod 23=2</td>
+</tr>
+</tbody></table>
+<p>La coincidencia se debe a que ambas expresiones representan <code>g^(ab) mod p</code>. Para comprobar un cálculo sin escribir una potencia enorme se reducen cuadrados sucesivos: <code>5² mod 23=2</code>, <code>5⁴ mod 23=4</code> y <code>5⁸ mod 23=16</code>.</p>
+<h2 id="del-secreto-a-un-mensaje-demostracion-y-protocolo">Del secreto a un mensaje: demostración y protocolo</h2>
+<p>La página 4 usa el byte 2 para ilustrar XOR: los códigos ASCII de HOLA, <code>72,79,76,65</code>, se transforman en <code>74,77,78,67</code>, es decir, <strong>JMNC</strong>. Aplicar XOR con 2 otra vez recupera HOLA. Un XOR de byte repetido no ofrece la seguridad de un esquema de cifrado moderno.</p>
+<p>En un protocolo se deriva material adecuado a partir del secreto, por ejemplo mediante <strong>HKDF</strong>, y luego se cifra con un esquema autenticado. HKDF significa <em>HMAC-based Extract-and-Expand Key Derivation Function</em>: extracción y expansión de claves basada en HMAC. Esa derivación no autentica por sí sola la identidad de Alice o Bob.</p>
+<p>La guía menciona <strong>ECDH</strong>, acuerdo Diffie–Hellman sobre curvas elípticas, y X25519 como una función usada en ese acuerdo. Son mecanismos para establecer material secreto; la autenticación y el cifrado de datos siguen siendo funciones que debe cubrir el protocolo.</p>
+<details class="wiki-review"><summary>¿Qué puede ver una persona que intercepta este intercambio pequeño?</summary><p>Puede ver p=23, g=5, A=8 y B=19. No recibe los exponentes a y b ni el secreto s. Con parámetros tan pequeños puede ensayar exponentes y resolver fácilmente el ejemplo; no representa la dificultad buscada en un intercambio real con parámetros adecuados.</p>
+</details>
 
 
         <section class="wiki-section" aria-labelledby="relacionados"><h2 id="relacionados">Conceptos relacionados</h2><ul><li><a href="../../signature/">Firma digital</a></li><li><a href="../../pki/">Infraestructura de clave pública (PKI)</a></li><li><a href="../../encryption/modern/symmetric/">Criptografía simétrica</a></li></ul></section>
-        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Cripto, parte 2 · <a href="../../../../docs/catedra%20cosas/03%20-%20Cripto%20parte%202.pdf#page=10" target="_blank" rel="noopener">p. 10 ↗</a>. <span>Material de cátedra</span></li><li>Explicación de la práctica 1, parte 2 · <a href="../../../../docs/catedra%20cosas/Explicaci%C3%B3n%20-%20Pr%C3%A1ctica%201%20-%20Parte%202.pdf#page=4" target="_blank" rel="noopener">p. 4 ↗</a>. <span>Material de cátedra</span></li><li>Guía de estudio de prácticas 1 y 2 · <a href="../../../../docs/Guia_de_estudio_IC_Practicas_1_y_2.pdf#page=6" target="_blank" rel="noopener">p. 6 ↗</a>, <a href="../../../../docs/Guia_de_estudio_IC_Practicas_1_y_2.pdf#page=7" target="_blank" rel="noopener">p. 7 ↗</a>. <span>Material complementario</span></li><li>Solucionario de prácticas 1 y 2 · <a href="../../../../docs/IC2026_Solucionario_Practicas_1_y_2.pdf#page=8" target="_blank" rel="noopener">p. 8 ↗</a>. <span>Material complementario</span></li><li>Glosario · <a href="../../../../glosario.html#diffie-hellman">Diffie–Hellman: acuerdo de secreto ↗</a></li><li><a href="../../../../glosario.html">Explorar el glosario completo ↗</a></li></ul></section>
+        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Cripto, parte 2 · <a href="../../../../docs/catedra%20cosas/03%20-%20Cripto%20parte%202.pdf#page=10" target="_blank" rel="noopener">p. 10 ↗</a>. <span>Material de cátedra</span></li><li>Explicación de la práctica 1, parte 2 · <a href="../../../../docs/catedra%20cosas/Explicaci%C3%B3n%20-%20Pr%C3%A1ctica%201%20-%20Parte%202.pdf#page=4" target="_blank" rel="noopener">p. 4 ↗</a>. <span>Material de cátedra</span></li><li>Guía de estudio de prácticas 1 y 2 · <a href="../../../../docs/Guia_de_estudio_IC_Practicas_1_y_2.pdf#page=6" target="_blank" rel="noopener">p. 6 ↗</a>, <a href="../../../../docs/Guia_de_estudio_IC_Practicas_1_y_2.pdf#page=7" target="_blank" rel="noopener">p. 7 ↗</a>. <span>Material complementario</span></li><li>Solucionario de prácticas 1 y 2 · <a href="../../../../docs/IC2026_Solucionario_Practicas_1_y_2.pdf#page=8" target="_blank" rel="noopener">p. 8 ↗</a>. <span>Material complementario</span></li><li>Guía de Diffie–Hellman y RSA: ejemplos numéricos completos · <a href="../../../../docs/Guia_Diffie_Hellman_y_RSA.pdf#page=3" target="_blank" rel="noopener">p. 3 ↗</a>, <a href="../../../../docs/Guia_Diffie_Hellman_y_RSA.pdf#page=4" target="_blank" rel="noopener">p. 4 ↗</a>, <a href="../../../../docs/Guia_Diffie_Hellman_y_RSA.pdf#page=9" target="_blank" rel="noopener">p. 9 ↗</a>. <span>Material complementario</span></li><li>Banco complementario de 120 preguntas de prácticas · <a href="../../../../docs/Parcial_IC_Preguntas_Multiple_Choice.pdf#page=11" target="_blank" rel="noopener">p. 11 ↗</a>. <span>Material complementario</span></li><li>Solucionario razonado de las 120 preguntas de prácticas · <a href="../../../../docs/Parcial_IC_Solucionario_Razonado.pdf#page=7" target="_blank" rel="noopener">p. 7 ↗</a>. <span>Material complementario</span></li><li>Glosario · <a href="../../../../glosario.html#diffie-hellman">Diffie–Hellman: acuerdo de secreto ↗</a></li><li>Glosario · <a href="../../../../glosario.html#logaritmo-discreto">Logaritmo discreto y secreto de Diffie–Hellman ↗</a></li><li>Glosario · <a href="../../../../glosario.html#ecdh">ECDH y X25519: acuerdo con curvas elípticas ↗</a></li><li>Glosario · <a href="../../../../glosario.html#kdf">KDF: derivación de claves ↗</a></li><li><a href="../../../../glosario.html">Explorar el glosario completo ↗</a></li></ul></section>
       </main>
       <footer class="wiki-footer"><p>IC 2026 · Elaboración didáctica original basada en las fuentes indicadas. Las páginas citadas corresponden al archivo PDF, contando desde 1.</p><a href="../../../">Volver al inicio de la wiki</a></footer>
     </div>

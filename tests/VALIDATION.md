@@ -69,3 +69,14 @@ Pasaron localmente 25 pruebas de contenido/progreso y 80 comprobaciones DOM, ade
 La importación rechaza selecciones vacías, duplicadas, desconocidas o ajenas a los filtros, puntos de lectura incompatibles y resultados sin intento confirmado correspondiente. Los respaldos v1 anteriores siguen siendo válidos. Se comprobaron también cancelación de un nuevo recorrido, enlaces desde el glosario y funcionamiento en memoria con almacenamiento bloqueado.
 
 La suite de Chromium incluye la ventana nativa con Enter/Escape y restauración de foco, cantidades inválidas, navegación aleatoria con botones y teclado, resultado final, recarga y transferencia del recorrido, además de controles de desbordamiento del diálogo y del panel activo en los ocho anchos de 320 a 1920 px bajo `/ic2026/`. Genera capturas de configuración y recorrido a 390 y 1440 px en `test-results/`.
+
+
+## Integración del banco de parcial y la guía DH/RSA
+
+Se verifican 562 IDs consecutivos: 350 preguntas de teoría, 92 adaptaciones de prácticas y 120 preguntas originales del parcial. La extracción comprueba 480 opciones originales A–D, 120 correspondencias con el texto del solucionario y su clave rápida y 360 explicaciones de distractores. El informe registra los hashes y las páginas de los tres PDF. Las 442 preguntas anteriores conservan sus IDs y contenido.
+
+Pasaron localmente 30 pruebas de contenido/progreso y 92 comprobaciones DOM, además de la validación de datos y extracción reproducible. Incluyen mezcla de preguntas de cuatro y cinco opciones, rechazo de una opción E inexistente, filtros por colección/origen/tema/estado, selección aleatoria del nuevo banco, recarga de sesiones, progreso v1 anterior, reintentos y referencias a las páginas correctas. Los cálculos comprueban A=8, B=19, s=2, HOLA↔JMNC con XOR 2, inverso 2753 módulo 3120, los cuatro bloques RSA de HOLA y el repaso 7³ mod 55=13.
+
+Se revisan 138 conceptos, 14 comparaciones y 330 candidatos de siglas, sin candidatos pendientes. La wiki conserva 170 páginas canónicas y 34 redirecciones; su generador comprueba 33.384 enlaces locales y la auditoría 173 respuestas de repaso.
+
+La suite de Chromium incorpora el nuevo banco, sus cuatro acordeones, filtro de colección en Modo estudio y transferencia del progreso. Revisa rutas largas del Registro y la nueva comparación DH/RSA a 320, 390, 768, 800, 801, 1024, 1440 y 1920 px, con capturas del parcial y la comparación. Las suites de navegador y los procesos aislados de la wiki se ejecutan en GitHub Actions, ya que este entorno restringe la creación de procesos auxiliares.

@@ -129,6 +129,25 @@
     "X-Priority": "Nombre de un campo o cabecera; es una etiqueta descriptiva, no una sigla pendiente de expansión.",
     "XYZ": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna.",
     "YZA": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna.",
-    "ZAB": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna."
+    "ZAB": "Texto claro/cifrado, clave, prefijo de ejemplo o notación de un alfabeto; no representa una sigla técnica en esta consigna.",
+    "CAB": "Cadena de ejemplo, resultado candidato o fragmento de Base64 del nuevo banco; no es una sigla técnica.",
+    "CABA": "Cadena de ejemplo, resultado candidato o fragmento de Base64 del nuevo banco; no es una sigla técnica.",
+    "CARA": "Cadena de ejemplo, resultado candidato o fragmento de Base64 del nuevo banco; no es una sigla técnica.",
+    "CBTB": "Cadena de ejemplo, resultado candidato o fragmento de Base64 del nuevo banco; no es una sigla técnica.",
+    "DASA": "Cadena de ejemplo, resultado candidato o fragmento de Base64 del nuevo banco; no es una sigla técnica.",
+    "DBTB": "Cadena de ejemplo, resultado candidato o fragmento de Base64 del nuevo banco; no es una sigla técnica.",
+    "HOLA": "Cadena de ejemplo, resultado candidato o fragmento de Base64 del nuevo banco; no es una sigla técnica.",
+    "SEVMQQ": "Cadena de ejemplo, resultado candidato o fragmento de Base64 del nuevo banco; no es una sigla técnica.",
+    "SUN7": "Cadena de ejemplo, resultado candidato o fragmento de Base64 del nuevo banco; no es una sigla técnica.",
+    "ZXPA": "Cadena de ejemplo, resultado candidato o fragmento de Base64 del nuevo banco; no es una sigla técnica.",
+    "COMMAND": "Etiqueta literal del comando invocado en la línea de log de sudo; no es una sigla.",
+    "USER": "Etiqueta literal de usuario objetivo en el registro de sudo, no una sigla técnica.",
+    "REGISTRAR": "Rol registral escrito en mayúsculas para enfatizar la consigna; se explica en TLD, Registry, Registrar y Registrant.",
+    "Content-Language": "Nombre literal de una cabecera de idioma, utilizado como distractor; no es una sigla.",
+    "Delivered-To": "Nombre literal de una cabecera de entrega de correo; no es una sigla.",
+    "X-Powered-By": "Nombre literal de un campo informativo de implementación, utilizado como distractor; no es una sigla.",
+    "ContextMenuHandlers": "Nombre de una ruta de Registro para manejadores del menú contextual; no es una sigla.",
+    "CyberChef": "Nombre propio de una herramienta de transformaciones de datos; no es una sigla.",
+    "EncodedCommand": "Nombre de un parámetro de PowerShell, explicado en su entrada específica; no es una sigla."
   }
 }

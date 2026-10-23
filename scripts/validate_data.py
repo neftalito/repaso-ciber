@@ -27,16 +27,17 @@ def validate():
         assert re.fullmatch(r'[a-z0-9-]+', e['id'])
         assert all(isinstance(e[k], str) and e[k].strip() and '\ufffd' not in e[k] for k in ['term','definition','explanation','hint'])
         assert e['topics'] and set(e['topics']) <= {'cripto','csirt','malware'}
-        assert e['manualPages'] or e.get('practicePages'), f'Missing references: {e["id"]}'
+        assert e['manualPages'] or e.get('practicePages') or e.get('dhRsaPages'), f'Missing references: {e["id"]}'
         assert all(type(p) is int and 1 <= p <= 55 for p in e['manualPages'])
         assert all(type(p) is int and 1 <= p <= 18 for p in e.get('practicePages', []))
+        assert all(type(p) is int and 1 <= p <= 9 for p in e.get('dhRsaPages', []))
         for source in e.get('externalReferences', []):
             url = urlsplit(source['url'])
             assert source['title'] and url.scheme == 'https' and url.netloc and not url.username
         for acronym in e.get('acronyms', []):
             assert acronym['term'] and acronym['meaning'] and isinstance(acronym.get('aliases', []), list)
         related = e.get('relatedQuestionIds', [])
-        assert related == sorted(set(related)) and all(type(i) is int and 1 <= i <= 442 for i in related)
+        assert related == sorted(set(related)) and all(type(i) is int and 1 <= i <= 562 for i in related)
     acronym_report = audit()
     assert acronym_report == read('data/acronym-audit.json'), 'Acronym coverage changed; regenerate and review'
     ascii_table = read('data/ascii.json')
@@ -107,9 +108,39 @@ def validate():
         assert set(c['conceptIds']) <= ids and c['conceptIds']
         assert len(c['columns']) >= 2 and all(col['conceptId'] in ids and col['label'] for col in c['columns'])
         assert c['rows'] and all(row['aspect'] and len(row['values']) == len(c['columns']) and all(row['values']) for row in c['rows'])
-        assert c['manualPages'] and all(type(p) is int and 1 <= p <= 55 for p in c['manualPages'])
+        assert c['manualPages'] or c.get('dhRsaPages')
+        assert all(type(p) is int and 1 <= p <= 55 for p in c['manualPages'])
+        assert all(type(p) is int and 1 <= p <= 9 for p in c.get('dhRsaPages', []))
+    exam, exam_notes, exam_report = read('data/exam-questions.json'), read('data/exam-option-explanations.json'), read('data/exam-extraction-report.json')
+    eqs = exam['questions']
+    assert exam['version'] == exam_notes['version'] == exam_report['version'] == 1
+    assert [q['id'] for q in eqs] == list(range(443, 563))
+    assert [q['sourceNumber'] for q in eqs] == list(range(1, 121))
+    assert [n['questionId'] for n in exam_notes['questions']] == list(range(443, 563))
+    assert Counter(q['topic'] for q in eqs) == {'cripto':60,'csirt':40,'malware':20}
+    for q, n in zip(eqs, exam_notes['questions']):
+        assert q['origin'] == 'practice' and q['collection'] == 'exam'
+        assert q['coverage'] in ['Base','Ampliación'] and q['difficulty'] in ['Básico','Intermedio','Avanzado']
+        assert list(q['options']) == list('ABCD') and len(set(q['options'].values())) == 4
+        assert q['answer'] in q['options'] and q['explanation'] and q['prompt'] and q['source']
+        assert 2 <= q['questionPage'] <= 25 and 2 <= q['solutionPage'] <= 15
+        assert q['questionDocument'] == 'Parcial_IC_Preguntas_Multiple_Choice.pdf'
+        assert q['solutionDocument'] == 'Parcial_IC_Solucionario_Razonado.pdf'
+        assert q['conceptIds'] and set(q['conceptIds']) <= ids
+        assert all(q['topic'] in next(e for e in entries if e['id'] == c)['topics'] for c in q['conceptIds'])
+        fingerprint = hashlib.sha256(json.dumps({k:q[k] for k in ['prompt','options','answer']},ensure_ascii=False,sort_keys=True,separators=(',',':')).encode()).hexdigest()
+        assert n['questionFingerprint'] == fingerprint
+        assert list(n['distractors']) == [letter for letter in 'ABCD' if letter != q['answer']]
+        assert all(len(s.strip()) > 35 for s in n['distractors'].values())
+        for field, limit in [('manualPages',55),('practicePages',18),('dhRsaPages',9)]:
+            assert all(type(page) is int and 1 <= page <= limit for page in n[field])
+        assert n['manualPages'] or n['practicePages'] or n['dhRsaPages']
+        assert not any('\ufffd' in s for s in [q['prompt'],q['explanation'],*q['options'].values(),*n['distractors'].values()])
+    assert [q['id'] for q in qs + pqs + eqs] == list(range(1,563))
     for doc in [*report['documents'], *practical_report['documents']]:
         assert hashlib.sha256((ROOT/doc['file']).read_bytes()).hexdigest() == doc['sha256'], 'Source PDF changed'
+    for doc in exam_report['documents']:
+        assert hashlib.sha256((ROOT/'docs'/doc['file']).read_bytes()).hexdigest() == doc['sha256'], 'New source PDF changed'
     checks = report['checks']
     assert checks['annexPromptsMatched'] == checks['annexAnswersMatched'] == checks['solutionPromptsMatched'] == checks['solutionAnswersMatched'] == 350
     class Links(HTMLParser):
@@ -134,5 +165,5 @@ def validate():
         code=(ROOT/file).read_text()
         for ref in re.findall(r"fetch\(['\"]([^'\"]+)",code): assert (ROOT/ref).is_file(), ref
         assert not re.search(r"(?:fetch\(|href\s*=\s*)['\"]/", code)
-    print(f'OK: 442 IDs (350 Teoría + 92 Práctica), 2.210 opciones, 1.768 explicaciones de distractores, {len(entries)} conceptos, {len(comparison_ids)} comparaciones, 52 letras ASCII y todas las referencias locales.')
+    print(f'OK: 562 IDs (350 Teoría + 212 Práctica), 2.690 opciones, 2.128 explicaciones de distractores, {len(entries)} conceptos, {len(comparison_ids)} comparaciones, 52 letras ASCII y todas las referencias locales.')
 if __name__ == '__main__': validate()

@@ -15,7 +15,7 @@ const practicalNotes = await readJSON('data/practice-option-explanations.json');
 test('acronym audit covers the full bank, resolves EDR and distinguishes DOS from DoS', async () => {
   const report = await readJSON('data/acronym-audit.json');
   const glossary = await readJSON('data/glossary.json');
-  assert.equal(report.checks.questionsScanned,442); assert.equal(report.checks.distractorExplanationsScanned,1768);
+  assert.equal(report.checks.questionsScanned,562); assert.equal(report.checks.distractorExplanationsScanned,2128);
   assert.equal(report.checks.missing,0); assert.equal(report.coverage.length,report.checks.covered);
   assert.equal(report.exclusions.length,report.checks.reviewedExclusions);
   const concepts = new Map(entries.map(e=>[e.id,e]));
@@ -94,7 +94,7 @@ test('every distractor has its own reviewed explanation linked to unchanged ques
   assert.equal(total, 1400);
 });
 test('comparison tables have complete rows, valid concepts, themes and manual references', () => {
-  assert.equal(comparisons.version, 1); assert.equal(comparisons.comparisons.length, 13);
+  assert.equal(comparisons.version, 1); assert.equal(comparisons.comparisons.length, 14);
   const ids = new Set(entries.map(e => e.id));
   const comparisonIds = new Set();
   for (const c of comparisons.comparisons) {
@@ -128,12 +128,12 @@ test('all 350 question links agree with the reviewed concept map and appropriate
   }
 });
 test('expanded glossary preserves all 33 original terms and has explanations, hints and references to the right document', () => {
-  assert.equal(entries.length, 129); assert.equal(entries.filter(e => e.fromManualGlossary).length, 33);
+  assert.equal(entries.length, 138); assert.equal(entries.filter(e => e.fromManualGlossary).length, 33);
   for (const e of entries) {
     assert.match(e.id, /^[a-z0-9-]+$/);
     assert.ok(e.term.trim());
     for (const field of ['definition','explanation','hint','example']) assert.ok(e[field].length > 5);
-    assert.ok(e.manualPages.length || e.practicePages?.length);
+    assert.ok(e.manualPages.length || e.practicePages?.length || e.dhRsaPages?.length);
     assert.ok(e.manualPages.every(p => Number.isInteger(p) && p >= 1 && p <= 55));
     assert.ok((e.practicePages??[]).every(p=>Number.isInteger(p)&&p>=1&&p<=18));
     assert.ok(e.topics.every(t => ['cripto','csirt','malware'].includes(t)));
@@ -160,4 +160,54 @@ test('extraction report records complete comparison with solutions and the origi
   const report=await readJSON('data/extraction-report.json');
   for (const key of ['solutionPromptsMatched','solutionAnswersMatched','annexPromptsMatched','annexAnswersMatched','glossaryLinksValidated']) assert.equal(report.checks[key],350);
   assert.deepEqual(report.checks.topicCounts,{cripto:66,csirt:160,malware:124});
+});
+
+test('the new partial bank keeps 120 original four-choice questions, 360 reviewed distractors and stable IDs 443–562', async () => {
+  const exam=await readJSON('data/exam-questions.json'), editorial=await readJSON('data/exam-editorial.json'), explanations=await readJSON('data/exam-option-explanations.json');
+  const concepts=new Map(entries.map(e=>[e.id,e]));
+  assert.deepEqual(exam.questions.map(q=>q.id),Array.from({length:120},(_,i)=>443+i));
+  assert.deepEqual(exam.questions.map(q=>q.sourceNumber),Array.from({length:120},(_,i)=>i+1));
+  for(const [i,q] of exam.questions.entries()) {
+    assert.equal(q.origin,'practice'); assert.equal(q.collection,'exam');
+    assert.deepEqual(Object.keys(q.options),['A','B','C','D']); assert.equal(new Set(Object.values(q.options)).size,4);
+    assert.ok(q.options[q.answer] && q.explanation && q.source && q.difficulty && q.coverage);
+    assert.ok(q.conceptIds.every(id=>concepts.get(id)?.topics.includes(q.topic)));
+    assert.equal(q.questionDocument,'Parcial_IC_Preguntas_Multiple_Choice.pdf');
+    assert.equal(q.solutionDocument,'Parcial_IC_Solucionario_Razonado.pdf');
+    const note=explanations.questions[i];assert.equal(note.questionId,q.id);
+    assert.deepEqual(Object.keys(note.distractors),Object.keys(q.options).filter(k=>k!==q.answer));
+    assert.ok(Object.values(note.distractors).every(s=>s.length>35));
+    const canonical=JSON.stringify({answer:q.answer,options:q.options,prompt:q.prompt});
+    assert.equal(note.questionFingerprint,createHash('sha256').update(canonical).digest('hex'));
+    assert.deepEqual(note.distractors,editorial.questions[i].distractors);
+  }
+  const report=await readJSON('data/exam-extraction-report.json');
+  assert.equal(report.checks.quickKeyMatched,120);assert.equal(report.checks.solutionOptionsMatched,120);
+  assert.deepEqual(report.checks.topicCounts,{cripto:60,csirt:40,malware:20});
+  for(const doc of report.documents)assert.equal(createHash('sha256').update(await readFile(new URL(`docs/${doc.file}`,root))).digest('hex'),doc.sha256);
+  const combined=[...questions,...practical.questions,...exam.questions];
+  assert.deepEqual(combined.map(q=>q.id),Array.from({length:562},(_,i)=>i+1));
+  assert.equal(combined.filter(q=>q.topic==='cripto').length,166);
+  assert.equal(combined.filter(q=>q.topic==='csirt').length,229);
+  assert.equal(combined.filter(q=>q.topic==='malware').length,167);
+});
+test('Diffie–Hellman and RSA guide examples round-trip all bytes and distinguish safe schemes from demonstrations', () => {
+  const pow=(b,e,n)=>Number(BigInt(b)**BigInt(e)%BigInt(n));
+  assert.equal(pow(5,6,23),8);assert.equal(pow(5,15,23),19);
+  assert.equal(pow(19,6,23),2);assert.equal(pow(8,15,23),2);
+  const bytes=[...Buffer.from('HOLA','ascii')];assert.deepEqual(bytes,[72,79,76,65]);
+  assert.equal(String.fromCharCode(...bytes.map(b=>b^2)),'JMNC');
+  assert.equal((61-1)*(53-1),3120);assert.equal(17*2753%3120,1);
+  const ciphertext=bytes.map(b=>pow(b,17,3233));assert.deepEqual(ciphertext,[3000,1307,2726,2790]);
+  assert.equal(String.fromCharCode(...ciphertext.map(c=>pow(c,2753,3233))),'HOLA');
+  assert.equal(pow(7,3,55),13); assert.equal(0x5A^0x0F,0x55);
+  assert.equal((5-1)*(11-1),40);
+  const concepts=new Map(entries.map(e=>[e.id,e]));
+  for(const id of ['rsa','diffie-hellman','rsa-padding','kdf','logaritmo-discreto','coprimos-totiente','ecdh']){
+    const e=concepts.get(id); assert.ok(e.dhRsaPages.length);assert.ok(e.dhRsaPages.every(p=>p>=1&&p<=9));
+  }
+  assert.match(concepts.get('rsa-padding').explanation,/determinista/);
+  assert.match(concepts.get('rsa').example,/inseguros/);
+  const comparison=comparisons.comparisons.find(c=>c.id==='comparar-diffie-hellman-rsa');
+  assert.ok(comparison.dhRsaPages.includes(9));assert.match(comparison.takeaway,/autenticar/);
 });

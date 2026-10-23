@@ -8,6 +8,7 @@ const root = new URL('../', import.meta.url);
 const key = 'ic2026.progress.v1';
 const originalQuestions = JSON.parse(await readFile(new URL('data/questions.json', root), 'utf8')).questions;
 const practiceQuestions = JSON.parse(await readFile(new URL('data/practice-questions.json', root), 'utf8')).questions;
+const examQuestions=JSON.parse(await readFile(new URL('data/exam-questions.json',root),'utf8')).questions;
 const practiceNotes = JSON.parse(await readFile(new URL('data/practice-option-explanations.json', root), 'utf8')).questions;
 const glossaryEntries = JSON.parse(await readFile(new URL('data/glossary.json', root), 'utf8')).entries;
 const editorialNotes = JSON.parse(await readFile(new URL('data/option-explanations.json', root), 'utf8')).questions;
@@ -56,11 +57,11 @@ async function mount(file = 'index.html', options = {}) {
 let app = await mount();
 check('theory origin badge and total progress reflect the complete bank', () => {
   assert.equal(app.$('question-origin').textContent,'Teoría'); assert.equal(app.$('origin-filter').value,'all');
-  assert.equal(app.$('overall-progress').max,442); assert.equal(app.$('total-questions').textContent,'442');
+  assert.equal(app.$('overall-progress').max,562); assert.equal(app.$('total-questions').textContent,'562');
   assert.equal(app.$('practice-context').hidden,true); assert.equal(app.$('question-code').hidden,true);
-  assert.equal(app.$('materials-dialog').querySelectorAll('.document-links a').length,6);
+  assert.equal(app.$('materials-dialog').querySelectorAll('.document-links a').length,9);
 });
-check('initial app loads all 442 questions and leaves correction hidden', () => { assert.equal(app.$('study-layout').hidden, false); assert.equal(app.w.document.querySelectorAll('[data-question]').length, 442); assert.equal(app.$('confirm-answer').disabled, true); assert.equal(app.$('feedback').hidden, true); assert.equal(app.$('hint-panel').hidden, true); });
+check('initial app loads all 562 questions and leaves correction hidden', () => { assert.equal(app.$('study-layout').hidden, false); assert.equal(app.w.document.querySelectorAll('[data-question]').length, 562); assert.equal(app.$('confirm-answer').disabled, true); assert.equal(app.$('feedback').hidden, true); assert.equal(app.$('hint-panel').hidden, true); });
 check('explanations and accordion controls are unavailable before confirmation', () => {
   assert.equal(app.w.document.querySelectorAll('#answer-options details, .option-explanation').length, 0);
   assert.equal(app.$('next-question-inline').hidden, true); assert.equal(app.$('retry-answer').hidden, true);
@@ -108,9 +109,9 @@ check('returning to a confirmed question leaves its accordions closed by default
   assert.match(app.$('question-position').textContent, /001/); assert.equal(app.w.document.querySelectorAll('#answer-options details[open]').length, 0);
 });
 app.change('status-filter','pending');
-check('pending filter excludes question answered correctly', () => { assert.equal(app.w.document.querySelectorAll('[data-question]').length, 441); assert.match(app.$('question-position').textContent, /002/); });
+check('pending filter excludes question answered correctly', () => { assert.equal(app.w.document.querySelectorAll('[data-question]').length, 561); assert.match(app.$('question-position').textContent, /002/); });
 app.change('topic-filter','malware');
-check('combined topic filter shows 147 pending Malware questions', () => { assert.equal(app.w.document.querySelectorAll('[data-question]').length, 147); assert.match(app.$('question-position').textContent, /227/); });
+check('combined topic filter shows 167 pending Malware questions', () => { assert.equal(app.w.document.querySelectorAll('[data-question]').length, 167); assert.match(app.$('question-position').textContent, /227/); });
 app.click('next-question');
 const saved = app.memory; app.close(); app = await mount('index.html', { memory: saved });
 check('reading position and both filters survive reload', () => { assert.match(app.$('question-position').textContent, /228/); assert.equal(app.$('topic-filter').value,'malware'); assert.equal(app.$('status-filter').value,'pending'); });
@@ -156,8 +157,8 @@ check('a validated backup remains usable in memory when the storage quota preven
   assert.equal(app.$('storage-warning').hidden, false);
   assert.equal(app.$('correct-count').textContent, '1');
 }); app.close();
-app=await mount('index.html',{suffix:'?pregunta=442'});
-check('question links work under a GitHub Pages subpath', () => { assert.match(app.$('question-position').textContent,/442/); assert.deepEqual(app.requests,['/ic2026/data/questions.json','/ic2026/data/glossary.json','/ic2026/data/option-explanations.json','/ic2026/data/practice-questions.json','/ic2026/data/practice-option-explanations.json']); });
+app=await mount('index.html',{suffix:'?pregunta=562'});
+check('question links work under a GitHub Pages subpath', () => { assert.match(app.$('question-position').textContent,/562/); assert.deepEqual(app.requests,['/ic2026/data/questions.json','/ic2026/data/glossary.json','/ic2026/data/option-explanations.json','/ic2026/data/practice-questions.json','/ic2026/data/practice-option-explanations.json','/ic2026/data/exam-questions.json','/ic2026/data/exam-option-explanations.json']); });
 app.select(practiceQuestions.at(-1).answer); app.submit();
 check('both next buttons stop at the end of the route while retry remains available', () => {
   assert.equal(app.$('next-question-inline').disabled, true); assert.equal(app.$('next-question').disabled, true);
@@ -165,10 +166,10 @@ check('both next buttons stop at the end of the route while retry remains availa
 }); app.close();
 app=await mount('index.html',{failFetch:true});
 check('data loading failure offers the original materials', () => { assert.match(app.$('load-status').textContent,/servidor estático/); app.w.document.querySelector('[data-materials]').click(); assert.equal(app.$('materials-dialog').open,true); }); app.close();
-app = await mount(); app.change('origin-filter','practice');
+app = await mount(); app.change('origin-filter','practice'); app.change('bank-filter','guides');
 check('practice filter selects 92 exercises and shows badge, source number and adaptation', () => {
   assert.equal(app.w.document.querySelectorAll('[data-question]').length,92);
-  assert.equal(app.$('question-origin').textContent,'Práctica'); assert.match(app.$('question-position').textContent,/351 de 442/);
+  assert.equal(app.$('question-origin').textContent,'Práctica'); assert.match(app.$('question-position').textContent,/351 de 562/);
   assert.match(app.$('practice-context').textContent,/Ejercicio original 01/);
   assert.match(app.$('question-source').querySelector('a').href,/IC2026_Preguntas_Basadas_en_Practicas_1_y_2.pdf#page=2$/);
 });
@@ -189,8 +190,8 @@ check('theory filter has the original 350 questions and reset clears origin too'
   assert.equal(app.$('question-origin').textContent,'Teoría');
 });
 app.click('reset-filters');
-check('reset returns to all 442 questions', () => {
-  assert.equal(app.$('origin-filter').value,'all'); assert.equal(app.w.document.querySelectorAll('[data-question]').length,442);
+check('reset returns to all 562 questions', () => {
+  assert.equal(app.$('origin-filter').value,'all'); assert.equal(app.w.document.querySelectorAll('[data-question]').length,562);
 }); app.close();
 app = await mount('index.html',{suffix:'?pregunta=382'});
 check('practice data blocks preserve command newlines and have correct document references', () => {
@@ -258,11 +259,11 @@ check('ASCII reference starts closed, contains all 52 letters and is linked from
   assert.equal(glossary.$('ascii').querySelector('.ascii-entry-link').getAttribute('href'), '#tabla-ascii');
 });
 check('glossary renders all entries with unique direct links', () => { assert.equal(glossary.w.document.querySelectorAll('.glossary-entry').length,glossaryEntries.length); assert.equal(new Set([...glossary.w.document.querySelectorAll('.glossary-entry')].map(n=>n.id)).size,glossaryEntries.length); });
-check('the glossary includes thirteen comparison tables, initially collapsed', () => {
-  assert.equal(glossary.w.document.querySelectorAll('.comparison-card').length, 13);
+check('the glossary includes fourteen comparison tables, initially collapsed', () => {
+  assert.equal(glossary.w.document.querySelectorAll('.comparison-card').length, 14);
   assert.equal(glossary.w.document.querySelectorAll('.comparison-card[open]').length, 0);
   assert.equal(glossary.$('comparaciones').open, false);
-  assert.equal(glossary.w.document.querySelectorAll('.comparison-table').length, 13);
+  assert.equal(glossary.w.document.querySelectorAll('.comparison-table').length, 14);
   assert.ok(glossary.$('hash').querySelector('.comparison-links a'));
 });
 glossary.$('glossary-search').value='criptografia simetrica'; glossary.$('glossary-search').dispatchEvent(new glossary.w.Event('input'));
@@ -318,7 +319,7 @@ check('a new acronym permalink reveals its entry despite incompatible URL filter
 const studyOldAttempts=practiceQuestions.filter(q=>q.topic==='csirt').map(q=>({
   id:`previous-${q.id}`,questionId:q.id,option:q.answer,correct:true,date:'2026-10-21T12:00:00.000Z',hintUsed:false
 }));
-const studyPreviousView={questionId:391,topic:'csirt',origin:'practice',status:'correct'};
+const studyPreviousView={questionId:391,topic:'csirt',origin:'practice',status:'correct',bank:'guides'};
 const studyMemory=new Map([[key,JSON.stringify({format:'ic2026-progress',version:1,attempts:studyOldAttempts,drafts:{},view:studyPreviousView})]]);
 app=await mount('index.html',{memory:studyMemory}); app.click('open-study');
 const submitStudy=()=>app.$('study-form').dispatchEvent(new app.w.Event('submit',{bubbles:true,cancelable:true}));
@@ -435,4 +436,81 @@ check('study remains usable with blocked storage and advertises export for prese
   assert.equal(app.$('study-session-progress').value,1); assert.match(app.$('study-session-title').textContent,/completado/);
   assert.equal(app.$('storage-warning').hidden,false); assert.match(app.$('storage-warning').textContent,/exportá/i);
 }); app.close();
+const oldLastAttempt={id:'before-new-pdfs',questionId:442,option:practiceQuestions.at(-1).answer,correct:true,date:'2026-10-22T12:00:00.000Z',hintUsed:false};
+const oldEndMemory=new Map([[key,JSON.stringify({format:'ic2026-progress',version:1,attempts:[oldLastAttempt],drafts:{},view:{questionId:442,topic:'all',status:'all',origin:'all'}})]]);
+app=await mount('index.html',{memory:oldEndMemory});app.click('next-question-inline');
+check('a reader at the old final question can continue into question 443 with history intact',()=>{
+  assert.equal(app.state().view.questionId,443);assert.equal(app.state().attempts.length,1);
+  assert.equal(app.$('answer-options').querySelectorAll('input').length,4);assert.equal(app.$('feedback').hidden,true);
+});app.close();
+app=await mount(); app.change('bank-filter','exam');
+check('the partial collection selects 120 practice questions and preserves the four original choices',()=>{
+  assert.equal(app.$('origin-filter').value,'practice');assert.equal(app.w.document.querySelectorAll('[data-question]').length,120);
+  assert.match(app.$('question-position').textContent,/443 de 562/);assert.equal(app.$('question-collection').hidden,false);
+  assert.match(app.$('practice-context').textContent,/Pregunta original 001/);assert.match(app.$('practice-context').textContent,/Cuatro opciones originales/);
+  assert.equal(app.$('answer-options').querySelectorAll('input').length,4);assert.equal(app.$('answer-options').querySelector('input[value="E"]'),null);
+  assert.match(app.$('question-source').querySelector('a').href,/Parcial_IC_Preguntas_Multiple_Choice.pdf#page=2$/);
+  assert.equal(app.$('feedback').hidden,true);
+});
+app.select('A');app.submit();
+check('a wrong partial answer opens its reviewed explanation and links the correct choice to the new solution PDF',()=>{
+  assert.equal(app.$('answer-options').querySelectorAll('details').length,4);
+  assert.equal(app.$('answer-options').querySelectorAll('details[open]').length,1);
+  assert.equal(app.$('answer-options').querySelector('details[open]').dataset.option,'A');
+  assert.match(app.$('answer-options').querySelector('[data-option="A"] .option-explanation').textContent,/cualquiera puede decodificar/);
+  assert.match(app.$('answer-options').querySelector('[data-option="B"] .option-reference a').href,/Parcial_IC_Solucionario_Razonado.pdf#page=2$/);
+  assert.equal(app.$('hint-panel').hidden,false);assert.equal(app.state().attempts[0].questionId,443);
+});
+app.click('retry-answer');app.click('show-hint');app.select('B');app.submit();
+const examMemory=app.memory;app.close();app=await mount('index.html',{memory:examMemory});
+check('partial retry, help, source filter and correction survive reload without losing earlier attempts',()=>{
+  assert.equal(app.state().attempts.length,2);assert.equal(app.state().attempts[1].hintUsed,true);
+  assert.equal(app.$('bank-filter').value,'exam');assert.equal(app.$('correct-count').textContent,'1');
+  assert.equal(app.$('answer-options').querySelectorAll('details[open]').length,0);
+});
+app.change('bank-filter','theory');
+check('switching collection restores five-choice questions and synchronizes the origin filter',()=>{
+  assert.equal(app.$('origin-filter').value,'theory');assert.equal(app.w.document.querySelectorAll('[data-question]').length,350);
+  assert.equal(app.$('answer-options').querySelectorAll('input').length,5);assert.equal(app.$('question-collection').hidden,true);
+});
+app.change('bank-filter','exam');app.click('open-study');app.change('study-topic','cripto');
+check('study setup can select only the partial bank and limits quantity to the matching sixty cryptography questions',()=>{
+  assert.equal(app.$('study-bank').value,'exam');assert.equal(app.$('study-count').max,'60');
+  assert.match(app.$('study-available').textContent,/60 preguntas/);
+});
+app.$('study-count').value='8';app.$('study-form').dispatchEvent(new app.w.Event('submit',{bubbles:true,cancelable:true}));
+check('partial study draws unique original four-choice questions and identifies the selected collection',()=>{
+  const state=app.state();assert.equal(state.studySession.bank,'exam');assert.equal(state.studySession.questionIds.length,8);
+  assert.equal(new Set(state.studySession.questionIds).size,8);assert.ok(state.studySession.questionIds.every(id=>id>=443&&id<=502));
+  assert.equal(app.$('answer-options').querySelectorAll('input').length,4);assert.match(app.$('study-session-filters').textContent,/Banco del parcial/);
+});
+const examStudyMemory=app.memory;app.close();app=await mount('index.html',{memory:examStudyMemory});
+check('an active partial study route reloads with its source, order and hidden solutions intact',()=>{
+  assert.equal(app.state().studySession.bank,'exam');assert.equal(app.$('feedback').hidden,true);
+  assert.equal(app.$('question-index').querySelectorAll('[data-question]').length,8);assert.equal(app.$('storage-warning').hidden,true);
+});
+app.click('manage-progress');const invalidCollection=app.state();invalidCollection.view.bank='unknown';
+await app.importData(JSON.stringify(invalidCollection));
+check('an unknown imported collection is rejected before asking to replace progress',()=>{
+  assert.match(app.$('transfer-status').textContent,/colección desconocida/);assert.equal(app.confirmations.length,0);
+  assert.equal(app.state().view.bank,'exam');
+});app.close();
+app=await mount('index.html',{suffix:'?pregunta=489'});app.click('show-hint');
+check('a DH hint cites the new guide without revealing the numeric answer before confirmation',()=>{
+  assert.ok(app.$('hint-content').querySelector('a[href="docs/Guia_Diffie_Hellman_y_RSA.pdf#page=3"]'));
+  assert.doesNotMatch(app.$('hint-content').textContent,/A=8|A = 8|5\^6 mod 23 = 8/);
+  assert.equal(app.$('feedback').hidden,true);assert.equal(app.$('answer-options').querySelectorAll('details').length,0);
+});app.close();
+glossary=await mount('glosario.html',{suffix:'#comparar-diffie-hellman-rsa'});
+check('the new comparison opens directly and links to the specific DH/RSA guide pages',()=>{
+  assert.equal(glossary.$('comparar-diffie-hellman-rsa').open,true);
+  assert.ok(glossary.$('comparar-diffie-hellman-rsa').querySelector('a[href="docs/Guia_Diffie_Hellman_y_RSA.pdf#page=9"]'));
+});
+check('new glossary entries expose definitions, source pages and question links for the partial bank',()=>{
+  assert.ok(glossary.$('rsa-padding'));assert.ok(glossary.$('ntfs'));assert.ok(glossary.$('powershell-codificado'));
+  assert.ok(glossary.$('rsa').querySelector('a[href="index.html?pregunta=483"]'));
+  assert.ok(glossary.$('rsa').querySelector('a[href="docs/Guia_Diffie_Hellman_y_RSA.pdf#page=5"]'));
+  assert.match(glossary.$('kdf').querySelector('.acronym-list').textContent,/HKDF/);
+  assert.equal(glossary.$('materials-dialog').querySelectorAll('.document-links a').length,9);
+});glossary.close();
 console.log(`PASS: ${checks} comprobaciones de interacción DOM. La revisión visual requiere un navegador real.`);
