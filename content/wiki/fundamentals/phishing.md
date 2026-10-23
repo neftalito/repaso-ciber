@@ -3,7 +3,7 @@
 ---
 ## Definición y mecanismo
 
-El phishing aplica ese mecanismo en comunicaciones que aparentan un origen confiable, por ejemplo un correo que solicita credenciales.
+El phishing es una técnica de ingeniería social que utiliza comunicaciones que aparentan un origen confiable para engañar al receptor, por ejemplo un correo que solicita credenciales.
 
 La clase destaca que los LLM y los contenidos sintéticos pueden mejorar la redacción o personalización de estos engaños.
 

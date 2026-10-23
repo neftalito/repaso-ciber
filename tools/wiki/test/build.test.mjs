@@ -65,6 +65,7 @@ test('builds independent HTML routes, navigation, citations, review answers and 
   assert.match(html, /\.\.\/\.\.\/assets\/styles\.css/);
   assert.match(html, /Material de cátedra/);
   assert.match(readFileSync(path.join(root, 'wiki/index.html'), 'utf8'), /cia\/#definicion/);
+  assert.equal(/^[ \t]+$/m.test(readFileSync(path.join(root, 'wiki/index.html'), 'utf8')), false, 'Empty template sections must not leave whitespace-only lines');
   const index = JSON.parse(readFileSync(path.join(root, 'wiki/search-index.json')));
   assert.ok(index.some(entry => entry.id === 'cia' && entry.text.includes('Confidencialidad')));
   assert.equal(run(root, '--check').status, 0);
@@ -230,6 +231,11 @@ test('Fundamentos follows the requested hierarchy while retaining original acade
   assert.equal(pages.get('fundamentals-attacks').title, 'Tipos de ataques');
   assert.equal(pages.get('fundamentals-phishing').title, 'Phishing');
   assert.equal(pages.get('fundamentals-prompt-injection').title, 'Prompt Injection');
+  // The user authorized replacing only this historical sentence with a standalone definition.
+  // Keep the historical fixture unchanged and require every other academic unit verbatim.
+  const oldPhishingDefinition = 'El phishing aplica ese mecanismo en comunicaciones que aparentan un origen confiable, por ejemplo un correo que solicita credenciales.';
+  const phishingDefinition = 'El phishing es una técnica de ingeniería social que utiliza comunicaciones que aparentan un origen confiable para engañar al receptor, por ejemplo un correo que solicita credenciales.';
+  const digest = text => createHash('sha256').update(text).digest('hex');
   const expected = JSON.parse(readFileSync(new URL('./fixtures/fundamentals-preservation.json', import.meta.url), 'utf8'));
   for (const original of expected.notes) {
     const current = pages.get(original.id);
@@ -245,7 +251,9 @@ test('Fundamentos follows the requested hierarchy while retaining original acade
       const body = pages.get(unit.destination)?.body || '';
       // Splitting an original paragraph may move a sentence without changing its bytes.
       const units = body.trim().split('\n\n').flatMap(block => [block, ...block.split(/(?<=\.) (?=[A-ZÁÉÍÓÚ¿])/)]);
-      assert.ok(units.some(text => createHash('sha256').update(text).digest('hex') === unit.sha256), `Academic content missing: ${original.file} -> ${unit.destination}`);
+      const expectedHash = original.id === 'fundamentals-phishing' && unit.destination === original.id && unit.sha256 === digest(oldPhishingDefinition)
+        ? digest(phishingDefinition) : unit.sha256;
+      assert.ok(units.some(text => digest(text) === expectedHash), `Academic content missing: ${original.file} -> ${unit.destination}`);
     }
   }
 });
