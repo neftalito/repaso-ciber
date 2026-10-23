@@ -1,28 +1,10 @@
 ---
 {"id":"fundamentals-risk","title":"Riesgo","slug":"risk","parent":"fundamentals","type":"concept","order":40,"related":["fundamentals-threat","fundamentals-vulnerability","fundamentals-cia"],"sources":[{"id":"lecture-fundamentals","pages":[5,7]}],"aliases":["Amenaza, vulnerabilidad y riesgo"]}
 ---
-## Definición
+El **riesgo** expresa la posibilidad de que una [amenaza](wiki:fundamentals-threat) aproveche una [vulnerabilidad](wiki:fundamentals-vulnerability) y produzca un impacto. No es lo mismo que la amenaza ni que la vulnerabilidad: para evaluar un riesgo hay que considerar también qué recurso puede resultar afectado y con qué consecuencias.
 
-El riesgo combina la posibilidad de que una amenaza aproveche una vulnerabilidad con el impacto resultante. La clase resume la relación como `Riesgo = Amenaza × Vulnerabilidad × Impacto`. Es una representación conceptual de dependencia entre factores; sin escalas y criterios definidos no constituye un cálculo numérico reproducible.
+La cátedra resume esa relación de forma conceptual:
 
-## Distinguir los componentes
+`Riesgo = Amenaza × Vulnerabilidad × Impacto`
 
-| Componente | Caso de una cuenta institucional |
-| --- | --- |
-| Amenaza | Intento de obtener credenciales por engaño |
-| Vulnerabilidad | Una práctica o configuración permite que el engaño prospere |
-| Impacto | Lectura de documentos reservados o modificación de información |
-
-La misma debilidad puede tener consecuencias diferentes según el recurso afectado. Una cuenta de pruebas y una cuenta que accede a información sensible no exponen el mismo impacto.
-
-## Decidir con contexto
-
-Evaluar riesgo exige identificar activos, vías posibles y consecuencias. Un control puede reducir la probabilidad de explotación o el impacto, sin eliminar todas las amenazas. La [defensa en profundidad](wiki:fundamentals-defense-depth) combina controles porque una única barrera puede fallar.
-
-:::question ¿Una vulnerabilidad grave implica que ya hubo una filtración?
-No. Describe una posibilidad de explotación y sus consecuencias potenciales. Afirmar una filtración requiere evidencia adicional, como accesos indebidos o transferencia de información.
-:::
-
-:::question ¿Es correcto multiplicar etiquetas como «alta» y «media» sin explicar la escala?
-No. Para obtener un número interpretable deben definirse valores, criterios y supuestos. La expresión de la clase permite organizar el razonamiento, pero no aporta por sí sola esa metodología cuantitativa.
-:::
+La fórmula ayuda a recordar que intervienen los tres factores. No permite calcular por sí sola un valor numérico: para eso haría falta definir escalas y criterios de medición. La presencia de una vulnerabilidad tampoco demuestra que haya ocurrido un ataque o una [filtración](wiki:fundamentals-leaks).

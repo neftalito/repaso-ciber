@@ -1,12 +1,12 @@
 ---
 {"id":"fundamentals-attacks","title":"Tipos de ataques","slug":"attacks","parent":"fundamentals","type":"category","order":60,"related":["fundamentals-cia","fundamentals-risk","malware-static"],"sources":[{"id":"lecture-fundamentals","pages":[8]}],"aliases":["Conceptos de ataques comunes"]}
 ---
-## Orientación
+Un **ataque** intenta comprometer la información o los sistemas. Puede dirigirse a una persona, una comunicación, una aplicación o la disponibilidad de un servicio. La diapositiva 8 presenta estos casos como una introducción; para analizar un incidente concreto hay que identificar qué ocurrió y qué efecto tuvo.
 
-Los ataques se diferencian por la vía utilizada y el efecto buscado. La clase introduce engaños a personas, software malicioso, intercepción de comunicaciones, abuso de vulnerabilidades de aplicaciones y saturación de servicios.
+## Tipos de ataques
 
-Las páginas de este grupo explican esas distinciones conceptuales. El [malware](wiki:malware-static) se desarrolla en su unidad mediante técnicas de análisis, en lugar de repetir aquí su clasificación. Ningún nombre de ataque reemplaza la evidencia de qué ocurrió y qué atributo de la información resultó afectado.
-
-## Alcance de las explicaciones
-
-La diapositiva 8 ofrece una clasificación introductoria: engaño a usuarios, interceptación de comunicaciones, problemas de aplicaciones y saturación de servicios; también menciona malware, desarrollado en su [sección propia](wiki:malware). Las páginas de este grupo amplían conceptualmente esas etiquetas con ejemplos ilustrativos y límites de interpretación. En particular, una técnica de inyección, una capacidad de ejecución y una solicitud inducida no describen el mismo mecanismo.
+- [Ingeniería social](wiki:fundamentals-social-engineering)
+- [Intermediario en comunicaciones (MitM)](wiki:fundamentals-mitm)
+- [Ataques a aplicaciones](wiki:fundamentals-application-attacks)
+- [Denegación de servicio (DoS y DDoS)](wiki:fundamentals-dos)
+- [Malware](wiki:malware)

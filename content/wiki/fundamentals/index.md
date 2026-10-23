@@ -1,8 +1,21 @@
 ---
 {"id":"fundamentals","title":"Fundamentos de ciberseguridad","slug":"fundamentals","parent":"wiki","type":"category","order":10,"related":[],"sources":[{"id":"lecture-fundamentals","pages":[2,3,4,7]}]}
 ---
-## Punto de partida
+La **seguridad de la información** busca proteger la información, cualquiera sea su soporte. La **ciberseguridad** se concentra en los sistemas, datos y comunicaciones del entorno digital. Para entender qué se protege, la materia parte de tres atributos: **confidencialidad, integridad y disponibilidad**.
 
-La seguridad de la información estudia cómo proteger la información y los sistemas frente a situaciones que comprometen su confidencialidad, integridad o disponibilidad. La ciberseguridad sitúa esa protección en los entornos digitales y las comunicaciones.
+## Conceptos fundamentales
 
-Este bloque reúne los conceptos necesarios para interpretar el resto de la materia: qué se protege, qué puede ocurrir y cómo se organiza la defensa. La [tríada CIA](wiki:fundamentals-cia) ofrece un primer criterio para analizar los efectos de un incidente.
+- [Seguridad de la información](wiki:fundamentals-security)
+- [Ciberseguridad](wiki:fundamentals-cybersecurity)
+- [Confidencialidad, integridad y disponibilidad](wiki:fundamentals-cia)
+- [Amenaza](wiki:fundamentals-threat)
+- [Vulnerabilidad](wiki:fundamentals-vulnerability)
+- [Riesgo](wiki:fundamentals-risk)
+- [Atacantes y motivaciones](wiki:fundamentals-attackers)
+
+## Ataques y protección
+
+- [Tipos de ataques](wiki:fundamentals-attacks)
+- [Filtraciones de información](wiki:fundamentals-leaks)
+- [Defensa en profundidad](wiki:fundamentals-defense-depth)
+- [Riesgos de IA y modelos de lenguaje](wiki:fundamentals-llm)

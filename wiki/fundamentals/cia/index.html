@@ -34,37 +34,28 @@
       <main id="wiki-main" class="wiki-article" tabindex="-1">
         <p class="eyebrow">INTRODUCCIÓN A LA CIBERSEGURIDAD · CONCEPTO</p>
         <h1>Tríada CIA</h1>
-        <h2 id="definicion">Definición</h2>
-<p>La tríada CIA reúne tres objetivos de protección de la información: confidencialidad, integridad y disponibilidad. Sus iniciales provienen de los términos en inglés. Son dimensiones de un mismo modelo, no tres tipos de ataque.</p>
-<h2 id="que-protege-cada-dimension">Qué protege cada dimensión</h2>
+        <p>La <strong>tríada CIA</strong> reúne tres atributos que la seguridad de la información busca preservar. Sus iniciales provienen de <em>Confidentiality, Integrity, Availability</em>:</p>
 <table>
 <thead>
 <tr>
-<th>Dimensión</th>
-<th>Pregunta que permite evaluar</th>
+<th>Atributo</th>
+<th>Qué significa</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>Confidencialidad</td>
-<td>¿La información está al alcance solamente de quienes tienen autorización?</td>
+<td><strong>Confidencialidad</strong></td>
+<td>Solo las personas autorizadas pueden acceder a la información.</td>
 </tr>
 <tr>
-<td>Integridad</td>
-<td>¿La información conserva su exactitud y no ha sufrido modificaciones indebidas?</td>
+<td><strong>Integridad</strong></td>
+<td>Solo quien está autorizado puede crear o modificar la información.</td>
 </tr>
 <tr>
-<td>Disponibilidad</td>
-<td>¿Los usuarios autorizados pueden utilizar la información y los servicios cuando los necesitan?</td>
+<td><strong>Disponibilidad</strong></td>
+<td>Los usuarios autorizados pueden acceder a la información cuando la necesitan.</td>
 </tr>
 </tbody></table>
-<p>Un control puede contribuir a más de un objetivo. También puede existir tensión entre ellos: una restricción de acceso demasiado rígida podría impedir un uso legítimo del servicio. Por eso la evaluación debe considerar el contexto, no solo la presencia de una herramienta.</p>
-<h2 id="ejemplo">Ejemplo</h2>
-<p>En un sistema de calificaciones, leer notas ajenas sin permiso afecta la confidencialidad; cambiar una calificación sin autorización afecta la integridad; una interrupción que impide consultar las notas afecta la disponibilidad. Un mismo incidente puede afectar varias dimensiones.</p>
-<h2 id="preguntas-de-repaso">Preguntas de repaso</h2>
-<details class="wiki-review"><summary>¿Cifrar un archivo garantiza por sí solo toda la tríada?</summary><p>No. El cifrado puede proteger su confidencialidad, pero no garantiza que el archivo esté disponible cuando se necesita ni, por sí solo, que cualquier modificación indebida sea detectada.</p>
-</details>
-<details class="wiki-review"><summary>¿Por qué un incidente puede afectar más de un objetivo?</summary><p>Porque sus efectos pueden combinarse: un atacante puede copiar información, modificarla y luego impedir el acceso al servicio. La tríada ayuda a describir cada consecuencia por separado.</p>
-</details>
+<p>Estos atributos permiten distinguir el efecto de un incidente. Un acceso indebido compromete la confidencialidad; una modificación indebida, la integridad; y la imposibilidad de acceder a la información cuando se necesita, la disponibilidad. Un mismo hecho puede afectar más de uno.</p>
 
 
 

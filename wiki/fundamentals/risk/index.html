@@ -34,36 +34,10 @@
       <main id="wiki-main" class="wiki-article" tabindex="-1">
         <p class="eyebrow">INTRODUCCIÓN A LA CIBERSEGURIDAD · CONCEPTO</p>
         <h1>Riesgo</h1>
-        <h2 id="definicion">Definición</h2>
-<p>El riesgo combina la posibilidad de que una amenaza aproveche una vulnerabilidad con el impacto resultante. La clase resume la relación como <code>Riesgo = Amenaza × Vulnerabilidad × Impacto</code>. Es una representación conceptual de dependencia entre factores; sin escalas y criterios definidos no constituye un cálculo numérico reproducible.</p>
-<h2 id="distinguir-los-componentes">Distinguir los componentes</h2>
-<table>
-<thead>
-<tr>
-<th>Componente</th>
-<th>Caso de una cuenta institucional</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Amenaza</td>
-<td>Intento de obtener credenciales por engaño</td>
-</tr>
-<tr>
-<td>Vulnerabilidad</td>
-<td>Una práctica o configuración permite que el engaño prospere</td>
-</tr>
-<tr>
-<td>Impacto</td>
-<td>Lectura de documentos reservados o modificación de información</td>
-</tr>
-</tbody></table>
-<p>La misma debilidad puede tener consecuencias diferentes según el recurso afectado. Una cuenta de pruebas y una cuenta que accede a información sensible no exponen el mismo impacto.</p>
-<h2 id="decidir-con-contexto">Decidir con contexto</h2>
-<p>Evaluar riesgo exige identificar activos, vías posibles y consecuencias. Un control puede reducir la probabilidad de explotación o el impacto, sin eliminar todas las amenazas. La <a href="../defense-depth/">defensa en profundidad</a> combina controles porque una única barrera puede fallar.</p>
-<details class="wiki-review"><summary>¿Una vulnerabilidad grave implica que ya hubo una filtración?</summary><p>No. Describe una posibilidad de explotación y sus consecuencias potenciales. Afirmar una filtración requiere evidencia adicional, como accesos indebidos o transferencia de información.</p>
-</details>
-<details class="wiki-review"><summary>¿Es correcto multiplicar etiquetas como «alta» y «media» sin explicar la escala?</summary><p>No. Para obtener un número interpretable deben definirse valores, criterios y supuestos. La expresión de la clase permite organizar el razonamiento, pero no aporta por sí sola esa metodología cuantitativa.</p>
-</details>
+        <p>El <strong>riesgo</strong> expresa la posibilidad de que una <a href="../threat/">amenaza</a> aproveche una <a href="../vulnerability/">vulnerabilidad</a> y produzca un impacto. No es lo mismo que la amenaza ni que la vulnerabilidad: para evaluar un riesgo hay que considerar también qué recurso puede resultar afectado y con qué consecuencias.</p>
+<p>La cátedra resume esa relación de forma conceptual:</p>
+<p><code>Riesgo = Amenaza × Vulnerabilidad × Impacto</code></p>
+<p>La fórmula ayuda a recordar que intervienen los tres factores. No permite calcular por sí sola un valor numérico: para eso haría falta definir escalas y criterios de medición. La presencia de una vulnerabilidad tampoco demuestra que haya ocurrido un ataque o una <a href="../leaks/">filtración</a>.</p>
 
 
         <section class="wiki-section" aria-labelledby="relacionados"><h2 id="relacionados">Conceptos relacionados</h2><ul><li><a href="../threat/">Amenaza</a></li><li><a href="../vulnerability/">Vulnerabilidad</a></li><li><a href="../cia/">Tríada CIA</a></li></ul></section>
