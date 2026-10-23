@@ -7,9 +7,12 @@
 .wiki-page .wiki-menu nav > a { display:block; padding:8px 0; }
 .wiki-page .wiki-menu ul { list-style:none; margin:0; padding-left:13px; border-left:1px solid var(--line); }
 .wiki-page .wiki-menu nav > ul { padding-left:0; border:0; }
+.wiki-page .wiki-menu-group { margin-top:14px; padding-top:12px; border-top:1px solid var(--line); }
+.wiki-page .wiki-menu-group-title { margin-bottom:16px; color:var(--muted); font-size:12px; line-height:1.4; letter-spacing:.06em; text-transform:uppercase; }
+.wiki-page .wiki-menu-group > ul { padding-left:0; border:0; }
+.wiki-page .wiki-menu-group + .wiki-menu-utilities { margin-top:14px; padding-top:12px; border-top:1px solid var(--line); }
 .wiki-page .wiki-menu li { padding:4px 0; }
 .wiki-page .wiki-menu a { display:inline-block; padding:3px 5px; text-decoration:none; overflow-wrap:anywhere; line-height:1.5; }
-.wiki-page .wiki-menu li > a { margin-left:16px; }
 .wiki-page .wiki-menu a:hover { background:var(--green-soft); border-radius:4px; }
 .wiki-page .wiki-menu a[aria-current] { background:var(--green-soft); font-weight:650; border-radius:4px; }
 .wiki-page .wiki-menu summary { cursor:pointer; }

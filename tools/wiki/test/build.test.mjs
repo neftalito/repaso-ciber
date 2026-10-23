@@ -70,6 +70,42 @@ test('builds independent HTML routes, navigation, citations, review answers and 
   assert.equal(run(root, '--check').status, 0);
 });
 
+test('groups Wiki sidebar links into three study topics without moving pages', () => {
+  const root = fixture();
+  const add = (id, title, parent, slug, type = 'category') =>
+    put(root, `content/wiki/${id}.md`, note({ ...home, id, title, parent, slug, type, order: 1 }));
+  add('fundamentals', 'Fundamentos de ciberseguridad', 'wiki', 'fundamentals');
+  put(root, 'content/wiki/fundamentals/cia.md', note({ ...child, parent: 'fundamentals' }));
+  add('crypto-encoding', 'Codificación', 'wiki', 'encoding');
+  add('cryptography', 'Criptografía', 'wiki', 'cryptography');
+  add('crypto-steganography', 'Esteganografía', 'wiki', 'steganography');
+  add('csirt', 'CSIRT y gestión de incidentes', 'wiki', 'csirt');
+  add('malware', 'Malware y análisis', 'wiki', 'malware');
+  add('practices', 'Prácticas y resolución razonada', 'wiki', 'practices');
+  add('practices-writeup', 'Cómo construir un writeup', 'practices', 'writeup', 'practice');
+  add('practices-encoding', 'Caso: codificación', 'practices', 'encoding', 'practice');
+  add('practices-email', 'Caso: correo', 'practices', 'email', 'practice');
+  add('practices-malware-static', 'Caso: análisis estático', 'practices', 'malware-static', 'practice');
+  put(root, 'content/wiki/navigation.json', JSON.stringify({ groups: [
+    { title: 'Criptografía', roots: ['crypto-encoding', 'cryptography', 'crypto-steganography'], practices: ['practices-encoding'] },
+    { title: 'CSIRT', roots: ['csirt'], practices: ['practices-email'] },
+    { title: 'Malware', roots: ['malware'], practices: ['practices-malware-static'] },
+  ] }));
+
+  const result = run(root);
+  assert.equal(result.status, 0, result.stderr);
+  const html = readFileSync(path.join(root, 'wiki/index.html'), 'utf8');
+  const nav = html.split('<nav aria-label="Árbol de temas">')[1].split('</nav>')[0];
+  assert.deepEqual([...nav.matchAll(/<h3 class="wiki-menu-group-title"[^>]*>([^<]+)<\/h3>/g)].map(match => match[1]), ['Criptografía', 'CSIRT', 'Malware']);
+  assert.ok(nav.indexOf('Fundamentos de ciberseguridad') < nav.indexOf('Criptografía'));
+  for (const route of ['practices/encoding/', 'practices/email/', 'practices/malware-static/']) {
+    assert.equal(nav.split(`href="${route}"`).length - 1, 1, route);
+  }
+  assert.match(nav, /Cómo construir un writeup/);
+  assert.match(nav, /Todas las prácticas/);
+  assert.doesNotMatch(nav, /<summary><a href="practices\//);
+});
+
 test('links every cited PDF page and relevant glossary entry from Wiki sources', () => {
   const root = fixture();
   const source = { id: 'course', title: 'Cripto, parte 1', kind: 'official', pageCount: 3, url: 'docs/catedra cosas/02 - Cripto parte 1.pdf' };

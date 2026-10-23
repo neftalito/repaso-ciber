@@ -138,6 +138,23 @@ try {
     routes.add(page.route);
     page.children.sort((a, b) => a.order - b.order || a.id.localeCompare(b.id, 'en'));
   }
+  const navigationFile = path.join(sourceDir, 'navigation.json');
+  const hasNavigation = existsSync(navigationFile);
+  const navigation = hasNavigation ? JSON.parse(readFileSync(navigationFile, 'utf8')) : null;
+  if (hasNavigation) {
+    assert(navigation && Array.isArray(navigation.groups) && navigation.groups.length === 3, 'Wiki navigation requires three topic groups');
+    assert(byId.has('fundamentals') && byId.has('practices') && byId.has('practices-writeup'), 'Wiki navigation is missing shared pages');
+    assert(navigation.groups.every(group => group && typeof group.title === 'string' && group.title.trim() && Array.isArray(group.roots) && group.roots.length && Array.isArray(group.practices) && group.practices.length), 'Invalid Wiki navigation group');
+    const rootIds = navigation.groups.flatMap(group => group.roots);
+    const practiceIds = navigation.groups.flatMap(group => group.practices);
+    assert(new Set(navigation.groups.map(group => slugify(group.title))).size === navigation.groups.length, 'Duplicate Wiki navigation group');
+    assert(new Set(rootIds).size === rootIds.length && rootIds.every(id => byId.get(id)?.parent === 'wiki'), 'Invalid Wiki navigation root');
+    assert(new Set(practiceIds).size === practiceIds.length && practiceIds.every(id => byId.get(id)?.parent === 'practices'), 'Invalid Wiki navigation practice');
+    const expectedRoots = byId.get('wiki').children.filter(page => !['fundamentals', 'practices'].includes(page.id)).map(page => page.id);
+    const expectedPractices = byId.get('practices').children.filter(page => page.id !== 'practices-writeup').map(page => page.id);
+    assert(rootIds.length === expectedRoots.length && expectedRoots.every(id => rootIds.includes(id)), 'Wiki navigation leaves out a root topic');
+    assert(practiceIds.length === expectedPractices.length && expectedPractices.every(id => practiceIds.includes(id)), 'Wiki navigation leaves out a practice');
+  }
   pages.sort((a, b) => a.route.localeCompare(b.route, 'en'));
   const outputs = new Map();
   const template = readFileSync(path.join(toolDir, 'page.html'), 'utf8');
@@ -151,9 +168,23 @@ try {
   function link(from, to) {
     return `<a href="${reference(from, to)}"${from.id === to.id ? ' aria-current="page"' : ''}>${escape(to.title)}</a>`;
   }
+  function menuItem(from, child) {
+    return `<li>${child.children.length ? `<details${from.chain.some(item => item.id === child.id) ? ' open' : ''}><summary>${link(from, child)}</summary>${tree(from, child)}</details>` : link(from, child)}</li>`;
+  }
   function tree(from, page) {
-    const entries = page.children.map(child => `<li>${child.children.length ? `<details${from.chain.some(item => item.id === child.id) ? ' open' : ''}><summary>${link(from, child)}</summary>${tree(from, child)}</details>` : link(from, child)}</li>`).join('');
-    return `<ul>${entries}</ul>`;
+    return `<ul>${page.children.map(child => menuItem(from, child)).join('')}</ul>`;
+  }
+  function menu(from) {
+    const home = byId.get('wiki');
+    if (!navigation) return `${link(from, home)}${tree(from, home)}`;
+    const groups = navigation.groups.map(group => {
+      const titleId = `wiki-menu-${slugify(group.title)}`;
+      const practiceItems = group.practices.map(id => `<li>${link(from, byId.get(id))}</li>`).join('');
+      const practices = `<li><details${group.practices.includes(from.id) ? ' open' : ''}><summary>Casos prácticos</summary><ul>${practiceItems}</ul></details></li>`;
+      return `<section class="wiki-menu-group" aria-labelledby="${titleId}"><h3 class="wiki-menu-group-title" id="${titleId}">${escape(group.title)}</h3><ul>${group.roots.map(id => menuItem(from, byId.get(id))).join('')}${practices}</ul></section>`;
+    }).join('');
+    const practicesIndex = { ...byId.get('practices'), title: 'Todas las prácticas' };
+    return `<ul class="wiki-menu-utilities"><li>${link(from, home)}</li>${menuItem(from, byId.get('fundamentals'))}</ul>${groups}<ul class="wiki-menu-utilities"><li>${link(from, practicesIndex)}</li><li>${link(from, byId.get('practices-writeup'))}</li></ul>`;
   }
   for (const page of pages) {
     const headingCounts = new Map();
@@ -197,7 +228,7 @@ try {
       title: escape(page.title), description: escape(`${page.title}: explicación, ejemplos y preguntas de repaso de IC 2026.`),
       count: pages.length, siteRoot, wikiRoot,
       type: escape({ category: 'CATEGORÍA', concept: 'CONCEPTO', technique: 'TÉCNICA', algorithm: 'ALGORITMO', protocol: 'PROTOCOLO', tool: 'HERRAMIENTA', practice: 'PRÁCTICA' }[page.type]),
-      tree: `${link(page, byId.get('wiki'))}${tree(page, byId.get('wiki'))}`,
+      tree: menu(page),
       breadcrumbs: `<nav class="wiki-breadcrumbs" aria-label="Ruta de navegación"><ol>${page.chain.map(item => `<li>${item.id === page.id ? `<span aria-current="page">${escape(item.title)}</span>` : link(page, item)}</li>`).join('')}</ol></nav>`,
       content,
       children: page.children.length ? section('subtemas', 'Subtemas', `<ul class="wiki-cards">${page.children.map(item => `<li>${link(page, item)}</li>`).join('')}</ul>`) : '',

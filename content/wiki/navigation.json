@@ -1,0 +1,34 @@
+{
+  "groups": [
+    {
+      "title": "Criptografía",
+      "roots": ["crypto-encoding", "cryptography", "crypto-steganography"],
+      "practices": [
+        "practices-encoding",
+        "practices-classical",
+        "practices-xor",
+        "practices-hash-check",
+        "practices-rsa",
+        "practices-dh",
+        "practices-signatures",
+        "practices-steganography",
+        "practices-unicode"
+      ]
+    },
+    {
+      "title": "CSIRT",
+      "roots": ["csirt"],
+      "practices": ["practices-email", "practices-logs", "practices-pcap"]
+    },
+    {
+      "title": "Malware",
+      "roots": ["malware"],
+      "practices": [
+        "practices-malware-static",
+        "practices-malware-timeline",
+        "practices-script-inspection",
+        "practices-document-inspection"
+      ]
+    }
+  ]
+}
