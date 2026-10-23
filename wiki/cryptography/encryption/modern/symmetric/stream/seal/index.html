@@ -34,19 +34,17 @@
       <main id="wiki-main" class="wiki-article" tabindex="-1">
         <p class="eyebrow">INTRODUCCIÓN A LA CIBERSEGURIDAD · ALGORITMO</p>
         <h1>SEAL</h1>
-        <h2 id="ejemplo-de-cifrado-de-flujo">Ejemplo de cifrado de flujo</h2>
-<p>La explicación práctica menciona SEAL entre los ejemplos de algoritmos de flujo. El mecanismo general de esa categoría produce una secuencia pseudoaleatoria que se combina con los datos conforme al esquema.</p>
-<h2 id="flujo-de-datos-y-flujo-de-clave">Flujo de datos y flujo de clave</h2>
-<p>Son dos entradas con roles distintos. El flujo de datos contiene el mensaje; la secuencia cifrante permite transformarlo y recuperarlo al aplicar la combinación correspondiente. No debe asumirse que el texto cifrado sea una lista de códigos de caracteres simplemente cambiados de base.</p>
-<p>La práctica explica la generación de flujo de forma conceptual mediante una función y una semilla. No proporciona en esas páginas el algoritmo interno específico de SEAL.</p>
-<h2 id="alcance">Alcance</h2>
-<p>Se conserva la clasificación documentada, sin atribuir tamaños o estados concretos ni presentar una secuencia de salida inventada.</p>
-<details class="wiki-review"><summary>¿Qué diferencia existe entre decodificar una salida hexadecimal y descifrar un mensaje de flujo?</summary><p>Decodificar reconstruye los bytes representados. Descifrar requiere además la secuencia y el procedimiento apropiados para recuperar el mensaje.</p>
+        <h2 id="que-es-seal">Qué es SEAL</h2>
+<p>SEAL aparece como ejemplo de <strong>cifrado simétrico de flujo</strong> en la explicación de la Práctica 1, parte 2, página 5, junto con RC4 y A5.</p>
+<h2 id="datos-y-secuencia-cifrante">Datos y secuencia cifrante</h2>
+<p>El modelo presentado combina dos secuencias: una contiene el mensaje y otra es una secuencia pseudoaleatoria o <em>keystream</em>. Cada unidad del mensaje se combina con la unidad correspondiente de esa secuencia para producir el cifrado.</p>
+<p>La práctica explica de forma general que una función puede generar el flujo a partir de una semilla y que el receptor necesita reproducirlo para descifrar. Esto permite comprender el papel del secreto; no describe la construcción interna específica de SEAL.</p>
+<details class="wiki-review"><summary>¿Representar el cifrado en hexadecimal permite descifrarlo?</summary><p>No. Interpretar hexadecimal recupera los bytes representados. Para obtener el mensaje también hace falta la secuencia cifrante y el procedimiento correspondiente.</p>
 </details>
 
 
         <section class="wiki-section" aria-labelledby="relacionados"><h2 id="relacionados">Conceptos relacionados</h2><ul><li><a href="../">Cifrado de flujo</a></li><li><a href="../../../../../xor/">Operación XOR</a></li></ul></section>
-        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Explicación de la práctica 1, parte 2 · pp. 5. <span>Material de cátedra, fuente local de trabajo; PDF no distribuido por este sitio.</span></li></ul></section>
+        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Explicación de la práctica 1, parte 2 · <a href="../../../../../../../docs/catedra%20cosas/Explicaci%C3%B3n%20-%20Pr%C3%A1ctica%201%20-%20Parte%202.pdf#page=5" target="_blank" rel="noopener">p. 5 ↗</a>. <span>Material de cátedra</span></li><li><a href="../../../../../../../glosario.html">Explorar el glosario completo ↗</a></li></ul></section>
       </main>
       <footer class="wiki-footer"><p>IC 2026 · Elaboración didáctica original basada en las fuentes indicadas. Las páginas citadas corresponden al archivo PDF, contando desde 1.</p><a href="../../../../../../">Volver al inicio de la wiki</a></footer>
     </div>

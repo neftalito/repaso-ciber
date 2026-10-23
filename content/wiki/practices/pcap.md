@@ -1,6 +1,14 @@
 ---
 {"id":"practices-pcap","title":"Caso: reconstruir datos en una captura de red","slug":"pcap","parent":"practices","type":"practice","order":120,"related":["csirt-dns","crypto-encoding","malware-wireshark","practices-writeup"],"sources":[{"id":"practice-questions","pages":[12]},{"id":"practice-solutions","pages":[16]},{"id":"practice-guide","pages":[12,13]}]}
 ---
+## Objetivo y orden de trabajo
+
+El objetivo es reconstruir bytes presentes en campos de una captura y explicar qué permiten concluir. Los dos ejemplos proceden del solucionario complementario, página 16; no describen capturas reales disponibles.
+
+1. Identificar el protocolo y el campo del que se extraerán los datos.
+2. Conservar el orden indicado por el caso y recuperar los bytes.
+3. Aplicar la representación acordada y separar el texto recuperado de la interpretación del tráfico.
+
 ## Caso ICMP
 
 El ejercicio entrega cuatro primeros bytes de datos de paquetes ICMP, en orden: `49`, `43`, `7b`, `7d`, expresados en hexadecimal. Interpretarlos como ASCII produce `IC{}`. Se puede comprobar localmente con `bytes.fromhex('49 43 7b 7d').decode('ascii')`.

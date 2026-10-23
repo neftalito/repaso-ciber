@@ -1,15 +1,18 @@
 ---
 {"id":"practices-document-inspection","title":"Caso: revisar documentos con contenido activo","slug":"document-inspection","parent":"practices","type":"practice","order":160,"related":["malware-static","malware-laboratory","malware-hashes","practices-writeup"],"sources":[{"id":"practice-guide","pages":[15]},{"id":"practice-questions","pages":[15,16]},{"id":"practice-solutions","pages":[20,21]}]}
 ---
-## Planteo
+## Objetivo y material disponible
 
-La guía relaciona los retos de documentos con un `.docm` y una planilla `.xls`. No se dispone de esos adjuntos para obtener sus resultados particulares. El objetivo es diseñar una inspección que preserve la diferencia entre el contenido visible y las acciones programadas.
+La tarea es planificar una inspección que distinga contenido visible y acciones programadas. La guía complementaria, página 15, y el solucionario, páginas 20–21, relacionan estos retos con un `.docm` y una planilla `.xls`. No se dispone de esos adjuntos para obtener sus resultados particulares.
 
 ## Recorrido razonado
 
-Primero se identifica el formato real y se conserva una copia de trabajo y su hash. En un documento con capacidad de macros se buscan módulos, activadores automáticos y operaciones relevantes mediante lectura estática. En una planilla también pueden importar hojas ocultas, fórmulas, nombres definidos y enlaces externos.
+1. Identificar el formato real y conservar una copia de trabajo con su hash.
+2. Inspeccionar el contenido sin activarlo. En un documento con macros se buscan módulos, activadores automáticos y operaciones relevantes.
+3. Revisar los componentes propios de la planilla: hojas ocultas, fórmulas, nombres definidos y enlaces externos, según la guía.
+4. Documentar qué elemento se encontró y qué capacidad sugiere. Una referencia no demuestra que la acción se haya ejecutado.
 
-Se documenta qué elemento existe y qué capacidad sugiere. No se habilita contenido activo en el equipo personal. Si un caso requiriera observación dinámica, esa transición necesitaría un laboratorio aislado y autorizado, como se explica en la unidad de malware.
+El procedimiento especializado para documentos procede del material complementario; la práctica oficial de malware, páginas 5–6 y 18–20, aporta la distinción general entre inspección estática y ejecución controlada. No se habilita contenido activo en el equipo personal. Si un caso requiriera observación dinámica, esa transición necesitaría un laboratorio aislado y autorizado, como se explica en la unidad de malware.
 
 ## Resultado que sí puede darse
 

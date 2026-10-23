@@ -23,6 +23,20 @@ const escape = value => String(value).replace(/[&<>"']/g, char => ({ '&': '&amp;
 const normalize = value => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
 const slugify = value => normalize(value).replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'section';
 const posix = file => file.split(path.sep).join('/');
+const pdfHref = file => file.split('/').map(encodeURIComponent).join('/');
+function publicPdfExists(root, file) {
+  if (typeof file !== 'string') return false;
+  const parts = file.split('/');
+  if (parts[0] !== 'docs' || ![2, 3].includes(parts.length) || (parts.length === 3 && parts[1] !== 'catedra cosas')) return false;
+  if (!parts.slice(1).every(part => part !== '.' && part !== '..' && /^[\p{L}\p{N}._-][\p{L}\p{N} ._-]*$/u.test(part))) return false;
+  if (!parts.at(-1).endsWith('.pdf')) return false;
+  let current = root;
+  for (const part of parts) {
+    current = path.join(current, part);
+    if (!existsSync(current) || lstatSync(current).isSymbolicLink()) return false;
+  }
+  return lstatSync(current).isFile();
+}
 function filesIn(directory) {
   if (!existsSync(directory)) return [];
   return readdirSync(directory, { withFileTypes: true }).sort((a, b) => a.name.localeCompare(b.name, 'en')).flatMap(item => {
@@ -46,7 +60,7 @@ try {
     assert(/^[a-z0-9-]+$/.test(source.id) && !bibliography.has(source.id), `Invalid or duplicate source: ${source.id}`);
     assert(typeof source.title === 'string' && source.title.length > 0 && Number.isInteger(source.pageCount) && source.pageCount > 0, `Invalid source metadata: ${source.id}`);
     assert(['official', 'companion'].includes(source.kind), `Invalid source kind: ${source.id}`);
-    if (source.url !== null) assert(/^docs\/[A-Za-z0-9_.-]+\.pdf$/.test(source.url) && existsSync(path.join(root, source.url)), `Invalid public PDF: ${source.id}`);
+    if (source.url !== null) assert(publicPdfExists(root, source.url), `Invalid public PDF: ${source.id}`);
     bibliography.set(source.id, source);
   }
   const allPages = filesIn(sourceDir).filter(file => file.endsWith('.md')).map(file => {
@@ -75,6 +89,20 @@ try {
   for (const page of allPages) {
     assert(!byId.has(page.id), `Duplicate note id: ${page.id}`);
     byId.set(page.id, page);
+  }
+  const glossaryLinksFile = path.join(sourceDir, 'glossary-links.json');
+  const glossaryLinks = existsSync(glossaryLinksFile) ? JSON.parse(readFileSync(glossaryLinksFile, 'utf8')) : {};
+  assert(glossaryLinks && typeof glossaryLinks === 'object' && !Array.isArray(glossaryLinks), 'glossary-links.json must contain an object');
+  let glossary = new Map();
+  if (Object.keys(glossaryLinks).length) {
+    const data = JSON.parse(readFileSync(path.join(root, 'data/glossary.json'), 'utf8'));
+    assert(Array.isArray(data.entries), 'glossary.json must contain entries');
+    glossary = new Map(data.entries.map(entry => [entry.id, entry]));
+    assert(glossary.size === data.entries.length, 'Duplicate glossary ID');
+  }
+  for (const [id, targets] of Object.entries(glossaryLinks)) {
+    assert(byId.has(id) && !byId.get(id).redirectTo, `Unknown or redirected Wiki page in glossary links: ${id}`);
+    assert(Array.isArray(targets) && targets.length && new Set(targets).size === targets.length && targets.every(target => glossary.has(target) && typeof glossary.get(target).term === 'string'), `Invalid glossary links for ${id}`);
   }
   assert(byId.has('wiki') && byId.get('wiki').parent === null, 'A root note with id wiki and parent null is required');
   for (const page of pages) {
@@ -176,9 +204,9 @@ try {
       related: page.related.length ? section('relacionados', 'Conceptos relacionados', `<ul>${page.related.map(id => `<li>${link(page, byId.get(id))}</li>`).join('')}</ul>`) : '',
       sources: section('fuentes', 'Fuentes', `<ul class="wiki-sources">${page.sources.map(citation => {
         const source = bibliography.get(citation.id);
-        const title = source.url ? `<a href="${siteRoot}${escape(source.url)}#page=${citation.pages[0]}" target="_blank" rel="noopener">${escape(source.title)}</a>` : escape(source.title);
-        return `<li>${title} · pp. ${citation.pages.join(', ')}. <span>${source.kind === 'official' ? 'Material de cátedra' : 'Material complementario'}${source.url ? ', PDF disponible.' : ', fuente local de trabajo; PDF no distribuido por este sitio.'}</span></li>`;
-      }).join('')}</ul>`),
+        const pages = source.url ? citation.pages.map(number => `<a href="${siteRoot}${escape(pdfHref(source.url))}#page=${number}" target="_blank" rel="noopener">p. ${number} ↗</a>`).join(', ') : `pp. ${citation.pages.join(', ')}`;
+        return `<li>${escape(source.title)} · ${pages}. <span>${source.kind === 'official' ? 'Material de cátedra' : 'Material complementario'}${source.url ? '' : ', fuente local de trabajo; PDF no distribuido por este sitio.'}</span></li>`;
+      }).join('')}${(glossaryLinks[page.id] || []).map(id => `<li>Glosario · <a href="${siteRoot}glosario.html#${escape(id)}">${escape(glossary.get(id).term)} ↗</a></li>`).join('')}<li><a href="${siteRoot}glosario.html">Explorar el glosario completo ↗</a></li></ul>`),
     };
     const pageTemplate = values.related ? template : template.replace(/^[ \t]*{{related}}$/m, '');
     const html = '<!-- Generated by tools/wiki/build.mjs. Edit content/wiki/ or tools/wiki/. -->\n' + render(pageTemplate, values);
@@ -207,7 +235,7 @@ try {
       let target = decodeURIComponent(url.pathname).slice(1);
       if (target.endsWith('/')) target += 'index.html';
       assert(outputs.has(target) || existsSync(path.join(root, target)), `Broken local link in ${file}: ${reference}`);
-      if (url.hash && target.endsWith('.html')) {
+      if (url.hash && target.endsWith('.html') && target !== 'glosario.html') {
         const targetHtml = outputs.get(target) || readFileSync(path.join(root, target), 'utf8');
         assert(targetHtml.includes(`id="${decodeURIComponent(url.hash.slice(1))}"`), `Broken anchor in ${file}: ${reference}`);
       }

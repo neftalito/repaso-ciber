@@ -34,18 +34,19 @@
       <main id="wiki-main" class="wiki-article" tabindex="-1">
         <p class="eyebrow">INTRODUCCIÓN A LA CIBERSEGURIDAD · ALGORITMO</p>
         <h1>SHA-1</h1>
-        <h2 id="definicion">Definición</h2>
-<p>SHA-1 produce resúmenes de 160 bits, equivalentes a 40 dígitos hexadecimales cuando se escriben completos y sin prefijos. Es una función hash: se calcula y compara, no se descifra.</p>
-<h2 id="interpretacion-de-una-identificacion">Interpretación de una identificación</h2>
-<p>Encontrar cuarenta símbolos hexadecimales es una pista compatible con SHA-1. Para confirmar el algoritmo debe conocerse el procedimiento que produjo el valor o comprobarse una entrada disponible. La apariencia no permite deducir qué archivo o contraseña lo originó.</p>
-<h2 id="limitacion">Limitación</h2>
-<p>El manual complementario advierte que SHA-1 no es adecuado cuando se requiere resistencia a colisiones. La longitud de salida no basta para comparar la seguridad de funciones diferentes: también importan las debilidades del diseño y de los ataques conocidos que la fuente menciona.</p>
-<details class="wiki-review"><summary>¿Por qué comparar un candidato con SHA-1 no constituye descifrado?</summary><p>Se calcula la función hacia adelante sobre el candidato y se compara el resumen. No se aplica una operación inversa al digest recibido.</p>
+        <h2 id="que-produce-sha-1">Qué produce SHA-1</h2>
+<p><strong>SHA-1 es una función hash</strong> que produce un resumen de 160 bits. Cripto, parte 1, página 18, lo incluye entre las funciones del temario. Su representación hexadecimal completa tiene 40 dígitos, como precisa la guía complementaria de prácticas, página 4.</p>
+<h2 id="como-interpretar-el-resultado">Cómo interpretar el resultado</h2>
+<p>El resumen permite calcular y comparar valores a partir de una entrada. Para comprobar un candidato se aplica SHA-1 a sus bytes y se compara el resultado; no se descifra el resumen recibido.</p>
+<p>La longitud de cuarenta dígitos hexadecimales es una pista compatible con SHA-1. No identifica por sí sola el algoritmo ni revela la entrada que lo originó: también podría tratarse de otra función o de un resultado truncado.</p>
+<h2 id="limite-de-seguridad">Límite de seguridad</h2>
+<p>El manual complementario, página 8, advierte que SHA-1 no es adecuado para aplicaciones que dependen de la resistencia a colisiones. La longitud del resumen y la resistencia a encontrar entradas distintas con el mismo resultado son cuestiones diferentes.</p>
+<details class="wiki-review"><summary>¿Comparar el hash de un candidato equivale a descifrar?</summary><p>No. Se calcula la función hacia adelante sobre ese candidato y se comprueba si coincide con el resumen esperado.</p>
 </details>
 
 
         <section class="wiki-section" aria-labelledby="relacionados"><h2 id="relacionados">Conceptos relacionados</h2><ul><li><a href="../md5/">MD5</a></li><li><a href="../sha2/">Familia SHA-2</a></li><li><a href="../#colisiones-y-resistencia-a-preimagenes">Colisiones y preimágenes</a></li></ul></section>
-        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Cripto, parte 1 · pp. 18. <span>Material de cátedra, fuente local de trabajo; PDF no distribuido por este sitio.</span></li><li><a href="../../../../docs/Manual_IC2026_Cripto_CSIRT_Malware_Descarga.pdf#page=8" target="_blank" rel="noopener">Manual de estudio: Cripto, CSIRT y Malware</a> · pp. 8. <span>Material complementario, PDF disponible.</span></li><li><a href="../../../../docs/Guia_de_estudio_IC_Practicas_1_y_2.pdf#page=4" target="_blank" rel="noopener">Guía de estudio de prácticas 1 y 2</a> · pp. 4. <span>Material complementario, PDF disponible.</span></li></ul></section>
+        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Cripto, parte 1 · <a href="../../../../docs/catedra%20cosas/02%20-%20Cripto%20parte%201.pdf#page=18" target="_blank" rel="noopener">p. 18 ↗</a>. <span>Material de cátedra</span></li><li>Manual de estudio: Cripto, CSIRT y Malware · <a href="../../../../docs/Manual_IC2026_Cripto_CSIRT_Malware_Descarga.pdf#page=8" target="_blank" rel="noopener">p. 8 ↗</a>. <span>Material complementario</span></li><li>Guía de estudio de prácticas 1 y 2 · <a href="../../../../docs/Guia_de_estudio_IC_Practicas_1_y_2.pdf#page=4" target="_blank" rel="noopener">p. 4 ↗</a>. <span>Material complementario</span></li><li>Glosario · <a href="../../../../glosario.html#sha">MD5, SHA-1 y familia SHA-2 ↗</a></li><li><a href="../../../../glosario.html">Explorar el glosario completo ↗</a></li></ul></section>
       </main>
       <footer class="wiki-footer"><p>IC 2026 · Elaboración didáctica original basada en las fuentes indicadas. Las páginas citadas corresponden al archivo PDF, contando desde 1.</p><a href="../../../">Volver al inicio de la wiki</a></footer>
     </div>

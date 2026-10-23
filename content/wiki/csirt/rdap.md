@@ -5,7 +5,7 @@
 
 RDAP, Registration Data Access Protocol, permite consultar información de registro mediante respuestas estructuradas en JSON. La cátedra lo presenta como sucesor de WHOIS y destaca su utilidad para el procesamiento automático.
 
-El formato ayuda a reconocer objetos, entidades y roles sin depender exclusivamente de líneas de texto libre. No convierte la información registral en una prueba de autoría ni garantiza que todos los datos personales estén publicados.
+El formato permite separar datos de la red, entidades y roles de contacto sin buscar nombres de campos en texto libre. La consulta describe registros de recursos; su estructura no demuestra quién realizó una actividad.
 
 ## Recursos consultables y diferencias con WHOIS
 
@@ -15,7 +15,14 @@ WHOIS responde en texto libre, mientras que RDAP utiliza JSON. La estructura fac
 
 ## Lectura de una ficha
 
-En la respuesta mostrada en clase aparecen campos como `objectClassName`, `handle`, `startAddress`, `endAddress`, `events`, `links` y `entities`. Las entidades pueden incluir datos de contacto y roles como `administrative`, `technical` o `abuse`.
+La página 13 permite recorrer la respuesta por su estructura:
+
+1. `objectClassName` indica la clase de objeto, en este caso `ip network`.
+2. `handle`, `startAddress` y `endAddress` describen la red y sus límites.
+3. `entities` reúne entidades con datos de contacto y roles como `administrative`, `technical` o `abuse`.
+4. Los roles orientan la elección del contacto; `events` y `links` aportan fechas y referencias del registro.
+
+El siguiente fragmento simplifica esa estructura:
 
 ```json
 {

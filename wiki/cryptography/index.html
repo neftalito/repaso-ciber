@@ -34,16 +34,23 @@
       <main id="wiki-main" class="wiki-article" tabindex="-1">
         <p class="eyebrow">INTRODUCCIÓN A LA CIBERSEGURIDAD · CATEGORÍA</p>
         <h1>Criptografía</h1>
-        <h2 id="recorrido-de-estudio">Recorrido de estudio</h2>
-<p>La criptografía estudia mecanismos para proteger información mediante transformaciones y claves. El recorrido comienza por distinguir representación, confidencialidad, integridad y autenticidad: no todas las transformaciones de datos resuelven el mismo problema.</p>
-<p>La <a href="encoding/">codificación</a> permite representar datos; el <a href="encryption/">cifrado</a> busca restringir su lectura; las <a href="hash/">funciones hash</a> calculan resúmenes; las <a href="signature/">firmas digitales</a> permiten comprobar origen e integridad. El <a href="key-agreement/">acuerdo de claves</a> aborda cómo establecer un secreto compartido. La <a href="steganography/">esteganografía</a> intenta ocultar la existencia del mensaje.</p>
-<p>Los métodos históricos se estudian para comprender sus mecanismos y limitaciones. Los ejemplos numéricos pequeños son ejercicios, no configuraciones para aplicaciones reales. Relacionar cada mecanismo con la <a href="../fundamentals/cia/">tríada CIA</a> evita atribuirle propiedades que no proporciona.</p>
-<h2 id="categorias-relacionadas">Categorías relacionadas</h2>
-<p>Codificación y Esteganografía se consultan como categorías independientes en la raíz de la wiki. Se relacionan con los temas de esta sección, pero representar información y ocultar su existencia no son subcategorías de cifrado.</p>
+        <h2 id="mecanismos-para-proteger-informacion">Mecanismos para proteger información</h2>
+<p>La <strong>criptografía</strong> estudia técnicas para proteger la información. En este recorrido conviene comenzar por el objetivo de cada mecanismo: cifrar restringe la lectura, un hash produce un resumen y una firma permite comprobar origen e integridad.</p>
+<p>Cripto, parte 1, páginas 9 y 16, introduce el cifrado y las familias modernas. Cripto, parte 2, amplía el recorrido con acuerdos de claves, firmas y mecanismos de confianza. Relacionarlos con la <a href="../fundamentals/cia/">tríada CIA</a> ayuda a identificar qué necesidad resuelve cada uno.</p>
+<h2 id="temas-de-esta-seccion">Temas de esta sección</h2>
+<ul>
+<li><a href="encryption/">Cifrado</a>: mensaje, algoritmo, clave y descifrado.</li>
+<li><a href="encryption/classical/">Criptografía clásica</a>: sustitución y transposición.</li>
+<li><a href="encryption/modern/">Criptografía moderna</a>: claves, hashes, firmas y confianza.</li>
+<li><a href="xor/">Operación XOR</a>: combinación de bits utilizada en distintos esquemas.</li>
+</ul>
+<h2 id="representar-establecer-secretos-y-ocultar-mensajes">Representar, establecer secretos y ocultar mensajes</h2>
+<p>La <a href="encoding/">codificación</a> permite representar datos y la <a href="steganography/">esteganografía</a> busca ocultar la existencia de un mensaje. Ambas conservan sus categorías independientes en la raíz de la Wiki.</p>
+<p>Las páginas de <a href="hash/">funciones hash</a>, <a href="signature/">firmas digitales</a> y <a href="key-agreement/">acuerdo de claves</a> profundizan sus objetivos específicos. Los ejemplos numéricos pequeños permiten entender los procedimientos; no describen configuraciones para aplicaciones reales.</p>
 
 <section class="wiki-section" aria-labelledby="subtemas"><h2 id="subtemas">Subtemas</h2><ul class="wiki-cards"><li><a href="encryption/">Cifrado</a></li><li><a href="encryption/classical/">Criptografía clásica</a></li><li><a href="encryption/modern/">Criptografía moderna</a></li><li><a href="xor/">Operación XOR</a></li></ul></section>
         <section class="wiki-section" aria-labelledby="relacionados"><h2 id="relacionados">Conceptos relacionados</h2><ul><li><a href="../fundamentals/cia/">Tríada CIA</a></li><li><a href="../practices/writeup/">Cómo construir un writeup</a></li></ul></section>
-        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Cripto, parte 1 · pp. 6, 9, 16. <span>Material de cátedra, fuente local de trabajo; PDF no distribuido por este sitio.</span></li><li>Cripto, parte 2 · pp. 10, 18, 26. <span>Material de cátedra, fuente local de trabajo; PDF no distribuido por este sitio.</span></li></ul></section>
+        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Cripto, parte 1 · <a href="../../docs/catedra%20cosas/02%20-%20Cripto%20parte%201.pdf#page=6" target="_blank" rel="noopener">p. 6 ↗</a>, <a href="../../docs/catedra%20cosas/02%20-%20Cripto%20parte%201.pdf#page=9" target="_blank" rel="noopener">p. 9 ↗</a>, <a href="../../docs/catedra%20cosas/02%20-%20Cripto%20parte%201.pdf#page=16" target="_blank" rel="noopener">p. 16 ↗</a>. <span>Material de cátedra</span></li><li>Cripto, parte 2 · <a href="../../docs/catedra%20cosas/03%20-%20Cripto%20parte%202.pdf#page=10" target="_blank" rel="noopener">p. 10 ↗</a>, <a href="../../docs/catedra%20cosas/03%20-%20Cripto%20parte%202.pdf#page=18" target="_blank" rel="noopener">p. 18 ↗</a>, <a href="../../docs/catedra%20cosas/03%20-%20Cripto%20parte%202.pdf#page=26" target="_blank" rel="noopener">p. 26 ↗</a>. <span>Material de cátedra</span></li><li>Glosario · <a href="../../glosario.html#cifrado">Cifrado, plaintext y ciphertext ↗</a></li><li>Glosario · <a href="../../glosario.html#hash">Hash y digest ↗</a></li><li>Glosario · <a href="../../glosario.html#firma">Firma digital y autenticidad ↗</a></li><li><a href="../../glosario.html">Explorar el glosario completo ↗</a></li></ul></section>
       </main>
       <footer class="wiki-footer"><p>IC 2026 · Elaboración didáctica original basada en las fuentes indicadas. Las páginas citadas corresponden al archivo PDF, contando desde 1.</p><a href="../">Volver al inicio de la wiki</a></footer>
     </div>

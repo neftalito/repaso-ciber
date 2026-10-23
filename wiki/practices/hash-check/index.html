@@ -35,8 +35,14 @@
         <p class="eyebrow">INTRODUCCIÓN A LA CIBERSEGURIDAD · PRÁCTICA</p>
         <h1>Caso: comprobar un hash con salt</h1>
         <h2 id="datos-del-caso">Datos del caso</h2>
-<p>El ejercicio define <code>MD5(salt || password)</code>, el salt <code>IntroCiberseguridad</code> y el digest <code>6bff121a17aae857825427eab59ebe13</code>. Las candidatas autorizadas son <code>mate</code>, <code>sol</code> y <code>luna</code>. La tarea es comparar entradas concretas, no descifrar MD5.</p>
+<p>El caso del solucionario complementario, página 5, define <code>MD5(salt || password)</code>, el salt <code>IntroCiberseguridad</code> y el digest <code>6bff121a17aae857825427eab59ebe13</code>. Las candidatas autorizadas son <code>mate</code>, <code>sol</code> y <code>luna</code>. La tarea es comparar entradas concretas, no descifrar MD5.</p>
 <h2 id="procedimiento-comprobado">Procedimiento comprobado</h2>
+<ol>
+<li>Conservar el salt, el digest esperado y las tres candidatas tal como se proporcionan.</li>
+<li>Concatenar el salt antes de cada candidata, sin incluir comillas ni separadores.</li>
+<li>Representar la entrada como bytes UTF-8 y calcular MD5.</li>
+<li>Comparar cada digest con el esperado y registrar las coincidencias.</li>
+</ol>
 <pre><code class="language-python">import hashlib
 salt = &#39;IntroCiberseguridad&#39;
 expected = &#39;6bff121a17aae857825427eab59ebe13&#39;
@@ -55,7 +61,7 @@ assert matches == [&#39;mate&#39;]
 
 
         <section class="wiki-section" aria-labelledby="relacionados"><h2 id="relacionados">Conceptos relacionados</h2><ul><li><a href="../../cryptography/hash/">Funciones hash</a></li><li><a href="../writeup/">Cómo construir un writeup</a></li></ul></section>
-        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li><a href="../../../docs/IC2026_Preguntas_Basadas_en_Practicas_1_y_2.pdf#page=4" target="_blank" rel="noopener">Preguntas basadas en prácticas 1 y 2</a> · pp. 4. <span>Material complementario, PDF disponible.</span></li><li><a href="../../../docs/IC2026_Solucionario_Practicas_1_y_2.pdf#page=5" target="_blank" rel="noopener">Solucionario de prácticas 1 y 2</a> · pp. 5. <span>Material complementario, PDF disponible.</span></li><li><a href="../../../docs/Guia_de_estudio_IC_Practicas_1_y_2.pdf#page=4" target="_blank" rel="noopener">Guía de estudio de prácticas 1 y 2</a> · pp. 4. <span>Material complementario, PDF disponible.</span></li></ul></section>
+        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Preguntas basadas en prácticas 1 y 2 · <a href="../../../docs/IC2026_Preguntas_Basadas_en_Practicas_1_y_2.pdf#page=4" target="_blank" rel="noopener">p. 4 ↗</a>. <span>Material complementario</span></li><li>Solucionario de prácticas 1 y 2 · <a href="../../../docs/IC2026_Solucionario_Practicas_1_y_2.pdf#page=5" target="_blank" rel="noopener">p. 5 ↗</a>. <span>Material complementario</span></li><li>Guía de estudio de prácticas 1 y 2 · <a href="../../../docs/Guia_de_estudio_IC_Practicas_1_y_2.pdf#page=4" target="_blank" rel="noopener">p. 4 ↗</a>. <span>Material complementario</span></li><li>Glosario · <a href="../../../glosario.html#contrasenas">Hash de contraseñas, sal y costo ↗</a></li><li>Glosario · <a href="../../../glosario.html#diccionario">Ataque de diccionario y comprobación offline ↗</a></li><li><a href="../../../glosario.html">Explorar el glosario completo ↗</a></li></ul></section>
       </main>
       <footer class="wiki-footer"><p>IC 2026 · Elaboración didáctica original basada en las fuentes indicadas. Las páginas citadas corresponden al archivo PDF, contando desde 1.</p><a href="../../">Volver al inicio de la wiki</a></footer>
     </div>

@@ -34,8 +34,8 @@
       <main id="wiki-main" class="wiki-article" tabindex="-1">
         <p class="eyebrow">INTRODUCCIÓN A LA CIBERSEGURIDAD · CONCEPTO</p>
         <h1>Operación XOR</h1>
-        <h2 id="definicion">Definición</h2>
-<p>XOR es una operación bit a bit cuyo resultado vale 1 cuando sus entradas son diferentes y 0 cuando son iguales. Es una operación reutilizada en esquemas criptográficos, no una garantía de seguridad por sí misma.</p>
+        <h2 id="comparar-bits">Comparar bits</h2>
+<p><strong>XOR</strong> es una operación bit a bit: produce 1 cuando los dos bits son diferentes y 0 cuando son iguales. Se utiliza dentro de distintos esquemas criptográficos; su reversibilidad no garantiza por sí sola la seguridad del esquema completo.</p>
 <table>
 <thead>
 <tr>
@@ -65,17 +65,46 @@
 <td>0</td>
 </tr>
 </tbody></table>
-<h2 id="ejemplo-original">Ejemplo original</h2>
-<p><code>01001010 XOR 00110011 = 01111001</code>, o <code>0x4A XOR 0x33 = 0x79</code>. Aplicar otra vez <code>0x33</code> al resultado recupera <code>0x4A</code>.</p>
-<p>Esto ocurre porque <code>x XOR x = 0</code>, <code>x XOR 0 = x</code> y la operación permite reagrupar operandos. Por tanto <code>(m XOR k) XOR k = m</code>.</p>
-<h2 id="limite-del-cifrado-con-una-constante">Límite del cifrado con una constante</h2>
-<p>Si se repite una clave de un byte, existen solo <code>2⁸ = 256</code> valores posibles. La reversibilidad de XOR no convierte esa construcción elemental en un esquema robusto.</p>
-<details class="wiki-review"><summary>¿Qué revela combinar dos cifrados que usaron el mismo flujo de clave?</summary><p>Si c1=m1 XOR k y c2=m2 XOR k, entonces c1 XOR c2=m1 XOR m2: el flujo k se cancela. No se recuperan automáticamente ambos mensajes, pero se revela una relación entre ellos.</p>
+<h2 id="ejemplo-de-la-catedra">Ejemplo de la cátedra</h2>
+<p>La explicación de la Práctica 1, parte 1, página 10, combina los bytes de un mensaje que comienza por <code>IC{</code> con el valor hexadecimal <code>0x11</code>:</p>
+<table>
+<thead>
+<tr>
+<th>Carácter</th>
+<th>Byte de entrada</th>
+<th>XOR con 0x11</th>
+<th>Byte de salida</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>I</td>
+<td>0x49</td>
+<td>0x49 XOR 0x11</td>
+<td>0x58</td>
+</tr>
+<tr>
+<td>C</td>
+<td>0x43</td>
+<td>0x43 XOR 0x11</td>
+<td>0x52</td>
+</tr>
+<tr>
+<td>{</td>
+<td>0x7B</td>
+<td>0x7B XOR 0x11</td>
+<td>0x6A</td>
+</tr>
+</tbody></table>
+<p>Para recuperar cada byte se vuelve a aplicar el mismo valor: <code>0x58 XOR 0x11 = 0x49</code>.</p>
+<h2 id="por-que-se-recupera-el-original">Por qué se recupera el original</h2>
+<p>Al combinar un valor consigo mismo se obtiene cero, y combinarlo con cero no lo cambia: <code>x XOR x = 0</code> y <code>x XOR 0 = x</code>. Por eso <strong><code>(m XOR k) XOR k = m</code></strong>: la segunda aplicación de <code>k</code> cancela la primera.</p>
+<p>La guía complementaria, página 5, advierte el límite de una clave repetida de un byte: solo tiene 256 valores posibles. La explicación práctica, parte 2, página 5, presenta XOR en el contexto de cifradores de flujo, donde importa cómo se genera la secuencia cifrante.</p>
+<details class="wiki-review"><summary>¿Qué ocurre si dos mensajes usan el mismo flujo de clave?</summary><p>Al combinar ambos cifrados, el flujo se cancela: si c1=m1 XOR k y c2=m2 XOR k, entonces c1 XOR c2=m1 XOR m2. Esto revela una relación entre los mensajes; no recupera automáticamente ambos originales.</p>
 </details>
 
 
         <section class="wiki-section" aria-labelledby="relacionados"><h2 id="relacionados">Conceptos relacionados</h2><ul><li><a href="../encryption/modern/symmetric/stream/">Cifrado de flujo</a></li><li><a href="../encryption/modern/symmetric/block/cbc/">Modo CBC</a></li><li><a href="../encoding/numbers/">Representaciones numéricas</a></li></ul></section>
-        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Explicación de la práctica 1, parte 1 · pp. 10. <span>Material de cátedra, fuente local de trabajo; PDF no distribuido por este sitio.</span></li><li>Explicación de la práctica 1, parte 2 · pp. 5. <span>Material de cátedra, fuente local de trabajo; PDF no distribuido por este sitio.</span></li><li><a href="../../../docs/Guia_de_estudio_IC_Practicas_1_y_2.pdf#page=5" target="_blank" rel="noopener">Guía de estudio de prácticas 1 y 2</a> · pp. 5. <span>Material complementario, PDF disponible.</span></li></ul></section>
+        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Explicación de la práctica 1, parte 1 · <a href="../../../docs/catedra%20cosas/Explicaci%C3%B3n%20-%20Pr%C3%A1ctica%201%20-%20Parte%201.pdf#page=10" target="_blank" rel="noopener">p. 10 ↗</a>. <span>Material de cátedra</span></li><li>Explicación de la práctica 1, parte 2 · <a href="../../../docs/catedra%20cosas/Explicaci%C3%B3n%20-%20Pr%C3%A1ctica%201%20-%20Parte%202.pdf#page=5" target="_blank" rel="noopener">p. 5 ↗</a>. <span>Material de cátedra</span></li><li>Guía de estudio de prácticas 1 y 2 · <a href="../../../docs/Guia_de_estudio_IC_Practicas_1_y_2.pdf#page=5" target="_blank" rel="noopener">p. 5 ↗</a>. <span>Material complementario</span></li><li>Glosario · <a href="../../../glosario.html#xor">XOR: operación bit a bit ↗</a></li><li><a href="../../../glosario.html">Explorar el glosario completo ↗</a></li></ul></section>
       </main>
       <footer class="wiki-footer"><p>IC 2026 · Elaboración didáctica original basada en las fuentes indicadas. Las páginas citadas corresponden al archivo PDF, contando desde 1.</p><a href="../../">Volver al inicio de la wiki</a></footer>
     </div>

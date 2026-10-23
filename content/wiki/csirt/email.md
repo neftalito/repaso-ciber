@@ -1,14 +1,20 @@
 ---
 {"id":"csirt-email","title":"Correo electrónico e investigación","slug":"correo-electronico","parent":"csirt","type":"category","order":40,"aliases":["email","e-mail","mail","phishing"],"related":["csirt-dns","csirt-incidents"],"sources":[{"id":"lecture-email","pages":[2,3,4,7,10,16]}]}
 ---
-## Qué permite estudiar un correo
+## Qué permite investigar un correo
 
-Investigar un mensaje requiere comprender su transporte, distinguir las direcciones usadas para entregarlo de las que ve el usuario y reconstruir los saltos respaldados por los encabezados. El aspecto del mensaje por sí solo no proporciona todos esos datos.
+El análisis de un correo busca reconocer cómo se transportó el mensaje, qué servidores participaron y qué direcciones se usaron para el envío y la respuesta. El nombre del remitente que muestra el lector de correo es solo una parte de esa información.
 
-El recorrido de esta sección parte de [SMTP](wiki:csirt-smtp) y la anatomía del correo, continúa con el análisis de encabezados y estudia la suplantación del remitente. Las herramientas de análisis facilitan la lectura, pero no reemplazan interpretar la evidencia original.
+La idea central es separar el encaminamiento del mensaje de los campos que ve el usuario. La cátedra muestra que la dirección del sobre SMTP puede diferir del campo `From` que ve el destinatario.
+
+## Del transporte a la interpretación
+
+- [SMTP y flujo del correo](wiki:csirt-smtp): recorrido entre servidores y diferencia entre sobre, encabezados y cuerpo.
+- [Análisis de encabezados](wiki:csirt-headers): servidores, IP, marcas temporales y herramientas para interpretar la traza.
+- [Suplantación del remitente](wiki:csirt-spoofing): uso de campos informativos para aparentar un origen distinto.
 
 ## Conexión con la gestión de incidentes
 
-Una dirección IP o un dominio observado puede orientar consultas registrales para encontrar el contacto de abuso. Esa búsqueda debe partir de evidencia confiable: no cualquier dirección escrita en un campo del mensaje es el origen real de una conexión.
+La IP de la conexión observada y el dominio involucrado pueden orientar consultas registrales para localizar un contacto de abuso. Primero se interpreta la evidencia: una dirección escrita en el mensaje no demuestra por sí sola que ese sistema haya realizado el envío.
 
-Los ejemplos son didácticos. No requieren enviar mensajes, visitar enlaces de un correo sospechoso ni ejecutar adjuntos.
+Las herramientas de análisis ayudan a ordenar los encabezados, pero su interpretación debe compararse con el original. Los ejemplos de esta unidad son didácticos y no requieren enviar mensajes ni interactuar con el contenido de un correo sospechoso.

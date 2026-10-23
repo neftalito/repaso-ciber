@@ -34,26 +34,39 @@
       <main id="wiki-main" class="wiki-article" tabindex="-1">
         <p class="eyebrow">INTRODUCCIÓN A LA CIBERSEGURIDAD · ALGORITMO</p>
         <h1>Transposición columnar</h1>
-        <h2 id="funcionamiento">Funcionamiento</h2>
-<p>Se escribe el texto por filas en una tabla y se leen las columnas en un orden acordado, que puede derivarse de una palabra clave. Para invertirlo se reconstruyen primero las columnas y luego se lee por filas.</p>
-<h2 id="ejemplo-original">Ejemplo original</h2>
-<p>Con clave <code>SOL</code>, sin espacios y con doce letras de entrada, se arma esta tabla:</p>
-<pre><code class="language-text">S O L
-C I B
-E R S
-E G U
-R I D
+        <h2 id="reordenar-el-texto-mediante-una-tabla">Reordenar el texto mediante una tabla</h2>
+<p>La <strong>transposición columnar</strong> cifra un mensaje cambiando el orden de sus letras. Primero se escribe por filas en una tabla y después se leen las columnas en un orden acordado. Una palabra clave puede determinar ese orden.</p>
+<p>La explicación de la Práctica 1, parte 1, introduce la transposición en la página 9 y muestra la tabla con clave <code>CAT</code> al comienzo de la página 10. El solucionario complementario de prácticas, página 4, desarrolla el mismo caso.</p>
+<h2 id="ejemplo-con-la-clave-cat">Ejemplo con la clave CAT</h2>
+<p>El mensaje <code>THE SKY IS BLUE</code> se escribe sin espacios bajo las letras de la clave:</p>
+<pre><code class="language-text">C A T
+T H E
+S K Y
+I S B
+L U E
 </code></pre>
-<p>La entrada es <code>CIBERSEGURID</code>. Al ordenar las columnas por sus letras de clave, L–O–S, se leen <code>BSUD</code>, <code>IRGI</code> y <code>CEER</code>: el cifrado es <code>BSUDIRGICEER</code>.</p>
-<p>Para descifrar, se separan tres grupos de cuatro letras y se colocan de nuevo bajo L, O y S. La lectura de las filas en el orden original S–O–L recupera el mensaje.</p>
-<h2 id="convenciones-necesarias">Convenciones necesarias</h2>
-<p>Hay que precisar el tratamiento de claves con letras repetidas y de filas incompletas. El ejemplo evita ambos problemas para mostrar únicamente la permutación.</p>
-<details class="wiki-review"><summary>¿Ordenar alfabéticamente la clave modifica las letras del mensaje?</summary><p>No. Determina el orden de lectura de las columnas. Los símbolos del mensaje permanecen iguales y cambian de posición.</p>
+<p>La clave establece el orden alfabético <strong>A–C–T</strong> para leer las columnas:</p>
+<ol>
+<li>Debajo de A se obtiene <code>HKSU</code>.</li>
+<li>Debajo de C se obtiene <code>TSIL</code>.</li>
+<li>Debajo de T se obtiene <code>EYBE</code>.</li>
+</ol>
+<p>Al concatenar esos grupos resulta <strong><code>HKSUTSILEYBE</code></strong>. No se han reemplazado letras: las mismas doce letras aparecen en otro orden.</p>
+<h2 id="como-deshacer-la-transposicion">Cómo deshacer la transposición</h2>
+<p>En este caso hay tres columnas y cuatro filas completas:</p>
+<ol>
+<li>Separar el cifrado en tres grupos de cuatro letras: <code>HKSU</code>, <code>TSIL</code>, <code>EYBE</code>.</li>
+<li>Colocarlos bajo las columnas A, C y T, respectivamente.</li>
+<li>Volver al orden original de la tabla, C–A–T, y leer por filas.</li>
+</ol>
+<p>Se recupera <code>THESKYISBLUE</code>. Los espacios originales no se recuperan por la transposición, porque se habían quitado antes de llenar la tabla.</p>
+<p>La distribución en grupos iguales corresponde a este ejemplo de filas completas. Para otros mensajes deben conocerse las reglas sobre filas incompletas y letras repetidas en la clave.</p>
+<details class="wiki-review"><summary>¿Ordenar alfabéticamente la clave modifica las letras del mensaje?</summary><p>No. Determina el orden de lectura de las columnas. Las letras se conservan y cambian de posición.</p>
 </details>
 
 
         <section class="wiki-section" aria-labelledby="relacionados"><h2 id="relacionados">Conceptos relacionados</h2><ul><li><a href="../grid/">Transposición por grilla</a></li><li><a href="../../substitution/vigenere/">Cifrado Vigenère</a></li></ul></section>
-        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Explicación de la práctica 1, parte 1 · pp. 9. <span>Material de cátedra, fuente local de trabajo; PDF no distribuido por este sitio.</span></li><li><a href="../../../../../../docs/Manual_IC2026_Cripto_CSIRT_Malware_Descarga.pdf#page=7" target="_blank" rel="noopener">Manual de estudio: Cripto, CSIRT y Malware</a> · pp. 7. <span>Material complementario, PDF disponible.</span></li><li><a href="../../../../../../docs/IC2026_Solucionario_Practicas_1_y_2.pdf#page=4" target="_blank" rel="noopener">Solucionario de prácticas 1 y 2</a> · pp. 4. <span>Material complementario, PDF disponible.</span></li></ul></section>
+        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Explicación de la práctica 1, parte 1 · <a href="../../../../../../docs/catedra%20cosas/Explicaci%C3%B3n%20-%20Pr%C3%A1ctica%201%20-%20Parte%201.pdf#page=9" target="_blank" rel="noopener">p. 9 ↗</a>. <span>Material de cátedra</span></li><li>Manual de estudio: Cripto, CSIRT y Malware · <a href="../../../../../../docs/Manual_IC2026_Cripto_CSIRT_Malware_Descarga.pdf#page=7" target="_blank" rel="noopener">p. 7 ↗</a>. <span>Material complementario</span></li><li>Solucionario de prácticas 1 y 2 · <a href="../../../../../../docs/IC2026_Solucionario_Practicas_1_y_2.pdf#page=4" target="_blank" rel="noopener">p. 4 ↗</a>. <span>Material complementario</span></li><li>Glosario · <a href="../../../../../../glosario.html#transposicion-riel-columna">Rail Fence y transposición columnar ↗</a></li><li><a href="../../../../../../glosario.html">Explorar el glosario completo ↗</a></li></ul></section>
       </main>
       <footer class="wiki-footer"><p>IC 2026 · Elaboración didáctica original basada en las fuentes indicadas. Las páginas citadas corresponden al archivo PDF, contando desde 1.</p><a href="../../../../../">Volver al inicio de la wiki</a></footer>
     </div>

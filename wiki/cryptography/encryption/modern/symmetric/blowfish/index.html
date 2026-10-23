@@ -34,18 +34,17 @@
       <main id="wiki-main" class="wiki-article" tabindex="-1">
         <p class="eyebrow">INTRODUCCIÓN A LA CIBERSEGURIDAD · ALGORITMO</p>
         <h1>Blowfish</h1>
-        <h2 id="definicion-dentro-del-temario">Definición dentro del temario</h2>
-<p>Blowfish se incluye en la lista de ejemplos simétricos de la clase. Esa ubicación indica el modelo de clave compartida; no lo convierte en un formato de texto, una función hash ni un protocolo completo de comunicación.</p>
-<h2 id="lectura-de-un-procedimiento">Lectura de un procedimiento</h2>
-<p>Un ejercicio puede presentar datos cifrados mediante una representación imprimible. En ese caso hay dos operaciones conceptuales: interpretar la representación para obtener bytes y aplicar el descifrado con el algoritmo y sus parámetros. Saber que aparece el nombre Blowfish no elimina ninguna de esas decisiones.</p>
-<h2 id="limite-documental">Límite documental</h2>
-<p>La diapositiva no desarrolla una modalidad de operación ni los parámetros internos de Blowfish. Se conserva como ejemplo de algoritmo, sin inventar un cálculo o trasladar parámetros de AES por analogía.</p>
-<details class="wiki-review"><summary>¿Es correcto suponer que todo algoritmo simétrico utiliza los mismos tamaños de bloque y clave que AES?</summary><p>No. Pertenecer a una familia no establece parámetros idénticos. Es necesario consultar la especificación del algoritmo y del esquema concreto, que esta fuente no desarrolla para Blowfish.</p>
+        <h2 id="que-es-blowfish">Qué es Blowfish</h2>
+<p>Blowfish es uno de los algoritmos <strong>simétricos</strong> enumerados en Cripto, parte 1, página 30. Su lugar en esa lista permite reconocer el modelo de clave compartida: las partes necesitan el secreto correspondiente para cifrar y descifrar.</p>
+<h2 id="que-aporta-conocer-el-nombre">Qué aporta conocer el nombre</h2>
+<p>Identificar el algoritmo ayuda a entender qué transformación se utilizó, pero no proporciona la clave ni resuelve cómo compartirla. La misma diapositiva destaca que la administración y el intercambio seguro de claves son problemas del cifrado simétrico.</p>
+<p>La fuente menciona Blowfish sin desarrollar su construcción ni sus parámetros. Para esta página, su función es reconocer un ejemplo de la familia; no se trasladan por analogía los tamaños o modos de AES.</p>
+<details class="wiki-review"><summary>¿Dos algoritmos simétricos tienen necesariamente los mismos parámetros?</summary><p>No. La clasificación describe el uso de un secreto compartido, no establece tamaños ni configuraciones idénticos para todos sus integrantes.</p>
 </details>
 
 
         <section class="wiki-section" aria-labelledby="relacionados"><h2 id="relacionados">Conceptos relacionados</h2><ul><li><a href="../">Criptografía simétrica</a></li><li><a href="../block/aes/">AES</a></li></ul></section>
-        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Cripto, parte 1 · pp. 30. <span>Material de cátedra, fuente local de trabajo; PDF no distribuido por este sitio.</span></li></ul></section>
+        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Cripto, parte 1 · <a href="../../../../../../docs/catedra%20cosas/02%20-%20Cripto%20parte%201.pdf#page=30" target="_blank" rel="noopener">p. 30 ↗</a>. <span>Material de cátedra</span></li><li><a href="../../../../../../glosario.html">Explorar el glosario completo ↗</a></li></ul></section>
       </main>
       <footer class="wiki-footer"><p>IC 2026 · Elaboración didáctica original basada en las fuentes indicadas. Las páginas citadas corresponden al archivo PDF, contando desde 1.</p><a href="../../../../../">Volver al inicio de la wiki</a></footer>
     </div>

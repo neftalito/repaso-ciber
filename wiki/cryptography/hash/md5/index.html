@@ -34,19 +34,25 @@
       <main id="wiki-main" class="wiki-article" tabindex="-1">
         <p class="eyebrow">INTRODUCCIÓN A LA CIBERSEGURIDAD · ALGORITMO</p>
         <h1>MD5</h1>
-        <h2 id="definicion">Definición</h2>
-<p>MD5 es una función hash que produce un resumen de 128 bits. En notación hexadecimal completa ocupa <code>128/4 = 32</code> dígitos, porque cada dígito representa cuatro bits.</p>
-<h2 id="como-leer-un-resultado">Cómo leer un resultado</h2>
-<p>El resumen depende de los bytes exactos de entrada. Un cambio de mayúscula, de codificación o la incorporación de un salto de línea cambia el dato que se procesa. La clase utiliza comandos con <code>echo</code>; al reproducir un ejemplo debe tenerse en cuenta el salto de línea que normalmente agrega.</p>
-<h2 id="colisiones-y-limites">Colisiones y límites</h2>
-<p>La clase muestra dos imágenes diferentes con el mismo MD5. El manual complementario señala que su resistencia a colisiones está comprometida. Por eso una coincidencia de MD5 no demuestra identidad matemática de archivos ni debe interpretarse como autenticación de su origen.</p>
-<p>El método se estudia como parte del temario y de la lectura de identificadores históricos, sin recomendarlo como protección resistente a adversarios.</p>
-<details class="wiki-review"><summary>¿Un digest de 32 caracteres hexadecimales demuestra que se usó MD5?</summary><p>No. Es compatible con su longitud, pero podría provenir de otra función o ser un valor truncado. El tamaño orienta; no identifica inequívocamente el algoritmo.</p>
+        <h2 id="que-produce-md5">Qué produce MD5</h2>
+<p><strong>MD5 es una función hash</strong>: calcula un resumen de 128 bits a partir de los datos de entrada. Esos 128 bits se representan con 32 dígitos hexadecimales, porque cada dígito representa cuatro bits. El resumen se calcula y compara; no se descifra para recuperar el mensaje.</p>
+<h2 id="ejemplo-de-la-catedra-una-mayuscula-cambia-la-entrada">Ejemplo de la cátedra: una mayúscula cambia la entrada</h2>
+<p>Cripto, parte 1, página 18, muestra estos comandos y resultados:</p>
+<pre><code class="language-text">$ echo &quot;Ciberseguridad&quot; | md5sum
+0e6e40411263311de0fa956a73cb2130  -
+$ echo &quot;CiberSeguridad&quot; | md5sum
+d5c4752e4a718ee4ad8fc8ba81a833e2  -
+</code></pre>
+<p>El cambio de <code>s</code> a <code>S</code> produce datos diferentes y los resúmenes mostrados también son diferentes. Para reproducirlos hay que conservar la entrada exacta: el manual complementario, página 9, aclara que <code>echo</code> normalmente añade un salto de línea. Calcular el hash del texto sin ese salto procesa otros bytes.</p>
+<h2 id="que-demuestra-una-colision">Qué demuestra una colisión</h2>
+<p>En la página 20, la clase muestra dos archivos de imagen distintos, <code>ship.jpg</code> y <code>plane.jpg</code>, con el mismo MD5. Eso es una <strong>colisión</strong>: dos entradas diferentes producen el mismo resumen.</p>
+<p>Por tanto, que dos archivos compartan MD5 no demuestra que sus bytes sean idénticos. El manual complementario, página 8, señala que MD5 no es adecuado para aplicaciones que dependen de la resistencia a colisiones.</p>
+<details class="wiki-review"><summary>¿Una cadena de 32 dígitos hexadecimales identifica inequívocamente a MD5?</summary><p>No. Es compatible con su longitud, pero podría pertenecer a otra función o ser un valor truncado. Hace falta conocer cómo se obtuvo.</p>
 </details>
 
 
         <section class="wiki-section" aria-labelledby="relacionados"><h2 id="relacionados">Conceptos relacionados</h2><ul><li><a href="../#colisiones-y-resistencia-a-preimagenes">Colisiones y preimágenes</a></li><li><a href="../sha1/">SHA-1</a></li><li><a href="../#hashes-en-la-proteccion-de-contrasenas">Hashes y comprobación de contraseñas</a></li></ul></section>
-        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Cripto, parte 1 · pp. 18, 19, 20. <span>Material de cátedra, fuente local de trabajo; PDF no distribuido por este sitio.</span></li><li><a href="../../../../docs/Manual_IC2026_Cripto_CSIRT_Malware_Descarga.pdf#page=8" target="_blank" rel="noopener">Manual de estudio: Cripto, CSIRT y Malware</a> · pp. 8, 9. <span>Material complementario, PDF disponible.</span></li></ul></section>
+        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Cripto, parte 1 · <a href="../../../../docs/catedra%20cosas/02%20-%20Cripto%20parte%201.pdf#page=18" target="_blank" rel="noopener">p. 18 ↗</a>, <a href="../../../../docs/catedra%20cosas/02%20-%20Cripto%20parte%201.pdf#page=19" target="_blank" rel="noopener">p. 19 ↗</a>, <a href="../../../../docs/catedra%20cosas/02%20-%20Cripto%20parte%201.pdf#page=20" target="_blank" rel="noopener">p. 20 ↗</a>. <span>Material de cátedra</span></li><li>Manual de estudio: Cripto, CSIRT y Malware · <a href="../../../../docs/Manual_IC2026_Cripto_CSIRT_Malware_Descarga.pdf#page=8" target="_blank" rel="noopener">p. 8 ↗</a>, <a href="../../../../docs/Manual_IC2026_Cripto_CSIRT_Malware_Descarga.pdf#page=9" target="_blank" rel="noopener">p. 9 ↗</a>. <span>Material complementario</span></li><li>Glosario · <a href="../../../../glosario.html#sha">MD5, SHA-1 y familia SHA-2 ↗</a></li><li><a href="../../../../glosario.html">Explorar el glosario completo ↗</a></li></ul></section>
       </main>
       <footer class="wiki-footer"><p>IC 2026 · Elaboración didáctica original basada en las fuentes indicadas. Las páginas citadas corresponden al archivo PDF, contando desde 1.</p><a href="../../../">Volver al inicio de la wiki</a></footer>
     </div>

@@ -1,10 +1,16 @@
 ---
 {"id":"crypto-stream","title":"Cifrado de flujo","slug":"stream","parent":"crypto-symmetric","type":"category","order":20,"related":["crypto-xor","crypto-ofb","crypto-block"],"sources":[{"id":"lecture-crypto-1","pages":[29]},{"id":"practice-1b","pages":[5]},{"id":"manual","pages":[11]}],"permalink":"cryptography/encryption/modern/symmetric/stream"}
 ---
-## Secuencia cifrante
+## Combinar datos con una secuencia cifrante
 
-Un cifrado de flujo genera una secuencia pseudoaleatoria, o keystream, que se combina con los datos, habitualmente mediante XOR. Permite procesar unidades pequeñas a medida que llegan. La clase utiliza conversaciones telefónicas como contexto didáctico.
+Un **cifrado de flujo** genera una secuencia pseudoaleatoria, llamada **secuencia cifrante** o *keystream*, y la combina con los datos del mensaje, habitualmente mediante XOR. Permite procesar unidades pequeñas a medida que llegan.
 
-La secuencia se produce a partir de parámetros secretos y estado. No debe confundirse el mensaje con el flujo de clave: el receptor necesita reproducir el flujo correcto para recuperar el original.
+Cripto, parte 1, página 29, utiliza conversaciones telefónicas como contexto y presenta RC4. La explicación de la Práctica 1, parte 2, página 5, añade SEAL y A5.
 
-El material menciona RC4 y la práctica añade SEAL y A5. Reutilizar una misma secuencia permite relacionar mensajes cifrados; por eso la inicialización y la gestión del estado son parte del análisis del esquema.
+## Algoritmos de flujo mencionados
+
+- [RC4](wiki:crypto-rc4).
+- [SEAL](wiki:crypto-seal).
+- [A5](wiki:crypto-a5).
+
+El mensaje y la secuencia cifrante cumplen roles distintos. El receptor necesita reproducir el flujo correcto para recuperar el original. El manual complementario, página 11, amplía el riesgo de reutilizar una misma secuencia: puede revelar relaciones entre los mensajes cifrados.

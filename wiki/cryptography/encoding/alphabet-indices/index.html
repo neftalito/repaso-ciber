@@ -34,18 +34,25 @@
       <main id="wiki-main" class="wiki-article" tabindex="-1">
         <p class="eyebrow">INTRODUCCIÓN A LA CIBERSEGURIDAD · TÉCNICA</p>
         <h1>Índices alfabéticos A1Z26</h1>
-        <h2 id="definicion">Definición</h2>
-<p>A1Z26 asocia las letras del alfabeto latino básico con sus posiciones: A con 1 y Z con 26. La guía complementaria lo presenta como una representación que puede aparecer en desafíos de codificación.</p>
-<h2 id="ejemplo-original">Ejemplo original</h2>
-<p>Con la convención A=1, B=2 y así sucesivamente, <code>3-1-19-1</code> se interpreta como <code>CASA</code>. Los guiones separan valores; sin ellos, una cadena como <code>31</code> podría confundirse con un único número fuera del rango.</p>
-<h2 id="limites">Límites</h2>
-<p>La interpretación depende del alfabeto declarado y de los separadores. No debe confundirse con ASCII: el valor 3 de A1Z26 representa C, mientras que el código ASCII de C es 67. La correspondencia pública no proporciona secreto criptográfico.</p>
-<details class="wiki-review"><summary>¿Basta ver números del 1 al 26 para demostrar que se usa A1Z26?</summary><p>No. Es una hipótesis compatible con el rango. Hay que comprobar que la conversión y los separadores producen un resultado coherente con el contexto.</p>
+        <h2 id="letras-representadas-por-su-posicion">Letras representadas por su posición</h2>
+<p>A1Z26 representa las letras del alfabeto latino básico mediante sus posiciones: A=1, B=2, hasta Z=26. Es una codificación pública, sin una clave secreta que proteja la lectura. La página 3 de la guía complementaria la presenta como una posibilidad en desafíos de codificación.</p>
+<h2 id="como-interpretar-una-secuencia">Cómo interpretar una secuencia</h2>
+<ol>
+<li>Identificar qué números y separadores aparecen.</li>
+<li>Comprobar la hipótesis de que los valores representan posiciones del alfabeto declarado.</li>
+<li>Sustituir cada valor por su letra y conservar la separación que indique el ejercicio.</li>
+<li>Verificar si el resultado es coherente con el contexto o requiere otra transformación.</li>
+</ol>
+<p>Los separadores importan: no basta con reconocer dígitos si todavía se desconoce dónde termina cada valor o cada palabra.</p>
+<h2 id="diferencia-con-otros-codigos">Diferencia con otros códigos</h2>
+<p>A1Z26 no es <a href="../ascii/">ASCII</a>. Ambos pueden expresarse con números, pero utilizan correspondencias diferentes. La guía recomienda examinar los rangos y el contexto antes de elegir una interpretación.</p>
+<p>Esta técnica se apoya aquí en material complementario; no se presenta como un desarrollo de las diapositivas oficiales.</p>
+<details class="wiki-review"><summary>¿Basta ver números del 1 al 26 para demostrar que se usa A1Z26?</summary><p>No. Es una hipótesis compatible con el rango. Hay que comprobar la separación de valores y verificar que la conversión produce un resultado coherente.</p>
 </details>
 
 
         <section class="wiki-section" aria-labelledby="relacionados"><h2 id="relacionados">Conceptos relacionados</h2><ul><li><a href="../ascii/">ASCII</a></li><li><a href="../../encryption/classical/substitution/caesar/">Cifrado César y ROT</a></li></ul></section>
-        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li><a href="../../../../docs/Guia_de_estudio_IC_Practicas_1_y_2.pdf#page=3" target="_blank" rel="noopener">Guía de estudio de prácticas 1 y 2</a> · pp. 3. <span>Material complementario, PDF disponible.</span></li></ul></section>
+        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Guía de estudio de prácticas 1 y 2 · <a href="../../../../docs/Guia_de_estudio_IC_Practicas_1_y_2.pdf#page=3" target="_blank" rel="noopener">p. 3 ↗</a>. <span>Material complementario</span></li><li>Glosario · <a href="../../../../glosario.html#a1z26-braille">A1Z26 y Braille: representaciones alfabéticas ↗</a></li><li><a href="../../../../glosario.html">Explorar el glosario completo ↗</a></li></ul></section>
       </main>
       <footer class="wiki-footer"><p>IC 2026 · Elaboración didáctica original basada en las fuentes indicadas. Las páginas citadas corresponden al archivo PDF, contando desde 1.</p><a href="../../../">Volver al inicio de la wiki</a></footer>
     </div>

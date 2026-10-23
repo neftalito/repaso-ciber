@@ -34,8 +34,8 @@
       <main id="wiki-main" class="wiki-article" tabindex="-1">
         <p class="eyebrow">INTRODUCCIÓN A LA CIBERSEGURIDAD · ALGORITMO</p>
         <h1>Familia SHA-2</h1>
-        <h2 id="familia-de-variantes">Familia de variantes</h2>
-<p>SHA-2 agrupa las variantes SHA-224, SHA-256, SHA-384 y SHA-512 enumeradas en la clase. Cada una tiene una longitud de salida definida. El número no es una longitud de clave de cifrado.</p>
+        <h2 id="una-familia-de-funciones-hash">Una familia de funciones hash</h2>
+<p><strong>SHA-2</strong> agrupa las variantes SHA-224, SHA-256, SHA-384 y SHA-512 enumeradas en Cripto, parte 1, página 18. Cada una transforma los datos de entrada en un resumen de longitud definida. El número del nombre indica bits de salida, no una clave de cifrado.</p>
 <table>
 <thead>
 <tr>
@@ -65,15 +65,16 @@
 <td>128</td>
 </tr>
 </tbody></table>
-<h2 id="ejemplo-de-razonamiento">Ejemplo de razonamiento</h2>
-<p>Si una herramienta calcula SHA-256 sobre dos versiones de un archivo y obtiene resúmenes diferentes, las entradas procesadas no fueron idénticas. Esa diferencia no permite inferir cuál versión es maliciosa ni quién la modificó.</p>
-<p>La igualdad de resúmenes debe interpretarse con las limitaciones generales de los hashes. Una referencia esperada también necesita un origen confiable.</p>
-<details class="wiki-review"><summary>¿SHA-512 significa cifrar con una clave de 512 bits?</summary><p>No. SHA-512 es una función hash de la familia SHA-2 y el número corresponde a los bits de su resumen. No existe una clave de descifrado del hash.</p>
+<p>Cada dígito hexadecimal representa cuatro bits; la tabla expresa el resumen completo, sin prefijos ni separadores.</p>
+<h2 id="que-permite-comprobar-un-resumen">Qué permite comprobar un resumen</h2>
+<p>Para comparar dos archivos se aplica la misma función a los bytes de cada uno. Si los resúmenes son diferentes, las entradas también lo son: una misma entrada procesada con la misma función da siempre el mismo resultado.</p>
+<p>Esa comparación informa sobre la coincidencia de los datos, pero no determina por sí sola quién los produjo ni si son maliciosos. La guía complementaria de prácticas, página 4, recuerda además que un hash igual no es una demostración matemática de entradas idénticas, debido a la posibilidad de colisiones.</p>
+<details class="wiki-review"><summary>¿SHA-512 significa cifrar con una clave de 512 bits?</summary><p>No. Es una función hash de la familia SHA-2 y el número corresponde a los bits del resumen. No hay una clave de descifrado para recuperar la entrada.</p>
 </details>
 
 
         <section class="wiki-section" aria-labelledby="relacionados"><h2 id="relacionados">Conceptos relacionados</h2><ul><li><a href="../sha3/">Familia SHA-3</a></li><li><a href="../">Funciones hash</a></li><li><a href="../../../malware/analysis/static/">Análisis estático</a></li></ul></section>
-        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Cripto, parte 1 · pp. 18. <span>Material de cátedra, fuente local de trabajo; PDF no distribuido por este sitio.</span></li><li><a href="../../../../docs/Guia_de_estudio_IC_Practicas_1_y_2.pdf#page=4" target="_blank" rel="noopener">Guía de estudio de prácticas 1 y 2</a> · pp. 4. <span>Material complementario, PDF disponible.</span></li><li><a href="../../../../docs/IC_2026_Cripto_CSIRT_Malware_Solucionario.pdf#page=9" target="_blank" rel="noopener">Solucionario de teoría</a> · pp. 9. <span>Material complementario, PDF disponible.</span></li></ul></section>
+        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Cripto, parte 1 · <a href="../../../../docs/catedra%20cosas/02%20-%20Cripto%20parte%201.pdf#page=18" target="_blank" rel="noopener">p. 18 ↗</a>. <span>Material de cátedra</span></li><li>Guía de estudio de prácticas 1 y 2 · <a href="../../../../docs/Guia_de_estudio_IC_Practicas_1_y_2.pdf#page=4" target="_blank" rel="noopener">p. 4 ↗</a>. <span>Material complementario</span></li><li>Solucionario de teoría · <a href="../../../../docs/IC_2026_Cripto_CSIRT_Malware_Solucionario.pdf#page=9" target="_blank" rel="noopener">p. 9 ↗</a>. <span>Material complementario</span></li><li>Glosario · <a href="../../../../glosario.html#sha">MD5, SHA-1 y familia SHA-2 ↗</a></li><li>Glosario · <a href="../../../../glosario.html#sha-256">SHA-256 ↗</a></li><li><a href="../../../../glosario.html">Explorar el glosario completo ↗</a></li></ul></section>
       </main>
       <footer class="wiki-footer"><p>IC 2026 · Elaboración didáctica original basada en las fuentes indicadas. Las páginas citadas corresponden al archivo PDF, contando desde 1.</p><a href="../../../">Volver al inicio de la wiki</a></footer>
     </div>

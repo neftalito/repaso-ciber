@@ -34,19 +34,17 @@
       <main id="wiki-main" class="wiki-article" tabindex="-1">
         <p class="eyebrow">INTRODUCCIÓN A LA CIBERSEGURIDAD · ALGORITMO</p>
         <h1>Familia SHA-3</h1>
-        <h2 id="ubicacion-conceptual">Ubicación conceptual</h2>
-<p>SHA-3 aparece en la clase como una familia de funciones hash, separada de SHA-2. Su uso conceptual sigue siendo calcular y comparar resúmenes; no transforma un archivo en un mensaje que pueda descifrarse con una clave.</p>
-<h2 id="precision-sobre-la-fuente">Precisión sobre la fuente</h2>
-<p>La diapositiva enumera SHA-3, pero repite a su lado la misma lista de nombres que emplea para SHA-2. Esa redacción no permite tratar los nombres SHA-224, SHA-256, SHA-384 y SHA-512 como si identificaran indistintamente ambas familias.</p>
-<p>El manual complementario conserva la distinción entre las familias sin desarrollar sus mecanismos internos. Por eso esta nota no reproduce la lista inconsistente ni inventa una explicación de rondas o parámetros ausente del material.</p>
-<h2 id="caso-de-interpretacion">Caso de interpretación</h2>
-<p>Si dos herramientas informan únicamente «256 bits de salida», esa longitud no alcanza para concluir que ejecutaron la misma función. La identificación de familia y variante forma parte del procedimiento reproducible.</p>
-<details class="wiki-review"><summary>¿Es suficiente comparar la cantidad de dígitos para equiparar SHA-2 y SHA-3?</summary><p>No. La longitud de salida no define la función que se aplicó. Se necesita el identificador concreto del algoritmo y la misma entrada en bytes.</p>
+        <h2 id="una-familia-distinta-de-sha-2">Una familia distinta de SHA-2</h2>
+<p><strong>SHA-3</strong> aparece en Cripto, parte 1, página 18, como una familia de funciones hash. Su propósito conceptual es calcular un resumen de los datos para poder compararlo; no producir un mensaje que se recupere mediante descifrado.</p>
+<h2 id="precision-sobre-los-nombres-de-la-fuente">Precisión sobre los nombres de la fuente</h2>
+<p>La diapositiva repite junto a SHA-3 la lista de nombres que antes utiliza para SHA-2. Esa repetición no permite considerar que SHA-224, SHA-256, SHA-384 y SHA-512 identifiquen indistintamente ambas familias. El manual complementario, página 8, conserva la distinción entre SHA-2 y SHA-3, sin desarrollar el mecanismo interno de esta última.</p>
+<p>Para interpretar una herramienta o reproducir un cálculo se necesita el identificador concreto de la función. Conocer únicamente la cantidad de bits del resultado no alcanza: la longitud describe el resumen, pero no define qué función lo calculó.</p>
+<details class="wiki-review"><summary>¿Dos resúmenes de la misma longitud proceden necesariamente de la misma función?</summary><p>No. Funciones distintas pueden tener salidas de igual longitud. Para comparar un procedimiento hay que conocer el algoritmo utilizado y los bytes de entrada.</p>
 </details>
 
 
         <section class="wiki-section" aria-labelledby="relacionados"><h2 id="relacionados">Conceptos relacionados</h2><ul><li><a href="../sha2/">Familia SHA-2</a></li><li><a href="../#colisiones-y-resistencia-a-preimagenes">Colisiones y preimágenes</a></li></ul></section>
-        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Cripto, parte 1 · pp. 18. <span>Material de cátedra, fuente local de trabajo; PDF no distribuido por este sitio.</span></li><li><a href="../../../../docs/Manual_IC2026_Cripto_CSIRT_Malware_Descarga.pdf#page=8" target="_blank" rel="noopener">Manual de estudio: Cripto, CSIRT y Malware</a> · pp. 8. <span>Material complementario, PDF disponible.</span></li></ul></section>
+        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Cripto, parte 1 · <a href="../../../../docs/catedra%20cosas/02%20-%20Cripto%20parte%201.pdf#page=18" target="_blank" rel="noopener">p. 18 ↗</a>. <span>Material de cátedra</span></li><li>Manual de estudio: Cripto, CSIRT y Malware · <a href="../../../../docs/Manual_IC2026_Cripto_CSIRT_Malware_Descarga.pdf#page=8" target="_blank" rel="noopener">p. 8 ↗</a>. <span>Material complementario</span></li><li><a href="../../../../glosario.html">Explorar el glosario completo ↗</a></li></ul></section>
       </main>
       <footer class="wiki-footer"><p>IC 2026 · Elaboración didáctica original basada en las fuentes indicadas. Las páginas citadas corresponden al archivo PDF, contando desde 1.</p><a href="../../../">Volver al inicio de la wiki</a></footer>
     </div>

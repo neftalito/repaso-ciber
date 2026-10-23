@@ -3,11 +3,18 @@
 ---
 ## Objetivo y parámetros
 
-Se aplica el procedimiento simplificado de RSA del material a enteros pequeños, explicando cada transformación. Para el caso complementario `p=61`, `q=53`, `e=17` y `C=2790`, se obtiene `n=3233` y `φ(n)=3120`.
+Se aplica el procedimiento simplificado de RSA del material a enteros pequeños, explicando cada transformación. Para el caso del solucionario complementario, página 7, con `p=61`, `q=53`, `e=17` y `C=2790`, se obtiene `n=3233` y `φ(n)=3120`.
 
 ## Resolver con la relación inversa
 
-El exponente privado debe satisfacer `e·d ≡ 1 (mod φ(n))`. En el caso pequeño, `d=2753`, pues `17·2753 = 46801 = 15·3120 + 1`. Después:
+La resolución separa cuatro cálculos:
+
+1. Calcular el módulo: `n = 61·53 = 3233`.
+2. Calcular `φ(n) = (61−1)(53−1) = 3120`.
+3. Obtener el exponente privado d que satisface `e·d ≡ 1 (mod φ(n))`. Aquí `d=2753`, pues `17·2753 = 46801 = 15·3120 + 1`.
+4. Descifrar el entero mediante `M = C^d mod n` y comprobar que volver a cifrarlo produce el C recibido.
+
+El código reúne esos pasos y verifica los resultados:
 
 ```python
 n = 61 * 53

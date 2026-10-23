@@ -1,26 +1,64 @@
 ---
 {"id":"crypto-rsa","title":"RSA","slug":"rsa","parent":"crypto-asymmetric","type":"algorithm","order":10,"related":["crypto-signature","crypto-numbers","crypto-encryption"],"sources":[{"id":"lecture-crypto-2","pages":[10,12]},{"id":"practice-1b","pages":[1,2]},{"id":"practice-guide","pages":[6]}],"permalink":"cryptography/encryption/modern/asymmetric/rsa"}
 ---
-## Definición
+## Para qué sirve
 
-RSA es un sistema de clave pública utilizado en esquemas de cifrado y firma. La práctica lo estudia mediante aritmética modular y relaciona la obtención de la clave privada con la dificultad de factorizar un módulo grande.
+**RSA** utiliza una clave pública y una privada relacionadas matemáticamente. En un esquema de cifrado, quien envía el mensaje utiliza la clave pública del destinatario; este lo recupera con su clave privada. Cripto, parte 2, página 10, también lo presenta para firma digital.
 
-## Modelo matemático del ejercicio
+La explicación de la Práctica 1, parte 2, páginas 1–2, desarrolla un modelo simplificado con números enteros. Su idea es que multiplicar dos primos permite construir el módulo público, mientras que conocer esos factores permite calcular el exponente privado. La fuente relaciona la seguridad con la dificultad de factorizar un módulo grande.
 
-Se eligen primos distintos `p` y `q`, se calcula `n=p×q` y `φ(n)=(p-1)(q-1)`. Se escoge `e` coprimo con `φ(n)` y se obtiene `d` como su inverso modular: `e×d ≡ 1 mod φ(n)`.
+## Qué representa cada valor
 
-La clave pública es `(n,e)` y el exponente privado es `d`. Para un entero `0 ≤ m < n`, el modelo simplificado cifra `c = m^e mod n` y descifra `m = c^d mod n`.
+- `p` y `q`: dos números primos distintos que se mantienen secretos.
+- `n = p × q`: módulo que aparece tanto en la clave pública como en la privada.
+- `φ(n) = (p - 1)(q - 1)`: valor calculado con los factores y utilizado para elegir los exponentes.
+- `e`: exponente público, elegido coprimo con `φ(n)`; su único divisor positivo común es 1.
+- `d`: exponente privado, obtenido como inverso modular de `e` respecto de `φ(n)`.
 
-## Ejemplo original pequeño
+La clave pública es `(n, e)` y, en este modelo, la privada es `(n, d)`. Que `d` sea un inverso modular significa que **`e × d` deja resto 1 al dividirlo por `φ(n)`**.
 
-Tomando `p=11`, `q=17`, se obtiene `n=187` y `φ(n)=160`. Para `e=7`, un inverso es `d=23`, porque `7×23=161`, que deja resto 1 al dividir por 160.
+## Generar las claves del ejemplo de la cátedra
 
-Con `m=42`, el cifrado es `42^7 mod 187 = 15`. El descifrado `15^23 mod 187 = 42` recupera el valor de entrada. Los primos son deliberadamente pequeños y el ejemplo no incluye un esquema de relleno.
+La página 2 utiliza estos valores:
 
-## Cuidado con la fuente
+1. Elegir `p = 524287` y `q = 131071`.
+2. Multiplicarlos: `n = 68718821377`.
+3. Calcular `φ(n) = 524286 × 131070 = 68718166020`.
+4. Elegir `e = 65537`, coprimo con ese valor.
+5. Calcular su inverso modular: **`d = 56692460753`**.
 
-La página 2 de la explicación práctica indica un valor de `d` al derivar la clave y otro distinto en la expresión posterior de descifrado. Para sus valores p, q y e, el inverso correcto es `56692460753`, que aparece en el descifrado; el valor `59397641569` impreso durante la derivación no satisface la condición modular. No deben mezclarse exponentes: hay que comprobar el inverso y la recuperación del mensaje.
+**Corrección de una inconsistencia del PDF:** la derivación impresa indica `d = 59397641569`, pero el descifrado posterior usa `56692460753`. Para los valores de `p`, `q` y `e` del propio ejemplo, el segundo valor es el inverso correcto: `(65537 × 56692460753) mod 68718166020 = 1`. La explicación conserva los datos del ejercicio y utiliza ese valor coherente en ambas operaciones.
+
+## Cifrar el mensaje «hola»
+
+Antes de operar, el mensaje debe representarse como un entero. En el ejemplo oficial:
+
+1. Los bytes de `hola` se escriben en hexadecimal como `686f6c61`.
+2. Su valor entero es `m = 1752132705`, menor que `n`.
+3. Se eleva `m` al exponente público y se conserva el resto de dividir por `n`:
+
+```text
+c = m^e mod n
+c = 1752132705^65537 mod 68718821377
+c = 21543768249
+```
+
+`mod n` significa tomar ese resto. El resultado `c` es el entero cifrado del ejercicio, no una representación hexadecimal del mensaje.
+
+## Descifrar y recuperar el texto
+
+El destinatario aplica su exponente privado al entero recibido:
+
+```text
+m = c^d mod n
+m = 21543768249^56692460753 mod 68718821377
+m = 1752132705
+```
+
+Al representar de nuevo ese entero como los bytes `68 6f 6c 61`, se recupera **`hola`**.
+
+La guía complementaria, página 6, advierte que este RSA simplificado no debe trasladarse directamente a una aplicación: los parámetros y el relleno seguro forman parte del esquema real.
 
 :::question ¿Por qué conocer p y q cambia el problema del ejercicio?
-Permite calcular φ(n) y, a partir de e, su inverso modular d. Conocer solamente el módulo público n no entrega directamente esos factores.
+Porque permite calcular φ(n) y obtener d como inverso modular de e. El módulo público n es su producto, pero no entrega por separado esos factores.
 :::

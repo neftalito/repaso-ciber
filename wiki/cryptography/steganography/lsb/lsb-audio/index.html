@@ -34,19 +34,70 @@
       <main id="wiki-main" class="wiki-article" tabindex="-1">
         <p class="eyebrow">INTRODUCCIÓN A LA CIBERSEGURIDAD · TÉCNICA</p>
         <h1>LSB en audio</h1>
-        <h2 id="muestras-como-portador">Muestras como portador</h2>
-<p>La clase presenta LSB en audio como otra aplicación del ocultamiento en datos digitales. La idea es utilizar bits de poco peso de muestras para transportar información sin que el cambio resulte evidente al escuchar.</p>
-<h2 id="que-debe-conocerse">Qué debe conocerse</h2>
-<p>Para interpretar una extracción hay que identificar cómo se representan las muestras y qué recorrido utiliza el esquema. Un archivo de audio no es una lista indiferenciada de caracteres; interpretar su contenido exige reconocer formato y canales.</p>
-<p>La guía complementaria también propone observar forma de onda, canales y espectrograma. Esas observaciones pueden orientar una investigación, pero no equivalen a demostrar que toda anomalía sea un mensaje LSB.</p>
-<h2 id="alcance">Alcance</h2>
-<p>Las fuentes no fijan un algoritmo universal de extracción ni una muestra concreta para esta nota. No se inventa un mensaje oculto a partir del nombre de un archivo o de su sonido aparente.</p>
-<details class="wiki-review"><summary>¿Escuchar un audio sin notar cambios permite descartar esteganografía?</summary><p>No. La finalidad de la técnica es que los cambios pasen inadvertidos. La escucha es una observación parcial y debe distinguirse de una extracción técnica verificada.</p>
+        <h2 id="usar-las-muestras-de-audio-como-portador">Usar las muestras de audio como portador</h2>
+<p>LSB en audio incorpora bits de un mensaje en posiciones de poco peso de los valores que representan las muestras. La página 29 de <em>Cripto, parte 2</em> relaciona esta idea con la digitalización del sonido: el portador es una secuencia de valores, no los caracteres del nombre del archivo.</p>
+<h2 id="leer-el-ejemplo-de-la-clase">Leer el ejemplo de la clase</h2>
+<p>La diapositiva compara el último bit de ocho valores de audio antes y después de insertar el mensaje:</p>
+<table>
+<thead>
+<tr>
+<th>Último bit original</th>
+<th>Bit del mensaje</th>
+<th>Último bit resultante</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody></table>
+<p>Solo se cambia un valor cuando su último bit no coincide con el bit que debe transportar. Para extraer la secuencia se leen los últimos bits resultantes en el orden indicado: <code>01100101</code>.</p>
+<p><strong>Precisión sobre la fuente:</strong> la tabla de la diapositiva rotula el mensaje como «A», pero los bits mostrados son <code>01100101</code>, que en ASCII corresponden a <code>e</code>. La secuencia y la etiqueta de esa tabla no coinciden; el mecanismo se comprende siguiendo los bits efectivamente mostrados.</p>
+<h2 id="que-falta-para-analizar-un-archivo-real">Qué falta para analizar un archivo real</h2>
+<p>Hay que conocer el formato, la representación de las muestras, los canales, el recorrido y la longitud del mensaje. La tabla explica el principio, pero no determina un extractor universal.</p>
+<p>La guía complementaria también propone observar forma de onda y espectrograma. Esas observaciones pueden orientar el análisis, sin demostrar por sí solas que una anomalía sea un mensaje LSB.</p>
+<details class="wiki-review"><summary>¿Escuchar un audio sin notar cambios permite descartar esteganografía?</summary><p>No. La técnica busca que los cambios pasen inadvertidos. Escuchar y extraer datos según un esquema definido son comprobaciones diferentes.</p>
 </details>
 
 
         <section class="wiki-section" aria-labelledby="relacionados"><h2 id="relacionados">Conceptos relacionados</h2><ul><li><a href="../lsb-image/">LSB en imágenes</a></li><li><a href="../../">Esteganografía</a></li></ul></section>
-        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Cripto, parte 2 · pp. 29. <span>Material de cátedra, fuente local de trabajo; PDF no distribuido por este sitio.</span></li><li><a href="../../../../../docs/Guia_de_estudio_IC_Practicas_1_y_2.pdf#page=7" target="_blank" rel="noopener">Guía de estudio de prácticas 1 y 2</a> · pp. 7. <span>Material complementario, PDF disponible.</span></li></ul></section>
+        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Cripto, parte 2 · <a href="../../../../../docs/catedra%20cosas/03%20-%20Cripto%20parte%202.pdf#page=29" target="_blank" rel="noopener">p. 29 ↗</a>. <span>Material de cátedra</span></li><li>Guía de estudio de prácticas 1 y 2 · <a href="../../../../../docs/Guia_de_estudio_IC_Practicas_1_y_2.pdf#page=7" target="_blank" rel="noopener">p. 7 ↗</a>. <span>Material complementario</span></li><li>Glosario · <a href="../../../../../glosario.html#lsb">LSB: bit menos significativo ↗</a></li><li><a href="../../../../../glosario.html">Explorar el glosario completo ↗</a></li></ul></section>
       </main>
       <footer class="wiki-footer"><p>IC 2026 · Elaboración didáctica original basada en las fuentes indicadas. Las páginas citadas corresponden al archivo PDF, contando desde 1.</p><a href="../../../../">Volver al inicio de la wiki</a></footer>
     </div>

@@ -34,19 +34,26 @@
       <main id="wiki-main" class="wiki-article" tabindex="-1">
         <p class="eyebrow">INTRODUCCIÓN A LA CIBERSEGURIDAD · TÉCNICA</p>
         <h1>LSB en imágenes</h1>
-        <h2 id="portador-rgb">Portador RGB</h2>
-<p>La explicación práctica presenta imágenes RGB, con tres bytes de componentes de color por píxel. Utilizar el bit menos significativo de componentes seleccionados permite repartir un mensaje a lo largo de los píxeles con cambios pequeños en sus valores.</p>
-<h2 id="capacidad-didactica">Capacidad didáctica</h2>
-<p>Si se utiliza exactamente un bit de cada componente R, G y B, cada píxel aporta tres bits de mensaje. En un modelo de ocho píxeles se dispondría de 24 bits, equivalentes a tres bytes. El cálculo presupone esa regla de uso; no es una garantía sobre cualquier archivo de imagen.</p>
-<h2 id="extraccion-y-limites">Extracción y límites</h2>
-<p>Hay que conocer los canales elegidos, el orden de píxeles, el orden de bits y la longitud del mensaje. El solucionario destaca que sin esos datos no se deduce una única extracción.</p>
-<p>La apariencia normal de una imagen no demuestra que esté vacía de datos adicionales. A la inversa, que una imagen sea grande o use RGB no prueba que contenga un mensaje.</p>
-<details class="wiki-review"><summary>¿Por qué no basta con leer los últimos bits de bytes arbitrarios del archivo?</summary><p>Porque un archivo incluye estructura y metadatos además de componentes de píxeles. La técnica debe aplicarse a los valores y al recorrido definidos por el esquema.</p>
+        <h2 id="usar-los-componentes-de-color-como-portador">Usar los componentes de color como portador</h2>
+<p>LSB en imágenes distribuye bits de un mensaje entre valores de componentes de color. La explicación práctica utiliza el modelo RGB de tres bytes por píxel: uno para rojo, otro para verde y otro para azul. Alterar bits de poco peso produce cambios pequeños en esos valores.</p>
+<p>La página 28 de <em>Cripto, parte 2</em> compara una imagen original con una imagen que incorpora datos y muestra el uso de componentes RGB. La explicación de la práctica, parte 2, página 6, desarrolla la idea de repartir el mensaje a lo largo de los píxeles.</p>
+<h2 id="como-se-interpreta-una-extraccion">Cómo se interpreta una extracción</h2>
+<ol>
+<li>Reconocer el formato del portador y cómo se representan sus píxeles.</li>
+<li>Identificar los componentes y bits que utiliza el esquema.</li>
+<li>Recorrerlos en el orden establecido y reunir los bits recuperados.</li>
+<li>Interpretar la secuencia según su codificación y longitud.</li>
+</ol>
+<p>El <a href="../">ejemplo LSB del solucionario</a> recupera la letra <code>I</code> a partir de los últimos bits de ocho bytes. Ese ejercicio declara un orden de bits; no establece que cualquier imagen deba recorrerse igual.</p>
+<h2 id="capacidad-y-limites">Capacidad y límites</h2>
+<p>La capacidad depende de cuántos valores se utilicen y de cuántos bits se tomen de cada uno. No puede calcularse para un archivo concreto sin conocer esa regla.</p>
+<p>Leer bytes arbitrarios del archivo no equivale a extraer componentes de color: el formato también contiene estructura y metadatos. Tampoco una apariencia normal demuestra ausencia de datos ocultos, ni el uso de RGB demuestra que exista un mensaje.</p>
+<details class="wiki-review"><summary>¿Por qué hace falta conocer los canales y el recorrido de los píxeles?</summary><p>Porque determinan el orden de los bits recuperados. Los mismos datos, leídos con convenciones distintas, no garantizan el mismo resultado.</p>
 </details>
 
 
         <section class="wiki-section" aria-labelledby="relacionados"><h2 id="relacionados">Conceptos relacionados</h2><ul><li><a href="../">Técnica LSB</a></li><li><a href="../../steghide/">Steghide</a></li><li><a href="../../../encoding/">Codificación</a></li></ul></section>
-        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Cripto, parte 2 · pp. 28. <span>Material de cátedra, fuente local de trabajo; PDF no distribuido por este sitio.</span></li><li>Explicación de la práctica 1, parte 2 · pp. 6. <span>Material de cátedra, fuente local de trabajo; PDF no distribuido por este sitio.</span></li><li><a href="../../../../../docs/IC2026_Solucionario_Practicas_1_y_2.pdf#page=8" target="_blank" rel="noopener">Solucionario de prácticas 1 y 2</a> · pp. 8. <span>Material complementario, PDF disponible.</span></li></ul></section>
+        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Cripto, parte 2 · <a href="../../../../../docs/catedra%20cosas/03%20-%20Cripto%20parte%202.pdf#page=28" target="_blank" rel="noopener">p. 28 ↗</a>. <span>Material de cátedra</span></li><li>Explicación de la práctica 1, parte 2 · <a href="../../../../../docs/catedra%20cosas/Explicaci%C3%B3n%20-%20Pr%C3%A1ctica%201%20-%20Parte%202.pdf#page=6" target="_blank" rel="noopener">p. 6 ↗</a>. <span>Material de cátedra</span></li><li>Solucionario de prácticas 1 y 2 · <a href="../../../../../docs/IC2026_Solucionario_Practicas_1_y_2.pdf#page=8" target="_blank" rel="noopener">p. 8 ↗</a>. <span>Material complementario</span></li><li>Glosario · <a href="../../../../../glosario.html#lsb">LSB: bit menos significativo ↗</a></li><li><a href="../../../../../glosario.html">Explorar el glosario completo ↗</a></li></ul></section>
       </main>
       <footer class="wiki-footer"><p>IC 2026 · Elaboración didáctica original basada en las fuentes indicadas. Las páginas citadas corresponden al archivo PDF, contando desde 1.</p><a href="../../../../">Volver al inicio de la wiki</a></footer>
     </div>

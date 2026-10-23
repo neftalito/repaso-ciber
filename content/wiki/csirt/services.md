@@ -1,10 +1,16 @@
 ---
 {"id":"csirt-services","title":"Servicios de un CSIRT","slug":"servicios","parent":"csirt-teams","type":"category","order":20,"related":["csirt-teams","csirt-handling"],"sources":[{"id":"lecture-incidents","pages":[22]}],"permalink":"csirt/servicios"}
 ---
-## Tres grupos de servicios
+## Qué servicios puede prestar un CSIRT
 
-La cátedra distingue servicios reactivos, proactivos y de gestión de calidad de seguridad. Esta clasificación organiza la oferta del equipo: responder ante hechos observados, mejorar la protección y detección, y fortalecer capacidades organizacionales.
+Los servicios de un CSIRT reúnen las actividades con las que el equipo responde a incidentes y mejora la seguridad de su comunidad. La página 22 de la presentación los organiza según su propósito:
 
-Los grupos no son etapas sucesivas de un incidente. Una misma organización puede desarrollar actividades de los tres tipos. Por ejemplo, la investigación de un compromiso es reactiva, mientras una evaluación de seguridad y una capacitación tienen propósitos distintos.
+- [Servicios reactivos](wiki:csirt-services-reactive): alertas y advertencias, gestión de incidentes y análisis forense.
+- [Servicios proactivos](wiki:csirt-services-proactive): auditorías o evaluaciones de seguridad, desarrollo de herramientas y detección de intrusiones.
+- [Servicios de gestión de calidad de seguridad](wiki:csirt-services-quality): continuidad del negocio y recuperación ante desastres, consultoría, concientización y capacitación.
 
-La disponibilidad real de cada servicio depende del alcance del equipo. La lista de la clase permite reconocer funciones posibles; no implica que todos los CSIRT deban ofrecer exactamente la misma cartera.
+## Cómo interpretar la clasificación
+
+Los grupos describen funciones, no etapas que todo incidente deba atravesar. Analizar un compromiso, evaluar la seguridad y capacitar a usuarios atienden necesidades diferentes, aunque contribuyan al trabajo del mismo equipo.
+
+La lista presenta servicios posibles. Para conocer el alcance de un equipo concreto hay que identificar cuáles presta y a qué [comunidad objetivo](wiki:csirt-teams) atiende.

@@ -1,20 +1,16 @@
 ---
 {"id":"crypto-sha3","title":"Familia SHA-3","slug":"sha3","parent":"crypto-hash","type":"algorithm","order":40,"related":["crypto-sha2","crypto-collisions"],"sources":[{"id":"lecture-crypto-1","pages":[18]},{"id":"manual","pages":[8]}],"permalink":"cryptography/hash/sha3"}
 ---
-## Ubicación conceptual
+## Una familia distinta de SHA-2
 
-SHA-3 aparece en la clase como una familia de funciones hash, separada de SHA-2. Su uso conceptual sigue siendo calcular y comparar resúmenes; no transforma un archivo en un mensaje que pueda descifrarse con una clave.
+**SHA-3** aparece en Cripto, parte 1, página 18, como una familia de funciones hash. Su propósito conceptual es calcular un resumen de los datos para poder compararlo; no producir un mensaje que se recupere mediante descifrado.
 
-## Precisión sobre la fuente
+## Precisión sobre los nombres de la fuente
 
-La diapositiva enumera SHA-3, pero repite a su lado la misma lista de nombres que emplea para SHA-2. Esa redacción no permite tratar los nombres SHA-224, SHA-256, SHA-384 y SHA-512 como si identificaran indistintamente ambas familias.
+La diapositiva repite junto a SHA-3 la lista de nombres que antes utiliza para SHA-2. Esa repetición no permite considerar que SHA-224, SHA-256, SHA-384 y SHA-512 identifiquen indistintamente ambas familias. El manual complementario, página 8, conserva la distinción entre SHA-2 y SHA-3, sin desarrollar el mecanismo interno de esta última.
 
-El manual complementario conserva la distinción entre las familias sin desarrollar sus mecanismos internos. Por eso esta nota no reproduce la lista inconsistente ni inventa una explicación de rondas o parámetros ausente del material.
+Para interpretar una herramienta o reproducir un cálculo se necesita el identificador concreto de la función. Conocer únicamente la cantidad de bits del resultado no alcanza: la longitud describe el resumen, pero no define qué función lo calculó.
 
-## Caso de interpretación
-
-Si dos herramientas informan únicamente «256 bits de salida», esa longitud no alcanza para concluir que ejecutaron la misma función. La identificación de familia y variante forma parte del procedimiento reproducible.
-
-:::question ¿Es suficiente comparar la cantidad de dígitos para equiparar SHA-2 y SHA-3?
-No. La longitud de salida no define la función que se aplicó. Se necesita el identificador concreto del algoritmo y la misma entrada en bytes.
+:::question ¿Dos resúmenes de la misma longitud proceden necesariamente de la misma función?
+No. Funciones distintas pueden tener salidas de igual longitud. Para comparar un procedimiento hay que conocer el algoritmo utilizado y los bytes de entrada.
 :::

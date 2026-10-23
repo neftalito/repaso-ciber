@@ -3,7 +3,7 @@
 ---
 ## Objetivo
 
-Un writeup explica cómo se resolvió un desafío, con suficiente detalle para seguir el razonamiento. La cátedra propone enunciado, solución, reflexión y flag. Esta estructura se usa aquí sin criterios administrativos o de evaluación.
+Un writeup explica cómo se resolvió un desafío, con suficiente detalle para seguir el razonamiento. El documento oficial *Writeup example*, páginas 1–4, propone enunciado, solución, reflexión y flag. Cada sección aporta una parte distinta: contexto, procedimiento, aprendizaje y resultado.
 
 ## Recorrido de un informe
 
@@ -12,7 +12,7 @@ Un writeup explica cómo se resolvió un desafío, con suficiente detalle para s
 3. Reflexionar: dificultades, estrategias descartadas, aprendizaje y límites de la evidencia.
 4. Registrar la flag solo si se recuperó y verificó realmente.
 
-## Ejemplo de razonamiento
+## Qué evidencia permite seguir la solución
 
 Para una cadena codificada, el informe muestra la entrada, el motivo para interpretarla como Base64, los bytes obtenidos y su lectura como texto. Una captura de la salida sin indicar la transformación no permite repetir el proceso.
 

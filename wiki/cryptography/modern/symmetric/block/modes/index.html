@@ -34,16 +34,20 @@
       <main id="wiki-main" class="wiki-article" tabindex="-1">
         <p class="eyebrow">INTRODUCCIÓN A LA CIBERSEGURIDAD · CATEGORÍA</p>
         <h1>Modos de operación</h1>
-        <h2 id="que-organiza-un-modo-de-operacion">Qué organiza un modo de operación</h2>
-<p>Un modo de operación establece cómo se utiliza un cifrador de bloques al procesar datos. El algoritmo y el modo resuelven cuestiones diferentes: nombrar AES identifica el cifrador, pero no determina por sí solo cómo se encadenan o combinan sus operaciones sobre un mensaje.</p>
-<p>Las páginas hijas distinguen ECB, CBC, CFB y OFB. Cada una conserva sus explicaciones y límites; esta categoría permite compararlas sin mezclarlas con las páginas de algoritmos.</p>
-<h2 id="procedencia-y-limites">Procedencia y límites</h2>
-<p>La teoría de cátedra enumera los cuatro modos en la página física 25 y desarrolla ejemplos de ECB y CBC en las páginas 26–28. El manual complementario aporta explicaciones adicionales. Que un modo figure en la lista de la clase no significa que todas sus propiedades estén desarrolladas allí.</p>
-<p>Las condiciones concretas de inicialización y tratamiento de los datos dependen del esquema estudiado. Esta clasificación no añade parámetros de implementación ni una recomendación de uso.</p>
+        <h2 id="aplicar-un-cifrador-a-un-mensaje">Aplicar un cifrador a un mensaje</h2>
+<p>Un <strong>modo de operación</strong> establece cómo se utiliza un cifrador de bloques para procesar datos. El algoritmo transforma cada bloque; el modo organiza esas operaciones y sus posibles dependencias. Por eso nombrar AES no basta para describir el procedimiento completo.</p>
+<h2 id="modos-presentados-en-la-materia">Modos presentados en la materia</h2>
+<ul>
+<li><a href="../../../../encryption/modern/symmetric/block/ecb/">ECB</a>: cifra los bloques de forma independiente con la misma clave.</li>
+<li><a href="../../../../encryption/modern/symmetric/block/cbc/">CBC</a>: encadena los bloques al combinar cada entrada con el cifrado anterior.</li>
+<li><a href="../../../../encryption/modern/symmetric/block/cfb/">CFB</a>: modo de realimentación del cifrado.</li>
+<li><a href="../../../../encryption/modern/symmetric/block/ofb/">OFB</a>: modo de realimentación de salida.</li>
+</ul>
+<p>Cripto, parte 1, página 25, enumera los cuatro modos y desarrolla ECB y CBC en las páginas 26–28. El manual complementario, páginas 10–11, amplía sus diferencias. La configuración concreta también debe precisar los parámetros de inicialización y el tratamiento de los datos que correspondan al esquema.</p>
 
 <section class="wiki-section" aria-labelledby="subtemas"><h2 id="subtemas">Subtemas</h2><ul class="wiki-cards"><li><a href="../../../../encryption/modern/symmetric/block/ecb/">Modo ECB</a></li><li><a href="../../../../encryption/modern/symmetric/block/cbc/">Modo CBC</a></li><li><a href="../../../../encryption/modern/symmetric/block/cfb/">Modo CFB</a></li><li><a href="../../../../encryption/modern/symmetric/block/ofb/">Modo OFB</a></li></ul></section>
         <section class="wiki-section" aria-labelledby="relacionados"><h2 id="relacionados">Conceptos relacionados</h2><ul><li><a href="../algorithms/">Algoritmos</a></li><li><a href="../../../../xor/">Operación XOR</a></li></ul></section>
-        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Cripto, parte 1 · pp. 25, 26, 27, 28. <span>Material de cátedra, fuente local de trabajo; PDF no distribuido por este sitio.</span></li><li><a href="../../../../../../docs/Manual_IC2026_Cripto_CSIRT_Malware_Descarga.pdf#page=10" target="_blank" rel="noopener">Manual de estudio: Cripto, CSIRT y Malware</a> · pp. 10, 11. <span>Material complementario, PDF disponible.</span></li></ul></section>
+        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Cripto, parte 1 · <a href="../../../../../../docs/catedra%20cosas/02%20-%20Cripto%20parte%201.pdf#page=25" target="_blank" rel="noopener">p. 25 ↗</a>, <a href="../../../../../../docs/catedra%20cosas/02%20-%20Cripto%20parte%201.pdf#page=26" target="_blank" rel="noopener">p. 26 ↗</a>, <a href="../../../../../../docs/catedra%20cosas/02%20-%20Cripto%20parte%201.pdf#page=27" target="_blank" rel="noopener">p. 27 ↗</a>, <a href="../../../../../../docs/catedra%20cosas/02%20-%20Cripto%20parte%201.pdf#page=28" target="_blank" rel="noopener">p. 28 ↗</a>. <span>Material de cátedra</span></li><li>Manual de estudio: Cripto, CSIRT y Malware · <a href="../../../../../../docs/Manual_IC2026_Cripto_CSIRT_Malware_Descarga.pdf#page=10" target="_blank" rel="noopener">p. 10 ↗</a>, <a href="../../../../../../docs/Manual_IC2026_Cripto_CSIRT_Malware_Descarga.pdf#page=11" target="_blank" rel="noopener">p. 11 ↗</a>. <span>Material complementario</span></li><li>Glosario · <a href="../../../../../../glosario.html#ecb">ECB y patrones de bloques ↗</a></li><li>Glosario · <a href="../../../../../../glosario.html#cbc">CBC y encadenamiento ↗</a></li><li><a href="../../../../../../glosario.html">Explorar el glosario completo ↗</a></li></ul></section>
       </main>
       <footer class="wiki-footer"><p>IC 2026 · Elaboración didáctica original basada en las fuentes indicadas. Las páginas citadas corresponden al archivo PDF, contando desde 1.</p><a href="../../../../../">Volver al inicio de la wiki</a></footer>
     </div>

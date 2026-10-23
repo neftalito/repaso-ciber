@@ -34,21 +34,26 @@
       <main id="wiki-main" class="wiki-article" tabindex="-1">
         <p class="eyebrow">INTRODUCCIÓN A LA CIBERSEGURIDAD · CONCEPTO</p>
         <h1>Certificados digitales</h1>
-        <h2 id="definicion">Definición</h2>
-<p>Un certificado digital es una estructura de datos que asocia una identidad con una clave pública y contiene la firma de su emisor. Responde al problema de conocer a quién corresponde una clave, además de comprobar operaciones matemáticas con ella.</p>
+        <h2 id="que-es-un-certificado-digital">Qué es un certificado digital</h2>
+<p>Un <strong>certificado digital</strong> asocia una identidad con una clave pública y contiene la firma de su emisor. Responde a una pregunta previa a verificar firmas o cifrar para alguien: ¿a quién pertenece realmente esta clave pública?</p>
 <h2 id="que-contiene">Qué contiene</h2>
-<p>Las diapositivas enumeran la identidad del poseedor, su clave pública, el período de validez, la identidad del emisor y la firma digital de este último. El certificado no es la clave privada del titular.</p>
-<h2 id="validacion-contextual">Validación contextual</h2>
-<p>La clase muestra problemas como vencimiento, nombre de sitio incorrecto, autofirma, raíz no confiable y revocación. Son verificaciones distintas: una firma matemática válida no elimina un vencimiento ni corrige que el certificado corresponda a otro sitio.</p>
-<h2 id="ejemplo-original">Ejemplo original</h2>
-<p>Un certificado emitido para <code>campus.example</code> no permite concluir que <code>correo.example</code> sea el mismo servicio autenticado. La comprobación debe considerar la identidad esperada, no únicamente que exista un archivo de certificado.</p>
-<p>El caso de contenido mixto mostrado en la clase afecta cómo una página carga recursos; no es, por sí solo, un campo de identidad del certificado.</p>
-<details class="wiki-review"><summary>¿Por qué no debe compartirse una clave privada como parte del certificado?</summary><p>Porque el certificado comunica una clave pública y su asociación con una identidad. La clave privada tiene otro papel y su exposición permitiría operaciones reservadas a su titular.</p>
+<p>Cripto, parte 2, páginas 14–16, enumera estos datos:</p>
+<ul>
+<li>Identidad del poseedor y su clave pública.</li>
+<li>Período de validez.</li>
+<li>Identidad del emisor y su firma digital.</li>
+</ul>
+<p>El certificado comunica la clave pública; no contiene la clave privada del titular.</p>
+<h2 id="que-debe-comprobarse">Qué debe comprobarse</h2>
+<p>La página 17 presenta certificados vencidos, emitidos para un nombre de sitio incorrecto, autofirmados, con una raíz no confiable o revocados. Son problemas diferentes: verificar una firma no corrige el vencimiento ni hace que un certificado corresponda a otro sitio.</p>
+<p>La confianza en el emisor también importa. La página 19 relaciona esa decisión con las autoridades de certificación y la infraestructura de clave pública.</p>
+<p>El caso de contenido mixto incluido en la página 17 se refiere a cómo una página carga recursos; no es un dato de identidad dentro del certificado.</p>
+<details class="wiki-review"><summary>¿Por qué el certificado no debe incluir la clave privada?</summary><p>Porque comunica una clave pública y su asociación con una identidad. La clave privada debe conservarse en secreto para las operaciones reservadas a su titular.</p>
 </details>
 
 
         <section class="wiki-section" aria-labelledby="relacionados"><h2 id="relacionados">Conceptos relacionados</h2><ul><li><a href="../pki/">Infraestructura de clave pública (PKI)</a></li><li><a href="../pki/ca/">Autoridades de certificación</a></li><li><a href="../pki/tls/">TLS y certificados en HTTPS</a></li><li><a href="../signature/">Firma digital</a></li></ul></section>
-        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Cripto, parte 2 · pp. 13, 14, 15, 16, 17, 19. <span>Material de cátedra, fuente local de trabajo; PDF no distribuido por este sitio.</span></li></ul></section>
+        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Cripto, parte 2 · <a href="../../../docs/catedra%20cosas/03%20-%20Cripto%20parte%202.pdf#page=13" target="_blank" rel="noopener">p. 13 ↗</a>, <a href="../../../docs/catedra%20cosas/03%20-%20Cripto%20parte%202.pdf#page=14" target="_blank" rel="noopener">p. 14 ↗</a>, <a href="../../../docs/catedra%20cosas/03%20-%20Cripto%20parte%202.pdf#page=15" target="_blank" rel="noopener">p. 15 ↗</a>, <a href="../../../docs/catedra%20cosas/03%20-%20Cripto%20parte%202.pdf#page=16" target="_blank" rel="noopener">p. 16 ↗</a>, <a href="../../../docs/catedra%20cosas/03%20-%20Cripto%20parte%202.pdf#page=17" target="_blank" rel="noopener">p. 17 ↗</a>, <a href="../../../docs/catedra%20cosas/03%20-%20Cripto%20parte%202.pdf#page=19" target="_blank" rel="noopener">p. 19 ↗</a>. <span>Material de cátedra</span></li><li>Glosario · <a href="../../../glosario.html#ca">CA y Root CA: autoridades de certificación ↗</a></li><li><a href="../../../glosario.html">Explorar el glosario completo ↗</a></li></ul></section>
       </main>
       <footer class="wiki-footer"><p>IC 2026 · Elaboración didáctica original basada en las fuentes indicadas. Las páginas citadas corresponden al archivo PDF, contando desde 1.</p><a href="../../">Volver al inicio de la wiki</a></footer>
     </div>

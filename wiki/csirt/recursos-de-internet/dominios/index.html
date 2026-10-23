@@ -34,55 +34,35 @@
       <main id="wiki-main" class="wiki-article" tabindex="-1">
         <p class="eyebrow">INTRODUCCIÓN A LA CIBERSEGURIDAD · CATEGORÍA</p>
         <h1>Registro de nombres de dominio</h1>
-        <h2 id="un-nombre-y-distintos-responsables">Un nombre y distintos responsables</h2>
-<p>Los nombres de dominio son recursos cuyo registro involucra tres funciones: registry, registrar y registrant. Distinguirlas permite comprender quién mantiene el registro de un TLD, quién gestiona la registración comercial y a nombre de quién figura el dominio.</p>
-<p>Una misma entidad puede desempeñar más de una función. La clase presenta NIC Argentina como ejemplo de registry y registrar para <code>.ar</code>; ese ejemplo no debe extrapolarse automáticamente a todos los TLD.</p>
-<h2 id="investigacion-y-privacidad">Investigación y privacidad</h2>
-<p>WHOIS y RDAP permiten consultar datos de dominio y localizar canales de contacto. Algunas respuestas muestran datos del titular ocultos o un formulario intermediario por privacidad. Esa circunstancia no demuestra por sí sola fraude.</p>
-<p>Ante un abuso interesa distinguir el contacto del titular del canal de abuso del registrador. Los datos no públicos requieren procedimientos de acceso adecuados y no se recuperan simplemente reinterpretando una respuesta pública.</p>
-<h2 id="proceso-de-registracion">Proceso de registración</h2>
-<p>La relación presentada por la cátedra parte del registrant, que solicita el nombre a un registrar. El registrar comercializa y gestiona esa registración en relación con el registry del TLD. El registry conserva la información oficial del espacio de nombres y permite reconocer el registrar que asignó el dominio; este último mantiene información sobre su registrante.</p>
-<p>La distinción es funcional: las tareas de registry y registrar pueden coincidir en una entidad, como en el ejemplo de NIC Argentina para <code>.ar</code>. Para investigar el dominio se consulta mediante <a href="../whois/">WHOIS</a> o <a href="../rdap/">RDAP</a> y se elige el canal de contacto según el propósito del reporte.</p>
+        <h2 id="un-nombre-y-tres-funciones-de-registro">Un nombre y tres funciones de registro</h2>
+<p>Registrar un dominio significa solicitar un nombre dentro de un espacio administrado. La cátedra distingue tres funciones: el <strong>registry</strong> mantiene el registro oficial del TLD, el <strong>registrar</strong> gestiona la registración comercial y el <strong>registrant</strong> es el cliente o titular que solicita el nombre.</p>
+<p>La relación se entiende siguiendo la solicitud: el registrant solicita el nombre a un registrar, que interviene frente al registry del dominio de nivel superior. Las funciones pueden coincidir en una entidad; la presentación utiliza a NIC Argentina como ejemplo para <code>.ar</code>.</p>
 <h2 id="registry">Registry</h2>
-<h3 id="funcion">Función</h3>
-<p>El registry mantiene el registro oficial de un dominio de nivel superior o TLD. En la estructura presentada por la cátedra, conserva información que permite reconocer el registrar que gestionó la asignación de un nombre.</p>
-<p>Su función corresponde al registro del espacio de nombres, no a la identidad del usuario que visita un sitio ni a la administración de cualquier servidor que utilice el dominio. Para investigar un hecho concreto hay que separar esas capas.</p>
-<h3 id="relacion-con-los-otros-actores">Relación con los otros actores</h3>
-<p>El <a href="./#registrar">registrar</a> gestiona la registración frente al registry y la relación comercial con quien solicita el nombre. El <a href="./#registrant">registrant</a> es el titular registral. Las tres funciones pueden involucrar organizaciones diferentes.</p>
-<p>Como ejemplo de coincidencia de roles, la clase presenta a NIC Argentina actuando como registry y registrar para <code>.ar</code>. Esto explica que dos funciones puedan reunirse en una entidad; no establece una regla universal para los dominios.</p>
-<h3 id="uso-en-una-investigacion">Uso en una investigación</h3>
-<p>Si una consulta devuelve el registro de un dominio y muestra qué registrar intervino, ese dato orienta el siguiente contacto. No demuestra que el registry sea el autor del contenido publicado. El dominio, el alojamiento del sitio y la actividad investigada deben correlacionarse con evidencia adicional.</p>
-<h3 id="repaso">Repaso</h3>
-<details class="wiki-review"><summary>¿El registry es necesariamente la empresa a la que el titular compró el dominio?</summary><p>No. Esa relación corresponde al registrar. Las funciones pueden coincidir en una entidad, pero deben distinguirse para interpretar correctamente el registro y dirigir una notificación.</p>
-</details>
+<p>El registry conserva la información oficial del espacio de nombres de un TLD. Según el esquema de la clase, mantiene datos que permiten identificar qué registrar asignó un nombre.</p>
+<p>Su registro orienta hacia el intermediario que gestionó el dominio. Esa función no lo convierte en administrador de todos los servidores ni en autor del contenido que utiliza ese nombre.</p>
 <h2 id="registrar">Registrar</h2>
-<h3 id="funcion-2">Función</h3>
-<p>El registrar es la entidad que comercializa y gestiona la registración de nombres de dominio. Actúa en relación con el registry y mantiene información de sus registrantes. No debe confundirse con el cliente a cuyo nombre se registró el dominio.</p>
-<h3 id="que-aporta-su-registro">Qué aporta su registro</h3>
-<p>Una consulta puede identificar el registrar, su servidor de consulta y su canal de abuso. Ese canal permite reportar situaciones relacionadas con un dominio, mientras que el contacto del registrant permite comunicarse con el titular. Elegir uno u otro depende del propósito de la notificación.</p>
-<p>Por ejemplo, un reporte solicita primero avisar al titular de una página que parece comprometida y luego informar al registrador sobre el uso abusivo del nombre. Las dos comunicaciones pueden dirigirse a contactos diferentes y necesitar evidencias contextualizadas.</p>
-<h3 id="privacidad-y-limites">Privacidad y límites</h3>
-<p>El registrador puede ofrecer mecanismos de privacidad que ocultan datos directos del titular y publican un formulario intermediario. La falta de un correo personal visible no prueba que no exista un responsable ni que el dominio sea malicioso.</p>
-<p>El registrar tampoco debe confundirse automáticamente con el proveedor de alojamiento o con quien redactó el contenido. Los roles registrales explican la gestión del nombre; la investigación de la infraestructura y de los hechos necesita otras evidencias.</p>
-<h3 id="repaso-2">Repaso</h3>
-<details class="wiki-review"><summary>¿El correo de abuso del registrar es necesariamente el correo del titular del dominio?</summary><p>No. Uno pertenece al canal del intermediario registrador y el otro al registrant o a su mecanismo de contacto. Diferenciar los roles evita enviar datos a una parte que no puede resolver la solicitud concreta.</p>
-</details>
+<p>El registrar comercializa y gestiona la registración y mantiene información de sus registrantes. En la consulta de la clase se distinguen el nombre del registrar, su servidor WHOIS y su contacto de abuso.</p>
+<p>Ese contacto corresponde al registrador. Si el propósito es comunicarse con el titular del dominio, debe buscarse el contacto del registrant o el mecanismo intermediario que figure para él.</p>
 <h2 id="registrant">Registrant</h2>
-<h3 id="definicion">Definición</h3>
-<p>El registrant es la persona u organización a cuyo nombre se registra un dominio. Es el cliente que solicita el nombre mediante un registrar. La relación describe titularidad registral y no atribuye automáticamente todas las acciones realizadas a través de ese dominio.</p>
-<h3 id="contacto-y-privacidad">Contacto y privacidad</h3>
-<p>La información pública puede incluir datos directos del registrant o un mecanismo intermediario de contacto. La presentación muestra una salida donde algunos campos están redactados por privacidad. Esto limita qué puede conocerse mediante la consulta, pero no demuestra por sí solo ocultamiento malicioso.</p>
-<p>Un investigador debe identificar qué contacto necesita. Si busca avisar al titular, utiliza el canal disponible para el registrant; si pretende reportar abuso al registrador, selecciona el canal de ese otro actor. Sustituirlos sin explicación puede retrasar la gestión.</p>
-<h3 id="ejemplo-y-cautela-de-atribucion">Ejemplo y cautela de atribución</h3>
-<p>Un sitio de una institución aparece utilizado para engañar a sus visitantes. La ficha registral puede orientar hacia la institución o su intermediario. Aun así, el sitio podría estar comprometido: el registro no prueba que el titular haya creado deliberadamente el engaño.</p>
-<p>Los datos personales no expuestos públicamente no pueden deducirse de campos vacíos. La clase distingue las consultas abiertas de los procedimientos que requieren las autoridades competentes para acceder a información no pública.</p>
-<h3 id="repaso-3">Repaso</h3>
-<details class="wiki-review"><summary>¿Un nombre de titular redactado por privacidad permite concluir que el dominio es fraudulento?</summary><p>No. La privacidad puede ser una característica legítima del servicio registral. La conclusión debe basarse en el comportamiento y la evidencia del caso, respetando qué información está efectivamente disponible.</p>
+<p>El registrant es la persona u organización a cuyo nombre se registra el dominio. La titularidad registral describe esa relación con el nombre; no demuestra por sí sola quién realizó cada actividad a través de él.</p>
+<p>La captura de <code>cualesmiip.com</code> muestra campos del registrant como <code>Redacted by Privacy</code> y un enlace de contacto intermediario. La ausencia de un correo personal visible limita la consulta pública, pero no constituye por sí sola una prueba de fraude.</p>
+<h2 id="como-orientar-una-consulta">Cómo orientar una consulta</h2>
+<ol>
+<li>Consultar el dominio mediante <a href="../whois/">WHOIS</a> o <a href="../rdap/">RDAP</a>.</li>
+<li>Distinguir el registrar identificado del registrant y sus datos disponibles.</li>
+<li>Elegir el canal según la finalidad: contactar al titular o comunicar un abuso al registrador.</li>
+<li>Relacionar el registro con la evidencia del incidente antes de atribuir responsabilidades.</li>
+</ol>
+<p>Las páginas 16 a 18 de la presentación explican los roles y muestran la consulta. Las páginas 19 y 20 distinguen el uso operativo por los CSIRT del acceso a datos no públicos por las autoridades competentes. Una respuesta pública no permite reconstruir datos personales que no expone.</p>
+<h2 id="repaso">Repaso</h2>
+<details class="wiki-review"><summary>¿El registry es necesariamente la empresa a la que el titular compró el dominio?</summary><p>No. La relación comercial corresponde al registrar. Las funciones pueden coincidir en una entidad, pero hay que distinguirlas para interpretar el registro y elegir el contacto.</p>
+</details>
+<details class="wiki-review"><summary>¿El contacto de abuso del registrar es necesariamente el correo del titular?</summary><p>No. Corresponde al intermediario registrador. El registrant puede tener otro contacto o un mecanismo de comunicación protegido por privacidad.</p>
 </details>
 
 
         <section class="wiki-section" aria-labelledby="relacionados"><h2 id="relacionados">Conceptos relacionados</h2><ul><li><a href="../dns/">Nombres de dominio y DNS</a></li><li><a href="../whois/">WHOIS</a></li><li><a href="../rdap/">RDAP</a></li></ul></section>
-        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>CSIRT, parte 1: Gestión de Recursos de Internet · pp. 16, 17, 18, 19, 20. <span>Material de cátedra, fuente local de trabajo; PDF no distribuido por este sitio.</span></li><li><a href="../../../../docs/IC2026_Solucionario_Practicas_1_y_2.pdf#page=12" target="_blank" rel="noopener">Solucionario de prácticas 1 y 2</a> · pp. 12, 13. <span>Material complementario, PDF disponible.</span></li></ul></section>
+        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>CSIRT, parte 1: Gestión de Recursos de Internet · <a href="../../../../docs/catedra%20cosas/04%20-%20CSIRT%20parte%201%20-%20Gesti%C3%B3n%20de%20Recursos%20de%20Internet.pdf#page=16" target="_blank" rel="noopener">p. 16 ↗</a>, <a href="../../../../docs/catedra%20cosas/04%20-%20CSIRT%20parte%201%20-%20Gesti%C3%B3n%20de%20Recursos%20de%20Internet.pdf#page=17" target="_blank" rel="noopener">p. 17 ↗</a>, <a href="../../../../docs/catedra%20cosas/04%20-%20CSIRT%20parte%201%20-%20Gesti%C3%B3n%20de%20Recursos%20de%20Internet.pdf#page=18" target="_blank" rel="noopener">p. 18 ↗</a>, <a href="../../../../docs/catedra%20cosas/04%20-%20CSIRT%20parte%201%20-%20Gesti%C3%B3n%20de%20Recursos%20de%20Internet.pdf#page=19" target="_blank" rel="noopener">p. 19 ↗</a>, <a href="../../../../docs/catedra%20cosas/04%20-%20CSIRT%20parte%201%20-%20Gesti%C3%B3n%20de%20Recursos%20de%20Internet.pdf#page=20" target="_blank" rel="noopener">p. 20 ↗</a>. <span>Material de cátedra</span></li><li>Solucionario de prácticas 1 y 2 · <a href="../../../../docs/IC2026_Solucionario_Practicas_1_y_2.pdf#page=12" target="_blank" rel="noopener">p. 12 ↗</a>, <a href="../../../../docs/IC2026_Solucionario_Practicas_1_y_2.pdf#page=13" target="_blank" rel="noopener">p. 13 ↗</a>. <span>Material complementario</span></li><li>Glosario · <a href="../../../../glosario.html#tld">TLD, Registry, Registrar y Registrant ↗</a></li><li><a href="../../../../glosario.html">Explorar el glosario completo ↗</a></li></ul></section>
       </main>
       <footer class="wiki-footer"><p>IC 2026 · Elaboración didáctica original basada en las fuentes indicadas. Las páginas citadas corresponden al archivo PDF, contando desde 1.</p><a href="../../../">Volver al inicio de la wiki</a></footer>
     </div>

@@ -11,4 +11,9 @@ Entre los ejemplos aparecen la modificación no autorizada de un sitio, ransomwa
 
 La secuencia del curso comprende recepción, evaluación de pertinencia, clasificación y priorización, y gestión mediante notificaciones y coordinación. La criticidad considera el tipo de hecho, los recursos afectados y el impacto en actividades de la organización o en terceros.
 
-El recorrido se desarrolla en [gestión de incidentes](wiki:csirt-handling). El manejo de datos sensibles y [TLP](wiki:csirt-tlp) atraviesa la coordinación: compartir evidencia es necesario, pero requiere controlar destinatarios y alcance de difusión.
+## Gestionar el caso y su información
+
+- [Gestión de incidentes](wiki:csirt-handling): evaluar el reporte, definir su prioridad y coordinar acciones con los responsables.
+- [Manejo de información sensible](wiki:csirt-sensitive-information): decidir quién recibe la evidencia, hasta dónde puede compartirla y cómo proteger el intercambio.
+
+[TLP](wiki:csirt-tlp) expresa el alcance de difusión durante esa coordinación. Compartir evidencia requiere atender tanto al destinatario como a la sensibilidad de los datos.

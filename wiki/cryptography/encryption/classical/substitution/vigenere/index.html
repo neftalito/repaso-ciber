@@ -34,19 +34,61 @@
       <main id="wiki-main" class="wiki-article" tabindex="-1">
         <p class="eyebrow">INTRODUCCIÓN A LA CIBERSEGURIDAD · ALGORITMO</p>
         <h1>Cifrado Vigenère</h1>
-        <h2 id="definicion-y-procedencia">Definición y procedencia</h2>
-<p>Vigenère utiliza una secuencia de desplazamientos alfabéticos derivada de una clave. Se desarrolla en los ejercicios complementarios, que amplían los ejemplos clásicos de las diapositivas.</p>
-<h2 id="ejemplo-original">Ejemplo original</h2>
-<p>Con A=0 hasta Z=25, se repite la clave <code>SOL</code> para cubrir <code>CASA</code>: <code>SOLS</code>. Se suman posiciones módulo 26: C+S→U, A+O→O, S+L→D y A+S→S. El resultado es <code>UODS</code>.</p>
-<p>Para descifrar se resta, en cada posición, el desplazamiento de la letra correspondiente de la clave. La clave no es un simple orden de columnas: decide qué sustitución se aplica a cada letra.</p>
-<h2 id="limitacion">Limitación</h2>
-<p>La variación de desplazamientos lo distingue de César, pero sigue siendo un método clásico. No debe inferirse seguridad moderna solamente porque no se observe una única correspondencia entre letras.</p>
-<details class="wiki-review"><summary>¿Qué ocurre si la clave repetida tiene una sola letra?</summary><p>Se usa el mismo desplazamiento en todo el mensaje. Bajo las convenciones indicadas, el procedimiento se reduce a un César con ese desplazamiento.</p>
+        <h2 id="una-clave-que-determina-los-desplazamientos">Una clave que determina los desplazamientos</h2>
+<p><strong>Vigenère</strong> sustituye letras mediante una secuencia de desplazamientos alfabéticos derivada de una clave. Mientras César usa un desplazamiento fijo, aquí cada posición utiliza el de la letra correspondiente de la clave repetida.</p>
+<p>La guía de prácticas, página 3, y el solucionario, página 4, lo presentan como contenido complementario. Este desarrollo no se atribuye a las diapositivas oficiales de la cátedra.</p>
+<h2 id="ejemplo-complementario-descifrar-rijvs">Ejemplo complementario: descifrar RIJVS</h2>
+<p>El solucionario utiliza el texto cifrado <code>RIJVS</code> y la clave <code>KEY</code>. Para trabajar con las cinco posiciones, se repite la clave hasta obtener <code>KEYKE</code>.</p>
+<p>Con el alfabeto A=0, B=1, …, Z=25, descifrar consiste en restar el índice de la clave al del cifrado y conservar el resto módulo 26:</p>
+<table>
+<thead>
+<tr>
+<th>Cifrado</th>
+<th>Clave</th>
+<th>Resta módulo 26</th>
+<th>Letra recuperada</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>R</td>
+<td>K</td>
+<td>17 - 10 = 7</td>
+<td>H</td>
+</tr>
+<tr>
+<td>I</td>
+<td>E</td>
+<td>8 - 4 = 4</td>
+<td>E</td>
+</tr>
+<tr>
+<td>J</td>
+<td>Y</td>
+<td>9 - 24 ≡ 11</td>
+<td>L</td>
+</tr>
+<tr>
+<td>V</td>
+<td>K</td>
+<td>21 - 10 = 11</td>
+<td>L</td>
+</tr>
+<tr>
+<td>S</td>
+<td>E</td>
+<td>18 - 4 = 14</td>
+<td>O</td>
+</tr>
+</tbody></table>
+<p>El resultado es <strong><code>HELLO</code></strong>. En la tercera posición, la resta negativa se lleva al rango 0–25 mediante el retorno circular del alfabeto.</p>
+<h2 id="que-funcion-cumple-la-clave">Qué función cumple la clave</h2>
+<p>Para cifrar se suman esos desplazamientos en cada posición; para descifrar se restan. La clave decide qué sustitución corresponde a cada letra, no el orden de lectura de columnas. Por eso Vigenère es sustitución y no transposición.</p>
+<details class="wiki-review"><summary>¿Qué ocurre si la clave repetida tiene una sola letra?</summary><p>Se utiliza el mismo desplazamiento en todas las posiciones. Bajo la convención A–Z indicada, el procedimiento se reduce a un César con ese desplazamiento.</p>
 </details>
 
 
         <section class="wiki-section" aria-labelledby="relacionados"><h2 id="relacionados">Conceptos relacionados</h2><ul><li><a href="../caesar/">Cifrado César y ROT</a></li><li><a href="../../transposition/columnar/">Transposición columnar</a></li></ul></section>
-        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li><a href="../../../../../../docs/Guia_de_estudio_IC_Practicas_1_y_2.pdf#page=3" target="_blank" rel="noopener">Guía de estudio de prácticas 1 y 2</a> · pp. 3. <span>Material complementario, PDF disponible.</span></li><li><a href="../../../../../../docs/IC2026_Solucionario_Practicas_1_y_2.pdf#page=4" target="_blank" rel="noopener">Solucionario de prácticas 1 y 2</a> · pp. 4. <span>Material complementario, PDF disponible.</span></li></ul></section>
+        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Guía de estudio de prácticas 1 y 2 · <a href="../../../../../../docs/Guia_de_estudio_IC_Practicas_1_y_2.pdf#page=3" target="_blank" rel="noopener">p. 3 ↗</a>. <span>Material complementario</span></li><li>Solucionario de prácticas 1 y 2 · <a href="../../../../../../docs/IC2026_Solucionario_Practicas_1_y_2.pdf#page=4" target="_blank" rel="noopener">p. 4 ↗</a>. <span>Material complementario</span></li><li>Glosario · <a href="../../../../../../glosario.html#vigenere">Vigenère y clave repetida ↗</a></li><li><a href="../../../../../../glosario.html">Explorar el glosario completo ↗</a></li></ul></section>
       </main>
       <footer class="wiki-footer"><p>IC 2026 · Elaboración didáctica original basada en las fuentes indicadas. Las páginas citadas corresponden al archivo PDF, contando desde 1.</p><a href="../../../../../">Volver al inicio de la wiki</a></footer>
     </div>

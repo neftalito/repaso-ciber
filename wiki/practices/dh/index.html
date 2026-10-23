@@ -35,7 +35,14 @@
         <p class="eyebrow">INTRODUCCIÓN A LA CIBERSEGURIDAD · PRÁCTICA</p>
         <h1>Caso: comprobar el secreto de Diffie-Hellman</h1>
         <h2 id="datos-del-ejemplo-oficial">Datos del ejemplo oficial</h2>
-<p>La práctica propone <code>p=1999</code>, <code>g=33</code>, con secretos de Alicia <code>a=47</code> y de Bob <code>b=117</code>. El objetivo es comprobar que ambos pueden obtener el mismo secreto sin transmitirlo directamente.</p>
+<p>La práctica 1, parte 2, página 4, propone <code>p=1999</code>, <code>g=33</code>, con secretos de Alicia <code>a=47</code> y de Bob <code>b=117</code>. El objetivo es comprobar que ambos pueden obtener el mismo secreto sin transmitirlo directamente.</p>
+<h2 id="que-hace-cada-participante">Qué hace cada participante</h2>
+<ol>
+<li>Ambos conocen los parámetros públicos p y g.</li>
+<li>Cada uno calcula un valor público con su propio exponente secreto y lo envía al otro.</li>
+<li>Cada uno eleva el valor recibido a su propio exponente, siempre módulo p. Los dos resultados deben coincidir.</li>
+</ol>
+<p>Los exponentes a y b se muestran para comprobar el ejercicio, pero no se transmiten en el intercambio.</p>
 <h2 id="secuencia-calculada">Secuencia calculada</h2>
 <table>
 <thead>
@@ -72,7 +79,7 @@ public_a, public_b = pow(g, a, p), pow(g, b, p)
 assert (public_a, public_b) == (1343, 1991)
 assert pow(public_b, a, p) == pow(public_a, b, p) == 1506
 </code></pre>
-<p>Ambos cálculos corresponden a <code>g^(a·b) mod p</code>. Los secretos elegidos no forman parte de los valores públicos intercambiados.</p>
+<p>Alicia calcula <code>(g^b)^a mod p</code> y Bob calcula <code>(g^a)^b mod p</code>. Ambos obtienen <code>g^(a·b) mod p</code> porque a·b y b·a son iguales. La igualdad explica el resultado compartido de la tabla.</p>
 <h2 id="interpretacion-y-limites">Interpretación y límites</h2>
 <p>Se acordó un secreto; no se cifró un mensaje con esta tabla. El esquema básico tampoco autentica por sí solo a los participantes. Un protocolo debe resolver esa identidad para evitar sustituciones de valores por un intermediario. Los tamaños pequeños tienen finalidad didáctica.</p>
 <details class="wiki-review"><summary>¿Por qué obtener el mismo número no demuestra que se habló con la persona esperada?</summary><p>Porque el cálculo muestra consistencia matemática del intercambio, pero no vincula los valores públicos con identidades. La autenticación necesita evidencia o mecanismos adicionales.</p>
@@ -80,7 +87,7 @@ assert pow(public_b, a, p) == pow(public_a, b, p) == 1506
 
 
         <section class="wiki-section" aria-labelledby="relacionados"><h2 id="relacionados">Conceptos relacionados</h2><ul><li><a href="../../cryptography/signature/">Firma digital</a></li><li><a href="../../cryptography/pki/">Infraestructura de clave pública (PKI)</a></li><li><a href="../../fundamentals/attacks/mitm/">Man in the Middle (MitM)</a></li></ul></section>
-        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Explicación de la práctica 1, parte 2 · pp. 4. <span>Material de cátedra, fuente local de trabajo; PDF no distribuido por este sitio.</span></li><li><a href="../../../docs/IC2026_Solucionario_Practicas_1_y_2.pdf#page=8" target="_blank" rel="noopener">Solucionario de prácticas 1 y 2</a> · pp. 8. <span>Material complementario, PDF disponible.</span></li><li><a href="../../../docs/Guia_de_estudio_IC_Practicas_1_y_2.pdf#page=6" target="_blank" rel="noopener">Guía de estudio de prácticas 1 y 2</a> · pp. 6, 7. <span>Material complementario, PDF disponible.</span></li></ul></section>
+        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Explicación de la práctica 1, parte 2 · <a href="../../../docs/catedra%20cosas/Explicaci%C3%B3n%20-%20Pr%C3%A1ctica%201%20-%20Parte%202.pdf#page=4" target="_blank" rel="noopener">p. 4 ↗</a>. <span>Material de cátedra</span></li><li>Solucionario de prácticas 1 y 2 · <a href="../../../docs/IC2026_Solucionario_Practicas_1_y_2.pdf#page=8" target="_blank" rel="noopener">p. 8 ↗</a>. <span>Material complementario</span></li><li>Guía de estudio de prácticas 1 y 2 · <a href="../../../docs/Guia_de_estudio_IC_Practicas_1_y_2.pdf#page=6" target="_blank" rel="noopener">p. 6 ↗</a>, <a href="../../../docs/Guia_de_estudio_IC_Practicas_1_y_2.pdf#page=7" target="_blank" rel="noopener">p. 7 ↗</a>. <span>Material complementario</span></li><li>Glosario · <a href="../../../glosario.html#diffie-hellman">Diffie–Hellman: acuerdo de secreto ↗</a></li><li><a href="../../../glosario.html">Explorar el glosario completo ↗</a></li></ul></section>
       </main>
       <footer class="wiki-footer"><p>IC 2026 · Elaboración didáctica original basada en las fuentes indicadas. Las páginas citadas corresponden al archivo PDF, contando desde 1.</p><a href="../../">Volver al inicio de la wiki</a></footer>
     </div>

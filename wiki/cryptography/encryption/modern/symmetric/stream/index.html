@@ -34,14 +34,20 @@
       <main id="wiki-main" class="wiki-article" tabindex="-1">
         <p class="eyebrow">INTRODUCCIÓN A LA CIBERSEGURIDAD · CATEGORÍA</p>
         <h1>Cifrado de flujo</h1>
-        <h2 id="secuencia-cifrante">Secuencia cifrante</h2>
-<p>Un cifrado de flujo genera una secuencia pseudoaleatoria, o keystream, que se combina con los datos, habitualmente mediante XOR. Permite procesar unidades pequeñas a medida que llegan. La clase utiliza conversaciones telefónicas como contexto didáctico.</p>
-<p>La secuencia se produce a partir de parámetros secretos y estado. No debe confundirse el mensaje con el flujo de clave: el receptor necesita reproducir el flujo correcto para recuperar el original.</p>
-<p>El material menciona RC4 y la práctica añade SEAL y A5. Reutilizar una misma secuencia permite relacionar mensajes cifrados; por eso la inicialización y la gestión del estado son parte del análisis del esquema.</p>
+        <h2 id="combinar-datos-con-una-secuencia-cifrante">Combinar datos con una secuencia cifrante</h2>
+<p>Un <strong>cifrado de flujo</strong> genera una secuencia pseudoaleatoria, llamada <strong>secuencia cifrante</strong> o <em>keystream</em>, y la combina con los datos del mensaje, habitualmente mediante XOR. Permite procesar unidades pequeñas a medida que llegan.</p>
+<p>Cripto, parte 1, página 29, utiliza conversaciones telefónicas como contexto y presenta RC4. La explicación de la Práctica 1, parte 2, página 5, añade SEAL y A5.</p>
+<h2 id="algoritmos-de-flujo-mencionados">Algoritmos de flujo mencionados</h2>
+<ul>
+<li><a href="rc4/">RC4</a>.</li>
+<li><a href="seal/">SEAL</a>.</li>
+<li><a href="a5/">A5</a>.</li>
+</ul>
+<p>El mensaje y la secuencia cifrante cumplen roles distintos. El receptor necesita reproducir el flujo correcto para recuperar el original. El manual complementario, página 11, amplía el riesgo de reutilizar una misma secuencia: puede revelar relaciones entre los mensajes cifrados.</p>
 
 <section class="wiki-section" aria-labelledby="subtemas"><h2 id="subtemas">Subtemas</h2><ul class="wiki-cards"><li><a href="rc4/">RC4</a></li><li><a href="seal/">SEAL</a></li><li><a href="a5/">A5</a></li></ul></section>
         <section class="wiki-section" aria-labelledby="relacionados"><h2 id="relacionados">Conceptos relacionados</h2><ul><li><a href="../../../../xor/">Operación XOR</a></li><li><a href="../block/ofb/">Modo OFB</a></li><li><a href="../block/">Cifrado por bloques</a></li></ul></section>
-        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Cripto, parte 1 · pp. 29. <span>Material de cátedra, fuente local de trabajo; PDF no distribuido por este sitio.</span></li><li>Explicación de la práctica 1, parte 2 · pp. 5. <span>Material de cátedra, fuente local de trabajo; PDF no distribuido por este sitio.</span></li><li><a href="../../../../../../docs/Manual_IC2026_Cripto_CSIRT_Malware_Descarga.pdf#page=11" target="_blank" rel="noopener">Manual de estudio: Cripto, CSIRT y Malware</a> · pp. 11. <span>Material complementario, PDF disponible.</span></li></ul></section>
+        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Cripto, parte 1 · <a href="../../../../../../docs/catedra%20cosas/02%20-%20Cripto%20parte%201.pdf#page=29" target="_blank" rel="noopener">p. 29 ↗</a>. <span>Material de cátedra</span></li><li>Explicación de la práctica 1, parte 2 · <a href="../../../../../../docs/catedra%20cosas/Explicaci%C3%B3n%20-%20Pr%C3%A1ctica%201%20-%20Parte%202.pdf#page=5" target="_blank" rel="noopener">p. 5 ↗</a>. <span>Material de cátedra</span></li><li>Manual de estudio: Cripto, CSIRT y Malware · <a href="../../../../../../docs/Manual_IC2026_Cripto_CSIRT_Malware_Descarga.pdf#page=11" target="_blank" rel="noopener">p. 11 ↗</a>. <span>Material complementario</span></li><li>Glosario · <a href="../../../../../../glosario.html#flujo">Cifrado de flujo y keystream ↗</a></li><li>Glosario · <a href="../../../../../../glosario.html#keystream">Keystream ↗</a></li><li><a href="../../../../../../glosario.html">Explorar el glosario completo ↗</a></li></ul></section>
       </main>
       <footer class="wiki-footer"><p>IC 2026 · Elaboración didáctica original basada en las fuentes indicadas. Las páginas citadas corresponden al archivo PDF, contando desde 1.</p><a href="../../../../../">Volver al inicio de la wiki</a></footer>
     </div>

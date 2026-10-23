@@ -1,20 +1,31 @@
 ---
 {"id":"crypto-reversal","title":"Transposición por inversión","slug":"reversal","parent":"crypto-transposition","type":"technique","order":30,"related":["crypto-atbash","crypto-transposition"],"sources":[{"id":"practice-guide","pages":[3]},{"id":"practice-solutions","pages":[3]}],"permalink":"cryptography/encryption/classical/transposition/reversal"}
 ---
-## Definición
+## Leer los caracteres en orden inverso
 
-Invertir una cadena consiste en leer sus caracteres desde el último hasta el primero. Es una transposición porque conserva cada símbolo y modifica su posición. El material complementario utiliza cadenas invertidas como una pista de reconocimiento.
+La transposición por inversión recorre una cadena desde el último carácter hasta el primero. Conserva los símbolos y cambia su posición: no reemplaza letras por otras ni aplica un desplazamiento al alfabeto.
 
-## Ejemplo original
+El material complementario utiliza las cadenas invertidas como pista de reconocimiento. El desarrollo de esta variante y los ejemplos siguientes proceden de ese material.
 
-`LUNA` pasa a `ANUL`. Si se aplica la inversión de nuevo, se recupera `LUNA`. La operación no exige cambiar el alfabeto ni sumar desplazamientos.
+## Ejemplos respaldados por las fuentes
 
-En una resolución debe declararse la unidad de inversión. Invertir los caracteres de todo el mensaje no es lo mismo que invertir solo el orden de las palabras; la convención del ejemplo opera sobre caracteres.
+La guía complementaria, página 3, muestra que `HOLA` invertido produce `ALOH`. Aplicar otra vez la misma operación recupera el orden original.
 
-## Límite
+El solucionario de prácticas, página 3, presenta un caso donde también se invierte la posición de los signos:
 
-La presencia de signos de apertura y cierre intercambiados puede sugerir una inversión, pero no demuestra que sea la única transformación aplicada.
+```text
+Entrada: }odnum_aloh{CI
+Salida:  IC{hola_mundo}
+```
 
-:::question ¿Invertir CASA y aplicar Atbash a CASA son el mismo procedimiento?
-No. La inversión produce ASAC y mantiene las letras originales; Atbash las sustituye mediante una tabla de correspondencias.
+Se recorre toda la cadena de derecha a izquierda. Por eso los signos y el guion bajo se conservan y cambian de posición junto con las letras.
+
+## La unidad que se invierte importa
+
+Invertir los caracteres del mensaje completo no es lo mismo que invertir solo el orden de sus palabras. La regla debe declararse antes de interpretar el resultado.
+
+Una forma visible invertida puede orientar una hipótesis, pero no demuestra que sea la única transformación aplicada. El resultado todavía puede contener otra capa de representación o cifrado.
+
+:::question ¿La inversión funciona como Atbash?
+No. La inversión conserva las letras y cambia sus posiciones. Atbash sustituye cada letra mediante una correspondencia del alfabeto.
 :::

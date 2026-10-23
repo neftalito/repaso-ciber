@@ -34,18 +34,25 @@
       <main id="wiki-main" class="wiki-article" tabindex="-1">
         <p class="eyebrow">INTRODUCCIÓN A LA CIBERSEGURIDAD · TÉCNICA</p>
         <h1>Modo ECB</h1>
-        <h2 id="cifrado-independiente">Cifrado independiente</h2>
-<p>ECB, Electronic Codebook, aplica el cifrador a cada bloque de manera independiente bajo la misma clave: <code>Cᵢ = E(K, Pᵢ)</code>. No utiliza un bloque previo para variar la transformación.</p>
-<h2 id="ejemplo-conceptual">Ejemplo conceptual</h2>
-<p>Para tres bloques <code>P, Q, P</code>, el resultado tiene la forma <code>E(K,P), E(K,Q), E(K,P)</code>. El primer y tercer bloque cifrados coinciden porque sus entradas y la clave coinciden. El observador aprende una relación de repetición aunque desconozca el contenido de P.</p>
-<h2 id="limitacion">Limitación</h2>
-<p>En datos estructurados, las repeticiones pueden revelar patrones. La clase lo ilustra con imágenes: el cifrado puede ocultar valores y aun así dejar reconocibles formas. No implica que todos los píxeles se conserven; se conserva una relación entre bloques iguales.</p>
-<details class="wiki-review"><summary>¿Una clave desconocida evita la filtración de repeticiones en ECB?</summary><p>No. La igualdad de bloques cifrados puede observarse sin descifrar. La filtración deriva del procesamiento determinista e independiente bajo la misma clave.</p>
+        <h2 id="cifrar-cada-bloque-de-forma-independiente">Cifrar cada bloque de forma independiente</h2>
+<p>ECB, Electronic Codebook, aplica el mismo cifrador y la misma clave a cada bloque del mensaje por separado. No mezcla el bloque actual con el anterior. Su consecuencia central es que <strong>bloques planos iguales producen bloques cifrados iguales</strong> bajo la misma clave.</p>
+<h2 id="por-que-se-filtran-repeticiones">Por qué se filtran repeticiones</h2>
+<p>Las páginas 25 y 26 de <em>Cripto, parte 1</em> presentan el procesamiento independiente. El manual complementario, página 10, expresa su consecuencia paso a paso:</p>
+<ol>
+<li>Dos bloques contienen el mismo texto plano: <code>P1 = P2</code>.</li>
+<li>Se aplica a ambos la misma transformación con la misma clave: <code>E(K, P1) = E(K, P2)</code>.</li>
+<li>Los resultados coinciden: <code>C1 = C2</code>.</li>
+</ol>
+<p>El observador puede reconocer esa igualdad sin conocer el contenido de los bloques ni descifrar el mensaje.</p>
+<h2 id="la-imagen-de-la-clase">La imagen de la clase</h2>
+<p>La página 28 compara una imagen original con sus versiones cifradas mediante ECB y CBC. En ECB siguen siendo reconocibles patrones de la figura. El problema no es que todos los píxeles permanezcan iguales al original, sino que el cifrado conserva relaciones de repetición entre bloques.</p>
+<p>Una clave secreta no elimina esta filtración. El <a href="../cbc/">encadenamiento de CBC</a> permite comprender por qué cambiar el modo modifica la relación entre bloques, aunque elegir un modo también requiere considerar sus propios parámetros y límites.</p>
+<details class="wiki-review"><summary>¿Una clave desconocida evita la filtración de repeticiones en ECB?</summary><p>No. La igualdad de los bloques cifrados puede observarse sin descifrar. Surge del procesamiento independiente y determinista bajo la misma clave.</p>
 </details>
 
 
         <section class="wiki-section" aria-labelledby="relacionados"><h2 id="relacionados">Conceptos relacionados</h2><ul><li><a href="../aes/">AES</a></li><li><a href="../cbc/">Modo CBC</a></li></ul></section>
-        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Cripto, parte 1 · pp. 25, 26, 28. <span>Material de cátedra, fuente local de trabajo; PDF no distribuido por este sitio.</span></li><li><a href="../../../../../../../docs/Manual_IC2026_Cripto_CSIRT_Malware_Descarga.pdf#page=10" target="_blank" rel="noopener">Manual de estudio: Cripto, CSIRT y Malware</a> · pp. 10. <span>Material complementario, PDF disponible.</span></li></ul></section>
+        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Cripto, parte 1 · <a href="../../../../../../../docs/catedra%20cosas/02%20-%20Cripto%20parte%201.pdf#page=25" target="_blank" rel="noopener">p. 25 ↗</a>, <a href="../../../../../../../docs/catedra%20cosas/02%20-%20Cripto%20parte%201.pdf#page=26" target="_blank" rel="noopener">p. 26 ↗</a>, <a href="../../../../../../../docs/catedra%20cosas/02%20-%20Cripto%20parte%201.pdf#page=28" target="_blank" rel="noopener">p. 28 ↗</a>. <span>Material de cátedra</span></li><li>Manual de estudio: Cripto, CSIRT y Malware · <a href="../../../../../../../docs/Manual_IC2026_Cripto_CSIRT_Malware_Descarga.pdf#page=10" target="_blank" rel="noopener">p. 10 ↗</a>. <span>Material complementario</span></li><li>Glosario · <a href="../../../../../../../glosario.html#ecb">ECB y patrones de bloques ↗</a></li><li><a href="../../../../../../../glosario.html">Explorar el glosario completo ↗</a></li></ul></section>
       </main>
       <footer class="wiki-footer"><p>IC 2026 · Elaboración didáctica original basada en las fuentes indicadas. Las páginas citadas corresponden al archivo PDF, contando desde 1.</p><a href="../../../../../../">Volver al inicio de la wiki</a></footer>
     </div>

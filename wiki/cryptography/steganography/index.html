@@ -34,14 +34,22 @@
       <main id="wiki-main" class="wiki-article" tabindex="-1">
         <p class="eyebrow">INTRODUCCIÓN A LA CIBERSEGURIDAD · CATEGORÍA</p>
         <h1>Esteganografía</h1>
-        <h2 id="ocultar-la-existencia">Ocultar la existencia</h2>
-<p>La esteganografía inserta un mensaje dentro de un portador para que su presencia pase inadvertida. El portador puede ser una imagen, audio, video u otro medio. Su objetivo se distingue del cifrado: ocultar que existe información adicional no equivale a volverla ilegible mediante una clave.</p>
-<p>La clase distingue esteganografía pura y de clave secreta. También presenta LSB en imágenes y audio, además de canales encubiertos de red. Son ejes complementarios: el tipo de portador no determina por sí solo si el esquema utiliza una clave.</p>
-<p>El análisis debe identificar el portador, la regla de inserción y los datos necesarios para extraer el mensaje. La ausencia de cambios perceptibles no demuestra ausencia de información oculta.</p>
+        <h2 id="ocultar-la-existencia-de-un-mensaje">Ocultar la existencia de un mensaje</h2>
+<p>La <strong>esteganografía</strong> inserta un mensaje en otro medio, llamado <strong>portador</strong>, para que su presencia pase inadvertida. Cripto, parte 2, página 26, presenta imágenes, audio y video como portadores posibles.</p>
+<p>Su objetivo difiere del cifrado: ocultar que existe información adicional no equivale a volverla ilegible mediante una clave. Ambos mecanismos pueden combinarse.</p>
+<h2 id="estrategias-tecnicas-y-herramientas">Estrategias, técnicas y herramientas</h2>
+<ul>
+<li><a href="stego-pure/">Esteganografía pura</a>: busca que el mensaje pase inadvertido sin una clave.</li>
+<li><a href="stego-keyed/">Esteganografía de clave secreta</a>: incorpora una clave al procedimiento.</li>
+<li><a href="lsb/">Técnica LSB</a>: utiliza los bits menos significativos del portador.</li>
+<li><a href="covert-channel/">Canales encubiertos de red</a>: transmiten información mediante protocolos de red.</li>
+<li><a href="steghide/">Steghide</a>: herramienta estudiada para trabajar con información oculta.</li>
+</ul>
+<p>La clase distingue las estrategias en la página 27 y presenta LSB y canales de red en las páginas 28–30. La explicación de la Práctica 1, parte 2, páginas 5–6, retoma el concepto y LSB. Al analizar un caso deben identificarse el portador, la regla de inserción y los datos necesarios para extraer el mensaje.</p>
 
 <section class="wiki-section" aria-labelledby="subtemas"><h2 id="subtemas">Subtemas</h2><ul class="wiki-cards"><li><a href="stego-pure/">Esteganografía pura</a></li><li><a href="stego-keyed/">Esteganografía de clave secreta</a></li><li><a href="lsb/">Técnica LSB</a></li><li><a href="covert-channel/">Canales encubiertos de red</a></li><li><a href="steghide/">Steghide</a></li></ul></section>
         <section class="wiki-section" aria-labelledby="relacionados"><h2 id="relacionados">Conceptos relacionados</h2><ul><li><a href="../encryption/">Cifrado</a></li><li><a href="../encoding/">Codificación</a></li><li><a href="../../csirt/incidentes/">Incidentes de seguridad</a></li></ul></section>
-        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Cripto, parte 2 · pp. 26, 27, 28, 29, 30. <span>Material de cátedra, fuente local de trabajo; PDF no distribuido por este sitio.</span></li><li>Explicación de la práctica 1, parte 2 · pp. 5, 6. <span>Material de cátedra, fuente local de trabajo; PDF no distribuido por este sitio.</span></li></ul></section>
+        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Cripto, parte 2 · <a href="../../../docs/catedra%20cosas/03%20-%20Cripto%20parte%202.pdf#page=26" target="_blank" rel="noopener">p. 26 ↗</a>, <a href="../../../docs/catedra%20cosas/03%20-%20Cripto%20parte%202.pdf#page=27" target="_blank" rel="noopener">p. 27 ↗</a>, <a href="../../../docs/catedra%20cosas/03%20-%20Cripto%20parte%202.pdf#page=28" target="_blank" rel="noopener">p. 28 ↗</a>, <a href="../../../docs/catedra%20cosas/03%20-%20Cripto%20parte%202.pdf#page=29" target="_blank" rel="noopener">p. 29 ↗</a>, <a href="../../../docs/catedra%20cosas/03%20-%20Cripto%20parte%202.pdf#page=30" target="_blank" rel="noopener">p. 30 ↗</a>. <span>Material de cátedra</span></li><li>Explicación de la práctica 1, parte 2 · <a href="../../../docs/catedra%20cosas/Explicaci%C3%B3n%20-%20Pr%C3%A1ctica%201%20-%20Parte%202.pdf#page=5" target="_blank" rel="noopener">p. 5 ↗</a>, <a href="../../../docs/catedra%20cosas/Explicaci%C3%B3n%20-%20Pr%C3%A1ctica%201%20-%20Parte%202.pdf#page=6" target="_blank" rel="noopener">p. 6 ↗</a>. <span>Material de cátedra</span></li><li>Glosario · <a href="../../../glosario.html#esteganografia">Esteganografía, steghide e inspección multimedia ↗</a></li><li><a href="../../../glosario.html">Explorar el glosario completo ↗</a></li></ul></section>
       </main>
       <footer class="wiki-footer"><p>IC 2026 · Elaboración didáctica original basada en las fuentes indicadas. Las páginas citadas corresponden al archivo PDF, contando desde 1.</p><a href="../../">Volver al inicio de la wiki</a></footer>
     </div>

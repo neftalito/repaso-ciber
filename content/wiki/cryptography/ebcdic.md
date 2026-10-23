@@ -1,16 +1,16 @@
 ---
 {"id":"crypto-ebcdic","title":"EBCDIC en el mapa de codificaciones","slug":"ebcdic","parent":"crypto-encoding","type":"concept","order":80,"related":["crypto-ascii","crypto-unicode"],"sources":[{"id":"lecture-crypto-1","pages":[7]},{"id":"practice-1a","pages":[1]}],"permalink":"cryptography/encoding/ebcdic"}
 ---
-## Ubicación conceptual
+## Qué representa EBCDIC
 
-EBCDIC aparece en la enumeración de sistemas de codificación de la clase y la práctica. Su presencia recuerda que una secuencia de bytes requiere una convención para ser interpretada como texto: no todo archivo textual debe leerse como ASCII o UTF-8.
+**EBCDIC es un sistema de codificación de caracteres.** Aparece entre los ejemplos de Cripto, parte 1, página 7, y de la explicación de la Práctica 1, parte 1, página 1.
 
-## Qué permite concluir la fuente
+Su inclusión permite reconocer que una secuencia de bytes necesita una convención para interpretarse como texto. No todo archivo textual debe leerse como ASCII o UTF-8, y obtener caracteres inesperados no demuestra que el archivo esté cifrado.
 
-El material lo utiliza como ejemplo de representación, sin desarrollar su tabla de caracteres ni sus variantes. Por eso esta nota no asigna valores numéricos a letras ni propone una conversión concreta sin una tabla identificada.
+## Alcance de la explicación
 
-Ante un archivo descrito como EBCDIC, el procedimiento conceptual es determinar la codificación exacta y convertirla a una representación conocida antes de evaluar el contenido. Interpretar bytes con la tabla equivocada puede producir caracteres incorrectos sin que exista cifrado.
+Las fuentes lo enumeran sin desarrollar tablas ni variantes. Para convertir un archivo descrito como EBCDIC se necesita identificar la tabla de interpretación correspondiente; el nombre por sí solo no permite asignar aquí un valor numérico a cada letra.
 
-:::question ¿Por qué no alcanza con ver bytes imprimibles para identificar su codificación?
-Porque los valores necesitan una tabla de interpretación. El hecho de que un visor muestre caracteres no demuestra que haya usado la tabla correcta.
+:::question ¿Un visor que muestra caracteres demuestra que eligió la codificación correcta?
+No. El visor interpreta los valores mediante una tabla. Que produzca símbolos visibles no confirma que correspondan al texto esperado.
 :::

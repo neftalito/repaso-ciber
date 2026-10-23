@@ -34,22 +34,26 @@
       <main id="wiki-main" class="wiki-article" tabindex="-1">
         <p class="eyebrow">INTRODUCCIÓN A LA CIBERSEGURIDAD · TÉCNICA</p>
         <h1>Transposición por grilla</h1>
-        <h2 id="definicion-y-alcance">Definición y alcance</h2>
-<p>Una grilla organiza el texto en filas y columnas para cambiar el recorrido de lectura. La guía complementaria propone ensayar dimensiones indicadas por una pista, sin asumir que toda tabla utiliza una clave alfabética.</p>
-<h2 id="ejemplo-original">Ejemplo original</h2>
-<p>Se colocan las seis letras de <code>SEGURO</code> en dos filas y tres columnas:</p>
-<pre><code class="language-text">S E G
-U R O
-</code></pre>
-<p>Leer por columnas de arriba abajo y de izquierda a derecha produce <code>SUERGO</code>. Para recuperar la entrada se reconstruyen columnas de dos letras y luego se leen las filas.</p>
-<h2 id="convenciones">Convenciones</h2>
-<p>Las dimensiones, el orden de llenado, el orden de lectura y el tratamiento de casillas vacías forman parte del método. Una pista <code>8 × 3</code> no determina por sí sola todos esos datos.</p>
-<details class="wiki-review"><summary>¿Qué diferencia esta variante de la transposición columnar con clave?</summary><p>Aquí se declara directamente un recorrido de columnas. La variante con clave utiliza además una regla para reordenarlas, por ejemplo el orden alfabético de una palabra.</p>
+        <h2 id="cambiar-el-recorrido-de-lectura">Cambiar el recorrido de lectura</h2>
+<p>La transposición por grilla organiza el texto en filas y columnas y lo recupera con un recorrido diferente. Las letras conservan su identidad; cambia la posición en la que se leen.</p>
+<p>La guía complementaria, páginas 3 y 4, propone usar una pista de dimensiones para ensayar esa disposición. El desarrollo de esta variante procede de ese material, no de una explicación específica de las diapositivas oficiales.</p>
+<h2 id="como-usar-la-pista-de-dimensiones">Cómo usar la pista de dimensiones</h2>
+<p>La guía utiliza <code>8 × 3</code> como pista y propone ensayar una grilla de ocho columnas por tres filas:</p>
+<ol>
+<li>Reconocer qué dimensión se interpreta como cantidad de filas y cuál como columnas.</li>
+<li>Declarar cómo se coloca el texto en las casillas.</li>
+<li>Ensayar y registrar el recorrido de lectura.</li>
+<li>Comparar el resultado con el contexto del ejercicio.</li>
+</ol>
+<p>Las dimensiones no determinan por sí solas los otros pasos. Si el texto no completa la grilla, también hace falta conocer el tratamiento de las casillas vacías o del relleno; no corresponde inventarlo para forzar una solución.</p>
+<h2 id="diferencia-con-la-transposicion-columnar-con-clave">Diferencia con la transposición columnar con clave</h2>
+<p>Una grilla describe una disposición y unos recorridos. La <a href="../columnar/">transposición columnar</a> puede añadir una clave que determine el orden de lectura de las columnas. No debe suponerse esa clave cuando la pista solo indica dimensiones.</p>
+<details class="wiki-review"><summary>¿Una pista de ocho columnas por tres filas determina una única transformación?</summary><p>No. Todavía faltan el orden de llenado, el recorrido de lectura y, cuando corresponda, el tratamiento de las casillas que no contienen texto.</p>
 </details>
 
 
         <section class="wiki-section" aria-labelledby="relacionados"><h2 id="relacionados">Conceptos relacionados</h2><ul><li><a href="../columnar/">Transposición columnar</a></li><li><a href="../scytale/">Escítala</a></li></ul></section>
-        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li><a href="../../../../../../docs/Guia_de_estudio_IC_Practicas_1_y_2.pdf#page=3" target="_blank" rel="noopener">Guía de estudio de prácticas 1 y 2</a> · pp. 3, 4. <span>Material complementario, PDF disponible.</span></li></ul></section>
+        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Guía de estudio de prácticas 1 y 2 · <a href="../../../../../../docs/Guia_de_estudio_IC_Practicas_1_y_2.pdf#page=3" target="_blank" rel="noopener">p. 3 ↗</a>, <a href="../../../../../../docs/Guia_de_estudio_IC_Practicas_1_y_2.pdf#page=4" target="_blank" rel="noopener">p. 4 ↗</a>. <span>Material complementario</span></li><li><a href="../../../../../../glosario.html">Explorar el glosario completo ↗</a></li></ul></section>
       </main>
       <footer class="wiki-footer"><p>IC 2026 · Elaboración didáctica original basada en las fuentes indicadas. Las páginas citadas corresponden al archivo PDF, contando desde 1.</p><a href="../../../../../">Volver al inicio de la wiki</a></footer>
     </div>

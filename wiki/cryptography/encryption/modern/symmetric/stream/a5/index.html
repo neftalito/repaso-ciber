@@ -34,19 +34,17 @@
       <main id="wiki-main" class="wiki-article" tabindex="-1">
         <p class="eyebrow">INTRODUCCIÓN A LA CIBERSEGURIDAD · ALGORITMO</p>
         <h1>A5</h1>
-        <h2 id="ubicacion-en-la-practica">Ubicación en la práctica</h2>
-<p>A5 aparece en la explicación de cifrados de flujo junto con RC4 y SEAL. La categoría se ilustra con datos que llegan en fragmentos pequeños, como en una conversación producida en tiempo real.</p>
-<h2 id="que-describe-esa-clasificacion">Qué describe esa clasificación</h2>
-<p>El procesamiento de flujo permite combinar unidades de datos con una secuencia cifrante. Esto no significa que cualquier aplicación en tiempo real utilice A5, ni que mencionar el nombre permita conocer las claves de una comunicación observada.</p>
-<p>La explicación práctica no identifica variantes de A5 ni desarrolla su estado interno. Por tanto, no corresponde deducir de la lista una configuración concreta o comparar la seguridad de variantes no descritas.</p>
-<h2 id="limite-de-la-evidencia">Límite de la evidencia</h2>
-<p>Esta nota permite reconocer el ejemplo del curso y relacionarlo con la diferencia entre bloques y flujo. No contiene parámetros operativos ni instrucciones para intervenir comunicaciones.</p>
-<details class="wiki-review"><summary>¿El hecho de recibir datos de a un byte identifica de manera inequívoca al algoritmo A5?</summary><p>No. Es un comportamiento compatible con numerosos mecanismos. La forma en que llegan los datos no determina por sí sola el algoritmo empleado.</p>
+        <h2 id="que-es-a5">Qué es A5</h2>
+<p>A5 es uno de los ejemplos de <strong>cifrado simétrico de flujo</strong> de la explicación de la Práctica 1, parte 2, página 5. Se presenta junto con RC4 y SEAL para ilustrar cómo procesar datos a medida que se producen, como los fragmentos de una conversación.</p>
+<h2 id="como-interpretar-esa-clasificacion">Cómo interpretar esa clasificación</h2>
+<p>En un cifrado de flujo se generan dos secuencias con funciones distintas: una contiene los datos del mensaje y otra es la <strong>secuencia cifrante</strong>. El cifrado combina ambas; el receptor necesita reproducir la secuencia correspondiente para recuperar los datos.</p>
+<p>La página explica ese modelo general, pero no desarrolla el funcionamiento interno de A5 ni distingue sus variantes. Por eso la clasificación permite reconocer su lugar en el temario, sin deducir parámetros concretos.</p>
+<details class="wiki-review"><summary>¿Recibir datos de a un byte identifica al algoritmo A5?</summary><p>No. El tamaño de los fragmentos describe cómo llegan los datos; numerosos mecanismos pueden procesarlos así.</p>
 </details>
 
 
         <section class="wiki-section" aria-labelledby="relacionados"><h2 id="relacionados">Conceptos relacionados</h2><ul><li><a href="../">Cifrado de flujo</a></li><li><a href="../../../../../xor/">Operación XOR</a></li></ul></section>
-        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Explicación de la práctica 1, parte 2 · pp. 5. <span>Material de cátedra, fuente local de trabajo; PDF no distribuido por este sitio.</span></li></ul></section>
+        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Explicación de la práctica 1, parte 2 · <a href="../../../../../../../docs/catedra%20cosas/Explicaci%C3%B3n%20-%20Pr%C3%A1ctica%201%20-%20Parte%202.pdf#page=5" target="_blank" rel="noopener">p. 5 ↗</a>. <span>Material de cátedra</span></li><li><a href="../../../../../../../glosario.html">Explorar el glosario completo ↗</a></li></ul></section>
       </main>
       <footer class="wiki-footer"><p>IC 2026 · Elaboración didáctica original basada en las fuentes indicadas. Las páginas citadas corresponden al archivo PDF, contando desde 1.</p><a href="../../../../../../">Volver al inicio de la wiki</a></footer>
     </div>

@@ -35,13 +35,24 @@
         <p class="eyebrow">INTRODUCCIÓN A LA CIBERSEGURIDAD · CATEGORÍA</p>
         <h1>Codificación</h1>
         <h2 id="representar-informacion">Representar información</h2>
-<p>La codificación asigna una representación a caracteres o datos para almacenarlos, transmitirlos e interpretarlos. Sus reglas no necesitan permanecer secretas. Desconocer una representación no la convierte en cifrado.</p>
-<p>Conviene separar tres niveles: <a href="ascii/">ASCII</a> y <a href="unicode/">Unicode</a> identifican caracteres; las <a href="numbers/">bases numéricas</a> escriben valores; <a href="base64/">Base64</a> representa bytes con caracteres imprimibles. Morse y Braille muestran que una representación también puede emplear señales o patrones de puntos.</p>
-<p>Ante una cadena desconocida, identificar alfabeto, separadores y contexto antes de convertirla. El resultado puede ser texto, un archivo o datos que todavía están cifrados.</p>
+<p>La <strong>codificación</strong> asigna una representación a caracteres o datos para almacenarlos, transmitirlos e interpretarlos. Sus reglas no necesitan permanecer secretas. Desconocer una representación no la convierte en cifrado.</p>
+<p>Cripto, parte 1, páginas 7–8, y la explicación de la Práctica 1, parte 1, páginas 1–3, presentan representaciones de caracteres, bases numéricas y formatos como Base64. No todos actúan en el mismo nivel: un código identifica caracteres, una base escribe números y Base64 representa bytes mediante caracteres imprimibles.</p>
+<h2 id="sistemas-y-representaciones-de-esta-seccion">Sistemas y representaciones de esta sección</h2>
+<ul>
+<li><a href="numbers/">Representaciones numéricas</a>.</li>
+<li><a href="ascii/">ASCII</a>.</li>
+<li><a href="unicode/">Unicode y formatos UTF</a>.</li>
+<li><a href="base64/">Base64</a>.</li>
+<li><a href="morse/">Código Morse</a>.</li>
+<li><a href="braille/">Braille como representación</a>.</li>
+<li><a href="alphabet-indices/">Índices alfabéticos A1Z26</a>.</li>
+<li><a href="ebcdic/">EBCDIC</a>.</li>
+</ul>
+<p>Ante una cadena desconocida conviene identificar su alfabeto, separadores y contexto antes de convertirla. El resultado puede ser texto, un archivo o datos que todavía están cifrados.</p>
 
 <section class="wiki-section" aria-labelledby="subtemas"><h2 id="subtemas">Subtemas</h2><ul class="wiki-cards"><li><a href="numbers/">Representaciones numéricas</a></li><li><a href="ascii/">ASCII</a></li><li><a href="unicode/">Unicode y formatos UTF</a></li><li><a href="base64/">Base64</a></li><li><a href="morse/">Código Morse</a></li><li><a href="braille/">Braille como representación</a></li><li><a href="alphabet-indices/">Índices alfabéticos A1Z26</a></li><li><a href="ebcdic/">EBCDIC en el mapa de codificaciones</a></li></ul></section>
         <section class="wiki-section" aria-labelledby="relacionados"><h2 id="relacionados">Conceptos relacionados</h2><ul><li><a href="../encryption/">Cifrado</a></li><li><a href="../hash/">Funciones hash</a></li></ul></section>
-        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Cripto, parte 1 · pp. 7, 8. <span>Material de cátedra, fuente local de trabajo; PDF no distribuido por este sitio.</span></li><li>Explicación de la práctica 1, parte 1 · pp. 1, 2, 3, 5, 6, 8. <span>Material de cátedra, fuente local de trabajo; PDF no distribuido por este sitio.</span></li></ul></section>
+        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Cripto, parte 1 · <a href="../../../docs/catedra%20cosas/02%20-%20Cripto%20parte%201.pdf#page=7" target="_blank" rel="noopener">p. 7 ↗</a>, <a href="../../../docs/catedra%20cosas/02%20-%20Cripto%20parte%201.pdf#page=8" target="_blank" rel="noopener">p. 8 ↗</a>. <span>Material de cátedra</span></li><li>Explicación de la práctica 1, parte 1 · <a href="../../../docs/catedra%20cosas/Explicaci%C3%B3n%20-%20Pr%C3%A1ctica%201%20-%20Parte%201.pdf#page=1" target="_blank" rel="noopener">p. 1 ↗</a>, <a href="../../../docs/catedra%20cosas/Explicaci%C3%B3n%20-%20Pr%C3%A1ctica%201%20-%20Parte%201.pdf#page=2" target="_blank" rel="noopener">p. 2 ↗</a>, <a href="../../../docs/catedra%20cosas/Explicaci%C3%B3n%20-%20Pr%C3%A1ctica%201%20-%20Parte%201.pdf#page=3" target="_blank" rel="noopener">p. 3 ↗</a>, <a href="../../../docs/catedra%20cosas/Explicaci%C3%B3n%20-%20Pr%C3%A1ctica%201%20-%20Parte%201.pdf#page=5" target="_blank" rel="noopener">p. 5 ↗</a>, <a href="../../../docs/catedra%20cosas/Explicaci%C3%B3n%20-%20Pr%C3%A1ctica%201%20-%20Parte%201.pdf#page=6" target="_blank" rel="noopener">p. 6 ↗</a>, <a href="../../../docs/catedra%20cosas/Explicaci%C3%B3n%20-%20Pr%C3%A1ctica%201%20-%20Parte%201.pdf#page=8" target="_blank" rel="noopener">p. 8 ↗</a>. <span>Material de cátedra</span></li><li>Glosario · <a href="../../../glosario.html#ascii">ASCII, Unicode y bases numéricas ↗</a></li><li>Glosario · <a href="../../../glosario.html#base64">Base64 ↗</a></li><li>Glosario · <a href="../../../glosario.html#a1z26-braille">A1Z26 y Braille: representaciones alfabéticas ↗</a></li><li><a href="../../../glosario.html">Explorar el glosario completo ↗</a></li></ul></section>
       </main>
       <footer class="wiki-footer"><p>IC 2026 · Elaboración didáctica original basada en las fuentes indicadas. Las páginas citadas corresponden al archivo PDF, contando desde 1.</p><a href="../../">Volver al inicio de la wiki</a></footer>
     </div>

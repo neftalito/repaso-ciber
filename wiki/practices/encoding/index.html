@@ -35,8 +35,14 @@
         <p class="eyebrow">INTRODUCCIÓN A LA CIBERSEGURIDAD · PRÁCTICA</p>
         <h1>Caso: reconocer y decodificar representaciones</h1>
         <h2 id="datos-y-objetivo">Datos y objetivo</h2>
-<p>Los ejercicios de representación piden recuperar texto y justificar qué reglas se aplicaron. Por ejemplo, la secuencia decimal <code>73 67 123 65 125</code> corresponde a <code>IC{A}</code>: 123 y 125 son llaves, no letras. Debe declararse la base antes de interpretar los números.</p>
+<p>Los ejercicios de representación piden recuperar texto y justificar qué reglas se aplicaron. La práctica 1, parte 1, páginas 1–5, introduce ASCII, bases numéricas y Base64. Las entradas autocontenidas de esta nota proceden del solucionario complementario, página 2, salvo las comprobaciones de capas y relleno.</p>
+<p>Por ejemplo, la secuencia decimal <code>73 67 123 65 125</code> corresponde a <code>IC{A}</code>: 123 y 125 son llaves, no letras. Debe declararse la base antes de interpretar los números.</p>
 <h2 id="resolver-y-comprobar">Resolver y comprobar</h2>
+<ol>
+<li>Reconocer la representación y declarar la regla que se va a probar.</li>
+<li>Recuperar los valores o bytes y después interpretar su contenido.</li>
+<li>Volver a codificar cuando sea posible para comprobar que el resultado reproduce la entrada.</li>
+</ol>
 <p>La cadena <code>SUN7YmFzZTY0X25vX2VzX2NpZnJhZG99</code> se interpreta como Base64. La comprobación local sobre estos datos de texto es:</p>
 <pre><code class="language-python">import base64
 encoded = &#39;SUN7YmFzZTY0X25vX2VzX2NpZnJhZG99&#39;
@@ -46,14 +52,14 @@ assert base64.b64encode(plain).decode() == encoded
 </code></pre>
 <p>El resultado se obtiene con reglas públicas, sin clave secreta. La distinción conceptual se desarrolla en <a href="../../cryptography/encoding/">codificación</a>.</p>
 <h2 id="capas-y-relleno">Capas y relleno</h2>
-<p>Un resultado decodificado puede ser otra representación. En el ejemplo didáctico <code>NDk0Mw==</code>, Base64 recupera el texto <code>4943</code>; interpretarlo como bytes hexadecimales produce <code>IC</code>. Deben documentarse ambas transformaciones, sin llamar cifrado a la primera capa.</p>
+<p>Un resultado decodificado puede ser otra representación. Como ampliación didáctica, en el ejemplo <code>NDk0Mw==</code>, Base64 recupera el texto <code>4943</code>; interpretarlo como bytes hexadecimales produce <code>IC</code>. Deben documentarse ambas transformaciones, sin llamar cifrado a la primera capa.</p>
 <p>La diapositiva de práctica 1a, página 5, invierte el número de signos de relleno para cada resto. La comprobación de bytes permite corregirlo: <code>I</code> se representa como <code>SQ==</code> y <code>IC</code> como <code>SUM=</code>. Un byte residual requiere <code>==</code>; dos requieren <code>=</code>.</p>
 <details class="wiki-review"><summary>¿Por qué volver a codificar el resultado ayuda a verificar una solución?</summary><p>Porque comprueba que se recuperó una secuencia de bytes compatible con la entrada bajo las reglas elegidas. No prueba por sí sola que esos bytes sean el mensaje final: pueden contener otra capa que deba interpretarse.</p>
 </details>
 
 
         <section class="wiki-section" aria-labelledby="relacionados"><h2 id="relacionados">Conceptos relacionados</h2><ul><li><a href="../../cryptography/encoding/">Codificación</a></li><li><a href="../writeup/">Cómo construir un writeup</a></li></ul></section>
-        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Explicación de la práctica 1, parte 1 · pp. 1, 2, 3, 4, 5. <span>Material de cátedra, fuente local de trabajo; PDF no distribuido por este sitio.</span></li><li><a href="../../../docs/IC2026_Preguntas_Basadas_en_Practicas_1_y_2.pdf#page=2" target="_blank" rel="noopener">Preguntas basadas en prácticas 1 y 2</a> · pp. 2. <span>Material complementario, PDF disponible.</span></li><li><a href="../../../docs/IC2026_Solucionario_Practicas_1_y_2.pdf#page=2" target="_blank" rel="noopener">Solucionario de prácticas 1 y 2</a> · pp. 2. <span>Material complementario, PDF disponible.</span></li><li><a href="../../../docs/Guia_de_estudio_IC_Practicas_1_y_2.pdf#page=2" target="_blank" rel="noopener">Guía de estudio de prácticas 1 y 2</a> · pp. 2, 3. <span>Material complementario, PDF disponible.</span></li></ul></section>
+        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Explicación de la práctica 1, parte 1 · <a href="../../../docs/catedra%20cosas/Explicaci%C3%B3n%20-%20Pr%C3%A1ctica%201%20-%20Parte%201.pdf#page=1" target="_blank" rel="noopener">p. 1 ↗</a>, <a href="../../../docs/catedra%20cosas/Explicaci%C3%B3n%20-%20Pr%C3%A1ctica%201%20-%20Parte%201.pdf#page=2" target="_blank" rel="noopener">p. 2 ↗</a>, <a href="../../../docs/catedra%20cosas/Explicaci%C3%B3n%20-%20Pr%C3%A1ctica%201%20-%20Parte%201.pdf#page=3" target="_blank" rel="noopener">p. 3 ↗</a>, <a href="../../../docs/catedra%20cosas/Explicaci%C3%B3n%20-%20Pr%C3%A1ctica%201%20-%20Parte%201.pdf#page=4" target="_blank" rel="noopener">p. 4 ↗</a>, <a href="../../../docs/catedra%20cosas/Explicaci%C3%B3n%20-%20Pr%C3%A1ctica%201%20-%20Parte%201.pdf#page=5" target="_blank" rel="noopener">p. 5 ↗</a>. <span>Material de cátedra</span></li><li>Preguntas basadas en prácticas 1 y 2 · <a href="../../../docs/IC2026_Preguntas_Basadas_en_Practicas_1_y_2.pdf#page=2" target="_blank" rel="noopener">p. 2 ↗</a>. <span>Material complementario</span></li><li>Solucionario de prácticas 1 y 2 · <a href="../../../docs/IC2026_Solucionario_Practicas_1_y_2.pdf#page=2" target="_blank" rel="noopener">p. 2 ↗</a>. <span>Material complementario</span></li><li>Guía de estudio de prácticas 1 y 2 · <a href="../../../docs/Guia_de_estudio_IC_Practicas_1_y_2.pdf#page=2" target="_blank" rel="noopener">p. 2 ↗</a>, <a href="../../../docs/Guia_de_estudio_IC_Practicas_1_y_2.pdf#page=3" target="_blank" rel="noopener">p. 3 ↗</a>. <span>Material complementario</span></li><li>Glosario · <a href="../../../glosario.html#base64">Base64 ↗</a></li><li>Glosario · <a href="../../../glosario.html#ascii">ASCII, Unicode y bases numéricas ↗</a></li><li><a href="../../../glosario.html">Explorar el glosario completo ↗</a></li></ul></section>
       </main>
       <footer class="wiki-footer"><p>IC 2026 · Elaboración didáctica original basada en las fuentes indicadas. Las páginas citadas corresponden al archivo PDF, contando desde 1.</p><a href="../../">Volver al inicio de la wiki</a></footer>
     </div>

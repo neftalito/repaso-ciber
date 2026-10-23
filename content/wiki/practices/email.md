@@ -1,6 +1,10 @@
 ---
 {"id":"practices-email","title":"Caso: reconstruir el origen técnico de un correo","slug":"email","parent":"practices","type":"practice","order":100,"related":["csirt-email","csirt-rdap","csirt-whois","practices-writeup"],"sources":[{"id":"lecture-email","pages":[4,5,6,7,8,10,15]},{"id":"practice-questions","pages":[10,11]},{"id":"practice-solutions","pages":[13,14]}]}
 ---
+## Qué debe reconstruirse
+
+El objetivo es separar las direcciones declaradas en el mensaje del servidor que entregó un salto. La clase *SMTP y análisis de encabezados*, páginas 4–10, explica esa diferencia; el fragmento combina los casos del solucionario complementario, página 14.
+
 ## Evidencia sintética
 
 El caso combina un remitente visible, una dirección de respuesta y una traza de entrega. Los nombres e IP son ilustrativos; no se realiza ninguna consulta remota.

@@ -35,9 +35,16 @@
         <p class="eyebrow">INTRODUCCIÓN A LA CIBERSEGURIDAD · PRÁCTICA</p>
         <h1>Caso: verificar un cálculo RSA</h1>
         <h2 id="objetivo-y-parametros">Objetivo y parámetros</h2>
-<p>Se aplica el procedimiento simplificado de RSA del material a enteros pequeños, explicando cada transformación. Para el caso complementario <code>p=61</code>, <code>q=53</code>, <code>e=17</code> y <code>C=2790</code>, se obtiene <code>n=3233</code> y <code>φ(n)=3120</code>.</p>
+<p>Se aplica el procedimiento simplificado de RSA del material a enteros pequeños, explicando cada transformación. Para el caso del solucionario complementario, página 7, con <code>p=61</code>, <code>q=53</code>, <code>e=17</code> y <code>C=2790</code>, se obtiene <code>n=3233</code> y <code>φ(n)=3120</code>.</p>
 <h2 id="resolver-con-la-relacion-inversa">Resolver con la relación inversa</h2>
-<p>El exponente privado debe satisfacer <code>e·d ≡ 1 (mod φ(n))</code>. En el caso pequeño, <code>d=2753</code>, pues <code>17·2753 = 46801 = 15·3120 + 1</code>. Después:</p>
+<p>La resolución separa cuatro cálculos:</p>
+<ol>
+<li>Calcular el módulo: <code>n = 61·53 = 3233</code>.</li>
+<li>Calcular <code>φ(n) = (61−1)(53−1) = 3120</code>.</li>
+<li>Obtener el exponente privado d que satisface <code>e·d ≡ 1 (mod φ(n))</code>. Aquí <code>d=2753</code>, pues <code>17·2753 = 46801 = 15·3120 + 1</code>.</li>
+<li>Descifrar el entero mediante <code>M = C^d mod n</code> y comprobar que volver a cifrarlo produce el C recibido.</li>
+</ol>
+<p>El código reúne esos pasos y verifica los resultados:</p>
 <pre><code class="language-python">n = 61 * 53
 phi = (61 - 1) * (53 - 1)
 d = pow(17, -1, phi)
@@ -62,7 +69,7 @@ assert int.from_bytes(b&#39;hola&#39;, &#39;big&#39;) == 1752132705
 
 
         <section class="wiki-section" aria-labelledby="relacionados"><h2 id="relacionados">Conceptos relacionados</h2><ul><li><a href="../../cryptography/encryption/">Cifrado</a></li><li><a href="../../cryptography/encoding/">Codificación</a></li><li><a href="../writeup/">Cómo construir un writeup</a></li></ul></section>
-        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Explicación de la práctica 1, parte 2 · pp. 1, 2. <span>Material de cátedra, fuente local de trabajo; PDF no distribuido por este sitio.</span></li><li><a href="../../../docs/IC2026_Preguntas_Basadas_en_Practicas_1_y_2.pdf#page=6" target="_blank" rel="noopener">Preguntas basadas en prácticas 1 y 2</a> · pp. 6. <span>Material complementario, PDF disponible.</span></li><li><a href="../../../docs/IC2026_Solucionario_Practicas_1_y_2.pdf#page=7" target="_blank" rel="noopener">Solucionario de prácticas 1 y 2</a> · pp. 7. <span>Material complementario, PDF disponible.</span></li><li><a href="../../../docs/Guia_de_estudio_IC_Practicas_1_y_2.pdf#page=5" target="_blank" rel="noopener">Guía de estudio de prácticas 1 y 2</a> · pp. 5, 6. <span>Material complementario, PDF disponible.</span></li></ul></section>
+        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Explicación de la práctica 1, parte 2 · <a href="../../../docs/catedra%20cosas/Explicaci%C3%B3n%20-%20Pr%C3%A1ctica%201%20-%20Parte%202.pdf#page=1" target="_blank" rel="noopener">p. 1 ↗</a>, <a href="../../../docs/catedra%20cosas/Explicaci%C3%B3n%20-%20Pr%C3%A1ctica%201%20-%20Parte%202.pdf#page=2" target="_blank" rel="noopener">p. 2 ↗</a>. <span>Material de cátedra</span></li><li>Preguntas basadas en prácticas 1 y 2 · <a href="../../../docs/IC2026_Preguntas_Basadas_en_Practicas_1_y_2.pdf#page=6" target="_blank" rel="noopener">p. 6 ↗</a>. <span>Material complementario</span></li><li>Solucionario de prácticas 1 y 2 · <a href="../../../docs/IC2026_Solucionario_Practicas_1_y_2.pdf#page=7" target="_blank" rel="noopener">p. 7 ↗</a>. <span>Material complementario</span></li><li>Guía de estudio de prácticas 1 y 2 · <a href="../../../docs/Guia_de_estudio_IC_Practicas_1_y_2.pdf#page=5" target="_blank" rel="noopener">p. 5 ↗</a>, <a href="../../../docs/Guia_de_estudio_IC_Practicas_1_y_2.pdf#page=6" target="_blank" rel="noopener">p. 6 ↗</a>. <span>Material complementario</span></li><li>Glosario · <a href="../../../glosario.html#rsa">RSA: parámetros, factorización y descifrado ↗</a></li><li>Glosario · <a href="../../../glosario.html#aritmetica-modular">Aritmética modular, potencias e inverso ↗</a></li><li><a href="../../../glosario.html">Explorar el glosario completo ↗</a></li></ul></section>
       </main>
       <footer class="wiki-footer"><p>IC 2026 · Elaboración didáctica original basada en las fuentes indicadas. Las páginas citadas corresponden al archivo PDF, contando desde 1.</p><a href="../../">Volver al inicio de la wiki</a></footer>
     </div>

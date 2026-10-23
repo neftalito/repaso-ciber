@@ -34,14 +34,20 @@
       <main id="wiki-main" class="wiki-article" tabindex="-1">
         <p class="eyebrow">INTRODUCCIÓN A LA CIBERSEGURIDAD · CATEGORÍA</p>
         <h1>Criptografía simétrica</h1>
-        <h2 id="secreto-compartido">Secreto compartido</h2>
-<p>En un esquema simétrico, emisor y receptor utilizan la misma clave secreta para cifrar y descifrar. La clave debe estar disponible para las partes autorizadas y protegida frente a terceros.</p>
-<p>Los cifradores <a href="block/">por bloques</a> transforman unidades de tamaño fijo; los <a href="stream/">de flujo</a> combinan los datos con una secuencia cifrante. Esta distinción no equivale a «archivos frente a red»: describe el mecanismo de procesamiento.</p>
-<p>La clase destaca el rendimiento y el problema de distribuir y administrar claves. Compartir una clave entre muchas personas dificulta limitar el alcance de una exposición o retirar el acceso de un participante. Los ejemplos didácticos no sustituyen esa gestión.</p>
+        <h2 id="cifrar-con-un-secreto-compartido">Cifrar con un secreto compartido</h2>
+<p>La <strong>criptografía simétrica</strong> utiliza la misma clave secreta para cifrar y descifrar. El emisor y el receptor deben disponer de ella y protegerla frente a terceros. Cripto, parte 1, páginas 22–24, muestra el recorrido del mensaje en ambos extremos.</p>
+<h2 id="dos-formas-de-procesar-los-datos">Dos formas de procesar los datos</h2>
+<ul>
+<li><a href="block/">Cifrado por bloques</a>: transforma unidades de tamaño fijo.</li>
+<li><a href="stream/">Cifrado de flujo</a>: combina los datos con una secuencia cifrante.</li>
+</ul>
+<p>La distinción describe el mecanismo de procesamiento; no equivale a separar archivos de comunicaciones de red.</p>
+<h2 id="el-problema-de-administrar-la-clave">El problema de administrar la clave</h2>
+<p>La página 30 destaca la velocidad del cifrado simétrico, pero también la necesidad de intercambiar el secreto de forma segura. Utilizar una misma clave en un grupo complica su administración: todas las personas que la conocen comparten la posibilidad de usarla. Elegir el algoritmo no resuelve por sí solo ese problema.</p>
 
 <section class="wiki-section" aria-labelledby="subtemas"><h2 id="subtemas">Subtemas</h2><ul class="wiki-cards"><li><a href="block/">Cifrado por bloques</a></li><li><a href="stream/">Cifrado de flujo</a></li></ul></section>
         <section class="wiki-section" aria-labelledby="relacionados"><h2 id="relacionados">Conceptos relacionados</h2><ul><li><a href="../asymmetric/">Criptografía asimétrica</a></li><li><a href="../../../key-agreement/">Acuerdo de claves</a></li><li><a href="../../../xor/">Operación XOR</a></li></ul></section>
-        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Cripto, parte 1 · pp. 22, 23, 24, 30. <span>Material de cátedra, fuente local de trabajo; PDF no distribuido por este sitio.</span></li><li>Explicación de la práctica 1, parte 2 · pp. 5. <span>Material de cátedra, fuente local de trabajo; PDF no distribuido por este sitio.</span></li></ul></section>
+        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Cripto, parte 1 · <a href="../../../../../docs/catedra%20cosas/02%20-%20Cripto%20parte%201.pdf#page=22" target="_blank" rel="noopener">p. 22 ↗</a>, <a href="../../../../../docs/catedra%20cosas/02%20-%20Cripto%20parte%201.pdf#page=23" target="_blank" rel="noopener">p. 23 ↗</a>, <a href="../../../../../docs/catedra%20cosas/02%20-%20Cripto%20parte%201.pdf#page=24" target="_blank" rel="noopener">p. 24 ↗</a>, <a href="../../../../../docs/catedra%20cosas/02%20-%20Cripto%20parte%201.pdf#page=30" target="_blank" rel="noopener">p. 30 ↗</a>. <span>Material de cátedra</span></li><li>Explicación de la práctica 1, parte 2 · <a href="../../../../../docs/catedra%20cosas/Explicaci%C3%B3n%20-%20Pr%C3%A1ctica%201%20-%20Parte%202.pdf#page=5" target="_blank" rel="noopener">p. 5 ↗</a>. <span>Material de cátedra</span></li><li>Glosario · <a href="../../../../../glosario.html#simetrica">Criptografía simétrica y distribución de claves ↗</a></li><li><a href="../../../../../glosario.html">Explorar el glosario completo ↗</a></li></ul></section>
       </main>
       <footer class="wiki-footer"><p>IC 2026 · Elaboración didáctica original basada en las fuentes indicadas. Las páginas citadas corresponden al archivo PDF, contando desde 1.</p><a href="../../../../">Volver al inicio de la wiki</a></footer>
     </div>

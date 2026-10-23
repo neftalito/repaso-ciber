@@ -34,18 +34,18 @@
       <main id="wiki-main" class="wiki-article" tabindex="-1">
         <p class="eyebrow">INTRODUCCIÓN A LA CIBERSEGURIDAD · ALGORITMO</p>
         <h1>DSA</h1>
-        <h2 id="algoritmo-de-firma">Algoritmo de firma</h2>
-<p>DSA aparece en la clase asociado al logaritmo discreto y señalado expresamente como un algoritmo destinado solo a firma digital. Su papel es permitir firmar con una clave privada y verificar con información pública.</p>
-<h2 id="diferencia-de-proposito">Diferencia de propósito</h2>
-<p>Que DSA pertenezca a la criptografía de clave pública no implica que permita cifrar un archivo para un destinatario. La categoría matemática es más amplia que el servicio de confidencialidad. La diapositiva lo contrasta con ejemplos que también se utilizan para cifrado.</p>
-<h2 id="alcance-del-material">Alcance del material</h2>
-<p>Las fuentes no desarrollan sus ecuaciones, parámetros ni generación de firmas. No se reconstruye una implementación desde la explicación simplificada de RSA: esa analogía no proporciona el funcionamiento de DSA.</p>
-<details class="wiki-review"><summary>¿Por qué DSA demuestra un límite de la frase «cifrar con una clave y descifrar con la otra»?</summary><p>Porque su operación es firma y verificación. La relación entre clave pública y privada no convierte todos los mecanismos asimétricos en algoritmos de cifrado reversible de mensajes.</p>
+        <h2 id="para-que-sirve-dsa">Para qué sirve DSA</h2>
+<p><strong>DSA es un algoritmo de firma digital.</strong> Permite producir una firma con una clave privada y verificarla con la información pública correspondiente. Su propósito es la firma y verificación de un mensaje, no ocultar su contenido mediante cifrado.</p>
+<p>Cripto, parte 2, página 10, lo asocia al problema del logaritmo discreto y lo identifica expresamente como «solo firma digital».</p>
+<h2 id="que-distincion-ensena">Qué distinción enseña</h2>
+<p>La criptografía de clave pública incluye mecanismos con funciones diferentes. En la misma página, RSA y ElGamal aparecen asociados a cifrado y firma, mientras que Diffie–Hellman permite acordar una clave. Que todos utilicen información pública y privada no hace intercambiables sus operaciones.</p>
+<p>La diapositiva no desarrolla las ecuaciones ni el proceso de generación de firmas DSA. El esquema simplificado de RSA no sirve para deducir ese funcionamiento.</p>
+<details class="wiki-review"><summary>¿DSA permite cifrar un archivo para que solo el destinatario pueda leerlo?</summary><p>No. En el temario, DSA cumple la función de firma digital. La confidencialidad del archivo requiere un mecanismo de cifrado.</p>
 </details>
 
 
         <section class="wiki-section" aria-labelledby="relacionados"><h2 id="relacionados">Conceptos relacionados</h2><ul><li><a href="../../encryption/modern/asymmetric/rsa/">RSA</a></li><li><a href="../../encryption/modern/asymmetric/elgamal/">ElGamal</a></li><li><a href="../">Firma digital</a></li></ul></section>
-        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Cripto, parte 2 · pp. 10. <span>Material de cátedra, fuente local de trabajo; PDF no distribuido por este sitio.</span></li></ul></section>
+        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Cripto, parte 2 · <a href="../../../../docs/catedra%20cosas/03%20-%20Cripto%20parte%202.pdf#page=10" target="_blank" rel="noopener">p. 10 ↗</a>. <span>Material de cátedra</span></li><li><a href="../../../../glosario.html">Explorar el glosario completo ↗</a></li></ul></section>
       </main>
       <footer class="wiki-footer"><p>IC 2026 · Elaboración didáctica original basada en las fuentes indicadas. Las páginas citadas corresponden al archivo PDF, contando desde 1.</p><a href="../../../">Volver al inicio de la wiki</a></footer>
     </div>

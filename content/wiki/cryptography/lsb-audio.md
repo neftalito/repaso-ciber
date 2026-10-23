@@ -1,20 +1,35 @@
 ---
 {"id":"crypto-lsb-audio","title":"LSB en audio","slug":"lsb-audio","parent":"crypto-lsb","type":"technique","order":20,"related":["crypto-lsb-image","crypto-steganography"],"sources":[{"id":"lecture-crypto-2","pages":[29]},{"id":"practice-guide","pages":[7]}],"permalink":"cryptography/steganography/lsb/lsb-audio"}
 ---
-## Muestras como portador
+## Usar las muestras de audio como portador
 
-La clase presenta LSB en audio como otra aplicación del ocultamiento en datos digitales. La idea es utilizar bits de poco peso de muestras para transportar información sin que el cambio resulte evidente al escuchar.
+LSB en audio incorpora bits de un mensaje en posiciones de poco peso de los valores que representan las muestras. La página 29 de *Cripto, parte 2* relaciona esta idea con la digitalización del sonido: el portador es una secuencia de valores, no los caracteres del nombre del archivo.
 
-## Qué debe conocerse
+## Leer el ejemplo de la clase
 
-Para interpretar una extracción hay que identificar cómo se representan las muestras y qué recorrido utiliza el esquema. Un archivo de audio no es una lista indiferenciada de caracteres; interpretar su contenido exige reconocer formato y canales.
+La diapositiva compara el último bit de ocho valores de audio antes y después de insertar el mensaje:
 
-La guía complementaria también propone observar forma de onda, canales y espectrograma. Esas observaciones pueden orientar una investigación, pero no equivalen a demostrar que toda anomalía sea un mensaje LSB.
+| Último bit original | Bit del mensaje | Último bit resultante |
+| --- | --- | --- |
+| 0 | 0 | 0 |
+| 0 | 1 | 1 |
+| 1 | 1 | 1 |
+| 0 | 0 | 0 |
+| 1 | 0 | 0 |
+| 0 | 1 | 1 |
+| 0 | 0 | 0 |
+| 1 | 1 | 1 |
 
-## Alcance
+Solo se cambia un valor cuando su último bit no coincide con el bit que debe transportar. Para extraer la secuencia se leen los últimos bits resultantes en el orden indicado: `01100101`.
 
-Las fuentes no fijan un algoritmo universal de extracción ni una muestra concreta para esta nota. No se inventa un mensaje oculto a partir del nombre de un archivo o de su sonido aparente.
+**Precisión sobre la fuente:** la tabla de la diapositiva rotula el mensaje como «A», pero los bits mostrados son `01100101`, que en ASCII corresponden a `e`. La secuencia y la etiqueta de esa tabla no coinciden; el mecanismo se comprende siguiendo los bits efectivamente mostrados.
+
+## Qué falta para analizar un archivo real
+
+Hay que conocer el formato, la representación de las muestras, los canales, el recorrido y la longitud del mensaje. La tabla explica el principio, pero no determina un extractor universal.
+
+La guía complementaria también propone observar forma de onda y espectrograma. Esas observaciones pueden orientar el análisis, sin demostrar por sí solas que una anomalía sea un mensaje LSB.
 
 :::question ¿Escuchar un audio sin notar cambios permite descartar esteganografía?
-No. La finalidad de la técnica es que los cambios pasen inadvertidos. La escucha es una observación parcial y debe distinguirse de una extracción técnica verificada.
+No. La técnica busca que los cambios pasen inadvertidos. Escuchar y extraer datos según un esquema definido son comprobaciones diferentes.
 :::

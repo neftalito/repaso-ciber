@@ -3,7 +3,15 @@
 ---
 ## Datos del ejemplo oficial
 
-La práctica propone `p=1999`, `g=33`, con secretos de Alicia `a=47` y de Bob `b=117`. El objetivo es comprobar que ambos pueden obtener el mismo secreto sin transmitirlo directamente.
+La práctica 1, parte 2, página 4, propone `p=1999`, `g=33`, con secretos de Alicia `a=47` y de Bob `b=117`. El objetivo es comprobar que ambos pueden obtener el mismo secreto sin transmitirlo directamente.
+
+## Qué hace cada participante
+
+1. Ambos conocen los parámetros públicos p y g.
+2. Cada uno calcula un valor público con su propio exponente secreto y lo envía al otro.
+3. Cada uno eleva el valor recibido a su propio exponente, siempre módulo p. Los dos resultados deben coincidir.
+
+Los exponentes a y b se muestran para comprobar el ejercicio, pero no se transmiten en el intercambio.
 
 ## Secuencia calculada
 
@@ -23,7 +31,7 @@ assert (public_a, public_b) == (1343, 1991)
 assert pow(public_b, a, p) == pow(public_a, b, p) == 1506
 ```
 
-Ambos cálculos corresponden a `g^(a·b) mod p`. Los secretos elegidos no forman parte de los valores públicos intercambiados.
+Alicia calcula `(g^b)^a mod p` y Bob calcula `(g^a)^b mod p`. Ambos obtienen `g^(a·b) mod p` porque a·b y b·a son iguales. La igualdad explica el resultado compartido de la tabla.
 
 ## Interpretación y límites
 

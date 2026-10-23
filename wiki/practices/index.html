@@ -35,13 +35,37 @@
         <p class="eyebrow">INTRODUCCIÓN A LA CIBERSEGURIDAD · CATEGORÍA</p>
         <h1>Prácticas y resolución razonada</h1>
         <h2 id="como-estudiar-con-casos">Cómo estudiar con casos</h2>
-<p>Las prácticas aplican los conceptos a problemas concretos. Cada recorrido distingue datos de entrada, procedimiento, resultado comprobable y límites. La teoría se consulta mediante enlaces a sus notas, para no repetirla en cada solución.</p>
-<p>Los cálculos y casos sintéticos permiten comprobar razonamientos sin servicios remotos ni muestras reales. Cuando faltan archivos del CTF, capturas, mensajes o claves, se explica qué evidencia se necesitaría; no se inventan flags ni resultados de herramientas.</p>
-<p>Un <a href="writeup/">writeup</a> conserva el proceso y justifica sus decisiones. La respuesta final es parte del informe, pero no reemplaza las pruebas que permiten reproducirla.</p>
+<p>Las prácticas aplican conceptos a problemas concretos. Cada recorrido distingue datos de entrada, procedimiento, resultado comprobable y límites. Un <a href="writeup/">writeup</a> documenta las decisiones y las evidencias que permiten seguir la solución.</p>
+<p>Los cálculos y casos sintéticos permiten comprobar razonamientos. Cuando faltan archivos del CTF, capturas, mensajes o claves, se identifica qué evidencia sería necesaria: no se inventan flags ni resultados de herramientas. Cada caso distingue los datos oficiales de las ampliaciones del material complementario.</p>
+<h2 id="representaciones-y-calculos-criptograficos">Representaciones y cálculos criptográficos</h2>
+<ul>
+<li><a href="encoding/">Reconocer y decodificar representaciones</a>.</li>
+<li><a href="classical/">Distinguir sustitución y transposición</a>.</li>
+<li><a href="xor/">Recuperar texto con XOR de un byte</a>.</li>
+<li><a href="hash-check/">Comprobar un hash con salt</a>.</li>
+<li><a href="rsa/">Verificar un cálculo RSA</a>.</li>
+<li><a href="dh/">Comprobar el secreto de Diffie-Hellman</a>.</li>
+<li><a href="signatures/">Verificar una firma y su identidad</a>.</li>
+<li><a href="steganography/">Reconstruir una letra desde bits LSB</a>.</li>
+<li><a href="unicode/">Comparar texto con un carácter invisible</a>.</li>
+</ul>
+<h2 id="interpretacion-de-registros-y-comunicaciones">Interpretación de registros y comunicaciones</h2>
+<ul>
+<li><a href="email/">Reconstruir el origen técnico de un correo</a>.</li>
+<li><a href="logs/">Distinguir intentos fallidos y acceso confirmado</a>.</li>
+<li><a href="pcap/">Reconstruir datos en una captura de red</a>.</li>
+</ul>
+<h2 id="inspeccion-de-archivos-y-comportamiento">Inspección de archivos y comportamiento</h2>
+<ul>
+<li><a href="malware-static/">Triage estático de un ejecutable</a>.</li>
+<li><a href="malware-timeline/">Correlacionar procesos, persistencia y red</a>.</li>
+<li><a href="script-inspection/">Reconstruir texto ofuscado sin ejecutar un script</a>.</li>
+<li><a href="document-inspection/">Revisar documentos con contenido activo</a>.</li>
+</ul>
 
 <section class="wiki-section" aria-labelledby="subtemas"><h2 id="subtemas">Subtemas</h2><ul class="wiki-cards"><li><a href="writeup/">Cómo construir un writeup</a></li><li><a href="encoding/">Caso: reconocer y decodificar representaciones</a></li><li><a href="classical/">Caso: distinguir sustitución y transposición</a></li><li><a href="xor/">Caso: recuperar texto con XOR de un byte</a></li><li><a href="hash-check/">Caso: comprobar un hash con salt</a></li><li><a href="rsa/">Caso: verificar un cálculo RSA</a></li><li><a href="dh/">Caso: comprobar el secreto de Diffie-Hellman</a></li><li><a href="signatures/">Caso: verificar una firma y su identidad</a></li><li><a href="steganography/">Caso: reconstruir una letra desde bits LSB</a></li><li><a href="email/">Caso: reconstruir el origen técnico de un correo</a></li><li><a href="logs/">Caso: distinguir intentos fallidos de acceso confirmado</a></li><li><a href="pcap/">Caso: reconstruir datos en una captura de red</a></li><li><a href="malware-static/">Caso: triage estático de un ejecutable</a></li><li><a href="malware-timeline/">Caso: correlacionar procesos, persistencia y red</a></li><li><a href="script-inspection/">Caso: reconstruir texto ofuscado sin ejecutar un script</a></li><li><a href="document-inspection/">Caso: revisar documentos con contenido activo</a></li><li><a href="unicode/">Caso: comparar texto con un carácter invisible</a></li></ul></section>
         <section class="wiki-section" aria-labelledby="relacionados"><h2 id="relacionados">Conceptos relacionados</h2><ul><li><a href="../cryptography/encoding/">Codificación</a></li><li><a href="../csirt/incidentes/">Incidentes de seguridad</a></li><li><a href="../malware/analysis/">Análisis de malware</a></li></ul></section>
-        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Writeup example · pp. 1, 2, 3, 4. <span>Material de cátedra, fuente local de trabajo; PDF no distribuido por este sitio.</span></li><li><a href="../../docs/Guia_de_estudio_IC_Practicas_1_y_2.pdf#page=2" target="_blank" rel="noopener">Guía de estudio de prácticas 1 y 2</a> · pp. 2, 15, 16, 18. <span>Material complementario, PDF disponible.</span></li></ul></section>
+        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Writeup example · <a href="../../docs/catedra%20cosas/01b%20-%20Writeup%20example.pdf#page=1" target="_blank" rel="noopener">p. 1 ↗</a>, <a href="../../docs/catedra%20cosas/01b%20-%20Writeup%20example.pdf#page=2" target="_blank" rel="noopener">p. 2 ↗</a>, <a href="../../docs/catedra%20cosas/01b%20-%20Writeup%20example.pdf#page=3" target="_blank" rel="noopener">p. 3 ↗</a>, <a href="../../docs/catedra%20cosas/01b%20-%20Writeup%20example.pdf#page=4" target="_blank" rel="noopener">p. 4 ↗</a>. <span>Material de cátedra</span></li><li>Guía de estudio de prácticas 1 y 2 · <a href="../../docs/Guia_de_estudio_IC_Practicas_1_y_2.pdf#page=2" target="_blank" rel="noopener">p. 2 ↗</a>, <a href="../../docs/Guia_de_estudio_IC_Practicas_1_y_2.pdf#page=15" target="_blank" rel="noopener">p. 15 ↗</a>, <a href="../../docs/Guia_de_estudio_IC_Practicas_1_y_2.pdf#page=16" target="_blank" rel="noopener">p. 16 ↗</a>, <a href="../../docs/Guia_de_estudio_IC_Practicas_1_y_2.pdf#page=18" target="_blank" rel="noopener">p. 18 ↗</a>. <span>Material complementario</span></li><li>Glosario · <a href="../../glosario.html#writeup">Writeup: evidencia, hipótesis y reproducibilidad ↗</a></li><li><a href="../../glosario.html">Explorar el glosario completo ↗</a></li></ul></section>
       </main>
       <footer class="wiki-footer"><p>IC 2026 · Elaboración didáctica original basada en las fuentes indicadas. Las páginas citadas corresponden al archivo PDF, contando desde 1.</p><a href="../">Volver al inicio de la wiki</a></footer>
     </div>

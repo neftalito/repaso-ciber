@@ -3,7 +3,7 @@
 ---
 ## Problema
 
-Dos cadenas parecen mostrar `IC{secreto}`, pero una contiene U+200B entre `se` y `creto`. El ejercicio exige comparar datos, no solo su apariencia en pantalla.
+El objetivo es comprobar igualdad de datos aunque la apariencia coincida. En el caso del solucionario complementario, página 17, dos cadenas parecen mostrar `IC{secreto}`, pero una contiene U+200B entre `se` y `creto`. El ejercicio exige comparar datos, no solo su apariencia en pantalla.
 
 ## Inspección comprobable
 

@@ -34,22 +34,28 @@
       <main id="wiki-main" class="wiki-article" tabindex="-1">
         <p class="eyebrow">INTRODUCCIÓN A LA CIBERSEGURIDAD · ALGORITMO</p>
         <h1>Transposición rail fence</h1>
-        <h2 id="rieles-y-recorrido">Rieles y recorrido</h2>
-<p>Rail fence distribuye el mensaje sobre varios rieles siguiendo un zigzag y luego lee cada riel completo. La guía y el solucionario complementarios permiten distinguirlo de la transposición columnar.</p>
-<h2 id="ejemplo-original-de-dos-rieles">Ejemplo original de dos rieles</h2>
-<p>En <code>LUNARES</code>, se alternan los rieles al colocar las letras:</p>
-<pre><code class="language-text">Riel 1: L . N . R . S
-Riel 2: . U . A . E .
+        <h2 id="distribuir-letras-en-rieles">Distribuir letras en rieles</h2>
+<p><strong>Rail fence</strong> es una transposición: distribuye las letras del mensaje en un zigzag sobre varios rieles y después lee cada riel completo. Cambia el orden de los símbolos, no los reemplaza.</p>
+<p>La guía y el solucionario de prácticas lo incluyen como contenido complementario. Su desarrollo no procede de una explicación de este algoritmo en las diapositivas oficiales.</p>
+<h2 id="ejemplo-complementario-con-dos-rieles">Ejemplo complementario con dos rieles</h2>
+<p>El solucionario de prácticas, página 4, presenta el cifrado <code>CBRIE</code> y pide recuperar el mensaje con dos rieles. Para entenderlo, se puede reconstruir la distribución del original <code>CIBER</code>:</p>
+<pre><code class="language-text">Riel 1: C . B . R
+Riel 2: . I . E .
 </code></pre>
-<p>Al concatenar los rieles se obtiene <code>LNRSUAE</code>. Para descifrar se cuentan cuatro posiciones en el primero y tres en el segundo, se distribuyen los grupos y se reconstruye la alternancia.</p>
-<h2 id="limite">Límite</h2>
-<p>Con más rieles debe reconstruirse el zigzag completo, no simplemente repartir todos los grupos con la misma longitud. El número de rieles y el recorrido son parámetros del ejercicio.</p>
-<details class="wiki-review"><summary>¿Por qué el primer riel puede tener más letras que el segundo?</summary><p>En el ejemplo se empieza arriba y hay siete letras. Las posiciones impares quedan en el primer riel y son cuatro; las pares quedan en el segundo y son tres.</p>
+<p>Leer el primer riel y después el segundo produce <strong><code>CBRIE</code></strong>.</p>
+<h2 id="como-se-descifra-este-caso">Cómo se descifra este caso</h2>
+<ol>
+<li>Hay cinco posiciones que alternan entre los dos rieles. El primero recibe las posiciones 1, 3 y 5; el segundo, las posiciones 2 y 4.</li>
+<li>Se separa el cifrado en <code>CBR</code> para el primer riel e <code>IE</code> para el segundo.</li>
+<li>Se intercalan las letras siguiendo la alternancia original: C, I, B, E, R.</li>
+</ol>
+<p>El mensaje recuperado es <strong><code>CIBER</code></strong>. Con más rieles hay que reconstruir el zigzag completo; el reparto de este ejemplo corresponde específicamente a dos.</p>
+<details class="wiki-review"><summary>¿Por qué los dos grupos tienen distinta longitud?</summary><p>Porque el recorrido comienza en el primer riel y hay cinco letras. Ese riel recibe tres posiciones y el segundo recibe dos.</p>
 </details>
 
 
         <section class="wiki-section" aria-labelledby="relacionados"><h2 id="relacionados">Conceptos relacionados</h2><ul><li><a href="../columnar/">Transposición columnar</a></li><li><a href="../">Cifrado por transposición</a></li></ul></section>
-        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li><a href="../../../../../../docs/Guia_de_estudio_IC_Practicas_1_y_2.pdf#page=3" target="_blank" rel="noopener">Guía de estudio de prácticas 1 y 2</a> · pp. 3. <span>Material complementario, PDF disponible.</span></li><li><a href="../../../../../../docs/IC2026_Solucionario_Practicas_1_y_2.pdf#page=4" target="_blank" rel="noopener">Solucionario de prácticas 1 y 2</a> · pp. 4. <span>Material complementario, PDF disponible.</span></li></ul></section>
+        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Guía de estudio de prácticas 1 y 2 · <a href="../../../../../../docs/Guia_de_estudio_IC_Practicas_1_y_2.pdf#page=3" target="_blank" rel="noopener">p. 3 ↗</a>. <span>Material complementario</span></li><li>Solucionario de prácticas 1 y 2 · <a href="../../../../../../docs/IC2026_Solucionario_Practicas_1_y_2.pdf#page=4" target="_blank" rel="noopener">p. 4 ↗</a>. <span>Material complementario</span></li><li>Glosario · <a href="../../../../../../glosario.html#transposicion-riel-columna">Rail Fence y transposición columnar ↗</a></li><li><a href="../../../../../../glosario.html">Explorar el glosario completo ↗</a></li></ul></section>
       </main>
       <footer class="wiki-footer"><p>IC 2026 · Elaboración didáctica original basada en las fuentes indicadas. Las páginas citadas corresponden al archivo PDF, contando desde 1.</p><a href="../../../../../">Volver al inicio de la wiki</a></footer>
     </div>

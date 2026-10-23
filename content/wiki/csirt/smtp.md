@@ -32,7 +32,15 @@ C: QUIT
 S: 221 Bye
 ```
 
-`MAIL FROM` y `RCPT TO` construyen el sobre de transporte. Después de `DATA` se transmiten encabezados y cuerpo; la línea vacía los separa. El punto aislado termina los datos en el diálogo presentado. Los códigos indican la respuesta del servidor a cada operación.
+Para leer el intercambio, se sigue el orden de sus operaciones:
+
+1. El servidor saluda con `220` y el cliente se presenta con `HELO`.
+2. `MAIL FROM` declara el remitente de transporte y `RCPT TO`, el destinatario de la transacción: ambos construyen el sobre.
+3. `DATA` solicita transmitir el mensaje; la respuesta `354` indica que el servidor espera esos datos.
+4. El cliente transmite encabezados, una línea vacía y el cuerpo. El punto aislado termina los datos en el diálogo presentado.
+5. El servidor confirma la aceptación y `QUIT` cierra el intercambio.
+
+La demostración de las páginas 11 y 15 permite distinguir los comandos del cliente de las respuestas del servidor. El sobre encamina el mensaje; los campos incluidos después de `DATA` describen su contenido informativo.
 
 ## Lo que no demuestra la aceptación
 
@@ -40,9 +48,9 @@ Una respuesta de aceptación del servidor no valida la identidad humana declarad
 
 ## Sobre, encabezados y cuerpo
 
-### Tres componentes conceptuales
+### Qué gobierna cada componente
 
-La cátedra distingue sobre SMTP, encabezados y cuerpo. El sobre interviene en la transferencia y no forma parte del contenido del mensaje. Los encabezados describen propiedades del correo; el cuerpo contiene el texto u otros contenidos que recibe el destinatario.
+El sobre interviene en la transferencia y no forma parte del contenido del mensaje. Dentro del mensaje, los encabezados describen sus propiedades y el cuerpo contiene lo que recibe el destinatario. La separación permite entender por qué una dirección visible no determina necesariamente la entrega o la respuesta.
 
 | Elemento | Función relevante |
 | --- | --- |

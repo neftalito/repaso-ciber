@@ -3,9 +3,15 @@
 ---
 ## Datos y objetivo
 
-Los ejercicios de representación piden recuperar texto y justificar qué reglas se aplicaron. Por ejemplo, la secuencia decimal `73 67 123 65 125` corresponde a `IC{A}`: 123 y 125 son llaves, no letras. Debe declararse la base antes de interpretar los números.
+Los ejercicios de representación piden recuperar texto y justificar qué reglas se aplicaron. La práctica 1, parte 1, páginas 1–5, introduce ASCII, bases numéricas y Base64. Las entradas autocontenidas de esta nota proceden del solucionario complementario, página 2, salvo las comprobaciones de capas y relleno.
+
+Por ejemplo, la secuencia decimal `73 67 123 65 125` corresponde a `IC{A}`: 123 y 125 son llaves, no letras. Debe declararse la base antes de interpretar los números.
 
 ## Resolver y comprobar
+
+1. Reconocer la representación y declarar la regla que se va a probar.
+2. Recuperar los valores o bytes y después interpretar su contenido.
+3. Volver a codificar cuando sea posible para comprobar que el resultado reproduce la entrada.
 
 La cadena `SUN7YmFzZTY0X25vX2VzX2NpZnJhZG99` se interpreta como Base64. La comprobación local sobre estos datos de texto es:
 
@@ -21,7 +27,7 @@ El resultado se obtiene con reglas públicas, sin clave secreta. La distinción 
 
 ## Capas y relleno
 
-Un resultado decodificado puede ser otra representación. En el ejemplo didáctico `NDk0Mw==`, Base64 recupera el texto `4943`; interpretarlo como bytes hexadecimales produce `IC`. Deben documentarse ambas transformaciones, sin llamar cifrado a la primera capa.
+Un resultado decodificado puede ser otra representación. Como ampliación didáctica, en el ejemplo `NDk0Mw==`, Base64 recupera el texto `4943`; interpretarlo como bytes hexadecimales produce `IC`. Deben documentarse ambas transformaciones, sin llamar cifrado a la primera capa.
 
 La diapositiva de práctica 1a, página 5, invierte el número de signos de relleno para cada resto. La comprobación de bytes permite corregirlo: `I` se representa como `SQ==` y `IC` como `SUM=`. Un byte residual requiere `==`; dos requieren `=`.
 

@@ -3,7 +3,14 @@
 ---
 ## Secuencia de trabajo
 
-La cátedra organiza la gestión en recepción, evaluación de pertinencia, clasificación y priorización, y gestión del incidente mediante notificaciones y coordinación de acciones. Son actividades conectadas: una nueva evidencia puede cambiar la pertinencia o la prioridad inicialmente estimadas.
+La gestión de incidentes organiza la respuesta desde la recepción de un reporte hasta la coordinación con responsables y afectados. La página 8 de la presentación distingue esta secuencia:
+
+1. Recibir el reporte y reunir la información disponible.
+2. Evaluar si corresponde al ámbito del equipo y si describe un incidente.
+3. Clasificar el hecho y asignarle prioridad según su criticidad.
+4. Gestionar el caso mediante notificaciones y coordinación de acciones.
+
+Las actividades están conectadas: la evaluación utiliza la información recibida, y la prioridad orienta los esfuerzos de respuesta.
 
 En esta nota, «triaje» nombra el examen inicial para decidir qué se atiende y con qué urgencia. No agrega un marco externo a la secuencia del curso ni reemplaza las actividades que este distingue.
 
@@ -34,7 +41,7 @@ Estos casos no forman una escala universal. «Spam = baja prioridad» pierde inf
 
 ## Notificar con evidencia utilizable
 
-El propósito, la selección del contacto y la evidencia del aviso se desarrollan en [Notificación de incidentes](wiki:csirt-notification). El siguiente modelo se conserva aquí como parte de la secuencia de gestión.
+El contacto, la preparación del aviso y el cuidado de la evidencia se desarrollan paso a paso en [Notificación de incidentes](wiki:csirt-notification). El siguiente modelo ilustra esa comunicación dentro de la secuencia de gestión.
 
 La notificación debe dirigirse al responsable adecuado del recurso y aportar hechos que pueda investigar. La presentación destaca los registros con timestamps y la zona horaria. Sin esa referencia temporal, dos organizaciones pueden buscar hechos en ventanas distintas.
 

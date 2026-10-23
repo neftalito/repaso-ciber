@@ -1,6 +1,10 @@
 ---
 {"id":"practices-logs","title":"Caso: distinguir intentos fallidos de acceso confirmado","slug":"logs","parent":"practices","type":"practice","order":110,"related":["csirt-incidents","fundamentals-risk","practices-writeup"],"sources":[{"id":"practice-questions","pages":[11,12]},{"id":"practice-solutions","pages":[15]},{"id":"practice-guide","pages":[11,16]}]}
 ---
+## Qué debe determinarse
+
+El objetivo es distinguir intentos de autenticación fallidos y evidencia de acceso aceptado. El caso procede del solucionario complementario, página 15; no es un registro de un incidente real.
+
 ## Entrada del caso
 
 Se recibe este extracto sintético de autenticación. El fragmento no incluye fecha ni zona horaria; esas ausencias deben consignarse al informar.

@@ -34,14 +34,19 @@
       <main id="wiki-main" class="wiki-article" tabindex="-1">
         <p class="eyebrow">INTRODUCCIÓN A LA CIBERSEGURIDAD · CATEGORÍA</p>
         <h1>Infraestructura de clave pública (PKI)</h1>
-        <h2 id="gestionar-confianza-en-certificados">Gestionar confianza en certificados</h2>
-<p>Una PKI es una infraestructura de emisión y gestión de certificados digitales. La clase la relaciona con certificados X.509 y con autoridades de certificación en las que los participantes confían.</p>
-<p>El sistema permite vincular identidades con claves públicas mediante firmas de emisores reconocidos. No consiste solo en repartir claves: también importa la validez del certificado y el criterio usado para confiar en su emisor.</p>
-<p>Los certificados utilizados con TLS y HTTPS son un caso del temario. La confianza se organiza de forma diferente de la red descentralizada de PGP; comparar ambas estructuras ayuda a identificar dónde se toma la decisión de confiar.</p>
+        <h2 id="gestionar-certificados-y-confianza">Gestionar certificados y confianza</h2>
+<p>Una <strong>infraestructura de clave pública</strong>, o <strong>PKI</strong>, emite y gestiona certificados digitales. Estos vinculan identidades con claves públicas mediante firmas de emisores en los que los participantes confían.</p>
+<p>Cripto, parte 2, páginas 18–20, relaciona PKI con certificados X.509, certificados personales y el uso de TLS en HTTPS. La página 25 contrapone la confianza centralizada en autoridades con la red descentralizada de PGP.</p>
+<h2 id="autoridades-y-uso-en-la-web">Autoridades y uso en la web</h2>
+<ul>
+<li><a href="ca/">Autoridades de certificación</a>: emisores en los que se apoya la confianza de la infraestructura.</li>
+<li><a href="tls/">TLS y certificados en HTTPS</a>: aplicación del modelo a la comunicación web.</li>
+</ul>
+<p>La infraestructura no consiste únicamente en repartir claves: también importa comprobar la validez del certificado y establecer por qué se confía en su emisor.</p>
 
 <section class="wiki-section" aria-labelledby="subtemas"><h2 id="subtemas">Subtemas</h2><ul class="wiki-cards"><li><a href="ca/">Autoridades de certificación</a></li><li><a href="tls/">TLS y certificados en HTTPS</a></li></ul></section>
         <section class="wiki-section" aria-labelledby="relacionados"><h2 id="relacionados">Conceptos relacionados</h2><ul><li><a href="../certificate/">Certificados digitales</a></li><li><a href="../pgp/pgp-trust/">Red de confianza de PGP</a></li><li><a href="../../csirt/correo-electronico/">Correo electrónico e investigación</a></li></ul></section>
-        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Cripto, parte 2 · pp. 18, 19, 20, 21, 25. <span>Material de cátedra, fuente local de trabajo; PDF no distribuido por este sitio.</span></li></ul></section>
+        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Cripto, parte 2 · <a href="../../../docs/catedra%20cosas/03%20-%20Cripto%20parte%202.pdf#page=18" target="_blank" rel="noopener">p. 18 ↗</a>, <a href="../../../docs/catedra%20cosas/03%20-%20Cripto%20parte%202.pdf#page=19" target="_blank" rel="noopener">p. 19 ↗</a>, <a href="../../../docs/catedra%20cosas/03%20-%20Cripto%20parte%202.pdf#page=20" target="_blank" rel="noopener">p. 20 ↗</a>, <a href="../../../docs/catedra%20cosas/03%20-%20Cripto%20parte%202.pdf#page=21" target="_blank" rel="noopener">p. 21 ↗</a>, <a href="../../../docs/catedra%20cosas/03%20-%20Cripto%20parte%202.pdf#page=25" target="_blank" rel="noopener">p. 25 ↗</a>. <span>Material de cátedra</span></li><li>Glosario · <a href="../../../glosario.html#ca">CA y Root CA: autoridades de certificación ↗</a></li><li><a href="../../../glosario.html">Explorar el glosario completo ↗</a></li></ul></section>
       </main>
       <footer class="wiki-footer"><p>IC 2026 · Elaboración didáctica original basada en las fuentes indicadas. Las páginas citadas corresponden al archivo PDF, contando desde 1.</p><a href="../../">Volver al inicio de la wiki</a></footer>
     </div>

@@ -34,19 +34,18 @@
       <main id="wiki-main" class="wiki-article" tabindex="-1">
         <p class="eyebrow">INTRODUCCIÓN A LA CIBERSEGURIDAD · ALGORITMO</p>
         <h1>Máquina Enigma</h1>
-        <h2 id="definicion">Definición</h2>
-<p>Enigma es una máquina electromecánica de sustitución polialfabética utilizada durante la Segunda Guerra Mundial. La clase la menciona entre los cifrados clásicos; el manual complementario explica el papel de sus rotores y configuraciones variables.</p>
-<h2 id="idea-de-funcionamiento">Idea de funcionamiento</h2>
-<p>La transformación no consiste en aplicar a todas las letras un desplazamiento fijo como en César. El estado de los rotores participa en la sustitución, de modo que el contexto de procesamiento importa para reproducirla. Emisor y receptor necesitan configuraciones compatibles.</p>
-<h2 id="que-ensena-el-ejemplo">Qué enseña el ejemplo</h2>
-<p>El diseño del mecanismo, la elección de configuraciones y su operación influyen en la seguridad. Una máquina más compleja no elimina automáticamente los problemas de gestión de claves.</p>
-<p>Las fuentes citadas no desarrollan el cableado ni un recorrido eléctrico completo. Por eso no se presenta una simulación de rotores ni una tabla inventada de sustituciones.</p>
-<details class="wiki-review"><summary>¿Por qué Enigma no se clasifica como transposición?</summary><p>Porque su mecanismo reemplaza símbolos mediante una transformación variable. El punto central no es reordenar las letras originales, sino sustituirlas según el estado de la máquina.</p>
+        <h2 id="que-es-enigma">Qué es Enigma</h2>
+<p><strong>Enigma</strong> es una máquina electromecánica de sustitución polialfabética utilizada durante la Segunda Guerra Mundial. Cripto, parte 1, página 12, la menciona entre los ejemplos de criptografía clásica. El manual complementario, página 8, precisa el uso de rotores y configuraciones variables.</p>
+<h2 id="por-que-no-es-un-cesar-fijo">Por qué no es un César fijo</h2>
+<p>César aplica el mismo desplazamiento a cada letra. En Enigma, la configuración variable de los rotores interviene en la sustitución: para reproducir la transformación no basta con elegir una distancia fija en el alfabeto.</p>
+<p>El ejemplo permite comprender que la seguridad también depende de cómo se eligen y administran las configuraciones. El manual destaca la importancia conjunta del diseño, la gestión de claves y la operación de la máquina.</p>
+<p>Las fuentes citadas no describen el cableado ni un recorrido eléctrico completo; su explicación se limita a reconocer el mecanismo y su lugar histórico.</p>
+<details class="wiki-review"><summary>¿Por qué Enigma se clasifica como sustitución?</summary><p>Porque transforma los símbolos según la configuración del mecanismo. La operación central no consiste en reordenar las letras originales.</p>
 </details>
 
 
         <section class="wiki-section" aria-labelledby="relacionados"><h2 id="relacionados">Conceptos relacionados</h2><ul><li><a href="../caesar/">Cifrado César y ROT</a></li><li><a href="../../../modern/symmetric/">Criptografía simétrica</a></li></ul></section>
-        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Cripto, parte 1 · pp. 12. <span>Material de cátedra, fuente local de trabajo; PDF no distribuido por este sitio.</span></li><li><a href="../../../../../../docs/Manual_IC2026_Cripto_CSIRT_Malware_Descarga.pdf#page=8" target="_blank" rel="noopener">Manual de estudio: Cripto, CSIRT y Malware</a> · pp. 8. <span>Material complementario, PDF disponible.</span></li></ul></section>
+        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Cripto, parte 1 · <a href="../../../../../../docs/catedra%20cosas/02%20-%20Cripto%20parte%201.pdf#page=12" target="_blank" rel="noopener">p. 12 ↗</a>. <span>Material de cátedra</span></li><li>Manual de estudio: Cripto, CSIRT y Malware · <a href="../../../../../../docs/Manual_IC2026_Cripto_CSIRT_Malware_Descarga.pdf#page=8" target="_blank" rel="noopener">p. 8 ↗</a>. <span>Material complementario</span></li><li>Glosario · <a href="../../../../../../glosario.html#clasicos">Sustitución, transposición y Enigma ↗</a></li><li><a href="../../../../../../glosario.html">Explorar el glosario completo ↗</a></li></ul></section>
       </main>
       <footer class="wiki-footer"><p>IC 2026 · Elaboración didáctica original basada en las fuentes indicadas. Las páginas citadas corresponden al archivo PDF, contando desde 1.</p><a href="../../../../../">Volver al inicio de la wiki</a></footer>
     </div>

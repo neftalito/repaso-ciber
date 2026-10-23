@@ -34,17 +34,17 @@
       <main id="wiki-main" class="wiki-article" tabindex="-1">
         <p class="eyebrow">INTRODUCCIÓN A LA CIBERSEGURIDAD · CONCEPTO</p>
         <h1>EBCDIC en el mapa de codificaciones</h1>
-        <h2 id="ubicacion-conceptual">Ubicación conceptual</h2>
-<p>EBCDIC aparece en la enumeración de sistemas de codificación de la clase y la práctica. Su presencia recuerda que una secuencia de bytes requiere una convención para ser interpretada como texto: no todo archivo textual debe leerse como ASCII o UTF-8.</p>
-<h2 id="que-permite-concluir-la-fuente">Qué permite concluir la fuente</h2>
-<p>El material lo utiliza como ejemplo de representación, sin desarrollar su tabla de caracteres ni sus variantes. Por eso esta nota no asigna valores numéricos a letras ni propone una conversión concreta sin una tabla identificada.</p>
-<p>Ante un archivo descrito como EBCDIC, el procedimiento conceptual es determinar la codificación exacta y convertirla a una representación conocida antes de evaluar el contenido. Interpretar bytes con la tabla equivocada puede producir caracteres incorrectos sin que exista cifrado.</p>
-<details class="wiki-review"><summary>¿Por qué no alcanza con ver bytes imprimibles para identificar su codificación?</summary><p>Porque los valores necesitan una tabla de interpretación. El hecho de que un visor muestre caracteres no demuestra que haya usado la tabla correcta.</p>
+        <h2 id="que-representa-ebcdic">Qué representa EBCDIC</h2>
+<p><strong>EBCDIC es un sistema de codificación de caracteres.</strong> Aparece entre los ejemplos de Cripto, parte 1, página 7, y de la explicación de la Práctica 1, parte 1, página 1.</p>
+<p>Su inclusión permite reconocer que una secuencia de bytes necesita una convención para interpretarse como texto. No todo archivo textual debe leerse como ASCII o UTF-8, y obtener caracteres inesperados no demuestra que el archivo esté cifrado.</p>
+<h2 id="alcance-de-la-explicacion">Alcance de la explicación</h2>
+<p>Las fuentes lo enumeran sin desarrollar tablas ni variantes. Para convertir un archivo descrito como EBCDIC se necesita identificar la tabla de interpretación correspondiente; el nombre por sí solo no permite asignar aquí un valor numérico a cada letra.</p>
+<details class="wiki-review"><summary>¿Un visor que muestra caracteres demuestra que eligió la codificación correcta?</summary><p>No. El visor interpreta los valores mediante una tabla. Que produzca símbolos visibles no confirma que correspondan al texto esperado.</p>
 </details>
 
 
         <section class="wiki-section" aria-labelledby="relacionados"><h2 id="relacionados">Conceptos relacionados</h2><ul><li><a href="../ascii/">ASCII</a></li><li><a href="../unicode/">Unicode y formatos UTF</a></li></ul></section>
-        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Cripto, parte 1 · pp. 7. <span>Material de cátedra, fuente local de trabajo; PDF no distribuido por este sitio.</span></li><li>Explicación de la práctica 1, parte 1 · pp. 1. <span>Material de cátedra, fuente local de trabajo; PDF no distribuido por este sitio.</span></li></ul></section>
+        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Cripto, parte 1 · <a href="../../../../docs/catedra%20cosas/02%20-%20Cripto%20parte%201.pdf#page=7" target="_blank" rel="noopener">p. 7 ↗</a>. <span>Material de cátedra</span></li><li>Explicación de la práctica 1, parte 1 · <a href="../../../../docs/catedra%20cosas/Explicaci%C3%B3n%20-%20Pr%C3%A1ctica%201%20-%20Parte%201.pdf#page=1" target="_blank" rel="noopener">p. 1 ↗</a>. <span>Material de cátedra</span></li><li><a href="../../../../glosario.html">Explorar el glosario completo ↗</a></li></ul></section>
       </main>
       <footer class="wiki-footer"><p>IC 2026 · Elaboración didáctica original basada en las fuentes indicadas. Las páginas citadas corresponden al archivo PDF, contando desde 1.</p><a href="../../../">Volver al inicio de la wiki</a></footer>
     </div>

@@ -3,7 +3,7 @@
 ---
 ## Datos del problema
 
-Se dispone de ocho bytes de píxeles, en el orden declarado por el ejercicio. El bit menos significativo de cada uno forma una letra ASCII, leyendo el primer bit obtenido como el de mayor peso del mensaje:
+El objetivo es reconstruir un carácter a partir de bits distribuidos entre varios bytes. La práctica 1, parte 2, página 6, introduce LSB; el solucionario complementario, página 8, proporciona los ocho bytes de este caso, en el orden declarado por el ejercicio. El bit menos significativo de cada uno forma una letra ASCII, leyendo el primer bit obtenido como el de mayor peso del mensaje:
 
 ```text
 10010010 10100011 11010100 01000100
@@ -12,7 +12,9 @@ Se dispone de ocho bytes de píxeles, en el orden declarado por el ejercicio. El
 
 ## Reconstrucción
 
-Tomar el último bit de cada byte produce `0 1 0 0 1 0 0 1`. El resultado `01001001` es `0x49`, decimal 73, y corresponde a `I`.
+1. Tomar el último bit de cada byte, conservando el orden: `0 1 0 0 1 0 0 1`.
+2. Reunirlos como un byte de mensaje: `01001001`. El primer bit recuperado ocupa la posición de mayor peso, según el enunciado.
+3. Interpretar ese byte: es `0x49`, decimal 73, y corresponde a `I` en ASCII.
 
 ```python
 values = ['10010010', '10100011', '11010100', '01000100',

@@ -19,6 +19,15 @@ Los [RIR](wiki:csirt-rir) mantienen las bases de recursos IP asignados. Para los
 
 Ambos se utilizan para información de registro de direcciones IP y dominios. La demostración del cliente icann-rdap se desarrolla dentro de RDAP como ejemplo práctico.
 
+## Pasar del recurso al contacto
+
+1. Reconocer si se investiga una IP o un nombre de dominio.
+2. Consultar el recurso y comprobar qué registro responde.
+3. Para una IP, identificar bloque, asignatario y rol del contacto; para un dominio, distinguir registrar y registrant.
+4. Seleccionar el contacto pertinente para el propósito del reporte y acompañarlo con la evidencia del caso.
+
+Si la respuesta es genérica o incompleta, hay que interpretarla antes de concluir. El ejemplo histórico de [WHOIS](wiki:csirt-whois) muestra cómo consultar el servidor específico del RIR para obtener información más precisa.
+
 ## Alcance de los datos públicos
 
 Una consulta registral orienta la coordinación del incidente; no demuestra quién realizó la acción investigada. La información pública puede omitir datos personales o mostrar mecanismos intermediarios de contacto. La cátedra diferencia este trabajo del acceso a datos no públicos que requieren las autoridades competentes mediante los procedimientos correspondientes.

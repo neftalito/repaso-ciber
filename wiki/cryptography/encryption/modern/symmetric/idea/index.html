@@ -34,19 +34,17 @@
       <main id="wiki-main" class="wiki-article" tabindex="-1">
         <p class="eyebrow">INTRODUCCIÓN A LA CIBERSEGURIDAD · ALGORITMO</p>
         <h1>IDEA</h1>
-        <h2 id="lugar-en-el-mapa-de-la-materia">Lugar en el mapa de la materia</h2>
-<p>IDEA aparece entre los algoritmos simétricos enumerados por la cátedra. Se estudia dentro del modelo de un secreto compartido y de una transformación reversible de los datos.</p>
-<h2 id="comparacion-de-propositos">Comparación de propósitos</h2>
-<p>No debe confundirse el nombre del algoritmo con una operación de firma digital. Cifrar un documento con una clave compartida puede restringir su lectura, pero el esquema descrito no identifica por sí solo cuál de las personas que conoce el secreto lo produjo.</p>
-<p>Ese contraste permite separar la pregunta «¿quién puede leer?» de «¿cómo verifico el origen?», que se desarrolla en firmas y mecanismos de confianza.</p>
-<h2 id="alcance">Alcance</h2>
-<p>La página citada nombra IDEA sin explicar su construcción interna. Esta nota no atribuye tamaños, rondas ni una salida numérica inexistente en el material: conserva el ejemplo con el alcance realmente documentado.</p>
-<details class="wiki-review"><summary>¿Compartir una clave IDEA con un grupo identifica de manera individual al autor de cada mensaje?</summary><p>No por ese solo hecho. Todos los integrantes poseen el secreto compartido. La atribución individual requiere analizar otros mecanismos del sistema.</p>
+        <h2 id="que-es-idea">Qué es IDEA</h2>
+<p>IDEA es uno de los algoritmos <strong>simétricos</strong> enumerados en Cripto, parte 1, página 30. En ese modelo, el emisor y el receptor dependen de un secreto compartido para cifrar y descifrar.</p>
+<h2 id="el-problema-del-secreto-compartido">El problema del secreto compartido</h2>
+<p>La diapositiva advierte sobre el uso de una misma clave en un grupo. Cifrar permite restringir quién puede leer, pero conocer el secreto compartido no distingue por sí solo a una persona de las demás que también lo conocen. La elección del algoritmo y la administración de las claves son aspectos diferentes del sistema.</p>
+<p>La fuente menciona IDEA sin explicar su construcción interna. Esta página conserva ese alcance: permite reconocer el ejemplo y comprender el problema de gestión que acompaña a la familia simétrica.</p>
+<details class="wiki-review"><summary>¿Una clave compartida por todo un grupo identifica al autor individual de cada mensaje?</summary><p>No por sí sola. Cada integrante conoce el mismo secreto; esa condición no permite distinguir cuál de ellos produjo un mensaje.</p>
 </details>
 
 
         <section class="wiki-section" aria-labelledby="relacionados"><h2 id="relacionados">Conceptos relacionados</h2><ul><li><a href="../">Criptografía simétrica</a></li><li><a href="../block/aes/">AES</a></li></ul></section>
-        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Cripto, parte 1 · pp. 30. <span>Material de cátedra, fuente local de trabajo; PDF no distribuido por este sitio.</span></li></ul></section>
+        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Cripto, parte 1 · <a href="../../../../../../docs/catedra%20cosas/02%20-%20Cripto%20parte%201.pdf#page=30" target="_blank" rel="noopener">p. 30 ↗</a>. <span>Material de cátedra</span></li><li><a href="../../../../../../glosario.html">Explorar el glosario completo ↗</a></li></ul></section>
       </main>
       <footer class="wiki-footer"><p>IC 2026 · Elaboración didáctica original basada en las fuentes indicadas. Las páginas citadas corresponden al archivo PDF, contando desde 1.</p><a href="../../../../../">Volver al inicio de la wiki</a></footer>
     </div>

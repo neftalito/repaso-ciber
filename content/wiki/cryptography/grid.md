@@ -1,25 +1,27 @@
 ---
 {"id":"crypto-grid","title":"Transposición por grilla","slug":"grid","parent":"crypto-transposition","type":"technique","order":40,"related":["crypto-columnar","crypto-scytale"],"sources":[{"id":"practice-guide","pages":[3,4]}],"permalink":"cryptography/encryption/classical/transposition/grid"}
 ---
-## Definición y alcance
+## Cambiar el recorrido de lectura
 
-Una grilla organiza el texto en filas y columnas para cambiar el recorrido de lectura. La guía complementaria propone ensayar dimensiones indicadas por una pista, sin asumir que toda tabla utiliza una clave alfabética.
+La transposición por grilla organiza el texto en filas y columnas y lo recupera con un recorrido diferente. Las letras conservan su identidad; cambia la posición en la que se leen.
 
-## Ejemplo original
+La guía complementaria, páginas 3 y 4, propone usar una pista de dimensiones para ensayar esa disposición. El desarrollo de esta variante procede de ese material, no de una explicación específica de las diapositivas oficiales.
 
-Se colocan las seis letras de `SEGURO` en dos filas y tres columnas:
+## Cómo usar la pista de dimensiones
 
-```text
-S E G
-U R O
-```
+La guía utiliza `8 × 3` como pista y propone ensayar una grilla de ocho columnas por tres filas:
 
-Leer por columnas de arriba abajo y de izquierda a derecha produce `SUERGO`. Para recuperar la entrada se reconstruyen columnas de dos letras y luego se leen las filas.
+1. Reconocer qué dimensión se interpreta como cantidad de filas y cuál como columnas.
+2. Declarar cómo se coloca el texto en las casillas.
+3. Ensayar y registrar el recorrido de lectura.
+4. Comparar el resultado con el contexto del ejercicio.
 
-## Convenciones
+Las dimensiones no determinan por sí solas los otros pasos. Si el texto no completa la grilla, también hace falta conocer el tratamiento de las casillas vacías o del relleno; no corresponde inventarlo para forzar una solución.
 
-Las dimensiones, el orden de llenado, el orden de lectura y el tratamiento de casillas vacías forman parte del método. Una pista `8 × 3` no determina por sí sola todos esos datos.
+## Diferencia con la transposición columnar con clave
 
-:::question ¿Qué diferencia esta variante de la transposición columnar con clave?
-Aquí se declara directamente un recorrido de columnas. La variante con clave utiliza además una regla para reordenarlas, por ejemplo el orden alfabético de una palabra.
+Una grilla describe una disposición y unos recorridos. La [transposición columnar](wiki:crypto-columnar) puede añadir una clave que determine el orden de lectura de las columnas. No debe suponerse esa clave cuando la pista solo indica dimensiones.
+
+:::question ¿Una pista de ocho columnas por tres filas determina una única transformación?
+No. Todavía faltan el orden de llenado, el recorrido de lectura y, cuando corresponda, el tratamiento de las casillas que no contienen texto.
 :::

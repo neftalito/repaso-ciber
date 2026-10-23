@@ -3,8 +3,19 @@
 ---
 ## Representar información
 
-La codificación asigna una representación a caracteres o datos para almacenarlos, transmitirlos e interpretarlos. Sus reglas no necesitan permanecer secretas. Desconocer una representación no la convierte en cifrado.
+La **codificación** asigna una representación a caracteres o datos para almacenarlos, transmitirlos e interpretarlos. Sus reglas no necesitan permanecer secretas. Desconocer una representación no la convierte en cifrado.
 
-Conviene separar tres niveles: [ASCII](wiki:crypto-ascii) y [Unicode](wiki:crypto-unicode) identifican caracteres; las [bases numéricas](wiki:crypto-numbers) escriben valores; [Base64](wiki:crypto-base64) representa bytes con caracteres imprimibles. Morse y Braille muestran que una representación también puede emplear señales o patrones de puntos.
+Cripto, parte 1, páginas 7–8, y la explicación de la Práctica 1, parte 1, páginas 1–3, presentan representaciones de caracteres, bases numéricas y formatos como Base64. No todos actúan en el mismo nivel: un código identifica caracteres, una base escribe números y Base64 representa bytes mediante caracteres imprimibles.
 
-Ante una cadena desconocida, identificar alfabeto, separadores y contexto antes de convertirla. El resultado puede ser texto, un archivo o datos que todavía están cifrados.
+## Sistemas y representaciones de esta sección
+
+- [Representaciones numéricas](wiki:crypto-numbers).
+- [ASCII](wiki:crypto-ascii).
+- [Unicode y formatos UTF](wiki:crypto-unicode).
+- [Base64](wiki:crypto-base64).
+- [Código Morse](wiki:crypto-morse).
+- [Braille como representación](wiki:crypto-braille).
+- [Índices alfabéticos A1Z26](wiki:crypto-alphabet-indices).
+- [EBCDIC](wiki:crypto-ebcdic).
+
+Ante una cadena desconocida conviene identificar su alfabeto, separadores y contexto antes de convertirla. El resultado puede ser texto, un archivo o datos que todavía están cifrados.

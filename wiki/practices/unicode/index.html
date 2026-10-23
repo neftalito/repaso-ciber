@@ -35,7 +35,7 @@
         <p class="eyebrow">INTRODUCCIÓN A LA CIBERSEGURIDAD · PRÁCTICA</p>
         <h1>Caso: comparar texto con un carácter invisible</h1>
         <h2 id="problema">Problema</h2>
-<p>Dos cadenas parecen mostrar <code>IC{secreto}</code>, pero una contiene U+200B entre <code>se</code> y <code>creto</code>. El ejercicio exige comparar datos, no solo su apariencia en pantalla.</p>
+<p>El objetivo es comprobar igualdad de datos aunque la apariencia coincida. En el caso del solucionario complementario, página 17, dos cadenas parecen mostrar <code>IC{secreto}</code>, pero una contiene U+200B entre <code>se</code> y <code>creto</code>. El ejercicio exige comparar datos, no solo su apariencia en pantalla.</p>
 <h2 id="inspeccion-comprobable">Inspección comprobable</h2>
 <pre><code class="language-python">visible = &#39;IC{secreto}&#39;
 hidden = &#39;IC{se\u200bcreto}&#39;
@@ -51,7 +51,7 @@ assert hidden.encode(&#39;unicode_escape&#39;) == br&#39;IC{se\u200bcreto}&#39;
 
 
         <section class="wiki-section" aria-labelledby="relacionados"><h2 id="relacionados">Conceptos relacionados</h2><ul><li><a href="../../cryptography/encoding/">Codificación</a></li><li><a href="../writeup/">Cómo construir un writeup</a></li></ul></section>
-        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li><a href="../../../docs/IC2026_Preguntas_Basadas_en_Practicas_1_y_2.pdf#page=13" target="_blank" rel="noopener">Preguntas basadas en prácticas 1 y 2</a> · pp. 13. <span>Material complementario, PDF disponible.</span></li><li><a href="../../../docs/IC2026_Solucionario_Practicas_1_y_2.pdf#page=17" target="_blank" rel="noopener">Solucionario de prácticas 1 y 2</a> · pp. 17. <span>Material complementario, PDF disponible.</span></li></ul></section>
+        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Preguntas basadas en prácticas 1 y 2 · <a href="../../../docs/IC2026_Preguntas_Basadas_en_Practicas_1_y_2.pdf#page=13" target="_blank" rel="noopener">p. 13 ↗</a>. <span>Material complementario</span></li><li>Solucionario de prácticas 1 y 2 · <a href="../../../docs/IC2026_Solucionario_Practicas_1_y_2.pdf#page=17" target="_blank" rel="noopener">p. 17 ↗</a>. <span>Material complementario</span></li><li>Glosario · <a href="../../../glosario.html#unicode-invisible">Unicode invisible y comparación de cadenas ↗</a></li><li><a href="../../../glosario.html">Explorar el glosario completo ↗</a></li></ul></section>
       </main>
       <footer class="wiki-footer"><p>IC 2026 · Elaboración didáctica original basada en las fuentes indicadas. Las páginas citadas corresponden al archivo PDF, contando desde 1.</p><a href="../../">Volver al inicio de la wiki</a></footer>
     </div>

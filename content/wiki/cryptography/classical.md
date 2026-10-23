@@ -1,10 +1,13 @@
 ---
 {"id":"crypto-classical","title":"Criptografía clásica","slug":"classical","parent":"cryptography","type":"category","order":25,"related":["crypto-modern"],"sources":[{"id":"lecture-crypto-1","pages":[11,12,13,14]},{"id":"manual","pages":[7,8]}],"permalink":"cryptography/encryption/classical"}
 ---
-## Dos mecanismos de estudio
+## Cifrados manuales y electromecánicos
 
-Los cifrados clásicos incluyen procedimientos manuales y electromecánicos. En [sustitución](wiki:crypto-substitution), los símbolos se reemplazan siguiendo una regla; en [transposición](wiki:crypto-transposition), los símbolos cambian de posición.
+La **criptografía clásica** incluye mecanismos históricos para transformar mensajes mediante reglas de sustitución o de cambio de posiciones. Cripto, parte 1, páginas 12–14, menciona César, escítala, transposición columnar y Enigma.
 
-La clase menciona César, escítala, transposición columnar y Enigma. Los materiales complementarios incorporan variantes de ejercicios como Vigenère y rail fence, identificadas en sus propias fuentes.
+## Dos formas de transformar el mensaje
 
-Estos mecanismos muestran cómo influyen el alfabeto, la clave y la regla de lectura. Su valor aquí es educativo e histórico; reconocer que un texto «parece ilegible» no permite evaluar su seguridad.
+- [Sustitución](wiki:crypto-substitution): reemplaza los símbolos siguiendo una correspondencia.
+- [Transposición](wiki:crypto-transposition): cambia el orden de los símbolos.
+
+Estos métodos permiten estudiar cómo intervienen el alfabeto, la clave y la regla de lectura. El manual complementario, páginas 7–8, desarrolla esa distinción. Los materiales complementarios también incorporan Vigenère y rail fence, identificados como tales en sus páginas.

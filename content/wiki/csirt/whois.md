@@ -26,7 +26,13 @@ whois 163.10.5.66
 whois 163.10.5.66 -h whois.lacnic.net
 ```
 
-El segundo especifica el servidor. En el caso histórico de la diapositiva permite superar una respuesta ERX genérica. No se ha ejecutado ninguna consulta externa ni se garantiza que una respuesta actual coincida con la captura.
+La demostración se interpreta en tres pasos:
+
+1. La primera consulta devuelve un registro histórico ERX genérico para un bloque amplio.
+2. Las observaciones de esa respuesta indican que la información específica debe buscarse en el RIR correspondiente.
+3. La segunda consulta especifica el servidor de LACNIC y obtiene el bloque `163.10.0.0/16`, la Universidad Nacional de La Plata como entidad asignataria y sus referencias de contacto.
+
+Las páginas 9 a 11 muestran este caso histórico. No se ha ejecutado ninguna consulta externa ni se garantiza que una respuesta actual coincida con la captura.
 
 Un resultado incompleto puede deberse a la base consultada o a restricciones de privacidad. No encontrar un nombre personal visible no demuestra que el recurso carezca de responsable. [RDAP](wiki:csirt-rdap) ofrece estructura para el procesamiento, pero también exige interpretar lo que los datos permiten concluir.
 

@@ -34,19 +34,18 @@
       <main id="wiki-main" class="wiki-article" tabindex="-1">
         <p class="eyebrow">INTRODUCCIÓN A LA CIBERSEGURIDAD · ALGORITMO</p>
         <h1>ElGamal</h1>
-        <h2 id="papel-en-la-criptografia-de-clave-publica">Papel en la criptografía de clave pública</h2>
-<p>ElGamal aparece en la clase como ejemplo asociado al problema del logaritmo discreto y a esquemas de cifrado y firma. Se ubica en la familia asimétrica, que utiliza secretos privados y valores públicos relacionados.</p>
-<h2 id="distinciones-que-conviene-conservar">Distinciones que conviene conservar</h2>
-<p>Cifrar para un destinatario y firmar como emisor no son operaciones con el mismo objetivo. El uso de un nombre asociado a ambas aplicaciones no significa que toda operación con ese nombre aporte simultáneamente confidencialidad y autenticidad.</p>
-<p>Tampoco es equivalente a Diffie–Hellman: la clase presenta a este último específicamente como acuerdo de una clave, no como cifrado de un documento.</p>
-<h2 id="alcance">Alcance</h2>
-<p>La diapositiva enumera ElGamal y su base matemática, sin desarrollar generación de claves ni ecuaciones. Esta nota conserva esa evidencia y no inventa un ejemplo numérico de un esquema no explicado en las fuentes.</p>
-<details class="wiki-review"><summary>¿Compartir la referencia al logaritmo discreto hace idénticos a ElGamal y Diffie–Hellman?</summary><p>No. Una familia de problemas matemáticos puede sustentar mecanismos con propósitos distintos. Hay que identificar la operación y el protocolo concretos.</p>
+        <h2 id="para-que-se-menciona-elgamal">Para qué se menciona ElGamal</h2>
+<p><strong>ElGamal</strong> aparece en Cripto, parte 2, página 10, entre los algoritmos de clave pública, asociado al <strong>logaritmo discreto</strong> y a aplicaciones de cifrado y firma.</p>
+<h2 id="separar-los-propositos">Separar los propósitos</h2>
+<p>Cifrar para un destinatario busca proteger la lectura del mensaje. Firmar como emisor permite verificar su origen mediante la información pública correspondiente. Que el nombre ElGamal esté asociado a ambos usos no significa que una misma operación proporcione automáticamente los dos servicios.</p>
+<p>La página también presenta Diffie–Hellman, relacionado con el logaritmo discreto, para acordar una clave secreta. Esa base matemática compartida no convierte el acuerdo de claves en cifrado de documentos.</p>
+<p>La fuente enumera la relación y los usos, sin desarrollar la generación de claves ni las ecuaciones de ElGamal. No ofrece un ejemplo numérico para reconstruir esos procedimientos.</p>
+<details class="wiki-review"><summary>¿Compartir una base matemática hace idénticos a ElGamal y Diffie–Hellman?</summary><p>No. Hay que distinguir el problema matemático en que se apoya un mecanismo de la operación que permite realizar.</p>
 </details>
 
 
         <section class="wiki-section" aria-labelledby="relacionados"><h2 id="relacionados">Conceptos relacionados</h2><ul><li><a href="../../../../key-agreement/dh/">Diffie–Hellman</a></li><li><a href="../rsa/">RSA</a></li><li><a href="../../../../signature/">Firma digital</a></li></ul></section>
-        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Cripto, parte 2 · pp. 10. <span>Material de cátedra, fuente local de trabajo; PDF no distribuido por este sitio.</span></li></ul></section>
+        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Cripto, parte 2 · <a href="../../../../../../docs/catedra%20cosas/03%20-%20Cripto%20parte%202.pdf#page=10" target="_blank" rel="noopener">p. 10 ↗</a>. <span>Material de cátedra</span></li><li><a href="../../../../../../glosario.html">Explorar el glosario completo ↗</a></li></ul></section>
       </main>
       <footer class="wiki-footer"><p>IC 2026 · Elaboración didáctica original basada en las fuentes indicadas. Las páginas citadas corresponden al archivo PDF, contando desde 1.</p><a href="../../../../../">Volver al inicio de la wiki</a></footer>
     </div>

@@ -34,14 +34,22 @@
       <main id="wiki-main" class="wiki-article" tabindex="-1">
         <p class="eyebrow">INTRODUCCIÓN A LA CIBERSEGURIDAD · CATEGORÍA</p>
         <h1>Cifrado por transposición</h1>
-        <h2 id="que-cambia-de-lugar">Qué cambia de lugar</h2>
-<p>La transposición reordena unidades del texto mediante un esquema definido. Conserva los símbolos, aunque una convención de relleno puede añadir otros para completar una tabla. La reconstrucción exige conocer cómo se llenó y cómo se leyó la estructura.</p>
-<p>La escítala relaciona el orden con un soporte físico. Las transposiciones columnar y por grilla emplean tablas; rail fence utiliza rieles en zigzag. La inversión completa es el caso elemental de leer el mensaje en sentido contrario.</p>
-<p>Sin relleno ni otras transformaciones, el recuento de cada letra se conserva. Esta observación permite formular hipótesis, pero no identificar por sí sola cuál de los métodos se usó.</p>
+        <h2 id="cambiar-el-orden-de-los-simbolos">Cambiar el orden de los símbolos</h2>
+<p>Un <strong>cifrado por transposición</strong> reordena unidades del texto mediante un esquema definido. La explicación de la Práctica 1, parte 1, página 9, aclara que esas unidades pueden ser letras o grupos de letras.</p>
+<p>Para recuperar el mensaje debe reconstruirse cómo se distribuyeron y leyeron sus símbolos. A diferencia de una sustitución, la operación central no reemplaza cada letra por otra.</p>
+<h2 id="metodos-de-transposicion-de-esta-seccion">Métodos de transposición de esta sección</h2>
+<ul>
+<li><a href="scytale/">Escítala</a>: relaciona el orden de lectura con un soporte físico.</li>
+<li><a href="columnar/">Transposición columnar</a>: escribe por filas y lee columnas en un orden acordado.</li>
+<li><a href="reversal/">Transposición por inversión</a>: lee el mensaje en el sentido contrario.</li>
+<li><a href="grid/">Transposición por grilla</a>: utiliza una tabla y reglas de llenado y lectura.</li>
+<li><a href="rail-fence/">Rail fence</a>: distribuye los símbolos en rieles siguiendo un zigzag.</li>
+</ul>
+<p>El manual complementario, página 7, y la guía de prácticas, páginas 3–4, amplían estos procedimientos. Sin relleno ni otras transformaciones se conserva el recuento de cada letra. Eso orienta el reconocimiento, pero no identifica por sí solo el método utilizado.</p>
 
 <section class="wiki-section" aria-labelledby="subtemas"><h2 id="subtemas">Subtemas</h2><ul class="wiki-cards"><li><a href="scytale/">Escítala</a></li><li><a href="columnar/">Transposición columnar</a></li><li><a href="reversal/">Transposición por inversión</a></li><li><a href="grid/">Transposición por grilla</a></li><li><a href="rail-fence/">Transposición rail fence</a></li></ul></section>
         <section class="wiki-section" aria-labelledby="relacionados"><h2 id="relacionados">Conceptos relacionados</h2><ul><li><a href="../substitution/">Cifrado por sustitución</a></li></ul></section>
-        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Explicación de la práctica 1, parte 1 · pp. 9. <span>Material de cátedra, fuente local de trabajo; PDF no distribuido por este sitio.</span></li><li><a href="../../../../../docs/Manual_IC2026_Cripto_CSIRT_Malware_Descarga.pdf#page=7" target="_blank" rel="noopener">Manual de estudio: Cripto, CSIRT y Malware</a> · pp. 7. <span>Material complementario, PDF disponible.</span></li><li><a href="../../../../../docs/Guia_de_estudio_IC_Practicas_1_y_2.pdf#page=3" target="_blank" rel="noopener">Guía de estudio de prácticas 1 y 2</a> · pp. 3, 4. <span>Material complementario, PDF disponible.</span></li></ul></section>
+        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Explicación de la práctica 1, parte 1 · <a href="../../../../../docs/catedra%20cosas/Explicaci%C3%B3n%20-%20Pr%C3%A1ctica%201%20-%20Parte%201.pdf#page=9" target="_blank" rel="noopener">p. 9 ↗</a>. <span>Material de cátedra</span></li><li>Manual de estudio: Cripto, CSIRT y Malware · <a href="../../../../../docs/Manual_IC2026_Cripto_CSIRT_Malware_Descarga.pdf#page=7" target="_blank" rel="noopener">p. 7 ↗</a>. <span>Material complementario</span></li><li>Guía de estudio de prácticas 1 y 2 · <a href="../../../../../docs/Guia_de_estudio_IC_Practicas_1_y_2.pdf#page=3" target="_blank" rel="noopener">p. 3 ↗</a>, <a href="../../../../../docs/Guia_de_estudio_IC_Practicas_1_y_2.pdf#page=4" target="_blank" rel="noopener">p. 4 ↗</a>. <span>Material complementario</span></li><li>Glosario · <a href="../../../../../glosario.html#clasicos">Sustitución, transposición y Enigma ↗</a></li><li><a href="../../../../../glosario.html">Explorar el glosario completo ↗</a></li></ul></section>
       </main>
       <footer class="wiki-footer"><p>IC 2026 · Elaboración didáctica original basada en las fuentes indicadas. Las páginas citadas corresponden al archivo PDF, contando desde 1.</p><a href="../../../../">Volver al inicio de la wiki</a></footer>
     </div>

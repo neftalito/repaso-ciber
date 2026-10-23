@@ -34,21 +34,27 @@
       <main id="wiki-main" class="wiki-article" tabindex="-1">
         <p class="eyebrow">INTRODUCCIÓN A LA CIBERSEGURIDAD · CONCEPTO</p>
         <h1>Firma digital</h1>
-        <h2 id="definicion">Definición</h2>
-<p>Una firma digital vincula un documento con el control de una clave privada y permite comprobar su integridad y autenticidad de origen. El material también la relaciona con el no repudio. La evaluación de identidad requiere establecer de quién es la clave pública empleada para verificar.</p>
-<h2 id="firma-y-verificacion">Firma y verificación</h2>
-<p>El modelo de clase calcula un hash del documento y genera la firma con la clave privada del emisor. El receptor calcula de nuevo el hash y verifica la firma con la clave pública correspondiente.</p>
-<p>Las diapositivas describen el caso didáctico RSA como «cifrar el hash con la privada». Esa explicación no debe generalizarse a todo algoritmo de firma: <a href="dsa/">DSA</a>, por ejemplo, se presenta como un mecanismo de firma, no de cifrado. Firmar y verificar son las operaciones conceptuales generales.</p>
-<h2 id="ejemplo-de-razonamiento">Ejemplo de razonamiento</h2>
-<p>Si un informe firmado cambia después de la firma, la verificación sobre ese nuevo contenido no debe aceptarlo como el mismo documento firmado. Si la firma se verifica, todavía debe comprobarse que la clave corresponde a la persona esperada.</p>
-<h2 id="limites">Límites</h2>
-<p>Una firma no oculta el documento. Puede enviarse un mensaje firmado y legible. Tampoco basta recibir una clave pública con un nombre escrito en ella: certificados o redes de confianza abordan esa asociación.</p>
-<details class="wiki-review"><summary>¿Por qué la firma no reemplaza el cifrado?</summary><p>Porque comprobar origen e integridad es distinto de restringir la lectura. Un documento puede estar firmado y ser público; para confidencialidad se necesita además un esquema de cifrado.</p>
+        <h2 id="vincular-un-documento-con-una-clave-privada">Vincular un documento con una clave privada</h2>
+<p>Una <strong>firma digital</strong> permite comprobar la integridad de un documento y su autenticidad de origen mediante una clave pública. La firma se genera con la clave privada correspondiente. Para atribuirla a una persona también debe establecerse a quién pertenece esa clave.</p>
+<p>Cripto, parte 2, páginas 11–13, y la explicación de la Práctica 1, parte 2, página 3, relacionan la firma con integridad, autenticación de origen y no repudio.</p>
+<h2 id="como-se-firma-y-verifica">Cómo se firma y verifica</h2>
+<p>En el modelo didáctico de la cátedra:</p>
+<ol>
+<li>El emisor calcula el hash del documento.</li>
+<li>Genera una firma de ese resumen con su clave privada.</li>
+<li>El receptor calcula el hash del documento recibido.</li>
+<li>Verifica la firma con la clave pública del emisor y comprueba su correspondencia con el documento.</li>
+</ol>
+<p>Las diapositivas describen el caso RSA como «cifrar el hash con la privada». Esa descripción no debe generalizarse a todos los algoritmos: <a href="dsa/">DSA</a>, por ejemplo, se presenta para firma. Las operaciones generales son firmar y verificar.</p>
+<h2 id="que-comprobacion-falta-sobre-la-identidad">Qué comprobación falta sobre la identidad</h2>
+<p>La página 13 plantea el problema de saber cuál es la clave de una persona. Una firma matemáticamente verificable no resuelve por sí sola esa asociación. Los certificados y las redes de confianza abordan ese vínculo.</p>
+<p>Firmar tampoco oculta el contenido. Puede enviarse un documento firmado y legible; para restringir su lectura se necesita además cifrado.</p>
+<details class="wiki-review"><summary>¿Por qué una firma no reemplaza el cifrado?</summary><p>Porque comprobar origen e integridad y restringir la lectura son objetivos distintos. Un documento puede estar firmado y ser público.</p>
 </details>
 
 <section class="wiki-section" aria-labelledby="subtemas"><h2 id="subtemas">Subtemas</h2><ul class="wiki-cards"><li><a href="dsa/">DSA</a></li></ul></section>
         <section class="wiki-section" aria-labelledby="relacionados"><h2 id="relacionados">Conceptos relacionados</h2><ul><li><a href="../hash/">Funciones hash</a></li><li><a href="../certificate/">Certificados digitales</a></li><li><a href="../pgp/">PGP</a></li><li><a href="../../fundamentals/cia/">Tríada CIA</a></li></ul></section>
-        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Cripto, parte 2 · pp. 6, 11, 12, 13. <span>Material de cátedra, fuente local de trabajo; PDF no distribuido por este sitio.</span></li><li>Explicación de la práctica 1, parte 2 · pp. 3. <span>Material de cátedra, fuente local de trabajo; PDF no distribuido por este sitio.</span></li><li><a href="../../../docs/Manual_IC2026_Cripto_CSIRT_Malware_Descarga.pdf#page=6" target="_blank" rel="noopener">Manual de estudio: Cripto, CSIRT y Malware</a> · pp. 6. <span>Material complementario, PDF disponible.</span></li></ul></section>
+        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Cripto, parte 2 · <a href="../../../docs/catedra%20cosas/03%20-%20Cripto%20parte%202.pdf#page=6" target="_blank" rel="noopener">p. 6 ↗</a>, <a href="../../../docs/catedra%20cosas/03%20-%20Cripto%20parte%202.pdf#page=11" target="_blank" rel="noopener">p. 11 ↗</a>, <a href="../../../docs/catedra%20cosas/03%20-%20Cripto%20parte%202.pdf#page=12" target="_blank" rel="noopener">p. 12 ↗</a>, <a href="../../../docs/catedra%20cosas/03%20-%20Cripto%20parte%202.pdf#page=13" target="_blank" rel="noopener">p. 13 ↗</a>. <span>Material de cátedra</span></li><li>Explicación de la práctica 1, parte 2 · <a href="../../../docs/catedra%20cosas/Explicaci%C3%B3n%20-%20Pr%C3%A1ctica%201%20-%20Parte%202.pdf#page=3" target="_blank" rel="noopener">p. 3 ↗</a>. <span>Material de cátedra</span></li><li>Manual de estudio: Cripto, CSIRT y Malware · <a href="../../../docs/Manual_IC2026_Cripto_CSIRT_Malware_Descarga.pdf#page=6" target="_blank" rel="noopener">p. 6 ↗</a>. <span>Material complementario</span></li><li>Glosario · <a href="../../../glosario.html#firma">Firma digital y autenticidad ↗</a></li><li>Glosario · <a href="../../../glosario.html#no-repudio">No repudio ↗</a></li><li><a href="../../../glosario.html">Explorar el glosario completo ↗</a></li></ul></section>
       </main>
       <footer class="wiki-footer"><p>IC 2026 · Elaboración didáctica original basada en las fuentes indicadas. Las páginas citadas corresponden al archivo PDF, contando desde 1.</p><a href="../../">Volver al inicio de la wiki</a></footer>
     </div>

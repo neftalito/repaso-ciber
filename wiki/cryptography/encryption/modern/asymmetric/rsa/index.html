@@ -34,22 +34,54 @@
       <main id="wiki-main" class="wiki-article" tabindex="-1">
         <p class="eyebrow">INTRODUCCIÓN A LA CIBERSEGURIDAD · ALGORITMO</p>
         <h1>RSA</h1>
-        <h2 id="definicion">Definición</h2>
-<p>RSA es un sistema de clave pública utilizado en esquemas de cifrado y firma. La práctica lo estudia mediante aritmética modular y relaciona la obtención de la clave privada con la dificultad de factorizar un módulo grande.</p>
-<h2 id="modelo-matematico-del-ejercicio">Modelo matemático del ejercicio</h2>
-<p>Se eligen primos distintos <code>p</code> y <code>q</code>, se calcula <code>n=p×q</code> y <code>φ(n)=(p-1)(q-1)</code>. Se escoge <code>e</code> coprimo con <code>φ(n)</code> y se obtiene <code>d</code> como su inverso modular: <code>e×d ≡ 1 mod φ(n)</code>.</p>
-<p>La clave pública es <code>(n,e)</code> y el exponente privado es <code>d</code>. Para un entero <code>0 ≤ m &lt; n</code>, el modelo simplificado cifra <code>c = m^e mod n</code> y descifra <code>m = c^d mod n</code>.</p>
-<h2 id="ejemplo-original-pequeno">Ejemplo original pequeño</h2>
-<p>Tomando <code>p=11</code>, <code>q=17</code>, se obtiene <code>n=187</code> y <code>φ(n)=160</code>. Para <code>e=7</code>, un inverso es <code>d=23</code>, porque <code>7×23=161</code>, que deja resto 1 al dividir por 160.</p>
-<p>Con <code>m=42</code>, el cifrado es <code>42^7 mod 187 = 15</code>. El descifrado <code>15^23 mod 187 = 42</code> recupera el valor de entrada. Los primos son deliberadamente pequeños y el ejemplo no incluye un esquema de relleno.</p>
-<h2 id="cuidado-con-la-fuente">Cuidado con la fuente</h2>
-<p>La página 2 de la explicación práctica indica un valor de <code>d</code> al derivar la clave y otro distinto en la expresión posterior de descifrado. Para sus valores p, q y e, el inverso correcto es <code>56692460753</code>, que aparece en el descifrado; el valor <code>59397641569</code> impreso durante la derivación no satisface la condición modular. No deben mezclarse exponentes: hay que comprobar el inverso y la recuperación del mensaje.</p>
-<details class="wiki-review"><summary>¿Por qué conocer p y q cambia el problema del ejercicio?</summary><p>Permite calcular φ(n) y, a partir de e, su inverso modular d. Conocer solamente el módulo público n no entrega directamente esos factores.</p>
+        <h2 id="para-que-sirve">Para qué sirve</h2>
+<p><strong>RSA</strong> utiliza una clave pública y una privada relacionadas matemáticamente. En un esquema de cifrado, quien envía el mensaje utiliza la clave pública del destinatario; este lo recupera con su clave privada. Cripto, parte 2, página 10, también lo presenta para firma digital.</p>
+<p>La explicación de la Práctica 1, parte 2, páginas 1–2, desarrolla un modelo simplificado con números enteros. Su idea es que multiplicar dos primos permite construir el módulo público, mientras que conocer esos factores permite calcular el exponente privado. La fuente relaciona la seguridad con la dificultad de factorizar un módulo grande.</p>
+<h2 id="que-representa-cada-valor">Qué representa cada valor</h2>
+<ul>
+<li><code>p</code> y <code>q</code>: dos números primos distintos que se mantienen secretos.</li>
+<li><code>n = p × q</code>: módulo que aparece tanto en la clave pública como en la privada.</li>
+<li><code>φ(n) = (p - 1)(q - 1)</code>: valor calculado con los factores y utilizado para elegir los exponentes.</li>
+<li><code>e</code>: exponente público, elegido coprimo con <code>φ(n)</code>; su único divisor positivo común es 1.</li>
+<li><code>d</code>: exponente privado, obtenido como inverso modular de <code>e</code> respecto de <code>φ(n)</code>.</li>
+</ul>
+<p>La clave pública es <code>(n, e)</code> y, en este modelo, la privada es <code>(n, d)</code>. Que <code>d</code> sea un inverso modular significa que <strong><code>e × d</code> deja resto 1 al dividirlo por <code>φ(n)</code></strong>.</p>
+<h2 id="generar-las-claves-del-ejemplo-de-la-catedra">Generar las claves del ejemplo de la cátedra</h2>
+<p>La página 2 utiliza estos valores:</p>
+<ol>
+<li>Elegir <code>p = 524287</code> y <code>q = 131071</code>.</li>
+<li>Multiplicarlos: <code>n = 68718821377</code>.</li>
+<li>Calcular <code>φ(n) = 524286 × 131070 = 68718166020</code>.</li>
+<li>Elegir <code>e = 65537</code>, coprimo con ese valor.</li>
+<li>Calcular su inverso modular: <strong><code>d = 56692460753</code></strong>.</li>
+</ol>
+<p><strong>Corrección de una inconsistencia del PDF:</strong> la derivación impresa indica <code>d = 59397641569</code>, pero el descifrado posterior usa <code>56692460753</code>. Para los valores de <code>p</code>, <code>q</code> y <code>e</code> del propio ejemplo, el segundo valor es el inverso correcto: <code>(65537 × 56692460753) mod 68718166020 = 1</code>. La explicación conserva los datos del ejercicio y utiliza ese valor coherente en ambas operaciones.</p>
+<h2 id="cifrar-el-mensaje-hola">Cifrar el mensaje «hola»</h2>
+<p>Antes de operar, el mensaje debe representarse como un entero. En el ejemplo oficial:</p>
+<ol>
+<li>Los bytes de <code>hola</code> se escriben en hexadecimal como <code>686f6c61</code>.</li>
+<li>Su valor entero es <code>m = 1752132705</code>, menor que <code>n</code>.</li>
+<li>Se eleva <code>m</code> al exponente público y se conserva el resto de dividir por <code>n</code>:</li>
+</ol>
+<pre><code class="language-text">c = m^e mod n
+c = 1752132705^65537 mod 68718821377
+c = 21543768249
+</code></pre>
+<p><code>mod n</code> significa tomar ese resto. El resultado <code>c</code> es el entero cifrado del ejercicio, no una representación hexadecimal del mensaje.</p>
+<h2 id="descifrar-y-recuperar-el-texto">Descifrar y recuperar el texto</h2>
+<p>El destinatario aplica su exponente privado al entero recibido:</p>
+<pre><code class="language-text">m = c^d mod n
+m = 21543768249^56692460753 mod 68718821377
+m = 1752132705
+</code></pre>
+<p>Al representar de nuevo ese entero como los bytes <code>68 6f 6c 61</code>, se recupera <strong><code>hola</code></strong>.</p>
+<p>La guía complementaria, página 6, advierte que este RSA simplificado no debe trasladarse directamente a una aplicación: los parámetros y el relleno seguro forman parte del esquema real.</p>
+<details class="wiki-review"><summary>¿Por qué conocer p y q cambia el problema del ejercicio?</summary><p>Porque permite calcular φ(n) y obtener d como inverso modular de e. El módulo público n es su producto, pero no entrega por separado esos factores.</p>
 </details>
 
 
         <section class="wiki-section" aria-labelledby="relacionados"><h2 id="relacionados">Conceptos relacionados</h2><ul><li><a href="../../../../signature/">Firma digital</a></li><li><a href="../../../../encoding/numbers/">Representaciones numéricas</a></li><li><a href="../../../">Cifrado</a></li></ul></section>
-        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Cripto, parte 2 · pp. 10, 12. <span>Material de cátedra, fuente local de trabajo; PDF no distribuido por este sitio.</span></li><li>Explicación de la práctica 1, parte 2 · pp. 1, 2. <span>Material de cátedra, fuente local de trabajo; PDF no distribuido por este sitio.</span></li><li><a href="../../../../../../docs/Guia_de_estudio_IC_Practicas_1_y_2.pdf#page=6" target="_blank" rel="noopener">Guía de estudio de prácticas 1 y 2</a> · pp. 6. <span>Material complementario, PDF disponible.</span></li></ul></section>
+        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Cripto, parte 2 · <a href="../../../../../../docs/catedra%20cosas/03%20-%20Cripto%20parte%202.pdf#page=10" target="_blank" rel="noopener">p. 10 ↗</a>, <a href="../../../../../../docs/catedra%20cosas/03%20-%20Cripto%20parte%202.pdf#page=12" target="_blank" rel="noopener">p. 12 ↗</a>. <span>Material de cátedra</span></li><li>Explicación de la práctica 1, parte 2 · <a href="../../../../../../docs/catedra%20cosas/Explicaci%C3%B3n%20-%20Pr%C3%A1ctica%201%20-%20Parte%202.pdf#page=1" target="_blank" rel="noopener">p. 1 ↗</a>, <a href="../../../../../../docs/catedra%20cosas/Explicaci%C3%B3n%20-%20Pr%C3%A1ctica%201%20-%20Parte%202.pdf#page=2" target="_blank" rel="noopener">p. 2 ↗</a>. <span>Material de cátedra</span></li><li>Guía de estudio de prácticas 1 y 2 · <a href="../../../../../../docs/Guia_de_estudio_IC_Practicas_1_y_2.pdf#page=6" target="_blank" rel="noopener">p. 6 ↗</a>. <span>Material complementario</span></li><li>Glosario · <a href="../../../../../../glosario.html#rsa">RSA: parámetros, factorización y descifrado ↗</a></li><li><a href="../../../../../../glosario.html">Explorar el glosario completo ↗</a></li></ul></section>
       </main>
       <footer class="wiki-footer"><p>IC 2026 · Elaboración didáctica original basada en las fuentes indicadas. Las páginas citadas corresponden al archivo PDF, contando desde 1.</p><a href="../../../../../">Volver al inicio de la wiki</a></footer>
     </div>

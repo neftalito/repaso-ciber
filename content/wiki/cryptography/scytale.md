@@ -5,6 +5,8 @@
 
 La escítala es un mecanismo histórico de transposición asociado con una tira enrollada alrededor de una vara. Se escribe siguiendo la disposición de la tira sobre el soporte; al desenrollarla, el orden visible ya no coincide con la lectura original.
 
+La página 12 de *Cripto, parte 1* enumera la escítala como ejemplo histórico. El mecanismo se desarrolla en el manual complementario, página 7.
+
 ## Papel del soporte
 
 Un soporte de dimensiones compatibles permite reconstruir la alineación y recuperar el orden del mensaje. El grosor funciona como parte de la configuración compartida: cambiar la geometría altera qué caracteres quedan próximos durante la lectura.

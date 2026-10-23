@@ -1,25 +1,31 @@
 ---
 {"id":"crypto-rail-fence","title":"Transposición rail fence","slug":"rail-fence","parent":"crypto-transposition","type":"algorithm","order":50,"related":["crypto-columnar","crypto-transposition"],"sources":[{"id":"practice-guide","pages":[3]},{"id":"practice-solutions","pages":[4]}],"permalink":"cryptography/encryption/classical/transposition/rail-fence"}
 ---
-## Rieles y recorrido
+## Distribuir letras en rieles
 
-Rail fence distribuye el mensaje sobre varios rieles siguiendo un zigzag y luego lee cada riel completo. La guía y el solucionario complementarios permiten distinguirlo de la transposición columnar.
+**Rail fence** es una transposición: distribuye las letras del mensaje en un zigzag sobre varios rieles y después lee cada riel completo. Cambia el orden de los símbolos, no los reemplaza.
 
-## Ejemplo original de dos rieles
+La guía y el solucionario de prácticas lo incluyen como contenido complementario. Su desarrollo no procede de una explicación de este algoritmo en las diapositivas oficiales.
 
-En `LUNARES`, se alternan los rieles al colocar las letras:
+## Ejemplo complementario con dos rieles
+
+El solucionario de prácticas, página 4, presenta el cifrado `CBRIE` y pide recuperar el mensaje con dos rieles. Para entenderlo, se puede reconstruir la distribución del original `CIBER`:
 
 ```text
-Riel 1: L . N . R . S
-Riel 2: . U . A . E .
+Riel 1: C . B . R
+Riel 2: . I . E .
 ```
 
-Al concatenar los rieles se obtiene `LNRSUAE`. Para descifrar se cuentan cuatro posiciones en el primero y tres en el segundo, se distribuyen los grupos y se reconstruye la alternancia.
+Leer el primer riel y después el segundo produce **`CBRIE`**.
 
-## Límite
+## Cómo se descifra este caso
 
-Con más rieles debe reconstruirse el zigzag completo, no simplemente repartir todos los grupos con la misma longitud. El número de rieles y el recorrido son parámetros del ejercicio.
+1. Hay cinco posiciones que alternan entre los dos rieles. El primero recibe las posiciones 1, 3 y 5; el segundo, las posiciones 2 y 4.
+2. Se separa el cifrado en `CBR` para el primer riel e `IE` para el segundo.
+3. Se intercalan las letras siguiendo la alternancia original: C, I, B, E, R.
 
-:::question ¿Por qué el primer riel puede tener más letras que el segundo?
-En el ejemplo se empieza arriba y hay siete letras. Las posiciones impares quedan en el primer riel y son cuatro; las pares quedan en el segundo y son tres.
+El mensaje recuperado es **`CIBER`**. Con más rieles hay que reconstruir el zigzag completo; el reparto de este ejemplo corresponde específicamente a dos.
+
+:::question ¿Por qué los dos grupos tienen distinta longitud?
+Porque el recorrido comienza en el primer riel y hay cinco letras. Ese riel recibe tres posiciones y el segundo recibe dos.
 :::

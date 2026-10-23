@@ -3,7 +3,7 @@
 ---
 ## Fragmento del ejercicio
 
-El caso propone interpretar una concatenación de códigos de caracteres: `Chr(73) & Chr(67) & Chr(123) & Chr(125)`. No es necesario ejecutar VBScript para resolverla; basta interpretar los valores decimales como indica el enunciado.
+El objetivo es recuperar texto a partir de datos conocidos sin activar el script. El solucionario complementario, página 20, propone esta concatenación de códigos de caracteres: `Chr(73) & Chr(67) & Chr(123) & Chr(125)`. No es necesario ejecutar VBScript para resolverla; basta interpretar los valores decimales como indica el enunciado.
 
 ## Resolución por datos
 

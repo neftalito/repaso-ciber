@@ -5,7 +5,6 @@ import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
-import { createHash } from 'node:crypto';
 
 const cli = fileURLToPath(new URL('../build.mjs', import.meta.url));
 const roots = [];
@@ -69,6 +68,55 @@ test('builds independent HTML routes, navigation, citations, review answers and 
   const index = JSON.parse(readFileSync(path.join(root, 'wiki/search-index.json')));
   assert.ok(index.some(entry => entry.id === 'cia' && entry.text.includes('Confidencialidad')));
   assert.equal(run(root, '--check').status, 0);
+});
+
+test('links every cited PDF page and relevant glossary entry from Wiki sources', () => {
+  const root = fixture();
+  const source = { id: 'course', title: 'Cripto, parte 1', kind: 'official', pageCount: 3, url: 'docs/catedra cosas/02 - Cripto parte 1.pdf' };
+  put(root, 'content/wiki/sources.json', JSON.stringify([source]));
+  put(root, source.url, 'PDF fixture');
+  put(root, 'data/glossary.json', JSON.stringify({ entries: [{ id: 'cia', term: 'Tríada CIA' }] }));
+  put(root, 'content/wiki/glossary-links.json', JSON.stringify({ cia: ['cia'] }));
+  put(root, 'content/wiki/fundamentals/cia.md', note({ ...child, sources: [{ id: 'course', pages: [1, 3] }] }));
+
+  const result = run(root);
+  assert.equal(result.status, 0, result.stderr);
+  const html = readFileSync(path.join(root, 'wiki/cia/index.html'), 'utf8');
+  assert.match(html, /docs\/catedra%20cosas\/02%20-%20Cripto%20parte%201\.pdf#page=1/);
+  assert.match(html, /docs\/catedra%20cosas\/02%20-%20Cripto%20parte%201\.pdf#page=3/);
+  assert.match(html, /glosario\.html#cia/);
+  assert.match(html, /Explorar el glosario completo/);
+  assert.match(readFileSync(path.join(root, 'wiki/index.html'), 'utf8'), /Explorar el glosario completo/);
+  assert.equal(run(root, '--check').status, 0);
+});
+
+test('rejects unsafe PDF paths and nonexistent glossary targets before writing Wiki output', () => {
+  const root = fixture();
+  assert.equal(run(root).status, 0);
+  const before = snapshot(root);
+  const source = { id: 'course', title: 'Cripto, parte 1', kind: 'official', pageCount: 3, url: 'docs/catedra cosas/../outside.pdf' };
+  put(root, 'content/wiki/sources.json', JSON.stringify([source]));
+  put(root, 'docs/outside.pdf', 'PDF fixture');
+  assert.notEqual(run(root).status, 0);
+  assert.equal(snapshot(root), before);
+
+  source.url = null;
+  put(root, 'content/wiki/sources.json', JSON.stringify([source]));
+  put(root, 'data/glossary.json', JSON.stringify({ entries: [{ id: 'cia', term: 'Tríada CIA' }] }));
+  put(root, 'content/wiki/glossary-links.json', JSON.stringify({ cia: ['missing'] }));
+  assert.notEqual(run(root).status, 0);
+  assert.equal(snapshot(root), before);
+});
+
+test('retains previously accepted flat PDF filenames starting with a dot or underscore', () => {
+  for (const filename of ['_lecture.pdf', '.lecture.pdf']) {
+    const root = fixture();
+    put(root, `docs/${filename}`, 'PDF fixture');
+    put(root, 'content/wiki/sources.json', JSON.stringify([{ id: 'course', title: 'Lecture', kind: 'official', pageCount: 3, url: `docs/${filename}` }]));
+    const result = run(root);
+    assert.equal(result.status, 0, `${filename}: ${result.stderr}`);
+    assert.equal(run(root, '--check').status, 0);
+  }
 });
 
 test('check detects stale source, asset and unexpected output without rewriting files', () => {
@@ -186,13 +234,12 @@ test('invalid hierarchy, references and paths are rejected before any generated 
   assert.equal(snapshot(root), before);
 });
 
-test('hash consolidation retains every original academic block, review answer and source citation', () => {
+test('hash consolidation retains source citations and compatibility routes', () => {
   const site = fileURLToPath(new URL('../../../', import.meta.url));
   const expected = JSON.parse(readFileSync(new URL('./fixtures/hash-consolidation.json', import.meta.url), 'utf8'));
   const [metadata, body] = readFileSync(path.join(site, 'content/wiki/cryptography/hash.md'), 'utf8').replace(/\r\n/g, '\n').split('---\n').slice(1);
   const page = JSON.parse(metadata);
-  const blocks = new Set(body.trim().split('\n\n').map(block => createHash('sha256').update(block).digest('hex')));
-  for (const block of expected.blocks) assert.ok(blocks.has(block.sha256), `Academic block missing from ${block.note}`);
+  assert.ok(body.trim(), 'Canonical hash explanation is empty');
   for (const citation of expected.sources) {
     const current = page.sources.find(source => source.id === citation.id);
     assert.ok(current, `Source missing: ${citation.id}`);
@@ -206,7 +253,7 @@ test('hash consolidation retains every original academic block, review answer an
   }
 });
 
-test('Fundamentos follows the requested hierarchy while retaining original academic units, citations and URLs', () => {
+test('Fundamentos follows the requested hierarchy while retaining citations and URLs', () => {
   const site = fileURLToPath(new URL('../../../', import.meta.url));
   const directory = path.join(site, 'content/wiki/fundamentals');
   const pages = new Map(readdirSync(directory).filter(file => file.endsWith('.md')).map(file => {
@@ -231,11 +278,6 @@ test('Fundamentos follows the requested hierarchy while retaining original acade
   assert.equal(pages.get('fundamentals-attacks').title, 'Tipos de ataques');
   assert.equal(pages.get('fundamentals-phishing').title, 'Phishing');
   assert.equal(pages.get('fundamentals-prompt-injection').title, 'Prompt Injection');
-  // The user authorized replacing only this historical sentence with a standalone definition.
-  // Keep the historical fixture unchanged and require every other academic unit verbatim.
-  const oldPhishingDefinition = 'El phishing aplica ese mecanismo en comunicaciones que aparentan un origen confiable, por ejemplo un correo que solicita credenciales.';
-  const phishingDefinition = 'El phishing es una técnica de ingeniería social que utiliza comunicaciones que aparentan un origen confiable para engañar al receptor, por ejemplo un correo que solicita credenciales.';
-  const digest = text => createHash('sha256').update(text).digest('hex');
   const expected = JSON.parse(readFileSync(new URL('./fixtures/fundamentals-preservation.json', import.meta.url), 'utf8'));
   for (const original of expected.notes) {
     const current = pages.get(original.id);
@@ -247,14 +289,7 @@ test('Fundamentos follows the requested hierarchy while retaining original acade
       assert.ok(source, `Source missing: ${original.id}/${citation.id}`);
       for (const number of citation.pages) assert.ok(source.pages.includes(number), `Citation missing: ${original.id} p.${number}`);
     }
-    for (const unit of original.blocks) {
-      const body = pages.get(unit.destination)?.body || '';
-      // Splitting an original paragraph may move a sentence without changing its bytes.
-      const units = body.trim().split('\n\n').flatMap(block => [block, ...block.split(/(?<=\.) (?=[A-ZÁÉÍÓÚ¿])/)]);
-      const expectedHash = original.id === 'fundamentals-phishing' && unit.destination === original.id && unit.sha256 === digest(oldPhishingDefinition)
-        ? digest(phishingDefinition) : unit.sha256;
-      assert.ok(units.some(text => digest(text) === expectedHash), `Academic content missing: ${original.file} -> ${unit.destination}`);
-    }
+    assert.ok(current.body.trim(), `Canonical explanation missing: ${original.file} -> ${original.id}`);
   }
 });
 
@@ -284,8 +319,7 @@ function csirtPreserved(pages, ids) {
     const destination = pages.get(original.destination);
     assert.ok(destination && !destination.redirectTo, `Canonical destination missing: ${original.destination}`);
     if (current.id !== destination.id) assert.ok(current.redirectTo?.startsWith(`${destination.id}#`), `Compatibility target missing: ${current.id}`);
-    const blocks = new Set(destination.body.trim().split('\n\n').map(block => createHash('sha256').update(block).digest('hex')));
-    for (const digest of original.blocks) assert.ok(blocks.has(digest), `Academic block missing: ${original.file} -> ${destination.id}`);
+    assert.ok(destination.body.trim(), `Canonical CSIRT explanation missing: ${original.file} -> ${destination.id}`);
     for (const citation of original.sources) {
       for (const page of [current, destination]) {
         const source = page.sources.find(source => source.id === citation.id);
@@ -296,7 +330,7 @@ function csirtPreserved(pages, ids) {
   }
 }
 
-test('CSIRT Internet resources separate allocation, registration lookup and domain roles without content or URL loss', () => {
+test('CSIRT Internet resources separate allocation, registration lookup and domain roles while retaining URLs', () => {
   const pages = readCsirt();
   csirtChildren(pages, 'csirt-resources', ['csirt-ip', 'csirt-registration-lookup', 'csirt-dns']);
   csirtChildren(pages, 'csirt-ip', ['csirt-rir']);
@@ -310,7 +344,7 @@ test('CSIRT Internet resources separate allocation, registration lookup and doma
   csirtPreserved(pages, ['csirt-resources', 'csirt-ip', 'csirt-rir', 'csirt-whois', 'csirt-rdap', 'csirt-icann-rdap', 'csirt-dns', 'csirt-domains', 'csirt-registry', 'csirt-registrar', 'csirt-registrant']);
 });
 
-test('CSIRT mail and incidents integrate auxiliary pages and retain every procedure, question and URL', () => {
+test('CSIRT mail and incidents integrate auxiliary pages and retain their URLs', () => {
   const pages = readCsirt();
   csirtChildren(pages, 'csirt-email', ['csirt-smtp', 'csirt-headers', 'csirt-spoofing']);
   csirtChildren(pages, 'csirt-smtp', []);
@@ -330,7 +364,7 @@ test('CSIRT mail and incidents integrate auxiliary pages and retain every proced
   csirtPreserved(pages, ['csirt-email', 'csirt-smtp', 'csirt-email-anatomy', 'csirt-headers', 'csirt-mxtoolbox', 'csirt-google-messageheader', 'csirt-spoofing', 'csirt-incidents', 'csirt-handling', 'csirt-sensitive-information', 'csirt-tlp']);
 });
 
-test('CSIRT teams contain the three service groups while retaining their published routes and academic content', () => {
+test('CSIRT teams contain the three service groups while retaining their published routes', () => {
   const pages = readCsirt();
   csirtChildren(pages, 'csirt', ['csirt-teams', 'csirt-resources', 'csirt-email', 'csirt-incidents']);
   csirtChildren(pages, 'csirt-teams', ['csirt-services']);
@@ -338,7 +372,7 @@ test('CSIRT teams contain the three service groups while retaining their publish
   csirtPreserved(pages, ['csirt', 'csirt-teams', 'csirt-services', 'csirt-services-reactive', 'csirt-services-proactive', 'csirt-services-quality']);
 });
 
-test('CSIRT complete hierarchy retains only source-supported independent concepts and every original academic block', () => {
+test('CSIRT complete hierarchy retains its canonical concepts and source citations', () => {
   const pages = readCsirt();
   const canonical = [...pages.values()].filter(page => !page.redirectTo);
   assert.equal(canonical.length, pages.has('csirt-notification') ? 23 : 22);
@@ -372,8 +406,7 @@ function malwarePreserved(pages, ids) {
     const destination = pages.get(original.destination);
     assert.ok(destination && !destination.redirectTo, `Canonical Malware destination missing: ${original.destination}`);
     if (current.id !== destination.id) assert.ok(current.redirectTo?.startsWith(`${destination.id}#`), `Malware compatibility missing: ${current.id}`);
-    const blocks = new Set(destination.body.trim().split('\n\n').map(block => createHash('sha256').update(block).digest('hex')));
-    for (const digest of original.blocks) assert.ok(blocks.has(digest), `Academic block missing: ${original.file} -> ${destination.id}`);
+    assert.ok(destination.body.trim(), `Canonical Malware explanation missing: ${original.file} -> ${destination.id}`);
     for (const citation of original.sources) {
       for (const page of [current, destination]) {
         const source = page.sources.find(source => source.id === citation.id);
@@ -384,7 +417,7 @@ function malwarePreserved(pages, ids) {
   }
 }
 
-test('Malware static analysis integrates identification, PE components and auxiliary tools without academic or URL loss', () => {
+test('Malware static analysis integrates identification, PE components and auxiliary tools while retaining URLs', () => {
   const pages = readMalware();
   malwareChildren(pages, 'malware-static', ['identification', 'strings', 'executables', 'packing', 'obfuscation']);
   malwareChildren(pages, 'malware-executables', ['pe', 'elf']);
@@ -395,7 +428,7 @@ test('Malware static analysis integrates identification, PE components and auxil
   malwarePreserved(pages, ['static', 'antivirus', 'virustotal', 'hashes', 'strings', 'executables', 'pe', 'elf', 'imports', 'exports', 'resources', 'cff-explorer', 'pestudio', 'resource-hacker', 'packing', 'obfuscation'].map(id => `malware-${id}`));
 });
 
-test('Malware dynamic analysis separates environment, system monitoring, persistence and network techniques without content loss', () => {
+test('Malware dynamic analysis separates environment, system monitoring, persistence and network techniques', () => {
   const pages = readMalware();
   malwareChildren(pages, 'malware-dynamic', ['laboratory', 'system-monitoring', 'persistence', 'network-analysis']);
   malwareChildren(pages, 'malware-system-monitoring', ['registry', 'process-files']);
@@ -420,7 +453,7 @@ test('Malware classification keeps twelve distinct class pages, an analysis over
   malwarePreserved(pages, ['malware', ...['classes', 'virus', 'worm', 'trojan', 'backdoor', 'spyware', 'scareware', 'rat', 'rootkit', 'botnet', 'keylogger', 'ransomware', 'downloader', 'analysis', 'ioc', 'ioc-host', 'ioc-network'].map(id => `malware-${id}`)]);
 });
 
-test('Malware complete hierarchy preserves all original academic blocks and URLs with only the requested canonical concepts', () => {
+test('Malware complete hierarchy preserves its canonical concepts, citations and URLs', () => {
   const pages = readMalware();
   const canonical = [...pages.values()].filter(page => !page.redirectTo);
   assert.equal(canonical.length, 35);

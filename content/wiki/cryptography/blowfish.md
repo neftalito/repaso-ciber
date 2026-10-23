@@ -1,18 +1,16 @@
 ---
 {"id":"crypto-blowfish","title":"Blowfish","slug":"blowfish","parent":"crypto-block-algorithms","type":"algorithm","order":60,"related":["crypto-symmetric","crypto-aes"],"sources":[{"id":"lecture-crypto-1","pages":[30]}],"permalink":"cryptography/encryption/modern/symmetric/blowfish"}
 ---
-## Definición dentro del temario
+## Qué es Blowfish
 
-Blowfish se incluye en la lista de ejemplos simétricos de la clase. Esa ubicación indica el modelo de clave compartida; no lo convierte en un formato de texto, una función hash ni un protocolo completo de comunicación.
+Blowfish es uno de los algoritmos **simétricos** enumerados en Cripto, parte 1, página 30. Su lugar en esa lista permite reconocer el modelo de clave compartida: las partes necesitan el secreto correspondiente para cifrar y descifrar.
 
-## Lectura de un procedimiento
+## Qué aporta conocer el nombre
 
-Un ejercicio puede presentar datos cifrados mediante una representación imprimible. En ese caso hay dos operaciones conceptuales: interpretar la representación para obtener bytes y aplicar el descifrado con el algoritmo y sus parámetros. Saber que aparece el nombre Blowfish no elimina ninguna de esas decisiones.
+Identificar el algoritmo ayuda a entender qué transformación se utilizó, pero no proporciona la clave ni resuelve cómo compartirla. La misma diapositiva destaca que la administración y el intercambio seguro de claves son problemas del cifrado simétrico.
 
-## Límite documental
+La fuente menciona Blowfish sin desarrollar su construcción ni sus parámetros. Para esta página, su función es reconocer un ejemplo de la familia; no se trasladan por analogía los tamaños o modos de AES.
 
-La diapositiva no desarrolla una modalidad de operación ni los parámetros internos de Blowfish. Se conserva como ejemplo de algoritmo, sin inventar un cálculo o trasladar parámetros de AES por analogía.
-
-:::question ¿Es correcto suponer que todo algoritmo simétrico utiliza los mismos tamaños de bloque y clave que AES?
-No. Pertenecer a una familia no establece parámetros idénticos. Es necesario consultar la especificación del algoritmo y del esquema concreto, que esta fuente no desarrolla para Blowfish.
+:::question ¿Dos algoritmos simétricos tienen necesariamente los mismos parámetros?
+No. La clasificación describe el uso de un secreto compartido, no establece tamaños ni configuraciones idénticos para todos sus integrantes.
 :::

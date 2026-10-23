@@ -1,24 +1,29 @@
 ---
 {"id":"crypto-signature","title":"Firma digital","slug":"signature","parent":"crypto-modern","type":"concept","order":50,"related":["crypto-hash","crypto-certificate","crypto-pgp","fundamentals-cia"],"sources":[{"id":"lecture-crypto-2","pages":[6,11,12,13]},{"id":"practice-1b","pages":[3]},{"id":"manual","pages":[6]}],"permalink":"cryptography/signature"}
 ---
-## Definición
+## Vincular un documento con una clave privada
 
-Una firma digital vincula un documento con el control de una clave privada y permite comprobar su integridad y autenticidad de origen. El material también la relaciona con el no repudio. La evaluación de identidad requiere establecer de quién es la clave pública empleada para verificar.
+Una **firma digital** permite comprobar la integridad de un documento y su autenticidad de origen mediante una clave pública. La firma se genera con la clave privada correspondiente. Para atribuirla a una persona también debe establecerse a quién pertenece esa clave.
 
-## Firma y verificación
+Cripto, parte 2, páginas 11–13, y la explicación de la Práctica 1, parte 2, página 3, relacionan la firma con integridad, autenticación de origen y no repudio.
 
-El modelo de clase calcula un hash del documento y genera la firma con la clave privada del emisor. El receptor calcula de nuevo el hash y verifica la firma con la clave pública correspondiente.
+## Cómo se firma y verifica
 
-Las diapositivas describen el caso didáctico RSA como «cifrar el hash con la privada». Esa explicación no debe generalizarse a todo algoritmo de firma: [DSA](wiki:crypto-dsa), por ejemplo, se presenta como un mecanismo de firma, no de cifrado. Firmar y verificar son las operaciones conceptuales generales.
+En el modelo didáctico de la cátedra:
 
-## Ejemplo de razonamiento
+1. El emisor calcula el hash del documento.
+2. Genera una firma de ese resumen con su clave privada.
+3. El receptor calcula el hash del documento recibido.
+4. Verifica la firma con la clave pública del emisor y comprueba su correspondencia con el documento.
 
-Si un informe firmado cambia después de la firma, la verificación sobre ese nuevo contenido no debe aceptarlo como el mismo documento firmado. Si la firma se verifica, todavía debe comprobarse que la clave corresponde a la persona esperada.
+Las diapositivas describen el caso RSA como «cifrar el hash con la privada». Esa descripción no debe generalizarse a todos los algoritmos: [DSA](wiki:crypto-dsa), por ejemplo, se presenta para firma. Las operaciones generales son firmar y verificar.
 
-## Límites
+## Qué comprobación falta sobre la identidad
 
-Una firma no oculta el documento. Puede enviarse un mensaje firmado y legible. Tampoco basta recibir una clave pública con un nombre escrito en ella: certificados o redes de confianza abordan esa asociación.
+La página 13 plantea el problema de saber cuál es la clave de una persona. Una firma matemáticamente verificable no resuelve por sí sola esa asociación. Los certificados y las redes de confianza abordan ese vínculo.
 
-:::question ¿Por qué la firma no reemplaza el cifrado?
-Porque comprobar origen e integridad es distinto de restringir la lectura. Un documento puede estar firmado y ser público; para confidencialidad se necesita además un esquema de cifrado.
+Firmar tampoco oculta el contenido. Puede enviarse un documento firmado y legible; para restringir su lectura se necesita además cifrado.
+
+:::question ¿Por qué una firma no reemplaza el cifrado?
+Porque comprobar origen e integridad y restringir la lectura son objetivos distintos. Un documento puede estar firmado y ser público.
 :::

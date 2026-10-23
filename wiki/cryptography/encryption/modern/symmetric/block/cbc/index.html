@@ -34,23 +34,32 @@
       <main id="wiki-main" class="wiki-article" tabindex="-1">
         <p class="eyebrow">INTRODUCCIÓN A LA CIBERSEGURIDAD · TÉCNICA</p>
         <h1>Modo CBC</h1>
-        <h2 id="encadenamiento">Encadenamiento</h2>
-<p>CBC, Cipher Block Chaining, combina cada bloque de texto plano con el bloque cifrado anterior mediante XOR antes de cifrarlo. El primero utiliza un vector de inicialización, IV, en lugar de un bloque anterior.</p>
-<pre><code class="language-text">C1 = E(K, P1 XOR IV)
-C2 = E(K, P2 XOR C1)
-P1 = D(K, C1) XOR IV
+        <h2 id="encadenar-los-bloques-antes-de-cifrar">Encadenar los bloques antes de cifrar</h2>
+<p>CBC, Cipher Block Chaining, combina cada bloque de texto plano mediante XOR con el bloque cifrado anterior y después aplica el cifrador. El primer bloque utiliza un vector de inicialización, IV, porque todavía no existe un bloque cifrado anterior.</p>
+<p>La intuición es que cada bloque deja de procesarse de manera independiente: su resultado depende de lo procesado antes. El diagrama de la página 27 de <em>Cripto, parte 1</em> muestra esa conexión entre bloques.</p>
+<h2 id="cifrado-paso-a-paso">Cifrado paso a paso</h2>
+<p>En las fórmulas, <code>P</code> es un bloque de texto plano, <code>C</code> un bloque cifrado y <code>K</code> la clave. <code>E</code> representa la operación de cifrado del algoritmo elegido.</p>
+<ol>
+<li>Combinar <code>P1</code> con el IV mediante XOR y cifrar el resultado: <code>C1 = E(K, P1 XOR IV)</code>.</li>
+<li>Combinar <code>P2</code> con el bloque cifrado obtenido, <code>C1</code>, y cifrar: <code>C2 = E(K, P2 XOR C1)</code>.</li>
+<li>Continuar utilizando como entrada de la combinación el bloque cifrado inmediatamente anterior.</li>
+</ol>
+<p>El encadenamiento utiliza <strong>el bloque cifrado anterior</strong>, no el anterior en texto plano.</p>
+<h2 id="como-se-recupera-el-texto">Cómo se recupera el texto</h2>
+<p>El manual complementario, página 11, desarrolla la operación inversa. <code>D</code> representa el descifrado del cifrador por bloques:</p>
+<pre><code class="language-text">P1 = D(K, C1) XOR IV
 P2 = D(K, C2) XOR C1
 </code></pre>
-<h2 id="que-cambia-respecto-de-ecb">Qué cambia respecto de ECB</h2>
-<p>Dos bloques planos iguales situados en contextos previos diferentes no quedan sujetos a la igualdad directa de ECB. El encadenamiento introduce la historia del mensaje. Esto explica la comparación de imágenes de la clase; no demuestra que CBC autentique el contenido.</p>
-<h2 id="parametros-y-limites">Parámetros y límites</h2>
-<p>El IV no es la clave secreta. El manual precisa que debe ser impredecible al cifrar nuevos mensajes. También debe conocerse el relleno cuando el texto no completa los bloques. El modo, por sí solo, no proporciona una comprobación de autenticidad.</p>
-<details class="wiki-review"><summary>¿Conocer la clave y omitir el IV permite reconstruir correctamente el primer bloque?</summary><p>No en general. Tras aplicar la operación inversa del cifrador todavía falta combinar el resultado con el IV usado para ese bloque.</p>
+<p>Primero se descifra el bloque y después se aplica XOR con el IV o con el bloque cifrado anterior. Por eso conocer la clave no permite omitir el IV para recuperar correctamente el primer bloque.</p>
+<h2 id="que-mejora-y-que-no-garantiza">Qué mejora y qué no garantiza</h2>
+<p>A diferencia de <a href="../ecb/">ECB</a>, la transformación no depende solo del bloque plano y la clave. Dos bloques planos iguales con entradas de encadenamiento diferentes no producen la repetición directa de ECB. La página 28 compara las imágenes resultantes para mostrar ese efecto sobre los patrones.</p>
+<p>El modo por sí solo no autentica el contenido. Además de la clave deben conocerse los parámetros del esquema, incluido el relleno cuando corresponda. El manual precisa que el IV debe ser impredecible al cifrar nuevos mensajes; no debe confundirse con la clave secreta.</p>
+<details class="wiki-review"><summary>¿Conocer la clave y omitir el IV permite reconstruir correctamente el primer bloque?</summary><p>No en general. Tras descifrar C1 todavía falta combinar el resultado con el IV utilizado en ese mensaje.</p>
 </details>
 
 
         <section class="wiki-section" aria-labelledby="relacionados"><h2 id="relacionados">Conceptos relacionados</h2><ul><li><a href="../ecb/">Modo ECB</a></li><li><a href="../../../../../xor/">Operación XOR</a></li><li><a href="../../../../../signature/">Firma digital</a></li></ul></section>
-        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Cripto, parte 1 · pp. 25, 27, 28. <span>Material de cátedra, fuente local de trabajo; PDF no distribuido por este sitio.</span></li><li><a href="../../../../../../../docs/Manual_IC2026_Cripto_CSIRT_Malware_Descarga.pdf#page=10" target="_blank" rel="noopener">Manual de estudio: Cripto, CSIRT y Malware</a> · pp. 10, 11. <span>Material complementario, PDF disponible.</span></li></ul></section>
+        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Cripto, parte 1 · <a href="../../../../../../../docs/catedra%20cosas/02%20-%20Cripto%20parte%201.pdf#page=25" target="_blank" rel="noopener">p. 25 ↗</a>, <a href="../../../../../../../docs/catedra%20cosas/02%20-%20Cripto%20parte%201.pdf#page=27" target="_blank" rel="noopener">p. 27 ↗</a>, <a href="../../../../../../../docs/catedra%20cosas/02%20-%20Cripto%20parte%201.pdf#page=28" target="_blank" rel="noopener">p. 28 ↗</a>. <span>Material de cátedra</span></li><li>Manual de estudio: Cripto, CSIRT y Malware · <a href="../../../../../../../docs/Manual_IC2026_Cripto_CSIRT_Malware_Descarga.pdf#page=10" target="_blank" rel="noopener">p. 10 ↗</a>, <a href="../../../../../../../docs/Manual_IC2026_Cripto_CSIRT_Malware_Descarga.pdf#page=11" target="_blank" rel="noopener">p. 11 ↗</a>. <span>Material complementario</span></li><li>Glosario · <a href="../../../../../../../glosario.html#cbc">CBC y encadenamiento ↗</a></li><li>Glosario · <a href="../../../../../../../glosario.html#iv">IV: vector de inicialización ↗</a></li><li><a href="../../../../../../../glosario.html">Explorar el glosario completo ↗</a></li></ul></section>
       </main>
       <footer class="wiki-footer"><p>IC 2026 · Elaboración didáctica original basada en las fuentes indicadas. Las páginas citadas corresponden al archivo PDF, contando desde 1.</p><a href="../../../../../../">Volver al inicio de la wiki</a></footer>
     </div>

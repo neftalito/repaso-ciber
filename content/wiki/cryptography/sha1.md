@@ -1,18 +1,20 @@
 ---
 {"id":"crypto-sha1","title":"SHA-1","slug":"sha1","parent":"crypto-hash","type":"algorithm","order":20,"related":["crypto-md5","crypto-sha2","crypto-collisions"],"sources":[{"id":"lecture-crypto-1","pages":[18]},{"id":"manual","pages":[8]},{"id":"practice-guide","pages":[4]}],"permalink":"cryptography/hash/sha1"}
 ---
-## Definición
+## Qué produce SHA-1
 
-SHA-1 produce resúmenes de 160 bits, equivalentes a 40 dígitos hexadecimales cuando se escriben completos y sin prefijos. Es una función hash: se calcula y compara, no se descifra.
+**SHA-1 es una función hash** que produce un resumen de 160 bits. Cripto, parte 1, página 18, lo incluye entre las funciones del temario. Su representación hexadecimal completa tiene 40 dígitos, como precisa la guía complementaria de prácticas, página 4.
 
-## Interpretación de una identificación
+## Cómo interpretar el resultado
 
-Encontrar cuarenta símbolos hexadecimales es una pista compatible con SHA-1. Para confirmar el algoritmo debe conocerse el procedimiento que produjo el valor o comprobarse una entrada disponible. La apariencia no permite deducir qué archivo o contraseña lo originó.
+El resumen permite calcular y comparar valores a partir de una entrada. Para comprobar un candidato se aplica SHA-1 a sus bytes y se compara el resultado; no se descifra el resumen recibido.
 
-## Limitación
+La longitud de cuarenta dígitos hexadecimales es una pista compatible con SHA-1. No identifica por sí sola el algoritmo ni revela la entrada que lo originó: también podría tratarse de otra función o de un resultado truncado.
 
-El manual complementario advierte que SHA-1 no es adecuado cuando se requiere resistencia a colisiones. La longitud de salida no basta para comparar la seguridad de funciones diferentes: también importan las debilidades del diseño y de los ataques conocidos que la fuente menciona.
+## Límite de seguridad
 
-:::question ¿Por qué comparar un candidato con SHA-1 no constituye descifrado?
-Se calcula la función hacia adelante sobre el candidato y se compara el resumen. No se aplica una operación inversa al digest recibido.
+El manual complementario, página 8, advierte que SHA-1 no es adecuado para aplicaciones que dependen de la resistencia a colisiones. La longitud del resumen y la resistencia a encontrar entradas distintas con el mismo resultado son cuestiones diferentes.
+
+:::question ¿Comparar el hash de un candidato equivale a descifrar?
+No. Se calcula la función hacia adelante sobre ese candidato y se comprueba si coincide con el resumen esperado.
 :::

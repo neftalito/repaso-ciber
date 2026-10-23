@@ -34,19 +34,20 @@
       <main id="wiki-main" class="wiki-article" tabindex="-1">
         <p class="eyebrow">INTRODUCCIÓN A LA CIBERSEGURIDAD · TÉCNICA</p>
         <h1>Canales encubiertos de red</h1>
-        <h2 id="definicion">Definición</h2>
-<p>Un canal encubierto utiliza un medio de comunicación para transportar información adicional de manera que su existencia pase inadvertida. La clase menciona IP, ICMP y DNS como contextos en los que pueden construirse esos canales.</p>
-<h2 id="como-interpretar-el-concepto">Cómo interpretar el concepto</h2>
-<p>El protocolo visible actúa como portador. El mensaje oculto depende de una regla que asigna información a elementos observables de la comunicación. Conocer que se usó DNS o ICMP no basta para concluir que existió un canal encubierto: también son protocolos con usos legítimos.</p>
-<h2 id="ejemplo-conceptual">Ejemplo conceptual</h2>
-<p>Un análisis puede investigar si un patrón de campos o contenidos transmite una secuencia adicional. La conclusión requiere evidenciar la regla, la secuencia recuperada y el contexto, sin confundir una coincidencia aislada con una demostración.</p>
-<p>Esta nota no configura infraestructura ni transmite datos. El objetivo es reconocer el mecanismo y registrar los límites de la evidencia.</p>
-<details class="wiki-review"><summary>¿Todo tráfico con contenido codificado constituye un canal encubierto?</summary><p>No. Una representación codificada puede ser parte del funcionamiento normal de un protocolo. Debe demostrarse el uso como portador de una comunicación adicional y su contexto.</p>
+        <h2 id="comunicacion-que-busca-pasar-inadvertida">Comunicación que busca pasar inadvertida</h2>
+<p>Un canal encubierto utiliza una comunicación como portador de información cuya existencia se intenta ocultar. En la esteganografía, la pregunta no es solamente qué significa el contenido: también importa que un observador no reconozca que se está transmitiendo ese mensaje adicional.</p>
+<p>La página 30 de <em>Cripto, parte 2</em> presenta IP, ICMP y DNS como protocolos que pueden utilizarse para construir canales encubiertos de red.</p>
+<h2 id="que-hace-falta-para-reconocerlo">Qué hace falta para reconocerlo</h2>
+<p>El protocolo visible aporta el medio de transporte. El esquema de ocultamiento establece cómo se incorpora y recupera la información. Identificar el protocolo, por sí solo, no demuestra que haya un mensaje oculto: hay que reconocer también la regla y la evidencia que respalda esa interpretación.</p>
+<h2 id="alcance-de-la-explicacion">Alcance de la explicación</h2>
+<p>La presentación enumera los protocolos, pero no desarrolla un formato de mensaje, campos concretos ni un procedimiento de extracción para cada uno. No permite deducir una implementación única a partir de la expresión «canal encubierto».</p>
+<p>Tampoco debe confundirse <a href="../../encoding/">codificar</a> el contenido con ocultar la existencia de la comunicación. Son funciones diferentes que deben analizarse según el caso.</p>
+<details class="wiki-review"><summary>¿Todo tráfico con contenido codificado constituye un canal encubierto?</summary><p>No. La codificación puede ser parte del funcionamiento visible de la comunicación. Para sostener la hipótesis de un canal encubierto se necesita evidencia del uso como portador de un mensaje oculto.</p>
 </details>
 
 
         <section class="wiki-section" aria-labelledby="relacionados"><h2 id="relacionados">Conceptos relacionados</h2><ul><li><a href="../../encoding/">Codificación</a></li><li><a href="../../../csirt/incidentes/">Incidentes de seguridad</a></li><li><a href="../../../malware/analysis/ioc/">Indicadores de compromiso (IOC)</a></li></ul></section>
-        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Cripto, parte 2 · pp. 30. <span>Material de cátedra, fuente local de trabajo; PDF no distribuido por este sitio.</span></li><li>Explicación de la práctica 1, parte 2 · pp. 6. <span>Material de cátedra, fuente local de trabajo; PDF no distribuido por este sitio.</span></li></ul></section>
+        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Cripto, parte 2 · <a href="../../../../docs/catedra%20cosas/03%20-%20Cripto%20parte%202.pdf#page=30" target="_blank" rel="noopener">p. 30 ↗</a>. <span>Material de cátedra</span></li><li>Explicación de la práctica 1, parte 2 · <a href="../../../../docs/catedra%20cosas/Explicaci%C3%B3n%20-%20Pr%C3%A1ctica%201%20-%20Parte%202.pdf#page=6" target="_blank" rel="noopener">p. 6 ↗</a>. <span>Material de cátedra</span></li><li>Glosario · <a href="../../../../glosario.html#canal-encubierto">Canales encubiertos: ICMP, DNS y PCAP ↗</a></li><li><a href="../../../../glosario.html">Explorar el glosario completo ↗</a></li></ul></section>
       </main>
       <footer class="wiki-footer"><p>IC 2026 · Elaboración didáctica original basada en las fuentes indicadas. Las páginas citadas corresponden al archivo PDF, contando desde 1.</p><a href="../../../">Volver al inicio de la wiki</a></footer>
     </div>

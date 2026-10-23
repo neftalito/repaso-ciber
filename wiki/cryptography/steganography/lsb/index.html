@@ -34,19 +34,31 @@
       <main id="wiki-main" class="wiki-article" tabindex="-1">
         <p class="eyebrow">INTRODUCCIÓN A LA CIBERSEGURIDAD · TÉCNICA</p>
         <h1>Técnica LSB</h1>
-        <h2 id="bit-menos-significativo">Bit menos significativo</h2>
-<p>LSB utiliza el bit de menor peso de valores digitales para transportar información. Cambiar ese bit modifica el valor en una unidad, lo que puede producir una alteración pequeña de una muestra o un componente de color. Pequeño no significa imposible de detectar.</p>
-<h2 id="ejemplo-original">Ejemplo original</h2>
-<p>El byte <code>10110110</code> vale 182. Su último bit es 0; si se necesita insertar un 1, se cambia a <code>10110111</code>, cuyo valor es 183. Para extraerlo se lee el último bit según la regla acordada.</p>
-<p>Para ocultar una secuencia de varios bits hay que fijar el orden de bytes, canales y bits, además de la longitud o condición de terminación. Sin esas convenciones, distintas extracciones pueden producir resultados diferentes.</p>
-<h2 id="portadores">Portadores</h2>
-<p>La clase aplica la idea a imágenes RGB y a muestras de audio. La técnica comparte el principio de alterar bits de poco peso, pero la estructura del portador determina dónde se ubican los valores y cómo se recorren.</p>
-<details class="wiki-review"><summary>¿Insertar un bit en cada byte significa agregar un byte nuevo al archivo?</summary><p>No en el modelo mostrado. Se modifica un bit de un valor existente. Eso no asegura que cualquier edición o conversión posterior conserve el mensaje.</p>
+        <h2 id="ocultar-informacion-en-bits-de-poco-peso">Ocultar información en bits de poco peso</h2>
+<p>LSB, <em>least significant bit</em>, utiliza el bit menos significativo de valores digitales para transportar información. Cambiar ese bit modifica el valor en una unidad. La idea es repartir cambios pequeños entre valores del portador para que el mensaje no resulte evidente a simple vista o al escuchar.</p>
+<p>Ese objetivo es distinto del <a href="../../encryption/">cifrado</a>: ocultar la presencia de datos no implica que su contenido quede protegido por una clave.</p>
+<h2 id="insertar-y-recuperar-un-bit">Insertar y recuperar un bit</h2>
+<p>Para insertar un bit se conserva el resto del valor y se hace que su último bit coincida con el del mensaje. Si ya coincide, no hace falta modificarlo. Para recuperarlo se lee ese último bit siguiendo el mismo recorrido.</p>
+<p>La extracción de una secuencia requiere conocer qué valores se utilizan, en qué orden se recorren y cuántos bits forman el mensaje. Encontrar un último bit aislado no establece por sí solo el contenido oculto.</p>
+<h2 id="ejemplo-del-solucionario-complementario">Ejemplo del solucionario complementario</h2>
+<p>La página 8 del solucionario de prácticas presenta ocho bytes de píxeles, con la regla de recuperar sus últimos bits en orden:</p>
+<pre><code class="language-text">10010010 10100011 11010100 01000100
+00110011 01000100 10100000 10010001
+</code></pre>
+<ol>
+<li>Leer el último bit de cada byte produce <code>0 1 0 0 1 0 0 1</code>.</li>
+<li>Agruparlos en el orden indicado produce <code>01001001</code>.</li>
+<li>Interpretar ese byte como ASCII da el valor decimal 73, la letra <code>I</code>.</li>
+</ol>
+<p>El resultado depende de las convenciones del ejercicio. En un portador real también deben conocerse el formato, los canales, el orden de los valores y la longitud del mensaje.</p>
+<h2 id="aplicacion-segun-el-portador">Aplicación según el portador</h2>
+<p>Las páginas 28 y 29 de <em>Cripto, parte 2</em> muestran <a href="lsb-image/">LSB en imágenes</a> y <a href="lsb-audio/">LSB en audio</a>. El principio es común, pero la estructura del portador determina qué valores se modifican. Un archivo completo no es una lista indiferenciada de muestras o píxeles.</p>
+<details class="wiki-review"><summary>¿Insertar un bit en un valor significa agregar un byte nuevo al archivo?</summary><p>No. En el mecanismo explicado se modifica un bit de un valor existente. La poca magnitud del cambio no demuestra por sí sola que sea imposible detectar el ocultamiento.</p>
 </details>
 
 <section class="wiki-section" aria-labelledby="subtemas"><h2 id="subtemas">Subtemas</h2><ul class="wiki-cards"><li><a href="lsb-image/">LSB en imágenes</a></li><li><a href="lsb-audio/">LSB en audio</a></li></ul></section>
         <section class="wiki-section" aria-labelledby="relacionados"><h2 id="relacionados">Conceptos relacionados</h2><ul><li><a href="lsb-image/">LSB en imágenes</a></li><li><a href="lsb-audio/">LSB en audio</a></li><li><a href="../../encoding/numbers/">Representaciones numéricas</a></li></ul></section>
-        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Cripto, parte 2 · pp. 28, 29. <span>Material de cátedra, fuente local de trabajo; PDF no distribuido por este sitio.</span></li><li>Explicación de la práctica 1, parte 2 · pp. 6. <span>Material de cátedra, fuente local de trabajo; PDF no distribuido por este sitio.</span></li><li><a href="../../../../docs/IC2026_Solucionario_Practicas_1_y_2.pdf#page=8" target="_blank" rel="noopener">Solucionario de prácticas 1 y 2</a> · pp. 8. <span>Material complementario, PDF disponible.</span></li></ul></section>
+        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Cripto, parte 2 · <a href="../../../../docs/catedra%20cosas/03%20-%20Cripto%20parte%202.pdf#page=28" target="_blank" rel="noopener">p. 28 ↗</a>, <a href="../../../../docs/catedra%20cosas/03%20-%20Cripto%20parte%202.pdf#page=29" target="_blank" rel="noopener">p. 29 ↗</a>. <span>Material de cátedra</span></li><li>Explicación de la práctica 1, parte 2 · <a href="../../../../docs/catedra%20cosas/Explicaci%C3%B3n%20-%20Pr%C3%A1ctica%201%20-%20Parte%202.pdf#page=6" target="_blank" rel="noopener">p. 6 ↗</a>. <span>Material de cátedra</span></li><li>Solucionario de prácticas 1 y 2 · <a href="../../../../docs/IC2026_Solucionario_Practicas_1_y_2.pdf#page=8" target="_blank" rel="noopener">p. 8 ↗</a>. <span>Material complementario</span></li><li>Glosario · <a href="../../../../glosario.html#lsb">LSB: bit menos significativo ↗</a></li><li><a href="../../../../glosario.html">Explorar el glosario completo ↗</a></li></ul></section>
       </main>
       <footer class="wiki-footer"><p>IC 2026 · Elaboración didáctica original basada en las fuentes indicadas. Las páginas citadas corresponden al archivo PDF, contando desde 1.</p><a href="../../../">Volver al inicio de la wiki</a></footer>
     </div>

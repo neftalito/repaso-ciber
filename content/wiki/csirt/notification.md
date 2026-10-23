@@ -7,6 +7,16 @@ Notificar un incidente permite que el responsable de un recurso conozca hechos r
 
 La elección del destinatario depende del recurso involucrado. La clase relaciona los reportes externos con los contactos de [WHOIS](wiki:csirt-whois) y [RDAP](wiki:csirt-rdap). Esa información ayuda a localizar a un responsable capaz de investigar; no identifica por sí sola a la persona que produjo la actividad observada.
 
+## Preparar el aviso
+
+1. Identificar el recurso al que se refiere la evidencia y localizar su contacto adecuado.
+2. Describir los hechos relevantes que ese responsable puede investigar.
+3. Incorporar registros con sus timestamps y especificar la zona horaria.
+4. Revisar los destinatarios, la sensibilidad de la evidencia y sus restricciones de difusión.
+5. Comunicar el aviso y coordinar las acciones que correspondan al caso.
+
+Estos pasos ordenan las exigencias de las páginas 18 y 23. La elección del canal debe acompañar el cuidado de la información que se intercambia.
+
 ## Información que debe poder investigarse
 
 El destinatario necesita relacionar los hechos comunicados con sus propios registros. La notificación debe aportar la evidencia disponible y su referencia temporal, en vez de limitarse a una afirmación sobre la conducta de una persona.

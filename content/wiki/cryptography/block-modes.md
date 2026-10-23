@@ -1,14 +1,15 @@
 ---
 {"id":"crypto-block-modes","title":"Modos de operación","slug":"modes","parent":"crypto-block","type":"category","order":20,"aliases":["modos de cifrado por bloques"],"related":["crypto-block-algorithms","crypto-xor"],"sources":[{"id":"lecture-crypto-1","pages":[25,26,27,28]},{"id":"manual","pages":[10,11]}]}
 ---
-## Qué organiza un modo de operación
+## Aplicar un cifrador a un mensaje
 
-Un modo de operación establece cómo se utiliza un cifrador de bloques al procesar datos. El algoritmo y el modo resuelven cuestiones diferentes: nombrar AES identifica el cifrador, pero no determina por sí solo cómo se encadenan o combinan sus operaciones sobre un mensaje.
+Un **modo de operación** establece cómo se utiliza un cifrador de bloques para procesar datos. El algoritmo transforma cada bloque; el modo organiza esas operaciones y sus posibles dependencias. Por eso nombrar AES no basta para describir el procedimiento completo.
 
-Las páginas hijas distinguen ECB, CBC, CFB y OFB. Cada una conserva sus explicaciones y límites; esta categoría permite compararlas sin mezclarlas con las páginas de algoritmos.
+## Modos presentados en la materia
 
-## Procedencia y límites
+- [ECB](wiki:crypto-ecb): cifra los bloques de forma independiente con la misma clave.
+- [CBC](wiki:crypto-cbc): encadena los bloques al combinar cada entrada con el cifrado anterior.
+- [CFB](wiki:crypto-cfb): modo de realimentación del cifrado.
+- [OFB](wiki:crypto-ofb): modo de realimentación de salida.
 
-La teoría de cátedra enumera los cuatro modos en la página física 25 y desarrolla ejemplos de ECB y CBC en las páginas 26–28. El manual complementario aporta explicaciones adicionales. Que un modo figure en la lista de la clase no significa que todas sus propiedades estén desarrolladas allí.
-
-Las condiciones concretas de inicialización y tratamiento de los datos dependen del esquema estudiado. Esta clasificación no añade parámetros de implementación ni una recomendación de uso.
+Cripto, parte 1, página 25, enumera los cuatro modos y desarrolla ECB y CBC en las páginas 26–28. El manual complementario, páginas 10–11, amplía sus diferencias. La configuración concreta también debe precisar los parámetros de inicialización y el tratamiento de los datos que correspondan al esquema.

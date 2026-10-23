@@ -3,18 +3,16 @@
 ---
 ## Correspondencia invertida
 
-Atbash sustituye cada letra por la situada en la posición opuesta del alfabeto: A↔Z, B↔Y y así sucesivamente. La guía complementaria lo menciona para reconocer transformaciones clásicas.
+**Atbash** sustituye cada letra por la situada en la posición opuesta del alfabeto. Con el alfabeto A–Z, la correspondencia empieza por A↔Z y B↔Y. Las posiciones del mensaje se conservan: cambia el símbolo que ocupa cada una.
 
-## Ejemplo original
+La guía complementaria de prácticas, página 3, presenta esta regla para reconocer cifrados clásicos. Es contenido complementario; las diapositivas oficiales citadas para otros cifrados clásicos no lo desarrollan.
 
-Tomando solo A–Z, `CASA` se transforma en `XZHZ`: C corresponde a X, A a Z y S a H. Aplicar la misma correspondencia a `XZHZ` recupera `CASA`.
+## Cómo se recupera el texto
 
-## Diferencia con invertir el mensaje
+La correspondencia funciona en ambos sentidos. Para descifrar se vuelve a sustituir cada letra por su opuesta en el mismo alfabeto. La segunda aplicación deshace la primera porque cada pareja es recíproca.
 
-Atbash invierte la correspondencia del alfabeto, no las posiciones del texto. La inversión de `CASA` es `ASAC`, una transposición; Atbash produce otros símbolos.
+Esto permite distinguirlo de invertir el mensaje: la inversión cambia el orden de sus letras; Atbash cambia las letras según una regla de sustitución.
 
-La regla fija puede ser reproducida por cualquiera que la conozca. Es útil como ejercicio de clasificación, sin aportar un secreto configurable en la convención descrita.
-
-:::question ¿Por qué se recupera el mensaje aplicando Atbash dos veces?
-Porque cada pareja de letras es simétrica: la letra que reemplaza a C es X y la que reemplaza a X es C. La segunda aplicación deshace la primera.
+:::question ¿Atbash invierte el orden del mensaje?
+No. Invierte la correspondencia del alfabeto y mantiene el orden de las posiciones del texto.
 :::

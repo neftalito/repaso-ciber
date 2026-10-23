@@ -34,42 +34,53 @@
       <main id="wiki-main" class="wiki-article" tabindex="-1">
         <p class="eyebrow">INTRODUCCIÓN A LA CIBERSEGURIDAD · ALGORITMO</p>
         <h1>AES</h1>
-        <h2 id="definicion">Definición</h2>
-<p>AES es un algoritmo de cifrado simétrico por bloques. La clase lo utiliza para comparar ECB y CBC; el manual complementario precisa que opera con bloques de 128 bits y admite claves de 128, 192 o 256 bits.</p>
-<h2 id="parametros-que-deben-distinguirse">Parámetros que deben distinguirse</h2>
+        <h2 id="para-que-sirve">Para qué sirve</h2>
+<p><strong>AES</strong> cifra datos con una clave secreta compartida. Es un cifrador <strong>por bloques</strong>: transforma unidades de tamaño fijo y permite recuperar cada una mediante el descifrado con la clave correspondiente. La cátedra lo utiliza para mostrar que el modo de procesar esos bloques también influye en lo que revela el resultado.</p>
+<h2 id="bloque-clave-y-modo-son-datos-distintos">Bloque, clave y modo son datos distintos</h2>
+<p>El manual complementario, página 10, precisa los tamaños de AES:</p>
 <table>
 <thead>
 <tr>
 <th>Dato</th>
-<th>Significado</th>
+<th>Qué indica</th>
 </tr>
 </thead>
 <tbody><tr>
 <td>Bloque de 128 bits</td>
-<td>Unidad de 16 bytes transformada por el algoritmo</td>
+<td>AES transforma unidades de 16 bytes</td>
 </tr>
 <tr>
-<td>Clave AES-128</td>
-<td>Secreto de 16 bytes</td>
-</tr>
-<tr>
-<td>Clave AES-256</td>
-<td>Secreto de 32 bytes, sin cambiar el tamaño de bloque</td>
+<td>Clave de 128, 192 o 256 bits</td>
+<td>Longitud del secreto utilizado por el algoritmo</td>
 </tr>
 <tr>
 <td>Modo de operación</td>
-<td>Forma de aplicar el algoritmo al mensaje</td>
+<td>Cómo se aplica el cifrador a los bloques de un mensaje</td>
 </tr>
 </tbody></table>
-<h2 id="ejemplo-de-interpretacion">Ejemplo de interpretación</h2>
-<p>Si un ejercicio entrega «AES-128-ECB en Base64», la etiqueta contiene varias decisiones. Base64 representa los bytes cifrados; AES-128 fija el algoritmo y la longitud de clave; ECB fija la relación entre bloques. También se necesita conocer el relleno, si existe.</p>
-<p>El funcionamiento interno de las rondas no se desarrolla en las fuentes utilizadas. El objetivo es interpretar correctamente el esquema, no reconstruir una implementación criptográfica.</p>
-<details class="wiki-review"><summary>¿AES-256 cifra bloques de 256 bits?</summary><p>No. El número identifica la longitud de la clave. El bloque de AES sigue siendo de 128 bits, es decir, 16 bytes.</p>
+<p>Elegir AES-256 cambia la longitud de la clave; el tamaño de bloque sigue siendo de 128 bits.</p>
+<h2 id="que-cambia-entre-ecb-y-cbc">Qué cambia entre ECB y CBC</h2>
+<p>Cripto, parte 1, páginas 25–28, desarrolla la diferencia:</p>
+<ol>
+<li><strong>ECB</strong> divide el mensaje en bloques y cifra cada uno por separado con la misma clave. Si se repite un bloque de entrada, se repite su bloque cifrado. Esa igualdad puede conservar patrones visibles en los datos.</li>
+<li><strong>CBC</strong> combina cada bloque de texto claro mediante XOR con el bloque cifrado anterior antes de aplicar AES. Así introduce una dependencia entre bloques. El manual complementario, página 10, aclara que el primero utiliza un vector de inicialización o IV.</li>
+</ol>
+<p>AES es el algoritmo empleado en ambos casos. ECB y CBC describen formas diferentes de aplicarlo, no algoritmos que cambien la longitud de su clave.</p>
+<h2 id="como-leer-un-ejercicio-de-aes">Cómo leer un ejercicio de AES</h2>
+<p>La guía complementaria de prácticas, página 5, describe el caso <strong>AES-128-ECB con salida en Base64</strong>. Para interpretarlo:</p>
+<ol>
+<li>Base64 indica cómo están representados los bytes cifrados; primero se decodifica esa representación.</li>
+<li>AES-128 indica el algoritmo y una clave de 16 bytes.</li>
+<li>ECB indica cómo se cifraron los bloques.</li>
+<li>Para recuperar el mensaje también debe conocerse el relleno, si se utilizó.</li>
+</ol>
+<p>Decodificar Base64 y descifrar AES son operaciones diferentes. Las fuentes citadas desarrollan esta lectura del esquema y los modos, sin explicar las rondas internas de AES.</p>
+<details class="wiki-review"><summary>¿AES-256 cifra bloques de 256 bits?</summary><p>No. El número identifica la longitud de la clave. Cada bloque de AES sigue teniendo 128 bits, equivalentes a 16 bytes.</p>
 </details>
 
 
         <section class="wiki-section" aria-labelledby="relacionados"><h2 id="relacionados">Conceptos relacionados</h2><ul><li><a href="../ecb/">Modo ECB</a></li><li><a href="../cbc/">Modo CBC</a></li><li><a href="../../../../../encoding/base64/">Base64</a></li></ul></section>
-        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Cripto, parte 1 · pp. 25, 26, 27, 28, 30. <span>Material de cátedra, fuente local de trabajo; PDF no distribuido por este sitio.</span></li><li><a href="../../../../../../../docs/Manual_IC2026_Cripto_CSIRT_Malware_Descarga.pdf#page=10" target="_blank" rel="noopener">Manual de estudio: Cripto, CSIRT y Malware</a> · pp. 10. <span>Material complementario, PDF disponible.</span></li><li><a href="../../../../../../../docs/Guia_de_estudio_IC_Practicas_1_y_2.pdf#page=5" target="_blank" rel="noopener">Guía de estudio de prácticas 1 y 2</a> · pp. 5. <span>Material complementario, PDF disponible.</span></li></ul></section>
+        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Cripto, parte 1 · <a href="../../../../../../../docs/catedra%20cosas/02%20-%20Cripto%20parte%201.pdf#page=25" target="_blank" rel="noopener">p. 25 ↗</a>, <a href="../../../../../../../docs/catedra%20cosas/02%20-%20Cripto%20parte%201.pdf#page=26" target="_blank" rel="noopener">p. 26 ↗</a>, <a href="../../../../../../../docs/catedra%20cosas/02%20-%20Cripto%20parte%201.pdf#page=27" target="_blank" rel="noopener">p. 27 ↗</a>, <a href="../../../../../../../docs/catedra%20cosas/02%20-%20Cripto%20parte%201.pdf#page=28" target="_blank" rel="noopener">p. 28 ↗</a>, <a href="../../../../../../../docs/catedra%20cosas/02%20-%20Cripto%20parte%201.pdf#page=30" target="_blank" rel="noopener">p. 30 ↗</a>. <span>Material de cátedra</span></li><li>Manual de estudio: Cripto, CSIRT y Malware · <a href="../../../../../../../docs/Manual_IC2026_Cripto_CSIRT_Malware_Descarga.pdf#page=10" target="_blank" rel="noopener">p. 10 ↗</a>. <span>Material complementario</span></li><li>Guía de estudio de prácticas 1 y 2 · <a href="../../../../../../../docs/Guia_de_estudio_IC_Practicas_1_y_2.pdf#page=5" target="_blank" rel="noopener">p. 5 ↗</a>. <span>Material complementario</span></li><li>Glosario · <a href="../../../../../../../glosario.html#bloques">AES, bloques y padding ↗</a></li><li><a href="../../../../../../../glosario.html">Explorar el glosario completo ↗</a></li></ul></section>
       </main>
       <footer class="wiki-footer"><p>IC 2026 · Elaboración didáctica original basada en las fuentes indicadas. Las páginas citadas corresponden al archivo PDF, contando desde 1.</p><a href="../../../../../../">Volver al inicio de la wiki</a></footer>
     </div>

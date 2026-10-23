@@ -34,21 +34,29 @@
       <main id="wiki-main" class="wiki-article" tabindex="-1">
         <p class="eyebrow">INTRODUCCIÓN A LA CIBERSEGURIDAD · HERRAMIENTA</p>
         <h1>Steghide</h1>
-        <h2 id="herramienta-en-los-ejercicios">Herramienta en los ejercicios</h2>
-<p>Steghide aparece en los materiales complementarios como herramienta para inspeccionar un portador e intentar extraer datos de un ejercicio de esteganografía. No debe asumirse que cualquier imagen fue creada con esta herramienta.</p>
-<h2 id="ejemplo-ilustrativo">Ejemplo ilustrativo</h2>
+        <h2 id="una-herramienta-de-extraccion-no-una-prueba-previa">Una herramienta de extracción, no una prueba previa</h2>
+<p>Steghide es una herramienta que los materiales complementarios proponen para inspeccionar un portador e intentar extraer datos. Su uso en un ejercicio no permite asumir que cualquier imagen contiene información preparada con ese programa.</p>
+<h2 id="procedimiento-del-material-complementario">Procedimiento del material complementario</h2>
+<p>La guía, página 7, y el solucionario de prácticas, página 8, muestran estas operaciones sobre un archivo autorizado:</p>
 <pre><code class="language-text">steghide info imagen.jpg
 steghide extract -sf imagen.jpg
 </code></pre>
-<p>El primer comando permite inspeccionar información del portador; el segundo intenta extraer el contenido conforme al formato que reconoce la herramienta y puede requerir una contraseña. Son ejemplos de estudio sobre un archivo autorizado; no se ejecutaron sobre una muestra real.</p>
-<h2 id="verificacion-del-resultado">Verificación del resultado</h2>
-<p>Una extracción debe documentar el archivo obtenido, su formato y su contenido. Sin disponer de la imagen original del desafío no es posible afirmar su contraseña, su mensaje o su flag. La herramienta tampoco sustituye otras hipótesis, como revisar metadatos o una técnica LSB diferente.</p>
-<details class="wiki-review"><summary>¿Un intento de extracción fallido demuestra que no hay información oculta?</summary><p>No. Puede tratarse de otra técnica, faltar parámetros o no ser compatible el portador. El resultado limita esa prueba concreta, no todas las formas posibles de esteganografía.</p>
+<ol>
+<li>Inspeccionar la información del portador con <code>info</code>.</li>
+<li>Intentar la extracción con <code>extract</code>, indicando el archivo mediante <code>-sf</code>.</li>
+<li>Proporcionar la contraseña de extracción si el esquema la requiere.</li>
+<li>Si se obtiene un archivo, verificar y documentar su nombre, formato y contenido.</li>
+</ol>
+<p>Los comandos son ejemplos de estudio y no se ejecutaron sobre una muestra real. La explicación se apoya en material complementario, sin atribuir un desarrollo de Steghide a las presentaciones oficiales.</p>
+<h2 id="como-interpretar-el-resultado">Cómo interpretar el resultado</h2>
+<p>Sin el archivo original del desafío no puede afirmarse su contraseña, su mensaje ni su flag. Una extracción fallida tampoco demuestra ausencia de información oculta: puede faltar un parámetro o tratarse de otra técnica.</p>
+<p>La herramienta permite probar una hipótesis. Revisar <a href="../lsb/lsb-image/">LSB en imágenes</a>, metadatos u otros datos del portador corresponde a hipótesis diferentes que deben verificarse por separado.</p>
+<details class="wiki-review"><summary>¿Un intento de extracción fallido demuestra que no hay información oculta?</summary><p>No. Limita la prueba realizada con esa herramienta y esos parámetros. No descarta otras técnicas ni permite adivinar el contenido del archivo.</p>
 </details>
 
 
         <section class="wiki-section" aria-labelledby="relacionados"><h2 id="relacionados">Conceptos relacionados</h2><ul><li><a href="../stego-keyed/">Esteganografía de clave secreta</a></li><li><a href="../lsb/lsb-image/">LSB en imágenes</a></li><li><a href="../../../practices/writeup/">Cómo construir un writeup</a></li></ul></section>
-        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li><a href="../../../../docs/Guia_de_estudio_IC_Practicas_1_y_2.pdf#page=7" target="_blank" rel="noopener">Guía de estudio de prácticas 1 y 2</a> · pp. 7. <span>Material complementario, PDF disponible.</span></li><li><a href="../../../../docs/IC2026_Solucionario_Practicas_1_y_2.pdf#page=8" target="_blank" rel="noopener">Solucionario de prácticas 1 y 2</a> · pp. 8. <span>Material complementario, PDF disponible.</span></li></ul></section>
+        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Guía de estudio de prácticas 1 y 2 · <a href="../../../../docs/Guia_de_estudio_IC_Practicas_1_y_2.pdf#page=7" target="_blank" rel="noopener">p. 7 ↗</a>. <span>Material complementario</span></li><li>Solucionario de prácticas 1 y 2 · <a href="../../../../docs/IC2026_Solucionario_Practicas_1_y_2.pdf#page=8" target="_blank" rel="noopener">p. 8 ↗</a>. <span>Material complementario</span></li><li>Glosario · <a href="../../../../glosario.html#esteganografia">Esteganografía, steghide e inspección multimedia ↗</a></li><li><a href="../../../../glosario.html">Explorar el glosario completo ↗</a></li></ul></section>
       </main>
       <footer class="wiki-footer"><p>IC 2026 · Elaboración didáctica original basada en las fuentes indicadas. Las páginas citadas corresponden al archivo PDF, contando desde 1.</p><a href="../../../">Volver al inicio de la wiki</a></footer>
     </div>

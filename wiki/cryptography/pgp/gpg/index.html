@@ -34,27 +34,39 @@
       <main id="wiki-main" class="wiki-article" tabindex="-1">
         <p class="eyebrow">INTRODUCCIÓN A LA CIBERSEGURIDAD · HERRAMIENTA</p>
         <h1>GPG / GnuPG</h1>
-        <h2 id="herramienta-y-operaciones">Herramienta y operaciones</h2>
-<p>GPG, GNU Privacy Guard o GnuPG, es la implementación libre de PGP presentada en la práctica. Gestiona claves y permite cifrar, descifrar, firmar y verificar. Las operaciones deben interpretarse por su propósito, no por la extensión del archivo resultante.</p>
-<h2 id="ejemplos-locales-ilustrativos">Ejemplos locales ilustrativos</h2>
-<p>Los nombres siguientes son ficticios; los comandos se muestran para explicar el flujo y no fueron ejecutados sobre claves o documentos personales.</p>
+        <h2 id="una-herramienta-para-operaciones-diferentes">Una herramienta para operaciones diferentes</h2>
+<p>GPG, GNU Privacy Guard o GnuPG, es la implementación libre de PGP presentada en la práctica. Gestiona claves y permite cifrar, descifrar, firmar y verificar. Cifrar protege la lectura del contenido; firmar permite comprobar la firma y la integridad del documento. Son operaciones distintas.</p>
+<h2 id="identificar-las-claves-disponibles">Identificar las claves disponibles</h2>
+<p>La página 7 de <em>Explicación de la práctica 1, parte 2</em> distingue estas consultas al anillo local:</p>
 <pre><code class="language-text">gpg --list-keys
 gpg --list-secret-keys
-gpg --detach-sign informe.txt
-gpg --verify informe.txt.sig informe.txt
-gpg --armor --encrypt -r DESTINATARIO informe.txt
-gpg --decrypt informe.txt.asc
 </code></pre>
-<p>La firma separada permite verificar <code>informe.txt</code> junto con su archivo de firma. Cifrar para <code>DESTINATARIO</code> es otra operación y requiere haber identificado correctamente su clave pública.</p>
-<h2 id="ascii-armor-y-precision-de-lectura">ASCII armor y precisión de lectura</h2>
-<p>ASCII armor representa datos PGP binarios como texto imprimible. No constituye cifrado adicional. Una salida textual puede contener datos cifrados o una firma según la operación utilizada.</p>
-<p>La explicación práctica describe <code>--sign</code> con una frase que mezcla firma y cifrado. Para evitar esa confusión, este ejemplo utiliza <code>--detach-sign</code> y muestra cifrado explícito por separado: una firma no proporciona confidencialidad por sí misma.</p>
-<details class="wiki-review"><summary>¿Qué diferencia hay entre listar claves públicas y claves secretas?</summary><p>Las públicas permiten cifrar para otros o verificar firmas; las secretas están asociadas a operaciones privadas del titular. Una lista pública no demuestra que se posea el secreto necesario para descifrar.</p>
+<p>La primera lista claves públicas; la segunda, claves secretas. Las públicas se utilizan para cifrar para un destinatario o verificar una firma. Poseer una clave pública no implica disponer del secreto necesario para descifrar lo dirigido a ella.</p>
+<h2 id="firmar-y-verificar-un-documento">Firmar y verificar un documento</h2>
+<p>La página 8 muestra una firma separada y su verificación:</p>
+<pre><code class="language-text">gpg --detach-sign archivo.txt
+gpg --verify archivo.txt.sig archivo.txt
+</code></pre>
+<ol>
+<li>El emisor firma con su clave privada y genera un archivo de firma independiente.</li>
+<li>El receptor verifica la firma junto con el documento correspondiente, utilizando la clave pública.</li>
+<li>Además del resultado de la verificación, debe evaluar si esa clave pertenece a la persona esperada.</li>
+</ol>
+<p>La firma separada no modifica el original ni oculta su contenido. La explicación práctica mezcla firma y cifrado en la descripción de <code>--sign</code>; aquí se distingue explícitamente el propósito de cada operación.</p>
+<h2 id="cifrar-y-recuperar-el-contenido">Cifrar y recuperar el contenido</h2>
+<p>El siguiente flujo conserva la forma ilustrativa de la guía complementaria, página 8. <code>DESTINATARIO</code> representa la clave pública del destinatario que debe haberse identificado correctamente:</p>
+<pre><code class="language-text">gpg --armor --encrypt -r DESTINATARIO archivo.txt
+gpg --decrypt archivo.txt.asc
+</code></pre>
+<p>El primer comando cifra para esa clave pública. El segundo recupera el contenido cuando se dispone de la clave privada correspondiente. Los comandos son ejemplos de lectura; no se ejecutaron sobre claves ni documentos personales.</p>
+<h2 id="que-significa-ascii-armor">Qué significa ASCII armor</h2>
+<p>ASCII armor representa datos PGP binarios mediante caracteres imprimibles. No agrega cifrado. Según la operación realizada, una salida textual puede contener un mensaje cifrado o una firma: el aspecto del archivo no sustituye conocer cómo se produjo.</p>
+<details class="wiki-review"><summary>¿Una firma válida demuestra por sí sola la identidad de una persona?</summary><p>No. También hay que evaluar la relación entre la clave pública y la persona esperada. Descargar una clave o disponer de ella no establece por sí solo esa confianza.</p>
 </details>
 
 
         <section class="wiki-section" aria-labelledby="relacionados"><h2 id="relacionados">Conceptos relacionados</h2><ul><li><a href="../pgp-trust/">Red de confianza de PGP</a></li><li><a href="../../signature/">Firma digital</a></li><li><a href="../../encoding/base64/">Base64</a></li></ul></section>
-        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Explicación de la práctica 1, parte 2 · pp. 7, 8. <span>Material de cátedra, fuente local de trabajo; PDF no distribuido por este sitio.</span></li><li><a href="../../../../docs/Guia_de_estudio_IC_Practicas_1_y_2.pdf#page=8" target="_blank" rel="noopener">Guía de estudio de prácticas 1 y 2</a> · pp. 8. <span>Material complementario, PDF disponible.</span></li></ul></section>
+        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Explicación de la práctica 1, parte 2 · <a href="../../../../docs/catedra%20cosas/Explicaci%C3%B3n%20-%20Pr%C3%A1ctica%201%20-%20Parte%202.pdf#page=7" target="_blank" rel="noopener">p. 7 ↗</a>, <a href="../../../../docs/catedra%20cosas/Explicaci%C3%B3n%20-%20Pr%C3%A1ctica%201%20-%20Parte%202.pdf#page=8" target="_blank" rel="noopener">p. 8 ↗</a>. <span>Material de cátedra</span></li><li>Guía de estudio de prácticas 1 y 2 · <a href="../../../../docs/Guia_de_estudio_IC_Practicas_1_y_2.pdf#page=8" target="_blank" rel="noopener">p. 8 ↗</a>. <span>Material complementario</span></li><li>Glosario · <a href="../../../../glosario.html#pgp">PGP y GPG ↗</a></li><li>Glosario · <a href="../../../../glosario.html#pgp-confianza">GPG: huella de clave, passphrase y ASCII armor ↗</a></li><li><a href="../../../../glosario.html">Explorar el glosario completo ↗</a></li></ul></section>
       </main>
       <footer class="wiki-footer"><p>IC 2026 · Elaboración didáctica original basada en las fuentes indicadas. Las páginas citadas corresponden al archivo PDF, contando desde 1.</p><a href="../../../">Volver al inicio de la wiki</a></footer>
     </div>

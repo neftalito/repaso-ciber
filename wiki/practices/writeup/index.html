@@ -35,7 +35,7 @@
         <p class="eyebrow">INTRODUCCIÓN A LA CIBERSEGURIDAD · PRÁCTICA</p>
         <h1>Cómo construir un writeup</h1>
         <h2 id="objetivo">Objetivo</h2>
-<p>Un writeup explica cómo se resolvió un desafío, con suficiente detalle para seguir el razonamiento. La cátedra propone enunciado, solución, reflexión y flag. Esta estructura se usa aquí sin criterios administrativos o de evaluación.</p>
+<p>Un writeup explica cómo se resolvió un desafío, con suficiente detalle para seguir el razonamiento. El documento oficial <em>Writeup example</em>, páginas 1–4, propone enunciado, solución, reflexión y flag. Cada sección aporta una parte distinta: contexto, procedimiento, aprendizaje y resultado.</p>
 <h2 id="recorrido-de-un-informe">Recorrido de un informe</h2>
 <ol>
 <li>Contextualizar el reto: nombre, categoría, datos recibidos, pistas y adjuntos relevantes.</li>
@@ -43,7 +43,7 @@
 <li>Reflexionar: dificultades, estrategias descartadas, aprendizaje y límites de la evidencia.</li>
 <li>Registrar la flag solo si se recuperó y verificó realmente.</li>
 </ol>
-<h2 id="ejemplo-de-razonamiento">Ejemplo de razonamiento</h2>
+<h2 id="que-evidencia-permite-seguir-la-solucion">Qué evidencia permite seguir la solución</h2>
 <p>Para una cadena codificada, el informe muestra la entrada, el motivo para interpretarla como Base64, los bytes obtenidos y su lectura como texto. Una captura de la salida sin indicar la transformación no permite repetir el proceso.</p>
 <p>En malware, «importa una función de descarga» es una observación; «podría descargar» es una hipótesis; «descargó este archivo» exige otra evidencia. Si falta el archivo original del reto, se conserva el límite en lugar de completar el informe con una respuesta supuesta.</p>
 <details class="wiki-review"><summary>¿Qué debería explicar la reflexión cuando la primera estrategia falló?</summary><p>Qué supuesto resultó incorrecto, qué evidencia lo mostró y por qué se eligió otra prueba. Esa explicación hace visible el aprendizaje y evita presentar un resultado casual como método reproducible.</p>
@@ -51,7 +51,7 @@
 
 
         <section class="wiki-section" aria-labelledby="relacionados"><h2 id="relacionados">Conceptos relacionados</h2><ul><li><a href="../encoding/">Caso: reconocer y decodificar representaciones</a></li><li><a href="../malware-static/">Caso: triage estático de un ejecutable</a></li></ul></section>
-        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Writeup example · pp. 1, 2, 3, 4. <span>Material de cátedra, fuente local de trabajo; PDF no distribuido por este sitio.</span></li><li><a href="../../../docs/Guia_de_estudio_IC_Practicas_1_y_2.pdf#page=15" target="_blank" rel="noopener">Guía de estudio de prácticas 1 y 2</a> · pp. 15, 16. <span>Material complementario, PDF disponible.</span></li></ul></section>
+        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Writeup example · <a href="../../../docs/catedra%20cosas/01b%20-%20Writeup%20example.pdf#page=1" target="_blank" rel="noopener">p. 1 ↗</a>, <a href="../../../docs/catedra%20cosas/01b%20-%20Writeup%20example.pdf#page=2" target="_blank" rel="noopener">p. 2 ↗</a>, <a href="../../../docs/catedra%20cosas/01b%20-%20Writeup%20example.pdf#page=3" target="_blank" rel="noopener">p. 3 ↗</a>, <a href="../../../docs/catedra%20cosas/01b%20-%20Writeup%20example.pdf#page=4" target="_blank" rel="noopener">p. 4 ↗</a>. <span>Material de cátedra</span></li><li>Guía de estudio de prácticas 1 y 2 · <a href="../../../docs/Guia_de_estudio_IC_Practicas_1_y_2.pdf#page=15" target="_blank" rel="noopener">p. 15 ↗</a>, <a href="../../../docs/Guia_de_estudio_IC_Practicas_1_y_2.pdf#page=16" target="_blank" rel="noopener">p. 16 ↗</a>. <span>Material complementario</span></li><li>Glosario · <a href="../../../glosario.html#writeup">Writeup: evidencia, hipótesis y reproducibilidad ↗</a></li><li><a href="../../../glosario.html">Explorar el glosario completo ↗</a></li></ul></section>
       </main>
       <footer class="wiki-footer"><p>IC 2026 · Elaboración didáctica original basada en las fuentes indicadas. Las páginas citadas corresponden al archivo PDF, contando desde 1.</p><a href="../../">Volver al inicio de la wiki</a></footer>
     </div>

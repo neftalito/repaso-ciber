@@ -35,12 +35,16 @@
         <p class="eyebrow">INTRODUCCIÓN A LA CIBERSEGURIDAD · PRÁCTICA</p>
         <h1>Caso: reconstruir una letra desde bits LSB</h1>
         <h2 id="datos-del-problema">Datos del problema</h2>
-<p>Se dispone de ocho bytes de píxeles, en el orden declarado por el ejercicio. El bit menos significativo de cada uno forma una letra ASCII, leyendo el primer bit obtenido como el de mayor peso del mensaje:</p>
+<p>El objetivo es reconstruir un carácter a partir de bits distribuidos entre varios bytes. La práctica 1, parte 2, página 6, introduce LSB; el solucionario complementario, página 8, proporciona los ocho bytes de este caso, en el orden declarado por el ejercicio. El bit menos significativo de cada uno forma una letra ASCII, leyendo el primer bit obtenido como el de mayor peso del mensaje:</p>
 <pre><code class="language-text">10010010 10100011 11010100 01000100
 00110011 01000100 10100000 10010001
 </code></pre>
 <h2 id="reconstruccion">Reconstrucción</h2>
-<p>Tomar el último bit de cada byte produce <code>0 1 0 0 1 0 0 1</code>. El resultado <code>01001001</code> es <code>0x49</code>, decimal 73, y corresponde a <code>I</code>.</p>
+<ol>
+<li>Tomar el último bit de cada byte, conservando el orden: <code>0 1 0 0 1 0 0 1</code>.</li>
+<li>Reunirlos como un byte de mensaje: <code>01001001</code>. El primer bit recuperado ocupa la posición de mayor peso, según el enunciado.</li>
+<li>Interpretar ese byte: es <code>0x49</code>, decimal 73, y corresponde a <code>I</code> en ASCII.</li>
+</ol>
 <pre><code class="language-python">values = [&#39;10010010&#39;, &#39;10100011&#39;, &#39;11010100&#39;, &#39;01000100&#39;,
           &#39;00110011&#39;, &#39;01000100&#39;, &#39;10100000&#39;, &#39;10010001&#39;]
 bits = &#39;&#39;.join(value[-1] for value in values)
@@ -54,7 +58,7 @@ assert chr(int(bits, 2)) == &#39;I&#39;
 
 
         <section class="wiki-section" aria-labelledby="relacionados"><h2 id="relacionados">Conceptos relacionados</h2><ul><li><a href="../../cryptography/steganography/">Esteganografía</a></li><li><a href="../../cryptography/encoding/">Codificación</a></li></ul></section>
-        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Explicación de la práctica 1, parte 2 · pp. 5, 6. <span>Material de cátedra, fuente local de trabajo; PDF no distribuido por este sitio.</span></li><li><a href="../../../docs/IC2026_Preguntas_Basadas_en_Practicas_1_y_2.pdf#page=7" target="_blank" rel="noopener">Preguntas basadas en prácticas 1 y 2</a> · pp. 7. <span>Material complementario, PDF disponible.</span></li><li><a href="../../../docs/IC2026_Solucionario_Practicas_1_y_2.pdf#page=8" target="_blank" rel="noopener">Solucionario de prácticas 1 y 2</a> · pp. 8, 9. <span>Material complementario, PDF disponible.</span></li></ul></section>
+        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Explicación de la práctica 1, parte 2 · <a href="../../../docs/catedra%20cosas/Explicaci%C3%B3n%20-%20Pr%C3%A1ctica%201%20-%20Parte%202.pdf#page=5" target="_blank" rel="noopener">p. 5 ↗</a>, <a href="../../../docs/catedra%20cosas/Explicaci%C3%B3n%20-%20Pr%C3%A1ctica%201%20-%20Parte%202.pdf#page=6" target="_blank" rel="noopener">p. 6 ↗</a>. <span>Material de cátedra</span></li><li>Preguntas basadas en prácticas 1 y 2 · <a href="../../../docs/IC2026_Preguntas_Basadas_en_Practicas_1_y_2.pdf#page=7" target="_blank" rel="noopener">p. 7 ↗</a>. <span>Material complementario</span></li><li>Solucionario de prácticas 1 y 2 · <a href="../../../docs/IC2026_Solucionario_Practicas_1_y_2.pdf#page=8" target="_blank" rel="noopener">p. 8 ↗</a>, <a href="../../../docs/IC2026_Solucionario_Practicas_1_y_2.pdf#page=9" target="_blank" rel="noopener">p. 9 ↗</a>. <span>Material complementario</span></li><li>Glosario · <a href="../../../glosario.html#lsb">LSB: bit menos significativo ↗</a></li><li><a href="../../../glosario.html">Explorar el glosario completo ↗</a></li></ul></section>
       </main>
       <footer class="wiki-footer"><p>IC 2026 · Elaboración didáctica original basada en las fuentes indicadas. Las páginas citadas corresponden al archivo PDF, contando desde 1.</p><a href="../../">Volver al inicio de la wiki</a></footer>
     </div>

@@ -35,18 +35,17 @@
         <p class="eyebrow">INTRODUCCIÓN A LA CIBERSEGURIDAD · ALGORITMO</p>
         <h1>Cifrado Atbash</h1>
         <h2 id="correspondencia-invertida">Correspondencia invertida</h2>
-<p>Atbash sustituye cada letra por la situada en la posición opuesta del alfabeto: A↔Z, B↔Y y así sucesivamente. La guía complementaria lo menciona para reconocer transformaciones clásicas.</p>
-<h2 id="ejemplo-original">Ejemplo original</h2>
-<p>Tomando solo A–Z, <code>CASA</code> se transforma en <code>XZHZ</code>: C corresponde a X, A a Z y S a H. Aplicar la misma correspondencia a <code>XZHZ</code> recupera <code>CASA</code>.</p>
-<h2 id="diferencia-con-invertir-el-mensaje">Diferencia con invertir el mensaje</h2>
-<p>Atbash invierte la correspondencia del alfabeto, no las posiciones del texto. La inversión de <code>CASA</code> es <code>ASAC</code>, una transposición; Atbash produce otros símbolos.</p>
-<p>La regla fija puede ser reproducida por cualquiera que la conozca. Es útil como ejercicio de clasificación, sin aportar un secreto configurable en la convención descrita.</p>
-<details class="wiki-review"><summary>¿Por qué se recupera el mensaje aplicando Atbash dos veces?</summary><p>Porque cada pareja de letras es simétrica: la letra que reemplaza a C es X y la que reemplaza a X es C. La segunda aplicación deshace la primera.</p>
+<p><strong>Atbash</strong> sustituye cada letra por la situada en la posición opuesta del alfabeto. Con el alfabeto A–Z, la correspondencia empieza por A↔Z y B↔Y. Las posiciones del mensaje se conservan: cambia el símbolo que ocupa cada una.</p>
+<p>La guía complementaria de prácticas, página 3, presenta esta regla para reconocer cifrados clásicos. Es contenido complementario; las diapositivas oficiales citadas para otros cifrados clásicos no lo desarrollan.</p>
+<h2 id="como-se-recupera-el-texto">Cómo se recupera el texto</h2>
+<p>La correspondencia funciona en ambos sentidos. Para descifrar se vuelve a sustituir cada letra por su opuesta en el mismo alfabeto. La segunda aplicación deshace la primera porque cada pareja es recíproca.</p>
+<p>Esto permite distinguirlo de invertir el mensaje: la inversión cambia el orden de sus letras; Atbash cambia las letras según una regla de sustitución.</p>
+<details class="wiki-review"><summary>¿Atbash invierte el orden del mensaje?</summary><p>No. Invierte la correspondencia del alfabeto y mantiene el orden de las posiciones del texto.</p>
 </details>
 
 
         <section class="wiki-section" aria-labelledby="relacionados"><h2 id="relacionados">Conceptos relacionados</h2><ul><li><a href="../../transposition/reversal/">Transposición por inversión</a></li><li><a href="../caesar/">Cifrado César y ROT</a></li></ul></section>
-        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li><a href="../../../../../../docs/Guia_de_estudio_IC_Practicas_1_y_2.pdf#page=3" target="_blank" rel="noopener">Guía de estudio de prácticas 1 y 2</a> · pp. 3. <span>Material complementario, PDF disponible.</span></li></ul></section>
+        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Guía de estudio de prácticas 1 y 2 · <a href="../../../../../../docs/Guia_de_estudio_IC_Practicas_1_y_2.pdf#page=3" target="_blank" rel="noopener">p. 3 ↗</a>. <span>Material complementario</span></li><li><a href="../../../../../../glosario.html">Explorar el glosario completo ↗</a></li></ul></section>
       </main>
       <footer class="wiki-footer"><p>IC 2026 · Elaboración didáctica original basada en las fuentes indicadas. Las páginas citadas corresponden al archivo PDF, contando desde 1.</p><a href="../../../../../">Volver al inicio de la wiki</a></footer>
     </div>

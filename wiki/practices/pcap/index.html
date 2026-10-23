@@ -34,7 +34,14 @@
       <main id="wiki-main" class="wiki-article" tabindex="-1">
         <p class="eyebrow">INTRODUCCIÓN A LA CIBERSEGURIDAD · PRÁCTICA</p>
         <h1>Caso: reconstruir datos en una captura de red</h1>
-        <h2 id="caso-icmp">Caso ICMP</h2>
+        <h2 id="objetivo-y-orden-de-trabajo">Objetivo y orden de trabajo</h2>
+<p>El objetivo es reconstruir bytes presentes en campos de una captura y explicar qué permiten concluir. Los dos ejemplos proceden del solucionario complementario, página 16; no describen capturas reales disponibles.</p>
+<ol>
+<li>Identificar el protocolo y el campo del que se extraerán los datos.</li>
+<li>Conservar el orden indicado por el caso y recuperar los bytes.</li>
+<li>Aplicar la representación acordada y separar el texto recuperado de la interpretación del tráfico.</li>
+</ol>
+<h2 id="caso-icmp">Caso ICMP</h2>
 <p>El ejercicio entrega cuatro primeros bytes de datos de paquetes ICMP, en orden: <code>49</code>, <code>43</code>, <code>7b</code>, <code>7d</code>, expresados en hexadecimal. Interpretarlos como ASCII produce <code>IC{}</code>. Se puede comprobar localmente con <code>bytes.fromhex(&#39;49 43 7b 7d&#39;).decode(&#39;ascii&#39;)</code>.</p>
 <p>El orden viene dado por el problema. En una captura real deben verificarse secuencias, dirección y duplicados antes de concatenar; mezclar paquetes puede generar un mensaje falso.</p>
 <h2 id="caso-dns">Caso DNS</h2>
@@ -46,7 +53,7 @@
 
 
         <section class="wiki-section" aria-labelledby="relacionados"><h2 id="relacionados">Conceptos relacionados</h2><ul><li><a href="../../csirt/recursos-de-internet/dns/">Nombres de dominio y DNS</a></li><li><a href="../../cryptography/encoding/">Codificación</a></li><li><a href="../../malware/analysis/dynamic/network-analysis/#wireshark">Wireshark</a></li><li><a href="../writeup/">Cómo construir un writeup</a></li></ul></section>
-        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li><a href="../../../docs/IC2026_Preguntas_Basadas_en_Practicas_1_y_2.pdf#page=12" target="_blank" rel="noopener">Preguntas basadas en prácticas 1 y 2</a> · pp. 12. <span>Material complementario, PDF disponible.</span></li><li><a href="../../../docs/IC2026_Solucionario_Practicas_1_y_2.pdf#page=16" target="_blank" rel="noopener">Solucionario de prácticas 1 y 2</a> · pp. 16. <span>Material complementario, PDF disponible.</span></li><li><a href="../../../docs/Guia_de_estudio_IC_Practicas_1_y_2.pdf#page=12" target="_blank" rel="noopener">Guía de estudio de prácticas 1 y 2</a> · pp. 12, 13. <span>Material complementario, PDF disponible.</span></li></ul></section>
+        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Preguntas basadas en prácticas 1 y 2 · <a href="../../../docs/IC2026_Preguntas_Basadas_en_Practicas_1_y_2.pdf#page=12" target="_blank" rel="noopener">p. 12 ↗</a>. <span>Material complementario</span></li><li>Solucionario de prácticas 1 y 2 · <a href="../../../docs/IC2026_Solucionario_Practicas_1_y_2.pdf#page=16" target="_blank" rel="noopener">p. 16 ↗</a>. <span>Material complementario</span></li><li>Guía de estudio de prácticas 1 y 2 · <a href="../../../docs/Guia_de_estudio_IC_Practicas_1_y_2.pdf#page=12" target="_blank" rel="noopener">p. 12 ↗</a>, <a href="../../../docs/Guia_de_estudio_IC_Practicas_1_y_2.pdf#page=13" target="_blank" rel="noopener">p. 13 ↗</a>. <span>Material complementario</span></li><li>Glosario · <a href="../../../glosario.html#captura-red">Wireshark, tcpdump y evidencia de red ↗</a></li><li>Glosario · <a href="../../../glosario.html#canal-encubierto">Canales encubiertos: ICMP, DNS y PCAP ↗</a></li><li><a href="../../../glosario.html">Explorar el glosario completo ↗</a></li></ul></section>
       </main>
       <footer class="wiki-footer"><p>IC 2026 · Elaboración didáctica original basada en las fuentes indicadas. Las páginas citadas corresponden al archivo PDF, contando desde 1.</p><a href="../../">Volver al inicio de la wiki</a></footer>
     </div>

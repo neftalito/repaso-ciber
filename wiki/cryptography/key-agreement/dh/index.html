@@ -34,21 +34,43 @@
       <main id="wiki-main" class="wiki-article" tabindex="-1">
         <p class="eyebrow">INTRODUCCIÓN A LA CIBERSEGURIDAD · ALGORITMO</p>
         <h1>Diffie–Hellman</h1>
-        <h2 id="definicion">Definición</h2>
-<p>Diffie–Hellman permite acordar un secreto compartido por un canal observable. Las partes intercambian valores públicos derivados de secretos privados; no envían directamente el secreto común.</p>
-<h2 id="mecanismo-del-ejercicio">Mecanismo del ejercicio</h2>
-<p>Se acuerdan públicamente un primo <code>p</code> y un generador <code>g</code>. Una parte elige <code>a</code> y publica <code>A=g^a mod p</code>; la otra elige <code>b</code> y publica <code>B=g^b mod p</code>. Luego calculan <code>B^a mod p</code> y <code>A^b mod p</code>. Ambos resultados coinciden porque corresponden a <code>g^(ab) mod p</code>.</p>
-<h2 id="ejemplo-original-pequeno">Ejemplo original pequeño</h2>
-<p>Con <code>p=29</code>, <code>g=2</code>, <code>a=5</code> y <code>b=7</code>, los valores públicos son <code>A=3</code> y <code>B=12</code>. Cada parte calcula respectivamente <code>12^5 mod 29 = 12</code> y <code>3^7 mod 29 = 12</code>. El secreto compartido es 12.</p>
-<p>Estos números permiten comprobar las cuentas a mano; no son parámetros para una comunicación real. Los valores <code>p</code>, <code>g</code>, A y B son públicos; a y b permanecen privados.</p>
-<h2 id="limite-de-autenticacion">Límite de autenticación</h2>
-<p>El complemento práctico explica que DH básico no evita por sí solo un intermediario que sustituya valores públicos y establezca un secreto con cada extremo. Las firmas o certificados pertenecen a la solución de autenticación del protocolo.</p>
-<details class="wiki-review"><summary>¿Por qué Diffie–Hellman no es una subclase de cifrado de mensajes?</summary><p>Porque su salida central es un secreto compartido. El cifrado posterior del contenido requiere otro mecanismo y sus parámetros.</p>
+        <h2 id="para-que-sirve">Para qué sirve</h2>
+<p>Si Alicia y Bob quieren cifrar mensajes con una clave simétrica, ambos necesitan conocerla. Enviarla directamente por un canal que otros pueden observar expondría esa clave. <strong>Diffie–Hellman (DH)</strong> les permite acordar un <strong>secreto compartido</strong> sin transmitirlo: cada uno combina un valor público recibido del otro con un número que mantiene privado.</p>
+<p>DH establece el secreto común; no cifra los mensajes.</p>
+<h2 id="que-valores-intervienen">Qué valores intervienen</h2>
+<ul>
+<li><code>p</code> es un número primo y <code>g</code> es un generador: ambos se acuerdan públicamente. <code>g</code> sirve como base de las potencias.</li>
+<li><code>a</code> es el número privado que elige Alicia al azar; <code>b</code> es el que elige Bob del mismo modo. Cada uno conserva el suyo en secreto.</li>
+<li><code>A = g^a mod p</code> es el valor público de Alicia; <code>B = g^b mod p</code> es el de Bob. La expresión <code>mod p</code> indica que se toma el resto de la división por <code>p</code>.</li>
+</ul>
+<h2 id="como-se-obtiene-el-secreto">Cómo se obtiene el secreto</h2>
+<ol>
+<li>Alicia y Bob acuerdan los valores públicos <code>p</code> y <code>g</code>.</li>
+<li>Alicia elige <code>a</code>, calcula <code>A = g^a mod p</code> y envía <code>A</code> a Bob.</li>
+<li>Bob elige <code>b</code>, calcula <code>B = g^b mod p</code> y envía <code>B</code> a Alicia.</li>
+<li>Alicia calcula <code>K = B^a mod p</code> con el valor recibido y su número privado. Bob calcula <code>K = A^b mod p</code> de la misma manera.</li>
+</ol>
+<p>Los números privados <code>a</code> y <code>b</code> nunca se envían.</p>
+<h2 id="ejemplo-de-la-catedra">Ejemplo de la cátedra</h2>
+<p>La explicación de la Práctica 1, parte 2, utiliza <code>p = 1999</code> y <code>g = 33</code>:</p>
+<ol>
+<li>Alicia elige <code>a = 47</code> y envía <code>A = 33^47 mod 1999 = 1343</code>.</li>
+<li>Bob elige <code>b = 117</code> y envía <code>B = 33^117 mod 1999 = 1991</code>.</li>
+<li>Alicia recibe <code>1991</code> y calcula <code>K = 1991^47 mod 1999 = 1506</code>.</li>
+<li>Bob recibe <code>1343</code> y calcula <code>K = 1343^117 mod 1999 = 1506</code>.</li>
+</ol>
+<p>Ambos obtienen <strong><code>K = 1506</code></strong> sin haber enviado <code>a</code>, <code>b</code> ni <code>K</code>.</p>
+<h2 id="por-que-ambos-obtienen-el-mismo-valor">Por qué ambos obtienen el mismo valor</h2>
+<p>Al reemplazar el valor público recibido por su fórmula, Alicia calcula <code>(g^b)^a mod p = g^(ab) mod p</code>. Bob calcula <code>(g^a)^b mod p = g^(ba) mod p</code>. Como <code>ab = ba</code>, los resultados coinciden.</p>
+<h2 id="seguridad-y-limite-de-autenticacion">Seguridad y límite de autenticación</h2>
+<p>Quien observa el canal conoce <code>p</code>, <code>g</code>, <code>A</code> y <code>B</code>, pero no recibe <code>a</code> ni <code>b</code>. El material de la cátedra relaciona la seguridad del intercambio con la dificultad de recuperar esos exponentes privados mediante el <strong>logaritmo discreto</strong> cuando se usan parámetros adecuados. Los números pequeños del ejemplo sirven para entender el procedimiento, no para proteger una comunicación real.</p>
+<p>Esto no demuestra la identidad de los participantes. En DH básico, un atacante que sustituye los valores públicos puede acordar un secreto distinto con Alicia y con Bob. Para evitar ese ataque de intermediario, el protocolo debe autenticar el intercambio.</p>
+<details class="wiki-review"><summary>¿Por qué Diffie–Hellman no es una subclase de cifrado de mensajes?</summary><p>Porque acuerda un secreto compartido. Para cifrar los mensajes se necesita después un mecanismo de cifrado.</p>
 </details>
 
 
         <section class="wiki-section" aria-labelledby="relacionados"><h2 id="relacionados">Conceptos relacionados</h2><ul><li><a href="../../signature/">Firma digital</a></li><li><a href="../../pki/">Infraestructura de clave pública (PKI)</a></li><li><a href="../../encryption/modern/symmetric/">Criptografía simétrica</a></li></ul></section>
-        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Cripto, parte 2 · pp. 10. <span>Material de cátedra, fuente local de trabajo; PDF no distribuido por este sitio.</span></li><li>Explicación de la práctica 1, parte 2 · pp. 4. <span>Material de cátedra, fuente local de trabajo; PDF no distribuido por este sitio.</span></li><li><a href="../../../../docs/Guia_de_estudio_IC_Practicas_1_y_2.pdf#page=6" target="_blank" rel="noopener">Guía de estudio de prácticas 1 y 2</a> · pp. 6, 7. <span>Material complementario, PDF disponible.</span></li><li><a href="../../../../docs/IC2026_Solucionario_Practicas_1_y_2.pdf#page=8" target="_blank" rel="noopener">Solucionario de prácticas 1 y 2</a> · pp. 8. <span>Material complementario, PDF disponible.</span></li></ul></section>
+        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Cripto, parte 2 · <a href="../../../../docs/catedra%20cosas/03%20-%20Cripto%20parte%202.pdf#page=10" target="_blank" rel="noopener">p. 10 ↗</a>. <span>Material de cátedra</span></li><li>Explicación de la práctica 1, parte 2 · <a href="../../../../docs/catedra%20cosas/Explicaci%C3%B3n%20-%20Pr%C3%A1ctica%201%20-%20Parte%202.pdf#page=4" target="_blank" rel="noopener">p. 4 ↗</a>. <span>Material de cátedra</span></li><li>Guía de estudio de prácticas 1 y 2 · <a href="../../../../docs/Guia_de_estudio_IC_Practicas_1_y_2.pdf#page=6" target="_blank" rel="noopener">p. 6 ↗</a>, <a href="../../../../docs/Guia_de_estudio_IC_Practicas_1_y_2.pdf#page=7" target="_blank" rel="noopener">p. 7 ↗</a>. <span>Material complementario</span></li><li>Solucionario de prácticas 1 y 2 · <a href="../../../../docs/IC2026_Solucionario_Practicas_1_y_2.pdf#page=8" target="_blank" rel="noopener">p. 8 ↗</a>. <span>Material complementario</span></li><li>Glosario · <a href="../../../../glosario.html#diffie-hellman">Diffie–Hellman: acuerdo de secreto ↗</a></li><li><a href="../../../../glosario.html">Explorar el glosario completo ↗</a></li></ul></section>
       </main>
       <footer class="wiki-footer"><p>IC 2026 · Elaboración didáctica original basada en las fuentes indicadas. Las páginas citadas corresponden al archivo PDF, contando desde 1.</p><a href="../../../">Volver al inicio de la wiki</a></footer>
     </div>

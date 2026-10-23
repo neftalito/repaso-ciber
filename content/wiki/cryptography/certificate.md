@@ -1,24 +1,28 @@
 ---
 {"id":"crypto-certificate","title":"Certificados digitales","slug":"certificate","parent":"crypto-modern","type":"concept","order":60,"related":["crypto-pki","crypto-ca","crypto-tls","crypto-signature"],"sources":[{"id":"lecture-crypto-2","pages":[13,14,15,16,17,19]}],"permalink":"cryptography/certificate"}
 ---
-## Definición
+## Qué es un certificado digital
 
-Un certificado digital es una estructura de datos que asocia una identidad con una clave pública y contiene la firma de su emisor. Responde al problema de conocer a quién corresponde una clave, además de comprobar operaciones matemáticas con ella.
+Un **certificado digital** asocia una identidad con una clave pública y contiene la firma de su emisor. Responde a una pregunta previa a verificar firmas o cifrar para alguien: ¿a quién pertenece realmente esta clave pública?
 
 ## Qué contiene
 
-Las diapositivas enumeran la identidad del poseedor, su clave pública, el período de validez, la identidad del emisor y la firma digital de este último. El certificado no es la clave privada del titular.
+Cripto, parte 2, páginas 14–16, enumera estos datos:
 
-## Validación contextual
+- Identidad del poseedor y su clave pública.
+- Período de validez.
+- Identidad del emisor y su firma digital.
 
-La clase muestra problemas como vencimiento, nombre de sitio incorrecto, autofirma, raíz no confiable y revocación. Son verificaciones distintas: una firma matemática válida no elimina un vencimiento ni corrige que el certificado corresponda a otro sitio.
+El certificado comunica la clave pública; no contiene la clave privada del titular.
 
-## Ejemplo original
+## Qué debe comprobarse
 
-Un certificado emitido para `campus.example` no permite concluir que `correo.example` sea el mismo servicio autenticado. La comprobación debe considerar la identidad esperada, no únicamente que exista un archivo de certificado.
+La página 17 presenta certificados vencidos, emitidos para un nombre de sitio incorrecto, autofirmados, con una raíz no confiable o revocados. Son problemas diferentes: verificar una firma no corrige el vencimiento ni hace que un certificado corresponda a otro sitio.
 
-El caso de contenido mixto mostrado en la clase afecta cómo una página carga recursos; no es, por sí solo, un campo de identidad del certificado.
+La confianza en el emisor también importa. La página 19 relaciona esa decisión con las autoridades de certificación y la infraestructura de clave pública.
 
-:::question ¿Por qué no debe compartirse una clave privada como parte del certificado?
-Porque el certificado comunica una clave pública y su asociación con una identidad. La clave privada tiene otro papel y su exposición permitiría operaciones reservadas a su titular.
+El caso de contenido mixto incluido en la página 17 se refiere a cómo una página carga recursos; no es un dato de identidad dentro del certificado.
+
+:::question ¿Por qué el certificado no debe incluir la clave privada?
+Porque comunica una clave pública y su asociación con una identidad. La clave privada debe conservarse en secreto para las operaciones reservadas a su titular.
 :::

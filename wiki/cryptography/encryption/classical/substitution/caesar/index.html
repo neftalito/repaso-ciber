@@ -34,19 +34,57 @@
       <main id="wiki-main" class="wiki-article" tabindex="-1">
         <p class="eyebrow">INTRODUCCIÓN A LA CIBERSEGURIDAD · ALGORITMO</p>
         <h1>Cifrado César y ROT</h1>
-        <h2 id="desplazamiento-fijo">Desplazamiento fijo</h2>
-<p>César reemplaza cada letra por otra situada a una distancia fija en un alfabeto. Para A=0 hasta Z=25, el cifrado es <code>c = (p + k) mod 26</code> y el descifrado <code>p = (c - k) mod 26</code>. Se debe declarar qué ocurre con espacios, acentos y signos.</p>
-<h2 id="ejemplo-original">Ejemplo original</h2>
-<p>Con el alfabeto A–Z y <code>k=3</code>, <code>LUNA</code> se transforma en <code>OXQD</code>: L→O, U→X, N→Q y A→D. Para recuperar el original se retroceden tres posiciones, con retorno circular al alcanzar el inicio.</p>
-<p>ROT designa una rotación del alfabeto. ROT13 avanza trece lugares; aplicarlo dos veces devuelve el original porque el desplazamiento total es 26.</p>
-<h2 id="limitacion">Limitación</h2>
-<p>Solo hay 26 desplazamientos posibles, incluido el que no cambia nada. Es posible enumerarlos, por lo que el método se estudia como ejemplo histórico y ejercicio de reconocimiento.</p>
-<details class="wiki-review"><summary>¿César conserva el orden de las posiciones del mensaje?</summary><p>Sí. La primera letra sigue siendo la primera, pero se sustituye por otra. Por eso es sustitución y no transposición.</p>
+        <h2 id="desplazar-letras-sin-cambiar-su-orden">Desplazar letras sin cambiar su orden</h2>
+<p>El <strong>cifrado César</strong> sustituye cada letra por otra situada a una distancia fija en el alfabeto. Al llegar al final, continúa desde el principio. El desplazamiento es el mismo en todas las posiciones del mensaje.</p>
+<p>Cripto, parte 1, páginas 12–13, presenta César/ROT entre los cifrados clásicos y explica ROT3, con un desplazamiento de tres posiciones. La página 13 también ilustra ROT13.</p>
+<h2 id="ejemplo-de-cesar-con-desplazamiento-3">Ejemplo de César con desplazamiento 3</h2>
+<p>El manual complementario, página 7, utiliza el alfabeto A–Z y el mensaje <code>HOLA</code>:</p>
+<table>
+<thead>
+<tr>
+<th>Entrada</th>
+<th>Avanzar tres posiciones</th>
+<th>Salida</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>H</td>
+<td>H → I → J → K</td>
+<td>K</td>
+</tr>
+<tr>
+<td>O</td>
+<td>O → P → Q → R</td>
+<td>R</td>
+</tr>
+<tr>
+<td>L</td>
+<td>L → M → N → O</td>
+<td>O</td>
+</tr>
+<tr>
+<td>A</td>
+<td>A → B → C → D</td>
+<td>D</td>
+</tr>
+</tbody></table>
+<p>El resultado es <strong><code>KROD</code></strong>. Para descifrar se recorren tres posiciones hacia atrás en cada letra.</p>
+<h2 id="expresion-con-indices">Expresión con índices</h2>
+<p>Si A vale 0 y Z vale 25, <code>p</code> representa el índice de una letra del mensaje, <code>c</code> el de su sustituta y <code>k</code> el desplazamiento:</p>
+<ul>
+<li>Cifrar: <code>c = (p + k) mod 26</code>.</li>
+<li>Descifrar: <code>p = (c - k) mod 26</code>.</li>
+</ul>
+<p><code>mod 26</code> conserva el resto de la división por 26 y expresa el retorno circular del alfabeto. Debe precisarse qué ocurre con espacios, acentos y signos, que no están incluidos en esta convención A–Z.</p>
+<h2 id="rot13-y-limite-del-metodo">ROT13 y límite del método</h2>
+<p>ROT indica una rotación del alfabeto. En la ilustración oficial de ROT13, <code>HOLA</code> se transforma en <code>UBYN</code>. Repetir ROT13 recupera el original: dos desplazamientos de trece completan las 26 posiciones.</p>
+<p>El manual señala que basta probar los 26 desplazamientos posibles para enumerar las alternativas de César. Se estudia como mecanismo clásico, no como protección criptográfica moderna.</p>
+<details class="wiki-review"><summary>¿Por qué César es sustitución y no transposición?</summary><p>Porque cada posición conserva su lugar, pero la letra que contiene se reemplaza por otra. Una transposición cambiaría el orden de las letras originales.</p>
 </details>
 
 
         <section class="wiki-section" aria-labelledby="relacionados"><h2 id="relacionados">Conceptos relacionados</h2><ul><li><a href="../../../../encoding/alphabet-indices/">Índices alfabéticos A1Z26</a></li><li><a href="../vigenere/">Cifrado Vigenère</a></li></ul></section>
-        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Cripto, parte 1 · pp. 12, 13. <span>Material de cátedra, fuente local de trabajo; PDF no distribuido por este sitio.</span></li><li><a href="../../../../../../docs/Manual_IC2026_Cripto_CSIRT_Malware_Descarga.pdf#page=7" target="_blank" rel="noopener">Manual de estudio: Cripto, CSIRT y Malware</a> · pp. 7. <span>Material complementario, PDF disponible.</span></li></ul></section>
+        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Cripto, parte 1 · <a href="../../../../../../docs/catedra%20cosas/02%20-%20Cripto%20parte%201.pdf#page=12" target="_blank" rel="noopener">p. 12 ↗</a>, <a href="../../../../../../docs/catedra%20cosas/02%20-%20Cripto%20parte%201.pdf#page=13" target="_blank" rel="noopener">p. 13 ↗</a>. <span>Material de cátedra</span></li><li>Manual de estudio: Cripto, CSIRT y Malware · <a href="../../../../../../docs/Manual_IC2026_Cripto_CSIRT_Malware_Descarga.pdf#page=7" target="_blank" rel="noopener">p. 7 ↗</a>. <span>Material complementario</span></li><li>Glosario · <a href="../../../../../../glosario.html#cesar">César, ROT3 y ROT13 ↗</a></li><li><a href="../../../../../../glosario.html">Explorar el glosario completo ↗</a></li></ul></section>
       </main>
       <footer class="wiki-footer"><p>IC 2026 · Elaboración didáctica original basada en las fuentes indicadas. Las páginas citadas corresponden al archivo PDF, contando desde 1.</p><a href="../../../../../">Volver al inicio de la wiki</a></footer>
     </div>

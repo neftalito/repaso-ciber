@@ -1,20 +1,16 @@
 ---
 {"id":"crypto-idea","title":"IDEA","slug":"idea","parent":"crypto-block-algorithms","type":"algorithm","order":50,"related":["crypto-symmetric","crypto-aes"],"sources":[{"id":"lecture-crypto-1","pages":[30]}],"permalink":"cryptography/encryption/modern/symmetric/idea"}
 ---
-## Lugar en el mapa de la materia
+## Qué es IDEA
 
-IDEA aparece entre los algoritmos simétricos enumerados por la cátedra. Se estudia dentro del modelo de un secreto compartido y de una transformación reversible de los datos.
+IDEA es uno de los algoritmos **simétricos** enumerados en Cripto, parte 1, página 30. En ese modelo, el emisor y el receptor dependen de un secreto compartido para cifrar y descifrar.
 
-## Comparación de propósitos
+## El problema del secreto compartido
 
-No debe confundirse el nombre del algoritmo con una operación de firma digital. Cifrar un documento con una clave compartida puede restringir su lectura, pero el esquema descrito no identifica por sí solo cuál de las personas que conoce el secreto lo produjo.
+La diapositiva advierte sobre el uso de una misma clave en un grupo. Cifrar permite restringir quién puede leer, pero conocer el secreto compartido no distingue por sí solo a una persona de las demás que también lo conocen. La elección del algoritmo y la administración de las claves son aspectos diferentes del sistema.
 
-Ese contraste permite separar la pregunta «¿quién puede leer?» de «¿cómo verifico el origen?», que se desarrolla en firmas y mecanismos de confianza.
+La fuente menciona IDEA sin explicar su construcción interna. Esta página conserva ese alcance: permite reconocer el ejemplo y comprender el problema de gestión que acompaña a la familia simétrica.
 
-## Alcance
-
-La página citada nombra IDEA sin explicar su construcción interna. Esta nota no atribuye tamaños, rondas ni una salida numérica inexistente en el material: conserva el ejemplo con el alcance realmente documentado.
-
-:::question ¿Compartir una clave IDEA con un grupo identifica de manera individual al autor de cada mensaje?
-No por ese solo hecho. Todos los integrantes poseen el secreto compartido. La atribución individual requiere analizar otros mecanismos del sistema.
+:::question ¿Una clave compartida por todo un grupo identifica al autor individual de cada mensaje?
+No por sí sola. Cada integrante conoce el mismo secreto; esa condición no permite distinguir cuál de ellos produjo un mensaje.
 :::

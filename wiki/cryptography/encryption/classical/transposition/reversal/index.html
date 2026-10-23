@@ -34,19 +34,25 @@
       <main id="wiki-main" class="wiki-article" tabindex="-1">
         <p class="eyebrow">INTRODUCCIÓN A LA CIBERSEGURIDAD · TÉCNICA</p>
         <h1>Transposición por inversión</h1>
-        <h2 id="definicion">Definición</h2>
-<p>Invertir una cadena consiste en leer sus caracteres desde el último hasta el primero. Es una transposición porque conserva cada símbolo y modifica su posición. El material complementario utiliza cadenas invertidas como una pista de reconocimiento.</p>
-<h2 id="ejemplo-original">Ejemplo original</h2>
-<p><code>LUNA</code> pasa a <code>ANUL</code>. Si se aplica la inversión de nuevo, se recupera <code>LUNA</code>. La operación no exige cambiar el alfabeto ni sumar desplazamientos.</p>
-<p>En una resolución debe declararse la unidad de inversión. Invertir los caracteres de todo el mensaje no es lo mismo que invertir solo el orden de las palabras; la convención del ejemplo opera sobre caracteres.</p>
-<h2 id="limite">Límite</h2>
-<p>La presencia de signos de apertura y cierre intercambiados puede sugerir una inversión, pero no demuestra que sea la única transformación aplicada.</p>
-<details class="wiki-review"><summary>¿Invertir CASA y aplicar Atbash a CASA son el mismo procedimiento?</summary><p>No. La inversión produce ASAC y mantiene las letras originales; Atbash las sustituye mediante una tabla de correspondencias.</p>
+        <h2 id="leer-los-caracteres-en-orden-inverso">Leer los caracteres en orden inverso</h2>
+<p>La transposición por inversión recorre una cadena desde el último carácter hasta el primero. Conserva los símbolos y cambia su posición: no reemplaza letras por otras ni aplica un desplazamiento al alfabeto.</p>
+<p>El material complementario utiliza las cadenas invertidas como pista de reconocimiento. El desarrollo de esta variante y los ejemplos siguientes proceden de ese material.</p>
+<h2 id="ejemplos-respaldados-por-las-fuentes">Ejemplos respaldados por las fuentes</h2>
+<p>La guía complementaria, página 3, muestra que <code>HOLA</code> invertido produce <code>ALOH</code>. Aplicar otra vez la misma operación recupera el orden original.</p>
+<p>El solucionario de prácticas, página 3, presenta un caso donde también se invierte la posición de los signos:</p>
+<pre><code class="language-text">Entrada: }odnum_aloh{CI
+Salida:  IC{hola_mundo}
+</code></pre>
+<p>Se recorre toda la cadena de derecha a izquierda. Por eso los signos y el guion bajo se conservan y cambian de posición junto con las letras.</p>
+<h2 id="la-unidad-que-se-invierte-importa">La unidad que se invierte importa</h2>
+<p>Invertir los caracteres del mensaje completo no es lo mismo que invertir solo el orden de sus palabras. La regla debe declararse antes de interpretar el resultado.</p>
+<p>Una forma visible invertida puede orientar una hipótesis, pero no demuestra que sea la única transformación aplicada. El resultado todavía puede contener otra capa de representación o cifrado.</p>
+<details class="wiki-review"><summary>¿La inversión funciona como Atbash?</summary><p>No. La inversión conserva las letras y cambia sus posiciones. Atbash sustituye cada letra mediante una correspondencia del alfabeto.</p>
 </details>
 
 
         <section class="wiki-section" aria-labelledby="relacionados"><h2 id="relacionados">Conceptos relacionados</h2><ul><li><a href="../../substitution/atbash/">Cifrado Atbash</a></li><li><a href="../">Cifrado por transposición</a></li></ul></section>
-        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li><a href="../../../../../../docs/Guia_de_estudio_IC_Practicas_1_y_2.pdf#page=3" target="_blank" rel="noopener">Guía de estudio de prácticas 1 y 2</a> · pp. 3. <span>Material complementario, PDF disponible.</span></li><li><a href="../../../../../../docs/IC2026_Solucionario_Practicas_1_y_2.pdf#page=3" target="_blank" rel="noopener">Solucionario de prácticas 1 y 2</a> · pp. 3. <span>Material complementario, PDF disponible.</span></li></ul></section>
+        <section class="wiki-section" aria-labelledby="fuentes"><h2 id="fuentes">Fuentes</h2><ul class="wiki-sources"><li>Guía de estudio de prácticas 1 y 2 · <a href="../../../../../../docs/Guia_de_estudio_IC_Practicas_1_y_2.pdf#page=3" target="_blank" rel="noopener">p. 3 ↗</a>. <span>Material complementario</span></li><li>Solucionario de prácticas 1 y 2 · <a href="../../../../../../docs/IC2026_Solucionario_Practicas_1_y_2.pdf#page=3" target="_blank" rel="noopener">p. 3 ↗</a>. <span>Material complementario</span></li><li><a href="../../../../../../glosario.html">Explorar el glosario completo ↗</a></li></ul></section>
       </main>
       <footer class="wiki-footer"><p>IC 2026 · Elaboración didáctica original basada en las fuentes indicadas. Las páginas citadas corresponden al archivo PDF, contando desde 1.</p><a href="../../../../../">Volver al inicio de la wiki</a></footer>
     </div>

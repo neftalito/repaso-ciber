@@ -1,18 +1,18 @@
 ---
 {"id":"crypto-des","title":"DES","slug":"des","parent":"crypto-block-algorithms","type":"algorithm","order":10,"related":["crypto-triple-des","crypto-aes","crypto-rsa"],"sources":[{"id":"lecture-crypto-1","pages":[25]},{"id":"practice-1b","pages":[5]}],"permalink":"cryptography/encryption/modern/symmetric/block/des"}
 ---
-## Ubicación conceptual
+## Qué es DES
 
-DES es uno de los ejemplos de cifrado simétrico por bloques enumerados por la cátedra. En el modelo de estudio recibe un bloque de texto y una clave secreta, y produce un bloque cifrado que puede revertirse con la clave correspondiente.
+**DES** es un algoritmo de cifrado simétrico por bloques. Recibe un bloque de datos y una clave secreta, y produce un bloque cifrado. El descifrado utiliza la misma clave para recuperar el original.
 
-## Cómo distinguirlo de otras etiquetas
+Cripto, parte 1, página 25, lo enumera junto con AES. La explicación de la Práctica 1, parte 2, página 5, desarrolla el modelo general de cifrado y descifrado por bloques.
 
-DES nombra un algoritmo, mientras que ECB o CBC nombran modos de operación. Identificar DES no basta para reconstruir un mensaje: siguen siendo necesarios la clave, el modo y sus parámetros. Tampoco debe interpretarse como una función hash, porque el modelo incluye descifrado.
+## Algoritmo y modo de operación
 
-## Alcance de la fuente
+DES identifica el algoritmo. Los nombres ECB y CBC identifican modos de aplicar cifradores por bloques a un mensaje. Por eso conocer solamente el nombre DES no completa un procedimiento de descifrado: también se necesitan la clave y la configuración utilizada.
 
-Las páginas citadas lo presentan como ejemplo y no desarrollan sus rondas ni parámetros internos. Esta nota conserva ese alcance y su contexto histórico; no propone utilizarlo para proteger información actual.
+Las páginas citadas permiten comprender esa ubicación, pero no desarrollan las rondas ni los parámetros internos de DES.
 
-:::question ¿DES pertenece a la misma categoría de mecanismo que RSA?
-No. DES aparece entre los algoritmos simétricos por bloques. RSA utiliza un par de claves públicas y privadas y se estudia en criptografía asimétrica.
+:::question ¿DES y RSA utilizan el mismo modelo de claves?
+No. DES pertenece al cifrado simétrico con secreto compartido; RSA se estudia con un par de claves pública y privada.
 :::

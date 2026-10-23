@@ -1,18 +1,16 @@
 ---
 {"id":"crypto-rc5","title":"RC5","slug":"rc5","parent":"crypto-block-algorithms","type":"algorithm","order":40,"related":["crypto-symmetric","crypto-aes"],"sources":[{"id":"lecture-crypto-1","pages":[30]}],"permalink":"cryptography/encryption/modern/symmetric/rc5"}
 ---
-## Ejemplo de algoritmo simétrico
+## Qué es RC5
 
-RC5 es uno de los nombres que la clase incorpora al enumerar algoritmos simétricos. La característica común desarrollada allí es la utilización de un secreto compartido para cifrar y descifrar.
+RC5 aparece entre los algoritmos **simétricos** de Cripto, parte 1, página 30. La característica común explicada allí es que emisor y receptor dependen de un secreto compartido para cifrar y descifrar.
 
-## Distinguir algoritmo y administración
+## Algoritmo y distribución de claves
 
-Elegir un algoritmo responde cómo se transforman los datos, pero no cómo se entrega la clave a las personas autorizadas. Por ejemplo, si varias personas comparten acceso, conocer el nombre RC5 no determina qué hacer al retirar el permiso de una de ellas. El problema de gestión sigue siendo parte del sistema.
+Saber qué algoritmo transforma los datos no explica cómo la clave llega a las personas autorizadas. La diapositiva destaca precisamente esa dificultad: se necesita un medio seguro para intercambiarla, y administrar una misma clave entre muchas personas plantea problemas de escala.
 
-## Alcance de la fuente
+La fuente enumera RC5 sin desarrollar sus parámetros ni su construcción interna. Su mención sirve para reconocer el ejemplo y relacionarlo con el problema de administración de secretos de la familia simétrica.
 
-La diapositiva no desarrolla rondas, longitudes ni un modo concreto de RC5. Su incorporación aquí permite reconocer el ejemplo y situarlo frente a la familia asimétrica; no proporciona parámetros de implementación ni una recomendación de uso.
-
-:::question ¿Qué información falta para reproducir un descifrado aunque se sepa que se usó RC5?
-Faltan la clave y los parámetros concretos del esquema. La etiqueta del algoritmo no contiene esos valores ni explica cómo se compartieron.
+:::question ¿Conocer el nombre RC5 basta para descifrar un mensaje?
+No. También hacen falta la clave y los parámetros del esquema utilizado. El nombre del algoritmo no proporciona esos datos.
 :::
