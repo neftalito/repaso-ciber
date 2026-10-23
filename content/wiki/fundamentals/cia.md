@@ -1,5 +1,5 @@
 ---
-{"id":"fundamentals-cia","title":"Tríada CIA","slug":"cia","parent":"fundamentals","type":"concept","order":10,"aliases":["confidencialidad","integridad","disponibilidad"],"related":[],"sources":[{"id":"lecture-fundamentals","pages":[2,3,4]},{"id":"lecture-incidents","pages":[2,3]}]}
+{"id":"fundamentals-cia","title":"Tríada CIA","slug":"cia","parent":"fundamentals-security","type":"concept","order":10,"aliases":["confidencialidad","integridad","disponibilidad"],"related":[],"sources":[{"id":"lecture-fundamentals","pages":[2,3,4]},{"id":"lecture-incidents","pages":[2,3]}],"permalink":"fundamentals/cia"}
 ---
 ## Definición
 

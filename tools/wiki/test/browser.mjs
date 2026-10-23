@@ -43,7 +43,7 @@ try {
     assert.ok(page.url().endsWith(`${prefix}/wiki/fundamentals/cia/`));
     await page.reload();
     assert.equal(await page.locator('h1').innerText(), 'Tríada CIA');
-    assert.ok(await page.locator('.wiki-breadcrumbs').innerText().then(text => text.includes('Fundamentos')));
+    assert.deepEqual(await page.locator('.wiki-breadcrumbs li').allTextContents(), ['Wiki Académica', 'Fundamentos de ciberseguridad', 'Seguridad de la información', 'Tríada CIA']);
     const answer = page.locator('.wiki-review').first();
     assert.equal(await answer.getAttribute('open'), null);
     await answer.locator('summary').click();
@@ -53,6 +53,24 @@ try {
     await page.locator('#wiki-query').fill('');
     await page.waitForFunction(() => document.querySelector('#wiki-results').hidden);
     assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
+
+    await page.goto(`${origin}${prefix}/wiki/fundamentals/`);
+    assert.deepEqual(await page.locator('[aria-labelledby="subtemas"] a').allTextContents(), ['Seguridad de la información', 'Ciberseguridad', 'Amenaza', 'Vulnerabilidad', 'Riesgo', 'Atacantes y motivaciones', 'Tipos de ataques', 'Filtraciones de información (Leaks)', 'Defensa en profundidad', 'Riesgos de IA y modelos de lenguaje']);
+    await page.locator('[aria-labelledby="subtemas"] a').filter({ hasText: /^Ciberseguridad$/ }).click();
+    assert.ok(await page.locator('#wiki-main').innerText().then(text => text.includes('ISO/IEC 27032') && text.includes('NIST')));
+    await page.goto(`${origin}${prefix}/wiki/fundamentals/attacks/`);
+    assert.deepEqual(await page.locator('[aria-labelledby="subtemas"] a').allTextContents(), ['Ingeniería social', 'Man in the Middle (MitM)', 'Ataques a aplicaciones', 'Denegación de servicio (DoS y DDoS)']);
+    await page.locator('[aria-labelledby="subtemas"] a').filter({ hasText: /^Ingeniería social$/ }).click();
+    assert.deepEqual(await page.locator('[aria-labelledby="subtemas"] a').allTextContents(), ['Phishing']);
+    await page.locator('[aria-labelledby="subtemas"] a').filter({ hasText: /^Phishing$/ }).click();
+    assert.ok(page.url().endsWith(`${prefix}/wiki/fundamentals/attacks/phishing/`));
+    await page.reload();
+    assert.deepEqual(await page.locator('.wiki-breadcrumbs li').allTextContents(), ['Wiki Académica', 'Fundamentos de ciberseguridad', 'Tipos de ataques', 'Ingeniería social', 'Phishing']);
+    await page.goto(`${origin}${prefix}/wiki/fundamentals/risk/`);
+    assert.equal(await page.locator('h1').innerText(), 'Riesgo');
+    await page.locator('#wiki-query').fill('Phishing e ingeniería social');
+    await page.locator('#wiki-results a').filter({ hasText: /^Phishing$/ }).click();
+    assert.ok(page.url().endsWith(`${prefix}/wiki/fundamentals/attacks/phishing/`));
 
     // Published URLs remain stable even when the academic ancestry changes.
     await page.goto(`${origin}${prefix}/wiki/cryptography/encryption/modern/symmetric/rc5/`);
@@ -101,10 +119,12 @@ try {
     assert.ok(page.url().endsWith(`${prefix}/wiki/cryptography/hash/`));
   }
   const index = await (await fetch(`${origin}/wiki/search-index.json`)).json();
-  assert.equal(index.length, 193);
+  assert.equal(index.length, 195);
   assert.ok(!index.some(entry => ['crypto-collisions', 'crypto-password-hashes', 'crypto-dictionary', 'crypto-salt'].includes(entry.id)));
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto(`${origin}/repaso-ciber/wiki/cryptography/hash/`);
+  assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
+  await page.goto(`${origin}/repaso-ciber/wiki/fundamentals/attacks/phishing/`);
   assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
   await page.setViewportSize({ width: 1366, height: 1000 });
   const deepest = index.reduce((a, b) => a.url.split('/').length > b.url.split('/').length ? a : b);
@@ -125,6 +145,9 @@ try {
   assert.equal(await offlinePage.locator('h1').innerText(), 'Tríada CIA');
   await offlinePage.locator('.wiki-review summary').first().click();
   assert.notEqual(await offlinePage.locator('.wiki-review').first().getAttribute('open'), null);
+  await offlinePage.goto(`${origin}/repaso-ciber/wiki/fundamentals/attacks/phishing/`);
+  await offlinePage.locator('.wiki-breadcrumbs a').filter({ hasText: /^Ingeniería social$/ }).click();
+  assert.equal(await offlinePage.locator('h1').innerText(), 'Ingeniería social');
   await offlinePage.goto(`${origin}/repaso-ciber/wiki/cryptography/hash/password-hashes/salt/`);
   await offlinePage.waitForURL(`${origin}/repaso-ciber/wiki/cryptography/hash/#sal-en-el-calculo-de-contrasenas`);
   assert.ok(await offlinePage.locator('#wiki-main').innerText().then(text => text.includes('curso:luna')));

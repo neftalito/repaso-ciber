@@ -1,5 +1,5 @@
 ---
-{"id":"fundamentals-risk","title":"Amenaza, vulnerabilidad y riesgo","slug":"risk","parent":"fundamentals","type":"concept","order":40,"related":["fundamentals-threat","fundamentals-vulnerability","fundamentals-cia"],"sources":[{"id":"lecture-fundamentals","pages":[5,7]}]}
+{"id":"fundamentals-risk","title":"Riesgo","slug":"risk","parent":"fundamentals","type":"concept","order":40,"related":["fundamentals-threat","fundamentals-vulnerability","fundamentals-cia"],"sources":[{"id":"lecture-fundamentals","pages":[5,7]}],"aliases":["Amenaza, vulnerabilidad y riesgo"]}
 ---
 ## Definición
 

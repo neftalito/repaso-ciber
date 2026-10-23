@@ -204,3 +204,48 @@ test('hash consolidation retains every original academic block, review answer an
     assert.ok(note.redirectTo.startsWith('crypto-hash#'));
   }
 });
+
+test('Fundamentos follows the requested hierarchy while retaining original academic units, citations and URLs', () => {
+  const site = fileURLToPath(new URL('../../../', import.meta.url));
+  const directory = path.join(site, 'content/wiki/fundamentals');
+  const pages = new Map(readdirSync(directory).filter(file => file.endsWith('.md')).map(file => {
+    const [metadata, body] = readFileSync(path.join(directory, file), 'utf8').replace(/\r\n/g, '\n').split('---\n').slice(1);
+    const page = JSON.parse(metadata);
+    return [page.id, { ...page, body }];
+  }));
+  const expectedChildren = {
+    fundamentals: ['security', 'cybersecurity', 'threat', 'vulnerability', 'risk', 'attackers', 'attacks', 'leaks', 'defense-depth', 'llm'],
+    'fundamentals-security': ['cia'],
+    'fundamentals-attacks': ['social-engineering', 'mitm', 'application-attacks', 'dos'],
+    'fundamentals-social-engineering': ['phishing'],
+    'fundamentals-application-attacks': ['sqli', 'rce', 'ssrf'],
+    'fundamentals-llm': ['prompt-injection'],
+  };
+  for (const [parent, ids] of Object.entries(expectedChildren)) {
+    const children = [...pages.values()].filter(page => page.parent === parent).sort((a, b) => a.order - b.order);
+    assert.deepEqual(children.map(page => page.id), ids.map(id => `fundamentals-${id}`), parent);
+  }
+  assert.equal(pages.size, 21, 'attributes, actors and defense layers must remain sections');
+  assert.equal(pages.get('fundamentals-risk').title, 'Riesgo');
+  assert.equal(pages.get('fundamentals-attacks').title, 'Tipos de ataques');
+  assert.equal(pages.get('fundamentals-phishing').title, 'Phishing');
+  assert.equal(pages.get('fundamentals-prompt-injection').title, 'Prompt Injection');
+  const expected = JSON.parse(readFileSync(new URL('./fixtures/fundamentals-preservation.json', import.meta.url), 'utf8'));
+  for (const original of expected.notes) {
+    const current = pages.get(original.id);
+    assert.ok(current, `Stable ID missing: ${original.id}`);
+    const route = page => page.permalink || `${page.parent === 'wiki' ? '' : `${route(pages.get(page.parent))}/`}${page.slug}`;
+    assert.equal(`${route(current)}/`, original.url, `Published URL changed: ${original.id}`);
+    for (const citation of original.sources) {
+      const source = current.sources.find(source => source.id === citation.id);
+      assert.ok(source, `Source missing: ${original.id}/${citation.id}`);
+      for (const number of citation.pages) assert.ok(source.pages.includes(number), `Citation missing: ${original.id} p.${number}`);
+    }
+    for (const unit of original.blocks) {
+      const body = pages.get(unit.destination)?.body || '';
+      // Splitting an original paragraph may move a sentence without changing its bytes.
+      const units = body.trim().split('\n\n').flatMap(block => [block, ...block.split(/(?<=\.) (?=[A-ZÁÉÍÓÚ¿])/)]);
+      assert.ok(units.some(text => createHash('sha256').update(text).digest('hex') === unit.sha256), `Academic content missing: ${original.file} -> ${unit.destination}`);
+    }
+  }
+});

@@ -1,11 +1,11 @@
 ---
-{"id":"fundamentals-phishing","title":"Phishing e ingeniería social","slug":"phishing","parent":"fundamentals-attacks","type":"concept","order":10,"related":["csirt-email","fundamentals-llm"],"sources":[{"id":"lecture-fundamentals","pages":[8,16]}]}
+{"id":"fundamentals-phishing","title":"Phishing","slug":"phishing","parent":"fundamentals-social-engineering","type":"concept","order":10,"related":["fundamentals-social-engineering","csirt-email","fundamentals-llm"],"sources":[{"id":"lecture-fundamentals","pages":[8,16]}],"aliases":["Phishing e ingeniería social"],"permalink":"fundamentals/attacks/phishing"}
 ---
 ## Definición y mecanismo
 
-La ingeniería social busca influir en las decisiones de una persona mediante engaño. El phishing aplica ese mecanismo en comunicaciones que aparentan un origen confiable, por ejemplo un correo que solicita credenciales.
+El phishing aplica ese mecanismo en comunicaciones que aparentan un origen confiable, por ejemplo un correo que solicita credenciales.
 
-El punto de entrada es la confianza del receptor: una presentación convincente puede inducir una acción que el atacante no podría realizar directamente. La clase destaca que los LLM y los contenidos sintéticos pueden mejorar la redacción o personalización de estos engaños.
+La clase destaca que los LLM y los contenidos sintéticos pueden mejorar la redacción o personalización de estos engaños.
 
 ## Ejemplo y límites
 

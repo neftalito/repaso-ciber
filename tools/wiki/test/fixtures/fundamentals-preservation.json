@@ -1,0 +1,615 @@
+{
+  "description": "Original Fundamentos academic units, captured before this reorganization. Phishing introduction is split into original sentences; the cybersecurity paragraph moves intact. Do not regenerate to silence content loss.",
+  "notes": [
+    {
+      "file": "application-attacks.md",
+      "id": "fundamentals-application-attacks",
+      "url": "fundamentals/attacks/application-attacks/",
+      "sources": [
+        {
+          "id": "lecture-fundamentals",
+          "pages": [
+            5,
+            8
+          ]
+        }
+      ],
+      "blocks": [
+        {
+          "destination": "fundamentals-application-attacks",
+          "sha256": "495a6c7a0c35592193cd4df2d382fc5b8fa94dae7073108827ac9d3cac95435f"
+        },
+        {
+          "destination": "fundamentals-application-attacks",
+          "sha256": "73b4be5c717026bb2afef27b61607ed1cd0a230c8e32f2c7a985aaf996702969"
+        }
+      ]
+    },
+    {
+      "file": "attackers.md",
+      "id": "fundamentals-attackers",
+      "url": "fundamentals/attackers/",
+      "sources": [
+        {
+          "id": "lecture-fundamentals",
+          "pages": [
+            6
+          ]
+        }
+      ],
+      "blocks": [
+        {
+          "destination": "fundamentals-attackers",
+          "sha256": "b3d00a9f6d4e972d201ba4a869c94a16693270d693e9ada2f18310cbbff0237e"
+        },
+        {
+          "destination": "fundamentals-attackers",
+          "sha256": "ddc3fd309d04f73c7d427dde3858814bdbe1bc309501be8293974e54893de8f6"
+        },
+        {
+          "destination": "fundamentals-attackers",
+          "sha256": "a2a86a1ad35e80c4d48ddc4d8371b9d0d86b89ee12f280be9cc64a8bf873abbe"
+        },
+        {
+          "destination": "fundamentals-attackers",
+          "sha256": "af2f072c3861f4ced8bd1a9395f2db0ff19acfd28d60ee9c907b3f05d25163c6"
+        }
+      ]
+    },
+    {
+      "file": "attacks.md",
+      "id": "fundamentals-attacks",
+      "url": "fundamentals/attacks/",
+      "sources": [
+        {
+          "id": "lecture-fundamentals",
+          "pages": [
+            8
+          ]
+        }
+      ],
+      "blocks": [
+        {
+          "destination": "fundamentals-attacks",
+          "sha256": "882fffeae8fb8d4298123cebaf18e8f586a464b8ccb6396deb2a85f208a38a76"
+        },
+        {
+          "destination": "fundamentals-attacks",
+          "sha256": "c941a59eddba31edf61fda2c60ab1b85c4ed84c7b5cd363ae5776d7a4b5f153c"
+        }
+      ]
+    },
+    {
+      "file": "cia.md",
+      "id": "fundamentals-cia",
+      "url": "fundamentals/cia/",
+      "sources": [
+        {
+          "id": "lecture-fundamentals",
+          "pages": [
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "id": "lecture-incidents",
+          "pages": [
+            2,
+            3
+          ]
+        }
+      ],
+      "blocks": [
+        {
+          "destination": "fundamentals-cia",
+          "sha256": "fbe8f8f787f7c51d82f5afaada71496a78f545856aa8bd25743a36ba3d000c63"
+        },
+        {
+          "destination": "fundamentals-cia",
+          "sha256": "7c08f68cbd55fb6bdbd02c15b274b14b7fcec92470918eed3ed416d41352984e"
+        },
+        {
+          "destination": "fundamentals-cia",
+          "sha256": "59ec694fde3dcc5b8f098dff17d7e92a7dc1a7a9c004634b5aa71fc214460389"
+        },
+        {
+          "destination": "fundamentals-cia",
+          "sha256": "eec55538242b5b03b1ea926a6f52649d261660f502481448634ef72e0690bb7a"
+        },
+        {
+          "destination": "fundamentals-cia",
+          "sha256": "03ed2a2d5732ca77ac4bef55637d31a5c12de3c978dbb80bc6d412a5a5a18376"
+        },
+        {
+          "destination": "fundamentals-cia",
+          "sha256": "00e66c7f583e0a0ef7726166635088a3453f8fc355262ca72bc8c3067faf33a1"
+        }
+      ]
+    },
+    {
+      "file": "defense-depth.md",
+      "id": "fundamentals-defense-depth",
+      "url": "fundamentals/defense-depth/",
+      "sources": [
+        {
+          "id": "lecture-fundamentals",
+          "pages": [
+            18
+          ]
+        }
+      ],
+      "blocks": [
+        {
+          "destination": "fundamentals-defense-depth",
+          "sha256": "f1ad52be75abfa780e451cf18f8fbe5ee479d2806bad479d117f5108dd284d6c"
+        },
+        {
+          "destination": "fundamentals-defense-depth",
+          "sha256": "15ecd2e10527d8bdbd856887990b56b5cd88ad21eb0992d484e2a62f3cc61d83"
+        },
+        {
+          "destination": "fundamentals-defense-depth",
+          "sha256": "d8d6107422d8500f527322520e900fc0603bfa938cb6d44f1d84bb2593ca6122"
+        },
+        {
+          "destination": "fundamentals-defense-depth",
+          "sha256": "40148ac5e44a82739b4037fea0562eb03eb9ef04820ae657b7cdaf2c104bed48"
+        }
+      ]
+    },
+    {
+      "file": "dos.md",
+      "id": "fundamentals-dos",
+      "url": "fundamentals/attacks/dos/",
+      "sources": [
+        {
+          "id": "lecture-fundamentals",
+          "pages": [
+            8
+          ]
+        }
+      ],
+      "blocks": [
+        {
+          "destination": "fundamentals-dos",
+          "sha256": "5d4e71e5d99f602ed0ff0985bc3835117ca309f3427abb0d031422c78713ee19"
+        },
+        {
+          "destination": "fundamentals-dos",
+          "sha256": "e03a28b07572d8aebd8e26661f20a227293e36fb0bead44057c487906becd7e8"
+        },
+        {
+          "destination": "fundamentals-dos",
+          "sha256": "e3d5887ad080869b59d757a61e903e529adc51e18e9d18ab3c30e97085957ccf"
+        },
+        {
+          "destination": "fundamentals-dos",
+          "sha256": "05f2a170acd6dac43f0d63a34acbdb6e5163210040eb5ed628546ebbd32bef46"
+        }
+      ]
+    },
+    {
+      "file": "index.md",
+      "id": "fundamentals",
+      "url": "fundamentals/",
+      "sources": [
+        {
+          "id": "lecture-fundamentals",
+          "pages": [
+            2,
+            3,
+            4,
+            7
+          ]
+        }
+      ],
+      "blocks": [
+        {
+          "destination": "fundamentals",
+          "sha256": "8b0417541c267c85f861f89cb35c6e23a7c4f715a36dab7e4b036c1d5031d4d8"
+        },
+        {
+          "destination": "fundamentals",
+          "sha256": "13aee491f9fe1ba61a000ac0c68a6259e32c9f4d82e226132dae9637c21e049c"
+        }
+      ]
+    },
+    {
+      "file": "leaks.md",
+      "id": "fundamentals-leaks",
+      "url": "fundamentals/leaks/",
+      "sources": [
+        {
+          "id": "lecture-fundamentals",
+          "pages": [
+            11,
+            12,
+            13,
+            14
+          ]
+        }
+      ],
+      "blocks": [
+        {
+          "destination": "fundamentals-leaks",
+          "sha256": "f333bd00665d38bc26b8ec0830385d4164bc563a556e552750272f24e29a067a"
+        },
+        {
+          "destination": "fundamentals-leaks",
+          "sha256": "a7b6f5e3c37d32fecdb680131e0cfac65a1d9cbd14d3d237cb2c6fd8c8a9f5e3"
+        },
+        {
+          "destination": "fundamentals-leaks",
+          "sha256": "4df7bc72fa19a5846d8e003d6d8f58fe87996e049641dc4fabbc12da29c444df"
+        },
+        {
+          "destination": "fundamentals-leaks",
+          "sha256": "b62e3522f2e58685eb5da4f8552913af6f3a4a5e0597242ade80c05f8e9cee7c"
+        }
+      ]
+    },
+    {
+      "file": "llm.md",
+      "id": "fundamentals-llm",
+      "url": "fundamentals/llm/",
+      "sources": [
+        {
+          "id": "lecture-fundamentals",
+          "pages": [
+            15,
+            16,
+            17
+          ]
+        }
+      ],
+      "blocks": [
+        {
+          "destination": "fundamentals-llm",
+          "sha256": "fc7825b7d189aac6d3e0a5c32edb4b301a4576c982e8cb636088c9f205112751"
+        },
+        {
+          "destination": "fundamentals-llm",
+          "sha256": "000aafcd25c602d3ddd042bdce040ab2bfdce52b6109d17c38c82718bbe79c28"
+        },
+        {
+          "destination": "fundamentals-llm",
+          "sha256": "90702914c54adfb9e6e0b77e88d6fe13aed267475b9422fd3c4b9d2bb703f386"
+        },
+        {
+          "destination": "fundamentals-llm",
+          "sha256": "1ea5971cf665230bad72bf006ea3f262fe4f3235c53445021dbe1b00506d9bac"
+        },
+        {
+          "destination": "fundamentals-llm",
+          "sha256": "a30fd35e98cdb8c4a0f2f0aab2e9013b952fcf165e85f3ca129939c5cb596d3c"
+        }
+      ]
+    },
+    {
+      "file": "mitm.md",
+      "id": "fundamentals-mitm",
+      "url": "fundamentals/attacks/mitm/",
+      "sources": [
+        {
+          "id": "lecture-fundamentals",
+          "pages": [
+            8
+          ]
+        }
+      ],
+      "blocks": [
+        {
+          "destination": "fundamentals-mitm",
+          "sha256": "61258975d506678e39d2d81fb7421b651804dd79c88e212b8900f787f0489c6e"
+        },
+        {
+          "destination": "fundamentals-mitm",
+          "sha256": "cfdf51c8235a3f5ddecf63d4401825ba5ce883b6d9cfc5a43a54510495d45a88"
+        },
+        {
+          "destination": "fundamentals-mitm",
+          "sha256": "a97f1a10e8a8123aa07703c115cca6882caccff9c023d18036f0d419f12b6048"
+        },
+        {
+          "destination": "fundamentals-mitm",
+          "sha256": "bbaa3f5e0f56b1e9a416c11d6bdf536d6170039a438be75cd248a4b67930480b"
+        }
+      ]
+    },
+    {
+      "file": "phishing.md",
+      "id": "fundamentals-phishing",
+      "url": "fundamentals/attacks/phishing/",
+      "sources": [
+        {
+          "id": "lecture-fundamentals",
+          "pages": [
+            8,
+            16
+          ]
+        }
+      ],
+      "blocks": [
+        {
+          "destination": "fundamentals-social-engineering",
+          "sha256": "3961142a12e3340b90cb0a56384f9392c7d05339c53f0798c46ec85a77da5803"
+        },
+        {
+          "destination": "fundamentals-phishing",
+          "sha256": "f5b96ab0a8d6071b20bdc369e8fb3ec8f6bacc17a7aac98e9d2dd0670ea18868"
+        },
+        {
+          "destination": "fundamentals-social-engineering",
+          "sha256": "69e8cabdecdc272057724624cecb1ae3634ecb98694a9863ac99b5586e78f868"
+        },
+        {
+          "destination": "fundamentals-phishing",
+          "sha256": "02129ca6781f1dd1af7611e6606603daad41e7ec7eb7f401321e3d11ab0b0023"
+        },
+        {
+          "destination": "fundamentals-phishing",
+          "sha256": "ba569800f467a3476b904a66936b60805c1cdadb3f64c4a64d25bbddd0e2dfe2"
+        },
+        {
+          "destination": "fundamentals-phishing",
+          "sha256": "4512b09e519d08d4b10dabf94a13859f2980490fe84c1e969a5a7971de37c463"
+        }
+      ]
+    },
+    {
+      "file": "prompt-injection.md",
+      "id": "fundamentals-prompt-injection",
+      "url": "fundamentals/llm/prompt-injection/",
+      "sources": [
+        {
+          "id": "lecture-fundamentals",
+          "pages": [
+            16,
+            17
+          ]
+        }
+      ],
+      "blocks": [
+        {
+          "destination": "fundamentals-prompt-injection",
+          "sha256": "d1acc0fed47acd89fd6db714e945624bbfd5143c65532358f1d4a9e8f477060b"
+        },
+        {
+          "destination": "fundamentals-prompt-injection",
+          "sha256": "44557f37bab83bc4fc395647400b23c3994b3c48e60643006993523e04817c90"
+        },
+        {
+          "destination": "fundamentals-prompt-injection",
+          "sha256": "4a11cfaacd17ffa4f0d503c71d29fece34470abc4e83edb0fc48dc1982836450"
+        },
+        {
+          "destination": "fundamentals-prompt-injection",
+          "sha256": "4d767d60b49b791792c52a84e65bb21e7e1135de8ee0c5b41ff3b378149843e2"
+        }
+      ]
+    },
+    {
+      "file": "rce.md",
+      "id": "fundamentals-rce",
+      "url": "fundamentals/attacks/application-attacks/rce/",
+      "sources": [
+        {
+          "id": "lecture-fundamentals",
+          "pages": [
+            5,
+            8
+          ]
+        }
+      ],
+      "blocks": [
+        {
+          "destination": "fundamentals-rce",
+          "sha256": "3ddc273409859b34c1e91bf1ab120a7e90f9f88c9f188d65be57dafcbc138b7a"
+        },
+        {
+          "destination": "fundamentals-rce",
+          "sha256": "81a3ad9c2a4fd3d249123dc2cc079dc91f6c5df3220bc72050d7b96f2bf73f05"
+        },
+        {
+          "destination": "fundamentals-rce",
+          "sha256": "72c257f8a7b882580a8b82687809840e228f46d75ea373005916f23c54a3b46c"
+        }
+      ]
+    },
+    {
+      "file": "risk.md",
+      "id": "fundamentals-risk",
+      "url": "fundamentals/risk/",
+      "sources": [
+        {
+          "id": "lecture-fundamentals",
+          "pages": [
+            5,
+            7
+          ]
+        }
+      ],
+      "blocks": [
+        {
+          "destination": "fundamentals-risk",
+          "sha256": "cc7a61fe8ffa01afe8a2c4926e88e0bd285fe2653b17c8ad014cb13312e81d52"
+        },
+        {
+          "destination": "fundamentals-risk",
+          "sha256": "a5177c51e36e71aca0f709501324ccc8df0f92f2b571f45cc70cc9eaf6535afb"
+        },
+        {
+          "destination": "fundamentals-risk",
+          "sha256": "7e2dc9a3af927e63b12d0be8b0a7789ff553af215d956c9ca22d7056ac5373ff"
+        },
+        {
+          "destination": "fundamentals-risk",
+          "sha256": "befa8c1a41817911641e7d0f3ed8e9c15b3ffce73f2cfaf74b3567a256a8faff"
+        },
+        {
+          "destination": "fundamentals-risk",
+          "sha256": "363e5e8d4b7533843d48544194389e65ae51824e3f8a65f12bf383efbc133bca"
+        },
+        {
+          "destination": "fundamentals-risk",
+          "sha256": "efc6d4c5ff59ec7e41c459e99d5f3ad26291c67ba567e3bc6d818dd24b77ce4d"
+        }
+      ]
+    },
+    {
+      "file": "security.md",
+      "id": "fundamentals-security",
+      "url": "fundamentals/security/",
+      "sources": [
+        {
+          "id": "lecture-fundamentals",
+          "pages": [
+            2,
+            3,
+            4
+          ]
+        }
+      ],
+      "blocks": [
+        {
+          "destination": "fundamentals-security",
+          "sha256": "c30b8b3f68b8d98334282e93f95562b3216496c865a5c1b2be91ec79b1dc9c14"
+        },
+        {
+          "destination": "fundamentals-cybersecurity",
+          "sha256": "c009626b82ad1eecb557fdbd4772e2129d9d7e9556ce7a78f87c19495ade61fd"
+        },
+        {
+          "destination": "fundamentals-security",
+          "sha256": "480363ffdd15b84d12b630183c30b5592e022eff651597ad8e27799088ed968f"
+        },
+        {
+          "destination": "fundamentals-security",
+          "sha256": "326e9a570ccc731b1adcdac92718e49c213ceca7e1273cbccdf237ea0582ab4e"
+        }
+      ]
+    },
+    {
+      "file": "sqli.md",
+      "id": "fundamentals-sqli",
+      "url": "fundamentals/attacks/application-attacks/sqli/",
+      "sources": [
+        {
+          "id": "lecture-fundamentals",
+          "pages": [
+            5,
+            8
+          ]
+        }
+      ],
+      "blocks": [
+        {
+          "destination": "fundamentals-sqli",
+          "sha256": "a8b7085ad84823c73918d25d4f7c549f3d885253d0a11dc467c02a91ded4cd12"
+        },
+        {
+          "destination": "fundamentals-sqli",
+          "sha256": "218ce5a2de250a449b53d5e31333140ba693c7b530398b739349790e39febbe7"
+        },
+        {
+          "destination": "fundamentals-sqli",
+          "sha256": "fda6b4107ac3ed3bf83befc1c125b48c4ed81e804bca192494a1f852549443c2"
+        }
+      ]
+    },
+    {
+      "file": "ssrf.md",
+      "id": "fundamentals-ssrf",
+      "url": "fundamentals/attacks/application-attacks/ssrf/",
+      "sources": [
+        {
+          "id": "lecture-fundamentals",
+          "pages": [
+            5,
+            8
+          ]
+        }
+      ],
+      "blocks": [
+        {
+          "destination": "fundamentals-ssrf",
+          "sha256": "cc73e303c48cb4bd83465dad66cc55f74ded524c9e5c2a3a8c339aaa06f01904"
+        },
+        {
+          "destination": "fundamentals-ssrf",
+          "sha256": "be58066d7cfe8ca8880d7896f393e02c84a6cf5389af63e9e9a0a021a098830e"
+        },
+        {
+          "destination": "fundamentals-ssrf",
+          "sha256": "0b3169766f268ec50efd7ff370cc0c3ad6986646abcd12c6198b738ca2738591"
+        }
+      ]
+    },
+    {
+      "file": "threat.md",
+      "id": "fundamentals-threat",
+      "url": "fundamentals/threat/",
+      "sources": [
+        {
+          "id": "lecture-fundamentals",
+          "pages": [
+            5,
+            7,
+            8
+          ]
+        }
+      ],
+      "blocks": [
+        {
+          "destination": "fundamentals-threat",
+          "sha256": "f1db2a07467dbc131ba2d98646b5a4fa04235ab4e0f34bb5c48d97521697d42d"
+        },
+        {
+          "destination": "fundamentals-threat",
+          "sha256": "9c43b14594cf2e3a4af3d496562c240853db97da4220f5dc6d8f64c72b117155"
+        },
+        {
+          "destination": "fundamentals-threat",
+          "sha256": "8b37397289c6bd9fd3b8bf566e98715bbbfe5571c16c73d2da50bf7ffbefd530"
+        },
+        {
+          "destination": "fundamentals-threat",
+          "sha256": "48f348374fc61dff59536c2510d86bc234fc7f39ed9639c4357e0a1c3b4af59c"
+        }
+      ]
+    },
+    {
+      "file": "vulnerability.md",
+      "id": "fundamentals-vulnerability",
+      "url": "fundamentals/vulnerability/",
+      "sources": [
+        {
+          "id": "lecture-fundamentals",
+          "pages": [
+            5,
+            7
+          ]
+        }
+      ],
+      "blocks": [
+        {
+          "destination": "fundamentals-vulnerability",
+          "sha256": "6d495e4f19c15604c0398e6a7f19651085e7713b8f114209b709b4764849ff18"
+        },
+        {
+          "destination": "fundamentals-vulnerability",
+          "sha256": "c49766748312908894f7b42397a9556266c16fd007b7d8af028eca9230f0bbc1"
+        },
+        {
+          "destination": "fundamentals-vulnerability",
+          "sha256": "8a76ce1dc79e34baf8dee2cb66099f83d724b1ebd0b47c7d2ec105161a85d5ee"
+        },
+        {
+          "destination": "fundamentals-vulnerability",
+          "sha256": "381950d175bf319255f4fb1a65ba753509642505f848240add73f8ca485e80b1"
+        }
+      ]
+    }
+  ]
+}

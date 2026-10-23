@@ -1,5 +1,5 @@
 ---
-{"id":"fundamentals-mitm","title":"Intermediario en comunicaciones (MitM)","slug":"mitm","parent":"fundamentals-attacks","type":"concept","order":20,"related":["crypto-pki","crypto-signature"],"sources":[{"id":"lecture-fundamentals","pages":[8]}]}
+{"id":"fundamentals-mitm","title":"Man in the Middle (MitM)","slug":"mitm","parent":"fundamentals-attacks","type":"concept","order":20,"related":["crypto-pki","crypto-signature"],"sources":[{"id":"lecture-fundamentals","pages":[8]}],"aliases":["Intermediario en comunicaciones (MitM)"]}
 ---
 ## Definición
 

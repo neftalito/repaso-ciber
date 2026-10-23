@@ -1,5 +1,5 @@
 ---
-{"id":"fundamentals-dos","title":"Denegación de servicio: DoS y DDoS","slug":"dos","parent":"fundamentals-attacks","type":"concept","order":40,"related":["fundamentals-cia","malware-botnet"],"sources":[{"id":"lecture-fundamentals","pages":[8]}]}
+{"id":"fundamentals-dos","title":"Denegación de servicio (DoS y DDoS)","slug":"dos","parent":"fundamentals-attacks","type":"concept","order":40,"related":["fundamentals-cia","malware-botnet"],"sources":[{"id":"lecture-fundamentals","pages":[8]}],"aliases":["Denegación de servicio: DoS y DDoS"]}
 ---
 ## Definición
 

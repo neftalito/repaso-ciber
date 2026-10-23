@@ -69,6 +69,8 @@ For an authorized content consolidation, retain the old Markdown file as a compa
 
 The hash consolidation regression fixture records hashes of 21 original academic blocks and their source-page coverage. It verifies preservation without duplicating those notes or reading Git history at test runtime. Do not regenerate that fixture merely to silence a missing-content failure.
 
+The Fundamentos preservation fixture similarly records 74 original academic units across 19 notes, their source references and published URLs. Its hierarchy test checks the revised 21-page tree, including the two new concept pages. The cybersecurity paragraph and the general social-engineering sentences have explicit destination IDs; moving them does not discard the original text. These preservation fixtures are historical evidence, not generated output to refresh after an accidental deletion.
+
 Source references use physical PDF pages counted from 1, not printed slide numbers. `sources.json` distinguishes official material from companion guides. The twelve PDFs in `docs/catedra cosas/` remain local working sources: never stage, move, edit or delete them. Their titles and page references are displayed without broken public links. The six PDFs already distributed by the original application retain their existing download paths.
 
 ## Verify changes

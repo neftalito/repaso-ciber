@@ -21,6 +21,8 @@ La defensa en profundidad combina varias capas de protección para evitar que la
 
 Ante un correo engañoso, la formación del usuario puede evitar la acción; otro control puede impedir un acceso no autorizado; una copia de respaldo puede ayudar a recuperar datos ante daño. Son objetivos complementarios. Sumar herramientas sin identificar qué protege cada una no demuestra que existan capas efectivas.
 
+En la terminología de la diapositiva 18, la capa de **hosts** corresponde a los equipos y la de **usuarios** a las personas. Las siete capas se estudian como partes de una misma estrategia; cada control cubre objetivos concretos y puede fallar.
+
 :::question ¿Por qué una copia de respaldo no reemplaza al control de acceso?
 El respaldo ayuda a recuperar información, mientras que el control de acceso restringe quién puede utilizarla o modificarla. Una copia no evita que alguien lea o extraiga datos indebidamente.
 :::

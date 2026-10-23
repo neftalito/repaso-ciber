@@ -1,5 +1,5 @@
 ---
-{"id":"fundamentals-sqli","title":"Inyección SQL (SQL Injection)","slug":"sqli","parent":"fundamentals-application-attacks","type":"concept","order":10,"related":["fundamentals-vulnerability","fundamentals-risk"],"sources":[{"id":"lecture-fundamentals","pages":[5,8]}]}
+{"id":"fundamentals-sqli","title":"SQL Injection","slug":"sqli","parent":"fundamentals-application-attacks","type":"concept","order":10,"related":["fundamentals-vulnerability","fundamentals-risk"],"sources":[{"id":"lecture-fundamentals","pages":[5,8]}],"aliases":["Inyección SQL (SQL Injection)"]}
 ---
 ## Definición y alcance
 

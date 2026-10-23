@@ -1,5 +1,5 @@
 ---
-{"id":"fundamentals-ssrf","title":"Solicitudes indebidas desde el servidor (SSRF)","slug":"ssrf","parent":"fundamentals-application-attacks","type":"concept","order":30,"related":["fundamentals-vulnerability","fundamentals-risk"],"sources":[{"id":"lecture-fundamentals","pages":[5,8]}]}
+{"id":"fundamentals-ssrf","title":"Server-Side Request Forgery (SSRF)","slug":"ssrf","parent":"fundamentals-application-attacks","type":"concept","order":30,"related":["fundamentals-vulnerability","fundamentals-risk"],"sources":[{"id":"lecture-fundamentals","pages":[5,8]}],"aliases":["Solicitudes indebidas desde el servidor (SSRF)"]}
 ---
 ## Definición y alcance
 
