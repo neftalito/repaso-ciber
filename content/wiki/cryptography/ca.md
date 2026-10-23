@@ -1,5 +1,5 @@
 ---
-{"id":"crypto-ca","title":"Autoridades de certificación","slug":"ca","parent":"crypto-pki","type":"concept","order":10,"related":["crypto-certificate","crypto-tls","crypto-pgp-trust"],"sources":[{"id":"lecture-crypto-2","pages":[19,20,21,22,25]}],"aliases":["CA","Certification Authority"]}
+{"id":"crypto-ca","title":"Autoridades de certificación","slug":"ca","parent":"crypto-pki","type":"concept","order":10,"related":["crypto-certificate","crypto-tls","crypto-pgp-trust"],"sources":[{"id":"lecture-crypto-2","pages":[19,20,21,22,25]}],"aliases":["CA","Certification Authority"],"permalink":"cryptography/pki/ca"}
 ---
 ## Definición
 

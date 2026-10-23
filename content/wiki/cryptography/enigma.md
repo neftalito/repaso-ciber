@@ -1,5 +1,5 @@
 ---
-{"id":"crypto-enigma","title":"Máquina Enigma","slug":"enigma","parent":"crypto-substitution","type":"algorithm","order":40,"related":["crypto-caesar","crypto-symmetric"],"sources":[{"id":"lecture-crypto-1","pages":[12]},{"id":"manual","pages":[8]}]}
+{"id":"crypto-enigma","title":"Máquina Enigma","slug":"enigma","parent":"crypto-substitution","type":"algorithm","order":20,"related":["crypto-caesar","crypto-symmetric"],"sources":[{"id":"lecture-crypto-1","pages":[12]},{"id":"manual","pages":[8]}],"permalink":"cryptography/encryption/classical/substitution/enigma"}
 ---
 ## Definición
 

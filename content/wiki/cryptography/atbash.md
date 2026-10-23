@@ -1,5 +1,5 @@
 ---
-{"id":"crypto-atbash","title":"Cifrado Atbash","slug":"atbash","parent":"crypto-substitution","type":"algorithm","order":20,"related":["crypto-reversal","crypto-caesar"],"sources":[{"id":"practice-guide","pages":[3]}]}
+{"id":"crypto-atbash","title":"Cifrado Atbash","slug":"atbash","parent":"crypto-substitution","type":"algorithm","order":30,"related":["crypto-reversal","crypto-caesar"],"sources":[{"id":"practice-guide","pages":[3]}],"permalink":"cryptography/encryption/classical/substitution/atbash"}
 ---
 ## Correspondencia invertida
 

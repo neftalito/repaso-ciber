@@ -1,5 +1,5 @@
 ---
-{"id":"crypto-dsa","title":"DSA","slug":"dsa","parent":"crypto-signature","type":"algorithm","order":10,"related":["crypto-rsa","crypto-elgamal","crypto-signature"],"sources":[{"id":"lecture-crypto-2","pages":[10]}]}
+{"id":"crypto-dsa","title":"DSA","slug":"dsa","parent":"crypto-signature","type":"algorithm","order":10,"related":["crypto-rsa","crypto-elgamal","crypto-signature"],"sources":[{"id":"lecture-crypto-2","pages":[10]}],"permalink":"cryptography/signature/dsa"}
 ---
 ## Algoritmo de firma
 

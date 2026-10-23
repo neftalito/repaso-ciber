@@ -1,5 +1,5 @@
 ---
-{"id":"crypto-rc4","title":"RC4","slug":"rc4","parent":"crypto-stream","type":"algorithm","order":10,"related":["crypto-stream","crypto-ecb"],"sources":[{"id":"lecture-crypto-1","pages":[29]},{"id":"practice-1b","pages":[5]},{"id":"manual","pages":[11]}]}
+{"id":"crypto-rc4","title":"RC4","slug":"rc4","parent":"crypto-stream","type":"algorithm","order":10,"related":["crypto-stream","crypto-ecb"],"sources":[{"id":"lecture-crypto-1","pages":[29]},{"id":"practice-1b","pages":[5]},{"id":"manual","pages":[11]}],"permalink":"cryptography/encryption/modern/symmetric/stream/rc4"}
 ---
 ## Ejemplo de cifrado de flujo
 

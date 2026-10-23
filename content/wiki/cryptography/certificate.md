@@ -1,5 +1,5 @@
 ---
-{"id":"crypto-certificate","title":"Certificados digitales","slug":"certificate","parent":"cryptography","type":"concept","order":70,"related":["crypto-pki","crypto-ca","crypto-tls","crypto-signature"],"sources":[{"id":"lecture-crypto-2","pages":[13,14,15,16,17,19]}]}
+{"id":"crypto-certificate","title":"Certificados digitales","slug":"certificate","parent":"crypto-modern","type":"concept","order":60,"related":["crypto-pki","crypto-ca","crypto-tls","crypto-signature"],"sources":[{"id":"lecture-crypto-2","pages":[13,14,15,16,17,19]}],"permalink":"cryptography/certificate"}
 ---
 ## Definición
 

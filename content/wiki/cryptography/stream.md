@@ -1,5 +1,5 @@
 ---
-{"id":"crypto-stream","title":"Cifrado de flujo","slug":"stream","parent":"crypto-symmetric","type":"category","order":20,"related":["crypto-xor","crypto-ofb","crypto-block"],"sources":[{"id":"lecture-crypto-1","pages":[29]},{"id":"practice-1b","pages":[5]},{"id":"manual","pages":[11]}]}
+{"id":"crypto-stream","title":"Cifrado de flujo","slug":"stream","parent":"crypto-symmetric","type":"category","order":20,"related":["crypto-xor","crypto-ofb","crypto-block"],"sources":[{"id":"lecture-crypto-1","pages":[29]},{"id":"practice-1b","pages":[5]},{"id":"manual","pages":[11]}],"permalink":"cryptography/encryption/modern/symmetric/stream"}
 ---
 ## Secuencia cifrante
 

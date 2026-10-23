@@ -1,5 +1,5 @@
 ---
-{"id":"crypto-des","title":"DES","slug":"des","parent":"crypto-block","type":"algorithm","order":10,"related":["crypto-triple-des","crypto-aes","crypto-rsa"],"sources":[{"id":"lecture-crypto-1","pages":[25]},{"id":"practice-1b","pages":[5]}]}
+{"id":"crypto-des","title":"DES","slug":"des","parent":"crypto-block-algorithms","type":"algorithm","order":10,"related":["crypto-triple-des","crypto-aes","crypto-rsa"],"sources":[{"id":"lecture-crypto-1","pages":[25]},{"id":"practice-1b","pages":[5]}],"permalink":"cryptography/encryption/modern/symmetric/block/des"}
 ---
 ## Ubicación conceptual
 

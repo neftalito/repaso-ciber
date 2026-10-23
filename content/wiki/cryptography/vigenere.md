@@ -1,5 +1,5 @@
 ---
-{"id":"crypto-vigenere","title":"Cifrado Vigenère","slug":"vigenere","parent":"crypto-substitution","type":"algorithm","order":30,"related":["crypto-caesar","crypto-columnar"],"sources":[{"id":"practice-guide","pages":[3]},{"id":"practice-solutions","pages":[4]}]}
+{"id":"crypto-vigenere","title":"Cifrado Vigenère","slug":"vigenere","parent":"crypto-substitution","type":"algorithm","order":40,"related":["crypto-caesar","crypto-columnar"],"sources":[{"id":"practice-guide","pages":[3]},{"id":"practice-solutions","pages":[4]}],"permalink":"cryptography/encryption/classical/substitution/vigenere"}
 ---
 ## Definición y procedencia
 

@@ -1,5 +1,5 @@
 ---
-{"id":"crypto-pki","title":"Infraestructura de clave pública (PKI)","slug":"pki","parent":"cryptography","type":"category","order":80,"related":["crypto-certificate","crypto-pgp-trust","csirt-email"],"sources":[{"id":"lecture-crypto-2","pages":[18,19,20,21,25]}]}
+{"id":"crypto-pki","title":"Infraestructura de clave pública (PKI)","slug":"pki","parent":"crypto-modern","type":"category","order":70,"related":["crypto-certificate","crypto-pgp-trust","csirt-email"],"sources":[{"id":"lecture-crypto-2","pages":[18,19,20,21,25]}],"permalink":"cryptography/pki"}
 ---
 ## Gestionar confianza en certificados
 

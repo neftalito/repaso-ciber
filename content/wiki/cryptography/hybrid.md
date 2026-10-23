@@ -1,5 +1,5 @@
 ---
-{"id":"crypto-hybrid","title":"Cifrado híbrido","slug":"hybrid","parent":"crypto-modern","type":"concept","order":30,"related":["crypto-pgp","crypto-symmetric","crypto-asymmetric","crypto-signature"],"sources":[{"id":"lecture-crypto-2","pages":[23,24]},{"id":"practice-1b","pages":[6]}]}
+{"id":"crypto-hybrid","title":"Cifrado híbrido","slug":"hybrid","parent":"crypto-modern","type":"concept","order":80,"related":["crypto-pgp","crypto-symmetric","crypto-asymmetric","crypto-signature"],"sources":[{"id":"lecture-crypto-2","pages":[23,24]},{"id":"practice-1b","pages":[6]}],"permalink":"cryptography/encryption/modern/hybrid"}
 ---
 ## Combinar mecanismos
 

@@ -1,5 +1,5 @@
 ---
-{"id":"crypto-caesar","title":"Cifrado César y ROT","slug":"caesar","parent":"crypto-substitution","type":"algorithm","order":10,"related":["crypto-alphabet-indices","crypto-vigenere"],"sources":[{"id":"lecture-crypto-1","pages":[12,13]},{"id":"manual","pages":[7]}],"aliases":["ROT3","ROT13","Caesar"]}
+{"id":"crypto-caesar","title":"Cifrado César y ROT","slug":"caesar","parent":"crypto-substitution","type":"algorithm","order":10,"related":["crypto-alphabet-indices","crypto-vigenere"],"sources":[{"id":"lecture-crypto-1","pages":[12,13]},{"id":"manual","pages":[7]}],"aliases":["ROT3","ROT13","Caesar"],"permalink":"cryptography/encryption/classical/substitution/caesar"}
 ---
 ## Desplazamiento fijo
 

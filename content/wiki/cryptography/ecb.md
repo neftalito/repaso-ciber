@@ -1,5 +1,5 @@
 ---
-{"id":"crypto-ecb","title":"Modo ECB","slug":"ecb","parent":"crypto-block","type":"technique","order":40,"related":["crypto-aes","crypto-cbc"],"sources":[{"id":"lecture-crypto-1","pages":[25,26,28]},{"id":"manual","pages":[10]}]}
+{"id":"crypto-ecb","title":"Modo ECB","slug":"ecb","parent":"crypto-block-modes","type":"technique","order":10,"related":["crypto-aes","crypto-cbc"],"sources":[{"id":"lecture-crypto-1","pages":[25,26,28]},{"id":"manual","pages":[10]}],"permalink":"cryptography/encryption/modern/symmetric/block/ecb"}
 ---
 ## Cifrado independiente
 

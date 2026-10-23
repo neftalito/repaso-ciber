@@ -57,6 +57,7 @@ try {
     assert(/^[a-z0-9-]+$/.test(metadata.id), `Invalid note id: ${file}`);
     assert(typeof metadata.title === 'string' && metadata.title.trim(), `Missing title: ${metadata.id}`);
     assert(typeof metadata.slug === 'string' && (metadata.id === 'wiki' ? metadata.slug === '' : /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(metadata.slug)), `Invalid slug: ${metadata.id}`);
+    assert(metadata.permalink === undefined || (typeof metadata.permalink === 'string' && (metadata.id === 'wiki' ? metadata.permalink === '' : /^[a-z0-9]+(?:-[a-z0-9]+)*(?:\/[a-z0-9]+(?:-[a-z0-9]+)*)*$/.test(metadata.permalink))), `Invalid permalink: ${metadata.id}`);
     assert(['category', 'concept', 'technique', 'algorithm', 'protocol', 'tool', 'practice'].includes(metadata.type), `Invalid concept type: ${metadata.id}`);
     assert(Number.isFinite(metadata.order) && Array.isArray(metadata.related) && Array.isArray(metadata.sources) && metadata.sources.length, `Missing note metadata: ${metadata.id}`);
     assert(metadata.aliases === undefined || (Array.isArray(metadata.aliases) && metadata.aliases.every(alias => typeof alias === 'string')), `Invalid search aliases: ${metadata.id}`);
@@ -90,7 +91,7 @@ try {
     }
     assert(chain[0].id === 'wiki', `Orphan note: ${page.id}`);
     page.chain = chain;
-    page.route = chain.slice(1).map(item => item.slug).join('/');
+    page.route = page.permalink ?? chain.slice(1).map(item => item.slug).join('/');
   }
   const routes = new Set();
   for (const page of pages) {

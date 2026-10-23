@@ -1,5 +1,5 @@
 ---
-{"id":"crypto-sha3","title":"Familia SHA-3","slug":"sha3","parent":"crypto-hash","type":"algorithm","order":40,"related":["crypto-sha2","crypto-collisions"],"sources":[{"id":"lecture-crypto-1","pages":[18]},{"id":"manual","pages":[8]}]}
+{"id":"crypto-sha3","title":"Familia SHA-3","slug":"sha3","parent":"crypto-hash","type":"algorithm","order":40,"related":["crypto-sha2","crypto-collisions"],"sources":[{"id":"lecture-crypto-1","pages":[18]},{"id":"manual","pages":[8]}],"permalink":"cryptography/hash/sha3"}
 ---
 ## Ubicación conceptual
 

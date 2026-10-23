@@ -1,5 +1,5 @@
 ---
-{"id":"crypto-seal","title":"SEAL","slug":"seal","parent":"crypto-stream","type":"algorithm","order":20,"related":["crypto-stream","crypto-xor"],"sources":[{"id":"practice-1b","pages":[5]}]}
+{"id":"crypto-seal","title":"SEAL","slug":"seal","parent":"crypto-stream","type":"algorithm","order":20,"related":["crypto-stream","crypto-xor"],"sources":[{"id":"practice-1b","pages":[5]}],"permalink":"cryptography/encryption/modern/symmetric/stream/seal"}
 ---
 ## Ejemplo de cifrado de flujo
 

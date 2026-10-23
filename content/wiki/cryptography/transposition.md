@@ -1,5 +1,5 @@
 ---
-{"id":"crypto-transposition","title":"Cifrado por transposición","slug":"transposition","parent":"crypto-classical","type":"category","order":20,"related":["crypto-substitution"],"sources":[{"id":"practice-1a","pages":[9]},{"id":"manual","pages":[7]},{"id":"practice-guide","pages":[3,4]}]}
+{"id":"crypto-transposition","title":"Cifrado por transposición","slug":"transposition","parent":"crypto-classical","type":"category","order":20,"related":["crypto-substitution"],"sources":[{"id":"practice-1a","pages":[9]},{"id":"manual","pages":[7]},{"id":"practice-guide","pages":[3,4]}],"permalink":"cryptography/encryption/classical/transposition"}
 ---
 ## Qué cambia de lugar
 

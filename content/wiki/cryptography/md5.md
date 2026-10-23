@@ -1,5 +1,5 @@
 ---
-{"id":"crypto-md5","title":"MD5","slug":"md5","parent":"crypto-hash","type":"algorithm","order":10,"related":["crypto-collisions","crypto-sha1","crypto-password-hashes"],"sources":[{"id":"lecture-crypto-1","pages":[18,19,20]},{"id":"manual","pages":[8,9]}]}
+{"id":"crypto-md5","title":"MD5","slug":"md5","parent":"crypto-hash","type":"algorithm","order":10,"related":["crypto-collisions","crypto-sha1","crypto-password-hashes"],"sources":[{"id":"lecture-crypto-1","pages":[18,19,20]},{"id":"manual","pages":[8,9]}],"permalink":"cryptography/hash/md5"}
 ---
 ## Definición
 

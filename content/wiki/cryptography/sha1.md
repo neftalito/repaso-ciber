@@ -1,5 +1,5 @@
 ---
-{"id":"crypto-sha1","title":"SHA-1","slug":"sha1","parent":"crypto-hash","type":"algorithm","order":20,"related":["crypto-md5","crypto-sha2","crypto-collisions"],"sources":[{"id":"lecture-crypto-1","pages":[18]},{"id":"manual","pages":[8]},{"id":"practice-guide","pages":[4]}]}
+{"id":"crypto-sha1","title":"SHA-1","slug":"sha1","parent":"crypto-hash","type":"algorithm","order":20,"related":["crypto-md5","crypto-sha2","crypto-collisions"],"sources":[{"id":"lecture-crypto-1","pages":[18]},{"id":"manual","pages":[8]},{"id":"practice-guide","pages":[4]}],"permalink":"cryptography/hash/sha1"}
 ---
 ## Definición
 

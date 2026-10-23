@@ -1,5 +1,5 @@
 ---
-{"id":"crypto-ofb","title":"Modo OFB","slug":"ofb","parent":"crypto-block","type":"technique","order":70,"related":["crypto-cfb","crypto-stream","crypto-xor"],"sources":[{"id":"lecture-crypto-1","pages":[25]},{"id":"manual","pages":[10,11]}]}
+{"id":"crypto-ofb","title":"Modo OFB","slug":"ofb","parent":"crypto-block-modes","type":"technique","order":40,"related":["crypto-cfb","crypto-stream","crypto-xor"],"sources":[{"id":"lecture-crypto-1","pages":[25]},{"id":"manual","pages":[10,11]}],"permalink":"cryptography/encryption/modern/symmetric/block/ofb"}
 ---
 ## Secuencia desde un estado inicial
 

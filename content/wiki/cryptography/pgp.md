@@ -1,5 +1,5 @@
 ---
-{"id":"crypto-pgp","title":"PGP","slug":"pgp","parent":"cryptography","type":"concept","order":90,"related":["crypto-hybrid","crypto-signature","crypto-pgp-trust","crypto-gpg","csirt-email"],"sources":[{"id":"lecture-crypto-2","pages":[18,23,24,25]},{"id":"practice-1b","pages":[6,7]}]}
+{"id":"crypto-pgp","title":"PGP","slug":"pgp","parent":"crypto-modern","type":"concept","order":90,"related":["crypto-hybrid","crypto-signature","crypto-pgp-trust","crypto-gpg","csirt-email"],"sources":[{"id":"lecture-crypto-2","pages":[18,23,24,25]},{"id":"practice-1b","pages":[6,7]}],"permalink":"cryptography/pgp"}
 ---
 ## Definición
 

@@ -30,6 +30,18 @@ Raw HTML is escaped. Sources are registered in `content/wiki/sources.json`. Loca
 
 Keep hash pages outside encryption. DH is key agreement, not an encryption algorithm. Classical substitution/transposition and modern symmetric/asymmetric are separate classification levels; block modes are below block encryption. ECB, CBC, CFB and OFB are explicitly listed on crypto1 physical p.25 (corrected after full-page readback); each needs a separate page. Use companion sources for mechanism detail where needed. SHA3 variant names in crypto1 p.18 are internally inconsistent: do not silently reproduce the apparent typo as fact. Descriptions of historical/weak algorithms are educational, not recommendations to use them in production.
 
+### Revised cryptography navigation
+
+Classical and modern cryptography are direct children of cryptography, alongside the general encryption page. Modern cryptography contains symmetric/asymmetric encryption, key agreement, hashes, signatures, certificates, PKI, hybrid encryption and PGP. Block encryption separates algorithm pages (DES, 3DES, AES, RC5, IDEA, Blowfish) from mode pages (ECB, CBC, CFB, OFB). Encoding and steganography retain their existing placement; XOR remains a cross-cutting operation at the cryptography root rather than being classified as an encryption algorithm.
+
+The two new intermediate categories contain their own explanations and generated child links. All existing IDs, slugs, academic bodies and URLs are retained. An optional validated `permalink` freezes the original output path of a reparented page; the parent relationship continues to drive sidebar navigation and breadcrumbs. Generated HTML in other areas changes only to reflect the shared topic tree and page count. Their Markdown and academic explanations remain untouched.
+
+The finer block classification is the requested organization: lecture1 p.25 explicitly identifies DES/AES as block examples, while p.30 only enumerates 3DES/RC5/IDEA/Blowfish as symmetric examples. Do not infer mechanism details from that list. The new algorithm category makes this source boundary explicit.
+
+Atbash, Vigenère, reversal, grid and rail fence retain their separate pages but rely on companion guides rather than the lecture's named classical examples. Their provenance must stay visible; these are extensions to the lecture coverage. Collisions/preimages and password-hash checking stay below hashes; salt and dictionary checking remain below password hashes. TLS stays below PKI as an application of certificate validation.
+
+Potential later classification review: XOR is an operation; collisions/preimages are properties/security notions; password checking is an application of hashes; TLS is a protocol using several cryptographic services. All retain their current independent pages. Do not merge them without the user's authorization. Encoding/steganography placement is explicitly deferred.
+
 ## CSIRT
 
 `lecture-resources`: Internet IP/domain resources, RIR allocation (2–5), WHOIS/RDAP/lookup commands including icann-rdap (6–13), DNS hierarchy and registry/registrar/registrant roles (14–18), investigative use (19–20).

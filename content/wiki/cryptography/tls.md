@@ -1,5 +1,5 @@
 ---
-{"id":"crypto-tls","title":"TLS y certificados en HTTPS","slug":"tls","parent":"crypto-pki","type":"protocol","order":20,"related":["crypto-certificate","crypto-ca","crypto-pki"],"sources":[{"id":"lecture-crypto-2","pages":[17,18,19,20]}],"aliases":["HTTPS"]}
+{"id":"crypto-tls","title":"TLS y certificados en HTTPS","slug":"tls","parent":"crypto-pki","type":"protocol","order":20,"related":["crypto-certificate","crypto-ca","crypto-pki"],"sources":[{"id":"lecture-crypto-2","pages":[17,18,19,20]}],"aliases":["HTTPS"],"permalink":"cryptography/pki/tls"}
 ---
 ## Ubicación en el temario
 

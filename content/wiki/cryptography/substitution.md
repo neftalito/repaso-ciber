@@ -1,5 +1,5 @@
 ---
-{"id":"crypto-substitution","title":"Cifrado por sustitución","slug":"substitution","parent":"crypto-classical","type":"category","order":10,"related":["crypto-transposition"],"sources":[{"id":"manual","pages":[7,8]},{"id":"practice-guide","pages":[3]}]}
+{"id":"crypto-substitution","title":"Cifrado por sustitución","slug":"substitution","parent":"crypto-classical","type":"category","order":10,"related":["crypto-transposition"],"sources":[{"id":"manual","pages":[7,8]},{"id":"practice-guide","pages":[3]}],"permalink":"cryptography/encryption/classical/substitution"}
 ---
 ## Qué se transforma
 

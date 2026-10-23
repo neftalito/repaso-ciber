@@ -1,5 +1,5 @@
 ---
-{"id":"crypto-idea","title":"IDEA","slug":"idea","parent":"crypto-symmetric","type":"algorithm","order":40,"related":["crypto-symmetric","crypto-aes"],"sources":[{"id":"lecture-crypto-1","pages":[30]}]}
+{"id":"crypto-idea","title":"IDEA","slug":"idea","parent":"crypto-block-algorithms","type":"algorithm","order":50,"related":["crypto-symmetric","crypto-aes"],"sources":[{"id":"lecture-crypto-1","pages":[30]}],"permalink":"cryptography/encryption/modern/symmetric/idea"}
 ---
 ## Lugar en el mapa de la materia
 

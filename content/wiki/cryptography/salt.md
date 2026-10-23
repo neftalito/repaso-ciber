@@ -1,5 +1,5 @@
 ---
-{"id":"crypto-salt","title":"Sal en el cálculo de contraseñas","slug":"salt","parent":"crypto-password-hashes","type":"concept","order":20,"related":["crypto-dictionary","crypto-password-hashes"],"sources":[{"id":"manual","pages":[9]},{"id":"practice-guide","pages":[4]}]}
+{"id":"crypto-salt","title":"Sal en el cálculo de contraseñas","slug":"salt","parent":"crypto-password-hashes","type":"concept","order":20,"related":["crypto-dictionary","crypto-password-hashes"],"sources":[{"id":"manual","pages":[9]},{"id":"practice-guide","pages":[4]}],"permalink":"cryptography/hash/password-hashes/salt"}
 ---
 ## Definición
 

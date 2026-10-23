@@ -1,5 +1,5 @@
 ---
-{"id":"crypto-key-agreement","title":"Acuerdo de claves","slug":"key-agreement","parent":"cryptography","type":"category","order":30,"related":["crypto-symmetric","crypto-signature","crypto-pki"],"sources":[{"id":"lecture-crypto-2","pages":[10]},{"id":"practice-1b","pages":[4]},{"id":"practice-guide","pages":[6]}]}
+{"id":"crypto-key-agreement","title":"Acuerdo de claves","slug":"key-agreement","parent":"crypto-modern","type":"category","order":30,"related":["crypto-symmetric","crypto-signature","crypto-pki"],"sources":[{"id":"lecture-crypto-2","pages":[10]},{"id":"practice-1b","pages":[4]},{"id":"practice-guide","pages":[6]}],"permalink":"cryptography/key-agreement"}
 ---
 ## Establecer un secreto
 

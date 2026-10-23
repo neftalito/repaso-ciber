@@ -1,5 +1,5 @@
 ---
-{"id":"crypto-rsa","title":"RSA","slug":"rsa","parent":"crypto-asymmetric","type":"algorithm","order":10,"related":["crypto-signature","crypto-numbers","crypto-encryption"],"sources":[{"id":"lecture-crypto-2","pages":[10,12]},{"id":"practice-1b","pages":[1,2]},{"id":"practice-guide","pages":[6]}]}
+{"id":"crypto-rsa","title":"RSA","slug":"rsa","parent":"crypto-asymmetric","type":"algorithm","order":10,"related":["crypto-signature","crypto-numbers","crypto-encryption"],"sources":[{"id":"lecture-crypto-2","pages":[10,12]},{"id":"practice-1b","pages":[1,2]},{"id":"practice-guide","pages":[6]}],"permalink":"cryptography/encryption/modern/asymmetric/rsa"}
 ---
 ## Definición
 

@@ -1,5 +1,5 @@
 ---
-{"id":"crypto-gpg","title":"GPG / GnuPG","slug":"gpg","parent":"crypto-pgp","type":"tool","order":20,"related":["crypto-pgp-trust","crypto-signature","crypto-base64"],"sources":[{"id":"practice-1b","pages":[7,8]},{"id":"practice-guide","pages":[8]}],"aliases":["GNU Privacy Guard","GnuPG"]}
+{"id":"crypto-gpg","title":"GPG / GnuPG","slug":"gpg","parent":"crypto-pgp","type":"tool","order":20,"related":["crypto-pgp-trust","crypto-signature","crypto-base64"],"sources":[{"id":"practice-1b","pages":[7,8]},{"id":"practice-guide","pages":[8]}],"aliases":["GNU Privacy Guard","GnuPG"],"permalink":"cryptography/pgp/gpg"}
 ---
 ## Herramienta y operaciones
 

@@ -1,5 +1,5 @@
 ---
-{"id":"crypto-classical","title":"Criptografía clásica","slug":"classical","parent":"crypto-encryption","type":"category","order":10,"related":["crypto-modern"],"sources":[{"id":"lecture-crypto-1","pages":[11,12,13,14]},{"id":"manual","pages":[7,8]}]}
+{"id":"crypto-classical","title":"Criptografía clásica","slug":"classical","parent":"cryptography","type":"category","order":25,"related":["crypto-modern"],"sources":[{"id":"lecture-crypto-1","pages":[11,12,13,14]},{"id":"manual","pages":[7,8]}],"permalink":"cryptography/encryption/classical"}
 ---
 ## Dos mecanismos de estudio
 

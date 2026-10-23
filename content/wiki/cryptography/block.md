@@ -1,5 +1,5 @@
 ---
-{"id":"crypto-block","title":"Cifrado por bloques","slug":"block","parent":"crypto-symmetric","type":"category","order":10,"related":["crypto-stream","crypto-xor"],"sources":[{"id":"lecture-crypto-1","pages":[25,26,27,28]},{"id":"practice-1b","pages":[5]},{"id":"manual","pages":[10,11]}]}
+{"id":"crypto-block","title":"Cifrado por bloques","slug":"block","parent":"crypto-symmetric","type":"category","order":10,"related":["crypto-stream","crypto-xor"],"sources":[{"id":"lecture-crypto-1","pages":[25,26,27,28]},{"id":"practice-1b","pages":[5]},{"id":"manual","pages":[10,11]}],"permalink":"cryptography/encryption/modern/symmetric/block"}
 ---
 ## Algoritmo y modo
 

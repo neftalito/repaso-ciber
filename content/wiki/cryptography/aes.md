@@ -1,5 +1,5 @@
 ---
-{"id":"crypto-aes","title":"AES","slug":"aes","parent":"crypto-block","type":"algorithm","order":30,"related":["crypto-ecb","crypto-cbc","crypto-base64"],"sources":[{"id":"lecture-crypto-1","pages":[25,26,27,28,30]},{"id":"manual","pages":[10]},{"id":"practice-guide","pages":[5]}]}
+{"id":"crypto-aes","title":"AES","slug":"aes","parent":"crypto-block-algorithms","type":"algorithm","order":30,"related":["crypto-ecb","crypto-cbc","crypto-base64"],"sources":[{"id":"lecture-crypto-1","pages":[25,26,27,28,30]},{"id":"manual","pages":[10]},{"id":"practice-guide","pages":[5]}],"permalink":"cryptography/encryption/modern/symmetric/block/aes"}
 ---
 ## Definición
 

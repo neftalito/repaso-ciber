@@ -1,5 +1,5 @@
 ---
-{"id":"crypto-password-hashes","title":"Hashes y comprobación de contraseñas","slug":"password-hashes","parent":"crypto-hash","type":"concept","order":60,"related":["crypto-dictionary","crypto-salt","crypto-hash"],"sources":[{"id":"lecture-crypto-1","pages":[19]},{"id":"manual","pages":[9]},{"id":"practice-guide","pages":[4]}]}
+{"id":"crypto-password-hashes","title":"Hashes y comprobación de contraseñas","slug":"password-hashes","parent":"crypto-hash","type":"concept","order":60,"related":["crypto-dictionary","crypto-salt","crypto-hash"],"sources":[{"id":"lecture-crypto-1","pages":[19]},{"id":"manual","pages":[9]},{"id":"practice-guide","pages":[4]}],"permalink":"cryptography/hash/password-hashes"}
 ---
 ## Comparar candidatos
 

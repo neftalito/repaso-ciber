@@ -58,6 +58,8 @@
   "wiki/cryptography/index.html",
   "wiki/cryptography/key-agreement/dh/index.html",
   "wiki/cryptography/key-agreement/index.html",
+  "wiki/cryptography/modern/symmetric/block/algorithms/index.html",
+  "wiki/cryptography/modern/symmetric/block/modes/index.html",
   "wiki/cryptography/pgp/gpg/index.html",
   "wiki/cryptography/pgp/index.html",
   "wiki/cryptography/pgp/pgp-trust/index.html",

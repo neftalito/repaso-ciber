@@ -1,5 +1,5 @@
 ---
-{"id":"crypto-dh","title":"Diffie–Hellman","slug":"dh","parent":"crypto-key-agreement","type":"algorithm","order":10,"related":["crypto-signature","crypto-pki","crypto-symmetric"],"sources":[{"id":"lecture-crypto-2","pages":[10]},{"id":"practice-1b","pages":[4]},{"id":"practice-guide","pages":[6,7]},{"id":"practice-solutions","pages":[8]}],"aliases":["DH","intercambio de claves"]}
+{"id":"crypto-dh","title":"Diffie–Hellman","slug":"dh","parent":"crypto-key-agreement","type":"algorithm","order":10,"related":["crypto-signature","crypto-pki","crypto-symmetric"],"sources":[{"id":"lecture-crypto-2","pages":[10]},{"id":"practice-1b","pages":[4]},{"id":"practice-guide","pages":[6,7]},{"id":"practice-solutions","pages":[8]}],"aliases":["DH","intercambio de claves"],"permalink":"cryptography/key-agreement/dh"}
 ---
 ## Definición
 

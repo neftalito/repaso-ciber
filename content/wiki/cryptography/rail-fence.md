@@ -1,5 +1,5 @@
 ---
-{"id":"crypto-rail-fence","title":"Transposición rail fence","slug":"rail-fence","parent":"crypto-transposition","type":"algorithm","order":50,"related":["crypto-columnar","crypto-transposition"],"sources":[{"id":"practice-guide","pages":[3]},{"id":"practice-solutions","pages":[4]}]}
+{"id":"crypto-rail-fence","title":"Transposición rail fence","slug":"rail-fence","parent":"crypto-transposition","type":"algorithm","order":50,"related":["crypto-columnar","crypto-transposition"],"sources":[{"id":"practice-guide","pages":[3]},{"id":"practice-solutions","pages":[4]}],"permalink":"cryptography/encryption/classical/transposition/rail-fence"}
 ---
 ## Rieles y recorrido
 

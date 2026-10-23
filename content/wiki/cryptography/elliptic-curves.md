@@ -1,5 +1,5 @@
 ---
-{"id":"crypto-elliptic-curves","title":"Criptografía de curvas elípticas","slug":"elliptic-curves","parent":"crypto-asymmetric","type":"concept","order":30,"related":["crypto-key-agreement","crypto-signature","crypto-rsa"],"sources":[{"id":"lecture-crypto-2","pages":[10]},{"id":"manual","pages":[11]}],"aliases":["CCE","ECC"]}
+{"id":"crypto-elliptic-curves","title":"Criptografía de curvas elípticas","slug":"elliptic-curves","parent":"crypto-asymmetric","type":"concept","order":30,"related":["crypto-key-agreement","crypto-signature","crypto-rsa"],"sources":[{"id":"lecture-crypto-2","pages":[10]},{"id":"manual","pages":[11]}],"aliases":["CCE","ECC"],"permalink":"cryptography/encryption/modern/asymmetric/elliptic-curves"}
 ---
 ## Ubicación conceptual
 

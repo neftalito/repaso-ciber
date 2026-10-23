@@ -1,5 +1,5 @@
 ---
-{"id":"crypto-asymmetric","title":"Criptografía asimétrica","slug":"asymmetric","parent":"crypto-modern","type":"category","order":20,"related":["crypto-symmetric","crypto-signature","crypto-dh"],"sources":[{"id":"lecture-crypto-2","pages":[4,5,6,7,8,9,10]},{"id":"practice-1b","pages":[1]}]}
+{"id":"crypto-asymmetric","title":"Criptografía asimétrica","slug":"asymmetric","parent":"crypto-modern","type":"category","order":20,"related":["crypto-symmetric","crypto-signature","crypto-dh"],"sources":[{"id":"lecture-crypto-2","pages":[4,5,6,7,8,9,10]},{"id":"practice-1b","pages":[1]}],"permalink":"cryptography/encryption/modern/asymmetric"}
 ---
 ## Un par de claves con roles diferentes
 

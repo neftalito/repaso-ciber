@@ -86,6 +86,29 @@ test('check detects stale source, asset and unexpected output without rewriting 
   assert.notEqual(run(root, '--check').status, 0);
 });
 
+test('reparenting updates navigation while an explicit permalink preserves the original URL', () => {
+  const root = fixture();
+  assert.equal(run(root).status, 0);
+  const original = snapshot(root);
+  put(root, 'content/wiki/fundamentals/cia.md', note({ ...child, permalink: 'cia' }, '## Definición\n\nConfidencialidad, integridad y disponibilidad.\n\n:::question ¿Qué se protege?\nLa información. <script>alert(1)</script>\n:::\n'));
+  assert.equal(run(root).status, 0);
+  assert.equal(snapshot(root), original, 'an explicit existing path must preserve default build output');
+
+  const category = { ...home, id: 'security', title: 'Seguridad', slug: 'security', parent: 'wiki', order: 2 };
+  put(root, 'content/wiki/fundamentals/security.md', note(category));
+  put(root, 'content/wiki/fundamentals/cia.md', note({ ...child, parent: 'security', permalink: 'cia' }));
+  const moved = run(root);
+  assert.equal(moved.status, 0, moved.stderr);
+  const html = readFileSync(path.join(root, 'wiki/cia/index.html'), 'utf8');
+  assert.match(html, /wiki-breadcrumbs[\s\S]*security\/">Seguridad<\/a>[\s\S]*<span aria-current="page">Tríada CIA<\/span>/);
+  assert.match(readFileSync(path.join(root, 'wiki/security/index.html'), 'utf8'), /\.\.\/cia\/">Tríada CIA<\/a>/);
+  assert.match(readFileSync(path.join(root, 'wiki/index.html'), 'utf8'), /cia\/#definicion/);
+  const index = JSON.parse(readFileSync(path.join(root, 'wiki/search-index.json')));
+  assert.equal(index.find(entry => entry.id === 'cia').url, 'cia/');
+  assert.ok(!JSON.parse(readFileSync(path.join(root, 'wiki/generated-files.json'))).includes('wiki/security/cia/index.html'));
+  assert.equal(run(root, '--check').status, 0);
+});
+
 test('invalid hierarchy, references and paths are rejected before any generated data changes', () => {
   const root = fixture();
   assert.equal(run(root).status, 0);
@@ -97,6 +120,13 @@ test('invalid hierarchy, references and paths are rejected before any generated 
     { ...child, slug: '../outside' },
     { ...child, related: ['missing'] },
     { ...child, sources: [{ id: 'course', pages: [4] }] },
+    { ...child, permalink: '../outside' },
+    { ...child, permalink: '/absolute' },
+    { ...child, permalink: 'double//slash' },
+    { ...child, permalink: 'encoded%2fpath' },
+    { ...child, permalink: 'index.html' },
+    { ...child, permalink: '' },
+    { ...child, permalink: 7 },
   ];
   for (const metadata of invalid) {
     put(root, 'content/wiki/fundamentals/cia.md', note(metadata));

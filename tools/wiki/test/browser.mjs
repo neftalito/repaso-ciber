@@ -52,6 +52,32 @@ try {
     await page.locator('#wiki-query').fill('');
     await page.waitForFunction(() => document.querySelector('#wiki-results').hidden);
     assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
+
+    // Published URLs remain stable even when the academic ancestry changes.
+    await page.goto(`${origin}${prefix}/wiki/cryptography/encryption/modern/symmetric/rc5/`);
+    await page.reload();
+    assert.deepEqual(await page.locator('.wiki-breadcrumbs li').allTextContents(), ['Wiki Académica', 'Criptografía', 'Criptografía moderna', 'Criptografía simétrica', 'Cifrado por bloques', 'Algoritmos', 'RC5']);
+    await page.locator('.wiki-breadcrumbs a').filter({ hasText: /^Algoritmos$/ }).click();
+    assert.deepEqual(await page.locator('[aria-labelledby="subtemas"] a').allTextContents(), ['DES', '3DES', 'AES', 'RC5', 'IDEA', 'Blowfish']);
+    await page.goto(`${origin}${prefix}/wiki/cryptography/encryption/modern/symmetric/block/cbc/`);
+    assert.deepEqual(await page.locator('.wiki-breadcrumbs li').allTextContents(), ['Wiki Académica', 'Criptografía', 'Criptografía moderna', 'Criptografía simétrica', 'Cifrado por bloques', 'Modos de operación', 'Modo CBC']);
+    await page.locator('.wiki-breadcrumbs a').filter({ hasText: /^Modos de operación$/ }).click();
+    assert.deepEqual(await page.locator('[aria-labelledby="subtemas"] a').allTextContents(), ['Modo ECB', 'Modo CBC', 'Modo CFB', 'Modo OFB']);
+    await page.locator('#wiki-query').fill('RC5');
+    await page.locator('#wiki-results a').filter({ hasText: /^RC5$/ }).click();
+    assert.ok(page.url().endsWith(`${prefix}/wiki/cryptography/encryption/modern/symmetric/rc5/`));
+    const sidebarParents = await page.locator('.wiki-menu a[aria-current="page"]').evaluate(link => {
+      const parents = [];
+      let list = link.closest('ul');
+      while (list) {
+        const details = list.parentElement;
+        if (details.tagName !== 'DETAILS') break;
+        parents.unshift(details.querySelector(':scope > summary > a').textContent);
+        list = details.closest('li').parentElement;
+      }
+      return parents;
+    });
+    assert.deepEqual(sidebarParents, ['Criptografía', 'Criptografía moderna', 'Criptografía simétrica', 'Cifrado por bloques', 'Algoritmos']);
   }
   const index = await (await fetch(`${origin}/wiki/search-index.json`)).json();
   const deepest = index.reduce((a, b) => a.url.split('/').length > b.url.split('/').length ? a : b);

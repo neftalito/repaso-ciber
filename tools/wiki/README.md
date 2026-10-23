@@ -63,6 +63,8 @@ Respuesta razonada; puede incluir Markdown.
 
 IDs are stable. Parent IDs and slugs generate the entire hierarchy; file placement does not duplicate that structure. Every category is a page. Distinct techniques, algorithms and protocols have their own notes, while properties, advantages, steps and examples remain sections. Body headings start at H2 because the template supplies H1. Internal links use `[title](wiki:unique-concept-id)` and may include `#heading-anchor`. Raw HTML is escaped; no MDX or per-note component is needed.
 
+When reparenting a published note, preserve its existing URL with an optional `"permalink": "cryptography/existing/path"` field. Its value is relative to `wiki/`, uses lowercase slug segments, and has no leading/trailing slash or filename. Parents still determine breadcrumbs and the topic tree; this override changes only the output URL. Notes without it retain the original ancestor-slug routing. Use `wiki:ID` links so both new and existing parents resolve to the same single page.
+
 Source references use physical PDF pages counted from 1, not printed slide numbers. `sources.json` distinguishes official material from companion guides. The twelve PDFs in `docs/catedra cosas/` remain local working sources: never stage, move, edit or delete them. Their titles and page references are displayed without broken public links. The six PDFs already distributed by the original application retain their existing download paths.
 
 ## Verify changes

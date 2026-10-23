@@ -1,5 +1,5 @@
 ---
-{"id":"crypto-pgp-trust","title":"Red de confianza de PGP","slug":"pgp-trust","parent":"crypto-pgp","type":"concept","order":10,"related":["crypto-pki","crypto-ca","crypto-certificate"],"sources":[{"id":"lecture-crypto-2","pages":[23,25]},{"id":"practice-1b","pages":[6,7]}]}
+{"id":"crypto-pgp-trust","title":"Red de confianza de PGP","slug":"pgp-trust","parent":"crypto-pgp","type":"concept","order":10,"related":["crypto-pki","crypto-ca","crypto-certificate"],"sources":[{"id":"lecture-crypto-2","pages":[23,25]},{"id":"practice-1b","pages":[6,7]}],"permalink":"cryptography/pgp/pgp-trust"}
 ---
 ## Confianza descentralizada
 

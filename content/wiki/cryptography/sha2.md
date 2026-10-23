@@ -1,5 +1,5 @@
 ---
-{"id":"crypto-sha2","title":"Familia SHA-2","slug":"sha2","parent":"crypto-hash","type":"algorithm","order":30,"related":["crypto-sha3","crypto-hash","malware-static"],"sources":[{"id":"lecture-crypto-1","pages":[18]},{"id":"practice-guide","pages":[4]},{"id":"theory-solutions","pages":[9]}],"aliases":["SHA-224","SHA-256","SHA-384","SHA-512"]}
+{"id":"crypto-sha2","title":"Familia SHA-2","slug":"sha2","parent":"crypto-hash","type":"algorithm","order":30,"related":["crypto-sha3","crypto-hash","malware-static"],"sources":[{"id":"lecture-crypto-1","pages":[18]},{"id":"practice-guide","pages":[4]},{"id":"theory-solutions","pages":[9]}],"aliases":["SHA-224","SHA-256","SHA-384","SHA-512"],"permalink":"cryptography/hash/sha2"}
 ---
 ## Familia de variantes
 

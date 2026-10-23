@@ -1,5 +1,5 @@
 ---
-{"id":"crypto-scytale","title":"Escítala","slug":"scytale","parent":"crypto-transposition","type":"technique","order":20,"related":["crypto-grid","crypto-columnar"],"sources":[{"id":"lecture-crypto-1","pages":[12]},{"id":"manual","pages":[7]}],"aliases":["Scytale"]}
+{"id":"crypto-scytale","title":"Escítala","slug":"scytale","parent":"crypto-transposition","type":"technique","order":10,"related":["crypto-grid","crypto-columnar"],"sources":[{"id":"lecture-crypto-1","pages":[12]},{"id":"manual","pages":[7]}],"aliases":["Scytale"],"permalink":"cryptography/encryption/classical/transposition/scytale"}
 ---
 ## Definición
 

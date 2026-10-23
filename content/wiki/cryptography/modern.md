@@ -1,5 +1,5 @@
 ---
-{"id":"crypto-modern","title":"Criptografía moderna","slug":"modern","parent":"crypto-encryption","type":"category","order":20,"related":["crypto-hash","crypto-key-agreement","crypto-pgp"],"sources":[{"id":"lecture-crypto-1","pages":[14,16,21]},{"id":"lecture-crypto-2","pages":[3,4,10]}]}
+{"id":"crypto-modern","title":"Criptografía moderna","slug":"modern","parent":"cryptography","type":"category","order":30,"related":["crypto-hash","crypto-key-agreement","crypto-pgp"],"sources":[{"id":"lecture-crypto-1","pages":[14,16,21]},{"id":"lecture-crypto-2","pages":[3,4,10]}],"permalink":"cryptography/encryption/modern"}
 ---
 ## Clasificación por claves
 

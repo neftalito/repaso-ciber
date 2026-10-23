@@ -1,5 +1,5 @@
 ---
-{"id":"crypto-hash","title":"Funciones hash","slug":"hash","parent":"cryptography","type":"category","order":50,"related":["crypto-signature","malware-static","malware-ioc"],"sources":[{"id":"lecture-crypto-1","pages":[17,18,19,20]},{"id":"manual","pages":[8,9]}]}
+{"id":"crypto-hash","title":"Funciones hash","slug":"hash","parent":"crypto-modern","type":"category","order":40,"related":["crypto-signature","malware-static","malware-ioc"],"sources":[{"id":"lecture-crypto-1","pages":[17,18,19,20]},{"id":"manual","pages":[8,9]}],"permalink":"cryptography/hash"}
 ---
 ## Resúmenes de datos
 

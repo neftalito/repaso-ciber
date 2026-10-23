@@ -1,5 +1,5 @@
 ---
-{"id":"crypto-dictionary","title":"Comprobación por diccionario","slug":"dictionary","parent":"crypto-password-hashes","type":"technique","order":10,"related":["crypto-salt","crypto-password-hashes"],"sources":[{"id":"practice-guide","pages":[4]}]}
+{"id":"crypto-dictionary","title":"Comprobación por diccionario","slug":"dictionary","parent":"crypto-password-hashes","type":"technique","order":10,"related":["crypto-salt","crypto-password-hashes"],"sources":[{"id":"practice-guide","pages":[4]}],"permalink":"cryptography/hash/password-hashes/dictionary"}
 ---
 ## Definición
 

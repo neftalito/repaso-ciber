@@ -1,5 +1,5 @@
 ---
-{"id":"crypto-cbc","title":"Modo CBC","slug":"cbc","parent":"crypto-block","type":"technique","order":50,"related":["crypto-ecb","crypto-xor","crypto-signature"],"sources":[{"id":"lecture-crypto-1","pages":[25,27,28]},{"id":"manual","pages":[10,11]}]}
+{"id":"crypto-cbc","title":"Modo CBC","slug":"cbc","parent":"crypto-block-modes","type":"technique","order":20,"related":["crypto-ecb","crypto-xor","crypto-signature"],"sources":[{"id":"lecture-crypto-1","pages":[25,27,28]},{"id":"manual","pages":[10,11]}],"permalink":"cryptography/encryption/modern/symmetric/block/cbc"}
 ---
 ## Encadenamiento
 

@@ -355,6 +355,166 @@ Una nueva sección Wiki Académica completamente funcional e integrada al proyec
 El proyecto original debe conservar todas sus funcionalidades y comportamiento.
 
 **La implementación debe ser modular, mantenible, incremental y adecuada para presentarse como un pull request de bajo impacto sobre el código existente.**
+### S11 — Cryptography hierarchy revision
+
+Quiero reorganizar la estructura jerárquica de la Wiki Académica.
+
+Vamos a realizar esta tarea progresivamente, trabajando sobre una sección a la vez.
+
+**Por el momento, quiero modificar exclusivamente la jerarquía de Criptografía.**
+
+No modifiques Fundamentos de Ciberseguridad, CSIRT, Malware ni Prácticas.
+
+## 1. Objetivo
+
+La wiki ya está implementada y cuenta con numerosas páginas.
+
+El objetivo no es reconstruirla ni generar nuevamente todo su contenido, sino **corregir las relaciones jerárquicas entre las páginas existentes**, para obtener una clasificación académicamente coherente.
+
+Cada categoría, subcategoría, técnica y algoritmo debe conservar su propia página.
+
+Las características, propiedades, ventajas, desventajas y ejemplos deben permanecer dentro de las páginas correspondientes.
+
+## 2. Nueva jerarquía de Criptografía
+
+Utilizá el siguiente árbol como estructura objetivo:
+
+```text
+Criptografía
+│
+├── Cifrado
+│
+├── Criptografía clásica
+│   ├── Cifrado por sustitución
+│   │   ├── Cifrado César (ROT)
+│   │   └── Máquina Enigma
+│   │
+│   └── Cifrado por transposición
+│       ├── Escítala
+│       └── Transposición columnar
+│
+└── Criptografía moderna
+    │
+    ├── Criptografía simétrica
+    │   ├── Cifrado por bloques
+    │   │   ├── Algoritmos
+    │   │   │   ├── DES
+    │   │   │   ├── 3DES
+    │   │   │   ├── AES
+    │   │   │   ├── RC5
+    │   │   │   ├── IDEA
+    │   │   │   └── Blowfish
+    │   │   └── Modos de operación
+    │   │       ├── ECB
+    │   │       ├── CBC
+    │   │       ├── CFB
+    │   │       └── OFB
+    │   └── Cifrado de flujo
+    │       ├── RC4
+    │       ├── SEAL
+    │       └── A5
+    │
+    ├── Criptografía asimétrica
+    │   ├── RSA
+    │   ├── ElGamal
+    │   └── Criptografía de curvas elípticas (ECC)
+    │
+    ├── Acuerdo de claves
+    │   └── Diffie-Hellman
+    │
+    ├── Funciones hash
+    │   ├── MD5
+    │   ├── SHA-1
+    │   ├── SHA-2
+    │   └── SHA-3
+    │
+    ├── Firma digital
+    │   └── DSA
+    │
+    ├── Certificados digitales
+    │
+    ├── Infraestructura de clave pública (PKI)
+    │   └── Autoridades de certificación (CA)
+    │
+    ├── Cifrado híbrido
+    │
+    └── PGP
+        ├── Red de confianza
+        └── GPG / GnuPG
+```
+
+Esta estructura representa las relaciones principales. No es una lista exhaustiva que autorice a eliminar conceptos que no aparecen.
+
+Las páginas de categorías intermedias, como "Algoritmos" y "Modos de operación", deben tener explicaciones propias y enlaces a sus páginas hijas.
+
+## 3. Tratamiento del contenido existente
+
+Esta es una condición fundamental:
+
+**No elimines páginas ni contenido académico porque no aparezcan explícitamente en el nuevo árbol.**
+
+Existen actualmente páginas adicionales, como:
+
+- Atbash.
+- Vigenère.
+- Rail Fence.
+- Transposición por inversión.
+- Transposición por grilla.
+- Colisiones y preimágenes.
+- Hashes y comprobación de contraseñas.
+- Operación XOR.
+- TLS y certificados en HTTPS.
+
+Para esas páginas:
+
+1. Evaluá su ubicación académicamente correcta.
+2. Conservá su contenido.
+3. Reubicá las técnicas y algoritmos que correspondan.
+4. Identificá los conceptos que sean características o propiedades y que podrían integrarse como secciones de otras páginas.
+5. No fusiones ni elimines páginas existentes sin mi autorización.
+6. Identificá claramente los contenidos que sean ampliaciones y no estén respaldados directamente por las teorías de la cátedra.
+
+Por ahora, mantené Codificación y Esteganografía en sus ubicaciones actuales. Más adelante revisaremos su ubicación dentro de la taxonomía general de la wiki.
+
+## 4. Preservación de enlaces y contenido
+
+Los cambios deben afectar principalmente a la jerarquía y navegación.
+
+- Conservá las explicaciones, ejemplos y preguntas existentes.
+- Conservá los identificadores estables de las páginas siempre que sea posible.
+- No modifiques URLs innecesariamente.
+- Si es indispensable modificar rutas, actualizá todos los enlaces internos afectados y preservá la compatibilidad de las URLs anteriores cuando sea posible.
+- Actualizá breadcrumbs, barra lateral, buscador y relaciones padre-hijo.
+- Regenerá los HTML y los índices necesarios mediante el sistema de generación existente.
+- Evitá crear contenido duplicado.
+- No alteres estilos ni funcionalidades de la aplicación.
+
+## 5. Restricciones
+
+No modifiques ninguna sección fuera de Criptografía, excepto referencias o enlaces que necesiten actualizarse para evitar errores de navegación.
+
+No agregues nuevas dependencias ni modifiques la arquitectura de la aplicación.
+
+No realices push ni abras un Pull Request.
+
+Trabajá sobre la rama de desarrollo actual, sin afectar main.
+
+## 6. Verificación
+
+Después de reorganizar la jerarquía:
+
+1. Comprobá que todas las páginas existentes sigan siendo accesibles.
+2. Verificá que no haya páginas huérfanas.
+3. Comprobá que no existan enlaces rotos.
+4. Verificá que breadcrumbs y navegación lateral reflejen la nueva estructura.
+5. Ejecutá las pruebas correspondientes.
+6. Confirmá que no hubo pérdida de contenido académico.
+7. Mostrame el árbol final resultante.
+
+Finalmente, informame qué páginas fueron reubicadas, qué archivos se modificaron y qué conceptos considerás que todavía necesitan una revisión de clasificación.
+
+**No avances a reorganizar las demás áreas de la Wiki Académica. Quiero revisar y aprobar primero la sección de Criptografía.**
+
 ## Tasks
 - T1 | S1,S2,S10 | delegated read-only source map (mapping trigger: full corpus exceeds evidence budget), parent records taxonomy | complete (source map and parent spot-check) | commit: pending
 - T2 | S1,S3,S4,S6,S10 | inline generator and pilot with focused RED/GREEN | self-checks passed; final verification pending | commit: pending | Risk: item 5 (new isolated build dependency and CI)
@@ -363,6 +523,8 @@ El proyecto original debe conservar todas sus funcionalidades y comportamiento.
 - T5 | S2,S6,S10 | delegated fundamentals, malware and practices notes (parallel independent content unit) | complete, 92 notes / 84 answers; contribution commit pending | commit: pending
 - T6 | S3,S4,S7,S10 | inline integration and full generated output; delegated long suites and independent verifier for item 5 | functional checks passed; dependency/DOM proof pending | commit: pending
 - T7 | S5,S8,S9,S10 | inline contribution documentation and local review instructions | documentation complete; final delivery pending | commit: pending
+
+- T8 | S11 | inline hierarchy/permalink change; delegated read-only map (74 notes exceeds evidence budget), independent verification for shared generator item 3 | implemented and independently verified; native review pending | commit: pending | Risk: item 3 (shared route generation consumed by every Wiki page)
 
 ## Log
 L1 (2026-10-22): User authorized implementation of the previously proposed architecture, expressly chose feat/wiki-academica and one PR, protected the untracked PDF sources, and prohibited push/PR publication. The attached original request above is retained verbatim.
@@ -377,3 +539,9 @@ L7: Combined corpus is complete: 195 notes (root plus 74 cryptography, 28 CSIRT,
 L8: Independent verifier completed canonical LF comparisons and 14 isolated probes. Candidate-only blocker: original validator requires file hrefs. Corrected only new navigation anchors to wiki/index.html, added original-to-Wiki browser coverage and neutralized two new search strings. Regenerated output; parent focused tests 3/3 and freshness 195 pages/41,578 links pass, diff --check clean. Limited blocker recheck delegated; no new full sweep. Baseline and candidate npm tests both 25/25; original browser assertions pass both after identical screenshot-only Windows path adaptation in scratch. Extraction checks differ solely in installed pypdf6.19.0 vs recorded6.20.1. Original DOM proof unavailable (jsdom absent). Offline Marked lock lacks integrity/resolved; clean offline install ENOTCACHED with empty cache, not evidence of online CI failure. Need explicit registry authorization to finish clean-install/DOM proof before contribution commits and final native review. No push/PR.
 
 L9: Limited independent recheck resolved the only candidate-caused blocker: original Python validator passes 442 questions and all references; updated Wiki browser passes; original HTML bytes differ only in inserted file-target anchors. Parent reran Wiki browser successfully and confirmed all 18 PDF hashes unchanged against durable guard. Work remains uncommitted; exact-scope commits/native review await dependency verification. Will request anonymous registry.npmjs.org access only for declared npm development dependencies with lifecycle scripts disabled; user remote-authorization rule and prior automatic rejection require explicit consent. Existing local site is ready for personal preview, but final completion is pending these checks.
+
+L10 (2026-10-22): User committed prior work as 816815e on feat/wiki-academica; working tree was clean. New attached request above authorizes only cryptography hierarchy revision and necessary navigation/reference regeneration, not registry access or publication. Existing course PDFs are now tracked in the user commit; never modify them. Preserve all 74 crypto note IDs, slugs, bodies and old URLs. Add an optional validated permalink override only to preserve existing moved-note paths; navigation remains parent-driven. Add only Algoritmos and Modos de operación as category pages. Keep encoding, steganography and cross-cutting XOR at their current root positions; preserve all extra notes. New classification caveats must distinguish official lecture coverage from companion explanations. Forecast: a single coherent source/tool/test unit plus generated output, single-pr strategy retained; not split by generated line count.
+
+L11: T8 implementation: two category pages added; 54 existing metadata blocks gain fixed permalinks while parent/order changes implement the requested tree. Existing academic bodies/IDs/slugs are preserved. Optional permalink regression observed RED (old URL removed after reparent, invalid values accepted), then GREEN4/4 after minimal generator route override and strict path validation. Before content edits, default generator output remained byte-current (195pages), proving unchanged absent-option behavior. Full build/check passes197pages/42,398links; content audit197notes/167answers; updated browser passes root/prefix, retained RC5/CBC URLs, category children, parent-driven sidebar/breadcrumbs, search and responsive/noJS reading. No dependencies/styles/architecture/publishing changes. Independent item3 verification pending; compare all original bodies/routes against816815e.
+
+L12: Independent S11 verification PASS at baseline816815e: 60 target parent relationships, all195 IDs/slugs/bodies/searchrecords/URLs retained,121 noncrypto Markdown files byte-identical,197 unique pages,2 newcategories,14 invalid permalink cases rejected before writes with unchanged output hashes. Root/prefix browser and4/4 generator tests pass. Parent differential spot-check of build/--root/--check/--help/unknown option matches baseline stdout/stderr/exitcodes; initial scratch baseline lacked Marked, then reused existing local parser and reran successfully without installation/network. Source/body preservation compare passed; formatting-only empty-child indentation fixed, diff --check clean. Native assessment is high due shared routing item3; no START/consent/review yet. Scope is one coherent hierarchy change, retains single-pr strategy; generated output accounts for most diff lines. Registry/DOM limitations from prior feature are unchanged and outside this scope.

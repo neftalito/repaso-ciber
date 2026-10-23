@@ -1,5 +1,5 @@
 ---
-{"id":"crypto-triple-des","title":"3DES","slug":"triple-des","parent":"crypto-block","type":"algorithm","order":20,"related":["crypto-des","crypto-aes","crypto-key-agreement"],"sources":[{"id":"lecture-crypto-1","pages":[30]},{"id":"practice-1b","pages":[5]}]}
+{"id":"crypto-triple-des","title":"3DES","slug":"triple-des","parent":"crypto-block-algorithms","type":"algorithm","order":20,"related":["crypto-des","crypto-aes","crypto-key-agreement"],"sources":[{"id":"lecture-crypto-1","pages":[30]},{"id":"practice-1b","pages":[5]}],"permalink":"cryptography/encryption/modern/symmetric/block/triple-des"}
 ---
 ## Ubicación en el temario
 

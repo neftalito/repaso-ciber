@@ -1,5 +1,5 @@
 ---
-{"id":"crypto-collisions","title":"Colisiones y preimágenes","slug":"collisions","parent":"crypto-hash","type":"concept","order":50,"related":["crypto-md5","crypto-signature","crypto-password-hashes"],"sources":[{"id":"lecture-crypto-1","pages":[19,20]},{"id":"manual","pages":[9]}]}
+{"id":"crypto-collisions","title":"Colisiones y preimágenes","slug":"collisions","parent":"crypto-hash","type":"concept","order":50,"related":["crypto-md5","crypto-signature","crypto-password-hashes"],"sources":[{"id":"lecture-crypto-1","pages":[19,20]},{"id":"manual","pages":[9]}],"permalink":"cryptography/hash/collisions"}
 ---
 ## Tres problemas diferentes
 

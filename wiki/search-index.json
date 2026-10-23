@@ -423,6 +423,24 @@
     "text": "Definición Diffie–Hellman permite acordar un secreto compartido por un canal observable. Las partes intercambian valores públicos derivados de secretos privados; no envían directamente el secreto común. Mecanismo del ejercicio Se acuerdan públicamente un primo p y un generador g. Una parte elige a y publica A=g^a mod p; la otra elige b y publica B=g^b mod p. Luego calculan B^a mod p y A^b mod p. Ambos resultados coinciden porque corresponden a g^(ab) mod p. Ejemplo original pequeño Con p=29, g=2, a=5 y b=7, los valores públicos son A=3 y B=12. Cada parte calcula respectivamente 12^5 mod 29 = 12 y 3^7 mod 29 = 12. El secreto compartido es 12. Estos números permiten comprobar las cuentas a mano; no son parámetros para una comunicación real. Los valores p, g, A y B son públicos; a y b permanecen privados. Límite de autenticación El complemento práctico explica que DH básico no evita por sí solo un intermediario que sustituya valores públicos y establezca un secreto con cada extremo. Las firmas o certificados pertenecen a la solución de autenticación del protocolo. ¿Por qué Diffie–Hellman no es una subclase de cifrado de mensajes? Porque su salida central es un secreto compartido. El cifrado posterior del contenido requiere otro mecanismo y sus parámetros. :::"
   },
   {
+    "id": "crypto-block-algorithms",
+    "title": "Algoritmos",
+    "url": "cryptography/modern/symmetric/block/algorithms/",
+    "aliases": [
+      "algoritmos de cifrado por bloques"
+    ],
+    "text": "Qué clasifica esta página Un algoritmo de cifrado por bloques transforma un bloque de longitud fija mediante una clave. Esta categoría reúne las páginas de DES, 3DES, AES, RC5, IDEA y Blowfish, separadas de los modos de operación que permiten utilizar un cifrador al procesar un mensaje. La elección del algoritmo no determina por sí sola el modo, la clave ni los parámetros necesarios para descifrar. Esas diferencias se conservan en las páginas de cada algoritmo y de cada modo, enlazadas como subtemas y conceptos relacionados. Alcance de la clasificación La teoría de cátedra presenta DES y AES como ejemplos de cifrado por bloques en la página física 25. En la página 30 enumera también 3DES, RC5, IDEA y Blowfish como algoritmos simétricos, sin desarrollar allí su clasificación detallada por bloques. Su agrupación en esta página corresponde a la organización académica solicitada; no implica que esa diapositiva explique sus mecanismos internos. Las explicaciones, ejemplos y límites de las páginas existentes se conservan. La separación entre algoritmo y modo evita presentar ECB o CBC como algoritmos alternativos a AES."
+  },
+  {
+    "id": "crypto-block-modes",
+    "title": "Modos de operación",
+    "url": "cryptography/modern/symmetric/block/modes/",
+    "aliases": [
+      "modos de cifrado por bloques"
+    ],
+    "text": "Qué organiza un modo de operación Un modo de operación establece cómo se utiliza un cifrador de bloques al procesar datos. El algoritmo y el modo resuelven cuestiones diferentes: nombrar AES identifica el cifrador, pero no determina por sí solo cómo se encadenan o combinan sus operaciones sobre un mensaje. Las páginas hijas distinguen ECB, CBC, CFB y OFB. Cada una conserva sus explicaciones y límites; esta categoría permite compararlas sin mezclarlas con las páginas de algoritmos. Procedencia y límites La teoría de cátedra enumera los cuatro modos en la página física 25 y desarrolla ejemplos de ECB y CBC en las páginas 26–28. El manual complementario aporta explicaciones adicionales. Que un modo figure en la lista de la clase no significa que todas sus propiedades estén desarrolladas allí. Las condiciones concretas de inicialización y tratamiento de los datos dependen del esquema estudiado. Esta clasificación no añade parámetros de implementación ni una recomendación de uso."
+  },
+  {
     "id": "crypto-pgp",
     "title": "PGP",
     "url": "cryptography/pgp/",

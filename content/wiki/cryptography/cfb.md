@@ -1,5 +1,5 @@
 ---
-{"id":"crypto-cfb","title":"Modo CFB","slug":"cfb","parent":"crypto-block","type":"technique","order":60,"related":["crypto-ofb","crypto-cbc","crypto-aes"],"sources":[{"id":"lecture-crypto-1","pages":[25]},{"id":"manual","pages":[10]}]}
+{"id":"crypto-cfb","title":"Modo CFB","slug":"cfb","parent":"crypto-block-modes","type":"technique","order":30,"related":["crypto-ofb","crypto-cbc","crypto-aes"],"sources":[{"id":"lecture-crypto-1","pages":[25]},{"id":"manual","pages":[10]}],"permalink":"cryptography/encryption/modern/symmetric/block/cfb"}
 ---
 ## Realimentación del cifrado
 

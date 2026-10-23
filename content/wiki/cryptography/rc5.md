@@ -1,5 +1,5 @@
 ---
-{"id":"crypto-rc5","title":"RC5","slug":"rc5","parent":"crypto-symmetric","type":"algorithm","order":30,"related":["crypto-symmetric","crypto-aes"],"sources":[{"id":"lecture-crypto-1","pages":[30]}]}
+{"id":"crypto-rc5","title":"RC5","slug":"rc5","parent":"crypto-block-algorithms","type":"algorithm","order":40,"related":["crypto-symmetric","crypto-aes"],"sources":[{"id":"lecture-crypto-1","pages":[30]}],"permalink":"cryptography/encryption/modern/symmetric/rc5"}
 ---
 ## Ejemplo de algoritmo simétrico
 

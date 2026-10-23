@@ -1,5 +1,5 @@
 ---
-{"id":"crypto-grid","title":"Transposición por grilla","slug":"grid","parent":"crypto-transposition","type":"technique","order":30,"related":["crypto-columnar","crypto-scytale"],"sources":[{"id":"practice-guide","pages":[3,4]}]}
+{"id":"crypto-grid","title":"Transposición por grilla","slug":"grid","parent":"crypto-transposition","type":"technique","order":40,"related":["crypto-columnar","crypto-scytale"],"sources":[{"id":"practice-guide","pages":[3,4]}],"permalink":"cryptography/encryption/classical/transposition/grid"}
 ---
 ## Definición y alcance
 

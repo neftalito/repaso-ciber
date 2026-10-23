@@ -1,5 +1,5 @@
 ---
-{"id":"crypto-columnar","title":"Transposición columnar","slug":"columnar","parent":"crypto-transposition","type":"algorithm","order":40,"related":["crypto-grid","crypto-vigenere"],"sources":[{"id":"practice-1a","pages":[9]},{"id":"manual","pages":[7]},{"id":"practice-solutions","pages":[4]}]}
+{"id":"crypto-columnar","title":"Transposición columnar","slug":"columnar","parent":"crypto-transposition","type":"algorithm","order":20,"related":["crypto-grid","crypto-vigenere"],"sources":[{"id":"practice-1a","pages":[9]},{"id":"manual","pages":[7]},{"id":"practice-solutions","pages":[4]}],"permalink":"cryptography/encryption/classical/transposition/columnar"}
 ---
 ## Funcionamiento
 

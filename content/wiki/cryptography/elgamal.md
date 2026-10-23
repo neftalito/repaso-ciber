@@ -1,5 +1,5 @@
 ---
-{"id":"crypto-elgamal","title":"ElGamal","slug":"elgamal","parent":"crypto-asymmetric","type":"algorithm","order":20,"related":["crypto-dh","crypto-rsa","crypto-signature"],"sources":[{"id":"lecture-crypto-2","pages":[10]}]}
+{"id":"crypto-elgamal","title":"ElGamal","slug":"elgamal","parent":"crypto-asymmetric","type":"algorithm","order":20,"related":["crypto-dh","crypto-rsa","crypto-signature"],"sources":[{"id":"lecture-crypto-2","pages":[10]}],"permalink":"cryptography/encryption/modern/asymmetric/elgamal"}
 ---
 ## Papel en la criptografía de clave pública
 

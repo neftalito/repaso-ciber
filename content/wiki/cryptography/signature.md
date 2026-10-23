@@ -1,5 +1,5 @@
 ---
-{"id":"crypto-signature","title":"Firma digital","slug":"signature","parent":"cryptography","type":"concept","order":60,"related":["crypto-hash","crypto-certificate","crypto-pgp","fundamentals-cia"],"sources":[{"id":"lecture-crypto-2","pages":[6,11,12,13]},{"id":"practice-1b","pages":[3]},{"id":"manual","pages":[6]}]}
+{"id":"crypto-signature","title":"Firma digital","slug":"signature","parent":"crypto-modern","type":"concept","order":50,"related":["crypto-hash","crypto-certificate","crypto-pgp","fundamentals-cia"],"sources":[{"id":"lecture-crypto-2","pages":[6,11,12,13]},{"id":"practice-1b","pages":[3]},{"id":"manual","pages":[6]}],"permalink":"cryptography/signature"}
 ---
 ## Definición
 

@@ -1,5 +1,5 @@
 ---
-{"id":"crypto-reversal","title":"Transposición por inversión","slug":"reversal","parent":"crypto-transposition","type":"technique","order":10,"related":["crypto-atbash","crypto-transposition"],"sources":[{"id":"practice-guide","pages":[3]},{"id":"practice-solutions","pages":[3]}]}
+{"id":"crypto-reversal","title":"Transposición por inversión","slug":"reversal","parent":"crypto-transposition","type":"technique","order":30,"related":["crypto-atbash","crypto-transposition"],"sources":[{"id":"practice-guide","pages":[3]},{"id":"practice-solutions","pages":[3]}],"permalink":"cryptography/encryption/classical/transposition/reversal"}
 ---
 ## Definición
 
