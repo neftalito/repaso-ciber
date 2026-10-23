@@ -1,11 +1,13 @@
 ---
-{"id":"csirt-spoofing","title":"Suplantación del remitente de correo","slug":"suplantacion-del-remitente","parent":"csirt-email","type":"technique","order":40,"aliases":["email spoofing","From falso","Reply-To","phishing"],"related":["csirt-email-anatomy","csirt-headers","crypto-signature"],"sources":[{"id":"lecture-email","pages":[10,11,12,13,14]},{"id":"manual","pages":[21,23,24,29]},{"id":"practice-solutions","pages":[13,14]}]}
+{"id":"csirt-spoofing","title":"Suplantación del remitente (Email Spoofing)","slug":"suplantacion-del-remitente","parent":"csirt-email","type":"technique","order":40,"aliases":["email spoofing","From falso","Reply-To","phishing","Suplantación del remitente de correo"],"related":["csirt-smtp","csirt-headers","crypto-signature"],"sources":[{"id":"lecture-email","pages":[10,11,12,13,14]},{"id":"manual","pages":[21,23,24,29]},{"id":"practice-solutions","pages":[13,14]}]}
 ---
 ## Mecanismo
 
 La suplantación del remitente aprovecha que los encabezados informativos pueden declarar una identidad que no coincide con el transporte real. La cátedra demuestra la independencia entre `MAIL FROM`, `From` y `Reply-To`: el usuario puede ver un remitente y responder a otra cuenta.
 
 Que un mensaje muestre el nombre de una autoridad no prueba que esa autoridad lo haya enviado. Tampoco es necesario asumir el robo de una cuenta solo porque su dirección aparece en `From`.
+
+La separación entre el sobre y los campos informativos se desarrolla en [SMTP y flujo del correo](wiki:csirt-smtp#sobre-encabezados-y-cuerpo). Esa base permite interpretar qué parte de una identidad declarada puede contrastarse con los [encabezados](wiki:csirt-headers).
 
 ## Ejemplo de investigación
 

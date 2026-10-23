@@ -249,3 +249,92 @@ test('Fundamentos follows the requested hierarchy while retaining original acade
     }
   }
 });
+
+function readCsirt() {
+  const site = fileURLToPath(new URL('../../../', import.meta.url));
+  const directory = path.join(site, 'content/wiki/csirt');
+  return new Map(readdirSync(directory).filter(file => file.endsWith('.md')).map(file => {
+    const [metadata, body] = readFileSync(path.join(directory, file), 'utf8').replace(/\r\n/g, '\n').split('---\n').slice(1);
+    const page = JSON.parse(metadata);
+    return [page.id, { ...page, body }];
+  }));
+}
+
+function csirtChildren(pages, parent, expected) {
+  const children = [...pages.values()].filter(page => page.parent === parent && !page.redirectTo).sort((a, b) => a.order - b.order);
+  assert.deepEqual(children.map(page => page.id), expected, parent);
+}
+
+function csirtPreserved(pages, ids) {
+  const fixture = JSON.parse(readFileSync(new URL('./fixtures/csirt-preservation.json', import.meta.url), 'utf8'));
+  for (const original of fixture.notes.filter(page => ids.includes(page.id))) {
+    const current = pages.get(original.id);
+    assert.ok(current, `Stable CSIRT ID missing: ${original.id}`);
+    const chain = [current.slug];
+    for (let parent = current.parent; parent !== 'wiki'; parent = pages.get(parent).parent) chain.unshift(pages.get(parent).slug);
+    assert.equal(`${current.permalink ?? chain.join('/')}/`, original.url, `CSIRT URL changed: ${original.id}`);
+    const destination = pages.get(original.destination);
+    assert.ok(destination && !destination.redirectTo, `Canonical destination missing: ${original.destination}`);
+    if (current.id !== destination.id) assert.ok(current.redirectTo?.startsWith(`${destination.id}#`), `Compatibility target missing: ${current.id}`);
+    const blocks = new Set(destination.body.trim().split('\n\n').map(block => createHash('sha256').update(block).digest('hex')));
+    for (const digest of original.blocks) assert.ok(blocks.has(digest), `Academic block missing: ${original.file} -> ${destination.id}`);
+    for (const citation of original.sources) {
+      for (const page of [current, destination]) {
+        const source = page.sources.find(source => source.id === citation.id);
+        assert.ok(source, `CSIRT source missing: ${page.id}/${citation.id}`);
+        for (const number of citation.pages) assert.ok(source.pages.includes(number), `CSIRT citation missing: ${page.id} p.${number}`);
+      }
+    }
+  }
+}
+
+test('CSIRT Internet resources separate allocation, registration lookup and domain roles without content or URL loss', () => {
+  const pages = readCsirt();
+  csirtChildren(pages, 'csirt-resources', ['csirt-ip', 'csirt-registration-lookup', 'csirt-dns']);
+  csirtChildren(pages, 'csirt-ip', ['csirt-rir']);
+  csirtChildren(pages, 'csirt-registration-lookup', ['csirt-whois', 'csirt-rdap']);
+  csirtChildren(pages, 'csirt-dns', ['csirt-domains']);
+  csirtChildren(pages, 'csirt-domains', []);
+  csirtChildren(pages, 'csirt-rdap', []);
+  assert.equal(pages.get('csirt-registration-lookup').title, 'Consulta de información de registro');
+  assert.equal(pages.get('csirt-dns').title, 'Nombres de dominio y DNS');
+  assert.equal(pages.get('csirt-domains').title, 'Registro de nombres de dominio');
+  csirtPreserved(pages, ['csirt-resources', 'csirt-ip', 'csirt-rir', 'csirt-whois', 'csirt-rdap', 'csirt-icann-rdap', 'csirt-dns', 'csirt-domains', 'csirt-registry', 'csirt-registrar', 'csirt-registrant']);
+});
+
+test('CSIRT mail and incidents integrate auxiliary pages and retain every procedure, question and URL', () => {
+  const pages = readCsirt();
+  csirtChildren(pages, 'csirt-email', ['csirt-smtp', 'csirt-headers', 'csirt-spoofing']);
+  csirtChildren(pages, 'csirt-smtp', []);
+  csirtChildren(pages, 'csirt-headers', []);
+  csirtChildren(pages, 'csirt-incidents', ['csirt-handling', 'csirt-sensitive-information']);
+  const notification = pages.get('csirt-notification');
+  csirtChildren(pages, 'csirt-handling', notification ? ['csirt-notification'] : []);
+  csirtChildren(pages, 'csirt-sensitive-information', ['csirt-tlp']);
+  csirtChildren(pages, 'csirt-tlp', []);
+  assert.equal(pages.get('csirt-handling').title, 'Gestión de incidentes');
+  assert.equal(pages.get('csirt-spoofing').title, 'Suplantación del remitente (Email Spoofing)');
+  if (notification) {
+    assert.equal(notification.title, 'Notificación de incidentes');
+    assert.ok(notification.sources.some(source => source.id === 'lecture-incidents' && source.pages.includes(18)));
+    assert.match(notification.body, /:::question/);
+  } else assert.match(pages.get('csirt-handling').body, /[Nn]otificaci[oó]n/);
+  csirtPreserved(pages, ['csirt-email', 'csirt-smtp', 'csirt-email-anatomy', 'csirt-headers', 'csirt-mxtoolbox', 'csirt-google-messageheader', 'csirt-spoofing', 'csirt-incidents', 'csirt-handling', 'csirt-sensitive-information', 'csirt-tlp']);
+});
+
+test('CSIRT teams contain the three service groups while retaining their published routes and academic content', () => {
+  const pages = readCsirt();
+  csirtChildren(pages, 'csirt', ['csirt-teams', 'csirt-resources', 'csirt-email', 'csirt-incidents']);
+  csirtChildren(pages, 'csirt-teams', ['csirt-services']);
+  csirtChildren(pages, 'csirt-services', ['csirt-services-reactive', 'csirt-services-proactive', 'csirt-services-quality']);
+  csirtPreserved(pages, ['csirt', 'csirt-teams', 'csirt-services', 'csirt-services-reactive', 'csirt-services-proactive', 'csirt-services-quality']);
+});
+
+test('CSIRT complete hierarchy retains only source-supported independent concepts and every original academic block', () => {
+  const pages = readCsirt();
+  const canonical = [...pages.values()].filter(page => !page.redirectTo);
+  assert.equal(canonical.length, pages.has('csirt-notification') ? 23 : 22);
+  assert.equal([...pages.values()].filter(page => page.redirectTo).length, 7);
+  for (const page of canonical) if (page.id !== 'csirt') assert.ok(pages.has(page.parent), `Orphan CSIRT note: ${page.id}`);
+  csirtPreserved(pages, [...pages.keys()]);
+});

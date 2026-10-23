@@ -60,6 +60,14 @@ Potential later classification review: XOR is an operation and TLS is a protocol
 
 `lecture-incidents`: incidents and CERT/CSIRT (6–7), response/intake/relevance (8–10), prioritization (13–17), notification (18), services (20–22), sensitive information/TLP (23–24), PGP use (26). Reuse the crypto-signature/PGP concepts and CIA instead of duplicating explanations. Do not impose an unrelated external incident-response standard onto the course sequence. Public lookup examples must be illustrative; no remote queries are authorized.
 
+### Revised CSIRT navigation and consolidation
+
+CSIRT now has 23 canonical pages. Teams contain the three service groups; Internet resources separate IP allocation/RIRs, registration lookup with WHOIS/RDAP, and DNS/domain registration. The new lookup category explains queries for both IPs and domains, explicitly supported by resources physical pp.17–18. The existing domain-registration note contains Registry, Registrar and Registrant as sections; the RDAP note contains the auxiliary icann-rdap client demonstration. Individual permalinks preserve every reparented note and service descendant's previous route.
+
+Mail keeps SMTP, header analysis and spoofing as independent topics. Envelope/headers/body are integrated into SMTP; MXToolbox and Google Messageheader are practical subsections of header analysis. The seven merged role/tool/component notes retain their IDs and original source references as compatibility stubs; redirects point to the matching canonical section. All 185 original academic blocks from 28 notes, their citations and all prior URLs are pinned in `csirt-preservation.json`, with focused and complete hierarchy tests. Other academic groups are unchanged.
+
+Notification qualifies as an independent child of incident handling: incidents p.18 develops purpose, selecting a contact, evidence, timestamps and timezone, while p.19 contains an image-based email notification with SSH log evidence. Pages 23/26 contextualize sensitive exchange. The new note links to the existing fictional handling example and shared PGP/TLP notes instead of copying their complete explanations. It does not add an external response lifecycle or mandate one communication channel. TLP labels remain together within the course context. This source-supported classification is intentional; a brief name-only mention would have stayed an internal section.
+
 ## Malware
 
 `lecture-malware`: classes/goals/IOCs (1–4), static/dynamic distinction (5–6), antivirus/VirusTotal, hashes, strings, PE/imports/exports/packers (7–29), dynamic analysis/safe VM/snapshots/methodology (35–40), registry persistence (41–45), Procmon/filtering (48,52–55), Wireshark/Tcpdump/FakeNet/FakeDNS/process inspection (56–57).

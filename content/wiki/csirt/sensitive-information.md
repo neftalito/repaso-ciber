@@ -1,5 +1,5 @@
 ---
-{"id":"csirt-sensitive-information","title":"Manejo de información sensible del incidente","slug":"informacion-sensible","parent":"csirt-incidents","type":"practice","order":20,"aliases":["confidencialidad del reporte","PGP en CSIRT","intercambio seguro"],"related":["csirt-tlp","crypto-encryption","crypto-signature","fundamentals-cia"],"sources":[{"id":"lecture-incidents","pages":[23,24,26]},{"id":"manual","pages":[27,28]}]}
+{"id":"csirt-sensitive-information","title":"Manejo de información sensible","slug":"informacion-sensible","parent":"csirt-incidents","type":"practice","order":20,"aliases":["confidencialidad del reporte","PGP en CSIRT","intercambio seguro","Manejo de información sensible del incidente"],"related":["csirt-tlp","crypto-encryption","crypto-signature","fundamentals-cia","crypto-pgp","csirt-notification"],"sources":[{"id":"lecture-incidents","pages":[23,24,26]},{"id":"manual","pages":[27,28]}]}
 ---
 ## Qué se protege
 
@@ -18,6 +18,8 @@ La clase presenta reuniones presenciales y criptografía, en particular PGP, com
 El [cifrado](wiki:crypto-encryption) y la [firma digital](wiki:crypto-signature) responden preguntas diferentes. Cifrar un informe para sus destinatarios busca restringir su lectura. Firmarlo permite verificar la firma y las propiedades de integridad y autenticidad que ese mecanismo ofrece bajo sus supuestos de confianza.
 
 Una etiqueta TLP no realiza ninguna de esas operaciones criptográficas. Del mismo modo, que un archivo esté cifrado no explica si el receptor puede reenviarlo ni a quién: esa decisión debe comunicarse aparte.
+
+El funcionamiento de [PGP](wiki:crypto-pgp) se estudia en Criptografía. La [tríada CIA](wiki:fundamentals-cia) permite distinguir la confidencialidad de la integridad y la disponibilidad al evaluar qué protección necesita la información del incidente.
 
 ## Ejemplo
 

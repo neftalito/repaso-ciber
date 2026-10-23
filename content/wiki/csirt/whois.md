@@ -1,5 +1,5 @@
 ---
-{"id":"csirt-whois","title":"WHOIS","slug":"whois","parent":"csirt-resources","type":"protocol","order":30,"related":["csirt-rdap","csirt-rir","csirt-domains"],"sources":[{"id":"lecture-resources","pages":[6,7,8,9,10,11,17,18]},{"id":"practice-solutions","pages":[11,12]}]}
+{"id":"csirt-whois","title":"WHOIS","slug":"whois","parent":"csirt-registration-lookup","type":"protocol","order":10,"related":["csirt-rdap","csirt-rir","csirt-domains"],"sources":[{"id":"lecture-resources","pages":[6,7,8,9,10,11,17,18]},{"id":"practice-solutions","pages":[11,12]}],"permalink":"csirt/recursos-de-internet/whois"}
 ---
 ## Definición
 
@@ -29,6 +29,20 @@ whois 163.10.5.66 -h whois.lacnic.net
 El segundo especifica el servidor. En el caso histórico de la diapositiva permite superar una respuesta ERX genérica. No se ha ejecutado ninguna consulta externa ni se garantiza que una respuesta actual coincida con la captura.
 
 Un resultado incompleto puede deberse a la base consultada o a restricciones de privacidad. No encontrar un nombre personal visible no demuestra que el recurso carezca de responsable. [RDAP](wiki:csirt-rdap) ofrece estructura para el procesamiento, pero también exige interpretar lo que los datos permiten concluir.
+
+## Consulta de un dominio
+
+La presentación también consulta un nombre de dominio:
+
+```text
+whois cualesmiip.com
+```
+
+En la captura académica aparecen `Domain Name`, `Registrar WHOIS Server`, fechas de creación y vencimiento, `Registrar` y `Registrar Abuse Contact Email`. Los campos del registrante muestran `Redacted by Privacy` y un enlace intermediario de contacto. El servidor del registrar y su canal de abuso permiten distinguirlo del titular del dominio. Esta salida corresponde al ejemplo de clase; el comando es ilustrativo y no se ejecutó para esta wiki.
+
+## Comparación con RDAP
+
+Ambos protocolos permiten consultar información registral de IP y dominios. WHOIS devuelve texto libre; [RDAP](wiki:csirt-rdap) utiliza JSON con una estructura adecuada para el procesamiento automático. La diferencia de formato no elimina las restricciones de privacidad ni convierte un contacto registral en prueba de autoría.
 
 ## Repaso
 

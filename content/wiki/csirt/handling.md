@@ -1,5 +1,5 @@
 ---
-{"id":"csirt-handling","title":"Recepción, evaluación y gestión de incidentes","slug":"gestion","parent":"csirt-incidents","type":"practice","order":10,"aliases":["triage","triaje","pertinencia","priorización","notificación","timestamps"],"related":["csirt-teams","csirt-rdap","csirt-sensitive-information","practices-writeup"],"sources":[{"id":"lecture-incidents","pages":[8,9,10,13,15,16,17,18]},{"id":"manual","pages":[25,26,27,29,30]},{"id":"practice-solutions","pages":[15]}]}
+{"id":"csirt-handling","title":"Gestión de incidentes","slug":"gestion","parent":"csirt-incidents","type":"practice","order":10,"aliases":["triage","triaje","pertinencia","priorización","notificación","timestamps","Recepción, evaluación y gestión de incidentes"],"related":["csirt-teams","csirt-rdap","csirt-sensitive-information","practices-writeup","csirt-notification"],"sources":[{"id":"lecture-incidents","pages":[8,9,10,13,15,16,17,18]},{"id":"manual","pages":[25,26,27,29,30]},{"id":"practice-solutions","pages":[15]}]}
 ---
 ## Secuencia de trabajo
 
@@ -33,6 +33,8 @@ Clasificar describe la naturaleza del hecho. Priorizar decide la urgencia relati
 Estos casos no forman una escala universal. «Spam = baja prioridad» pierde información si el alcance cambia o el equipo afectado sostiene una actividad crítica. La decisión debe poder justificarse con contexto.
 
 ## Notificar con evidencia utilizable
+
+El propósito, la selección del contacto y la evidencia del aviso se desarrollan en [Notificación de incidentes](wiki:csirt-notification). El siguiente modelo se conserva aquí como parte de la secuencia de gestión.
 
 La notificación debe dirigirse al responsable adecuado del recurso y aportar hechos que pueda investigar. La presentación destaca los registros con timestamps y la zona horaria. Sin esa referencia temporal, dos organizaciones pueden buscar hechos en ventanas distintas.
 

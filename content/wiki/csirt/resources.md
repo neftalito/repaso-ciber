@@ -1,5 +1,5 @@
 ---
-{"id":"csirt-resources","title":"Recursos de Internet","slug":"recursos-de-internet","parent":"csirt","type":"category","order":30,"related":["csirt-email","csirt-handling"],"sources":[{"id":"lecture-resources","pages":[2,3,6,14,19,20]}]}
+{"id":"csirt-resources","title":"Recursos de Internet","slug":"recursos-de-internet","parent":"csirt","type":"category","order":20,"related":["csirt-email","csirt-handling"],"sources":[{"id":"lecture-resources","pages":[2,3,6,14,19,20]}],"permalink":"csirt/recursos-de-internet"}
 ---
 ## Recursos y responsables
 
@@ -12,3 +12,9 @@ Las consultas [WHOIS](wiki:csirt-whois) y [RDAP](wiki:csirt-rdap) ayudan a encon
 Conocer la asignación de una IP o el registro de un dominio facilita coordinar una investigación. No demuestra por sí solo quién realizó una acción concreta. Debe correlacionarse con evidencia del incidente, especialmente su momento y el recurso observado.
 
 La clase también distingue el trabajo operativo del CSIRT de la investigación de las autoridades competentes cuando hacen falta datos no públicos. Una consulta pública no elimina las restricciones de acceso a información reservada.
+
+## Recorrido por los recursos
+
+- [Direcciones y bloques IP](wiki:csirt-ip): direccionamiento, asignación de bloques y registros regionales responsables.
+- [Consulta de información de registro](wiki:csirt-registration-lookup): propósito de las consultas y protocolos WHOIS y RDAP para direcciones IP y dominios.
+- [Nombres de dominio y DNS](wiki:csirt-dns): espacio jerárquico de nombres, consultas DNS y participantes en el registro de dominios.

@@ -1,11 +1,15 @@
 ---
-{"id":"csirt-ip","title":"Direcciones y bloques IP","slug":"direcciones-ip","parent":"csirt-resources","type":"concept","order":10,"aliases":["IPv4","IPv6","prefijo","dirección privada"],"related":["csirt-rir","csirt-rdap","csirt-headers"],"sources":[{"id":"lecture-resources","pages":[2,3,7,8,11,13]},{"id":"lecture-email","pages":[2,8]},{"id":"practice-solutions","pages":[11,12,14]}]}
+{"id":"csirt-ip","title":"Direcciones y bloques IP","slug":"direcciones-ip","parent":"csirt-resources","type":"concept","order":10,"aliases":["IPv4","IPv6","prefijo","dirección privada"],"related":["csirt-rir","csirt-rdap","csirt-headers"],"sources":[{"id":"lecture-resources","pages":[2,3,7,8,11,13]},{"id":"lecture-email","pages":[2,8]},{"id":"practice-solutions","pages":[11,12,14]}],"permalink":"csirt/recursos-de-internet/direcciones-ip"}
 ---
 ## Qué se consulta
 
 Una dirección IP es un dato de red que puede aparecer como origen o destino en la evidencia. Para una investigación registral interesa conocer el bloque que contiene esa dirección, la organización a la que figura asignado y los contactos asociados. La cátedra trabaja tanto con IPv4 como con IPv6.
 
 Un bloque reúne direcciones. En la notación de prefijo, como `203.0.113.0/24`, el sufijo indica la longitud del prefijo de red. El registro del bloque aporta contexto administrativo; no identifica necesariamente al usuario que utilizó una dirección en el momento del incidente.
+
+## Asignación de bloques
+
+Las organizaciones solicitan bloques al [Registro Regional de Internet (RIR)](wiki:csirt-rir) de su región y proporcionan información de contacto. El RIR conserva una base pública de recursos asignados. La [consulta de información de registro](wiki:csirt-registration-lookup) permite utilizar esos datos para reconocer la organización asignataria y los contactos pertinentes.
 
 ## Direcciones internas y evidencia pública
 

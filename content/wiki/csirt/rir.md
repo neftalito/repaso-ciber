@@ -1,5 +1,5 @@
 ---
-{"id":"csirt-rir","title":"Registros regionales de Internet","slug":"registros-regionales","parent":"csirt-resources","type":"concept","order":20,"aliases":["RIR","IANA","LACNIC","ARIN","APNIC","RIPE NCC","AFRINIC","ERX","legacy"],"related":["csirt-ip","csirt-whois","csirt-rdap"],"sources":[{"id":"lecture-resources","pages":[3,4,5,7,9,10,11]},{"id":"manual","pages":[16,17]},{"id":"practice-solutions","pages":[10,11,12]}]}
+{"id":"csirt-rir","title":"Registros Regionales de Internet (RIR)","slug":"registros-regionales","parent":"csirt-ip","type":"concept","order":10,"aliases":["Registros regionales de Internet","RIR","IANA","LACNIC","ARIN","APNIC","RIPE NCC","AFRINIC","ERX","legacy"],"related":["csirt-ip","csirt-whois","csirt-rdap"],"sources":[{"id":"lecture-resources","pages":[3,4,5,7,9,10,11]},{"id":"manual","pages":[16,17]},{"id":"practice-solutions","pages":[10,11,12]}],"permalink":"csirt/recursos-de-internet/registros-regionales"}
 ---
 ## Asignación regional
 

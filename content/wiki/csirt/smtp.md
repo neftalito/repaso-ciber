@@ -1,5 +1,5 @@
 ---
-{"id":"csirt-smtp","title":"SMTP y flujo del correo","slug":"smtp","parent":"csirt-email","type":"protocol","order":10,"aliases":["Simple Mail Transfer Protocol","MAIL FROM","RCPT TO","DATA","POP","IMAP"],"related":["csirt-dns","csirt-email-anatomy","csirt-headers"],"sources":[{"id":"lecture-email","pages":[2,3,5,11,12]},{"id":"manual","pages":[20,21,22]}]}
+{"id":"csirt-smtp","title":"SMTP y flujo del correo","slug":"smtp","parent":"csirt-email","type":"protocol","order":10,"aliases":["Simple Mail Transfer Protocol","MAIL FROM","RCPT TO","DATA","POP","IMAP","Sobre, encabezados y cuerpo","envelope","sobre SMTP","Return-Path","From","To","Reply-To"],"related":["csirt-dns","csirt-headers","csirt-spoofing"],"sources":[{"id":"lecture-email","pages":[2,3,4,5,6,8,10,11,12,13,15]},{"id":"manual","pages":[20,21,22,23,29]},{"id":"practice-solutions","pages":[13,14]}]}
 ---
 ## Función
 
@@ -37,6 +37,49 @@ S: 221 Bye
 ## Lo que no demuestra la aceptación
 
 Una respuesta de aceptación del servidor no valida la identidad humana declarada en `From`. La demostración de la cátedra muestra que las direcciones del sobre y de los encabezados son independientes. Tampoco debe confundirse una conexión a un servidor con autorización para retransmitir mensajes.
+
+## Sobre, encabezados y cuerpo
+
+### Tres componentes conceptuales
+
+La cátedra distingue sobre SMTP, encabezados y cuerpo. El sobre interviene en la transferencia y no forma parte del contenido del mensaje. Los encabezados describen propiedades del correo; el cuerpo contiene el texto u otros contenidos que recibe el destinatario.
+
+| Elemento | Función relevante |
+| --- | --- |
+| `MAIL FROM` del sobre | Indica el remitente de transporte, usado para devoluciones de entrega |
+| `RCPT TO` del sobre | Indica destinatarios efectivos de la transacción |
+| `From` | Declara el remitente visible del mensaje |
+| `To` | Declara destinatarios en el contenido informativo del mensaje |
+| `Reply-To` | Indica una dirección para la respuesta del usuario cuando está presente |
+| `Return-Path` | Permite examinar la dirección de retorno registrada en el mensaje entregado |
+| Cuerpo | Contiene el contenido posterior a los encabezados |
+
+`Return-Path` es evidencia a interpretar en el contexto de la entrega; no convierte la dirección visible en una identidad autenticada. Los [encabezados](wiki:csirt-headers) completos permiten relacionarlo con la traza.
+
+### Un ejemplo con tres direcciones
+
+Supongamos este mensaje didáctico:
+
+```text
+MAIL FROM:<rebotes@plataforma.example>
+RCPT TO:<ana@institucion.example>
+
+From: "Mesa de ayuda" <ayuda@institucion.example>
+Reply-To: casos@soporte.example
+Subject: Seguimiento de consulta
+```
+
+Si falla la entrega, la devolución se relaciona con el remitente del sobre. Si Ana pulsa «Responder», la respuesta normalmente se dirige a `Reply-To`. El `From` visible es otra dirección y no gobierna por sí solo esas dos operaciones.
+
+### Independencia y límites
+
+Que las direcciones difieran no demuestra necesariamente phishing: existen flujos legítimos con manejo separado de rebotes o respuestas. La discrepancia requiere contexto, evidencia de transporte y comparación con el servicio esperado. La [suplantación](wiki:csirt-spoofing) explota la confianza del usuario en campos informativos.
+
+### Repaso
+
+:::question ¿Una dirección en To prueba que ese fue el único destinatario real de la transacción?
+No. To pertenece a los encabezados, mientras RCPT TO determina los destinatarios de transporte. Son componentes independientes y deben interpretarse según la evidencia disponible del envío y la entrega.
+:::
 
 ## Repaso
 

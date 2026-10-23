@@ -1,5 +1,5 @@
 ---
-{"id":"csirt-services-proactive","title":"Servicios proactivos","slug":"proactivos","parent":"csirt-services","type":"concept","order":20,"related":["csirt-services-reactive","csirt-services-quality"],"sources":[{"id":"lecture-incidents","pages":[22]},{"id":"manual","pages":[27]}]}
+{"id":"csirt-services-proactive","title":"Servicios proactivos","slug":"proactivos","parent":"csirt-services","type":"concept","order":20,"related":["csirt-services-reactive","csirt-services-quality"],"sources":[{"id":"lecture-incidents","pages":[22]},{"id":"manual","pages":[27]}],"permalink":"csirt/servicios/proactivos"}
 ---
 ## Propósito
 

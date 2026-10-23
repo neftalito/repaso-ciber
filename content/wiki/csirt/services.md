@@ -1,5 +1,5 @@
 ---
-{"id":"csirt-services","title":"Servicios de un CSIRT","slug":"servicios","parent":"csirt","type":"category","order":20,"related":["csirt-teams","csirt-handling"],"sources":[{"id":"lecture-incidents","pages":[22]}]}
+{"id":"csirt-services","title":"Servicios de un CSIRT","slug":"servicios","parent":"csirt-teams","type":"category","order":20,"related":["csirt-teams","csirt-handling"],"sources":[{"id":"lecture-incidents","pages":[22]}],"permalink":"csirt/servicios"}
 ---
 ## Tres grupos de servicios
 

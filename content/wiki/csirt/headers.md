@@ -1,5 +1,5 @@
 ---
-{"id":"csirt-headers","title":"Análisis de encabezados de correo","slug":"analisis-de-encabezados","parent":"csirt-email","type":"technique","order":30,"aliases":["Received","headers","traza de correo","Return-Path","IP de origen"],"related":["csirt-email-anatomy","csirt-ip","csirt-rdap","practices-writeup"],"sources":[{"id":"lecture-email","pages":[2,7,8,10,15,16]},{"id":"manual","pages":[22,23,24]},{"id":"practice-solutions","pages":[13,14]}]}
+{"id":"csirt-headers","title":"Análisis de encabezados de correo","slug":"analisis-de-encabezados","parent":"csirt-email","type":"technique","order":30,"aliases":["Received","headers","traza de correo","Return-Path","IP de origen","MXToolbox Email Headers","Google Admin Toolbox Messageheader","Google Admin Toolbox","Messageheader"],"related":["csirt-smtp","csirt-ip","csirt-rdap","csirt-spoofing","csirt-sensitive-information","practices-writeup"],"sources":[{"id":"lecture-email","pages":[2,7,8,10,15,16]},{"id":"manual","pages":[22,23,24]},{"id":"practice-solutions","pages":[13,14]},{"id":"lecture-incidents","pages":[23]}]}
 ---
 ## Objetivo y evidencia inicial
 
@@ -37,6 +37,54 @@ La IP de un relay puede identificar infraestructura usada para el envío, sin re
 ## Herramientas y datos sensibles
 
 MXToolbox y Google Admin Toolbox ayudan a ordenar encabezados. El resultado debe cotejarse con el original y con la sensibilidad del material antes de compartirlo con un servicio externo.
+
+## MXToolbox Email Headers
+
+### Para qué se utiliza
+
+MXToolbox Email Headers es una herramienta en línea que la clase menciona para simplificar la inspección de encabezados. Su utilidad está en ayudar a organizar la lectura de una traza extensa. La presentación advierte que el procesamiento automático puede no interpretar correctamente todos los casos.
+
+### Forma de trabajo razonada
+
+El punto de partida debe ser el mensaje original con sus encabezados completos. El analista compara la interpretación obtenida con las líneas originales, identifica qué servidores son confiables y comprueba los tiempos. El resultado de una herramienta es una ayuda de lectura, no una nueva fuente independiente que autentique al remitente.
+
+Como ejercicio, se puede estudiar una traza sintética con un servidor externo y un salto privado interno. Si una interpretación automática presenta la dirección privada como origen público del incidente, corresponde explicar el salto y corregir la conclusión, conservando el original como evidencia.
+
+### Confidencialidad y límite del servicio
+
+Los encabezados pueden revelar direcciones de correo, infraestructura y otros datos del caso. Antes de introducir información en un servicio en línea debe evaluarse si se permite compartirla. El deber de cuidado del CSIRT también se aplica a los datos que usa para analizar un incidente.
+
+La cátedra no necesita una función específica de la interfaz para sostener este método: lo relevante es interpretar y corroborar la traza, sin confiar ciegamente en el resumen automático.
+
+### Repaso
+
+:::question ¿Un resumen de MXToolbox sustituye conservar los encabezados originales?
+No. La interpretación puede ser incompleta o incorrecta. Los encabezados originales permiten revisar las líneas, cuestionar los supuestos y justificar qué saltos respaldan la conclusión.
+:::
+
+## Google Admin Toolbox Messageheader
+
+### Función
+
+Messageheader, de Google Admin Toolbox, es otra herramienta en línea señalada por la cátedra para facilitar el procesamiento de encabezados de correo. Sirve como apoyo a la inspección de una traza; su disponibilidad no elimina la necesidad de conocer SMTP ni la diferencia entre sobre y encabezados.
+
+### Qué verificar en su interpretación
+
+Una lectura útil debe permitir relacionar cada salto con el servidor que recibe y el que entrega, conservar las marcas temporales y distinguir nombres declarados de conexiones observadas. El analista debe volver al original cuando un resultado no sea claro o parezca contradecir otros registros.
+
+Por ejemplo, ante dos saltos que contienen zonas horarias diferentes, no corresponde comparar únicamente la hora escrita. La cronología requiere interpretar ambas marcas en una referencia compatible. Un orden visual o un resumen automático no constituye por sí solo una explicación del incidente.
+
+### Alcance y cuidado de los datos
+
+Una herramienta de encabezados no identifica automáticamente a la persona que redactó el mensaje ni determina por sí sola que sea legítimo. Puede facilitar una hipótesis que luego debe corroborarse con evidencia confiable.
+
+Además, trasladar encabezados a un servicio externo implica compartir datos. Antes de hacerlo deben revisarse las restricciones del caso y la información sensible incluida. Para estudiar el procedimiento pueden utilizarse trazas sintéticas, como las de esta wiki, sin exponer un incidente real.
+
+### Repaso
+
+:::question ¿Dos horas distintas en un resumen prueban que se falsificó la traza?
+No. Pueden corresponder a zonas horarias diferentes u otras condiciones que necesitan análisis. Deben examinarse las marcas completas y su procedencia antes de afirmar una alteración.
+:::
 
 ## Repaso
 

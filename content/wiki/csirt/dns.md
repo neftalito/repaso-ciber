@@ -1,9 +1,11 @@
 ---
-{"id":"csirt-dns","title":"DNS y jerarquía de nombres","slug":"dns","parent":"csirt-resources","type":"protocol","order":50,"aliases":["Domain Name System","TLD","gTLD","ccTLD","MX","raíz DNS"],"related":["csirt-domains","csirt-smtp","csirt-headers"],"sources":[{"id":"lecture-resources","pages":[14,15,16]},{"id":"lecture-email","pages":[2,3]},{"id":"manual","pages":[18,20,21]}]}
+{"id":"csirt-dns","title":"Nombres de dominio y DNS","slug":"dns","parent":"csirt-resources","type":"protocol","order":30,"aliases":["DNS y jerarquía de nombres","Domain Name System","TLD","gTLD","ccTLD","MX","raíz DNS"],"related":["csirt-domains","csirt-smtp","csirt-headers"],"sources":[{"id":"lecture-resources","pages":[2,14,15,16]},{"id":"lecture-email","pages":[2,3]},{"id":"manual","pages":[18,20,21]}],"permalink":"csirt/recursos-de-internet/dns"}
 ---
 ## Definición
 
 DNS designa tanto una base de datos distribuida y jerárquica como el protocolo que permite consultarla. La administración de la información está descentralizada: distintos responsables gestionan partes del espacio de nombres.
+
+Un nombre de dominio sitúa un recurso dentro del espacio jerárquico de nombres. La cátedra lo presenta junto con las direcciones IP como recurso de Internet: estudiar el nombre y consultar DNS permite reconocer su ubicación en esa jerarquía y la información publicada sobre él. El [registro de nombres de dominio](wiki:csirt-domains) explica cómo se solicita el nombre y qué funciones cumplen quienes participan en su registración.
 
 ## Leer un nombre desde la raíz
 

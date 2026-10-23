@@ -1,5 +1,5 @@
 ---
-{"id":"csirt-services-reactive","title":"Servicios reactivos","slug":"reactivos","parent":"csirt-services","type":"concept","order":10,"related":["csirt-handling","csirt-services-proactive"],"sources":[{"id":"lecture-incidents","pages":[8,18,22]}]}
+{"id":"csirt-services-reactive","title":"Servicios reactivos","slug":"reactivos","parent":"csirt-services","type":"concept","order":10,"related":["csirt-handling","csirt-services-proactive"],"sources":[{"id":"lecture-incidents","pages":[8,18,22]}],"permalink":"csirt/servicios/reactivos"}
 ---
 ## Qué incluyen
 

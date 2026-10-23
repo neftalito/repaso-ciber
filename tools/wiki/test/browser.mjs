@@ -6,6 +6,15 @@ import { fileURLToPath } from 'node:url';
 
 const { chromium } = await import(process.env.PLAYWRIGHT_MODULE || 'playwright');
 const root = fileURLToPath(new URL('../../../', import.meta.url));
+const csirtCompatibility = [
+  ['recursos-de-internet/dominios/registry/', 'recursos-de-internet/dominios/#registry'],
+  ['recursos-de-internet/dominios/registrar/', 'recursos-de-internet/dominios/#registrar'],
+  ['recursos-de-internet/dominios/registrant/', 'recursos-de-internet/dominios/#registrant'],
+  ['recursos-de-internet/rdap/icann-rdap/', 'recursos-de-internet/rdap/#cliente-icann-rdap'],
+  ['correo-electronico/anatomia-del-mensaje/', 'correo-electronico/smtp/#sobre-encabezados-y-cuerpo'],
+  ['correo-electronico/analisis-de-encabezados/mxtoolbox/', 'correo-electronico/analisis-de-encabezados/#mxtoolbox-email-headers'],
+  ['correo-electronico/analisis-de-encabezados/google-messageheader/', 'correo-electronico/analisis-de-encabezados/#google-admin-toolbox-messageheader'],
+];
 const types = { '.html': 'text/html; charset=utf-8', '.css': 'text/css', '.mjs': 'text/javascript', '.js': 'text/javascript', '.json': 'application/json', '.svg': 'image/svg+xml', '.pdf': 'application/pdf' };
 const server = createServer(async (request, response) => {
   try {
@@ -72,15 +81,48 @@ try {
     await page.locator('#wiki-results a').filter({ hasText: /^Phishing$/ }).click();
     assert.ok(page.url().endsWith(`${prefix}/wiki/fundamentals/attacks/phishing/`));
 
+    await page.goto(`${origin}${prefix}/wiki/csirt/`);
+    assert.deepEqual(await page.locator('[aria-labelledby="subtemas"] a').allTextContents(), ['Equipos CERT y CSIRT', 'Recursos de Internet', 'Correo electrónico e investigación', 'Incidentes de seguridad']);
+    await page.goto(`${origin}${prefix}/wiki/csirt/servicios/`);
+    await page.reload();
+    assert.deepEqual(await page.locator('.wiki-breadcrumbs li').allTextContents(), ['Wiki Académica', 'CSIRT y gestión de incidentes', 'Equipos CERT y CSIRT', 'Servicios de un CSIRT']);
+    assert.deepEqual(await page.locator('[aria-labelledby="subtemas"] a').allTextContents(), ['Servicios reactivos', 'Servicios proactivos', 'Servicios de gestión de calidad de seguridad']);
+    await page.goto(`${origin}${prefix}/wiki/csirt/recursos-de-internet/registros-regionales/`);
+    assert.deepEqual(await page.locator('.wiki-breadcrumbs li').allTextContents(), ['Wiki Académica', 'CSIRT y gestión de incidentes', 'Recursos de Internet', 'Direcciones y bloques IP', 'Registros Regionales de Internet (RIR)']);
+    await page.goto(`${origin}${prefix}/wiki/csirt/recursos-de-internet/consulta-de-registro/`);
+    assert.deepEqual(await page.locator('[aria-labelledby="subtemas"] a').allTextContents(), ['WHOIS', 'RDAP']);
+    await page.locator('[aria-labelledby="subtemas"] a').filter({ hasText: /^RDAP$/ }).click();
+    assert.ok(page.url().endsWith(`${prefix}/wiki/csirt/recursos-de-internet/rdap/`));
+    assert.deepEqual(await page.locator('.wiki-breadcrumbs li').allTextContents(), ['Wiki Académica', 'CSIRT y gestión de incidentes', 'Recursos de Internet', 'Consulta de información de registro', 'RDAP']);
+    await page.goto(`${origin}${prefix}/wiki/csirt/recursos-de-internet/dominios/`);
+    assert.deepEqual(await page.locator('.wiki-breadcrumbs li').allTextContents(), ['Wiki Académica', 'CSIRT y gestión de incidentes', 'Recursos de Internet', 'Nombres de dominio y DNS', 'Registro de nombres de dominio']);
+    assert.equal(await page.locator('[aria-labelledby="subtemas"]').count(), 0);
+    await page.goto(`${origin}${prefix}/wiki/csirt/correo-electronico/`);
+    assert.deepEqual(await page.locator('[aria-labelledby="subtemas"] a').allTextContents(), ['SMTP y flujo del correo', 'Análisis de encabezados de correo', 'Suplantación del remitente (Email Spoofing)']);
+    await page.goto(`${origin}${prefix}/wiki/csirt/incidentes/gestion/notificacion/`);
+    await page.reload();
+    assert.deepEqual(await page.locator('.wiki-breadcrumbs li').allTextContents(), ['Wiki Académica', 'CSIRT y gestión de incidentes', 'Incidentes de seguridad', 'Gestión de incidentes', 'Notificación de incidentes']);
+    assert.ok(await page.locator('#wiki-main').innerText().then(text => text.includes('zona horaria') && text.includes('SSH')));
+    for (const [legacy, target] of csirtCompatibility) {
+      await page.goto(`${origin}${prefix}/wiki/csirt/${legacy}`);
+      await page.waitForURL(`${origin}${prefix}/wiki/csirt/${target}`);
+      assert.equal(await page.locator(`#${target.split('#')[1]}`).count(), 1);
+    }
+    await page.locator('#wiki-query').fill('icann-rdap');
+    await page.locator('#wiki-results a').filter({ hasText: /^RDAP$/ }).click();
+    assert.ok(page.url().endsWith(`${prefix}/wiki/csirt/recursos-de-internet/rdap/`));
+
     // Published URLs remain stable even when the academic ancestry changes.
     await page.goto(`${origin}${prefix}/wiki/cryptography/encryption/modern/symmetric/rc5/`);
     await page.reload();
     assert.deepEqual(await page.locator('.wiki-breadcrumbs li').allTextContents(), ['Wiki Académica', 'Criptografía', 'Criptografía moderna', 'Criptografía simétrica', 'Cifrado por bloques', 'Algoritmos', 'RC5']);
     await page.locator('.wiki-breadcrumbs a').filter({ hasText: /^Algoritmos$/ }).click();
+    await page.waitForURL(`${origin}${prefix}/wiki/cryptography/modern/symmetric/block/algorithms/`);
     assert.deepEqual(await page.locator('[aria-labelledby="subtemas"] a').allTextContents(), ['DES', '3DES', 'AES', 'RC5', 'IDEA', 'Blowfish']);
     await page.goto(`${origin}${prefix}/wiki/cryptography/encryption/modern/symmetric/block/cbc/`);
     assert.deepEqual(await page.locator('.wiki-breadcrumbs li').allTextContents(), ['Wiki Académica', 'Criptografía', 'Criptografía moderna', 'Criptografía simétrica', 'Cifrado por bloques', 'Modos de operación', 'Modo CBC']);
     await page.locator('.wiki-breadcrumbs a').filter({ hasText: /^Modos de operación$/ }).click();
+    await page.waitForURL(`${origin}${prefix}/wiki/cryptography/modern/symmetric/block/modes/`);
     assert.deepEqual(await page.locator('[aria-labelledby="subtemas"] a').allTextContents(), ['Modo ECB', 'Modo CBC', 'Modo CFB', 'Modo OFB']);
     await page.locator('#wiki-query').fill('RC5');
     await page.locator('#wiki-results a').filter({ hasText: /^RC5$/ }).click();
@@ -119,13 +161,17 @@ try {
     assert.ok(page.url().endsWith(`${prefix}/wiki/cryptography/hash/`));
   }
   const index = await (await fetch(`${origin}/wiki/search-index.json`)).json();
-  assert.equal(index.length, 195);
-  assert.ok(!index.some(entry => ['crypto-collisions', 'crypto-password-hashes', 'crypto-dictionary', 'crypto-salt'].includes(entry.id)));
+  assert.equal(index.length, 190);
+  assert.ok(!index.some(entry => ['crypto-collisions', 'crypto-password-hashes', 'crypto-dictionary', 'crypto-salt', 'csirt-registry', 'csirt-registrar', 'csirt-registrant', 'csirt-icann-rdap', 'csirt-email-anatomy', 'csirt-mxtoolbox', 'csirt-google-messageheader'].includes(entry.id)));
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto(`${origin}/repaso-ciber/wiki/cryptography/hash/`);
   assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
   await page.goto(`${origin}/repaso-ciber/wiki/fundamentals/attacks/phishing/`);
   assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
+  for (const route of ['smtp', 'analisis-de-encabezados']) {
+    await page.goto(`${origin}/repaso-ciber/wiki/csirt/correo-electronico/${route}/`);
+    assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
+  }
   await page.setViewportSize({ width: 1366, height: 1000 });
   const deepest = index.reduce((a, b) => a.url.split('/').length > b.url.split('/').length ? a : b);
   await page.goto(`${origin}/repaso-ciber/wiki/${deepest.url}`);
@@ -148,6 +194,13 @@ try {
   await offlinePage.goto(`${origin}/repaso-ciber/wiki/fundamentals/attacks/phishing/`);
   await offlinePage.locator('.wiki-breadcrumbs a').filter({ hasText: /^Ingeniería social$/ }).click();
   assert.equal(await offlinePage.locator('h1').innerText(), 'Ingeniería social');
+  for (const prefix of ['', '/repaso-ciber']) {
+    for (const [legacy, target] of csirtCompatibility) {
+      await offlinePage.goto(`${origin}${prefix}/wiki/csirt/${legacy}`);
+      await offlinePage.waitForURL(`${origin}${prefix}/wiki/csirt/${target}`);
+      assert.equal(await offlinePage.locator(`#${target.split('#')[1]}`).count(), 1);
+    }
+  }
   await offlinePage.goto(`${origin}/repaso-ciber/wiki/cryptography/hash/password-hashes/salt/`);
   await offlinePage.waitForURL(`${origin}/repaso-ciber/wiki/cryptography/hash/#sal-en-el-calculo-de-contrasenas`);
   assert.ok(await offlinePage.locator('#wiki-main').innerText().then(text => text.includes('curso:luna')));

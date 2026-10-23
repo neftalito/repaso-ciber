@@ -1,5 +1,5 @@
 ---
-{"id":"csirt-services-quality","title":"Servicios de gestión de calidad de seguridad","slug":"calidad-de-seguridad","parent":"csirt-services","type":"concept","order":30,"related":["csirt-services-proactive","fundamentals-cia"],"sources":[{"id":"lecture-incidents","pages":[22]},{"id":"manual","pages":[27]}]}
+{"id":"csirt-services-quality","title":"Servicios de gestión de calidad de seguridad","slug":"calidad-de-seguridad","parent":"csirt-services","type":"concept","order":30,"related":["csirt-services-proactive","fundamentals-cia"],"sources":[{"id":"lecture-incidents","pages":[22]},{"id":"manual","pages":[27]}],"permalink":"csirt/servicios/calidad-de-seguridad"}
 ---
 ## Definición
 
