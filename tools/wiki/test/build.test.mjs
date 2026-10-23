@@ -338,3 +338,87 @@ test('CSIRT complete hierarchy retains only source-supported independent concept
   for (const page of canonical) if (page.id !== 'csirt') assert.ok(pages.has(page.parent), `Orphan CSIRT note: ${page.id}`);
   csirtPreserved(pages, [...pages.keys()]);
 });
+
+function readMalware() {
+  const directory = fileURLToPath(new URL('../../../content/wiki/malware/', import.meta.url));
+  return new Map(readdirSync(directory).filter(file => file.endsWith('.md')).map(file => {
+    const [metadata, body] = readFileSync(path.join(directory, file), 'utf8').replace(/\r\n/g, '\n').split('---\n').slice(1);
+    const page = JSON.parse(metadata);
+    return [page.id, { ...page, body }];
+  }));
+}
+
+function malwareChildren(pages, parent, expected) {
+  const children = [...pages.values()].filter(page => page.parent === parent && !page.redirectTo).sort((a, b) => a.order - b.order);
+  assert.deepEqual(children.map(page => page.id), expected.map(id => `malware-${id}`), parent);
+}
+
+function malwarePreserved(pages, ids) {
+  const fixture = JSON.parse(readFileSync(new URL('./fixtures/malware-preservation.json', import.meta.url), 'utf8'));
+  for (const original of fixture.notes.filter(page => ids.includes(page.id))) {
+    const current = pages.get(original.id);
+    assert.ok(current, `Stable Malware ID missing: ${original.id}`);
+    const chain = [current.slug];
+    for (let parent = current.parent; parent !== 'wiki'; parent = pages.get(parent).parent) chain.unshift(pages.get(parent).slug);
+    assert.equal(`${current.permalink ?? chain.join('/')}/`, original.url, `Malware URL changed: ${original.id}`);
+    const destination = pages.get(original.destination);
+    assert.ok(destination && !destination.redirectTo, `Canonical Malware destination missing: ${original.destination}`);
+    if (current.id !== destination.id) assert.ok(current.redirectTo?.startsWith(`${destination.id}#`), `Malware compatibility missing: ${current.id}`);
+    const blocks = new Set(destination.body.trim().split('\n\n').map(block => createHash('sha256').update(block).digest('hex')));
+    for (const digest of original.blocks) assert.ok(blocks.has(digest), `Academic block missing: ${original.file} -> ${destination.id}`);
+    for (const citation of original.sources) {
+      for (const page of [current, destination]) {
+        const source = page.sources.find(source => source.id === citation.id);
+        assert.ok(source, `Malware source missing: ${page.id}/${citation.id}`);
+        for (const number of citation.pages) assert.ok(source.pages.includes(number), `Malware citation missing: ${page.id} p.${number}`);
+      }
+    }
+  }
+}
+
+test('Malware static analysis integrates identification, PE components and auxiliary tools without academic or URL loss', () => {
+  const pages = readMalware();
+  malwareChildren(pages, 'malware-static', ['identification', 'strings', 'executables', 'packing', 'obfuscation']);
+  malwareChildren(pages, 'malware-executables', ['pe', 'elf']);
+  malwareChildren(pages, 'malware-identification', []);
+  malwareChildren(pages, 'malware-pe', []);
+  assert.equal(pages.get('malware-identification').title, 'Identificación de muestras');
+  assert.equal(pages.get('malware-executables').title, 'Análisis de archivos ejecutables');
+  malwarePreserved(pages, ['static', 'antivirus', 'virustotal', 'hashes', 'strings', 'executables', 'pe', 'elf', 'imports', 'exports', 'resources', 'cff-explorer', 'pestudio', 'resource-hacker', 'packing', 'obfuscation'].map(id => `malware-${id}`));
+});
+
+test('Malware dynamic analysis separates environment, system monitoring, persistence and network techniques without content loss', () => {
+  const pages = readMalware();
+  malwareChildren(pages, 'malware-dynamic', ['laboratory', 'system-monitoring', 'persistence', 'network-analysis']);
+  malwareChildren(pages, 'malware-system-monitoring', ['registry', 'process-files']);
+  malwareChildren(pages, 'malware-persistence', ['run-keys', 'services']);
+  for (const id of ['laboratory', 'process-files', 'network-analysis']) malwareChildren(pages, `malware-${id}`, []);
+  assert.equal(pages.get('malware-laboratory').title, 'Entorno seguro de análisis');
+  assert.equal(pages.get('malware-system-monitoring').title, 'Monitoreo de cambios en el sistema');
+  assert.equal(pages.get('malware-process-files').title, 'Monitoreo de procesos y archivos');
+  assert.equal(pages.get('malware-network-analysis').title, 'Análisis de comunicaciones de red');
+  malwarePreserved(pages, ['dynamic', 'laboratory', 'snapshots', 'online-sandbox', 'hybrid-analysis', 'any-run', 'registry', 'regshot', 'autoruns', 'procmon', 'procmon-filters', 'process-explorer', 'process-hacker', 'persistence', 'run-keys', 'services', 'network-analysis', 'wireshark', 'tcpdump', 'fakenet', 'fakedns'].map(id => `malware-${id}`));
+});
+
+test('Malware classification keeps twelve distinct class pages, an analysis overview and host/network IOC concepts', () => {
+  const pages = readMalware();
+  malwareChildren(pages, 'malware', ['classes', 'analysis']);
+  malwareChildren(pages, 'malware-classes', ['virus', 'worm', 'trojan', 'backdoor', 'spyware', 'scareware', 'rat', 'rootkit', 'botnet', 'keylogger', 'ransomware', 'downloader']);
+  malwareChildren(pages, 'malware-analysis', ['ioc', 'static', 'dynamic']);
+  malwareChildren(pages, 'malware-ioc', ['ioc-host', 'ioc-network']);
+  assert.equal(pages.get('malware-analysis').title, 'Análisis de malware');
+  assert.equal(pages.get('malware-rat').title, 'RAT');
+  assert.equal(pages.get('malware-backdoor').title, 'Backdoor');
+  malwarePreserved(pages, ['malware', ...['classes', 'virus', 'worm', 'trojan', 'backdoor', 'spyware', 'scareware', 'rat', 'rootkit', 'botnet', 'keylogger', 'ransomware', 'downloader', 'analysis', 'ioc', 'ioc-host', 'ioc-network'].map(id => `malware-${id}`)]);
+});
+
+test('Malware complete hierarchy preserves all original academic blocks and URLs with only the requested canonical concepts', () => {
+  const pages = readMalware();
+  const canonical = [...pages.values()].filter(page => !page.redirectTo);
+  assert.equal(canonical.length, 35);
+  assert.equal([...pages.values()].filter(page => page.redirectTo).length, 23);
+  assert.equal(pages.size, 58);
+  const ids = new Set(canonical.map(page => page.id));
+  for (const page of canonical) if (page.id !== 'malware') assert.ok(ids.has(page.parent), `Orphan Malware note: ${page.id}`);
+  malwarePreserved(pages, [...pages.keys()]);
+});

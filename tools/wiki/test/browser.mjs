@@ -15,6 +15,31 @@ const csirtCompatibility = [
   ['correo-electronico/analisis-de-encabezados/mxtoolbox/', 'correo-electronico/analisis-de-encabezados/#mxtoolbox-email-headers'],
   ['correo-electronico/analisis-de-encabezados/google-messageheader/', 'correo-electronico/analisis-de-encabezados/#google-admin-toolbox-messageheader'],
 ];
+const malwareCompatibility = [
+  ['analysis/static/antivirus/', 'analysis/static/identification/#antivirus-firmas-y-heuristicas'],
+  ['analysis/static/virustotal/', 'analysis/static/identification/#virustotal'],
+  ['analysis/static/hashes/', 'analysis/static/identification/#hashes-para-identificar-muestras'],
+  ['analysis/static/executables/pe/imports/', 'analysis/static/executables/pe/#importaciones-y-bibliotecas'],
+  ['analysis/static/executables/pe/exports/', 'analysis/static/executables/pe/#exportaciones-de-funciones'],
+  ['analysis/static/executables/pe/resources/', 'analysis/static/executables/pe/#recursos-incrustados-en-pe'],
+  ['analysis/static/cff-explorer/', 'analysis/static/executables/pe/#cff-explorer'],
+  ['analysis/static/pestudio/', 'analysis/static/executables/pe/#pestudio'],
+  ['analysis/static/resource-hacker/', 'analysis/static/executables/pe/#resource-hacker'],
+  ['analysis/dynamic/laboratory/snapshots/', 'analysis/dynamic/laboratory/#snapshots-y-comparacion-de-estados'],
+  ['analysis/dynamic/online-sandbox/', 'analysis/dynamic/laboratory/#sandboxes-de-analisis-en-linea'],
+  ['analysis/dynamic/online-sandbox/hybrid-analysis/', 'analysis/dynamic/laboratory/#hybrid-analysis'],
+  ['analysis/dynamic/online-sandbox/any-run/', 'analysis/dynamic/laboratory/#any-run'],
+  ['analysis/dynamic/regshot/', 'analysis/dynamic/system-monitoring/process-files/#regshot'],
+  ['analysis/dynamic/autoruns/', 'analysis/dynamic/system-monitoring/process-files/#autoruns'],
+  ['analysis/dynamic/procmon/', 'analysis/dynamic/system-monitoring/process-files/#process-monitor-procmon'],
+  ['analysis/dynamic/procmon/procmon-filters/', 'analysis/dynamic/system-monitoring/process-files/#filtrado-de-eventos-en-procmon'],
+  ['analysis/dynamic/process-explorer/', 'analysis/dynamic/system-monitoring/process-files/#process-explorer'],
+  ['analysis/dynamic/process-hacker/', 'analysis/dynamic/system-monitoring/process-files/#process-hacker'],
+  ['analysis/dynamic/network-analysis/wireshark/', 'analysis/dynamic/network-analysis/#wireshark'],
+  ['analysis/dynamic/network-analysis/tcpdump/', 'analysis/dynamic/network-analysis/#tcpdump'],
+  ['analysis/dynamic/network-analysis/fakenet/', 'analysis/dynamic/network-analysis/#fakenet'],
+  ['analysis/dynamic/network-analysis/fakedns/', 'analysis/dynamic/network-analysis/#fakedns'],
+];
 const types = { '.html': 'text/html; charset=utf-8', '.css': 'text/css', '.mjs': 'text/javascript', '.js': 'text/javascript', '.json': 'application/json', '.svg': 'image/svg+xml', '.pdf': 'application/pdf' };
 const server = createServer(async (request, response) => {
   try {
@@ -70,6 +95,7 @@ try {
     await page.goto(`${origin}${prefix}/wiki/fundamentals/attacks/`);
     assert.deepEqual(await page.locator('[aria-labelledby="subtemas"] a').allTextContents(), ['Ingeniería social', 'Man in the Middle (MitM)', 'Ataques a aplicaciones', 'Denegación de servicio (DoS y DDoS)']);
     await page.locator('[aria-labelledby="subtemas"] a').filter({ hasText: /^Ingeniería social$/ }).click();
+    await page.waitForURL(`${origin}${prefix}/wiki/fundamentals/attacks/social-engineering/`);
     assert.deepEqual(await page.locator('[aria-labelledby="subtemas"] a').allTextContents(), ['Phishing']);
     await page.locator('[aria-labelledby="subtemas"] a').filter({ hasText: /^Phishing$/ }).click();
     assert.ok(page.url().endsWith(`${prefix}/wiki/fundamentals/attacks/phishing/`));
@@ -111,6 +137,32 @@ try {
     await page.locator('#wiki-query').fill('icann-rdap');
     await page.locator('#wiki-results a').filter({ hasText: /^RDAP$/ }).click();
     assert.ok(page.url().endsWith(`${prefix}/wiki/csirt/recursos-de-internet/rdap/`));
+
+    await page.goto(`${origin}${prefix}/wiki/malware/`);
+    assert.deepEqual(await page.locator('[aria-labelledby="subtemas"] a').allTextContents(), ['Clases de malware', 'Análisis de malware']);
+    await page.goto(`${origin}${prefix}/wiki/malware/analysis/`);
+    assert.deepEqual(await page.locator('[aria-labelledby="subtemas"] a').allTextContents(), ['Indicadores de compromiso (IOC)', 'Análisis estático', 'Análisis dinámico']);
+    await page.goto(`${origin}${prefix}/wiki/malware/analysis/static/`);
+    assert.deepEqual(await page.locator('[aria-labelledby="subtemas"] a').allTextContents(), ['Identificación de muestras', 'Extracción de cadenas (Strings)', 'Análisis de archivos ejecutables', 'Empaquetado de ejecutables (Packing)', 'Ofuscación']);
+    await page.goto(`${origin}${prefix}/wiki/malware/analysis/static/executables/`);
+    assert.deepEqual(await page.locator('[aria-labelledby="subtemas"] a').allTextContents(), ['Portable Executable (PE)', 'Executable and Linkable Format (ELF)']);
+    await page.goto(`${origin}${prefix}/wiki/malware/analysis/dynamic/`);
+    assert.deepEqual(await page.locator('[aria-labelledby="subtemas"] a').allTextContents(), ['Entorno seguro de análisis', 'Monitoreo de cambios en el sistema', 'Persistencia en Windows', 'Análisis de comunicaciones de red']);
+    await page.goto(`${origin}${prefix}/wiki/malware/analysis/dynamic/system-monitoring/`);
+    assert.deepEqual(await page.locator('[aria-labelledby="subtemas"] a').allTextContents(), ['Registro de Windows', 'Monitoreo de procesos y archivos']);
+    await page.goto(`${origin}${prefix}/wiki/malware/analysis/dynamic/registry/`);
+    await page.reload();
+    assert.deepEqual(await page.locator('.wiki-breadcrumbs li').allTextContents(), ['Wiki Académica', 'Malware y análisis', 'Análisis de malware', 'Análisis dinámico', 'Monitoreo de cambios en el sistema', 'Registro de Windows']);
+    for (const [legacy, target] of malwareCompatibility) {
+      await page.goto(`${origin}${prefix}/wiki/malware/${legacy}`);
+      await page.waitForURL(`${origin}${prefix}/wiki/malware/${target}`);
+      assert.equal(await page.locator(`#${target.split('#')[1]}`).count(), 1);
+      assert.equal(await page.locator('[aria-labelledby="subtemas"]').count(), 0);
+    }
+    await page.locator('#wiki-query').fill('Process Monitor');
+    await page.locator('#wiki-results a').filter({ hasText: /^Monitoreo de procesos y archivos$/ }).click();
+    await page.waitForURL(`${origin}${prefix}/wiki/malware/analysis/dynamic/system-monitoring/process-files/`);
+    assert.equal(await page.locator('#process-monitor-procmon').count(), 1);
 
     // Published URLs remain stable even when the academic ancestry changes.
     await page.goto(`${origin}${prefix}/wiki/cryptography/encryption/modern/symmetric/rc5/`);
@@ -161,8 +213,11 @@ try {
     assert.ok(page.url().endsWith(`${prefix}/wiki/cryptography/hash/`));
   }
   const index = await (await fetch(`${origin}/wiki/search-index.json`)).json();
-  assert.equal(index.length, 190);
+  assert.equal(index.length, 170);
   assert.ok(!index.some(entry => ['crypto-collisions', 'crypto-password-hashes', 'crypto-dictionary', 'crypto-salt', 'csirt-registry', 'csirt-registrar', 'csirt-registrant', 'csirt-icann-rdap', 'csirt-email-anatomy', 'csirt-mxtoolbox', 'csirt-google-messageheader'].includes(entry.id)));
+  const mergedMalwareIds = malwareCompatibility.map(([legacy]) => `malware-${legacy.split('/').at(-2)}`);
+  assert.equal(mergedMalwareIds.length, 23);
+  assert.ok(!index.some(entry => mergedMalwareIds.includes(entry.id)));
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto(`${origin}/repaso-ciber/wiki/cryptography/hash/`);
   assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
@@ -170,6 +225,10 @@ try {
   assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
   for (const route of ['smtp', 'analisis-de-encabezados']) {
     await page.goto(`${origin}/repaso-ciber/wiki/csirt/correo-electronico/${route}/`);
+    assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
+  }
+  for (const route of ['static/identification', 'static/executables/pe', 'dynamic/laboratory', 'dynamic/system-monitoring/process-files', 'dynamic/network-analysis']) {
+    await page.goto(`${origin}/repaso-ciber/wiki/malware/analysis/${route}/`);
     assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
   }
   await page.setViewportSize({ width: 1366, height: 1000 });
@@ -198,6 +257,11 @@ try {
     for (const [legacy, target] of csirtCompatibility) {
       await offlinePage.goto(`${origin}${prefix}/wiki/csirt/${legacy}`);
       await offlinePage.waitForURL(`${origin}${prefix}/wiki/csirt/${target}`);
+      assert.equal(await offlinePage.locator(`#${target.split('#')[1]}`).count(), 1);
+    }
+    for (const [legacy, target] of malwareCompatibility) {
+      await offlinePage.goto(`${origin}${prefix}/wiki/malware/${legacy}`);
+      await offlinePage.waitForURL(`${origin}${prefix}/wiki/malware/${target}`);
       assert.equal(await offlinePage.locator(`#${target.split('#')[1]}`).count(), 1);
     }
   }

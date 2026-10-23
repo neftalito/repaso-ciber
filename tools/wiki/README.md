@@ -73,6 +73,8 @@ The Fundamentos preservation fixture similarly records 74 original academic unit
 
 The CSIRT fixture records 185 original blocks across 28 notes, their citations, stable IDs, routes and canonical destinations. It checks all seven consolidations (registration roles, RDAP client, mail anatomy and header-analysis tools) and the revised 23-page hierarchy. Notification has its own page because the lecture develops both its requirements and a concrete example. Browser checks exercise every CSIRT redirect with and without JavaScript under both hosting prefixes; merged notes remain absent from search and the topic tree.
 
+The Malware fixture records 201 original blocks across 55 notes, their citations, stable IDs, routes and canonical destinations. Four focused/complete assertions cover the revised 35-page tree and 23 lossless component/tool integrations. Three new notes group identification, system monitoring and process/file monitoring. Old tool URLs redirect directly to their named sections, while every original procedure and review question remains available in the corresponding article. Browser checks include all 23 redirects without JavaScript and mobile layouts of the enlarged notes. No malware or academic example command is executed by these checks.
+
 Source references use physical PDF pages counted from 1, not printed slide numbers. `sources.json` distinguishes official material from companion guides. The twelve PDFs in `docs/catedra cosas/` remain local working sources: never stage, move, edit or delete them. Their titles and page references are displayed without broken public links. The six PDFs already distributed by the original application retain their existing download paths.
 
 ## Verify changes
