@@ -1,5 +1,5 @@
 ---
-{"id":"crypto-covert-channel","title":"Canales encubiertos de red","slug":"covert-channel","parent":"crypto-steganography","type":"technique","order":40,"related":["crypto-encoding","csirt-incidents","malware-ioc"],"sources":[{"id":"lecture-crypto-2","pages":[30]},{"id":"practice-1b","pages":[6]}],"aliases":["canal encubierto","covert channel","cover channel"]}
+{"id":"crypto-covert-channel","title":"Canales encubiertos de red","slug":"covert-channel","parent":"crypto-steganography","type":"technique","order":40,"related":["crypto-encoding","csirt-incidents","malware-ioc"],"sources":[{"id":"lecture-crypto-2","pages":[30]},{"id":"practice-1b","pages":[6]}],"aliases":["canal encubierto","covert channel","cover channel"],"permalink":"cryptography/steganography/covert-channel"}
 ---
 ## Definición
 

@@ -1,5 +1,5 @@
 ---
-{"id":"crypto-lsb","title":"Técnica LSB","slug":"lsb","parent":"crypto-steganography","type":"technique","order":30,"related":["crypto-lsb-image","crypto-lsb-audio","crypto-numbers"],"sources":[{"id":"lecture-crypto-2","pages":[28,29]},{"id":"practice-1b","pages":[6]},{"id":"practice-solutions","pages":[8]}],"aliases":["least significant bit","bit menos significativo"]}
+{"id":"crypto-lsb","title":"Técnica LSB","slug":"lsb","parent":"crypto-steganography","type":"technique","order":30,"related":["crypto-lsb-image","crypto-lsb-audio","crypto-numbers"],"sources":[{"id":"lecture-crypto-2","pages":[28,29]},{"id":"practice-1b","pages":[6]},{"id":"practice-solutions","pages":[8]}],"aliases":["least significant bit","bit menos significativo"],"permalink":"cryptography/steganography/lsb"}
 ---
 ## Bit menos significativo
 

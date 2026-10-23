@@ -1,5 +1,5 @@
 ---
-{"id":"crypto-braille","title":"Braille como representación","slug":"braille","parent":"crypto-encoding","type":"concept","order":60,"related":["crypto-unicode","crypto-steganography"],"sources":[{"id":"practice-1a","pages":[1,6]},{"id":"practice-solutions","pages":[3]}]}
+{"id":"crypto-braille","title":"Braille como representación","slug":"braille","parent":"crypto-encoding","type":"concept","order":60,"related":["crypto-unicode","crypto-steganography"],"sources":[{"id":"practice-1a","pages":[1,6]},{"id":"practice-solutions","pages":[3]}],"permalink":"cryptography/encoding/braille"}
 ---
 ## Definición
 

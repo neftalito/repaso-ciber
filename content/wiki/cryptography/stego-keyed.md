@@ -1,5 +1,5 @@
 ---
-{"id":"crypto-stego-keyed","title":"Esteganografía de clave secreta","slug":"stego-keyed","parent":"crypto-steganography","type":"technique","order":20,"related":["crypto-stego-pure","crypto-steghide","crypto-encryption"],"sources":[{"id":"lecture-crypto-2","pages":[27]},{"id":"practice-guide","pages":[7]}]}
+{"id":"crypto-stego-keyed","title":"Esteganografía de clave secreta","slug":"stego-keyed","parent":"crypto-steganography","type":"technique","order":20,"related":["crypto-stego-pure","crypto-steghide","crypto-encryption"],"sources":[{"id":"lecture-crypto-2","pages":[27]},{"id":"practice-guide","pages":[7]}],"permalink":"cryptography/steganography/stego-keyed"}
 ---
 ## Definición
 

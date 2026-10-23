@@ -1,5 +1,5 @@
 ---
-{"id":"crypto-numbers","title":"Representaciones numéricas","slug":"numbers","parent":"crypto-encoding","type":"concept","order":10,"related":["crypto-ascii","crypto-xor"],"sources":[{"id":"lecture-crypto-1","pages":[8]},{"id":"practice-1a","pages":[2]},{"id":"manual","pages":[6]}]}
+{"id":"crypto-numbers","title":"Representaciones numéricas","slug":"numbers","parent":"crypto-encoding","type":"concept","order":10,"related":["crypto-ascii","crypto-xor"],"sources":[{"id":"lecture-crypto-1","pages":[8]},{"id":"practice-1a","pages":[2]},{"id":"manual","pages":[6]}],"permalink":"cryptography/encoding/numbers"}
 ---
 ## Bases y valor
 

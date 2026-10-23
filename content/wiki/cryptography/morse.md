@@ -1,5 +1,5 @@
 ---
-{"id":"crypto-morse","title":"Código Morse","slug":"morse","parent":"crypto-encoding","type":"technique","order":50,"related":["crypto-encoding","crypto-braille"],"sources":[{"id":"practice-1a","pages":[1,6]},{"id":"lecture-crypto-1","pages":[7]}]}
+{"id":"crypto-morse","title":"Código Morse","slug":"morse","parent":"crypto-encoding","type":"technique","order":50,"related":["crypto-encoding","crypto-braille"],"sources":[{"id":"practice-1a","pages":[1,6]},{"id":"lecture-crypto-1","pages":[7]}],"permalink":"cryptography/encoding/morse"}
 ---
 ## Representación por señales
 

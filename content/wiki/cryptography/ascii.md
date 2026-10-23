@@ -1,5 +1,5 @@
 ---
-{"id":"crypto-ascii","title":"ASCII","slug":"ascii","parent":"crypto-encoding","type":"concept","order":20,"related":["crypto-numbers","crypto-unicode"],"sources":[{"id":"lecture-crypto-1","pages":[8]},{"id":"practice-1a","pages":[1,2]},{"id":"practice-guide","pages":[3]}]}
+{"id":"crypto-ascii","title":"ASCII","slug":"ascii","parent":"crypto-encoding","type":"concept","order":20,"related":["crypto-numbers","crypto-unicode"],"sources":[{"id":"lecture-crypto-1","pages":[8]},{"id":"practice-1a","pages":[1,2]},{"id":"practice-guide","pages":[3]}],"permalink":"cryptography/encoding/ascii"}
 ---
 ## Definición y funcionamiento
 

@@ -1,5 +1,5 @@
 ---
-{"id":"crypto-lsb-image","title":"LSB en imágenes","slug":"lsb-image","parent":"crypto-lsb","type":"technique","order":10,"related":["crypto-lsb","crypto-steghide","crypto-encoding"],"sources":[{"id":"lecture-crypto-2","pages":[28]},{"id":"practice-1b","pages":[6]},{"id":"practice-solutions","pages":[8]}]}
+{"id":"crypto-lsb-image","title":"LSB en imágenes","slug":"lsb-image","parent":"crypto-lsb","type":"technique","order":10,"related":["crypto-lsb","crypto-steghide","crypto-encoding"],"sources":[{"id":"lecture-crypto-2","pages":[28]},{"id":"practice-1b","pages":[6]},{"id":"practice-solutions","pages":[8]}],"permalink":"cryptography/steganography/lsb/lsb-image"}
 ---
 ## Portador RGB
 

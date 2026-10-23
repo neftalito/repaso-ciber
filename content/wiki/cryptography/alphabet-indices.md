@@ -1,5 +1,5 @@
 ---
-{"id":"crypto-alphabet-indices","title":"Índices alfabéticos A1Z26","slug":"alphabet-indices","parent":"crypto-encoding","type":"technique","order":70,"related":["crypto-ascii","crypto-caesar"],"sources":[{"id":"practice-guide","pages":[3]}]}
+{"id":"crypto-alphabet-indices","title":"Índices alfabéticos A1Z26","slug":"alphabet-indices","parent":"crypto-encoding","type":"technique","order":70,"related":["crypto-ascii","crypto-caesar"],"sources":[{"id":"practice-guide","pages":[3]}],"permalink":"cryptography/encoding/alphabet-indices"}
 ---
 ## Definición
 

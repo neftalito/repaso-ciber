@@ -1,5 +1,5 @@
 ---
-{"id":"crypto-unicode","title":"Unicode y formatos UTF","slug":"unicode","parent":"crypto-encoding","type":"concept","order":30,"related":["crypto-ascii","crypto-hash"],"sources":[{"id":"practice-1a","pages":[2,3]},{"id":"manual","pages":[7]}]}
+{"id":"crypto-unicode","title":"Unicode y formatos UTF","slug":"unicode","parent":"crypto-encoding","type":"concept","order":30,"related":["crypto-ascii","crypto-hash"],"sources":[{"id":"practice-1a","pages":[2,3]},{"id":"manual","pages":[7]}],"permalink":"cryptography/encoding/unicode"}
 ---
 ## Definición
 

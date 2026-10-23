@@ -35,6 +35,7 @@ try {
     }
     const entry = await page.goto(`${origin}${prefix}/wiki/`);
     assert.equal(entry.status(), 200);
+    assert.deepEqual(await page.locator('[aria-labelledby="subtemas"] a').allTextContents(), ['Fundamentos de ciberseguridad', 'Codificación', 'Criptografía', 'Esteganografía', 'CSIRT y gestión de incidentes', 'Malware y análisis', 'Prácticas y resolución razonada']);
     await page.locator('#wiki-query').fill('TRIADA');
     await page.locator('#wiki-results a').first().waitFor();
     assert.ok(await page.locator('#wiki-results').innerText().then(text => text.includes('Tríada CIA')));
@@ -78,8 +79,34 @@ try {
       return parents;
     });
     assert.deepEqual(sidebarParents, ['Criptografía', 'Criptografía moderna', 'Criptografía simétrica', 'Cifrado por bloques', 'Algoritmos']);
+    for (const [route, title] of [['encoding', 'Codificación'], ['steganography', 'Esteganografía']]) {
+      await page.goto(`${origin}${prefix}/wiki/cryptography/${route}/`);
+      await page.reload();
+      assert.deepEqual(await page.locator('.wiki-breadcrumbs li').allTextContents(), ['Wiki Académica', title]);
+    }
+    await page.goto(`${origin}${prefix}/wiki/cryptography/hash/`);
+    assert.deepEqual(await page.locator('[aria-labelledby="subtemas"] a').allTextContents(), ['MD5', 'SHA-1', 'Familia SHA-2', 'Familia SHA-3']);
+    for (const [oldPath, anchor] of [
+      ['collisions', 'colisiones-y-resistencia-a-preimagenes'],
+      ['password-hashes', 'hashes-en-la-proteccion-de-contrasenas'],
+      ['password-hashes/dictionary', 'comprobacion-por-diccionario'],
+      ['password-hashes/salt', 'sal-en-el-calculo-de-contrasenas'],
+    ]) {
+      await page.goto(`${origin}${prefix}/wiki/cryptography/hash/${oldPath}/`);
+      await page.waitForURL(`${origin}${prefix}/wiki/cryptography/hash/#${anchor}`);
+      assert.equal(await page.locator(`#${anchor}`).count(), 1);
+    }
+    await page.locator('#wiki-query').fill('sal en el cálculo de contraseñas');
+    await page.locator('#wiki-results a').filter({ hasText: /^Funciones hash$/ }).click();
+    assert.ok(page.url().endsWith(`${prefix}/wiki/cryptography/hash/`));
   }
   const index = await (await fetch(`${origin}/wiki/search-index.json`)).json();
+  assert.equal(index.length, 193);
+  assert.ok(!index.some(entry => ['crypto-collisions', 'crypto-password-hashes', 'crypto-dictionary', 'crypto-salt'].includes(entry.id)));
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto(`${origin}/repaso-ciber/wiki/cryptography/hash/`);
+  assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
+  await page.setViewportSize({ width: 1366, height: 1000 });
   const deepest = index.reduce((a, b) => a.url.split('/').length > b.url.split('/').length ? a : b);
   await page.goto(`${origin}/repaso-ciber/wiki/${deepest.url}`);
   await page.reload();
@@ -98,6 +125,9 @@ try {
   assert.equal(await offlinePage.locator('h1').innerText(), 'Tríada CIA');
   await offlinePage.locator('.wiki-review summary').first().click();
   assert.notEqual(await offlinePage.locator('.wiki-review').first().getAttribute('open'), null);
+  await offlinePage.goto(`${origin}/repaso-ciber/wiki/cryptography/hash/password-hashes/salt/`);
+  await offlinePage.waitForURL(`${origin}/repaso-ciber/wiki/cryptography/hash/#sal-en-el-calculo-de-contrasenas`);
+  assert.ok(await offlinePage.locator('#wiki-main').innerText().then(text => text.includes('curso:luna')));
   assert.deepEqual(errors, []);
   console.log(`Wiki browser checks passed at root and /repaso-ciber/: ${index.length} indexed pages; desktop, mobile, search, direct reload and no-JavaScript reading.`);
 } finally {

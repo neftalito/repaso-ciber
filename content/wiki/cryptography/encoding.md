@@ -1,5 +1,5 @@
 ---
-{"id":"crypto-encoding","title":"Codificación","slug":"encoding","parent":"cryptography","type":"category","order":10,"related":["crypto-encryption","crypto-hash"],"sources":[{"id":"lecture-crypto-1","pages":[7,8]},{"id":"practice-1a","pages":[1,2,3,5,6,8]}]}
+{"id":"crypto-encoding","title":"Codificación","slug":"encoding","parent":"wiki","type":"category","order":15,"related":["crypto-encryption","crypto-hash"],"sources":[{"id":"lecture-crypto-1","pages":[7,8]},{"id":"practice-1a","pages":[1,2,3,5,6,8]}],"permalink":"cryptography/encoding"}
 ---
 ## Representar información
 

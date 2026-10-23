@@ -1,5 +1,5 @@
 ---
-{"id":"crypto-steganography","title":"Esteganografía","slug":"steganography","parent":"cryptography","type":"category","order":100,"related":["crypto-encryption","crypto-encoding","csirt-incidents"],"sources":[{"id":"lecture-crypto-2","pages":[26,27,28,29,30]},{"id":"practice-1b","pages":[5,6]}]}
+{"id":"crypto-steganography","title":"Esteganografía","slug":"steganography","parent":"wiki","type":"category","order":25,"related":["crypto-encryption","crypto-encoding","csirt-incidents"],"sources":[{"id":"lecture-crypto-2","pages":[26,27,28,29,30]},{"id":"practice-1b","pages":[5,6]}],"permalink":"cryptography/steganography"}
 ---
 ## Ocultar la existencia
 

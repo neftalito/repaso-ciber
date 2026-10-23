@@ -49,7 +49,7 @@ try {
     if (source.url !== null) assert(/^docs\/[A-Za-z0-9_.-]+\.pdf$/.test(source.url) && existsSync(path.join(root, source.url)), `Invalid public PDF: ${source.id}`);
     bibliography.set(source.id, source);
   }
-  const pages = filesIn(sourceDir).filter(file => file.endsWith('.md')).map(file => {
+  const allPages = filesIn(sourceDir).filter(file => file.endsWith('.md')).map(file => {
     const text = readFileSync(file, 'utf8').replace(/\r\n/g, '\n');
     const match = /^---\n([\s\S]*?)\n---\n([\s\S]*)$/.exec(text);
     assert(match, `Missing JSON front matter: ${file}`);
@@ -61,6 +61,7 @@ try {
     assert(['category', 'concept', 'technique', 'algorithm', 'protocol', 'tool', 'practice'].includes(metadata.type), `Invalid concept type: ${metadata.id}`);
     assert(Number.isFinite(metadata.order) && Array.isArray(metadata.related) && Array.isArray(metadata.sources) && metadata.sources.length, `Missing note metadata: ${metadata.id}`);
     assert(metadata.aliases === undefined || (Array.isArray(metadata.aliases) && metadata.aliases.every(alias => typeof alias === 'string')), `Invalid search aliases: ${metadata.id}`);
+    assert(metadata.redirectTo === undefined || (metadata.id !== 'wiki' && typeof metadata.redirectTo === 'string' && /^[a-z0-9-]+#[a-z0-9-]+$/.test(metadata.redirectTo)), `Invalid redirect target: ${metadata.id}`);
     assert(match[2].trim().length > 30, `Empty note: ${metadata.id}`);
     for (const citation of metadata.sources) {
       const source = bibliography.get(citation.id);
@@ -68,15 +69,17 @@ try {
     }
     return { ...metadata, body: match[2], file, children: [] };
   });
+  const pages = allPages.filter(page => !page.redirectTo);
+  const redirects = allPages.filter(page => page.redirectTo);
   const byId = new Map();
-  for (const page of pages) {
+  for (const page of allPages) {
     assert(!byId.has(page.id), `Duplicate note id: ${page.id}`);
     byId.set(page.id, page);
   }
   assert(byId.has('wiki') && byId.get('wiki').parent === null, 'A root note with id wiki and parent null is required');
   for (const page of pages) {
     if (page.id !== 'wiki') {
-      assert(byId.has(page.parent), `Unknown parent of ${page.id}: ${page.parent}`);
+      assert(byId.has(page.parent) && !byId.get(page.parent).redirectTo, `Unknown or redirected parent of ${page.id}: ${page.parent}`);
       byId.get(page.parent).children.push(page);
     }
     assert(new Set(page.related).size === page.related.length && page.related.every(id => byId.has(id) && id !== page.id), `Invalid related notes: ${page.id}`);
@@ -93,8 +96,16 @@ try {
     page.chain = chain;
     page.route = page.permalink ?? chain.slice(1).map(item => item.slug).join('/');
   }
+  for (const page of redirects) {
+    const [id, anchor] = page.redirectTo.split('#');
+    assert(byId.has(id) && !byId.get(id).redirectTo, `Redirect must target a canonical note: ${page.id}`);
+    assert(page.permalink, `Redirect requires its former permalink: ${page.id}`);
+    page.destination = byId.get(id);
+    page.anchor = anchor;
+    page.route = page.permalink;
+  }
   const routes = new Set();
-  for (const page of pages) {
+  for (const page of allPages) {
     assert(!routes.has(page.route), `Duplicate route: ${page.route}`);
     routes.add(page.route);
     page.children.sort((a, b) => a.order - b.order || a.id.localeCompare(b.id, 'en'));
@@ -102,9 +113,15 @@ try {
   pages.sort((a, b) => a.route.localeCompare(b.route, 'en'));
   const outputs = new Map();
   const template = readFileSync(path.join(toolDir, 'page.html'), 'utf8');
+  const redirectTemplate = redirects.length ? readFileSync(path.join(toolDir, 'redirect.html'), 'utf8') : '';
+  const render = (source, values) => source.replace(/{{(\w+)}}/g, (_, key) => { assert(key in values, `Unknown template field: ${key}`); return values[key]; });
   const href = (from, to) => `${path.posix.relative(from.route || '.', to.route || '.') || '.'}/`;
+  function reference(from, to, anchor) {
+    if (to.redirectTo) return `${href(from, to.destination)}#${to.anchor}`;
+    return href(from, to) + (anchor ? `#${anchor}` : '');
+  }
   function link(from, to) {
-    return `<a href="${href(from, to)}"${from.id === to.id ? ' aria-current="page"' : ''}>${escape(to.title)}</a>`;
+    return `<a href="${reference(from, to)}"${from.id === to.id ? ' aria-current="page"' : ''}>${escape(to.title)}</a>`;
   }
   function tree(from, page) {
     const entries = page.children.map(child => `<li>${child.children.length ? `<details${from.chain.some(item => item.id === child.id) ? ' open' : ''}><summary>${link(from, child)}</summary>${tree(from, child)}</details>` : link(from, child)}</li>`).join('');
@@ -127,7 +144,7 @@ try {
           if (target.startsWith('wiki:')) {
             const [id, anchor] = target.slice(5).split('#');
             assert(byId.has(id), `Broken wiki link in ${page.id}: ${id}`);
-            target = href(page, byId.get(id)) + (anchor ? `#${anchor}` : '');
+            target = reference(page, byId.get(id), anchor);
           } else assert(/^(https?:\/\/|mailto:|#)/i.test(target), `Use wiki: IDs for internal links in ${page.id}: ${target}`);
           return `<a href="${escape(target)}"${title ? ` title="${escape(title)}"` : ''}>${this.parser.parseInline(tokens)}</a>`;
         },
@@ -163,8 +180,16 @@ try {
         return `<li>${title} · pp. ${citation.pages.join(', ')}. <span>${source.kind === 'official' ? 'Material de cátedra' : 'Material complementario'}${source.url ? ', PDF disponible.' : ', fuente local de trabajo; PDF no distribuido por este sitio.'}</span></li>`;
       }).join('')}</ul>`),
     };
-    const html = '<!-- Generated by tools/wiki/build.mjs. Edit content/wiki/ or tools/wiki/. -->\n' + template.replace(/{{(\w+)}}/g, (_, key) => { assert(key in values, `Unknown template field: ${key}`); return values[key]; });
+    const html = '<!-- Generated by tools/wiki/build.mjs. Edit content/wiki/ or tools/wiki/. -->\n' + render(template, values);
     outputs.set(`wiki/${page.route ? `${page.route}/` : ''}index.html`, html);
+  }
+  for (const page of redirects) {
+    const values = {
+      title: escape(page.title), targetTitle: escape(page.destination.title),
+      destination: escape(reference(page, page)),
+      siteRoot: `${path.posix.relative(`wiki/${page.route}`, '.')}/`,
+    };
+    outputs.set(`wiki/${page.route}/index.html`, '<!-- Generated compatibility redirect. Edit content/wiki/ or tools/wiki/. -->\n' + render(redirectTemplate, values));
   }
   const index = pages.map(page => ({ id: page.id, title: page.title, url: `${page.route ? `${page.route}/` : './'}`, aliases: page.aliases || [], text: page.body.replace(/:::question /g, '').replace(/\[([^\]]+)\]\([^)]*\)/g, '$1').replace(/[#*`>|]/g, '').replace(/\s+/g, ' ').trim() }));
   outputs.set('wiki/search-index.json', `${JSON.stringify(index, null, 2)}\n`);
@@ -205,7 +230,7 @@ try {
     }
     for (const file of extra) unlinkSync(path.join(root, file));
   }
-  console.log(`Wiki: ${pages.length} pages, ${links} local links checked; ${check ? 'generated output is current' : `${stale.length} files generated`}.`);
+  console.log(`Wiki: ${pages.length} pages, ${links} local links checked; ${check ? 'generated output is current' : `${stale.length} files generated`}${redirects.length ? `; ${redirects.length} compatibility redirects` : ''}.`);
 } catch (error) {
   console.error(`Wiki build failed: ${error.message}`);
   process.exitCode = 1;

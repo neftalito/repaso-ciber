@@ -1,5 +1,5 @@
 ---
-{"id":"crypto-stego-pure","title":"Esteganografía pura","slug":"stego-pure","parent":"crypto-steganography","type":"technique","order":10,"related":["crypto-stego-keyed","crypto-lsb"],"sources":[{"id":"lecture-crypto-2","pages":[27]}]}
+{"id":"crypto-stego-pure","title":"Esteganografía pura","slug":"stego-pure","parent":"crypto-steganography","type":"technique","order":10,"related":["crypto-stego-keyed","crypto-lsb"],"sources":[{"id":"lecture-crypto-2","pages":[27]}],"permalink":"cryptography/steganography/stego-pure"}
 ---
 ## Definición
 

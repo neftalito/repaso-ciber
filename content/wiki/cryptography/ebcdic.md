@@ -1,5 +1,5 @@
 ---
-{"id":"crypto-ebcdic","title":"EBCDIC en el mapa de codificaciones","slug":"ebcdic","parent":"crypto-encoding","type":"concept","order":80,"related":["crypto-ascii","crypto-unicode"],"sources":[{"id":"lecture-crypto-1","pages":[7]},{"id":"practice-1a","pages":[1]}]}
+{"id":"crypto-ebcdic","title":"EBCDIC en el mapa de codificaciones","slug":"ebcdic","parent":"crypto-encoding","type":"concept","order":80,"related":["crypto-ascii","crypto-unicode"],"sources":[{"id":"lecture-crypto-1","pages":[7]},{"id":"practice-1a","pages":[1]}],"permalink":"cryptography/encoding/ebcdic"}
 ---
 ## Ubicación conceptual
 

@@ -1,5 +1,5 @@
 ---
-{"id":"crypto-steghide","title":"Steghide","slug":"steghide","parent":"crypto-steganography","type":"tool","order":50,"related":["crypto-stego-keyed","crypto-lsb-image","practices-writeup"],"sources":[{"id":"practice-guide","pages":[7]},{"id":"practice-solutions","pages":[8]}]}
+{"id":"crypto-steghide","title":"Steghide","slug":"steghide","parent":"crypto-steganography","type":"tool","order":50,"related":["crypto-stego-keyed","crypto-lsb-image","practices-writeup"],"sources":[{"id":"practice-guide","pages":[7]},{"id":"practice-solutions","pages":[8]}],"permalink":"cryptography/steganography/steghide"}
 ---
 ## Herramienta en los ejercicios
 

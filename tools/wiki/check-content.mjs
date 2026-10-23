@@ -10,6 +10,7 @@ function walk(dir) { return readdirSync(dir, { withFileTypes: true }).flatMap(it
 const files = sections.length ? sections.flatMap(section => walk(path.join(directory, section))) : walk(directory);
 const ids = new Set();
 let questions = 0;
+let redirects = 0;
 for (const file of files) {
   const text = readFileSync(file, 'utf8').replace(/\r\n/g, '\n');
   const match = /^---\n([\s\S]*?)\n---\n([\s\S]*)$/.exec(text);
@@ -20,7 +21,8 @@ for (const file of files) {
   if (!page.title || !Array.isArray(page.related) || !Array.isArray(page.sources) || !page.sources.length) throw new Error(`Missing metadata: ${file}`);
   if (/\b(?:TODO|TBD)\b/.test(match[2]) || /Lorem ipsum/i.test(match[2])) throw new Error(`Unfinished note: ${file}`);
   const reviews = [...match[2].matchAll(/^:::question .+\n/gm)].length;
-  if (page.type !== 'category' && !reviews) throw new Error(`Missing review answer: ${file}`);
+  if (!page.redirectTo && page.type !== 'category' && !reviews) throw new Error(`Missing review answer: ${file}`);
+  if (page.redirectTo) redirects++;
   if ([...match[2].matchAll(/^:::\s*$/gm)].length !== reviews) throw new Error(`Unbalanced review answers: ${file}`);
   for (const citation of page.sources) {
     const source = sources.get(citation.id);
@@ -28,4 +30,4 @@ for (const file of files) {
   }
   questions += reviews;
 }
-console.log(`Content audit passed: ${ids.size} unique notes, ${questions} review answers; source page ranges valid.`);
+console.log(`Content audit passed: ${ids.size - redirects} unique notes, ${questions} review answers; source page ranges valid${redirects ? `; ${redirects} compatibility notes` : ''}.`);

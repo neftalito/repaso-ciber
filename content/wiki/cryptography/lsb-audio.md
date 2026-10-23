@@ -1,5 +1,5 @@
 ---
-{"id":"crypto-lsb-audio","title":"LSB en audio","slug":"lsb-audio","parent":"crypto-lsb","type":"technique","order":20,"related":["crypto-lsb-image","crypto-steganography"],"sources":[{"id":"lecture-crypto-2","pages":[29]},{"id":"practice-guide","pages":[7]}]}
+{"id":"crypto-lsb-audio","title":"LSB en audio","slug":"lsb-audio","parent":"crypto-lsb","type":"technique","order":20,"related":["crypto-lsb-image","crypto-steganography"],"sources":[{"id":"lecture-crypto-2","pages":[29]},{"id":"practice-guide","pages":[7]}],"permalink":"cryptography/steganography/lsb/lsb-audio"}
 ---
 ## Muestras como portador
 

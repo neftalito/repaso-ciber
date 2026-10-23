@@ -65,6 +65,10 @@ IDs are stable. Parent IDs and slugs generate the entire hierarchy; file placeme
 
 When reparenting a published note, preserve its existing URL with an optional `"permalink": "cryptography/existing/path"` field. Its value is relative to `wiki/`, uses lowercase slug segments, and has no leading/trailing slash or filename. Parents still determine breadcrumbs and the topic tree; this override changes only the output URL. Notes without it retain the original ancestor-slug routing. Use `wiki:ID` links so both new and existing parents resolve to the same single page.
 
+For an authorized content consolidation, retain the old Markdown file as a compatibility note with its existing ID, title, sources and `permalink`, and add `"redirectTo": "canonical-note-id#section-anchor"`. Move all academic paragraphs, examples, review answers and citations into that canonical section first. The generator emits a static HTML redirect plus a visible fallback link at the former URL. Compatibility notes do not appear in the tree or search; incoming `wiki:ID` links and related IDs resolve directly to the canonical section. Redirect chains, missing sections and route collisions fail before output changes. Prior URL fragments lead to the merged note's designated section rather than reconstructing its former heading layout.
+
+The hash consolidation regression fixture records hashes of 21 original academic blocks and their source-page coverage. It verifies preservation without duplicating those notes or reading Git history at test runtime. Do not regenerate that fixture merely to silence a missing-content failure.
+
 Source references use physical PDF pages counted from 1, not printed slide numbers. `sources.json` distinguishes official material from companion guides. The twelve PDFs in `docs/catedra cosas/` remain local working sources: never stage, move, edit or delete them. Their titles and page references are displayed without broken public links. The six PDFs already distributed by the original application retain their existing download paths.
 
 ## Verify changes

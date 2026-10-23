@@ -8,3 +8,7 @@ La criptografía estudia mecanismos para proteger información mediante transfor
 La [codificación](wiki:crypto-encoding) permite representar datos; el [cifrado](wiki:crypto-encryption) busca restringir su lectura; las [funciones hash](wiki:crypto-hash) calculan resúmenes; las [firmas digitales](wiki:crypto-signature) permiten comprobar origen e integridad. El [acuerdo de claves](wiki:crypto-key-agreement) aborda cómo establecer un secreto compartido. La [esteganografía](wiki:crypto-steganography) intenta ocultar la existencia del mensaje.
 
 Los métodos históricos se estudian para comprender sus mecanismos y limitaciones. Los ejemplos numéricos pequeños son ejercicios, no configuraciones para aplicaciones reales. Relacionar cada mecanismo con la [tríada CIA](wiki:fundamentals-cia) evita atribuirle propiedades que no proporciona.
+
+## Categorías relacionadas
+
+Codificación y Esteganografía se consultan como categorías independientes en la raíz de la wiki. Se relacionan con los temas de esta sección, pero representar información y ocultar su existencia no son subcategorías de cifrado.

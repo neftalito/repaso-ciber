@@ -515,6 +515,276 @@ Finalmente, informame qué páginas fueron reubicadas, qué archivos se modifica
 
 **No avances a reorganizar las demás áreas de la Wiki Académica. Quiero revisar y aprobar primero la sección de Criptografía.**
 
+### S12 — Independent categories and lossless hash consolidation
+
+# Reorganización de la Wiki Académica — Criptografía, Codificación y Esteganografía
+
+Quiero realizar una nueva etapa de reorganización de la Wiki Académica.
+
+La estructura actual de Criptografía mejoró considerablemente, pero todavía quedan algunos problemas de clasificación y granularidad que quiero corregir.
+
+**El objetivo es mejorar la jerarquía existente, no reconstruir la wiki desde cero.**
+
+Trabajá sobre la implementación actual, respetando su arquitectura, contenido y funcionalidades.
+
+## 1. Reorganización de las categorías principales
+
+Actualmente, Codificación y Esteganografía están dentro de Criptografía.
+
+Quiero que ambas pasen a ser categorías independientes dentro de la raíz de la Wiki Académica.
+
+La estructura principal deberá quedar de la siguiente manera:
+
+```text
+Wiki Académica
+├── Fundamentos de ciberseguridad
+├── Codificación
+├── Criptografía
+├── Esteganografía
+├── CSIRT y gestión de incidentes
+├── Malware y análisis
+└── Prácticas y resolución razonada
+```
+
+**Justificación conceptual:**
+
+- Codificación: representa información mediante diferentes sistemas, sin buscar necesariamente confidencialidad.
+- Criptografía: estudia técnicas criptográficas para proteger la información.
+- Esteganografía: busca ocultar la existencia de información dentro de otros medios.
+
+Aunque están relacionadas y se estudian conjuntamente en la materia, no deben presentarse como si fueran subcategorías unas de otras.
+
+Conservá todas sus páginas y subpáginas.
+
+## 2. Revisión de Codificación
+
+Mantener la granularidad existente, revisando que las categorías y técnicas estén organizadas correctamente.
+
+Estructura orientativa:
+
+```text
+Codificación
+├── Representaciones numéricas
+│   ├── Binario
+│   ├── Decimal
+│   └── Hexadecimal
+├── ASCII
+├── Unicode y formatos UTF
+│   ├── UTF-8
+│   ├── UTF-16
+│   └── UTF-32
+├── Base64
+├── Código Morse
+├── Braille como representación
+├── Índices alfabéticos A1Z26
+└── EBCDIC
+```
+
+No es obligatorio crear nuevas páginas para todas las variantes si las fuentes académicas solamente las mencionan superficialmente.
+
+Aplicá el criterio de granularidad que definimos:
+
+- Las clasificaciones, métodos y técnicas pueden tener páginas independientes.
+- Las características, propiedades y ejemplos deben permanecer dentro de sus páginas correspondientes.
+- No crear páginas vacías ni contenido artificial.
+
+Revisá especialmente que A1Z26 esté explicado de forma técnicamente correcta y no se confunda una representación numérica de letras con un mecanismo de cifrado seguro.
+
+## 3. Revisión de Esteganografía
+
+Mover Esteganografía a la raíz de la wiki y conservar su organización temática.
+
+Estructura orientativa:
+
+```text
+Esteganografía
+├── Esteganografía pura
+├── Esteganografía de clave secreta
+├── Técnica LSB
+│   ├── LSB en imágenes
+│   └── LSB en audio
+├── Canales encubiertos de red
+└── Steghide
+```
+
+Cada técnica debe tener una página propia con definición, funcionamiento, características, ejemplos y preguntas cuando corresponda.
+
+La página de Esteganografía debe explicar el concepto general, sus diferencias con la criptografía y enlazar a las técnicas correspondientes.
+
+No modificar ni eliminar el contenido de las páginas existentes.
+
+## 4. Reorganización de Funciones hash
+
+Actualmente, la categoría contiene algoritmos mezclados con propiedades y aplicaciones.
+
+Quiero que la jerarquía principal de Funciones hash se concentre en las diferentes familias de algoritmos:
+
+```text
+Criptografía
+└── Criptografía moderna
+    └── Funciones hash
+        ├── MD5
+        ├── SHA-1
+        ├── Familia SHA-2
+        └── Familia SHA-3
+```
+
+Las siguientes páginas actuales no deberían permanecer como subcategorías de Funciones hash:
+
+- Colisiones y preimágenes.
+- Hashes y comprobación de contraseñas.
+- Comprobación por diccionario.
+- Sal en el cálculo de contraseñas.
+
+Estos contenidos deben integrarse, sin pérdida de información, como secciones conceptuales dentro de la página general de Funciones hash, cuando corresponda.
+
+La página Funciones hash debería contener:
+
+1. Definición de función hash.
+2. Funcionamiento general.
+3. Propiedades de las funciones hash.
+4. Determinismo e irreversibilidad.
+5. Efecto avalancha.
+6. Colisiones y resistencia a preimágenes.
+7. Aplicaciones de las funciones hash.
+8. Hashes en la protección de contraseñas.
+9. Uso de sal (salt) y ataques por diccionario.
+10. Familias de algoritmos, con enlaces a sus páginas.
+11. Preguntas de repaso.
+12. Fuentes académicas.
+
+No confundas hashing de contraseñas con cifrado ni presentes un hash rápido sin sal como mecanismo suficiente para proteger contraseñas.
+
+### Variantes SHA
+
+Evaluá si corresponde crear páginas individuales para:
+
+- SHA-224, SHA-256, SHA-384 y SHA-512.
+- SHA3-224, SHA3-256, SHA3-384 y SHA3-512.
+
+Solo crealas si existe contenido académico suficiente para justificar páginas independientes.
+
+No inventes explicaciones para completar artificialmente la jerarquía.
+
+### Preservación del contenido
+
+Antes de fusionar o retirar páginas redundantes:
+
+- Identificá toda la información que contienen.
+- Integrá su contenido relevante en la página correspondiente.
+- Conservá preguntas, ejemplos y referencias bibliográficas.
+- Actualizá sus enlaces entrantes.
+- Evitá romper las URLs anteriores mediante redirecciones o mecanismos de compatibilidad, cuando sea viable.
+
+No debe perderse información académica durante la reorganización.
+
+## 5. Revisión de Operación XOR
+
+Actualmente, Operación XOR aparece directamente bajo Criptografía.
+
+Quiero que evalúes su ubicación.
+
+XOR es una operación lógica utilizada en múltiples mecanismos criptográficos, pero no constituye por sí misma un algoritmo de cifrado.
+
+Considerá si existen suficientes conceptos matemáticos relacionados como para justificar una categoría de Fundamentos matemáticos de criptografía.
+
+**No crees una categoría artificial que solamente contenga XOR.**
+
+Si no existe una ubicación más adecuada dentro de la jerarquía actual, mantené XOR como página independiente bajo Criptografía y agregá enlaces desde las páginas que utilizan esta operación, especialmente cifrado de flujo y modos de operación por bloques.
+
+Informame qué decisión tomaste y por qué.
+
+## 6. Página introductoria de Cifrado
+
+Mantener la página Cifrado como una nota conceptual general.
+
+Debe contener:
+
+- Definición de cifrado.
+- Objetivo de confidencialidad.
+- Diferencia entre texto plano y texto cifrado.
+- Concepto de algoritmo y clave criptográfica.
+- Explicación general de cifrado y descifrado.
+- Introducción a las principales clasificaciones.
+- Enlaces a las categorías y técnicas relacionadas.
+- Ejemplos sencillos.
+- Preguntas de repaso.
+
+No es necesario que Cifrado sea el padre jerárquico de Criptografía clásica y Criptografía moderna.
+
+Sin embargo, la página debe proporcionar enlaces para navegar hacia los métodos de cifrado estudiados en ambas áreas.
+
+No presentar funciones hash, firmas digitales ni intercambio de claves como si fueran métodos de cifrado.
+
+## 7. Restricciones de implementación
+
+Este trabajo consiste en una reorganización de contenido y navegación.
+
+Por lo tanto:
+
+- No reconstruir la aplicación.
+- No modificar la arquitectura general.
+- No agregar dependencias innecesarias.
+- No cambiar el diseño visual existente.
+- No modificar cuestionarios ni documentos del sitio original.
+- No modificar las secciones de Fundamentos de ciberseguridad, CSIRT, Malware o Prácticas, excepto los enlaces indispensables para mantener la navegación.
+- No eliminar contenido académico.
+- No generar duplicaciones innecesarias.
+- No modificar páginas que ya están correctamente organizadas.
+
+Trabajá en la rama de desarrollo actual.
+
+No realices push ni abras Pull Requests.
+
+## 8. Actualización de navegación y generación
+
+Después de reorganizar las categorías:
+
+1. Actualizá el manifiesto o catálogo de páginas.
+2. Corregí las relaciones padre-hijo.
+3. Regenerá los HTML utilizando el generador existente.
+4. Actualizá breadcrumbs.
+5. Actualizá la barra lateral de navegación.
+6. Actualizá el índice de búsqueda.
+7. Revisá los enlaces cruzados.
+8. Preservá las URLs existentes siempre que sea razonablemente posible.
+9. Comprobá que las rutas funcionen bajo `/repaso-ciber/` en GitHub Pages.
+
+## 9. Validación
+
+Antes de finalizar:
+
+- Ejecutá las pruebas disponibles.
+- Verificá que todas las páginas sean accesibles.
+- Comprobá que no existan páginas huérfanas.
+- Comprobá que no existan enlaces rotos.
+- Confirmá que no se haya perdido contenido durante la fusión de páginas.
+- Verificá que las tres categorías principales sean independientes.
+- Comprobá que no se hayan modificado funcionalidades de otras secciones.
+- Revisá que los archivos HTML generados estén actualizados.
+
+## 10. Resultado esperado
+
+Cuando termines, proporcioname:
+
+1. **Árbol jerárquico completo y actualizado** de Codificación, Criptografía y Esteganografía.
+2. Lista de páginas reubicadas.
+3. Lista de páginas fusionadas o reorganizadas, indicando dónde quedó su contenido.
+4. Nuevas páginas creadas, si las hubiera.
+5. Archivos modificados.
+6. Pruebas ejecutadas y sus resultados.
+7. Posibles problemas pendientes de clasificación.
+
+No avances con la reorganización de CSIRT, Malware, Fundamentos ni Prácticas.
+
+Quiero revisar personalmente esta etapa antes de continuar.
+
+**Objetivo final: una jerarquía académicamente coherente, granular hasta el nivel de técnicas y algoritmos, sin fragmentar innecesariamente propiedades y características.**
+
+Additional user instruction (verbatim):
+
+Coinsidera tambien que los proximos commits estén en español para que sean similares a los ya existentes
+
 ## Tasks
 - T1 | S1,S2,S10 | delegated read-only source map (mapping trigger: full corpus exceeds evidence budget), parent records taxonomy | complete (source map and parent spot-check) | commit: pending
 - T2 | S1,S3,S4,S6,S10 | inline generator and pilot with focused RED/GREEN | self-checks passed; final verification pending | commit: pending | Risk: item 5 (new isolated build dependency and CI)
@@ -524,7 +794,9 @@ Finalmente, informame qué páginas fueron reubicadas, qué archivos se modifica
 - T6 | S3,S4,S7,S10 | inline integration and full generated output; delegated long suites and independent verifier for item 5 | functional checks passed; dependency/DOM proof pending | commit: pending
 - T7 | S5,S8,S9,S10 | inline contribution documentation and local review instructions | documentation complete; final delivery pending | commit: pending
 
-- T8 | S11 | inline hierarchy/permalink change; delegated read-only map (74 notes exceeds evidence budget), independent verification for shared generator item 3 | implemented and independently verified; native review pending | commit: pending | Risk: item 3 (shared route generation consumed by every Wiki page)
+- T8 | S11 | inline hierarchy/permalink change; delegated read-only map (74 notes exceeds evidence budget), independent verification for shared generator item 3 | implemented and independently verified; native review pending | commit: 38fd3c0 (user amended Spanish message) | Risk: item 3 (shared route generation consumed by every Wiki page)
+
+- T9 | S12 | inline content/navigation and compatibility redirects; delegated source map (PDF evidence exceeds bounded batch); independent verifier for item 3 shared link/output generation | implemented and independently verified; native review pending | commit: pending | Risk: item 3 (shared generator ID resolution and redirect output)
 
 ## Log
 L1 (2026-10-22): User authorized implementation of the previously proposed architecture, expressly chose feat/wiki-academica and one PR, protected the untracked PDF sources, and prohibited push/PR publication. The attached original request above is retained verbatim.
@@ -545,3 +817,9 @@ L10 (2026-10-22): User committed prior work as 816815e on feat/wiki-academica; w
 L11: T8 implementation: two category pages added; 54 existing metadata blocks gain fixed permalinks while parent/order changes implement the requested tree. Existing academic bodies/IDs/slugs are preserved. Optional permalink regression observed RED (old URL removed after reparent, invalid values accepted), then GREEN4/4 after minimal generator route override and strict path validation. Before content edits, default generator output remained byte-current (195pages), proving unchanged absent-option behavior. Full build/check passes197pages/42,398links; content audit197notes/167answers; updated browser passes root/prefix, retained RC5/CBC URLs, category children, parent-driven sidebar/breadcrumbs, search and responsive/noJS reading. No dependencies/styles/architecture/publishing changes. Independent item3 verification pending; compare all original bodies/routes against816815e.
 
 L12: Independent S11 verification PASS at baseline816815e: 60 target parent relationships, all195 IDs/slugs/bodies/searchrecords/URLs retained,121 noncrypto Markdown files byte-identical,197 unique pages,2 newcategories,14 invalid permalink cases rejected before writes with unchanged output hashes. Root/prefix browser and4/4 generator tests pass. Parent differential spot-check of build/--root/--check/--help/unknown option matches baseline stdout/stderr/exitcodes; initial scratch baseline lacked Marked, then reused existing local parser and reran successfully without installation/network. Source/body preservation compare passed; formatting-only empty-child indentation fixed, diff --check clean. Native assessment is high due shared routing item3; no START/consent/review yet. Scope is one coherent hierarchy change, retains single-pr strategy; generated output accounts for most diff lines. Registry/DOM limitations from prior feature are unchanged and outside this scope.
+
+L13 (2026-10-22): User starts next authorized stage, only Codificación/Criptografía/Esteganografía, and explicitly authorizes lossless consolidation of four hash notes. HEAD38fd3c0 is the user-amended Spanish-message version of acc7c38 with identical tree, workingtree clean. Do not rewrite it. Future Conventional Commit messages must be Spanish. Prior native consent was never answered; do not infer granted/declined or invoke its old command. New scope will have its own candidate after verification. No registry, push or PR authorization. Preserve all existing URLs: current permalink mechanism for root promotions, minimal static redirectTo compatibility notes for four merged hash IDs/paths, hidden from hierarchy and search while old ID references resolve to canonical sections. Preserve all existing steganography bodies; do not manufacture variant pages or a one-child XOR category. Single-pr strategy remains.
+
+L14: Source map verified grouped-only depth for numeric bases/UTF and SHA variants; no artificial new variant pages. A1Z26 content already technically correct; steganography bodies unchanged. Inline compatibility feature RED: old IDs stayed duplicate tree/search entries and invalid targets accepted. GREEN7/7 after strict redirectTo validation, canonical ID-to-anchor resolution, static refresh+fallback template, and lossless21-block/source fixture. Before content edits, no-redirect build--check remained197pages byte-current. Promoted17 encoding/stego notes with old permalinks; merged4notes into crypto-hash, retained four source IDs/files as compatibility stubs; extended Cifrado concept and crypto overview context. Audit193canonicalnotes/170answers/4compatibilitynotes; generation40,770links; browserPASSroot/prefix,7topcategories,hashfamiliesonly,4oldURLredirects,canonicalsearch,mobile/noJSredirect. PreservationPASSall197oldURLs,allIDs/slugs,193canonicalURLs,alloutsideareasourcebytes; only7authorizedbodieschanged. No XOR body/category changes; existingstream/mode relatedlinks suffice. No dependencies/styles/originalsite/PDF changes. Independent item3 verifier pending; no native consent inferred from new request.
+
+L15: Independent S12 verification PASS against38fd3c0: all21originalblocks/citations matched actual baseline (not only fixture),17promotedbodies/URLsunchanged,197IDs/slugs/URLoutputs retained (193canonical+4redirects),121outside-sourcefilesunchanged and120other-area mainHTMLchangedonlynecessarylinkdestinations. Fourredirects and8fallbacklinks work atbothprefixes withoutJS/withrefreshsuppressed. SHA256/Caesar examples independently verified. Tests7/7,193notes/170answers/4compat,40,770links,currentbrowserinclhash390px,PASSoriginalnpm25/25inLFscratch,12invalidredirect/permalinkprobesrejectbeforewriteswithunchangedhashes,baseline/candidateCLIdifferentialidentical. No blockers. Priorregistry/DOMlimitationsunchanged; noinstalls/network.PULL_REQUESTdraftupdatedcountsandscope. Parentfreshnessspotcheckpassedbeforecommit. CommitmessagesSpanishperuser; singlecoherentcontent/navigationunit(single-prstrategy)includescompatibilitycodewithitslosslessmerger/tests;generatedoutputisversioned. No push/PR.

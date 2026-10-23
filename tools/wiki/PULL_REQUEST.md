@@ -9,7 +9,8 @@ The application offers practice questions and a glossary, but no hierarchy of in
 - An isolated Node authoring tool under `tools/wiki/`, with its own pinned Markdown dependency and lockfile.
 - Versioned `wiki/` output, deterministic freshness checks and a validation-only GitHub Actions workflow.
 - Exactly one existing navigation line changed in each of `index.html` and `glosario.html`. Original academic data, scripts, CSS and PDFs are preserved.
-- Local lecture PDFs are working sources only and are excluded from the contribution. Existing public PDF links remain available.
+- This reorganization changes no PDFs. Existing public PDF links remain available; official material is cited by title and physical page.
+- Encoding and steganography are independent root categories. Hash properties and password applications are consolidated in the hash overview; four former note URLs remain static compatibility redirects.
 
 ## Review order
 
@@ -32,7 +33,7 @@ For the project prefix, run `python -m http.server 8081 --bind 127.0.0.1 --direc
 
 ## Validation
 
-Observed local validation covers 195 pages, 167 review answers and 41,578 local links. Generator tests pass (3/3), and additional isolated rejection/freshness probes pass (14/14). Wiki browser checks pass at the domain root and project prefix, including search, mobile layout, direct reload and reading without JavaScript.
+Observed local validation covers 193 academic pages, four compatibility redirects, 170 review answers and 40,770 local links. Generator and content-preservation tests pass (7/7), including all 21 original academic blocks consolidated into the hash overview. Wiki browser checks pass at the domain root and project prefix, including search, mobile layout, direct reload, compatibility redirects and reading without JavaScript.
 
 Canonical LF baseline and candidate copies both pass the original content/progress tests (25/25). The original browser suite passes on both with the same screenshot-path-only Windows adaptation in temporary harnesses. The original extraction check differs only in recorded versus installed pypdf versions (6.20.1 versus 6.19.0). No original test or data was edited for these checks.
 

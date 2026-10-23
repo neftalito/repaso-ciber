@@ -1,5 +1,5 @@
 ---
-{"id":"crypto-base64","title":"Base64","slug":"base64","parent":"crypto-encoding","type":"technique","order":40,"related":["crypto-encryption","crypto-aes","crypto-gpg"],"sources":[{"id":"practice-1a","pages":[3,4,5,8]},{"id":"practice-guide","pages":[3,5]}]}
+{"id":"crypto-base64","title":"Base64","slug":"base64","parent":"crypto-encoding","type":"technique","order":40,"related":["crypto-encryption","crypto-aes","crypto-gpg"],"sources":[{"id":"practice-1a","pages":[3,4,5,8]},{"id":"practice-guide","pages":[3,5]}],"permalink":"cryptography/encoding/base64"}
 ---
 ## Definición
 
