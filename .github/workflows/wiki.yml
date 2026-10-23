@@ -1,0 +1,63 @@
+name: Validate Academic Wiki
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'content/wiki/**'
+      - 'tools/wiki/**'
+      - 'wiki/**'
+      - 'assets/styles.css'
+      - 'assets/favicon.svg'
+      - 'index.html'
+      - 'glosario.html'
+      - '.gitattributes'
+      - '.github/workflows/wiki.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'content/wiki/**'
+      - 'tools/wiki/**'
+      - 'wiki/**'
+      - 'assets/styles.css'
+      - 'assets/favicon.svg'
+      - '.gitattributes'
+      - '.github/workflows/wiki.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  wiki:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          package-manager-cache: false
+      - name: Install the isolated Markdown tool
+        run: npm --prefix tools/wiki ci --ignore-scripts --no-audit --no-fund
+      - name: Check content, generator and versioned output
+        run: |
+          node --test tools/wiki/test/build.test.mjs
+          node tools/wiki/check-content.mjs
+          node tools/wiki/build.mjs --check
+      - name: Install the existing browser test dependency
+        run: |
+          npm install --ignore-scripts --no-audit --no-fund
+          npx playwright install --with-deps chromium
+      - name: Check root and project-path navigation
+        run: node tools/wiki/test/browser.mjs
+      - name: Preserve Wiki screenshots
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: wiki-responsive
+          path: test-results/wiki/*.png
+          if-no-files-found: ignore
+          retention-days: 7

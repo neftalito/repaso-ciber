@@ -1,0 +1,34 @@
+---
+{"id":"practices-dh","title":"Caso: comprobar el secreto de Diffie-Hellman","slug":"dh","parent":"practices","type":"practice","order":70,"related":["crypto-signature","crypto-pki","fundamentals-mitm"],"sources":[{"id":"practice-1b","pages":[4]},{"id":"practice-solutions","pages":[8]},{"id":"practice-guide","pages":[6,7]}]}
+---
+## Datos del ejemplo oficial
+
+La práctica propone `p=1999`, `g=33`, con secretos de Alicia `a=47` y de Bob `b=117`. El objetivo es comprobar que ambos pueden obtener el mismo secreto sin transmitirlo directamente.
+
+## Secuencia calculada
+
+| Paso | Operación | Resultado |
+| --- | --- | --- |
+| Valor público de Alicia | 33^47 mod 1999 | 1343 |
+| Valor público de Bob | 33^117 mod 1999 | 1991 |
+| Cálculo de Alicia | 1991^47 mod 1999 | 1506 |
+| Cálculo de Bob | 1343^117 mod 1999 | 1506 |
+
+La igualdad se comprueba con aritmética modular:
+
+```python
+p, g, a, b = 1999, 33, 47, 117
+public_a, public_b = pow(g, a, p), pow(g, b, p)
+assert (public_a, public_b) == (1343, 1991)
+assert pow(public_b, a, p) == pow(public_a, b, p) == 1506
+```
+
+Ambos cálculos corresponden a `g^(a·b) mod p`. Los secretos elegidos no forman parte de los valores públicos intercambiados.
+
+## Interpretación y límites
+
+Se acordó un secreto; no se cifró un mensaje con esta tabla. El esquema básico tampoco autentica por sí solo a los participantes. Un protocolo debe resolver esa identidad para evitar sustituciones de valores por un intermediario. Los tamaños pequeños tienen finalidad didáctica.
+
+:::question ¿Por qué obtener el mismo número no demuestra que se habló con la persona esperada?
+Porque el cálculo muestra consistencia matemática del intercambio, pero no vincula los valores públicos con identidades. La autenticación necesita evidencia o mecanismos adicionales.
+:::

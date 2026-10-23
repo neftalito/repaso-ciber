@@ -1,0 +1,4 @@
+/content/wiki/** text eol=lf
+/tools/wiki/** text eol=lf
+/wiki/** text eol=lf linguist-generated=true
+/.github/workflows/wiki.yml text eol=lf

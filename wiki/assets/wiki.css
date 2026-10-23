@@ -1,0 +1,66 @@
+.wiki-page .header-inner { flex-wrap:wrap; }
+.wiki-page .wiki-shell { display:grid; grid-template-columns:270px minmax(0, 1fr); gap:42px; max-width:1380px; margin:auto; padding:30px 44px; }
+.wiki-page .wiki-sidebar { min-width:0; }
+.wiki-page .wiki-menu { position:sticky; top:20px; max-height:calc(100vh - 40px); overflow:auto; border:1px solid var(--line); background:var(--paper); border-radius:var(--radius); padding:16px; scrollbar-width:thin; }
+.wiki-page .wiki-menu > summary { cursor:pointer; font-size:16px; font-weight:650; }
+.wiki-page .wiki-menu > summary span { display:block; color:var(--muted); font-size:12px; font-weight:400; padding:5px 0 12px; }
+.wiki-page .wiki-menu nav > a { display:block; padding:8px 0; }
+.wiki-page .wiki-menu ul { list-style:none; margin:0; padding-left:13px; border-left:1px solid var(--line); }
+.wiki-page .wiki-menu nav > ul { padding-left:0; border:0; }
+.wiki-page .wiki-menu li { padding:4px 0; }
+.wiki-page .wiki-menu a { display:inline-block; padding:3px 5px; text-decoration:none; overflow-wrap:anywhere; line-height:1.5; }
+.wiki-page .wiki-menu a:hover { background:var(--green-soft); border-radius:4px; }
+.wiki-page .wiki-menu a[aria-current] { background:var(--green-soft); font-weight:650; border-radius:4px; }
+.wiki-page .wiki-menu summary { cursor:pointer; }
+.wiki-page .wiki-menu nav summary { list-style:none; position:relative; padding-left:16px; }
+.wiki-page .wiki-menu nav summary::-webkit-details-marker { display:none; }
+.wiki-page .wiki-menu nav summary::before { content:"▸"; position:absolute; left:0; top:4px; }
+.wiki-page .wiki-menu nav details[open] > summary::before { content:"▾"; }
+.wiki-page .wiki-reading { min-width:0; max-width:890px; }
+.wiki-page .wiki-search { padding:20px; border:1px solid var(--line); border-radius:var(--radius); background:var(--paper); margin-bottom:24px; }
+.wiki-page .wiki-search form { display:grid; grid-template-columns:minmax(0, 1fr) auto; gap:8px; }
+.wiki-page .wiki-search label { grid-column:1 / -1; font-weight:600; }
+.wiki-page .wiki-search input { min-width:0; width:100%; padding:11px 13px; background:var(--bg); border:1px solid var(--line); border-radius:8px; color:var(--ink); }
+.wiki-page .wiki-search button { border:0; background:var(--green); color:#fff; border-radius:8px; padding:10px 18px; }
+.wiki-page #wiki-search-status { margin:9px 0 0; font-size:12px; color:var(--muted); }
+.wiki-page #wiki-results { margin:16px 0 0; padding-left:22px; max-height:420px; overflow:auto; }
+.wiki-page #wiki-results li { margin-bottom:15px; }
+.wiki-page #wiki-results p { font-size:13px; margin:3px 0 0; color:var(--muted); }
+.wiki-page .wiki-breadcrumbs ol { display:flex; flex-wrap:wrap; gap:5px 9px; padding:0; margin:0 0 20px; list-style:none; font-size:13px; }
+.wiki-page .wiki-breadcrumbs li + li::before { content:"/"; padding-right:9px; color:var(--muted); }
+.wiki-page .wiki-article { background:var(--paper); border:1px solid var(--line); border-radius:var(--radius); padding:34px 38px; overflow-wrap:anywhere; }
+.wiki-page .wiki-article h1 { font-size:clamp(28px, 4vw, 40px); margin-bottom:25px; }
+.wiki-page .wiki-article h2 { font-size:23px; margin-top:32px; }
+.wiki-page .wiki-article h3 { font-size:18px; margin-top:25px; }
+.wiki-page .wiki-article p, .wiki-page .wiki-article li { line-height:1.85; }
+.wiki-page .wiki-article pre { background:#f1f4ed; padding:16px; border-radius:8px; overflow:auto; }
+.wiki-page .wiki-article code { font-family:Consolas, monospace; font-size:.9em; }
+.wiki-page .wiki-article :not(pre) > code { background:var(--bg); padding:2px 4px; border-radius:3px; }
+.wiki-page .wiki-article table { width:100%; display:block; overflow:auto; border-collapse:collapse; font-size:14px; }
+.wiki-page .wiki-article th, .wiki-page .wiki-article td { padding:10px; border:1px solid var(--line); text-align:left; min-width:130px; overflow-wrap:normal; }
+.wiki-page .wiki-article th { background:var(--green-soft); }
+.wiki-page .wiki-article blockquote { margin:20px 0; border-left:4px solid var(--green); padding:12px 18px; background:var(--bg); }
+.wiki-page .wiki-article blockquote p:last-child { margin-bottom:0; }
+.wiki-page .wiki-review { border:1px solid var(--line); background:var(--bg); border-radius:9px; padding:14px 17px; margin:13px 0; }
+.wiki-page .wiki-review summary { cursor:pointer; font-weight:600; }
+.wiki-page .wiki-review p { margin:14px 0 0; }
+.wiki-page .wiki-section { margin-top:32px; padding-top:8px; border-top:1px solid var(--line); }
+.wiki-page .wiki-cards { display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap:10px; padding:0; list-style:none; }
+.wiki-page .wiki-cards a { display:block; padding:13px 16px; border:1px solid var(--line); border-radius:8px; text-decoration:none; background:var(--bg); }
+.wiki-page .wiki-cards a:hover { background:var(--green-soft); }
+.wiki-page .wiki-sources { padding-left:20px; font-size:13px; }
+.wiki-page .wiki-sources span { color:var(--muted); }
+.wiki-page .wiki-footer { padding:23px 5px; color:var(--muted); font-size:12px; }
+@media (max-width:1000px) {
+  .wiki-page .wiki-shell { grid-template-columns:225px minmax(0, 1fr); gap:24px; padding:24px; }
+  .wiki-page .wiki-article { padding:26px; }
+}
+@media (max-width:760px) {
+  .wiki-page .wiki-shell { display:block; padding:18px 14px; }
+  .wiki-page .wiki-menu { position:static; max-height:60vh; margin-bottom:20px; }
+  .wiki-page .wiki-article { padding:23px 19px; }
+  .wiki-page .header-inner { padding:18px; gap:16px; }
+  .wiki-page .site-header nav { gap:18px; flex-wrap:wrap; }
+  .wiki-page .course-tag { display:none; }
+  .wiki-page .wiki-search { padding:16px; }
+}
