@@ -53,5 +53,3 @@ query.addEventListener('input', () => {
   timer = setTimeout(search, 150);
 });
 query.form.addEventListener('submit', event => { event.preventDefault(); clearTimeout(timer); search(); });
-const menu = document.querySelector('.wiki-menu');
-if (matchMedia('(max-width: 760px)').matches) menu.open = false;

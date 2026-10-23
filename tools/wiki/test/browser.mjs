@@ -236,14 +236,22 @@ try {
   await page.goto(`${origin}/repaso-ciber/wiki/${deepest.url}`);
   await page.reload();
   assert.equal(await page.locator('h1').innerText(), deepest.title);
+  await page.goto(`${origin}/repaso-ciber/wiki/fundamentals/cybersecurity/`);
+  const siblingOffsets = await page.locator('.wiki-menu nav').evaluate(nav =>
+    ['Seguridad de la información', 'Ciberseguridad', 'Amenaza'].map(title =>
+      [...nav.querySelectorAll('a')].find(link => link.textContent.trim() === title)?.getBoundingClientRect().left
+    )
+  );
+  assert.ok(siblingOffsets.every(Number.isFinite), `Missing sibling links: ${siblingOffsets}`);
+  assert.ok(Math.max(...siblingOffsets) - Math.min(...siblingOffsets) <= 1, `Sibling links are not aligned: ${siblingOffsets}`);
+  await page.goto(`${origin}/repaso-ciber/wiki/${deepest.url}`);
   await mkdir(path.join(root, 'test-results/wiki'), { recursive: true });
   await page.screenshot({ path: path.join(root, 'test-results/wiki/desktop.png'), fullPage: true });
   await page.setViewportSize({ width: 390, height: 844 });
   await page.reload();
   assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
-  assert.equal(await page.locator('.wiki-menu').getAttribute('open'), null);
-  await page.locator('.wiki-menu > summary').click();
-  assert.notEqual(await page.locator('.wiki-menu').getAttribute('open'), null);
+  assert.equal(await page.locator('.wiki-menu > summary').count(), 0);
+  assert.equal(await page.locator('.wiki-menu nav').isVisible(), true);
   await page.screenshot({ path: path.join(root, 'test-results/wiki/mobile.png'), fullPage: true });
   const offlinePage = await browser.newPage({ javaScriptEnabled: false });
   await offlinePage.goto(`${origin}/repaso-ciber/wiki/fundamentals/cia/`);

@@ -8,8 +8,8 @@
   <title>{{title}} · Wiki Académica · IC 2026</title>
   <link rel="icon" href="{{siteRoot}}assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="{{siteRoot}}assets/styles.css?v=20261021-9">
-  <link rel="stylesheet" href="{{wikiRoot}}assets/wiki.css">
-  <script type="module" src="{{wikiRoot}}assets/wiki.mjs"></script>
+  <link rel="stylesheet" href="{{wikiRoot}}assets/wiki.css?v=20261023-1">
+  <script type="module" src="{{wikiRoot}}assets/wiki.mjs?v=20261023-1"></script>
 </head>
 <body class="wiki-page">
   <a class="skip-link" href="#wiki-main">Saltar al contenido</a>
@@ -20,7 +20,7 @@
   </div></header>
   <div class="wiki-shell">
     <aside class="wiki-sidebar">
-      <details class="wiki-menu" open><summary>Explorar temas <span>{{count}} páginas</span></summary><nav aria-label="Árbol de temas">{{tree}}</nav></details>
+      <div class="wiki-menu"><h2 class="wiki-menu-title">Explorar temas <span>{{count}} páginas</span></h2><nav aria-label="Árbol de temas">{{tree}}</nav></div>
     </aside>
     <div class="wiki-reading">
       <section class="wiki-search" aria-label="Buscar páginas">
