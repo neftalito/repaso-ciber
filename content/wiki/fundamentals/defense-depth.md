@@ -16,3 +16,7 @@ La **defensa en profundidad** combina controles en distintas capas. Si una barre
 | Personas | Capacitación y autenticación multifactor |
 
 La diapositiva 18 distingue estas siete capas. **Hosts** se refiere a los equipos y **usuarios**, a las personas. Los controles cumplen funciones diferentes: una copia de respaldo ayuda a recuperar datos, mientras que un control de acceso restringe quién puede utilizarlos. Para evaluar la defensa hay que entender qué cubre cada capa.
+
+:::question ¿Un único control fuerte reemplaza la defensa en profundidad?
+No. La defensa en profundidad requiere capas complementarias para que una falla puntual no deje toda la protección expuesta.
+:::

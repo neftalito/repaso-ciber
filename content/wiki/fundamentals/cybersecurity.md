@@ -6,3 +6,7 @@ La **ciberseguridad** se ocupa de proteger la información, los sistemas y las c
 La cátedra presenta dos definiciones complementarias. La atribuida a **ISO/IEC 27032** se centra en preservar la **confidencialidad**, **integridad** y **disponibilidad** de la información en el ciberespacio. La atribuida a **NIST** también incluye la prevención y la recuperación, y menciona **autenticación** y **no repudio**.
 
 Autenticar permite comprobar la identidad de quien participa. El no repudio se relaciona con contar con evidencia para atribuir una acción. Estos conceptos amplían el análisis de los tres atributos de la [tríada CIA](wiki:fundamentals-cia). La [seguridad de la información](wiki:fundamentals-security) tiene un alcance más amplio porque también comprende información fuera del entorno digital.
+
+:::question ¿Seguridad de la información y ciberseguridad son exactamente lo mismo?
+No. La ciberseguridad se enfoca en el entorno digital; la seguridad de la información también cubre información en soportes no digitales.
+:::
